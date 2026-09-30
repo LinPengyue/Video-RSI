@@ -1,0 +1,361 @@
+diff --git a/packages/fs/tool-fs/src/index.ts b/packages/fs/tool-fs/src/index.ts
+index cfbec13..6e1c6ef 100644
+--- a/packages/fs/tool-fs/src/index.ts
++++ b/packages/fs/tool-fs/src/index.ts
+@@ -1,3 +1,4 @@
++export { enforceWorkspaceReadFence as wideEditorEnforceWorkspaceReadFence } from './read-target.ts'
+ /**
+  * Model-facing read, read_image, write, and edit tools over `ctx.fs`. This package owns schemas, validation,
+  * read windows, formatting, and observation events, never a concrete provider. An optional
+diff --git a/packages/fs/tool-fs/src/read-target.ts b/packages/fs/tool-fs/src/read-target.ts
+index 98f4e05..6b5a55a 100644
+--- a/packages/fs/tool-fs/src/read-target.ts
++++ b/packages/fs/tool-fs/src/read-target.ts
+@@ -7,8 +7,32 @@ import type { Context } from '@deepseek-ai/cordis'
+ import { FsError } from '@deepseek-ai/dsh-fs'
+ import type { FsInfo, FsTarget } from '@deepseek-ai/dsh-fs'
+ import type { ToolExecution } from '@deepseek-ai/dsh-tools'
++import { isAbsolute, relative, sep } from 'node:path'
+ import { sessionResolveOptions } from './session-cwd.ts'
+ 
++const WORKSPACE_READ_FENCE = 'WIDE_EDITOR_WORKSPACE_READ_FENCE_V1'
++
++function isCanonicalDescendant(target: string, root: string): boolean {
++  const child = relative(root, target)
++  return child === '' || (child !== '..' && !child.startsWith(`..${sep}`) && !isAbsolute(child))
++}
++
++export async function enforceWorkspaceReadFence(
++  ctx: Context,
++  exec: ToolExecution,
++  target: FsTarget,
++): Promise<void> {
++  if (process.env.DSH_WORKSPACE_READ_FENCE !== '1') return
++  const workspace = exec.agent?.session.header.cwd
++  if (workspace === undefined) {
++    throw new FsError(`cannot read "${target.displayPath}": ${WORKSPACE_READ_FENCE} requires a session workspace`, 'FS_SANDBOX_DENIED')
++  }
++  const root = await ctx.fs.resolve('.', { cwd: workspace, signal: exec.signal })
++  if (!isCanonicalDescendant(String(target.targetKey), String(root.targetKey))) {
++    throw new FsError(`cannot read "${target.displayPath}": file access denied outside the session workspace`, 'FS_SANDBOX_DENIED')
++  }
++}
++
+ /**
+  * Resolve a model-supplied path, observe absence, and require a regular file.
+  * @param ctx - the plugin context providing filesystem resolution and observation events.
+@@ -22,6 +46,7 @@ export async function resolveRegularReadTarget(
+   requestedPath: string,
+ ): Promise<{ target: FsTarget; info: FsInfo }> {
+   const target = await ctx.fs.resolve(requestedPath, sessionResolveOptions(exec, requestedPath))
++  await enforceWorkspaceReadFence(ctx, exec, target)
+   const info = await ctx.fs.stat(target, exec.signal)
+   if (info === undefined) {
+     ctx.emit('fs/observed', target, { kind: 'absent' }, exec)
+diff --git a/packages/fs/tool-fs/tests/integration.spec.ts b/packages/fs/tool-fs/tests/integration.spec.ts
+index 0d18539..186ce55 100644
+--- a/packages/fs/tool-fs/tests/integration.spec.ts
++++ b/packages/fs/tool-fs/tests/integration.spec.ts
+@@ -417,6 +417,24 @@ describe('per-session cwd', () => {
+     expect(edited.isError).toBe(false)
+     expect(await readFile(join(sessionDir, 'code.txt'), 'utf8')).toBe('beta')
+   })
++
++  it('Wide-Editor fence allows workspace reads and denies an absolute outside read', async () => {
++    const session = { header: { cwd: sessionDir } }
++    await writeFile(join(sessionDir, 'inside.txt'), 'inside-canary')
++    await writeFile(join(dir, 'outside.txt'), 'outside-secret-canary')
++    process.env.DSH_WORKSPACE_READ_FENCE = '1'
++    try {
++      const inside = await callIn(session, 'read', { file_path: 'inside.txt' })
++      expect(inside.isError).toBe(false)
++      expect(text(inside)).toContain('inside-canary')
++      const outside = await callIn(session, 'read', { file_path: join(dir, 'outside.txt') })
++      expect(outside.isError).toBe(true)
++      expect(outside.error).toMatchObject({ info: { code: 'FS_SANDBOX_DENIED' } })
++      expect(text(outside)).not.toContain('outside-secret-canary')
++    } finally {
++      delete process.env.DSH_WORKSPACE_READ_FENCE
++    }
++  })
+ })
+ 
+ // --------------------------------------------------------------------------
+diff --git a/packages/llm/llm-deepseek/src/adapter.ts b/packages/llm/llm-deepseek/src/adapter.ts
+index 8c30333..167e93c 100644
+--- a/packages/llm/llm-deepseek/src/adapter.ts
++++ b/packages/llm/llm-deepseek/src/adapter.ts
+@@ -659,7 +659,7 @@ export class DeepSeekAdapter extends LlmAdapter {
+         throw new LlmError('DeepSeek API returned no response body', 'EMPTY_RESPONSE')
+       }
+ 
+-      yield* translate(parseSse(response.body, onActivity))
++      yield* translate(parseSse(response.body, onActivity), body.tools)
+       return
+     }
+   }
+diff --git a/packages/llm/llm-deepseek/src/serialize.ts b/packages/llm/llm-deepseek/src/serialize.ts
+index 3b22967..7afefa3 100644
+--- a/packages/llm/llm-deepseek/src/serialize.ts
++++ b/packages/llm/llm-deepseek/src/serialize.ts
+@@ -6,7 +6,7 @@
+  * @module dsh-llm-deepseek/serialize
+  */
+ 
+-import { contentHasImage, LlmError, offloadRequestImagesWithPolicy, requestImageHandleText } from '@deepseek-ai/dsh-llm'
++import { CallId, contentHasImage, LlmError, offloadRequestImagesWithPolicy, requestImageHandleText } from '@deepseek-ai/dsh-llm'
+ import type { ContentBlock, GenerateOptions, Message } from '@deepseek-ai/dsh-llm'
+ import type { ImageAttachmentRef, RequestImageAttachment } from '@deepseek-ai/dsh-attachment'
+ import type {
+@@ -231,6 +231,48 @@ function serializeAssistant(message: Message): WireMessage {
+   }
+ }
+ 
++/**
++ * Repair provider histories where a streamed tool call omitted its id. The
++ * harness durably records that omission on both the assistant call and its
++ * following result; replaying the empty id makes OpenAI-compatible gateways
++ * reject every later request. Preserve provider ids when present and recover
++ * only missing ids, pairing results with outstanding calls in wire order.
++ */
++function normalizeToolCallIds(messages: readonly Message[]): Message[] {
++  const pending: ReturnType<typeof CallId>[] = []
++  return messages.map((message, messageIndex) => {
++    if (message.role === 'assistant') {
++      const content = message.content.map((block, blockIndex) => {
++        if (block.type !== 'tool-call') return block
++        const id = String(block.id).length > 0
++          ? block.id
++          : CallId(`call_dsh_recovered_${messageIndex}_${blockIndex}`)
++        pending.push(id)
++        return id === block.id ? block : { ...block, id }
++      })
++      return { ...message, content }
++    }
++
++    const content = message.content.map((block) => {
++      if (block.type !== 'tool-result') return block
++      if (String(block.toolCallId).length > 0) {
++        const matched = pending.findIndex(id => id === block.toolCallId)
++        if (matched >= 0) pending.splice(matched, 1)
++        return block
++      }
++      const recovered = pending.shift()
++      if (recovered === undefined) {
++        throw new LlmError(
++          'DeepSeek history contains an empty tool_call_id without a matching assistant tool call.',
++          'INVALID_REQUEST',
++        )
++      }
++      return { ...block, toolCallId: recovered }
++    })
++    return { ...message, content }
++  })
++}
++
+ /**
+  * Serialize the conversation. `tool-result` blocks become standalone
+  * `{role: 'tool'}` messages; the harness puts each tool result in its own
+@@ -241,7 +283,7 @@ function serializeAssistant(message: Message): WireMessage {
+  */
+ export function serializeMessages(messages: Message[]): WireMessage[] {
+   const wire: WireMessage[] = []
+-  for (const message of messages) {
++  for (const message of normalizeToolCallIds(messages)) {
+     assertTextOnly(message.content)
+     if (message.role === 'system') {
+       wire.push({ role: 'system', content: flattenText(message.content) })
+@@ -282,7 +324,8 @@ export async function serializeMessagesWithImages(
+   messages: readonly Message[],
+   images: ImageSerializationOptions,
+ ): Promise<WireMessage[]> {
+-  assertSupportedImageRoles(messages)
++  const normalizedMessages = normalizeToolCallIds(messages)
++  assertSupportedImageRoles(normalizedMessages)
+   const wire: WireMessage[] = []
+   let pendingToolImages: WireImageContentPart[] = []
+   const flushToolImages = (): void => {
+@@ -294,7 +337,7 @@ export async function serializeMessagesWithImages(
+     pendingToolImages = []
+   }
+ 
+-  for (const [messageIndex, message] of messages.entries()) {
++  for (const [messageIndex, message] of normalizedMessages.entries()) {
+     const nextImage = { value: 0 }
+     if (message.role === 'system') {
+       flushToolImages()
+diff --git a/packages/llm/llm-deepseek/src/translate.ts b/packages/llm/llm-deepseek/src/translate.ts
+index f1a6267..baeec31 100644
+--- a/packages/llm/llm-deepseek/src/translate.ts
++++ b/packages/llm/llm-deepseek/src/translate.ts
+@@ -11,7 +11,9 @@
+ import { CallId, EMPTY_RESPONSE_CODE, LlmError } from '@deepseek-ai/dsh-llm'
+ import type { ContentBlock, FinishReason, StreamChunk, TokenUsage } from '@deepseek-ai/dsh-llm'
+ import { DONE } from './sse.ts'
+-import type { WireChunk, WireUsage } from './types.ts'
++import type { WireChunk, WireTool, WireUsage } from './types.ts'
++
++export const WIDE_EDITOR_EMPTY_TOOL_NAME_RECOVERY_MARKER = 'WIDE_EDITOR_EMPTY_TOOL_NAME_RECOVERY_V1'
+ 
+ /** One open block under assembly. */
+ interface OpenBlock {
+@@ -75,6 +77,38 @@ function closeBlock(block: OpenBlock): ContentBlock {
+   }
+ }
+ 
++/** Recover a gateway-erased tool name only when one request schema matches exactly. */
++export function recoverEmptyToolName(argumentsText: string, tools: readonly WireTool[]): string {
++  let value: unknown
++  try {
++    value = JSON.parse(argumentsText)
++  } catch {
++    throw new LlmError('blank-name tool call has malformed arguments', 'TOOL_IDENTITY_UNVERIFIED')
++  }
++  if (value === null || typeof value !== 'object' || Array.isArray(value)) {
++    throw new LlmError('blank-name tool call arguments are not an object', 'TOOL_IDENTITY_UNVERIFIED')
++  }
++  const keys = Object.keys(value)
++  const matches = tools.filter((tool) => {
++    const schema = tool.function.parameters
++    const properties = schema.properties
++    if (properties === null || typeof properties !== 'object' || Array.isArray(properties)) return false
++    const allowed = new Set(Object.keys(properties))
++    const required = Array.isArray(schema.required)
++      ? schema.required.filter((item): item is string => typeof item === 'string')
++      : []
++    return required.every(key => Object.hasOwn(value as object, key))
++      && keys.every(key => allowed.has(key))
++  })
++  if (matches.length !== 1) {
++    throw new LlmError(
++      `blank-name tool call matched ${matches.length} request schemas`,
++      'TOOL_IDENTITY_UNVERIFIED',
++    )
++  }
++  return matches[0]!.function.name
++}
++
+ /**
+  * Consume SSE data payloads (ending with `[DONE]`) and yield StreamChunks.
+  * Malformed JSON payloads abort the stream with `MALFORMED_RESPONSE`.
+@@ -83,7 +117,10 @@ function closeBlock(block: OpenBlock): ContentBlock {
+  *   A `stop` (or absent) finish with no opened blocks is a degenerate provider completion and maps to an
+  *   `EMPTY_RESPONSE` error finish instead of a successful empty message.
+  */
+-export async function* translate(payloads: AsyncIterable<string>): AsyncGenerator<StreamChunk> {
++export async function* translate(
++  payloads: AsyncIterable<string>,
++  availableTools: readonly WireTool[] = [],
++): AsyncGenerator<StreamChunk> {
+   let nextIndex = 0
+   let textBlock: OpenBlock | undefined
+   let reasoningBlock: OpenBlock | undefined
+@@ -101,6 +138,9 @@ export async function* translate(payloads: AsyncIterable<string>): AsyncGenerato
+   for await (const payload of payloads) {
+     if (payload === DONE) {
+       for (const block of order) {
++        if (block.kind === 'tool-call' && block.name?.trim() === '' && availableTools.length > 0) {
++          block.name = recoverEmptyToolName(block.text, availableTools)
++        }
+         yield { type: 'block-end', index: block.index, block: closeBlock(block) }
+       }
+       if (pendingUsage) yield { type: 'usage', usage: pendingUsage }
+diff --git a/packages/llm/llm-deepseek/tests/serialize.spec.ts b/packages/llm/llm-deepseek/tests/serialize.spec.ts
+index 968ceab..fe93e2d 100644
+--- a/packages/llm/llm-deepseek/tests/serialize.spec.ts
++++ b/packages/llm/llm-deepseek/tests/serialize.spec.ts
+@@ -166,6 +166,45 @@ describe('serializeMessages', () => {
+     expect(wire).toEqual([{ role: 'tool', tool_call_id: 'call-1', content: 'Sunny 22C' }])
+   })
+ 
++  it('recovers a stable id when a streamed tool call and result both omit it', () => {
++    const wire = serializeMessages([
++      createMessage({
++        role: 'assistant',
++        content: [{ type: 'tool-call', id: CallId(''), name: 'Read', arguments: '{"path":"README.md"}' }],
++        source: { kind: 'plugin', plugin: 'test' },
++      }),
++      createUserMessage({
++        content: [{
++          type: 'tool-result',
++          toolCallId: CallId(''),
++          content: [{ type: 'text', text: 'contents' }],
++        }],
++        source: { kind: 'plugin', plugin: 'test' },
++      }),
++    ])
++    expect(wire).toEqual([
++      {
++        role: 'assistant',
++        content: '',
++        tool_calls: [{
++          id: 'call_dsh_recovered_0_0',
++          type: 'function',
++          function: { name: 'Read', arguments: '{"path":"README.md"}' },
++        }],
++      },
++      { role: 'tool', tool_call_id: 'call_dsh_recovered_0_0', content: 'contents' },
++    ])
++  })
++
++  it('rejects an orphan empty tool result with a clear adapter error', () => {
++    expect(() => serializeMessages([
++      createUserMessage({
++        content: [{ type: 'tool-result', toolCallId: CallId(''), content: [] }],
++        source: { kind: 'plugin', plugin: 'test' },
++      }),
++    ])).toThrow(expect.objectContaining({ code: 'INVALID_REQUEST' }))
++  })
++
+   it('sends a sentinel for empty tool-result content', () => {
+     const wire = serializeMessages([
+       createUserMessage({
+diff --git a/packages/llm/llm-deepseek/tests/translate.spec.ts b/packages/llm/llm-deepseek/tests/translate.spec.ts
+index e5a98d1..bb98810 100644
+--- a/packages/llm/llm-deepseek/tests/translate.spec.ts
++++ b/packages/llm/llm-deepseek/tests/translate.spec.ts
+@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest'
+ import { BlockAssembler, EMPTY_RESPONSE_CODE, LlmError } from '@deepseek-ai/dsh-llm'
+ import type { StreamChunk } from '@deepseek-ai/dsh-llm'
+ import { DONE } from '../src/sse.ts'
+-import { mapFinishReason, mapUsage, translate } from '../src/translate.ts'
++import { mapFinishReason, mapUsage, recoverEmptyToolName, translate } from '../src/translate.ts'
++import type { WireTool } from '../src/types.ts'
+ 
+ async function* feed(...payloads: (string | object)[]): AsyncGenerator<string> {
+   for (const payload of payloads) {
+@@ -99,6 +100,34 @@ describe('translate: reasoning', () => {
+ })
+ 
+ describe('translate: tool calls', () => {
++  const fileTools: WireTool[] = [
++    { type: 'function', function: { name: 'read', description: 'read', parameters: { type: 'object', properties: { file_path: { type: 'string' }, offset: { type: 'number' } }, required: ['file_path'] } } },
++    { type: 'function', function: { name: 'write', description: 'write', parameters: { type: 'object', properties: { file_path: { type: 'string' }, content: { type: 'string' } }, required: ['file_path', 'content'] } } },
++    { type: 'function', function: { name: 'edit', description: 'edit', parameters: { type: 'object', properties: { file_path: { type: 'string' }, old_string: { type: 'string' }, new_string: { type: 'string' } }, required: ['file_path', 'old_string', 'new_string'] } } },
++  ]
++
++  it('recovers a gateway-erased name from one exact request schema', async () => {
++    const chunks = await collect(translate(feed(
++      firstChunk,
++      { choices: [{ delta: { tool_calls: [{ index: 0, id: 'call-read', type: 'function', function: { name: '', arguments: '{"file_path":"PROBE.txt"}' } }] } }] },
++      { choices: [{ delta: {}, finish_reason: 'tool_calls' }] },
++      DONE,
++    ), fileTools))
++    expect(chunks.find(chunk => chunk.type === 'block-end')).toEqual({
++      type: 'block-end', index: 0,
++      block: { type: 'tool-call', id: 'call-read', name: 'read', arguments: '{"file_path":"PROBE.txt"}' },
++    })
++  })
++
++  it('fails closed when blank-name arguments match more than one schema', () => {
++    const ambiguous = [...fileTools, {
++      type: 'function' as const,
++      function: { name: 'read_image', description: 'image', parameters: { type: 'object', properties: { file_path: { type: 'string' } }, required: ['file_path'] } },
++    }]
++    expect(() => recoverEmptyToolName('{"file_path":"PROBE.txt"}', ambiguous))
++      .toThrow(/matched 2 request schemas/)
++  })
++
+   it('reassembles a tool call from fragmented argument deltas (live capture shape)', async () => {
+     const chunks = await collect(translate(feed(
+       firstChunk,
