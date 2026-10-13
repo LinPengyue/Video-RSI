@@ -20,7 +20,7 @@ Video-RSI improves video understanding agents by evolving their executable
 harnesses while keeping model weights frozen. The Editor investigates training
 failures by revisiting videos, then turns the evidence into reusable code changes.
 
-[![Video-RSI workflow: Solver execution, active investigation, harness revision, and cost-aware selection.](docs/assets/workflow.gif)](https://bingjunluo.github.io/Video-RSI/)
+[![Video-RSI workflow: Solver execution, active investigation, harness revision, and cost-aware selection.](docs/assets/workflow.gif?v=ab1cb4f00a)](https://bingjunluo.github.io/Video-RSI/)
 
 ### Key Features
 
