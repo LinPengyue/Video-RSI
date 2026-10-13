@@ -1,23 +1,18 @@
 <div align="center">
 
-# Video-RSI
-
-### Recursive Self-Improvement of Video Understanding Agents via Harness Evolution
+# Video-RSI: Recursive Self-Improvement of Video Understanding Agents via Harness Evolution
 
 Bingjun Luo · Jialin Guo · Siqi Li
 
 [![Project Page](https://img.shields.io/badge/Project-Page-387e66)](https://bingjunluo.github.io/Video-RSI/)
 [![Hugging Face](https://img.shields.io/badge/Hugging_Face-Paper-ffd21e)](https://huggingface.co/papers/2609.37950)
 [![arXiv](https://img.shields.io/badge/arXiv-2609.37950-b31b1b.svg)](https://arxiv.org/abs/2609.37950)
+[![Papers with Code](https://paperswithcode.co/api/v1/papers/2609.37950/leaderboard-badge.svg?eval=36016&live=1)](https://paperswithcode.co/api/v1/papers/2609.37950/leaderboard-badge-link?eval=36016)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 [Run the Final Harness](#quick-start) · [Overview](#overview) · [Evaluation](#evaluation) · [Method to Code](#method-to-code) · [Results](#results) · [Harness Evolution](#harness-evolution) · [Citation](#citation)
 
 </div>
-
-Official implementation of [Video-RSI](https://arxiv.org/abs/2609.37950), including
-the Initial harness, the final harness, and the inference and evolution framework.
-
 
 ## Overview
 
@@ -26,15 +21,6 @@ harnesses while keeping model weights frozen. The Editor investigates training
 failures by revisiting videos, then turns the evidence into reusable code changes.
 
 [![Video-RSI workflow: Solver execution, active investigation, harness revision, and cost-aware selection.](docs/assets/workflow.gif)](https://bingjunluo.github.io/Video-RSI/)
-
-[Project page and results](https://bingjunluo.github.io/Video-RSI/) · [Paper](https://arxiv.org/abs/2609.37950) · [Hugging Face](https://huggingface.co/papers/2609.37950)
-
-<details>
-<summary>Static method overview</summary>
-
-![Video-RSI framework: Solver execution, active video investigation, and cost-aware harness evolution.](assets/overview.png)
-
-</details>
 
 ### Key Features
 
