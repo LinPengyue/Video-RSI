@@ -1,0 +1,42 @@
+{
+  "baseline_commit": "5ad014499a5e009b75e3ef05ac83595b78adda09",
+  "initial_harness": {
+    "path": "evolution/run-seed42/versions/initial_harness",
+    "tree_sha256_with_trailing_newline": "0805cf0eff40fe55712124f0cc70e228e7e3205e362cca37dc79a9d977744fe3",
+    "tree_sha256_without_trailing_newline": "5fc0db9a33358a1de7bdd3fedccd9a56261c099ae6005c1b38fd2adb6b6fbea9",
+    "baseline_freeze_md_tree_sha256": "5fc0db9a33358a1de7bdd3fedccd9a56261c099ae6005c1b38fd2adb6b6fbea9",
+    "e0_report_tree_sha256": "0805cf0eff40fe55712124f0cc70e228e7e3205e362cca37dc79a9d977744fe3",
+    "file_sha256": {
+      "agent.py": "f2ae8a989d6c75e6484eea813d68ed1045a90e6698b5547ab38cddd754a6d1aa",
+      "answers.py": "e831a47ab1b844ed466f5bb34ddb870966946648c02e0e7c832686cb9fdc5dbf",
+      "candidate.json": "19986ba40d9c7cd74ae76f8d6ccf398331eeb298ef1e6c2963861df225ae9e66",
+      "main.py": "a548f2e2c32d21212f74cc91181aee39e93615b77f2d9700d171128cc53e906d",
+      "memory.py": "edf4851915e091a36f26a5691ec6788585a2febacf623ce5208688141ff5e2e5",
+      "prompt.md": "a0875686e5d7be09b28acca95be5adb66ebea9680fe791a4c64f4d7685c9b3df",
+      "skill_policy.py": "7bd98875a305ba8df467f588475e4b1dfb5729ffa11e1dfd00f0894001d2e6b7",
+      "time_utils.py": "ede606df48f6bb655a3960c594b4c9582539c41915ae1a32a033d2059028ced5",
+      "tools.py": "f4b67c3351cc1c011026c64d787f4c2f6e5f64607e6bd7f4372a3d61256d0d25"
+    },
+    "byte_identical_to_git_HEAD_solver_full_workspace": true
+  },
+  "H_S1": {
+    "path": "evolution/run-seed42/versions/H_S1",
+    "tree_sha256_with_trailing_newline": "6733c4806ba3a352e15e866451292a03144c862c53c65e1691d42a718525518f",
+    "file_sha256": {
+      "agent.py": "f2ae8a989d6c75e6484eea813d68ed1045a90e6698b5547ab38cddd754a6d1aa",
+      "answers.py": "e831a47ab1b844ed466f5bb34ddb870966946648c02e0e7c832686cb9fdc5dbf",
+      "candidate.json": "19986ba40d9c7cd74ae76f8d6ccf398331eeb298ef1e6c2963861df225ae9e66",
+      "main.py": "a548f2e2c32d21212f74cc91181aee39e93615b77f2d9700d171128cc53e906d",
+      "memory.py": "edf4851915e091a36f26a5691ec6788585a2febacf623ce5208688141ff5e2e5",
+      "prompt.md": "1ef13b8f067f6f2fc6f7bf1784feb90102d68263a146ac6f641ccff21122c19e",
+      "skill_policy.py": "7bd98875a305ba8df467f588475e4b1dfb5729ffa11e1dfd00f0894001d2e6b7",
+      "time_utils.py": "ede606df48f6bb655a3960c594b4c9582539c41915ae1a32a033d2059028ced5",
+      "tools.py": "c147bed9165617a7185d4c0256dd4c1e73bb9107bf1394c4a246d0cb5076e919"
+    },
+    "changed_files": [
+      "prompt.md",
+      "tools.py"
+    ]
+  },
+  "hash_discrepancy_explanation": "BASELINE_FREEZE.md used SHA256(sorted \"name hash\" lines) without a trailing newline (=5fc0db9a\u2026). E0 reports used the same lines plus a trailing newline (=0805cf0e\u2026). File-level SHA256 values are identical; neither hash indicates harness drift."
+}

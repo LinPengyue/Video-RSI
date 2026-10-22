@@ -1,0 +1,11 @@
+{
+  "items_jsonl": "research_audit/mlvu_test_prep/mlvu_test_mc_items.jsonl",
+  "n_mc": 502,
+  "videos_missing_count": 502,
+  "expected_video_root": "/home/descfly/lpy/dataset/MLVU_Test/MLVU_Test/videos",
+  "source_annotation_sha256": "fc042268e17fae2313698cb7dd180a3c191949a9a6e1a3a6478861b6e6c93b01",
+  "items_jsonl_sha256": "a5d49aadb8d757ab0540e2c4ec9fc5c784ad5acca2d5c0cef43c1b4d6695f3ad",
+  "load_items_public_ok": true,
+  "six_option_mapping_ok": true,
+  "generation_tasks_excluded": true
+}

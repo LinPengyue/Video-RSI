@@ -1,0 +1,47 @@
+{
+  "split_identity": "MLVU-Test (README + HF MLVU_Test; 6-option MC; GT folder empty matches undisclosed GT)",
+  "mc_n": 502,
+  "gen_n": 86,
+  "mc_option_counts": {
+    "6": 502
+  },
+  "mc_task_types": {
+    "anomaly_reco": 39,
+    "sportsQA": 36,
+    "order": 70,
+    "needleQA": 60,
+    "plotQA": 50,
+    "topic_reasoning": 91,
+    "ego": 53,
+    "tutorialQA": 43,
+    "count": 60
+  },
+  "gen_task_types": {
+    "summary": 40,
+    "subsummary": 46
+  },
+  "unique_videos_mc": 349,
+  "unique_videos_all_annotated": 396,
+  "annotation_sha256": {
+    "test_multi_choice_tasks.json": "fc042268e17fae2313698cb7dd180a3c191949a9a6e1a3a6478861b6e6c93b01",
+    "test_generation_tasks.json": "02e79cfa33f40e5419d8164543891859ccc481e24c0f8bd30803326674f32824",
+    "MLVU_Test/test_question.json": "fc042268e17fae2313698cb7dd180a3c191949a9a6e1a3a6478861b6e6c93b01"
+  },
+  "test_question_equals_multi_choice": true,
+  "exact_video_id_overlap_lvbench_meta": [],
+  "exact_overlap_train": [],
+  "exact_overlap_gate": [],
+  "normalized_name_overlaps": [],
+  "videos_present_mp4": 0,
+  "video_archive_partial": true,
+  "partial_archives": [
+    {
+      "name": ".test_video.tar.gz.vtOWhI",
+      "size": 3215982592,
+      "mtime": 1792666792.0153015
+    }
+  ],
+  "mp4_count": 0,
+  "rsync_observed": true,
+  "gt_dir_empty": true
+}
