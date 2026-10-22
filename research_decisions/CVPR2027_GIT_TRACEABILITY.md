@@ -2,11 +2,16 @@
 
 Recorded: 2026-10-22. This note pins the baseline commit used for later code review. It does not edit the harness, reset experiments, or start a run.
 
+## Remotes
+
+- Research remote (`origin`): `https://github.com/LinPengyue/Video-RSI.git`
+- Upstream (`upstream`): `https://github.com/bingjunluo/Video-RSI.git`
+
+Research commits are pushed only to `origin`, on `research/cvpr2027-audit`. They are not pushed to the upstream repository and are not merged into `main`.
+
 ## Baseline commit
 
-- Repository: `https://github.com/bingjunluo/Video-RSI.git`
-- Branch at the time of the check: `main`, matching `origin/main`
-- Commit: `5ad014499a5e009b75e3ef05ac83595b78adda09`
+- Upstream and fork `main` on 2026-10-22: `5ad014499a5e009b75e3ef05ac83595b78adda09`
 - Subject: Add files via upload
 - Date: 2026-10-14 03:03:16 +0800
 
