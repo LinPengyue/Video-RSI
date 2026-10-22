@@ -1,0 +1,31 @@
+{
+  "seed": 20261022,
+  "n": 10,
+  "source_items": "research_audit/mlvu_test_prep/mlvu_test_mc_items.jsonl",
+  "source_items_sha256": "a5d49aadb8d757ab0540e2c4ec9fc5c784ad5acca2d5c0cef43c1b4d6695f3ad",
+  "method": "stratified_by_task_type_min1_when_n_ge_ntypes_largest_remainder",
+  "allocation_by_task_type": {
+    "anomaly_reco": 1,
+    "count": 1,
+    "ego": 1,
+    "needleQA": 1,
+    "order": 1,
+    "plotQA": 1,
+    "sportsQA": 1,
+    "topic_reasoning": 2,
+    "tutorialQA": 1
+  },
+  "sample_ids": [
+    "AC_29",
+    "AO_5",
+    "AR_18",
+    "ER_52",
+    "NQA_42",
+    "PQA_20",
+    "SQA_21",
+    "TQA_16",
+    "TR_7",
+    "TR_72"
+  ],
+  "note": "Engineering smoke / primary prep IDs. Do not retune harnesses using MLVU answers."
+}
