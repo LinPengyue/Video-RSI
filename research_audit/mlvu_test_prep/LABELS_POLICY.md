@@ -1,12 +1,28 @@
 # Labels policy for MLVU-Test
 
-Ground truth for MLVU-Test is **not present** in the uploaded tree (`test-ground-truth/` is empty), matching the official statement that Test GT remains undisclosed.
+## Official vs local status (corrected 2026-10-22)
 
-Rules:
-1. Never write answers into `mlvu_test_mc_items.jsonl`.
-2. `run_batch.py` must receive only the public items JSONL.
-3. `score.py` may read a separate labels JSONL (`sample_id`,`answer`) only at scoring time.
-4. Do not place labels under harness memory, prompts, or batch item fields.
-5. Until an authorized labels file exists, offline Accuracy is **blocked**; online leaderboard remains an alternative.
+- **Official:** MLVU announced that Test Ground Truth is public (researcher note: 2025-03-18). Canonical file:  
+  `https://huggingface.co/datasets/MLVU/MLVU_Test/blob/main/test-ground-truth/test_mcq_gt.json`
+- **Local (this server, 2026-10-22 evening):** `test-ground-truth/` is still empty. Fetch attempts from this host failed:
+  - `huggingface.co` — connection timeout / **401 Unauthorized** without HF token
+  - `hf-mirror.com` — **403**
+  - No `HF_TOKEN` / cached HF login on this machine
 
-This repository commit does **not** include any MLVU-Test answers.
+Earlier prep text that said “Test GT remains undisclosed” referred to the **bundled README wording** and empty local folder. That must be read as **local absence**, not as “still secret upstream.”
+
+## Rules
+
+1. Never write answers into `mlvu_test_mc_items.jsonl` (Solver/Editor input).
+2. `run_batch.py` receives only the public items JSONL.
+3. After authorized download, place `test_mcq_gt.json` under the local dataset tree (outside git), then run:
+
+```bash
+python research_audit/mlvu_test_prep/validate_and_build_labels.py
+```
+
+This writes **gitignored** `labels.local.jsonl` for `score.py --labels`.
+
+4. Do not commit `test_mcq_gt.json`, `labels.local.jsonl`, videos, or HF tokens.
+5. Do not place labels in harness memory, prompts, or batch item fields.
+6. Missing question_ids or unmappable answers → **fail closed** (script exits non-zero; no guessed labels).

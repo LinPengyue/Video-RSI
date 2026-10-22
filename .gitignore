@@ -44,3 +44,8 @@ evolution/
 *.pt
 *.pth
 *.safetensors
+# Local MLVU-Test scoring labels / official GT copies (never push answers)
+research_audit/mlvu_test_prep/labels.local.jsonl
+research_audit/mlvu_test_prep/labels.local.*
+**/test_mcq_gt.json
+**/test-ground-truth/

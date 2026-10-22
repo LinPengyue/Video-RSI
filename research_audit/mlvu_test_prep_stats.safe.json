@@ -37,11 +37,32 @@
   "partial_archives": [
     {
       "name": ".test_video.tar.gz.vtOWhI",
-      "size": 3215982592,
-      "mtime": 1792666792.0153015
+      "size": 34239152128,
+      "mtime": 1792670399.4429936
     }
   ],
   "mp4_count": 0,
   "rsync_observed": true,
-  "gt_dir_empty": true
+  "gt_dir_empty": true,
+  "gt_official_published": true,
+  "gt_official_url": "https://huggingface.co/datasets/MLVU/MLVU_Test/blob/main/test-ground-truth/test_mcq_gt.json",
+  "gt_local_present": false,
+  "gt_fetch_attempts": [
+    {
+      "url": "huggingface.co resolve",
+      "result": "timeout or 401 unauthorized"
+    },
+    {
+      "url": "hf-mirror.com resolve",
+      "result": "403"
+    },
+    {
+      "url": "WebFetch raw",
+      "result": "401 Unauthorized"
+    }
+  ],
+  "gt_match_rate": null,
+  "correction_note": "Earlier \"GT undisclosed\" referred to empty local dir + old README; official Test GT is published; local file not yet obtained.",
+  "content_overlap_with_lvbench": "UNKNOWN (filename overlap=0 only)",
+  "updated_at": "2026-10-22T19:59:59+0800"
 }

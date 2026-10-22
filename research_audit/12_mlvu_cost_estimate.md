@@ -1,7 +1,7 @@
 # 12 — MLVU-Test API cost estimate (from LVBench Gate actuals)
 
-Date: 2026-10-22  
-**Estimates only.** No MLVU calls were made.
+Date: 2026-10-22 (unchanged rates; GT status corrected elsewhere)  
+**Estimates only.** No MLVU calls were made. Cost figures do not depend on GT availability.
 
 Source actuals: `evolution/run-seed42/rounds/round_00{1,2,3}/gate_aggregate.json` (72 Gate questions each).
 

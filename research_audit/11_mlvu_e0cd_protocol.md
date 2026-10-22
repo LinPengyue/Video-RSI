@@ -53,12 +53,16 @@ Secondary: frames delta; per-type breakdown (exploratory).
 
 ## Scoring / GT
 
-Official Test GT is undisclosed in-tree. Options:
+**Official** Test MCQ GT is published on Hugging Face (`test-ground-truth/test_mcq_gt.json`, announced 2025-03-18 per researcher).  
+**Locally** the file is not yet on disk (HF fetch blocked: no token / network 401–timeout). See `LABELS_POLICY.md`.
 
-1. **Offline:** researcher-supplied labels JSONL (`sample_id`, `answer` ∈ A–F) used **only** in `score.py`.  
-2. **Online:** submit predictions to MLVU evaluation service when available — still keep items answer-free locally.
+When obtained under authorized HF access:
 
-If neither is available after inference, store predictions but mark Accuracy as **unscored**.
+1. Save outside git → run `validate_and_build_labels.py` → gitignored `labels.local.jsonl`.  
+2. Use labels **only** in `score.py`. Never in `run_batch` items or harnesses.  
+3. Require **502/502** `question_id` match and A–F mapping; fail closed on gaps.
+
+Until then, Accuracy remains **unscored** even if inference were run (which it must not be yet).
 
 ---
 
