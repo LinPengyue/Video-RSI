@@ -1,0 +1,21 @@
+{
+  "lvbench_meta_videos": 103,
+  "train_videos": 85,
+  "gate_videos": 18,
+  "train_gate_overlap": 0,
+  "train_gate_union": 103,
+  "union_equals_full_lvbench": true,
+  "remaining_heldout_videos": [],
+  "n_remaining_heldout": 0,
+  "verdict": "NO_LVBENCH_HELDOUT",
+  "exposure_sources": [
+    {
+      "source": "action_space_audit/natural68",
+      "n_videos": 51,
+      "videos_in_gate": [],
+      "n_videos_in_gate": 0,
+      "videos_in_train": 51,
+      "n_samples": 68
+    }
+  ]
+}
