@@ -4,7 +4,7 @@
 
 - **Official:** MLVU announced that Test Ground Truth is public (researcher note: 2025-03-18). Canonical file:  
   `https://huggingface.co/datasets/MLVU/MLVU_Test/blob/main/test-ground-truth/test_mcq_gt.json`
-- **Local (this server, 2026-10-23):** `test-ground-truth/` is still **empty**. No `test_mcq_gt.json` under `/home/descfly/lpy/dataset/MLVU_Test/`. Videos are present (`MLVU_Test/video/`, 396 files). Do not invent labels.
+- **Local (this server, 2026-10-23):** `test-ground-truth/test_mcq_gt.json` is present (researcher upload). Validated 502/502 → gitignored `labels.local.jsonl`. Integer `count` answers are **1-based** (1..6). Do not commit GT or labels.
 
 Earlier prep text that said “Test GT remains undisclosed” referred to the **bundled README wording** and empty local folder. That must be read as **local absence**, not as “still secret upstream.”
 

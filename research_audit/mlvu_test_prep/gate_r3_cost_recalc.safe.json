@@ -1,0 +1,98 @@
+{
+  "source": "evolution/run-seed42/rounds/round_003/private_gate/{parent,candidate}/results.json meter_events",
+  "n_gate": 72,
+  "rates": {
+    "deepseek": {
+      "request_model": "DeepSeek-V4-Pro-0813",
+      "rate_in": 9.0,
+      "rate_out": 27.0,
+      "rate_cache_in": 0.3
+    },
+    "qwen": {
+      "request_model": "Qwen3.6-Plus",
+      "rate_in": 4.0,
+      "rate_out": 24.0,
+      "rate_cache_in": 0.4
+    }
+  },
+  "parent_no_cache_cny": 28.1255,
+  "candidate_no_cache_cny": 31.736,
+  "paired_per_question_no_cache_cny": 0.83141,
+  "paired_per_question_with_logged_cache_cny": 0.507198,
+  "parent_detail_no_cache": {
+    "deepseek": {
+      "calls": 453,
+      "prompt": 1877157,
+      "completion": 16640,
+      "cached": 1207040,
+      "missing_usage": 0,
+      "non_ok": 0,
+      "estimated_cny": 17.343693
+    },
+    "qwen": {
+      "calls": 299,
+      "prompt": 1522491,
+      "completion": 195494,
+      "cached": 0,
+      "missing_usage": 10,
+      "non_ok": 10,
+      "estimated_cny": 10.78182
+    }
+  },
+  "candidate_detail_no_cache": {
+    "deepseek": {
+      "calls": 443,
+      "prompt": 2157831,
+      "completion": 21693,
+      "cached": 1476096,
+      "missing_usage": 0,
+      "non_ok": 0,
+      "estimated_cny": 20.00619
+    },
+    "qwen": {
+      "calls": 328,
+      "prompt": 1661764,
+      "completion": 211782,
+      "cached": 0,
+      "missing_usage": 13,
+      "non_ok": 13,
+      "estimated_cny": 11.729824
+    }
+  },
+  "scales_paired": {
+    "10": {
+      "paired_no_cache_cny": 8.31,
+      "paired_with_logged_cache_cny": 5.07,
+      "est_deepseek_calls": 124.4,
+      "est_qwen_calls": 87.1
+    },
+    "50": {
+      "paired_no_cache_cny": 41.57,
+      "paired_with_logged_cache_cny": 25.36,
+      "est_deepseek_calls": 622.2,
+      "est_qwen_calls": 435.4
+    },
+    "200": {
+      "paired_no_cache_cny": 166.28,
+      "paired_with_logged_cache_cny": 101.44,
+      "est_deepseek_calls": 2488.9,
+      "est_qwen_calls": 1741.7
+    },
+    "502": {
+      "paired_no_cache_cny": 417.37,
+      "paired_with_logged_cache_cny": 254.61,
+      "est_deepseek_calls": 6247.1,
+      "est_qwen_calls": 4371.6
+    }
+  },
+  "qwen_missing_usage_calls_parent": 10,
+  "qwen_missing_usage_calls_candidate": 13,
+  "multimodal_image_tokens_in_usage": "UNKNOWN \u2014 prompt_tokens present on qwen calls; cannot separate vision surcharge vs text from logs",
+  "researcher_table_check": {
+    "10": 8.31,
+    "50": 41.57,
+    "200": 166.28,
+    "502": 417.37,
+    "match_no_cache": true
+  }
+}

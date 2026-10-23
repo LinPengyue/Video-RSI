@@ -1,0 +1,19 @@
+{
+  "source_xlsx": "MaaS\u5e73\u53f0\u6a21\u578b\u5217\u8868\u53ca\u62a5\u4ef7.xlsx / sheet \u5e38\u89c4\u6a21\u578b (researcher upload; not committed)",
+  "currency": "CNY_per_1M_tokens",
+  "models": {
+    "deepseek": {
+      "request_model": "DeepSeek-V4-Pro-0813",
+      "rate_in": 9.0,
+      "rate_out": 27.0,
+      "rate_cache_in": 0.3
+    },
+    "qwen": {
+      "request_model": "Qwen3.6-Plus",
+      "rate_in": 4.0,
+      "rate_out": 24.0,
+      "rate_cache_in": 0.4
+    }
+  },
+  "note": "Cache rates applied only when meter_events include cached_tokens>0"
+}

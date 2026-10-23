@@ -1,0 +1,24 @@
+{
+  "mc_path": "/home/descfly/lpy/dataset/MLVU_Test/test_multi_choice_tasks.json",
+  "mc_sha256": "fc042268e17fae2313698cb7dd180a3c191949a9a6e1a3a6478861b6e6c93b01",
+  "gt_path": "/home/descfly/lpy/dataset/MLVU_Test/test-ground-truth/test_mcq_gt.json",
+  "gt_sha256": "569ee2a8e45329e6eef83a4c81072ce646cb99718f74be1f3603d267d3c22bdd",
+  "gt_schema": "list[object]",
+  "n_mc": 502,
+  "n_gt": 502,
+  "matched": 502,
+  "match_rate": 1.0,
+  "missing_in_gt": 0,
+  "extra_in_gt": 0,
+  "candidates_mismatch": 0,
+  "answer_value_types": {
+    "str": 442,
+    "int": 60
+  },
+  "int_index_base": "1",
+  "int_index_base_forced": false,
+  "all_answers_in_A_to_F": true,
+  "labels_out": "research_audit/mlvu_test_prep/labels.local.jsonl",
+  "labels_sha256": "d880db71213ca19ef3d6fa9d011003354b95129d14a841bdc084df1ad9c0e41e",
+  "answers_omitted_from_this_report": true
+}

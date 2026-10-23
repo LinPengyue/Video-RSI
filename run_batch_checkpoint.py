@@ -1,7 +1,10 @@
-"""Resumable batch runner with fingerprint guards and runner-level budget stops.
+"""Resumable batch runner with fingerprint guards and per-model budget stops.
 
 External experiment tool only. Does not modify Solver, Initial Harness, H_S1, or Gate.
 Reuses run_batch.load_items / public_item / copy_candidate / run_item.
+
+Estimated CNY uses per-model MaaS rates (see batch_billing.py). This is a local
+planning fuse — not a provider account hard limit.
 """
 from __future__ import annotations
 
@@ -14,6 +17,13 @@ import threading
 import time
 from pathlib import Path
 
+from batch_billing import (
+    DEFAULT_MODEL_RATES,
+    empty_usage,
+    merge_usage,
+    rates_snapshot,
+    usage_from_result,
+)
 from run_batch import load_items
 from solver_full_workspace.engine.common import public_item, read_json, validate_config, write_json
 from solver_full_workspace.engine.runner import INITIAL_FILES, INITIAL_HARNESS, copy_candidate, run_item
@@ -21,8 +31,6 @@ from solver_full_workspace.engine.services import Services
 
 PROTOCOL = "batch_checkpoint_v1"
 TERMINAL_OK = frozenset({"answered", "invalid_decision"})
-DEFAULT_RATE_IN = 2.0
-DEFAULT_RATE_OUT = 8.0
 
 
 class BatchFingerprintError(ValueError):
@@ -84,25 +92,6 @@ def items_fingerprint(rows: list) -> str:
     return sha256_bytes(blob)
 
 
-def estimate_cny(prompt_tokens: int, completion_tokens: int, rate_in: float, rate_out: float) -> float:
-    return (prompt_tokens * rate_in + completion_tokens * rate_out) / 1e6
-
-
-def usage_from_result(result: dict) -> dict:
-    usage = result.get("usage") or {}
-    prompt = int(usage.get("input_tokens") or usage.get("prompt_tokens") or 0)
-    completion = int(usage.get("output_tokens") or usage.get("completion_tokens") or 0)
-    calls = int(usage.get("deepseek_calls") or 0) + int(usage.get("qwen_calls") or 0)
-    if calls <= 0:
-        for ev in result.get("meter_events") or []:
-            if ev.get("kind") == "provider":
-                calls += 1
-                u = ev.get("usage") or {}
-                prompt += int(u.get("prompt_tokens") or u.get("input_tokens") or 0)
-                completion += int(u.get("completion_tokens") or u.get("output_tokens") or 0)
-    return {"provider_calls": calls, "prompt_tokens": prompt, "completion_tokens": completion}
-
-
 def item_path(output: Path, index: int) -> Path:
     return output / "items" / ("%06d.json" % index)
 
@@ -124,11 +113,11 @@ def load_existing_result(output: Path, index: int, sample_id: str) -> dict | Non
 
 
 class BudgetLedger:
-    """Thread-safe runner-level call / estimated-CNY guard.
+    """Thread-safe runner-level call / estimated-CNY guard (per-model rates).
 
     New work is refused once spent+reserved would exceed limits.
-    In-flight tasks that already reserved may still finish, so overshoot is
-    bounded by concurrency × reserve (not unbounded open-ended spend).
+    In-flight reserved tasks may still finish; overshoot ≤ concurrency × reserve.
+    This does NOT equal a provider-side spend hard limit.
     """
 
     def __init__(
@@ -138,15 +127,15 @@ class BudgetLedger:
         max_estimated_cny: float | None,
         reserve_calls: int,
         reserve_cny: float,
-        rate_in: float,
-        rate_out: float,
+        model_rates: dict,
+        apply_cache: bool,
     ):
         self.max_provider_calls = max_provider_calls
         self.max_estimated_cny = max_estimated_cny
         self.reserve_calls = max(1, int(reserve_calls))
         self.reserve_cny = max(0.0, float(reserve_cny))
-        self.rate_in = rate_in
-        self.rate_out = rate_out
+        self.model_rates = model_rates
+        self.apply_cache = apply_cache
         self._lock = threading.Lock()
         self.spent_calls = 0
         self.spent_cny = 0.0
@@ -154,12 +143,16 @@ class BudgetLedger:
         self.reserved_cny = 0.0
         self.stop_reason = None
         self.skipped_new_submits = 0
+        self.usage_total = empty_usage()
+        self.undercount_items = 0
 
-    def credit_prior(self, *, provider_calls: int, prompt_tokens: int, completion_tokens: int) -> None:
-        cny = estimate_cny(prompt_tokens, completion_tokens, self.rate_in, self.rate_out)
+    def credit_prior_usage(self, usage: dict) -> None:
         with self._lock:
-            self.spent_calls += max(0, int(provider_calls))
-            self.spent_cny += max(0.0, cny)
+            merge_usage(self.usage_total, usage)
+            self.spent_calls += max(0, int(usage["provider_calls"]))
+            self.spent_cny += max(0.0, float(usage["estimated_cny"]))
+            if usage.get("undercount_risk"):
+                self.undercount_items += 1
             self._trip_if_spent_exceeds()
 
     def _trip_if_spent_exceeds(self) -> None:
@@ -178,7 +171,6 @@ class BudgetLedger:
         return None
 
     def try_reserve(self) -> bool:
-        """Reserve budget for one new item before scheduling. False => do not submit."""
         with self._lock:
             if self.stop_reason:
                 self.skipped_new_submits += 1
@@ -192,20 +184,37 @@ class BudgetLedger:
             self.reserved_cny += self.reserve_cny
             return True
 
-    def settle(self, *, provider_calls: int, prompt_tokens: int, completion_tokens: int) -> None:
-        cny = estimate_cny(prompt_tokens, completion_tokens, self.rate_in, self.rate_out)
+    def settle_usage(self, usage: dict) -> None:
         with self._lock:
             self.reserved_calls = max(0, self.reserved_calls - self.reserve_calls)
             self.reserved_cny = max(0.0, self.reserved_cny - self.reserve_cny)
-            self.spent_calls += max(0, int(provider_calls))
-            self.spent_cny += max(0.0, cny)
+            merge_usage(self.usage_total, usage)
+            self.spent_calls += max(0, int(usage["provider_calls"]))
+            self.spent_cny += max(0.0, float(usage["estimated_cny"]))
+            if usage.get("undercount_risk"):
+                self.undercount_items += 1
             self._trip_if_spent_exceeds()
 
     def snapshot(self) -> dict:
         with self._lock:
+            by_role = {
+                role: {
+                    "calls": slot["calls"],
+                    "ok_calls": slot["ok_calls"],
+                    "non_ok_calls": slot["non_ok_calls"],
+                    "missing_usage_calls": slot["missing_usage_calls"],
+                    "prompt_tokens": slot["prompt_tokens"],
+                    "completion_tokens": slot["completion_tokens"],
+                    "cached_tokens": slot["cached_tokens"],
+                    "estimated_cny": round(slot["estimated_cny"], 6),
+                    "estimated_cny_no_cache": round(slot["estimated_cny_no_cache"], 6),
+                }
+                for role, slot in self.usage_total["by_role"].items()
+            }
             return {
                 "spent_calls": self.spent_calls,
                 "spent_estimated_cny": round(self.spent_cny, 6),
+                "spent_estimated_cny_no_cache": round(self.usage_total["estimated_cny_no_cache"], 6),
                 "reserved_calls": self.reserved_calls,
                 "reserved_estimated_cny": round(self.reserved_cny, 6),
                 "stop_reason": self.stop_reason,
@@ -214,8 +223,17 @@ class BudgetLedger:
                 "max_estimated_cny": self.max_estimated_cny,
                 "reserve_calls": self.reserve_calls,
                 "reserve_cny": self.reserve_cny,
-                "rate_in": self.rate_in,
-                "rate_out": self.rate_out,
+                "apply_cache_rates": self.apply_cache,
+                "model_rates": rates_snapshot(self.model_rates),
+                "by_role": by_role,
+                "missing_usage_calls": self.usage_total["missing_usage_calls"],
+                "non_ok_calls": self.usage_total["non_ok_calls"],
+                "undercount_items": self.undercount_items,
+                "undercount_risk": bool(self.usage_total.get("undercount_risk")),
+                "disclaimer": (
+                    "estimated_cny is a local planning fuse from MaaS unit rates; "
+                    "not a provider account hard limit; missing usage / retries may undercount"
+                ),
             }
 
 
@@ -261,7 +279,6 @@ def validate_resume(output: Path, config: dict, rows: list) -> dict:
                 "resume fingerprint mismatch on %s: existing=%r expected=%r"
                 % (key, existing.get(key), expected[key])
             )
-    # Drift check: frozen tree must still match recorded harness hash.
     if harness_tree_sha256(frozen) != existing["harness_tree_sha256"]:
         raise BatchFingerprintError("frozen candidate harness hash drifted from manifest")
     existing["last_resume_at"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
@@ -290,22 +307,23 @@ def run_batch_checkpoint(
     resume: bool = True,
     max_provider_calls: int | None = None,
     max_estimated_cny: float | None = None,
-    reserve_calls: int = 12,
-    reserve_cny: float = 0.15,
-    rate_in: float = DEFAULT_RATE_IN,
-    rate_out: float = DEFAULT_RATE_OUT,
+    reserve_calls: int = 16,
+    reserve_cny: float = 0.8,
+    model_rates: dict | None = None,
+    apply_cache: bool = True,
     services_factory=Services,
     runner=run_item,
 ) -> dict:
     output = Path(output)
     candidate = Path(candidate)
+    model_rates = model_rates or DEFAULT_MODEL_RATES
     budget = {
         "max_provider_calls": max_provider_calls,
         "max_estimated_cny": max_estimated_cny,
         "reserve_calls": reserve_calls,
         "reserve_cny": reserve_cny,
-        "rate_in": rate_in,
-        "rate_out": rate_out,
+        "model_rates": rates_snapshot(model_rates),
+        "apply_cache": apply_cache,
     }
 
     if output.exists():
@@ -321,8 +339,8 @@ def run_batch_checkpoint(
         max_estimated_cny=max_estimated_cny,
         reserve_calls=reserve_calls,
         reserve_cny=reserve_cny,
-        rate_in=rate_in,
-        rate_out=rate_out,
+        model_rates=model_rates,
+        apply_cache=apply_cache,
     )
 
     pending = []
@@ -331,12 +349,8 @@ def run_batch_checkpoint(
         existing = load_existing_result(output, index, row["sample_id"])
         if is_terminal_success(existing):
             reused.append(row["sample_id"])
-            stats = usage_from_result(existing)
-            ledger.credit_prior(
-                provider_calls=stats["provider_calls"],
-                prompt_tokens=stats["prompt_tokens"],
-                completion_tokens=stats["completion_tokens"],
-            )
+            usage = usage_from_result(existing, model_rates, apply_cache=apply_cache)
+            ledger.credit_prior_usage(usage)
             continue
         pending.append((index, row))
 
@@ -364,12 +378,18 @@ def run_batch_checkpoint(
                     "error_type": type(exc).__name__,
                     "error_message": str(exc)[:500],
                 }
-        stats = usage_from_result(result)
-        ledger.settle(
-            provider_calls=stats["provider_calls"],
-            prompt_tokens=stats["prompt_tokens"],
-            completion_tokens=stats["completion_tokens"],
-        )
+        usage = usage_from_result(result, model_rates, apply_cache=apply_cache)
+        # Persist billing snapshot on the item for audit (no secrets).
+        result = dict(result)
+        result["billing_estimate"] = {
+            "by_role": usage["by_role"],
+            "estimated_cny": usage["estimated_cny"],
+            "estimated_cny_no_cache": usage["estimated_cny_no_cache"],
+            "source": usage["source"],
+            "undercount_risk": usage["undercount_risk"],
+            "notes": usage.get("notes") or [],
+        }
+        ledger.settle_usage(usage)
         write_json(item_path(output, index), result)
         return result
 
@@ -414,7 +434,6 @@ def run_batch_checkpoint(
                         if not try_submit_next():
                             break
 
-    # Drain any remaining pending as skipped_budget markers only in summary (no files).
     remaining = [row["sample_id"] for _, row in pending if row["sample_id"] not in newly_run]
     skipped = remaining if ledger.stop_reason else []
 
@@ -462,10 +481,13 @@ def main():
     parser.add_argument("--no-resume", action="store_true", help="refuse if output_dir exists")
     parser.add_argument("--max-provider-calls", type=int, default=None)
     parser.add_argument("--max-estimated-cny", type=float, default=None)
-    parser.add_argument("--reserve-calls", type=int, default=12)
-    parser.add_argument("--reserve-cny", type=float, default=0.15)
-    parser.add_argument("--rate-in", type=float, default=DEFAULT_RATE_IN)
-    parser.add_argument("--rate-out", type=float, default=DEFAULT_RATE_OUT)
+    parser.add_argument("--reserve-calls", type=int, default=16)
+    parser.add_argument("--reserve-cny", type=float, default=0.8)
+    parser.add_argument(
+        "--no-cache-rates",
+        action="store_true",
+        help="ignore cached_tokens discounts (bill all prompt at rate_in)",
+    )
     parser.add_argument("--skip-media-check", action="store_true")
     args = parser.parse_args()
     if not args.allow_provider_calls:
@@ -482,8 +504,7 @@ def main():
         max_estimated_cny=args.max_estimated_cny,
         reserve_calls=args.reserve_calls,
         reserve_cny=args.reserve_cny,
-        rate_in=args.rate_in,
-        rate_out=args.rate_out,
+        apply_cache=not args.no_cache_rates,
     )
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
