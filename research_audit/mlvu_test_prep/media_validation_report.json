@@ -1,0 +1,194 @@
+{
+  "video_dir": "/home/descfly/lpy/dataset/MLVU_Test/MLVU_Test/video",
+  "n_files_on_disk": 396,
+  "n_bytes_total": 75712290020,
+  "zero_byte_files": [],
+  "tiny_under_1kb_files": [],
+  "n_mc_questions": 502,
+  "n_item_paths_valid_nonzero": 502,
+  "missing_item_paths": [],
+  "n_unique_mc_videos_annotation": 349,
+  "mc_videos_missing_on_disk": [],
+  "n_generation_videos_annotation": 86,
+  "n_annotation_union_videos": 396,
+  "annotation_videos_missing_on_disk": [],
+  "disk_files_not_in_annotation": [],
+  "ffmpeg_bin": "/home/descfly/miniconda3/envs/videorsi/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+  "probe_failures": [],
+  "duration_mismatches_gt_1_5s": [],
+  "decode_smoke": [
+    {
+      "sample_id": "AR_34",
+      "task_type": "anomaly_reco",
+      "video": "test_surveil_32.mp4",
+      "duration": 187.37,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "AR_5",
+      "task_type": "anomaly_reco",
+      "video": "test_surveil_10.mp4",
+      "duration": 4730.04,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "AC_1",
+      "task_type": "count",
+      "video": "test_count_37.mp4",
+      "duration": 284.04999999999995,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "AC_19",
+      "task_type": "count",
+      "video": "test_count_46.mp4",
+      "duration": 6620.6500000000015,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "ER_50",
+      "task_type": "ego",
+      "video": "test_ego_2.mp4",
+      "duration": 388.76666662083335,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "ER_0",
+      "task_type": "ego",
+      "video": "test_ego_9.mp4",
+      "duration": 480.0666666666667,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "NQA_40",
+      "task_type": "needleQA",
+      "video": "test_needle_46.mp4",
+      "duration": 251.14000000000001,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "NQA_8",
+      "task_type": "needleQA",
+      "video": "test_needle_53.mp4",
+      "duration": 8205.76,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "AO_11",
+      "task_type": "order",
+      "video": "test_order_1.mp4",
+      "duration": 284.03,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "AO_15",
+      "task_type": "order",
+      "video": "test_order_26.mp4",
+      "duration": 7551.700000000002,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "PQA_1",
+      "task_type": "plotQA",
+      "video": "test_cartoon_18.mp4",
+      "duration": 355.39,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "PQA_21",
+      "task_type": "plotQA",
+      "video": "test_entv_21.mp4",
+      "duration": 750.3097253436729,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "SQA_7",
+      "task_type": "sportsQA",
+      "video": "test_sports_9.mp4",
+      "duration": 303.11,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "SQA_4",
+      "task_type": "sportsQA",
+      "video": "test_sports_2.mp4",
+      "duration": 7676.82,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "TR_15",
+      "task_type": "topic_reasoning",
+      "video": "test_game_12.mp4",
+      "duration": 203.0,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "TQA_17",
+      "task_type": "tutorialQA",
+      "video": "test_tutorial_11.mp4",
+      "duration": 191.87,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "sample_id": "TQA_12",
+      "task_type": "tutorialQA",
+      "video": "test_tutorial_28.mp4",
+      "duration": 3553.39,
+      "ok": true,
+      "returncode": 0,
+      "stderr": ""
+    }
+  ],
+  "decode_smoke_pass": true,
+  "gt_search": {
+    "candidates_checked": [
+      "/home/descfly/lpy/dataset/MLVU_Test/test-ground-truth/test_mcq_gt.json",
+      "/home/descfly/lpy/dataset/MLVU_Test/MLVU_Test/test_mcq_gt.json",
+      "/home/descfly/lpy/dataset/MLVU_Test/test_mcq_gt.json"
+    ],
+    "found": null,
+    "broader_name_hits_under_dataset": [],
+    "local_gt_present": false
+  },
+  "samples": {
+    "smoke_n10_sha256": "fba0328a30a352702524b6ceb95401ee53b006e3b255b5631445c6eac319d014",
+    "primary_n200_sha256": "8d972fbf14cb54d516fe0b1d9855957e6d164980795fced06285753d5b7f2754",
+    "smoke_unique_videos": 10,
+    "primary_unique_videos": 188,
+    "smoke_primary_video_overlap": [],
+    "smoke_primary_id_overlap": []
+  },
+  "answers_omitted": true
+}

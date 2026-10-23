@@ -1,13 +1,10 @@
 # Labels policy for MLVU-Test
 
-## Official vs local status (corrected 2026-10-22)
+## Official vs local status (updated 2026-10-23)
 
 - **Official:** MLVU announced that Test Ground Truth is public (researcher note: 2025-03-18). Canonical file:  
   `https://huggingface.co/datasets/MLVU/MLVU_Test/blob/main/test-ground-truth/test_mcq_gt.json`
-- **Local (this server, 2026-10-22 evening):** `test-ground-truth/` is still empty. Fetch attempts from this host failed:
-  - `huggingface.co` — connection timeout / **401 Unauthorized** without HF token
-  - `hf-mirror.com` — **403**
-  - No `HF_TOKEN` / cached HF login on this machine
+- **Local (this server, 2026-10-23):** `test-ground-truth/` is still **empty**. No `test_mcq_gt.json` under `/home/descfly/lpy/dataset/MLVU_Test/`. Videos are present (`MLVU_Test/video/`, 396 files). Do not invent labels.
 
 Earlier prep text that said “Test GT remains undisclosed” referred to the **bundled README wording** and empty local folder. That must be read as **local absence**, not as “still secret upstream.”
 
