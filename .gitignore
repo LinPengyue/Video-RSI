@@ -48,4 +48,7 @@ evolution/
 research_audit/mlvu_test_prep/labels.local.jsonl
 research_audit/mlvu_test_prep/labels.local.*
 **/test_mcq_gt.json
+
+# Local unrestricted fix-path dumps (may contain perception text / options)
+research_audit/video_rsi_fix_paths/local_untracked/
 **/test-ground-truth/
