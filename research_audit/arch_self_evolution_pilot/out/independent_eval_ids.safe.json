@@ -1,0 +1,46 @@
+{
+  "seed": 20261029,
+  "n": 24,
+  "sample_ids": [
+    "lvbench_13",
+    "lvbench_1634",
+    "lvbench_1885",
+    "lvbench_210",
+    "lvbench_213",
+    "lvbench_22",
+    "lvbench_2265",
+    "lvbench_2273",
+    "lvbench_2455",
+    "lvbench_2466",
+    "lvbench_255",
+    "lvbench_285",
+    "lvbench_2909",
+    "lvbench_3030",
+    "lvbench_3047",
+    "lvbench_3229",
+    "lvbench_3369",
+    "lvbench_4024",
+    "lvbench_4167",
+    "lvbench_4182",
+    "lvbench_5137",
+    "lvbench_542",
+    "lvbench_730",
+    "lvbench_901"
+  ],
+  "n_unique_videos": 18,
+  "by_question_type": {
+    "entity recognition": 4,
+    "event understanding": 4,
+    "key information retrieval": 4,
+    "reasoning": 4,
+    "summarization": 4,
+    "temporal grounding": 4
+  },
+  "excluded_sets": [
+    "exploratory_n20",
+    "editor_train_subset",
+    "private_gate"
+  ],
+  "video_disjoint_from_blocked": true,
+  "note": "Frozen before Phase D eval; not for Editor develop or tuning"
+}

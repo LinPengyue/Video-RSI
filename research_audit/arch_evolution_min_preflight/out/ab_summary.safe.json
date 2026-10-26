@@ -348,37 +348,26 @@
     "A_only": 1,
     "B_only": 4,
     "strict_support": true,
+    "answerer_identity_signal": true,
     "vision_retention_signal": true,
-    "reasons": [
-      "meaningful complement/diff worth architectural follow-up"
-    ],
-    "exploratory_only": true
-  },
-  "mechanism_tags": {
-    "vision_retention_candidates": [
+    "vision_retention_ids": [
       "lvbench_2886",
       "lvbench_3523"
     ],
-    "answerer_identity_candidates": [
-      "lvbench_531",
+    "answerer_identity_ids": [
+      "lvbench_2984",
       "lvbench_38",
-      "lvbench_2984"
+      "lvbench_4799",
+      "lvbench_531"
     ],
-    "fresh_caption_recovers_deepseek": [
-      "lvbench_3472"
+    "reasons": [
+      "meaningful A/B difference/complement with diagnosis-linked mechanism evidence"
     ],
-    "first_batch_calls": {
-      "qwen_direct": 20,
-      "deepseek_areuse": 20,
-      "editor": 0
-    },
-    "diag_calls": {
-      "qwen_caption": 8,
-      "deepseek_astrct": 8,
-      "qwen_ctext": 8
-    },
-    "estimated_cny": {
-      "first_batch": 1.077131
+    "exploratory_only": true,
+    "hypothesis_status": {
+      "vision_information_loss": "HYPOTHESIS_TO_VERIFY",
+      "model_division_of_labor": "HYPOTHESIS_TO_VERIFY",
+      "caption_refresh": "HYPOTHESIS_TO_VERIFY"
     }
   }
 }

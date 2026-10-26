@@ -1,0 +1,26 @@
+{
+  "n": 16,
+  "sample_ids": [
+    "lvbench_1089",
+    "lvbench_1235",
+    "lvbench_1964",
+    "lvbench_2120",
+    "lvbench_2401",
+    "lvbench_2565",
+    "lvbench_3385",
+    "lvbench_3779",
+    "lvbench_4160",
+    "lvbench_4705",
+    "lvbench_4845",
+    "lvbench_494",
+    "lvbench_5162",
+    "lvbench_5268",
+    "lvbench_764",
+    "lvbench_855"
+  ],
+  "excluded": [
+    "frozen_exploratory_n20",
+    "private_gate"
+  ],
+  "matched_provider_calls": 96
+}

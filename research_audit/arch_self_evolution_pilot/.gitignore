@@ -1,0 +1,13 @@
+runs/
+**/frames/
+**/scratch/
+**/*.jpg
+**/stability_full.json
+**/stability_partial.json
+**/stability_aggregate.json
+**/eval_report.json
+**/results.json
+**/calls/
+**/call_ledger.jsonl
+**/arm_result.json
+**/arms_summary.json

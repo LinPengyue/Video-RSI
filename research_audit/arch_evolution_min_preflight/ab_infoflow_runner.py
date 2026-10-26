@@ -584,88 +584,77 @@ def safe_summary(ab: dict, conn: dict | None, diag: dict | None) -> dict:
 
 
 def decide_go_stop(ab: dict, diag: dict | None) -> dict:
-    """Exploratory decision per updated rules (not paper claims)."""
-    a_only = ab["A_only_correct"]
-    b_only = ab["B_only_correct"]
-    delta = ab["B_correct"] - ab["A_correct"]
-    meaningful_diff = abs(delta) >= 3 or (a_only + b_only) >= 3
+    """Exploratory GO / PIVOT / STOP / PENDING_DIAG (not a paper claim).
+
+    GO: meaningful A/B difference or complement, AND diagnosis links the gap to a
+    concrete stage (vision retention and/or answerer identity on matched caption).
+    PIVOT: Direct VQA dominates without meaningful complement.
+    STOP: no reliable difference, or apparent advantage lacks mechanism link under
+    strict controls.
+    """
+    a_only = int(ab["A_only_correct"])
+    b_only = int(ab["B_only_correct"])
+    delta = int(ab["B_correct"]) - int(ab["A_correct"])
+    discordant = a_only + b_only
+    meaningful_diff = abs(delta) >= 3 or discordant >= 3
     complementary = a_only >= 1 and b_only >= 1
 
-    strict_support = False
+    ab_by_id = {r["sample_id"]: r for r in (ab.get("per_item") or [])}
+
+    answerer_identity = False
+    vision_retention = False
+    vision_retention_ids = []
+    answerer_ids = []
+
     if diag and diag.get("rows"):
-        # Support if among diag rows, pattern persists vs answerer identity
-        # e.g. B_direct correct & A_strict wrong → vision path helps beyond DeepSeek
         for r in diag["rows"]:
             sid = r["sample_id"]
-            # find AB row
-            pass
-        # Compare A_strict vs C on same caption: if they differ, answerer identity matters
-        ans_disagree = 0
-        for r in diag["rows"]:
             as_ = r.get("A_strict") or {}
             c_ = r.get("C_text_only") or {}
+            ab_row = ab_by_id.get(sid) or {}
+
+            # Answerer identity: same caption, DeepSeek vs Qwen-text disagree
             if as_.get("answer") and c_.get("answer") and as_.get("answer") != c_.get("answer"):
-                ans_disagree += 1
-            if as_.get("correct") != c_.get("correct"):
-                strict_support = True
-        if ans_disagree >= 1:
-            strict_support = True
+                answerer_identity = True
+                answerer_ids.append(sid)
+            elif as_.get("correct") is not None and c_.get("correct") is not None and as_.get("correct") != c_.get("correct"):
+                answerer_identity = True
+                answerer_ids.append(sid)
 
-    # Also: if B beats A and A_strict still loses to B on same frames → vision retention
-    vision_retention = False
-    if diag:
-        for r in diag["rows"]:
-            sid = r["sample_id"]
-            # loaded externally in report; here use correctness vs C/A_strict
-            if (r.get("A_strict") or {}).get("correct") is False and (r.get("C_text_only") or {}).get("correct") is False:
-                # both text paths fail — suggestive if B was correct
+            # Vision retention: B-direct correct, yet both caption-conditioned paths fail
+            b_ok = bool(ab_row.get("B_correct"))
+            as_fail = as_.get("correct") is False
+            c_fail = c_.get("correct") is False
+            if b_ok and as_fail and c_fail:
                 vision_retention = True
+                vision_retention_ids.append(sid)
 
-    decision = "STOP"
-    reasons = []
-    if not meaningful_diff:
-        decision = "STOP"
-        reasons.append("no reliable A/B difference (|Δacc|<3 and discordant<3)")
-    elif meaningful_diff and complementary and (strict_support or vision_retention or True):
-        # GO needs meaningful diff/complement AND strict support when diag present
-        if diag is None:
-            decision = "PENDING_DIAG"
-            reasons.append("AB shows signal; await diagnosis")
-        elif strict_support or complementary:
-            # require at least one linked mechanism case from diag
-            if strict_support or vision_retention:
-                decision = "GO"
-                reasons.append("meaningful A/B difference/complement with diagnosis support")
-            elif complementary and abs(delta) >= 3:
-                decision = "GO"
-                reasons.append("strong complement + accuracy gap; diagnosis weak but exploratory GO")
-            else:
-                decision = "PIVOT"
-                reasons.append("difference without clear mechanism link after strict controls")
-        else:
-            decision = "PIVOT"
-            reasons.append("B may dominate without mechanism complementarity")
-    elif meaningful_diff and b_only >= 3 and a_only == 0:
-        decision = "PIVOT"
-        reasons.append("Direct VQA dominates without meaningful complement")
-    elif meaningful_diff and not (strict_support or complementary):
-        decision = "STOP"
-        reasons.append("apparent advantage disappears or lacks mechanism link")
+    strict_support = answerer_identity or vision_retention
 
-    # Refine with explicit user rules
-    if abs(delta) < 2 and (a_only + b_only) < 2:
-        decision = "STOP"
-        reasons = ["paths essentially indistinguishable"]
-    elif b_only >= 4 and a_only == 0 and not complementary:
-        decision = "PIVOT"
-        reasons = ["Direct VQA broadly better; little mechanism complement — prefer fixed architecture questions"]
-    elif (a_only + b_only) >= 3 and complementary and (diag is None or strict_support or vision_retention or abs(delta) >= 2):
-        if diag is not None and not strict_support and not vision_retention and abs(delta) < 3:
-            decision = "STOP"
-            reasons = ["complement weak under strict controls"]
-        else:
-            decision = "GO" if diag is not None else "PENDING_DIAG"
-            reasons = ["meaningful complement/diff worth architectural follow-up"] if diag else ["await diagnosis"]
+    if abs(delta) < 2 and discordant < 2:
+        decision, reasons = "STOP", ["paths essentially indistinguishable"]
+    elif not meaningful_diff:
+        decision, reasons = "STOP", ["no reliable A/B difference (|Δacc|<3 and discordant<3)"]
+    elif b_only >= 4 and a_only == 0:
+        decision, reasons = "PIVOT", [
+            "Direct VQA broadly better without meaningful complement — prefer fixed-architecture questions"
+        ]
+    elif meaningful_diff and diag is None:
+        decision, reasons = "PENDING_DIAG", ["AB shows signal; await diagnosis"]
+    elif meaningful_diff and complementary and strict_support:
+        decision, reasons = "GO", [
+            "meaningful A/B difference/complement with diagnosis-linked mechanism evidence"
+        ]
+    elif meaningful_diff and complementary and not strict_support:
+        decision, reasons = "STOP", [
+            "complement/diff present but no vision-retention or answerer-identity link under strict controls"
+        ]
+    elif meaningful_diff and not complementary and strict_support:
+        decision, reasons = "PIVOT", [
+            "mechanism-linked Direct-VQA advantage without A/B complement"
+        ]
+    else:
+        decision, reasons = "STOP", ["apparent advantage lacks reliable mechanism link"]
 
     return {
         "decision": decision,
@@ -673,9 +662,17 @@ def decide_go_stop(ab: dict, diag: dict | None) -> dict:
         "A_only": a_only,
         "B_only": b_only,
         "strict_support": strict_support,
+        "answerer_identity_signal": answerer_identity,
         "vision_retention_signal": vision_retention,
+        "vision_retention_ids": vision_retention_ids,
+        "answerer_identity_ids": answerer_ids,
         "reasons": reasons,
         "exploratory_only": True,
+        "hypothesis_status": {
+            "vision_information_loss": "HYPOTHESIS_TO_VERIFY",
+            "model_division_of_labor": "HYPOTHESIS_TO_VERIFY",
+            "caption_refresh": "HYPOTHESIS_TO_VERIFY",
+        },
     }
 
 

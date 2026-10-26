@@ -1,0 +1,64 @@
+{
+  "n": 24,
+  "accuracy": {
+    "initial": 0.3333333333333333,
+    "baseline": 0.375,
+    "treatment": 0.4166666666666667,
+    "direct_vqa": 0.5833333333333334
+  },
+  "correct": {
+    "initial": 8,
+    "baseline": 9,
+    "treatment": 10,
+    "direct_vqa": 14
+  },
+  "mean_qwen_frames": {
+    "initial": 0.0,
+    "baseline": 0.0,
+    "treatment": 0.0,
+    "direct_vqa": 32.0
+  },
+  "vs_initial": {
+    "baseline": {
+      "vs": "initial",
+      "fix": 1,
+      "harm": 0,
+      "net": 1,
+      "parent_correct": 8,
+      "cand_correct": 9
+    },
+    "treatment": {
+      "vs": "initial",
+      "fix": 3,
+      "harm": 1,
+      "net": 2,
+      "parent_correct": 8,
+      "cand_correct": 10
+    },
+    "direct_vqa": {
+      "vs": "initial",
+      "fix": 9,
+      "harm": 3,
+      "net": 6,
+      "parent_correct": 8,
+      "cand_correct": 14
+    }
+  },
+  "treatment_vs_baseline": {
+    "vs": "baseline",
+    "fix": 2,
+    "harm": 1,
+    "net": 1,
+    "parent_correct": 9,
+    "cand_correct": 10
+  },
+  "treatment_vs_direct_vqa": {
+    "vs": "direct_vqa",
+    "fix": 3,
+    "harm": 7,
+    "net": -4,
+    "parent_correct": 14,
+    "cand_correct": 10
+  },
+  "note": "exploratory independent eval; not Gate; n small"
+}

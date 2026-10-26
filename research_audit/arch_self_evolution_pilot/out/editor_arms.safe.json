@@ -1,0 +1,59 @@
+{
+  "protocol": "arch_editor_arms_v1",
+  "matched_provider_calls": 96,
+  "finding": "Treatment never called infoflow_probe; both arms made local prompt/tool/skill edits, not Direct-VQA architecture swap",
+  "arms": [
+    {
+      "arm": "baseline",
+      "phases_done": [
+        "analysis",
+        "plan",
+        "edit"
+      ],
+      "errors": [],
+      "n_files_modified": 3,
+      "modified_files": [
+        "agent.py",
+        "prompt.md",
+        "tools.py"
+      ],
+      "n_infoflow_probes": 0,
+      "plan_keyword_hits": {
+        "direct_vqa_or_vision_answer": false,
+        "answerer_routing": true,
+        "caption_or_observation": true,
+        "infoflow_probe_mentioned": false
+      },
+      "engineering_check": {
+        "status": "static_pass",
+        "entrypoint": "main.py:solve"
+      }
+    },
+    {
+      "arm": "treatment",
+      "phases_done": [
+        "analysis",
+        "plan",
+        "edit"
+      ],
+      "errors": [],
+      "n_files_modified": 3,
+      "modified_files": [
+        "prompt.md",
+        "skill_policy.py",
+        "tools.py"
+      ],
+      "n_infoflow_probes": 0,
+      "plan_keyword_hits": {
+        "direct_vqa_or_vision_answer": false,
+        "answerer_routing": false,
+        "caption_or_observation": true,
+        "infoflow_probe_mentioned": false
+      },
+      "engineering_check": {
+        "status": "static_pass",
+        "entrypoint": "main.py:solve"
+      }
+    }
+  ]
+}

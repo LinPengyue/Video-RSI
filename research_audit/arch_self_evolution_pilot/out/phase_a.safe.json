@@ -1,0 +1,23 @@
+{
+  "phase": "A",
+  "paid_api_calls": 0,
+  "decide_go_stop_fixed": true,
+  "or_true_removed": true,
+  "vision_retention_requires_b_correct": true,
+  "unit_tests_passed": 14,
+  "oracle_router": {
+    "n": 20,
+    "A_reuse": 8,
+    "B_direct": 11,
+    "oracle_A_or_B": 12,
+    "oracle_minus_B": 1
+  },
+  "hypothesis_status": {
+    "vision_information_loss": "HYPOTHESIS_TO_VERIFY",
+    "model_division_of_labor": "HYPOTHESIS_TO_VERIFY",
+    "caption_refresh": "HYPOTHESIS_TO_VERIFY"
+  },
+  "gate_leakage": false,
+  "corrected_go_stop_on_infoflow_v1": "GO",
+  "proceed_phase_b": true
+}

@@ -1,0 +1,203 @@
+{
+  "protocol": "mechanism_stability_v1",
+  "phase_c_gate": "PROCEED_PHASE_C",
+  "phase_c_gate_reason": "at least one mechanism hypothesis replicates with answer consistency",
+  "credible_signals": [
+    [
+      "vision_information_loss",
+      "lvbench_2886"
+    ],
+    [
+      "vision_information_loss",
+      "lvbench_3523"
+    ],
+    [
+      "model_division_of_labor",
+      "lvbench_531"
+    ]
+  ],
+  "hypotheses": {
+    "vision_information_loss": {
+      "n_supported": 2,
+      "n": 4,
+      "per_sample": [
+        {
+          "sample_id": "lvbench_2886",
+          "status": "SUPPORTED"
+        },
+        {
+          "sample_id": "lvbench_3523",
+          "status": "SUPPORTED"
+        },
+        {
+          "sample_id": "lvbench_531",
+          "status": "NOT_REPLICATED"
+        },
+        {
+          "sample_id": "lvbench_3472",
+          "status": "NOT_REPLICATED"
+        }
+      ]
+    },
+    "model_division_of_labor": {
+      "n_supported": 1,
+      "n": 4,
+      "per_sample": [
+        {
+          "sample_id": "lvbench_2886",
+          "status": "NOT_REPLICATED"
+        },
+        {
+          "sample_id": "lvbench_3523",
+          "status": "NOT_REPLICATED"
+        },
+        {
+          "sample_id": "lvbench_531",
+          "status": "SUPPORTED"
+        },
+        {
+          "sample_id": "lvbench_3472",
+          "status": "NOT_REPLICATED"
+        }
+      ]
+    },
+    "caption_refresh": {
+      "n_supported": 1,
+      "n": 4,
+      "per_sample": [
+        {
+          "sample_id": "lvbench_2886",
+          "status": "WEAK_OR_NONE"
+        },
+        {
+          "sample_id": "lvbench_3523",
+          "status": "SUPPORTED"
+        },
+        {
+          "sample_id": "lvbench_531",
+          "status": "WEAK_OR_NONE"
+        },
+        {
+          "sample_id": "lvbench_3472",
+          "status": "WEAK_OR_NONE"
+        }
+      ]
+    }
+  },
+  "per_sample_safe": [
+    {
+      "sample_id": "lvbench_2886",
+      "hypothesis_checks": {
+        "vision_information_loss": {
+          "status": "SUPPORTED",
+          "detail": "B majority correct and both frozen-caption paths majority wrong"
+        },
+        "model_division_of_labor": {
+          "status": "NOT_REPLICATED",
+          "detail": "majority A_strict letter != majority C on frozen caption"
+        },
+        "caption_refresh": {
+          "status": "WEAK_OR_NONE",
+          "detail": "fresh caption changes at least one answerer letter"
+        }
+      },
+      "B_accuracy": 1.0,
+      "B_answer_consistency": true,
+      "A_accuracy": 0.0,
+      "A_answer_consistency": true,
+      "C_accuracy": 0.0,
+      "C_answer_consistency": true,
+      "caption_quality": {
+        "text_changed": true,
+        "A_answer_changed": false,
+        "C_answer_changed": false
+      }
+    },
+    {
+      "sample_id": "lvbench_3523",
+      "hypothesis_checks": {
+        "vision_information_loss": {
+          "status": "SUPPORTED",
+          "detail": "B majority correct and both frozen-caption paths majority wrong"
+        },
+        "model_division_of_labor": {
+          "status": "NOT_REPLICATED",
+          "detail": "majority A_strict letter != majority C on frozen caption"
+        },
+        "caption_refresh": {
+          "status": "SUPPORTED",
+          "detail": "fresh caption changes at least one answerer letter"
+        }
+      },
+      "B_accuracy": 1.0,
+      "B_answer_consistency": true,
+      "A_accuracy": 0.0,
+      "A_answer_consistency": true,
+      "C_accuracy": 0.0,
+      "C_answer_consistency": true,
+      "caption_quality": {
+        "text_changed": true,
+        "A_answer_changed": true,
+        "C_answer_changed": false
+      }
+    },
+    {
+      "sample_id": "lvbench_531",
+      "hypothesis_checks": {
+        "vision_information_loss": {
+          "status": "NOT_REPLICATED",
+          "detail": "B majority correct and both frozen-caption paths majority wrong"
+        },
+        "model_division_of_labor": {
+          "status": "SUPPORTED",
+          "detail": "majority A_strict letter != majority C on frozen caption"
+        },
+        "caption_refresh": {
+          "status": "WEAK_OR_NONE",
+          "detail": "fresh caption changes at least one answerer letter"
+        }
+      },
+      "B_accuracy": 1.0,
+      "B_answer_consistency": true,
+      "A_accuracy": 0.0,
+      "A_answer_consistency": true,
+      "C_accuracy": 1.0,
+      "C_answer_consistency": true,
+      "caption_quality": {
+        "text_changed": true,
+        "A_answer_changed": false,
+        "C_answer_changed": false
+      }
+    },
+    {
+      "sample_id": "lvbench_3472",
+      "hypothesis_checks": {
+        "vision_information_loss": {
+          "status": "NOT_REPLICATED",
+          "detail": "B majority correct and both frozen-caption paths majority wrong"
+        },
+        "model_division_of_labor": {
+          "status": "NOT_REPLICATED",
+          "detail": "majority A_strict letter != majority C on frozen caption"
+        },
+        "caption_refresh": {
+          "status": "WEAK_OR_NONE",
+          "detail": "fresh caption changes at least one answerer letter"
+        }
+      },
+      "B_accuracy": 1.0,
+      "B_answer_consistency": true,
+      "A_accuracy": 1.0,
+      "A_answer_consistency": true,
+      "C_accuracy": 1.0,
+      "C_answer_consistency": true,
+      "caption_quality": {
+        "text_changed": true,
+        "A_answer_changed": false,
+        "C_answer_changed": false
+      }
+    }
+  ],
+  "estimated_cny_new_calls": 1.1853174,
+  "note": "rep0 from infoflow_v1 cache excluded from new-call cost"
+}
