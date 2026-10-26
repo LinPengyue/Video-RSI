@@ -1,0 +1,46 @@
+{
+  "experiment_id": "fault_injection_phase_d_sim",
+  "generated_at_utc": "2026-10-26T09:30:14.480448+00:00",
+  "code_sha": "aa79e869a0fe7b3d120e0902b16aacfd97500e3e",
+  "harness_sha": null,
+  "config_fingerprint": "7a1ad42dbec4b683",
+  "environment": {
+    "sys_executable": ".../envs/videorsi/bin/python",
+    "python_version": "3.12.15"
+  },
+  "preflight": "FAIL",
+  "samples": {
+    "total": 3,
+    "valid": 0,
+    "invalid": 3,
+    "degraded": 0
+  },
+  "visual_success_rate": 0.0,
+  "qwen_frames": {
+    "mean": 0.0,
+    "min": 0,
+    "max": 0,
+    "total": 0
+  },
+  "tool_errors": {
+    "INVALID_RUN": 1
+  },
+  "provider_errors": {},
+  "cost": {},
+  "protocol_validation": "PASS",
+  "overall_validity": "INVALID",
+  "reason_codes": [
+    "imageio_ffmpeg_missing",
+    "has_invalid_runs",
+    "systematic_vision_infra_failure"
+  ],
+  "usable_for_architecture_ranking": false,
+  "diagnostic_paths": [
+    "~/lpy/Video-RSI/experiment_guard/out/fault_injection/sim_run/preflight_report.json",
+    "~/lpy/Video-RSI/experiment_guard/out/fault_injection/sim_run/arm_validation.json",
+    "~/lpy/Video-RSI/experiment_guard/out/fault_injection/sim_run/runtime_summary.json"
+  ],
+  "runtime_aborted": true,
+  "runtime_abort_reason": "systematic_sample_frames_infra_error",
+  "extra": {}
+}
