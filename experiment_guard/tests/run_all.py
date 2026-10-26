@@ -30,6 +30,7 @@ def main() -> int:
         ("test_protocol_validator.py", sys.executable),
         ("test_fault_injection.py", VIDEORSI),  # needs Services.sample_frames path
         ("test_preflight.py", sys.executable),  # internally probes videorsi + system
+        ("test_e2e_integration.py", VIDEORSI),
     ]
     failed = 0
     total_pass_lines = 0

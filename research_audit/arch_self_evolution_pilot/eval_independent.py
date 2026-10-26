@@ -41,13 +41,17 @@ from infoflow_lib import (
     sha256_text,
 )
 from ab_infoflow_runner import apply_usage, finalize_answer, record_template, make_provider
-from infoflow_lib import ResultStore, HttpProvider
+from infoflow_lib import ResultStore, HttpProvider, EFFECTIVE_CONFIG
+
+from experiment_guard import GuardedExperiment, PreflightCapabilities
+from experiment_guard.fingerprints import config_fingerprint, harness_fingerprint
 
 SEED = ROOT / "evolution" / "run-seed42" / "versions" / "initial_harness"
 BASELINE = PILOT / "runs" / "editor_arms_v1" / "baseline" / "workspace" / "candidate"
 TREATMENT = PILOT / "runs" / "editor_arms_v1" / "treatment" / "workspace" / "candidate"
 EVAL_IDS = PILOT / "out" / "independent_eval_ids.safe.json"
 EDITOR_SUBSET = PILOT / "out" / "editor_train_subset.safe.json"
+CONFIG_PATH = EFFECTIVE_CONFIG
 
 
 def assert_eval_hygiene(ids: list[str]) -> None:
@@ -137,51 +141,106 @@ def run_direct_vqa(ids: list[str], items: dict, gold: dict, cache: dict, config:
     )
 
 
-def run_arm_harness(name: str, candidate: Path, ids: list[str], items: dict, gold: dict, config: dict, run_dir: Path, concurrency: int = 2) -> dict:
+def run_arm_harness(
+    name: str,
+    candidate: Path,
+    ids: list[str],
+    items: dict,
+    gold: dict,
+    config: dict,
+    run_dir: Path,
+    concurrency: int = 2,
+    *,
+    guard: GuardedExperiment | None = None,
+) -> tuple[dict, list]:
+    """Run harness arm. When guard is set, uses guarded concurrent batch (abort on infra fail).
+
+    Returns (summary_dict, ordered_results).
+    """
     out = run_dir / name
     out.mkdir(parents=True, exist_ok=True)
     results_path = out / "results.json"
     if results_path.is_file():
         results = read_json(results_path)
-        # resume: only missing
-        done = {r["sample_id"] for r in results if r.get("status") == "answered"}
+        # Resume only VALID answered rows — INVALID_RUN from broken env must redo
+        from experiment_guard import classify_item_run
+
+        done = set()
+        for r in results:
+            if r.get("status") != "answered":
+                continue
+            if classify_item_run(r)["validity"] == "INVALID_RUN":
+                continue
+            done.add(r["sample_id"])
     else:
         results = []
         done = set()
 
     pending = [sid for sid in ids if sid not in done]
     ocr = LocalOCR(config["services"]["ocr_model_root"])
-    meter = Meter()
-    provider = PinnedProvider(config["services"], meter)
 
     def one(sid):
         scratch = out / "scratch" / sid
         item = items[sid]
-        # fresh provider meter per item via new Services inside run_harness
         local_meter = Meter()
         local_provider = PinnedProvider(config["services"], local_meter)
         return run_harness_on_item(candidate, item, config, local_provider, ocr, scratch)
 
     new_rows = []
+    batch_meta = None
     if pending:
-        with ThreadPoolExecutor(max_workers=concurrency) as pool:
-            futs = {pool.submit(one, sid): sid for sid in pending}
-            for fut in as_completed(futs):
-                sid = futs[fut]
-                try:
-                    row = fut.result()
-                except Exception as exc:
-                    row = {"sample_id": sid, "status": "engineering_error", "answer": None, "error": str(exc)[:400], "usage": {}}
-                new_rows.append(row)
-                print(name, sid, row.get("status"), row.get("answer"), flush=True)
+        if guard is not None:
+            # Fresh runtime per arm so abort state does not leak across arms incorrectly,
+            # but share start fingerprint from guard.
+            from experiment_guard.runtime_guard import RuntimeGuard, BatchAbortPolicy
 
-    # merge
+            arm_runtime = RuntimeGuard(policy=BatchAbortPolicy(), start_fingerprint=guard.cfg_fp)
+            guard.runtime = arm_runtime
+            report = guard.run_batch(pending, one, max_workers=concurrency)
+            new_rows = report.results
+            batch_meta = report.to_dict()
+            for row in new_rows:
+                print(name, row.get("sample_id"), row.get("status"), row.get("answer"), flush=True)
+            if report.aborted:
+                print(
+                    "GUARD_ABORT",
+                    name,
+                    report.abort_reason,
+                    "never_submitted=%d cancelled=%d after_abort=%d"
+                    % (report.never_submitted, report.cancelled_before_start, report.completed_after_abort),
+                    flush=True,
+                )
+        else:
+            with ThreadPoolExecutor(max_workers=concurrency) as pool:
+                futs = {pool.submit(one, sid): sid for sid in pending}
+                for fut in as_completed(futs):
+                    sid = futs[fut]
+                    try:
+                        row = fut.result()
+                    except Exception as exc:
+                        row = {
+                            "sample_id": sid,
+                            "status": "engineering_error",
+                            "answer": None,
+                            "error": str(exc)[:400],
+                            "usage": {},
+                            "memory": [],
+                            "service_trace": [],
+                            "diagnostics": {"tool_execution_errors": 1},
+                        }
+                    new_rows.append(row)
+                    print(name, sid, row.get("status"), row.get("answer"), flush=True)
+
     by = {r["sample_id"]: r for r in results}
     for r in new_rows:
         by[r["sample_id"]] = r
     ordered = [by[sid] for sid in ids if sid in by]
     write_json(results_path, ordered)
-    return summarize_harness_batch(name, ordered, gold)
+    if batch_meta is not None:
+        write_json(out / "guard_batch_execution.json", batch_meta)
+    summary = summarize_harness_batch(name, ordered, gold)
+    summary["guard_batch"] = batch_meta
+    return summary, ordered
 
 
 def pairwise(parent: dict, cand: dict) -> dict:
@@ -201,12 +260,36 @@ def pairwise(parent: dict, cand: dict) -> dict:
     }
 
 
+def _protocol_kwargs_for_eval(ids: list[str], config: dict, arm_harness: dict[str, Path]) -> dict:
+    gate = load_gate_ids()
+    editor = set(read_json(EDITOR_SUBSET)["sample_ids"]) if EDITOR_SUBSET.is_file() else set()
+    frozen = set(load_frozen_ids())
+    # "train" for isolation = method-selection / editor / exploratory sets (must not overlap eval)
+    method_train = sorted(editor | frozen)
+    cfg_fp = config_fingerprint(config)
+    arm_cfg = {name: cfg_fp for name in arm_harness}
+    arm_har = {name: harness_fingerprint(path).get("sha16") for name, path in arm_harness.items()}
+    return {
+        "formal": True,
+        "eval_ids": ids,
+        "train_ids": method_train,
+        "gate_ids": sorted(gate),
+        "editor_subset_ids": sorted(editor),
+        "arm_ids": {name: list(ids) for name in arm_harness},
+        "arm_config_fingerprints": arm_cfg,
+        "arm_harness_fingerprints": arm_har,
+        "cache_reuse_allowed": True,
+        "cache_source": "phase_d_direct_vqa_optional",
+        "cache_compatible": True,
+    }
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--execute", action="store_true")
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--concurrency", type=int, default=2)
     ap.add_argument("--run-dir", type=Path, default=PILOT / "runs" / "phase_d_eval_v1")
+    ap.add_argument("--arms", default="initial,baseline,treatment,direct_vqa", help="comma list")
     args = ap.parse_args()
 
     ids = read_json(EVAL_IDS)["sample_ids"]
@@ -217,48 +300,130 @@ def main() -> int:
     gold = load_oracle(TRAIN_ORACLE)
     cache = cache_by_sample_id()
     config = validate_config(load_services_config())
+    want_arms = [a.strip() for a in args.arms.split(",") if a.strip()]
 
     if not args.execute:
-        print(json.dumps({"n": len(ids), "arms": ["initial", "baseline", "treatment", "direct_vqa"]}, indent=2))
+        print(
+            json.dumps(
+                {
+                    "n": len(ids),
+                    "arms": want_arms,
+                    "guard": "require_preflight runs only with --execute; dry-run skips paid provider",
+                },
+                indent=2,
+            )
+        )
         return 0
     if os.environ.get("ARCH_AB_ALLOW_PAID") != "1":
         raise SystemExit("need ARCH_AB_ALLOW_PAID=1")
 
+    # --- Experiment Guard: cannot be bypassed by --execute ---
+    guard_dir = args.run_dir / "experiment_guard"
+    guard = GuardedExperiment(
+        experiment_id="phase_d_eval_independent",
+        out_dir=guard_dir,
+        config_path=CONFIG_PATH,
+        harness_dir=SEED,
+        capabilities=PreflightCapabilities(
+            visual_sample_frames=True,
+            editor_investigation=False,
+            infoflow_probe=False,
+            host_must_match_config_python=True,
+            provider_config=True,
+        ),
+        require_provider_env=True,
+        formal_protocol=True,
+    )
+    # Fail-closed before any provider construction
+    guard.start(reexec=True, config=config)
+
     args.run_dir.mkdir(parents=True, exist_ok=True)
     summaries = {}
+    results_by_arm: dict[str, list] = {}
+    harness_map = {
+        "initial": SEED,
+        "baseline": BASELINE,
+        "treatment": TREATMENT,
+    }
+    aborted_early = False
     for name, cand in (("initial", SEED), ("baseline", BASELINE), ("treatment", TREATMENT)):
+        if name not in want_arms:
+            continue
+        if not cand.is_dir():
+            print("SKIP missing candidate", name, cand, flush=True)
+            continue
         print("EVAL", name, flush=True)
-        summaries[name] = run_arm_harness(name, cand, ids, items, gold, config, args.run_dir, args.concurrency)
+        summary, ordered = run_arm_harness(
+            name, cand, ids, items, gold, config, args.run_dir, args.concurrency, guard=guard
+        )
+        summaries[name] = summary
+        results_by_arm[name] = ordered
+        if guard.runtime and guard.runtime.aborted:
+            aborted_early = True
+            print("EVAL aborted after arm", name, "reason", guard.runtime.abort_reason, flush=True)
+            break
 
-    print("EVAL direct_vqa", flush=True)
-    provider = HttpProvider(config)
-    summaries["direct_vqa"] = run_direct_vqa(ids, items, gold, cache, config, provider, args.run_dir)
+    if "direct_vqa" in want_arms and not aborted_early:
+        print("EVAL direct_vqa", flush=True)
+        provider = HttpProvider(config)
+        summaries["direct_vqa"] = run_direct_vqa(ids, items, gold, cache, config, provider, args.run_dir)
 
+    # Health + protocol (formal)
+    protocol_kw = _protocol_kwargs_for_eval(
+        ids,
+        config,
+        {k: harness_map[k] for k in harness_map if k in results_by_arm},
+    )
+    primary_results = results_by_arm.get("initial") or next(iter(results_by_arm.values()), [])
+    health = guard.finalize(
+        primary_results,
+        gold=gold,
+        expected_ids=ids,
+        multi_arms=results_by_arm or None,
+        protocol_kwargs=protocol_kw,
+    )
+
+    # Accuracy tables: only emit unmarked ranking if Guard says usable
     report = {
         "n": len(ids),
-        "summaries": {k: {kk: vv for kk, vv in v.items() if kk != "per_item"} for k, v in summaries.items()},
-        "vs_initial": {
-            "baseline": pairwise(summaries["initial"], summaries["baseline"]),
-            "treatment": pairwise(summaries["initial"], summaries["treatment"]),
-            "direct_vqa": pairwise(summaries["initial"], summaries["direct_vqa"]),
+        "summaries": {k: {kk: vv for kk, vv in v.items() if kk not in ("per_item",)} for k, v in summaries.items()},
+        "guard_health": {
+            "overall_validity": health.get("overall_validity"),
+            "usable_for_architecture_ranking": health.get("usable_for_architecture_ranking"),
+            "reason_codes": health.get("reason_codes"),
+            "aborted_early": aborted_early,
         },
-        "treatment_vs_baseline": pairwise(summaries["baseline"], summaries["treatment"]),
-        "treatment_vs_direct_vqa": pairwise(summaries["direct_vqa"], summaries["treatment"]),
     }
+    if health.get("usable_for_architecture_ranking") and "initial" in summaries:
+        report["vs_initial"] = {
+            k: pairwise(summaries["initial"], summaries[k])
+            for k in ("baseline", "treatment", "direct_vqa")
+            if k in summaries
+        }
+        if "baseline" in summaries and "treatment" in summaries:
+            report["treatment_vs_baseline"] = pairwise(summaries["baseline"], summaries["treatment"])
+        if "direct_vqa" in summaries and "treatment" in summaries:
+            report["treatment_vs_direct_vqa"] = pairwise(summaries["direct_vqa"], summaries["treatment"])
+    else:
+        report["architecture_ranking_suppressed"] = True
+        report["naive_summaries_audit_only"] = {
+            k: {"accuracy": summaries[k].get("accuracy"), "correct": summaries[k].get("correct")}
+            for k in summaries
+        }
+
     write_json(args.run_dir / "eval_report.json", {"full": {k: summaries[k] for k in summaries}, "aggregate": report})
     safe = {
         "n": report["n"],
-        "accuracy": {k: report["summaries"][k]["accuracy"] for k in report["summaries"]},
-        "correct": {k: report["summaries"][k]["correct"] for k in report["summaries"]},
-        "mean_qwen_frames": {k: report["summaries"][k]["mean_qwen_frames"] for k in report["summaries"]},
-        "vs_initial": report["vs_initial"],
-        "treatment_vs_baseline": report["treatment_vs_baseline"],
-        "treatment_vs_direct_vqa": report["treatment_vs_direct_vqa"],
-        "note": "exploratory independent eval; not Gate; n small",
+        "guard": report["guard_health"],
+        "architecture_ranking_usable": bool(health.get("usable_for_architecture_ranking")),
+        "accuracy_naive_audit_only": {k: summaries[k]["accuracy"] for k in summaries},
+        "mean_qwen_frames": {k: summaries[k]["mean_qwen_frames"] for k in summaries},
+        "vs_initial": report.get("vs_initial"),
+        "note": "Guard-gated independent eval; INVALID runs excluded from architecture ranking",
     }
     write_json(PILOT / "out" / "phase_d_eval.safe.json", safe)
     print(json.dumps(safe, indent=2))
-    return 0
+    return 1 if aborted_early or not health.get("usable_for_architecture_ranking") else 0
 
 
 if __name__ == "__main__":

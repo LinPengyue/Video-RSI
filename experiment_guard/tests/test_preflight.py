@@ -9,7 +9,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 VIDEORSI = Path("/home/descfly/miniconda3/envs/videorsi/bin/python")
-SYSTEM = Path(sys.executable)
+# Explicit broken host (Phase D): must NOT equal videorsi; lacks imageio_ffmpeg.
+SYSTEM = Path("/usr/bin/python3")
+if not SYSTEM.is_file():
+    SYSTEM = Path("/home/descfly/miniconda3/bin/python3")
 
 
 def test_preflight_pass_under_videorsi():

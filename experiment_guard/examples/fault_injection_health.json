@@ -1,7 +1,7 @@
 {
   "experiment_id": "fault_injection_phase_d_sim",
-  "generated_at_utc": "2026-10-26T09:30:14.480448+00:00",
-  "code_sha": "aa79e869a0fe7b3d120e0902b16aacfd97500e3e",
+  "generated_at_utc": "2026-10-26T10:15:45.959008+00:00",
+  "code_sha": "9203555b5772eb2c1d87df96034671168c0eb0b8",
   "harness_sha": null,
   "config_fingerprint": "7a1ad42dbec4b683",
   "environment": {
@@ -27,10 +27,16 @@
   },
   "provider_errors": {},
   "cost": {},
-  "protocol_validation": "PASS",
+  "protocol_validation": "INCOMPLETE",
   "overall_validity": "INVALID",
   "reason_codes": [
     "imageio_ffmpeg_missing",
+    "protocol_incomplete:frozen_eval_ids_declared",
+    "protocol_incomplete:train_eval_isolation",
+    "protocol_incomplete:gate_eval_isolation",
+    "protocol_incomplete:arm_config_fingerprints",
+    "protocol_incomplete:arm_harness_fingerprints",
+    "protocol_incomplete:resume_cache_protocol",
     "has_invalid_runs",
     "systematic_vision_infra_failure"
   ],
@@ -38,9 +44,22 @@
   "diagnostic_paths": [
     "~/lpy/Video-RSI/experiment_guard/out/fault_injection/sim_run/preflight_report.json",
     "~/lpy/Video-RSI/experiment_guard/out/fault_injection/sim_run/arm_validation.json",
-    "~/lpy/Video-RSI/experiment_guard/out/fault_injection/sim_run/runtime_summary.json"
+    "~/lpy/Video-RSI/experiment_guard/out/fault_injection/sim_run/runtime_summary.json",
+    "~/lpy/Video-RSI/experiment_guard/out/fault_injection/sim_run/protocol_validation.json"
   ],
   "runtime_aborted": true,
   "runtime_abort_reason": "systematic_sample_frames_infra_error",
-  "extra": {}
+  "extra": {
+    "start_snapshot": {
+      "config_path": null,
+      "harness_dir": null,
+      "config_fp": "7a1ad42dbec4b683",
+      "harness_sha": null,
+      "config_mtime_ns": null,
+      "harness_file_count": null
+    },
+    "live_config_fp": "7a1ad42dbec4b683",
+    "live_harness_sha": null,
+    "fingerprint_drift": false
+  }
 }

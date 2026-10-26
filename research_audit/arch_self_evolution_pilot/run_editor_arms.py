@@ -42,6 +42,9 @@ from infoflow_lib import (
 )
 from counterfactual_investigation import CounterfactualInvestigation
 
+from experiment_guard import GuardedExperiment, PreflightCapabilities, classify_item_run
+from experiment_guard.fingerprints import config_fingerprint, harness_fingerprint
+
 SEED_HARNESS = ROOT / "evolution" / "run-seed42" / "versions" / "initial_harness"
 CONFIG_PATH = ROOT / "config.evolution.local.json"
 # Analysis+plan alone consumed ~48 on baseline; matched ceiling raised so both arms
@@ -153,7 +156,61 @@ class TreatmentEditor(DeepSeekEditor):
             editor_mod.Investigation = prev
 
 
-def run_arm(arm: str, sample_ids: list[str], execute: bool) -> dict:
+def _scan_investigation_infra_failures(private: Path) -> list[dict]:
+    """Map investigation request records into RuntimeGuard-compatible shapes."""
+    rows = []
+    inv_dir = private / "investigations"
+    # Also check private root request_*.json (stock Investigation layout)
+    paths = []
+    if inv_dir.is_dir():
+        paths.extend(sorted(inv_dir.glob("request_*.json")))
+    paths.extend(sorted(private.glob("request_*.json")))
+    for p in paths:
+        try:
+            row = read_json(p)
+        except Exception:
+            continue
+        req = row.get("request") or {}
+        op = req.get("operation")
+        status = row.get("status")
+        err = row.get("error") or row.get("error_type")
+        sid = req.get("sample_id") or "unknown"
+        # Synthesize a harness-like result for classify_item_run
+        memory = []
+        service_trace = []
+        if op in ("observe", "ocr") or op == "infoflow_probe":
+            if status == "error" or err:
+                msg = str(err or row.get("error") or "investigation_error")
+                memory.append(
+                    {
+                        "tool": "overview" if op != "ocr" else "read_text",
+                        "observation": {"error": row.get("error_type") or "error", "message": msg},
+                    }
+                )
+                if "imageio_ffmpeg" in msg or "sample_frames" in msg or "ffmpeg" in msg.lower():
+                    service_trace.append({"service": "sample_frames", "error": msg[:200]})
+                usage = {"qwen_frames": 0, "frames_extracted": 0}
+                diag = {"tool_execution_errors": 1}
+            else:
+                usage = row.get("usage") or {}
+                memory.append({"tool": "overview", "observation": {"text": "ok", "frames": ["f"]}})
+                service_trace.append({"service": "qwen"})
+                diag = {}
+            rows.append(
+                {
+                    "sample_id": sid,
+                    "status": "answered" if status == "completed" else status,
+                    "answer": None,
+                    "usage": usage,
+                    "memory": memory,
+                    "service_trace": service_trace,
+                    "diagnostics": diag,
+                }
+            )
+    return rows
+
+
+def run_arm(arm: str, sample_ids: list[str], execute: bool, *, guard: GuardedExperiment | None = None) -> dict:
     cfg = load_config()
     arm_dir = PILOT / "runs" / "editor_arms_v1" / arm
     arm_dir.mkdir(parents=True, exist_ok=True)
@@ -173,6 +230,8 @@ def run_arm(arm: str, sample_ids: list[str], execute: bool) -> dict:
             "train_subset": sample_ids,
             "seed_harness": str(SEED_HARNESS),
             "treatment_has_infoflow_probe": arm == "treatment",
+            "config_fingerprint": config_fingerprint(cfg),
+            "harness_sha": harness_fingerprint(SEED_HARNESS).get("sha16"),
         },
     )
 
@@ -181,6 +240,12 @@ def run_arm(arm: str, sample_ids: list[str], execute: bool) -> dict:
 
     if os.environ.get("ARCH_AB_ALLOW_PAID") != "1":
         raise SystemExit("ARCH_AB_ALLOW_PAID=1 required")
+
+    # Guard must already have passed preflight in main(); re-check live fingerprint
+    if guard is not None:
+        live_cfg, _ = guard.live_fingerprint()
+        if guard.cfg_fp and live_cfg and live_cfg != guard.cfg_fp:
+            raise SystemExit("EXPERIMENT_GUARD: config fingerprint drifted before editor arm %s" % arm)
 
     provider = PinnedProvider(cfg["services"], Meter())
     if arm == "treatment":
@@ -191,6 +256,7 @@ def run_arm(arm: str, sample_ids: list[str], execute: bool) -> dict:
 
     phases_done = []
     errors = []
+    guard_abort = False
     for phase in ("analysis", "plan", "edit"):
         marker = arm_dir / ("phase_%s.done" % phase)
         if marker.is_file():
@@ -206,16 +272,43 @@ def run_arm(arm: str, sample_ids: list[str], execute: bool) -> dict:
             write_json(arm_dir / "arm_error.json", errors[-1])
             break
 
-    # Collect evidence of mechanism choice / code change
+        # After each phase, scan investigation records for infra vision failures
+        if guard is not None:
+            for syn in _scan_investigation_infra_failures(private):
+                if guard.observe(syn):
+                    guard_abort = True
+                    errors.append(
+                        {
+                            "phase": phase,
+                            "error_type": "EXPERIMENT_GUARD_ABORT",
+                            "error": guard.runtime.abort_reason if guard.runtime else "infra",
+                            "sample_id": syn.get("sample_id"),
+                            "validity": classify_item_run(syn)["validity"],
+                        }
+                    )
+                    write_json(arm_dir / "arm_error.json", errors[-1])
+                    break
+            if guard_abort:
+                break
+
     evidence = collect_arm_evidence(arm, workspace, private)
-    write_json(arm_dir / "arm_result.json", {
+    write_json(
+        arm_dir / "arm_result.json",
+        {
+            "arm": arm,
+            "phases_done": phases_done,
+            "errors": errors,
+            "evidence": evidence,
+            "guard_aborted": guard_abort,
+        },
+    )
+    return {
         "arm": arm,
         "phases_done": phases_done,
         "errors": errors,
         "evidence": evidence,
-    })
-    return {"arm": arm, "phases_done": phases_done, "errors": errors, "evidence": evidence}
-
+        "guard_aborted": guard_abort,
+    }
 
 def collect_arm_evidence(arm: str, workspace: Path, private: Path) -> dict:
     analysis = workspace / "analysis"
@@ -295,27 +388,106 @@ def main() -> int:
     ap.add_argument("--prepare-only", action="store_true")
     args = ap.parse_args()
     subset = select_train_subset()
-    write_json(PILOT / "out" / "editor_train_subset.safe.json", {
-        "n": len(subset),
-        "sample_ids": subset,
-        "excluded": ["frozen_exploratory_n20", "private_gate"],
-        "matched_provider_calls": MATCHED_PROVIDER_CALLS,
-    })
+    write_json(
+        PILOT / "out" / "editor_train_subset.safe.json",
+        {
+            "n": len(subset),
+            "sample_ids": subset,
+            "excluded": ["frozen_exploratory_n20", "private_gate"],
+            "matched_provider_calls": MATCHED_PROVIDER_CALLS,
+        },
+    )
     arms = ["baseline", "treatment"] if args.arm == "both" else [args.arm]
+    execute = bool(args.execute and not args.prepare_only)
+
+    guard = None
+    if execute:
+        if os.environ.get("ARCH_AB_ALLOW_PAID") != "1":
+            raise SystemExit("ARCH_AB_ALLOW_PAID=1 required")
+        cfg = load_config()
+        guard = GuardedExperiment(
+            experiment_id="editor_arms_v1",
+            out_dir=PILOT / "runs" / "editor_arms_v1" / "experiment_guard",
+            config_path=CONFIG_PATH,
+            harness_dir=SEED_HARNESS,
+            capabilities=PreflightCapabilities(
+                visual_sample_frames=True,
+                editor_investigation=True,
+                infoflow_probe=True,
+                host_must_match_config_python=True,
+                provider_config=True,
+            ),
+            require_provider_env=True,
+            formal_protocol=True,
+        )
+        # Fail-closed before any paid Editor / Investigation call
+        guard.start(reexec=True, config=cfg)
+
     results = []
     for arm in arms:
-        results.append(run_arm(arm, subset, execute=args.execute and not args.prepare_only))
-    write_json(PILOT / "runs" / "editor_arms_v1" / "arms_summary.json", {"results": results})
-    # safe summary without plan prose dumps beyond flags
+        results.append(run_arm(arm, subset, execute=execute, guard=guard))
+        if execute and guard and guard.runtime and guard.runtime.aborted:
+            print("GUARD_ABORT remaining editor arms skipped", flush=True)
+            break
+
+    if execute and guard is not None:
+        cfg = load_config()
+        syn_results = []
+        for r in results:
+            arm_dir = PILOT / "runs" / "editor_arms_v1" / r["arm"]
+            syn_results.extend(_scan_investigation_infra_failures(arm_dir / "private_editor"))
+        if not syn_results:
+            # Placeholder healthy intentional-no-vision style marker if no observe yet
+            syn_results = [
+                {
+                    "sample_id": "editor_session",
+                    "status": "answered",
+                    "answer": None,
+                    "usage": {"qwen_frames": 0, "frames_extracted": 0, "deepseek_calls": 0},
+                    "memory": [],
+                    "service_trace": [],
+                    "diagnostics": {},
+                }
+            ]
+        health = guard.finalize(
+            syn_results,
+            protocol_kwargs={
+                "formal": True,
+                "eval_ids": subset,
+                "train_ids": sorted(set(load_frozen_ids())),
+                "gate_ids": sorted(load_gate_ids()),
+                "editor_subset_ids": subset,
+                "arm_ids": {r["arm"]: subset for r in results},
+                "arm_config_fingerprints": {
+                    r["arm"]: config_fingerprint(cfg) for r in results
+                },
+                "arm_harness_fingerprints": {
+                    r["arm"]: harness_fingerprint(SEED_HARNESS).get("sha16") for r in results
+                },
+                "cache_reuse_allowed": False,
+            },
+        )
+    else:
+        health = None
+
+    write_json(PILOT / "runs" / "editor_arms_v1" / "arms_summary.json", {"results": results, "guard": health})
     safe = {
         "protocol": PROTOCOL,
         "matched_provider_calls": MATCHED_PROVIDER_CALLS,
         "train_subset_n": len(subset),
+        "guard": {
+            "overall_validity": (health or {}).get("overall_validity"),
+            "usable_for_architecture_ranking": (health or {}).get("usable_for_architecture_ranking"),
+            "reason_codes": (health or {}).get("reason_codes"),
+        }
+        if health
+        else {"note": "dry-run/prepare-only — Guard preflight not required"},
         "arms": [
             {
                 "arm": r.get("arm"),
                 "phases_done": r.get("phases_done"),
                 "errors": r.get("errors"),
+                "guard_aborted": r.get("guard_aborted"),
                 "n_files_modified": (r.get("evidence") or {}).get("n_files_modified"),
                 "n_infoflow_probes": (r.get("evidence") or {}).get("n_infoflow_probes"),
                 "plan_keyword_hits": (r.get("evidence") or {}).get("plan_keyword_hits"),
@@ -328,6 +500,8 @@ def main() -> int:
     }
     write_json(PILOT / "out" / "editor_arms.safe.json", safe)
     print(json.dumps(safe, indent=2, ensure_ascii=False))
+    if health and not health.get("usable_for_architecture_ranking"):
+        return 1
     return 0
 
 

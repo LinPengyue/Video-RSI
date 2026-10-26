@@ -72,8 +72,11 @@ def build_health_report(
     if preflight and preflight.get("status") == "FAIL":
         overall = "INVALID"
         reason_codes.extend(preflight.get("reason_codes") or ["preflight_fail"])
-    if protocol and protocol.get("status") == "FAIL":
-        overall = "INVALID" if overall == "INVALID" else "PARTIALLY_VALID"
+    if protocol and protocol.get("status") in ("FAIL", "INCOMPLETE"):
+        if protocol.get("status") == "FAIL":
+            overall = "INVALID"
+        elif overall != "INVALID":
+            overall = "PARTIALLY_VALID"
         reason_codes.extend(protocol.get("reason_codes") or ["protocol_fail"])
     if arm_validation:
         ov = arm_validation.get("overall_validity")

@@ -9,7 +9,7 @@ Public API:
 """
 from __future__ import annotations
 
-from experiment_guard.preflight import require_preflight, run_preflight
+from experiment_guard.preflight import require_preflight, run_preflight, PreflightCapabilities
 from experiment_guard.runtime_guard import (
     BatchAbortPolicy,
     classify_item_run,
@@ -19,10 +19,13 @@ from experiment_guard.runtime_guard import (
 from experiment_guard.result_validator import validate_arm, validate_multi_arm
 from experiment_guard.protocol_validator import validate_protocol
 from experiment_guard.health_report import write_health_report, build_health_report
+from experiment_guard.guarded_runner import GuardedExperiment
+from experiment_guard.concurrent_batch import run_guarded_batch
 
 __all__ = [
     "require_preflight",
     "run_preflight",
+    "PreflightCapabilities",
     "classify_item_run",
     "classify_error_kind",
     "BatchAbortPolicy",
@@ -32,6 +35,8 @@ __all__ = [
     "validate_protocol",
     "write_health_report",
     "build_health_report",
+    "GuardedExperiment",
+    "run_guarded_batch",
 ]
 
 __version__ = "1.0.0"

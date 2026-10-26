@@ -1,0 +1,55 @@
+{
+  "experiment_id": "mock_acceptance_valid",
+  "generated_at_utc": "2026-10-26T10:15:47.553364+00:00",
+  "code_sha": "9203555b5772eb2c1d87df96034671168c0eb0b8",
+  "harness_sha": "afcedacceee8480d",
+  "config_fingerprint": "7a1ad42dbec4b683",
+  "environment": {
+    "sys_executable": ".../envs/videorsi/bin/python",
+    "python_version": "3.12.15"
+  },
+  "preflight": "PASS",
+  "samples": {
+    "total": 2,
+    "valid": 2,
+    "invalid": 0,
+    "degraded": 0
+  },
+  "visual_success_rate": 1.0,
+  "qwen_frames": {
+    "mean": 2.0,
+    "min": 0,
+    "max": 4,
+    "total": 4
+  },
+  "tool_errors": {
+    "VALID_RUN": 2
+  },
+  "provider_errors": {},
+  "cost": {},
+  "protocol_validation": "PASS",
+  "overall_validity": "VALID",
+  "reason_codes": [],
+  "usable_for_architecture_ranking": true,
+  "diagnostic_paths": [
+    "~/lpy/Video-RSI/experiment_guard/out/mock_acceptance/valid/preflight_report.json",
+    "~/lpy/Video-RSI/experiment_guard/out/mock_acceptance/valid/arm_validation.json",
+    "~/lpy/Video-RSI/experiment_guard/out/mock_acceptance/valid/runtime_summary.json",
+    "~/lpy/Video-RSI/experiment_guard/out/mock_acceptance/valid/protocol_validation.json"
+  ],
+  "runtime_aborted": false,
+  "runtime_abort_reason": null,
+  "extra": {
+    "start_snapshot": {
+      "config_path": "~/lpy/Video-RSI/evolution/run-seed42/effective_config.json",
+      "harness_dir": "~/lpy/Video-RSI/evolution/run-seed42/versions/initial_harness",
+      "config_fp": "7a1ad42dbec4b683",
+      "harness_sha": "afcedacceee8480d",
+      "config_mtime_ns": 1792029962733007716,
+      "harness_file_count": 9
+    },
+    "live_config_fp": "7a1ad42dbec4b683",
+    "live_harness_sha": "afcedacceee8480d",
+    "fingerprint_drift": false
+  }
+}

@@ -22,14 +22,14 @@ ENTRY_POINTS: list[dict[str, Any]] = [
     {
         "category": "Initial / Harness eval",
         "path": "research_audit/arch_self_evolution_pilot/eval_independent.py",
-        "status": "documented",
-        "note": "Phase D failure host; MUST call require_preflight before paid arms",
+        "status": "wired",
+        "note": "GuardedExperiment.start before paid arms; guarded concurrent batch; health report",
     },
     {
         "category": "Editor Investigation",
         "path": "research_audit/arch_self_evolution_pilot/run_editor_arms.py",
-        "status": "documented",
-        "note": "Host runs sample_frames; reexec to config.execution.python + --editor --probe",
+        "status": "wired",
+        "note": "GuardedExperiment.start before Editor; observe infra scan; health report",
     },
     {
         "category": "Architectural Pilot",
