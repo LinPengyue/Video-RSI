@@ -1,0 +1,41 @@
+{
+  "n": 24,
+  "run_dir": "/home/descfly/lpy/Video-RSI/research_audit/arch_self_evolution_pilot/runs/valid_infoflow_retest_e1",
+  "arms_in_guard": [
+    "direct_vqa",
+    "initial"
+  ],
+  "guard": {
+    "overall_validity": "VALID",
+    "usable_for_architecture_ranking": true,
+    "reason_codes": [],
+    "aborted_early": false
+  },
+  "architecture_ranking_usable": true,
+  "accuracy_naive_audit_only": {
+    "initial": 0.7916666666666666,
+    "direct_vqa": 0.5416666666666666
+  },
+  "mean_qwen_frames": {
+    "initial": 51.916666666666664,
+    "direct_vqa": 32.0
+  },
+  "direct_vqa_reuse": {
+    "reused": 4,
+    "fresh": 20,
+    "rejected_incompatible": 0,
+    "rejected_reasons": {},
+    "aborted": false
+  },
+  "vs_initial": {
+    "direct_vqa": {
+      "vs": "initial",
+      "fix": 1,
+      "harm": 7,
+      "net": -6,
+      "parent_correct": 19,
+      "cand_correct": 13
+    }
+  },
+  "note": "Guard-gated eval; writes only under run_dir — does not overwrite phase_d_eval_v1"
+}
