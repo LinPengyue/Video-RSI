@@ -1,0 +1,2 @@
+# keep safe outs; ignore anything with raw traces if added later
+**/raw_*/
