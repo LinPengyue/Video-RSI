@@ -1,22 +1,33 @@
-# Architectural Evolution — Minimal Experiment Preflight
+# Architectural Evolution — Minimal Info-Flow Experiment
 
-Offline-only preparation for a mechanism-level info-flow A/B (Qwen describe→DeepSeek vs Qwen direct VQA) and a Same-Code Placebo Gate check on `run-seed42` parents.
+Preflight + executed mechanism probe: Caption→DeepSeek vs Qwen Direct VQA under matched overview timestamps.
 
-## Do / Don't
+## Docs
 
-- **Do:** run `analyze_placebo_and_feasibility.py`, read `PREFLIGHT_REPORT.md`, inspect `exploratory_samples_n20.json`.
-- **Don't:** call paid APIs, resume RSI rounds, mutate `evolution/`, use private Gate IDs as a develop set, upload gold/videos/keys.
+- `PREFLIGHT_REPORT.md` — placebo Gate / feasibility / sample freeze  
+- `MECHANISM_EXPERIMENT_REPORT.md` — executed A/B + diagnosis + GO/STOP  
 
-## Reproduce offline
+## Offline
 
 ```bash
-cd /path/to/Video-RSI
+PYTHONPATH=. python3 research_audit/arch_evolution_min_preflight/test_ab_infoflow_offline.py
 PYTHONPATH=. python3 research_audit/arch_evolution_min_preflight/analyze_placebo_and_feasibility.py
-PYTHONPATH=. python3 research_audit/arch_evolution_min_preflight/ab_infoflow_runner.py --dry-run
+PYTHONPATH=. python3 research_audit/arch_evolution_min_preflight/analyze_ab_results.py
 ```
+
+## Paid (manual; not auto)
+
+```bash
+set -a && source providers.env && set +a
+export ARCH_AB_ALLOW_PAID=1 PYTHONPATH=.
+python3 research_audit/arch_evolution_min_preflight/ab_infoflow_runner.py --phase connectivity --provider http --execute
+python3 research_audit/arch_evolution_min_preflight/ab_infoflow_runner.py --phase full_ab --provider http --execute
+python3 research_audit/arch_evolution_min_preflight/ab_infoflow_runner.py --phase diagnose --provider http --execute
+```
+
+Local raw run data lives under `runs/` (gitignored).
 
 ## Push hygiene
 
-Safe to publish: this directory’s markdown, scripts, `*.safe.json`, frozen sample **IDs** (no questions/answers/gold).
-
-Never push: `private_gate/`, `*_oracle.jsonl`, raw videos, `.env`, API keys, Gate item JSON with questions.
+Safe: markdown, scripts, `out/*.safe.json`, frozen sample IDs.  
+Never: `runs/` frames/raw, oracles, videos, `providers.env`, keys, private Gate.

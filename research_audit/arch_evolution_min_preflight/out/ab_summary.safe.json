@@ -1,0 +1,384 @@
+{
+  "protocol": "infoflow_mechanism_ab_v1",
+  "prompt_version": "infoflow_vqa_letter_json_v1",
+  "connectivity": {
+    "sample_ids": [
+      "lvbench_1344",
+      "lvbench_3097",
+      "lvbench_3523",
+      "lvbench_3629"
+    ],
+    "pass": true
+  },
+  "ab": {
+    "n": 20,
+    "A_correct": 8,
+    "B_correct": 11,
+    "A_accuracy": 0.4,
+    "B_accuracy": 0.55,
+    "A_wilson95": [
+      0.21880396741419272,
+      0.613422057684794
+    ],
+    "B_wilson95": [
+      0.3420820083075997,
+      0.7418049791429071
+    ],
+    "both_correct": 7,
+    "A_only_correct": 1,
+    "B_only_correct": 4,
+    "both_wrong": 8,
+    "mcnemar_exploratory": {
+      "n_discordant": 5,
+      "a_only": 1,
+      "b_only": 4,
+      "p_two_sided": 0.375
+    },
+    "cost_cny": {
+      "A_reuse_cny": 0.14910299999999999,
+      "B_direct_cny": 0.928028,
+      "total_cny": 1.077131
+    },
+    "by_question_type": {
+      "event understanding": {
+        "n": 4,
+        "A": 2,
+        "B": 1,
+        "A_only": 1,
+        "B_only": 0
+      },
+      "summarization": {
+        "n": 3,
+        "A": 2,
+        "B": 3,
+        "A_only": 0,
+        "B_only": 1
+      },
+      "key information retrieval": {
+        "n": 5,
+        "A": 2,
+        "B": 3,
+        "A_only": 0,
+        "B_only": 1
+      },
+      "reasoning": {
+        "n": 3,
+        "A": 1,
+        "B": 1,
+        "A_only": 0,
+        "B_only": 0
+      },
+      "entity recognition": {
+        "n": 3,
+        "A": 1,
+        "B": 2,
+        "A_only": 0,
+        "B_only": 1
+      },
+      "temporal grounding": {
+        "n": 2,
+        "A": 0,
+        "B": 1,
+        "A_only": 0,
+        "B_only": 1
+      }
+    },
+    "caveat": "n=20 exploratory; do not treat small fixes as significant architecture gains"
+  },
+  "ab_per_item_safe": [
+    {
+      "sample_id": "lvbench_1055",
+      "question_type": "event understanding",
+      "A_correct": true,
+      "B_correct": true,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_1136",
+      "question_type": "summarization",
+      "A_correct": true,
+      "B_correct": true,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_1344",
+      "question_type": "event understanding",
+      "A_correct": false,
+      "B_correct": false,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_1567",
+      "question_type": "key information retrieval",
+      "A_correct": false,
+      "B_correct": false,
+      "answers_differ": true,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_1758",
+      "question_type": "key information retrieval",
+      "A_correct": false,
+      "B_correct": false,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_1819",
+      "question_type": "key information retrieval",
+      "A_correct": true,
+      "B_correct": true,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_1865",
+      "question_type": "reasoning",
+      "A_correct": false,
+      "B_correct": false,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_2886",
+      "question_type": "entity recognition",
+      "A_correct": false,
+      "B_correct": true,
+      "answers_differ": true,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_2984",
+      "question_type": "event understanding",
+      "A_correct": true,
+      "B_correct": false,
+      "answers_differ": true,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_3097",
+      "question_type": "reasoning",
+      "A_correct": true,
+      "B_correct": true,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_3415",
+      "question_type": "reasoning",
+      "A_correct": false,
+      "B_correct": false,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_3472",
+      "question_type": "summarization",
+      "A_correct": false,
+      "B_correct": true,
+      "answers_differ": true,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_3523",
+      "question_type": "temporal grounding",
+      "A_correct": false,
+      "B_correct": true,
+      "answers_differ": true,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_3629",
+      "question_type": "summarization",
+      "A_correct": true,
+      "B_correct": true,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_38",
+      "question_type": "entity recognition",
+      "A_correct": false,
+      "B_correct": false,
+      "answers_differ": true,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_4151",
+      "question_type": "event understanding",
+      "A_correct": false,
+      "B_correct": false,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_4223",
+      "question_type": "key information retrieval",
+      "A_correct": true,
+      "B_correct": true,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_4799",
+      "question_type": "temporal grounding",
+      "A_correct": false,
+      "B_correct": false,
+      "answers_differ": true,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_4982",
+      "question_type": "entity recognition",
+      "A_correct": true,
+      "B_correct": true,
+      "answers_differ": false,
+      "B_frames": 32
+    },
+    {
+      "sample_id": "lvbench_531",
+      "question_type": "key information retrieval",
+      "A_correct": false,
+      "B_correct": true,
+      "answers_differ": true,
+      "B_frames": 32
+    }
+  ],
+  "diagnose": {
+    "selected": [
+      "lvbench_1567",
+      "lvbench_2886",
+      "lvbench_2984",
+      "lvbench_3472",
+      "lvbench_3523",
+      "lvbench_38",
+      "lvbench_4799",
+      "lvbench_531"
+    ],
+    "n_pool": 8,
+    "rows_safe": [
+      {
+        "sample_id": "lvbench_1567",
+        "question_type": "key information retrieval",
+        "A_strict_correct": false,
+        "C_correct": false,
+        "A_strict_status": "ok",
+        "C_status": "ok",
+        "shared_caption_sha": "234cb198c123bf403e5c0b89206b7269a64550ca20198ce5e1322ab3bc72e617",
+        "shared_frame_bundle_sha": "210f5811e9579312b09d81f52c07983e7170544869a3d1dab1180ca7fb87f2a4"
+      },
+      {
+        "sample_id": "lvbench_2886",
+        "question_type": "entity recognition",
+        "A_strict_correct": false,
+        "C_correct": false,
+        "A_strict_status": "ok",
+        "C_status": "ok",
+        "shared_caption_sha": "8ec9f9464439e7fc9a1416a9b08f63653c4b12122088c725bb9832b83305b776",
+        "shared_frame_bundle_sha": "5bc7dbb99e2b29328a4c8718364571b8b5700c76b56b33abfb2eae222bb863de"
+      },
+      {
+        "sample_id": "lvbench_2984",
+        "question_type": "event understanding",
+        "A_strict_correct": false,
+        "C_correct": true,
+        "A_strict_status": "ok",
+        "C_status": "ok",
+        "shared_caption_sha": "478062f6a73cea6ca4b6300c378e837479f7f7e0003c4286e518e2bc8391ab86",
+        "shared_frame_bundle_sha": "3d413a554456f8b41b446cc61d1a475820ee9888d5d831a305f4de2ea67f7803"
+      },
+      {
+        "sample_id": "lvbench_3472",
+        "question_type": "summarization",
+        "A_strict_correct": true,
+        "C_correct": true,
+        "A_strict_status": "ok",
+        "C_status": "ok",
+        "shared_caption_sha": "9c83e2dda27e73d033dfdc5805c8f6519a365d0723f4c23a6bed6e2f26b8b5a9",
+        "shared_frame_bundle_sha": "dcf43d14378fefe9943b35cc52c03f9215dd33b58c5f4573c4693a084e514a22"
+      },
+      {
+        "sample_id": "lvbench_3523",
+        "question_type": "temporal grounding",
+        "A_strict_correct": false,
+        "C_correct": false,
+        "A_strict_status": "ok",
+        "C_status": "ok",
+        "shared_caption_sha": "02ae14ab8a2dd07b0f32379ec13e254d26c76e1e9541f634825841b6cd01faeb",
+        "shared_frame_bundle_sha": "c1a762a83bc5a305e21958c0f5b6571e2817ff3bf9ecf8ae76fb8ad679793642"
+      },
+      {
+        "sample_id": "lvbench_38",
+        "question_type": "entity recognition",
+        "A_strict_correct": true,
+        "C_correct": false,
+        "A_strict_status": "ok",
+        "C_status": "ok",
+        "shared_caption_sha": "c8ef7823dff543a13fde317d94c7f5f7b96af7c5be2b69fb97f67f9e1fcac171",
+        "shared_frame_bundle_sha": "9fcba84f8021fce24b6c62fa80207e1b943c2ed4bce674da9cd9eada712c40e2"
+      },
+      {
+        "sample_id": "lvbench_4799",
+        "question_type": "temporal grounding",
+        "A_strict_correct": false,
+        "C_correct": false,
+        "A_strict_status": "ok",
+        "C_status": "ok",
+        "shared_caption_sha": "6a2c67afbba57abe76b9957c1a44c0f71c2c1e466d228e8ef751badf4f937b3f",
+        "shared_frame_bundle_sha": "aaa8a9ce4ff792424c3a01080cd42db1214e1b52085972b3d73799dc0a0ec50e"
+      },
+      {
+        "sample_id": "lvbench_531",
+        "question_type": "key information retrieval",
+        "A_strict_correct": false,
+        "C_correct": true,
+        "A_strict_status": "ok",
+        "C_status": "ok",
+        "shared_caption_sha": "f2f78577cede26c31256eed7deb46f230f7176a3a6a4377b6ac1975ae9125588",
+        "shared_frame_bundle_sha": "c3f68c1779d9568a6fe5f2a192703e577d43143c7813b2410a48a525b7ca2f49"
+      }
+    ]
+  },
+  "go_stop": {
+    "decision": "GO",
+    "delta_B_minus_A": 3,
+    "A_only": 1,
+    "B_only": 4,
+    "strict_support": true,
+    "vision_retention_signal": true,
+    "reasons": [
+      "meaningful complement/diff worth architectural follow-up"
+    ],
+    "exploratory_only": true
+  },
+  "mechanism_tags": {
+    "vision_retention_candidates": [
+      "lvbench_2886",
+      "lvbench_3523"
+    ],
+    "answerer_identity_candidates": [
+      "lvbench_531",
+      "lvbench_38",
+      "lvbench_2984"
+    ],
+    "fresh_caption_recovers_deepseek": [
+      "lvbench_3472"
+    ],
+    "first_batch_calls": {
+      "qwen_direct": 20,
+      "deepseek_areuse": 20,
+      "editor": 0
+    },
+    "diag_calls": {
+      "qwen_caption": 8,
+      "deepseek_astrct": 8,
+      "qwen_ctext": 8
+    },
+    "estimated_cny": {
+      "first_batch": 1.077131
+    }
+  }
+}

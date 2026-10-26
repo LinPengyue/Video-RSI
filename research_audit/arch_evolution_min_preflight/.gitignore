@@ -1,0 +1,11 @@
+# Local experiment artifacts — keep frames/raw/gold off git
+runs/
+**/frames/
+**/*.jpg
+**/*.mp4
+**/connectivity_result.json
+**/ab_summary.json
+**/diagnose_result.json
+**/go_stop.json
+**/call_ledger.jsonl
+**/calls/
