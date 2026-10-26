@@ -160,7 +160,6 @@ def test_direct_provider_failure_stops_remaining():
         td = Path(td)
         run_dir = td / "run"
         cfg = load_config()
-        # Minimal items/gold/cache
         ids = ["a", "b", "c", "d"]
         items = {
             s: {
@@ -189,9 +188,6 @@ def test_direct_provider_failure_stops_remaining():
                     error="injected_provider_failure",
                     latency_seconds=0.01,
                 )
-
-        # Patch extract_frames to succeed without real video
-        fake_paths = []
 
         def fake_extract(video, timestamps, out_dir, config):
             out_dir = Path(out_dir)
@@ -238,6 +234,66 @@ def test_direct_provider_failure_stops_remaining():
         print("PASS test_direct_provider_failure_stops_remaining n=%d" % len(results))
 
 
+def test_direct_provider_exception_preserves_diagnosis_and_stops():
+    import eval_independent as ei
+
+    with tempfile.TemporaryDirectory() as td:
+        td = Path(td)
+        run_dir = td / "run"
+        cfg = load_config()
+        ids = ["a", "b", "c"]
+        items = {
+            s: {
+                "sample_id": s,
+                "question": "q",
+                "options": {"A": "a", "B": "b"},
+                "duration": 10.0,
+                "video_path": str(td / "x.mp4"),
+            }
+            for s in ids
+        }
+        gold = {s: "A" for s in ids}
+
+        class BoomProvider:
+            def chat(self, *a, **k):
+                raise RuntimeError("network_boom")
+
+        def fake_extract(video, timestamps, out_dir, config):
+            out_dir = Path(out_dir)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            paths = []
+            for i, _ts in enumerate(timestamps):
+                p = out_dir / ("f%d.jpg" % i)
+                p.write_bytes(b"\xff\xd8\xff\xd9")
+                paths.append(p)
+            return paths
+
+        guard = GuardedExperiment(
+            experiment_id="direct_exc",
+            out_dir=run_dir / "guard",
+            capabilities=PreflightCapabilities(
+                visual_sample_frames=False,
+                host_must_match_config_python=False,
+                provider_config=False,
+            ),
+            formal_protocol=False,
+        )
+        guard.start_soft(reexec=False, config=cfg)
+        orig = ei.extract_frames
+        ei.extract_frames = fake_extract
+        try:
+            _s, results, stats = ei.run_direct_vqa(
+                ids, items, gold, {}, cfg, BoomProvider(), run_dir, guard=guard, cfg_fp="cfg", harness_sha="h"
+            )
+        finally:
+            ei.extract_frames = orig
+        assert stats["aborted"] is True
+        assert len(results) == 1
+        assert "ProviderException" in (results[0].get("direct_vqa_record") or {}).get("error", "")
+        assert results[0]["status"] == "provider_error"
+        print("PASS test_direct_provider_exception_preserves_diagnosis_and_stops")
+
+
 def test_resume_rejects_incompatible():
     expected = expected_direct_meta(
         sample_id="s1",
@@ -264,7 +320,7 @@ def test_resume_rejects_incompatible():
     print("PASS test_resume_rejects_incompatible")
 
 
-def test_resume_accepts_proven_compatible_including_legacy_timestamps():
+def test_resume_rejects_missing_timestamps_no_inference():
     expected = expected_direct_meta(
         sample_id="s1",
         prompt_sha="sha",
@@ -273,7 +329,7 @@ def test_resume_accepts_proven_compatible_including_legacy_timestamps():
         timestamps=[1.0] * 32,
         config_fingerprint="cfg",
     )
-    # Legacy Phase D shape: no timestamps field
+    # Legacy Phase D shape: no timestamps — must NOT infer from prompt_sha + n_frames
     legacy = {
         "status": "ok",
         "n_frames": 32,
@@ -282,9 +338,14 @@ def test_resume_accepts_proven_compatible_including_legacy_timestamps():
         "request_model": "Qwen3.6-Plus",
     }
     v = assess_direct_vqa_reuse(legacy, expected)
-    assert v["compatible"] is True
-    assert any("legacy" in r for r in v["reasons"])
-    print("PASS test_resume_accepts_proven_compatible_including_legacy_timestamps")
+    assert v["compatible"] is False
+    assert "timestamps_missing_cannot_infer" in v["reasons"]
+    # Full meta with matching timestamps still OK
+    full = dict(legacy)
+    full["timestamps"] = [1.0] * 32
+    v2 = assess_direct_vqa_reuse(full, expected)
+    assert v2["compatible"] is True
+    print("PASS test_resume_rejects_missing_timestamps_no_inference")
 
 
 def test_frozen_phase_d_files_untouched_and_run_dir_blocked():
@@ -390,8 +451,9 @@ def main() -> int:
         test_ranking_blocked_when_initial_invalid_direct_valid,
         test_ranking_ok_when_both_valid,
         test_direct_provider_failure_stops_remaining,
+        test_direct_provider_exception_preserves_diagnosis_and_stops,
         test_resume_rejects_incompatible,
-        test_resume_accepts_proven_compatible_including_legacy_timestamps,
+        test_resume_rejects_missing_timestamps_no_inference,
         test_frozen_phase_d_files_untouched_and_run_dir_blocked,
         test_both_arms_enter_guard_finalize_limit4_shape,
         test_dry_run_mentions_new_default_run_dir,

@@ -191,17 +191,12 @@ def run_direct_vqa(
         for source, cand in candidates:
             verdict = assess_direct_vqa_reuse(cand, expected)
             if verdict["compatible"]:
+                # Keep historical fields as stored — do NOT backfill current-env metadata
+                # onto a legacy record and pretend it was executed now.
                 reused = dict(cand)
                 reused["reused"] = True
                 reused["reuse_source"] = source
                 reused["reuse_reasons"] = verdict["reasons"]
-                # Ensure timestamps present for audit (fill from expected if legacy omitted)
-                if not reused.get("timestamps"):
-                    reused["timestamps"] = list(timestamps)
-                if not reused.get("config_fingerprint"):
-                    reused["config_fingerprint"] = cfg_fp
-                if not reused.get("harness_sha"):
-                    reused["harness_sha"] = harness_sha
                 reuse_stats["reused"] += 1
                 break
             else:
@@ -211,7 +206,6 @@ def run_direct_vqa(
 
         if reused is not None:
             record = reused
-            # Persist enriched copy into this run_dir for provenance (does not touch legacy)
             store.save_call(record)
         else:
             out_dir = store.frames_dir / sid
@@ -226,7 +220,7 @@ def run_direct_vqa(
                     n_overview_frames=0,
                     prompt_version=PROMPT_VERSION,
                 )
-                record["status"] = "provider_error"
+                record["status"] = "engineering_error"
                 record["extract_error"] = "%s:%s" % (type(exc).__name__, exc)
                 record["error"] = record["extract_error"]
                 record["n_frames"] = 0
@@ -240,7 +234,12 @@ def run_direct_vqa(
                 gres = normalize_direct_vqa_record(record)
                 guard_results.append(gres)
                 if runtime:
-                    runtime.observe_result(gres, current_fingerprint=guard.live_fingerprint()[0] if guard else None)
+                    assessment = runtime.observe_result(
+                        gres, current_fingerprint=guard.live_fingerprint()[0] if guard else None
+                    )
+                    if assessment.get("validity") == "INVALID_RUN" or gres.get("status") == "engineering_error":
+                        runtime.aborted = True
+                        runtime.abort_reason = runtime.abort_reason or "direct_vqa_extract_failed"
                     if runtime.aborted:
                         reuse_stats["aborted"] = True
                         print("GUARD_ABORT direct_vqa", sid, runtime.abort_reason, flush=True)
@@ -262,7 +261,29 @@ def run_direct_vqa(
                 config_fingerprint=cfg_fp,
                 harness_sha=harness_sha,
             )
-            resp = provider.chat("qwen", vision_messages(prompt, paths, timestamps), frames=len(paths))
+            try:
+                resp = provider.chat("qwen", vision_messages(prompt, paths, timestamps), frames=len(paths))
+            except Exception as exc:
+                record["status"] = "provider_error"
+                record["error"] = "ProviderException:%s:%s" % (type(exc).__name__, exc)
+                record["n_frames"] = len(paths)
+                record["provider_exception"] = True
+                record["reused"] = False
+                store.save_call(record)
+                reuse_stats["fresh"] += 1
+                raw_rows.append(record)
+                gres = normalize_direct_vqa_record(record)
+                guard_results.append(gres)
+                if runtime:
+                    assessment = runtime.observe_result(
+                        gres, current_fingerprint=guard.live_fingerprint()[0] if guard else None
+                    )
+                    runtime.aborted = True
+                    runtime.abort_reason = runtime.abort_reason or "direct_vqa_provider_exception"
+                    reuse_stats["aborted"] = True
+                    print("GUARD_ABORT direct_vqa", sid, runtime.abort_reason, flush=True)
+                print("direct_vqa", sid, record.get("status"), record.get("error"), flush=True)
+                continue
             apply_usage(record, resp)
             # apply_usage sets n_frames from resp — keep extract count if provider omits
             if not record.get("n_frames"):
@@ -504,6 +525,11 @@ def main() -> int:
         default=None,
         help="Optional legacy Direct VQA store root(s) to consider for proven-compatible reuse only",
     )
+    ap.add_argument(
+        "--no-legacy-direct-reuse",
+        action="store_true",
+        help="Do not consult frozen/legacy Direct VQA stores; fresh calls only (same-run resume still allowed)",
+    )
     args = ap.parse_args()
 
     ids = read_json(EVAL_IDS)["sample_ids"]
@@ -588,11 +614,14 @@ def main() -> int:
     if "direct_vqa" in want_arms and not aborted_early:
         print("EVAL direct_vqa", flush=True)
         provider = HttpProvider(config)
-        legacy = args.legacy_direct_dir or []
-        # Default: consider frozen Phase D direct store for proven-compatible reuse only
-        default_legacy = FROZEN_PHASE_D_RUN / "direct_vqa"
-        if default_legacy.is_dir() and default_legacy not in legacy:
-            legacy = list(legacy) + [default_legacy]
+        if args.no_legacy_direct_reuse:
+            legacy = []
+        else:
+            legacy = list(args.legacy_direct_dir or [])
+            # Default: consider frozen Phase D direct store only if timestamps proven compatible
+            default_legacy = FROZEN_PHASE_D_RUN / "direct_vqa"
+            if default_legacy.is_dir() and default_legacy not in legacy:
+                legacy.append(default_legacy)
         summary, ordered, reuse_stats = run_direct_vqa(
             ids,
             items,

@@ -63,15 +63,13 @@ def assess_direct_vqa_reuse(existing: dict | None, expected: dict) -> dict[str, 
             return {"compatible": False, "reasons": ["harness_sha_mismatch"]}
 
     existing_ts = existing.get("timestamps")
-    if existing_ts is not None:
-        exp_ts = [float(t) for t in expected.get("timestamps") or []]
-        got_ts = [float(t) for t in existing_ts]
-        if got_ts != exp_ts:
-            return {"compatible": False, "reasons": ["timestamp_mismatch"]}
-    else:
-        # Legacy Phase D records omit timestamps — only accept if prompt_sha + n_frames
-        # already matched expected protocol (proven above). Record the inference.
-        reasons.append("legacy_timestamps_inferred_from_prompt_sha_and_n_frames")
+    if existing_ts is None:
+        # Forbidden: inferring identical video timestamps from prompt_sha + n_frames alone.
+        return {"compatible": False, "reasons": ["timestamps_missing_cannot_infer"]}
+    exp_ts = [float(t) for t in expected.get("timestamps") or []]
+    got_ts = [float(t) for t in existing_ts]
+    if got_ts != exp_ts:
+        return {"compatible": False, "reasons": ["timestamp_mismatch"]}
 
     if existing.get("frame_bundle_sha") and expected.get("frame_bundle_sha"):
         if existing["frame_bundle_sha"] != expected["frame_bundle_sha"]:
