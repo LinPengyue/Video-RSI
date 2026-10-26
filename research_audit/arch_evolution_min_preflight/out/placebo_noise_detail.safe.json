@@ -1,0 +1,19 @@
+{
+  "n_gate": 72,
+  "n_answer_unstable_across_3_parents": 28,
+  "answer_unstable_fraction": 0.3888888888888889,
+  "mean_per_item_qwen_frame_spread_max_minus_min": 16.84722222222222,
+  "max_per_item_qwen_frame_spread": 64,
+  "provider_errors_sum": {
+    "1": 12,
+    "2": 13,
+    "3": 10
+  },
+  "all_status_answered": true,
+  "noise_sources_hypothesis": [
+    "LLM sampling residual despite temperature=0 (provider nondeterminism)",
+    "agent tool-path branching when perception text differs slightly",
+    "provider_errors retries changing downstream trajectory",
+    "frame count differences from different tool call sequences"
+  ]
+}

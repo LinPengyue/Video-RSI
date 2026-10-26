@@ -1,0 +1,42 @@
+{
+  "path_A": {
+    "name": "frames -> Qwen describe -> DeepSeek answer",
+    "feasible_without_changing_Services_ABI": true,
+    "note": "Services.call('qwen', {frames, prompt}) already takes arbitrary prompt; DeepSeek path is separate provider.chat. External wrapper can orchestrate A without editing frozen harness Services signature."
+  },
+  "path_B": {
+    "name": "frames -> Qwen direct VQA letter",
+    "feasible_without_changing_Services_ABI": true,
+    "qwen_can_take_answer_prompt": true,
+    "note": "Same qwen endpoint; prompt can request single option letter. No harness edit required if run as offline/external script calling Services/provider.",
+    "caveat": "Need parse/validate letter; model may refuse or free-form — fail closed."
+  },
+  "identical_frames": {
+    "cached_jpeg_bytes_in_training_cache": false,
+    "cached_frame_ids_and_timestamps": true,
+    "reextract_via_ffmpeg_from_video_path_plus_timestamps": true,
+    "fair_A_B_requires": "shared timestamp list (or shared overview 32-frame grid) extracted once, then both prompts on same frame bundle"
+  },
+  "reusable_observations": {
+    "train_cache_items": 216,
+    "with_overview": 164,
+    "with_nonempty_perception": 212,
+    "can_reuse_text_as_path_A_without_new_qwen": true,
+    "reusing_text_breaks_fair_frame_identity_for_path_B": "If B needs new Qwen-on-frames while A reuses old text, A/B are not matched on the same Qwen call — only on timestamps. For strict A/B, either both reuse nothing (new calls) or B is text-only (invalid for vision direct)."
+  },
+  "cost_logging": {
+    "meter_events_fields": [
+      "prompt_tokens",
+      "completion_tokens",
+      "role",
+      "frames"
+    ],
+    "recommend": "external runner wrapping provider.chat with MaaS rates from batch_billing.py"
+  },
+  "cannot_fairly_compare_from_logs_alone": [
+    "Path B (Qwen direct VQA) never appears in historical Solver traces",
+    "JPEG bytes absent — must re-extract frames for any new Qwen call",
+    "DeepSeek answers in cache conditioned on multi-step tool memory, not single overview text",
+    "Stochasticity: single historical DeepSeek answer ≠ fixed Path A replicate"
+  ]
+}

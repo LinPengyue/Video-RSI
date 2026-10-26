@@ -1,0 +1,273 @@
+{
+  "protocol": "arch_evolution_min_preflight_v1",
+  "paid_api_calls": 0,
+  "placebo": {
+    "protocol": "same_code_placebo_gate_v1",
+    "harness": "initial_harness",
+    "harness_tree_sha256": "0805cf0eff40fe55712124f0cc70e228e7e3205e362cca37dc79a9d977744fe3",
+    "phase_parent_fields": {
+      "1": "initial_harness",
+      "2": "initial_harness",
+      "3": "initial_harness"
+    },
+    "effective_config_fingerprint": "51b499c9ff008304c24ffa216d387238c8e5ee042c3c3af512605516e2d2eaa3",
+    "models": {
+      "deepseek": "DeepSeek-V4-Pro-0813",
+      "qwen": "Qwen3.6-Plus",
+      "temperature": 0,
+      "concurrency": 4
+    },
+    "n_gate": 72,
+    "parent_correct": {
+      "1": 41,
+      "2": 42,
+      "3": 43
+    },
+    "directed_pairs": [
+      {
+        "parent_round": 1,
+        "candidate_round": 2,
+        "accepted": true,
+        "status": "ACCEPTED",
+        "accuracy_branch_passed": true,
+        "efficiency_branch_passed": false,
+        "parent_correct": 41,
+        "candidate_correct": 42,
+        "fix": 9,
+        "harm": 8,
+        "net": 1,
+        "parent_mean_frames": 57.388888888888886,
+        "candidate_mean_frames": 55.236111111111114,
+        "frame_ratio_cand_over_parent": 0.9624878993223621
+      },
+      {
+        "parent_round": 1,
+        "candidate_round": 3,
+        "accepted": true,
+        "status": "ACCEPTED",
+        "accuracy_branch_passed": true,
+        "efficiency_branch_passed": false,
+        "parent_correct": 41,
+        "candidate_correct": 43,
+        "fix": 9,
+        "harm": 7,
+        "net": 2,
+        "parent_mean_frames": 57.388888888888886,
+        "candidate_mean_frames": 55.388888888888886,
+        "frame_ratio_cand_over_parent": 0.9651500484027106
+      },
+      {
+        "parent_round": 2,
+        "candidate_round": 1,
+        "accepted": false,
+        "status": "REJECTED",
+        "accuracy_branch_passed": false,
+        "efficiency_branch_passed": false,
+        "parent_correct": 42,
+        "candidate_correct": 41,
+        "fix": 8,
+        "harm": 9,
+        "net": -1,
+        "parent_mean_frames": 55.236111111111114,
+        "candidate_mean_frames": 57.388888888888886,
+        "frame_ratio_cand_over_parent": 1.0389741010812168
+      },
+      {
+        "parent_round": 2,
+        "candidate_round": 3,
+        "accepted": true,
+        "status": "ACCEPTED",
+        "accuracy_branch_passed": true,
+        "efficiency_branch_passed": false,
+        "parent_correct": 42,
+        "candidate_correct": 43,
+        "fix": 9,
+        "harm": 8,
+        "net": 1,
+        "parent_mean_frames": 55.236111111111114,
+        "candidate_mean_frames": 55.388888888888886,
+        "frame_ratio_cand_over_parent": 1.0027659039476993
+      },
+      {
+        "parent_round": 3,
+        "candidate_round": 1,
+        "accepted": false,
+        "status": "REJECTED",
+        "accuracy_branch_passed": false,
+        "efficiency_branch_passed": false,
+        "parent_correct": 43,
+        "candidate_correct": 41,
+        "fix": 7,
+        "harm": 9,
+        "net": -2,
+        "parent_mean_frames": 55.388888888888886,
+        "candidate_mean_frames": 57.388888888888886,
+        "frame_ratio_cand_over_parent": 1.0361083249749248
+      },
+      {
+        "parent_round": 3,
+        "candidate_round": 2,
+        "accepted": false,
+        "status": "REJECTED",
+        "accuracy_branch_passed": false,
+        "efficiency_branch_passed": false,
+        "parent_correct": 43,
+        "candidate_correct": 42,
+        "fix": 8,
+        "harm": 9,
+        "net": -1,
+        "parent_mean_frames": 55.388888888888886,
+        "candidate_mean_frames": 55.236111111111114,
+        "frame_ratio_cand_over_parent": 0.9972417251755267
+      }
+    ],
+    "n_directed_pairs": 6,
+    "n_false_accepts_if_treated_as_independent": 3,
+    "false_accept_pairs": [
+      {
+        "parent_round": 1,
+        "candidate_round": 2,
+        "accepted": true,
+        "status": "ACCEPTED",
+        "accuracy_branch_passed": true,
+        "efficiency_branch_passed": false,
+        "parent_correct": 41,
+        "candidate_correct": 42,
+        "fix": 9,
+        "harm": 8,
+        "net": 1,
+        "parent_mean_frames": 57.388888888888886,
+        "candidate_mean_frames": 55.236111111111114,
+        "frame_ratio_cand_over_parent": 0.9624878993223621
+      },
+      {
+        "parent_round": 1,
+        "candidate_round": 3,
+        "accepted": true,
+        "status": "ACCEPTED",
+        "accuracy_branch_passed": true,
+        "efficiency_branch_passed": false,
+        "parent_correct": 41,
+        "candidate_correct": 43,
+        "fix": 9,
+        "harm": 7,
+        "net": 2,
+        "parent_mean_frames": 57.388888888888886,
+        "candidate_mean_frames": 55.388888888888886,
+        "frame_ratio_cand_over_parent": 0.9651500484027106
+      },
+      {
+        "parent_round": 2,
+        "candidate_round": 3,
+        "accepted": true,
+        "status": "ACCEPTED",
+        "accuracy_branch_passed": true,
+        "efficiency_branch_passed": false,
+        "parent_correct": 42,
+        "candidate_correct": 43,
+        "fix": 9,
+        "harm": 8,
+        "net": 1,
+        "parent_mean_frames": 55.236111111111114,
+        "candidate_mean_frames": 55.388888888888886,
+        "frame_ratio_cand_over_parent": 1.0027659039476993
+      }
+    ],
+    "note_on_dependence": "The six directed pairs share the same three noisy evals; do not treat false-accept count as six i.i.d. Bernoulli trials.",
+    "answer_disagreement": {
+      "r1_vs_r2": {
+        "answer_mismatch": 19,
+        "right_to_wrong": 8,
+        "wrong_to_right": 9,
+        "both_wrong_different_letters": 2
+      },
+      "r1_vs_r3": {
+        "answer_mismatch": 20,
+        "right_to_wrong": 7,
+        "wrong_to_right": 9,
+        "both_wrong_different_letters": 4
+      },
+      "r2_vs_r3": {
+        "answer_mismatch": 19,
+        "right_to_wrong": 8,
+        "wrong_to_right": 9,
+        "both_wrong_different_letters": 2
+      }
+    },
+    "status_counts": {
+      "1": {
+        "answered": 72
+      },
+      "2": {
+        "answered": 72
+      },
+      "3": {
+        "answered": 72
+      }
+    },
+    "placebo_gate_exists": true
+  },
+  "infoflow": {
+    "path_A": {
+      "name": "frames -> Qwen describe -> DeepSeek answer",
+      "feasible_without_changing_Services_ABI": true,
+      "note": "Services.call('qwen', {frames, prompt}) already takes arbitrary prompt; DeepSeek path is separate provider.chat. External wrapper can orchestrate A without editing frozen harness Services signature."
+    },
+    "path_B": {
+      "name": "frames -> Qwen direct VQA letter",
+      "feasible_without_changing_Services_ABI": true,
+      "qwen_can_take_answer_prompt": true,
+      "note": "Same qwen endpoint; prompt can request single option letter. No harness edit required if run as offline/external script calling Services/provider.",
+      "caveat": "Need parse/validate letter; model may refuse or free-form — fail closed."
+    },
+    "identical_frames": {
+      "cached_jpeg_bytes_in_training_cache": false,
+      "cached_frame_ids_and_timestamps": true,
+      "reextract_via_ffmpeg_from_video_path_plus_timestamps": true,
+      "fair_A_B_requires": "shared timestamp list (or shared overview 32-frame grid) extracted once, then both prompts on same frame bundle"
+    },
+    "reusable_observations": {
+      "train_cache_items": 216,
+      "with_overview": 164,
+      "with_nonempty_perception": 212,
+      "can_reuse_text_as_path_A_without_new_qwen": true,
+      "reusing_text_breaks_fair_frame_identity_for_path_B": "If B needs new Qwen-on-frames while A reuses old text, A/B are not matched on the same Qwen call — only on timestamps. For strict A/B, either both reuse nothing (new calls) or B is text-only (invalid for vision direct)."
+    },
+    "cost_logging": {
+      "meter_events_fields": [
+        "prompt_tokens",
+        "completion_tokens",
+        "role",
+        "frames"
+      ],
+      "recommend": "external runner wrapping provider.chat with MaaS rates from batch_billing.py"
+    },
+    "cannot_fairly_compare_from_logs_alone": [
+      "Path B (Qwen direct VQA) never appears in historical Solver traces",
+      "JPEG bytes absent — must re-extract frames for any new Qwen call",
+      "DeepSeek answers in cache conditioned on multi-step tool memory, not single overview text",
+      "Stochasticity: single historical DeepSeek answer ≠ fixed Path A replicate"
+    ]
+  },
+  "frozen_samples_ref": "exploratory_samples_n20.json",
+  "api_plan": {
+    "max_qwen_direct_vqa": 20,
+    "max_deepseek_control": 20,
+    "editor_calls": 0,
+    "optional_extra_qwen_describe_if_not_reusing_cache_text": "If strict matched frames for Path A without reusing cached perception text, add up to N Qwen describe calls (would exceed 24 unless N reduced).",
+    "recommended_first_batch": {
+      "n": 20,
+      "mode": "Path B: new Qwen direct VQA on re-extracted overview timestamps; Path A-control: DeepSeek answers from cached nonempty overview perception text (no new Qwen) OR DeepSeek on freshly described frames if budget allows",
+      "estimated_calls": {
+        "qwen": 20,
+        "deepseek": 20,
+        "editor": 0
+      },
+      "stop_do_not_auto_run": true
+    }
+  },
+  "answers_to_key_questions": {
+    "placebo_gate_real": true,
+    "infoflow_ab_reliable": "Feasible via external wrapper + ffmpeg re-extract; not fair from logs alone for Path B; Path A can partially reuse cache text."
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "seed": 20261026,
+  "n": 20,
+  "source": "data/lvbench-split/train_items.jsonl",
+  "excluded_sets": [
+    "gate_items / private Gate cohort"
+  ],
+  "selection_rule": "stratified by (traj_correct, question_type), prefer video-disjoint, require train_cache nonempty overview perception, qwen_frames<=160; frozen before any new API",
+  "sample_ids": [
+    "lvbench_1055",
+    "lvbench_1136",
+    "lvbench_1344",
+    "lvbench_1567",
+    "lvbench_1758",
+    "lvbench_1819",
+    "lvbench_1865",
+    "lvbench_2886",
+    "lvbench_2984",
+    "lvbench_3097",
+    "lvbench_3415",
+    "lvbench_3472",
+    "lvbench_3523",
+    "lvbench_3629",
+    "lvbench_38",
+    "lvbench_4151",
+    "lvbench_4223",
+    "lvbench_4799",
+    "lvbench_4982",
+    "lvbench_531"
+  ],
+  "by_question_type": {
+    "event understanding": 4,
+    "summarization": 3,
+    "key information retrieval": 5,
+    "reasoning": 3,
+    "entity recognition": 3,
+    "temporal grounding": 2
+  },
+  "n_traj_correct": 10,
+  "n_traj_wrong": 10,
+  "n_unique_videos": 20,
+  "items_safe": [
+    {
+      "sample_id": "lvbench_1055",
+      "question_type": "event understanding",
+      "duration": 2664.64,
+      "video_stem": "xi6r3hZe5Tg",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_1136",
+      "question_type": "summarization",
+      "duration": 2959.84,
+      "video_stem": "Z4HGQL_McDQ",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_1344",
+      "question_type": "event understanding",
+      "duration": 3153.0,
+      "video_stem": "uW9mcG0rdLY",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_1567",
+      "question_type": "key information retrieval",
+      "duration": 6797.323866666667,
+      "video_stem": "IsdbCjlZ5cQ",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 9,
+      "qwen_frames_cache": 144,
+      "n_visual_frames_sum": 144
+    },
+    {
+      "sample_id": "lvbench_1758",
+      "question_type": "key information retrieval",
+      "duration": 5616.243966666667,
+      "video_stem": "-WnyRMZqV1U",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_1819",
+      "question_type": "key information retrieval",
+      "duration": 6654.04,
+      "video_stem": "7HjNIPIgUg4",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_1865",
+      "question_type": "reasoning",
+      "duration": 5066.433333333333,
+      "video_stem": "8NHmfpkxTSw",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_2886",
+      "question_type": "entity recognition",
+      "duration": 1844.8012916666664,
+      "video_stem": "_T2Avd3tFHc",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 8,
+      "qwen_frames_cache": 104,
+      "n_visual_frames_sum": 104
+    },
+    {
+      "sample_id": "lvbench_2984",
+      "question_type": "event understanding",
+      "duration": 2074.739333333333,
+      "video_stem": "JPPMz8fEml0",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 4,
+      "qwen_frames_cache": 64,
+      "n_visual_frames_sum": 64
+    },
+    {
+      "sample_id": "lvbench_3097",
+      "question_type": "reasoning",
+      "duration": 2331.28,
+      "video_stem": "wgBlACG927Y",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 6,
+      "qwen_frames_cache": 80,
+      "n_visual_frames_sum": 80
+    },
+    {
+      "sample_id": "lvbench_3415",
+      "question_type": "reasoning",
+      "duration": 2254.4666666666667,
+      "video_stem": "1FsiZgGZU70",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 4,
+      "qwen_frames_cache": 56,
+      "n_visual_frames_sum": 56
+    },
+    {
+      "sample_id": "lvbench_3472",
+      "question_type": "summarization",
+      "duration": 2134.4323,
+      "video_stem": "jp2M1hIEtsk",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 2,
+      "qwen_frames_cache": 48,
+      "n_visual_frames_sum": 48
+    },
+    {
+      "sample_id": "lvbench_3523",
+      "question_type": "temporal grounding",
+      "duration": 5895.533333333334,
+      "video_stem": "oZEVgDXJwCc",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 3,
+      "qwen_frames_cache": 56,
+      "n_visual_frames_sum": 56
+    },
+    {
+      "sample_id": "lvbench_3629",
+      "question_type": "summarization",
+      "duration": 6020.4,
+      "video_stem": "rSE2YPcv89U",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_38",
+      "question_type": "entity recognition",
+      "duration": 2044.4166666666667,
+      "video_stem": "Za2Z_JRxCuk",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 2,
+      "qwen_frames_cache": 40,
+      "n_visual_frames_sum": 40
+    },
+    {
+      "sample_id": "lvbench_4151",
+      "question_type": "event understanding",
+      "duration": 7186.56,
+      "video_stem": "Aiem1w_TvaA",
+      "traj_correct_on_initial_cache": false,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_4223",
+      "question_type": "key information retrieval",
+      "duration": 2267.76,
+      "video_stem": "hjoDzK0siaM",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_4799",
+      "question_type": "temporal grounding",
+      "duration": 2398.7964,
+      "video_stem": "AeEYQ62t8hA",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 3,
+      "qwen_frames_cache": 56,
+      "n_visual_frames_sum": 56
+    },
+    {
+      "sample_id": "lvbench_4982",
+      "question_type": "entity recognition",
+      "duration": 2893.307083333333,
+      "video_stem": "4LA_tH-VSnQ",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 1,
+      "qwen_frames_cache": 32,
+      "n_visual_frames_sum": 32
+    },
+    {
+      "sample_id": "lvbench_531",
+      "question_type": "key information retrieval",
+      "duration": 1822.0202,
+      "video_stem": "2sriHX3PbXw",
+      "traj_correct_on_initial_cache": true,
+      "n_nonempty_perceptions": 6,
+      "qwen_frames_cache": 104,
+      "n_visual_frames_sum": 104
+    }
+  ],
+  "blocked_examples_not_selected_reasons": {
+    "missing_video": 0,
+    "not_in_cache": 0,
+    "no_nonempty_perception": 4,
+    "qwen_frames_gt_160": 2
+  },
+  "gate_id_leakage_check": {
+    "n_selected_in_gate": 0,
+    "ok": true
+  }
+}

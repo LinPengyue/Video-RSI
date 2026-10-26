@@ -1,0 +1,16 @@
+{
+  "max_qwen_direct_vqa": 20,
+  "max_deepseek_control": 20,
+  "editor_calls": 0,
+  "optional_extra_qwen_describe_if_not_reusing_cache_text": "If strict matched frames for Path A without reusing cached perception text, add up to N Qwen describe calls (would exceed 24 unless N reduced).",
+  "recommended_first_batch": {
+    "n": 20,
+    "mode": "Path B: new Qwen direct VQA on re-extracted overview timestamps; Path A-control: DeepSeek answers from cached nonempty overview perception text (no new Qwen) OR DeepSeek on freshly described frames if budget allows",
+    "estimated_calls": {
+      "qwen": 20,
+      "deepseek": 20,
+      "editor": 0
+    },
+    "stop_do_not_auto_run": true
+  }
+}

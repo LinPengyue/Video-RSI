@@ -1,0 +1,206 @@
+{
+  "protocol": "same_code_placebo_gate_v1",
+  "harness": "initial_harness",
+  "harness_tree_sha256": "0805cf0eff40fe55712124f0cc70e228e7e3205e362cca37dc79a9d977744fe3",
+  "phase_parent_fields": {
+    "1": "initial_harness",
+    "2": "initial_harness",
+    "3": "initial_harness"
+  },
+  "effective_config_fingerprint": "51b499c9ff008304c24ffa216d387238c8e5ee042c3c3af512605516e2d2eaa3",
+  "models": {
+    "deepseek": "DeepSeek-V4-Pro-0813",
+    "qwen": "Qwen3.6-Plus",
+    "temperature": 0,
+    "concurrency": 4
+  },
+  "n_gate": 72,
+  "parent_correct": {
+    "1": 41,
+    "2": 42,
+    "3": 43
+  },
+  "directed_pairs": [
+    {
+      "parent_round": 1,
+      "candidate_round": 2,
+      "accepted": true,
+      "status": "ACCEPTED",
+      "accuracy_branch_passed": true,
+      "efficiency_branch_passed": false,
+      "parent_correct": 41,
+      "candidate_correct": 42,
+      "fix": 9,
+      "harm": 8,
+      "net": 1,
+      "parent_mean_frames": 57.388888888888886,
+      "candidate_mean_frames": 55.236111111111114,
+      "frame_ratio_cand_over_parent": 0.9624878993223621
+    },
+    {
+      "parent_round": 1,
+      "candidate_round": 3,
+      "accepted": true,
+      "status": "ACCEPTED",
+      "accuracy_branch_passed": true,
+      "efficiency_branch_passed": false,
+      "parent_correct": 41,
+      "candidate_correct": 43,
+      "fix": 9,
+      "harm": 7,
+      "net": 2,
+      "parent_mean_frames": 57.388888888888886,
+      "candidate_mean_frames": 55.388888888888886,
+      "frame_ratio_cand_over_parent": 0.9651500484027106
+    },
+    {
+      "parent_round": 2,
+      "candidate_round": 1,
+      "accepted": false,
+      "status": "REJECTED",
+      "accuracy_branch_passed": false,
+      "efficiency_branch_passed": false,
+      "parent_correct": 42,
+      "candidate_correct": 41,
+      "fix": 8,
+      "harm": 9,
+      "net": -1,
+      "parent_mean_frames": 55.236111111111114,
+      "candidate_mean_frames": 57.388888888888886,
+      "frame_ratio_cand_over_parent": 1.0389741010812168
+    },
+    {
+      "parent_round": 2,
+      "candidate_round": 3,
+      "accepted": true,
+      "status": "ACCEPTED",
+      "accuracy_branch_passed": true,
+      "efficiency_branch_passed": false,
+      "parent_correct": 42,
+      "candidate_correct": 43,
+      "fix": 9,
+      "harm": 8,
+      "net": 1,
+      "parent_mean_frames": 55.236111111111114,
+      "candidate_mean_frames": 55.388888888888886,
+      "frame_ratio_cand_over_parent": 1.0027659039476993
+    },
+    {
+      "parent_round": 3,
+      "candidate_round": 1,
+      "accepted": false,
+      "status": "REJECTED",
+      "accuracy_branch_passed": false,
+      "efficiency_branch_passed": false,
+      "parent_correct": 43,
+      "candidate_correct": 41,
+      "fix": 7,
+      "harm": 9,
+      "net": -2,
+      "parent_mean_frames": 55.388888888888886,
+      "candidate_mean_frames": 57.388888888888886,
+      "frame_ratio_cand_over_parent": 1.0361083249749248
+    },
+    {
+      "parent_round": 3,
+      "candidate_round": 2,
+      "accepted": false,
+      "status": "REJECTED",
+      "accuracy_branch_passed": false,
+      "efficiency_branch_passed": false,
+      "parent_correct": 43,
+      "candidate_correct": 42,
+      "fix": 8,
+      "harm": 9,
+      "net": -1,
+      "parent_mean_frames": 55.388888888888886,
+      "candidate_mean_frames": 55.236111111111114,
+      "frame_ratio_cand_over_parent": 0.9972417251755267
+    }
+  ],
+  "n_directed_pairs": 6,
+  "n_false_accepts_if_treated_as_independent": 3,
+  "false_accept_pairs": [
+    {
+      "parent_round": 1,
+      "candidate_round": 2,
+      "accepted": true,
+      "status": "ACCEPTED",
+      "accuracy_branch_passed": true,
+      "efficiency_branch_passed": false,
+      "parent_correct": 41,
+      "candidate_correct": 42,
+      "fix": 9,
+      "harm": 8,
+      "net": 1,
+      "parent_mean_frames": 57.388888888888886,
+      "candidate_mean_frames": 55.236111111111114,
+      "frame_ratio_cand_over_parent": 0.9624878993223621
+    },
+    {
+      "parent_round": 1,
+      "candidate_round": 3,
+      "accepted": true,
+      "status": "ACCEPTED",
+      "accuracy_branch_passed": true,
+      "efficiency_branch_passed": false,
+      "parent_correct": 41,
+      "candidate_correct": 43,
+      "fix": 9,
+      "harm": 7,
+      "net": 2,
+      "parent_mean_frames": 57.388888888888886,
+      "candidate_mean_frames": 55.388888888888886,
+      "frame_ratio_cand_over_parent": 0.9651500484027106
+    },
+    {
+      "parent_round": 2,
+      "candidate_round": 3,
+      "accepted": true,
+      "status": "ACCEPTED",
+      "accuracy_branch_passed": true,
+      "efficiency_branch_passed": false,
+      "parent_correct": 42,
+      "candidate_correct": 43,
+      "fix": 9,
+      "harm": 8,
+      "net": 1,
+      "parent_mean_frames": 55.236111111111114,
+      "candidate_mean_frames": 55.388888888888886,
+      "frame_ratio_cand_over_parent": 1.0027659039476993
+    }
+  ],
+  "note_on_dependence": "The six directed pairs share the same three noisy evals; do not treat false-accept count as six i.i.d. Bernoulli trials.",
+  "answer_disagreement": {
+    "r1_vs_r2": {
+      "answer_mismatch": 19,
+      "right_to_wrong": 8,
+      "wrong_to_right": 9,
+      "both_wrong_different_letters": 2
+    },
+    "r1_vs_r3": {
+      "answer_mismatch": 20,
+      "right_to_wrong": 7,
+      "wrong_to_right": 9,
+      "both_wrong_different_letters": 4
+    },
+    "r2_vs_r3": {
+      "answer_mismatch": 19,
+      "right_to_wrong": 8,
+      "wrong_to_right": 9,
+      "both_wrong_different_letters": 2
+    }
+  },
+  "status_counts": {
+    "1": {
+      "answered": 72
+    },
+    "2": {
+      "answered": 72
+    },
+    "3": {
+      "answered": 72
+    }
+  },
+  "placebo_gate_exists": true
+}
