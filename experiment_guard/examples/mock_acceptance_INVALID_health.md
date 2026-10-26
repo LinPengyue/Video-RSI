@@ -3,7 +3,7 @@
 | Metric | Value |
 |---|---|
 | Experiment ID | `mock_acceptance_invalid` |
-| Code SHA | `9203555b5772eb2c1d87df96034671168c0eb0b8` |
+| Code SHA | `427bb19f8292259042dd6a60e7b7f559f36b1b3b` |
 | Harness SHA | `afcedacceee8480d` |
 | Config Fingerprint | `7a1ad42dbec4b683` |
 | Environment | `{"sys_executable": ".../envs/videorsi/bin/python", "python_version": "3.12.15"}` |

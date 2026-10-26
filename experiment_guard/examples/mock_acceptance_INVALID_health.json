@@ -1,7 +1,7 @@
 {
   "experiment_id": "mock_acceptance_invalid",
-  "generated_at_utc": "2026-10-26T10:15:47.617690+00:00",
-  "code_sha": "9203555b5772eb2c1d87df96034671168c0eb0b8",
+  "generated_at_utc": "2026-10-26T10:25:46.125814+00:00",
+  "code_sha": "427bb19f8292259042dd6a60e7b7f559f36b1b3b",
   "harness_sha": "afcedacceee8480d",
   "config_fingerprint": "7a1ad42dbec4b683",
   "environment": {

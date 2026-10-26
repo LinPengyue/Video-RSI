@@ -5,6 +5,7 @@ Fail-closed infrastructure validity for Video-RSI experiments.
 - Design: [`EXPERIMENT_GUARD_DESIGN.md`](EXPERIMENT_GUARD_DESIGN.md)
 - Integration: [`EXPERIMENT_INTEGRATION_GUIDE.md`](EXPERIMENT_INTEGRATION_GUIDE.md)
 - **Acceptance (wired runners):** [`GUARD_INTEGRATION_ACCEPTANCE.md`](GUARD_INTEGRATION_ACCEPTANCE.md)
+- **Final patch (Direct VQA + history protection):** [`FINAL_GUARD_PATCH_ACCEPTANCE.md`](FINAL_GUARD_PATCH_ACCEPTANCE.md)
 - Test report: [`EXPERIMENT_GUARD_TEST_REPORT.md`](EXPERIMENT_GUARD_TEST_REPORT.md)
 - Example VALID/INVALID health reports: [`examples/`](examples/)
 
