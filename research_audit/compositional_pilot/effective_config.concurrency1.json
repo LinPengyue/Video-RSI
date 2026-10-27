@@ -1,0 +1,48 @@
+{
+  "protocol": "full-candidate-v1",
+  "evolution": {
+    "max_rounds": 20
+  },
+  "solver": {
+    "max_steps": 11,
+    "max_service_calls": 64,
+    "max_frames": 256,
+    "timeout_seconds": 1800
+  },
+  "execution": {
+    "concurrency": 1,
+    "linux_isolation": true,
+    "python": "/home/descfly/miniconda3/envs/videorsi/bin/python"
+  },
+  "services": {
+    "endpoint_env": "API_BASE",
+    "key_env": "API_KEY",
+    "deepseek": {
+      "request_model": "DeepSeek-V4-Pro-0813",
+      "max_tokens": 8192
+    },
+    "qwen": {
+      "request_model": "Qwen3.6-Plus",
+      "max_tokens": 8192
+    },
+    "temperature": 0,
+    "timeout_seconds": 240,
+    "provider_retries": 1,
+    "ffmpeg": "imageio-ffmpeg",
+    "ocr_model_root": "/home/descfly/lpy/ocr-models"
+  },
+  "editor": {
+    "max_provider_calls": 160,
+    "timeout_seconds": 3600,
+    "pause_after_plan": false,
+    "harness_root": "/home/descfly/lpy/deepseek-harness",
+    "node_binary": "/home/descfly/.nvm/versions/node/v22.23.3/bin/node"
+  },
+  "investigation": {
+    "max_frames": 1024
+  },
+  "gate": {
+    "policy": "accuracy_gain_10pct_or_save_20pct_drop1_v1",
+    "max_mean_frames": null
+  }
+}

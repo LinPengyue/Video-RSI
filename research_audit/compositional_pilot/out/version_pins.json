@@ -1,0 +1,8 @@
+{
+  "initial_harness_sha256": "0805cf0eff40fe55712124f0cc70e228e7e3205e362cca37dc79a9d977744fe3",
+  "hs1_harness_sha256": "6733c4806ba3a352e15e866451292a03144c862c53c65e1691d42a718525518f",
+  "config": "research_audit/compositional_pilot/effective_config.concurrency1.json",
+  "items": "research_audit/compositional_pilot/eval_items.jsonl",
+  "items_sha256": "ec65ef23601ca58af9b763ddb037fb371fffa20b985c2b189588a167b82e765b",
+  "tag": "Exploratory / Non-Held-Out / Smoke Test"
+}

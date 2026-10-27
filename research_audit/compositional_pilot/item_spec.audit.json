@@ -1,0 +1,66 @@
+[
+  {
+    "kind": "atomic",
+    "source_uid": 63,
+    "video_id": "Cm73ma6Ibcs",
+    "official_time_reference": "10:43-10:50",
+    "question_type": [
+      "entity recognition"
+    ]
+  },
+  {
+    "kind": "atomic",
+    "source_uid": 71,
+    "video_id": "Cm73ma6Ibcs",
+    "official_time_reference": "31:05-31:45",
+    "question_type": [
+      "event understanding"
+    ]
+  },
+  {
+    "kind": "composition",
+    "id": "LVCOMP-01",
+    "video_id": "Cm73ma6Ibcs",
+    "source_uids": [
+      "63",
+      "71"
+    ],
+    "composition": "two-interval counting + arithmetic",
+    "official_time_references": [
+      "10:43-10:50",
+      "31:05-31:45"
+    ]
+  },
+  {
+    "kind": "atomic",
+    "source_uid": 120,
+    "video_id": "q01CUy_gwdU",
+    "official_time_reference": "04:42-05:00",
+    "question_type": [
+      "event understanding"
+    ]
+  },
+  {
+    "kind": "atomic",
+    "source_uid": 121,
+    "video_id": "q01CUy_gwdU",
+    "official_time_reference": "05:15-05:31",
+    "question_type": [
+      "event understanding"
+    ]
+  },
+  {
+    "kind": "composition",
+    "id": "LVCOMP-04",
+    "video_id": "q01CUy_gwdU",
+    "source_uids": [
+      "120",
+      "121"
+    ],
+    "composition": "cross-event object tracking",
+    "official_time_references": [
+      "04:42-05:00",
+      "05:15-05:31"
+    ]
+  }
+]

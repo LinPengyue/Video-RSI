@@ -1,0 +1,135 @@
+{
+  "arms": {
+    "initial": {
+      "totals": {
+        "cny": 2.450756,
+        "frames": 584,
+        "ds": 59,
+        "qw": 45,
+        "tin": 512068,
+        "tout": 24607,
+        "correct": 2,
+        "atomic_correct": 2,
+        "comp_correct": 0
+      },
+      "rows": [
+        {
+          "sample_id": "lvbench_63",
+          "pred": "A",
+          "gold": "D",
+          "correct": false,
+          "frames": 120,
+          "cny": 0.4261
+        },
+        {
+          "sample_id": "lvbench_71",
+          "pred": "A",
+          "gold": "D",
+          "correct": false,
+          "frames": 56,
+          "cny": 0.199
+        },
+        {
+          "sample_id": "LVCOMP-01",
+          "pred": "A",
+          "gold": "B",
+          "correct": false,
+          "frames": 112,
+          "cny": 0.4401
+        },
+        {
+          "sample_id": "lvbench_120",
+          "pred": "A",
+          "gold": "A",
+          "correct": true,
+          "frames": 104,
+          "cny": 0.5166
+        },
+        {
+          "sample_id": "lvbench_121",
+          "pred": "D",
+          "gold": "D",
+          "correct": true,
+          "frames": 96,
+          "cny": 0.4782
+        },
+        {
+          "sample_id": "LVCOMP-04",
+          "pred": "B",
+          "gold": "A",
+          "correct": false,
+          "frames": 96,
+          "cny": 0.3907
+        }
+      ],
+      "atomic_acc": "2/4",
+      "comp_acc": "0/2"
+    },
+    "hs1": {
+      "totals": {
+        "cny": 3.199372,
+        "frames": 684,
+        "ds": 65,
+        "qw": 54,
+        "tin": 671168,
+        "tout": 33137,
+        "correct": 2,
+        "atomic_correct": 2,
+        "comp_correct": 0
+      },
+      "rows": [
+        {
+          "sample_id": "lvbench_63",
+          "pred": "D",
+          "gold": "D",
+          "correct": true,
+          "frames": 144,
+          "cny": 0.5252
+        },
+        {
+          "sample_id": "lvbench_71",
+          "pred": "C",
+          "gold": "D",
+          "correct": false,
+          "frames": 80,
+          "cny": 0.3091
+        },
+        {
+          "sample_id": "LVCOMP-01",
+          "pred": "A",
+          "gold": "B",
+          "correct": false,
+          "frames": 92,
+          "cny": 0.4636
+        },
+        {
+          "sample_id": "lvbench_120",
+          "pred": "C",
+          "gold": "A",
+          "correct": false,
+          "frames": 120,
+          "cny": 0.6228
+        },
+        {
+          "sample_id": "lvbench_121",
+          "pred": "D",
+          "gold": "D",
+          "correct": true,
+          "frames": 104,
+          "cny": 0.521
+        },
+        {
+          "sample_id": "LVCOMP-04",
+          "pred": "B",
+          "gold": "A",
+          "correct": false,
+          "frames": 144,
+          "cny": 0.7578
+        }
+      ],
+      "atomic_acc": "2/4",
+      "comp_acc": "0/2"
+    }
+  },
+  "total_estimated_cny": 5.650128
+}

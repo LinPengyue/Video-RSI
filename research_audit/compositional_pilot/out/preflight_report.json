@@ -1,0 +1,69 @@
+{
+  "ts": "2026-10-27T10:47:31+0800",
+  "python": "/home/descfly/miniconda3/envs/videorsi/bin/python",
+  "videorsi_required": "/home/descfly/miniconda3/envs/videorsi/bin/python",
+  "checks": {
+    "python_is_videorsi": {
+      "ok": true,
+      "executable": "/home/descfly/miniconda3/envs/videorsi/bin/python"
+    },
+    "imageio_ffmpeg": {
+      "ok": true,
+      "path": "/home/descfly/miniconda3/envs/videorsi/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2"
+    },
+    "api_env": {
+      "ok": true,
+      "key_env": "API_KEY",
+      "endpoint_env": "API_BASE",
+      "endpoint_set": true,
+      "key_set": true
+    },
+    "load_items": {
+      "ok": true,
+      "n": 6,
+      "sample_ids": [
+        "lvbench_63",
+        "lvbench_71",
+        "LVCOMP-01",
+        "lvbench_120",
+        "lvbench_121",
+        "LVCOMP-04"
+      ]
+    },
+    "harnesses": {
+      "ok": true,
+      "initial_sha": "0805cf0eff40fe55712124f0cc70e228e7e3205e362cca37dc79a9d977744fe3",
+      "hs1_sha": "6733c4806ba3a352e15e866451292a03144c862c53c65e1691d42a718525518f",
+      "initial_path": "/home/descfly/lpy/Video-RSI/evolution/run-seed42/versions/initial_harness",
+      "hs1_path": "/home/descfly/lpy/Video-RSI/evolution/run-seed42/versions/H_S1"
+    },
+    "ffmpeg_seek": {
+      "ok": true,
+      "videos": [
+        {
+          "video": "Cm73ma6Ibcs.mp4",
+          "ok": true,
+          "bytes": 67507,
+          "returncode": 0,
+          "stderr_tail": "ge2 @ 0x44eea6c0] video:66KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown\nframe=    1 fps=0.0 q=2.0 Lsize=N/A time=00:00:00.04 bitrate=N/A speed=1.58x    \n"
+        },
+        {
+          "video": "q01CUy_gwdU.mp4",
+          "ok": true,
+          "bytes": 135585,
+          "returncode": 0,
+          "stderr_tail": "e2 @ 0x32a25e40] video:132KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown\nframe=    1 fps=0.0 q=2.0 Lsize=N/A time=00:00:00.04 bitrate=N/A speed=1.95x    \n"
+        }
+      ]
+    },
+    "api_ping_deepseek": {
+      "ok": true,
+      "latency_s": 9.607,
+      "reply_prefix": "PONG",
+      "prompt_tokens": 10,
+      "completion_tokens": 2,
+      "estimated_cny": 0.000144
+    }
+  },
+  "pass": true
+}
