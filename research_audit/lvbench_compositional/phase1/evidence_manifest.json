@@ -1,0 +1,1127 @@
+{
+  "phase": "lvbench-compositional-phase1-evidence",
+  "composition_validity": "NOT_ASSESSED",
+  "note": "Extraction status only. Video-dependent review fields are not decided here and must stay PENDING or UNKNOWN until a person watches the clips.",
+  "cases": [
+    {
+      "phase": "lvbench-compositional-phase1-evidence",
+      "composition_validity": "NOT_ASSESSED",
+      "review_fields_written": false,
+      "ok": true,
+      "case_status": "extracted",
+      "media_extracted": true,
+      "error_code": null,
+      "message": "Clips and contact sheets were written. composition_validity remains NOT_ASSESSED.",
+      "video_id": "_T2Avd3tFHc",
+      "uids": [
+        "2873",
+        "2890"
+      ],
+      "metadata_path": "/home/descfly/lpy/dataset/LVBench/video_info.meta.jsonl",
+      "video_root": "/home/descfly/lpy/dataset/LVBench/videos",
+      "details": {},
+      "segments": [
+        {
+          "video_id": "_T2Avd3tFHc",
+          "uid": "2873",
+          "question": "What is the name of the elder who joins the vlogger on their travel?\n(A) Mikhail\n(B) Staffan\n(C) Eric\n(D) Nathan",
+          "question_type": [
+            "entity recognition",
+            "key information retrieval"
+          ],
+          "answer": "A",
+          "time_reference": "04:44-04:44",
+          "extractions": [
+            {
+              "mode": "context",
+              "requested_start_seconds": 264.0,
+              "requested_end_seconds": 304.0,
+              "start_seconds": 264.0,
+              "end_seconds": 304.0,
+              "duration_seconds": 40.0,
+              "clamps": [],
+              "notes": [],
+              "point_reference": true,
+              "uid": "2873",
+              "status": "extracted",
+              "clip_path": "_T2Avd3tFHc/uid_2873/context/clip.mp4",
+              "clip_sha256": "496c596a86bee3feb9e15802c915e1fd233c66fb61d215f50097027f92d4c577",
+              "clip_probe": {
+                "duration_seconds": 40.04,
+                "width": 1280,
+                "height": 720,
+                "fps": 23.976023976023978,
+                "fps_raw": "24000/1001",
+                "codec": "h264",
+                "has_audio": true,
+                "tool": "ffprobe",
+                "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+              },
+              "duration_error_seconds": 0.04,
+              "seek": {
+                "mode": "hybrid_preroll_then_accurate_trim",
+                "preroll_seconds": 20.0
+              },
+              "audio_retained": true,
+              "timestamp_burn_in": true,
+              "timestamp_method": "libass_subtitles",
+              "contact_sheet": "_T2Avd3tFHc/uid_2873/context/contact_sheet.jpg",
+              "keyframes": [
+                {
+                  "index": 1,
+                  "clip_offset_seconds": 2.002,
+                  "video_timestamp_seconds": 266.002,
+                  "video_timestamp": "00:04:26.002",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_01.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 2,
+                  "clip_offset_seconds": 6.006,
+                  "video_timestamp_seconds": 270.006,
+                  "video_timestamp": "00:04:30.006",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_02.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 3,
+                  "clip_offset_seconds": 10.01,
+                  "video_timestamp_seconds": 274.01,
+                  "video_timestamp": "00:04:34.010",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_03.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 4,
+                  "clip_offset_seconds": 14.014,
+                  "video_timestamp_seconds": 278.014,
+                  "video_timestamp": "00:04:38.014",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_04.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 5,
+                  "clip_offset_seconds": 18.018,
+                  "video_timestamp_seconds": 282.018,
+                  "video_timestamp": "00:04:42.018",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_05.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 6,
+                  "clip_offset_seconds": 22.022,
+                  "video_timestamp_seconds": 286.022,
+                  "video_timestamp": "00:04:46.022",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_06.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 7,
+                  "clip_offset_seconds": 26.026,
+                  "video_timestamp_seconds": 290.026,
+                  "video_timestamp": "00:04:50.026",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_07.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 8,
+                  "clip_offset_seconds": 30.03,
+                  "video_timestamp_seconds": 294.03,
+                  "video_timestamp": "00:04:54.030",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_08.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 9,
+                  "clip_offset_seconds": 34.034,
+                  "video_timestamp_seconds": 298.034,
+                  "video_timestamp": "00:04:58.034",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_09.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 10,
+                  "clip_offset_seconds": 38.038,
+                  "video_timestamp_seconds": 302.038,
+                  "video_timestamp": "00:05:02.038",
+                  "path": "_T2Avd3tFHc/uid_2873/context/frames/frame_10.jpg",
+                  "timestamp_burn_in": true
+                }
+              ],
+              "ffmpeg_stderr": ""
+            },
+            {
+              "mode": "strict",
+              "requested_start_seconds": 284.0,
+              "requested_end_seconds": 285.0,
+              "start_seconds": 284.0,
+              "end_seconds": 285.0,
+              "duration_seconds": 1.0,
+              "clamps": [],
+              "notes": [
+                "Official time_reference has zero duration. The strict clip is a 1.000s decode window starting at that point, not the official interval."
+              ],
+              "point_reference": true,
+              "uid": "2873",
+              "status": "extracted",
+              "clip_path": "_T2Avd3tFHc/uid_2873/strict/clip.mp4",
+              "clip_sha256": "8eb54fb7e62891594b8a43288da8771c9cf0f237e5d5ca42c422b5bb951d8bf2",
+              "clip_probe": {
+                "duration_seconds": 1.001,
+                "width": 1280,
+                "height": 720,
+                "fps": 23.976023976023978,
+                "fps_raw": "24000/1001",
+                "codec": "h264",
+                "has_audio": true,
+                "tool": "ffprobe",
+                "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+              },
+              "duration_error_seconds": 0.001,
+              "seek": {
+                "mode": "hybrid_preroll_then_accurate_trim",
+                "preroll_seconds": 20.0
+              },
+              "audio_retained": true,
+              "timestamp_burn_in": true,
+              "timestamp_method": "libass_subtitles",
+              "contact_sheet": "_T2Avd3tFHc/uid_2873/strict/contact_sheet.jpg",
+              "keyframes": [
+                {
+                  "index": 1,
+                  "clip_offset_seconds": 0.05,
+                  "video_timestamp_seconds": 284.05,
+                  "video_timestamp": "00:04:44.050",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_01.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 2,
+                  "clip_offset_seconds": 0.15,
+                  "video_timestamp_seconds": 284.15,
+                  "video_timestamp": "00:04:44.150",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_02.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 3,
+                  "clip_offset_seconds": 0.25,
+                  "video_timestamp_seconds": 284.25,
+                  "video_timestamp": "00:04:44.250",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_03.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 4,
+                  "clip_offset_seconds": 0.35,
+                  "video_timestamp_seconds": 284.35,
+                  "video_timestamp": "00:04:44.350",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_04.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 5,
+                  "clip_offset_seconds": 0.45,
+                  "video_timestamp_seconds": 284.45,
+                  "video_timestamp": "00:04:44.450",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_05.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 6,
+                  "clip_offset_seconds": 0.551,
+                  "video_timestamp_seconds": 284.551,
+                  "video_timestamp": "00:04:44.551",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_06.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 7,
+                  "clip_offset_seconds": 0.651,
+                  "video_timestamp_seconds": 284.651,
+                  "video_timestamp": "00:04:44.651",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_07.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 8,
+                  "clip_offset_seconds": 0.751,
+                  "video_timestamp_seconds": 284.751,
+                  "video_timestamp": "00:04:44.751",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_08.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 9,
+                  "clip_offset_seconds": 0.851,
+                  "video_timestamp_seconds": 284.851,
+                  "video_timestamp": "00:04:44.851",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_09.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 10,
+                  "clip_offset_seconds": 0.951,
+                  "video_timestamp_seconds": 284.951,
+                  "video_timestamp": "00:04:44.951",
+                  "path": "_T2Avd3tFHc/uid_2873/strict/frames/frame_10.jpg",
+                  "timestamp_burn_in": true
+                }
+              ],
+              "ffmpeg_stderr": ""
+            }
+          ],
+          "start_seconds": 284.0,
+          "end_seconds": 284.0,
+          "point_reference": true
+        },
+        {
+          "video_id": "_T2Avd3tFHc",
+          "uid": "2890",
+          "question": "Where do the vlogger team members invite Mikhail on the first night?\n(A) They invite Mikhail to the pub\n(B) They invite Mikhail to the park\n(C) They invite Mikhail to the swimming pool\n(D) They invite Mikhail to the hotel",
+          "question_type": [
+            "reasoning",
+            "event understanding"
+          ],
+          "answer": "D",
+          "time_reference": "15:58-16:07",
+          "extractions": [
+            {
+              "mode": "context",
+              "requested_start_seconds": 938.0,
+              "requested_end_seconds": 987.0,
+              "start_seconds": 938.0,
+              "end_seconds": 987.0,
+              "duration_seconds": 49.0,
+              "clamps": [],
+              "notes": [],
+              "point_reference": false,
+              "uid": "2890",
+              "status": "extracted",
+              "clip_path": "_T2Avd3tFHc/uid_2890/context/clip.mp4",
+              "clip_sha256": "1750c56e05766524cf4cf1a97182f579cc85e74dc34e97cf6724370e0d9a9083",
+              "clip_probe": {
+                "duration_seconds": 49.007292,
+                "width": 1280,
+                "height": 720,
+                "fps": 23.976023976023978,
+                "fps_raw": "24000/1001",
+                "codec": "h264",
+                "has_audio": true,
+                "tool": "ffprobe",
+                "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+              },
+              "duration_error_seconds": 0.007,
+              "seek": {
+                "mode": "hybrid_preroll_then_accurate_trim",
+                "preroll_seconds": 20.0
+              },
+              "audio_retained": true,
+              "timestamp_burn_in": true,
+              "timestamp_method": "libass_subtitles",
+              "contact_sheet": "_T2Avd3tFHc/uid_2890/context/contact_sheet.jpg",
+              "keyframes": [
+                {
+                  "index": 1,
+                  "clip_offset_seconds": 2.45,
+                  "video_timestamp_seconds": 940.45,
+                  "video_timestamp": "00:15:40.450",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_01.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 2,
+                  "clip_offset_seconds": 7.351,
+                  "video_timestamp_seconds": 945.351,
+                  "video_timestamp": "00:15:45.351",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_02.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 3,
+                  "clip_offset_seconds": 12.252,
+                  "video_timestamp_seconds": 950.252,
+                  "video_timestamp": "00:15:50.252",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_03.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 4,
+                  "clip_offset_seconds": 17.153,
+                  "video_timestamp_seconds": 955.153,
+                  "video_timestamp": "00:15:55.153",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_04.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 5,
+                  "clip_offset_seconds": 22.053,
+                  "video_timestamp_seconds": 960.053,
+                  "video_timestamp": "00:16:00.053",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_05.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 6,
+                  "clip_offset_seconds": 26.954,
+                  "video_timestamp_seconds": 964.954,
+                  "video_timestamp": "00:16:04.954",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_06.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 7,
+                  "clip_offset_seconds": 31.855,
+                  "video_timestamp_seconds": 969.855,
+                  "video_timestamp": "00:16:09.855",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_07.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 8,
+                  "clip_offset_seconds": 36.755,
+                  "video_timestamp_seconds": 974.755,
+                  "video_timestamp": "00:16:14.755",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_08.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 9,
+                  "clip_offset_seconds": 41.656,
+                  "video_timestamp_seconds": 979.656,
+                  "video_timestamp": "00:16:19.656",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_09.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 10,
+                  "clip_offset_seconds": 46.557,
+                  "video_timestamp_seconds": 984.557,
+                  "video_timestamp": "00:16:24.557",
+                  "path": "_T2Avd3tFHc/uid_2890/context/frames/frame_10.jpg",
+                  "timestamp_burn_in": true
+                }
+              ],
+              "ffmpeg_stderr": ""
+            },
+            {
+              "mode": "strict",
+              "requested_start_seconds": 958.0,
+              "requested_end_seconds": 967.0,
+              "start_seconds": 958.0,
+              "end_seconds": 967.0,
+              "duration_seconds": 9.0,
+              "clamps": [],
+              "notes": [],
+              "point_reference": false,
+              "uid": "2890",
+              "status": "extracted",
+              "clip_path": "_T2Avd3tFHc/uid_2890/strict/clip.mp4",
+              "clip_sha256": "45f145589f7f1697c07f976a41700f6166b3030b64ead99306aaf4934d0a44bd",
+              "clip_probe": {
+                "duration_seconds": 9.009,
+                "width": 1280,
+                "height": 720,
+                "fps": 23.976023976023978,
+                "fps_raw": "24000/1001",
+                "codec": "h264",
+                "has_audio": true,
+                "tool": "ffprobe",
+                "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+              },
+              "duration_error_seconds": 0.009,
+              "seek": {
+                "mode": "hybrid_preroll_then_accurate_trim",
+                "preroll_seconds": 20.0
+              },
+              "audio_retained": true,
+              "timestamp_burn_in": true,
+              "timestamp_method": "libass_subtitles",
+              "contact_sheet": "_T2Avd3tFHc/uid_2890/strict/contact_sheet.jpg",
+              "keyframes": [
+                {
+                  "index": 1,
+                  "clip_offset_seconds": 0.45,
+                  "video_timestamp_seconds": 958.45,
+                  "video_timestamp": "00:15:58.450",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_01.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 2,
+                  "clip_offset_seconds": 1.351,
+                  "video_timestamp_seconds": 959.351,
+                  "video_timestamp": "00:15:59.351",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_02.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 3,
+                  "clip_offset_seconds": 2.252,
+                  "video_timestamp_seconds": 960.252,
+                  "video_timestamp": "00:16:00.252",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_03.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 4,
+                  "clip_offset_seconds": 3.153,
+                  "video_timestamp_seconds": 961.153,
+                  "video_timestamp": "00:16:01.153",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_04.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 5,
+                  "clip_offset_seconds": 4.054,
+                  "video_timestamp_seconds": 962.054,
+                  "video_timestamp": "00:16:02.054",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_05.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 6,
+                  "clip_offset_seconds": 4.955,
+                  "video_timestamp_seconds": 962.955,
+                  "video_timestamp": "00:16:02.955",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_06.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 7,
+                  "clip_offset_seconds": 5.856,
+                  "video_timestamp_seconds": 963.856,
+                  "video_timestamp": "00:16:03.856",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_07.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 8,
+                  "clip_offset_seconds": 6.757,
+                  "video_timestamp_seconds": 964.757,
+                  "video_timestamp": "00:16:04.757",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_08.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 9,
+                  "clip_offset_seconds": 7.658,
+                  "video_timestamp_seconds": 965.658,
+                  "video_timestamp": "00:16:05.658",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_09.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 10,
+                  "clip_offset_seconds": 8.559,
+                  "video_timestamp_seconds": 966.559,
+                  "video_timestamp": "00:16:06.559",
+                  "path": "_T2Avd3tFHc/uid_2890/strict/frames/frame_10.jpg",
+                  "timestamp_burn_in": true
+                }
+              ],
+              "ffmpeg_stderr": ""
+            }
+          ],
+          "start_seconds": 958.0,
+          "end_seconds": 967.0,
+          "point_reference": false
+        }
+      ],
+      "context_seconds": 20.0,
+      "frames": 10,
+      "metadata_sha256": "e12d4cde81e1be28633377fad650e55fbd16be119288e802d13417ae464a1f15",
+      "video_info": {
+        "duration_minutes": 30.74668819444444
+      },
+      "video_path": "/home/descfly/lpy/dataset/LVBench/videos/_T2Avd3tFHc.mp4",
+      "video_exists": true,
+      "tools": {
+        "ffmpeg": "/home/descfly/miniconda3/envs/videorsi/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "ffmpeg_version": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+        "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe",
+        "ffprobe_version": "ffprobe version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2007-2024 the FFmpeg developers",
+        "font": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+      },
+      "probe": {
+        "duration_seconds": 1844.802177,
+        "width": 1280,
+        "height": 720,
+        "fps": 23.976023976023978,
+        "fps_raw": "24000/1001",
+        "codec": "h264",
+        "has_audio": true,
+        "tool": "ffprobe",
+        "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+      },
+      "video_sha256": "aabe2ae0541449a0c822efe623292c45e5394af42e56e540c0566790a75ef837",
+      "video_size_bytes": 271615396,
+      "metadata_duration_seconds": 1844.8012916666664,
+      "probe_minus_metadata_seconds": 0.001,
+      "window_overlaps": []
+    },
+    {
+      "phase": "lvbench-compositional-phase1-evidence",
+      "composition_validity": "NOT_ASSESSED",
+      "review_fields_written": false,
+      "ok": true,
+      "case_status": "extracted",
+      "media_extracted": true,
+      "error_code": null,
+      "message": "Clips and contact sheets were written. composition_validity remains NOT_ASSESSED.",
+      "video_id": "q01CUy_gwdU",
+      "uids": [
+        "120",
+        "121"
+      ],
+      "metadata_path": "/home/descfly/lpy/dataset/LVBench/video_info.meta.jsonl",
+      "video_root": "/home/descfly/lpy/dataset/LVBench/videos",
+      "details": {},
+      "segments": [
+        {
+          "video_id": "q01CUy_gwdU",
+          "uid": "120",
+          "question": "What does the man do after the second collision?\n(A) He looks for his book\n(B) He looks for his phone\n(C) He looks for the woman\n(D) He looks for the post",
+          "question_type": [
+            "event understanding"
+          ],
+          "answer": "A",
+          "time_reference": "04:42-05:00",
+          "extractions": [
+            {
+              "mode": "context",
+              "requested_start_seconds": 262.0,
+              "requested_end_seconds": 320.0,
+              "start_seconds": 262.0,
+              "end_seconds": 320.0,
+              "duration_seconds": 58.0,
+              "clamps": [],
+              "notes": [],
+              "point_reference": false,
+              "uid": "120",
+              "status": "extracted",
+              "clip_path": "q01CUy_gwdU/uid_120/context/clip.mp4",
+              "clip_sha256": "abd483216f07b1146859fafdae4b472e225bd2a165a3f120686f652058103332",
+              "clip_probe": {
+                "duration_seconds": 58.016292,
+                "width": 960,
+                "height": 720,
+                "fps": 23.976023976023978,
+                "fps_raw": "24000/1001",
+                "codec": "h264",
+                "has_audio": true,
+                "tool": "ffprobe",
+                "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+              },
+              "duration_error_seconds": 0.016,
+              "seek": {
+                "mode": "hybrid_preroll_then_accurate_trim",
+                "preroll_seconds": 20.0
+              },
+              "audio_retained": true,
+              "timestamp_burn_in": true,
+              "timestamp_method": "libass_subtitles",
+              "contact_sheet": "q01CUy_gwdU/uid_120/context/contact_sheet.jpg",
+              "keyframes": [
+                {
+                  "index": 1,
+                  "clip_offset_seconds": 2.901,
+                  "video_timestamp_seconds": 264.901,
+                  "video_timestamp": "00:04:24.901",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_01.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 2,
+                  "clip_offset_seconds": 8.702,
+                  "video_timestamp_seconds": 270.702,
+                  "video_timestamp": "00:04:30.702",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_02.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 3,
+                  "clip_offset_seconds": 14.504,
+                  "video_timestamp_seconds": 276.504,
+                  "video_timestamp": "00:04:36.504",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_03.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 4,
+                  "clip_offset_seconds": 20.306,
+                  "video_timestamp_seconds": 282.306,
+                  "video_timestamp": "00:04:42.306",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_04.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 5,
+                  "clip_offset_seconds": 26.107,
+                  "video_timestamp_seconds": 288.107,
+                  "video_timestamp": "00:04:48.107",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_05.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 6,
+                  "clip_offset_seconds": 31.909,
+                  "video_timestamp_seconds": 293.909,
+                  "video_timestamp": "00:04:53.909",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_06.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 7,
+                  "clip_offset_seconds": 37.711,
+                  "video_timestamp_seconds": 299.711,
+                  "video_timestamp": "00:04:59.711",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_07.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 8,
+                  "clip_offset_seconds": 43.512,
+                  "video_timestamp_seconds": 305.512,
+                  "video_timestamp": "00:05:05.512",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_08.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 9,
+                  "clip_offset_seconds": 49.314,
+                  "video_timestamp_seconds": 311.314,
+                  "video_timestamp": "00:05:11.314",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_09.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 10,
+                  "clip_offset_seconds": 55.115,
+                  "video_timestamp_seconds": 317.115,
+                  "video_timestamp": "00:05:17.115",
+                  "path": "q01CUy_gwdU/uid_120/context/frames/frame_10.jpg",
+                  "timestamp_burn_in": true
+                }
+              ],
+              "ffmpeg_stderr": ""
+            },
+            {
+              "mode": "strict",
+              "requested_start_seconds": 282.0,
+              "requested_end_seconds": 300.0,
+              "start_seconds": 282.0,
+              "end_seconds": 300.0,
+              "duration_seconds": 18.0,
+              "clamps": [],
+              "notes": [],
+              "point_reference": false,
+              "uid": "120",
+              "status": "extracted",
+              "clip_path": "q01CUy_gwdU/uid_120/strict/clip.mp4",
+              "clip_sha256": "0043205204025bdaf86406cd02ea6e86e245d02ae7516fd18fb7caa5dca5cb34",
+              "clip_probe": {
+                "duration_seconds": 18.018,
+                "width": 960,
+                "height": 720,
+                "fps": 23.976023976023978,
+                "fps_raw": "24000/1001",
+                "codec": "h264",
+                "has_audio": true,
+                "tool": "ffprobe",
+                "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+              },
+              "duration_error_seconds": 0.018,
+              "seek": {
+                "mode": "hybrid_preroll_then_accurate_trim",
+                "preroll_seconds": 20.0
+              },
+              "audio_retained": true,
+              "timestamp_burn_in": true,
+              "timestamp_method": "libass_subtitles",
+              "contact_sheet": "q01CUy_gwdU/uid_120/strict/contact_sheet.jpg",
+              "keyframes": [
+                {
+                  "index": 1,
+                  "clip_offset_seconds": 0.901,
+                  "video_timestamp_seconds": 282.901,
+                  "video_timestamp": "00:04:42.901",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_01.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 2,
+                  "clip_offset_seconds": 2.703,
+                  "video_timestamp_seconds": 284.703,
+                  "video_timestamp": "00:04:44.703",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_02.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 3,
+                  "clip_offset_seconds": 4.505,
+                  "video_timestamp_seconds": 286.505,
+                  "video_timestamp": "00:04:46.504",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_03.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 4,
+                  "clip_offset_seconds": 6.306,
+                  "video_timestamp_seconds": 288.306,
+                  "video_timestamp": "00:04:48.306",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_04.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 5,
+                  "clip_offset_seconds": 8.108,
+                  "video_timestamp_seconds": 290.108,
+                  "video_timestamp": "00:04:50.108",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_05.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 6,
+                  "clip_offset_seconds": 9.91,
+                  "video_timestamp_seconds": 291.91,
+                  "video_timestamp": "00:04:51.910",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_06.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 7,
+                  "clip_offset_seconds": 11.712,
+                  "video_timestamp_seconds": 293.712,
+                  "video_timestamp": "00:04:53.712",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_07.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 8,
+                  "clip_offset_seconds": 13.514,
+                  "video_timestamp_seconds": 295.514,
+                  "video_timestamp": "00:04:55.514",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_08.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 9,
+                  "clip_offset_seconds": 15.315,
+                  "video_timestamp_seconds": 297.315,
+                  "video_timestamp": "00:04:57.315",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_09.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 10,
+                  "clip_offset_seconds": 17.117,
+                  "video_timestamp_seconds": 299.117,
+                  "video_timestamp": "00:04:59.117",
+                  "path": "q01CUy_gwdU/uid_120/strict/frames/frame_10.jpg",
+                  "timestamp_burn_in": true
+                }
+              ],
+              "ffmpeg_stderr": ""
+            }
+          ],
+          "start_seconds": 282.0,
+          "end_seconds": 300.0,
+          "point_reference": false
+        },
+        {
+          "video_id": "q01CUy_gwdU",
+          "uid": "121",
+          "question": "Why does the man follow the woman in red after they meet for the third time?\n(A) He falls in love with the woman\n(B) He is a spy\n(C) The woman has his phone\n(D) The woman has his book",
+          "question_type": [
+            "event understanding"
+          ],
+          "answer": "D",
+          "time_reference": "05:15-05:31",
+          "extractions": [
+            {
+              "mode": "context",
+              "requested_start_seconds": 295.0,
+              "requested_end_seconds": 351.0,
+              "start_seconds": 295.0,
+              "end_seconds": 351.0,
+              "duration_seconds": 56.0,
+              "clamps": [],
+              "notes": [],
+              "point_reference": false,
+              "uid": "121",
+              "status": "extracted",
+              "clip_path": "q01CUy_gwdU/uid_121/context/clip.mp4",
+              "clip_sha256": "eb607261049bf050cff0c37344365ccd69a825a149e27a61a623ca7967f4751b",
+              "clip_probe": {
+                "duration_seconds": 56.014292,
+                "width": 960,
+                "height": 720,
+                "fps": 23.976023976023978,
+                "fps_raw": "24000/1001",
+                "codec": "h264",
+                "has_audio": true,
+                "tool": "ffprobe",
+                "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+              },
+              "duration_error_seconds": 0.014,
+              "seek": {
+                "mode": "hybrid_preroll_then_accurate_trim",
+                "preroll_seconds": 20.0
+              },
+              "audio_retained": true,
+              "timestamp_burn_in": true,
+              "timestamp_method": "libass_subtitles",
+              "contact_sheet": "q01CUy_gwdU/uid_121/context/contact_sheet.jpg",
+              "keyframes": [
+                {
+                  "index": 1,
+                  "clip_offset_seconds": 2.801,
+                  "video_timestamp_seconds": 297.801,
+                  "video_timestamp": "00:04:57.801",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_01.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 2,
+                  "clip_offset_seconds": 8.402,
+                  "video_timestamp_seconds": 303.402,
+                  "video_timestamp": "00:05:03.402",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_02.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 3,
+                  "clip_offset_seconds": 14.004,
+                  "video_timestamp_seconds": 309.004,
+                  "video_timestamp": "00:05:09.004",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_03.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 4,
+                  "clip_offset_seconds": 19.605,
+                  "video_timestamp_seconds": 314.605,
+                  "video_timestamp": "00:05:14.605",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_04.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 5,
+                  "clip_offset_seconds": 25.206,
+                  "video_timestamp_seconds": 320.206,
+                  "video_timestamp": "00:05:20.206",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_05.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 6,
+                  "clip_offset_seconds": 30.808,
+                  "video_timestamp_seconds": 325.808,
+                  "video_timestamp": "00:05:25.808",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_06.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 7,
+                  "clip_offset_seconds": 36.409,
+                  "video_timestamp_seconds": 331.409,
+                  "video_timestamp": "00:05:31.409",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_07.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 8,
+                  "clip_offset_seconds": 42.011,
+                  "video_timestamp_seconds": 337.011,
+                  "video_timestamp": "00:05:37.011",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_08.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 9,
+                  "clip_offset_seconds": 47.612,
+                  "video_timestamp_seconds": 342.612,
+                  "video_timestamp": "00:05:42.612",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_09.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 10,
+                  "clip_offset_seconds": 53.214,
+                  "video_timestamp_seconds": 348.214,
+                  "video_timestamp": "00:05:48.214",
+                  "path": "q01CUy_gwdU/uid_121/context/frames/frame_10.jpg",
+                  "timestamp_burn_in": true
+                }
+              ],
+              "ffmpeg_stderr": ""
+            },
+            {
+              "mode": "strict",
+              "requested_start_seconds": 315.0,
+              "requested_end_seconds": 331.0,
+              "start_seconds": 315.0,
+              "end_seconds": 331.0,
+              "duration_seconds": 16.0,
+              "clamps": [],
+              "notes": [],
+              "point_reference": false,
+              "uid": "121",
+              "status": "extracted",
+              "clip_path": "q01CUy_gwdU/uid_121/strict/clip.mp4",
+              "clip_sha256": "a867f4b6d9d23c6144d4a3ba645638913e026334830867a27e5de8d932dd3249",
+              "clip_probe": {
+                "duration_seconds": 16.016,
+                "width": 960,
+                "height": 720,
+                "fps": 23.976023976023978,
+                "fps_raw": "24000/1001",
+                "codec": "h264",
+                "has_audio": true,
+                "tool": "ffprobe",
+                "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+              },
+              "duration_error_seconds": 0.016,
+              "seek": {
+                "mode": "hybrid_preroll_then_accurate_trim",
+                "preroll_seconds": 20.0
+              },
+              "audio_retained": true,
+              "timestamp_burn_in": true,
+              "timestamp_method": "libass_subtitles",
+              "contact_sheet": "q01CUy_gwdU/uid_121/strict/contact_sheet.jpg",
+              "keyframes": [
+                {
+                  "index": 1,
+                  "clip_offset_seconds": 0.801,
+                  "video_timestamp_seconds": 315.801,
+                  "video_timestamp": "00:05:15.801",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_01.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 2,
+                  "clip_offset_seconds": 2.402,
+                  "video_timestamp_seconds": 317.402,
+                  "video_timestamp": "00:05:17.402",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_02.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 3,
+                  "clip_offset_seconds": 4.004,
+                  "video_timestamp_seconds": 319.004,
+                  "video_timestamp": "00:05:19.004",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_03.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 4,
+                  "clip_offset_seconds": 5.606,
+                  "video_timestamp_seconds": 320.606,
+                  "video_timestamp": "00:05:20.606",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_04.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 5,
+                  "clip_offset_seconds": 7.207,
+                  "video_timestamp_seconds": 322.207,
+                  "video_timestamp": "00:05:22.207",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_05.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 6,
+                  "clip_offset_seconds": 8.809,
+                  "video_timestamp_seconds": 323.809,
+                  "video_timestamp": "00:05:23.809",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_06.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 7,
+                  "clip_offset_seconds": 10.41,
+                  "video_timestamp_seconds": 325.41,
+                  "video_timestamp": "00:05:25.410",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_07.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 8,
+                  "clip_offset_seconds": 12.012,
+                  "video_timestamp_seconds": 327.012,
+                  "video_timestamp": "00:05:27.012",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_08.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 9,
+                  "clip_offset_seconds": 13.614,
+                  "video_timestamp_seconds": 328.614,
+                  "video_timestamp": "00:05:28.614",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_09.jpg",
+                  "timestamp_burn_in": true
+                },
+                {
+                  "index": 10,
+                  "clip_offset_seconds": 15.215,
+                  "video_timestamp_seconds": 330.215,
+                  "video_timestamp": "00:05:30.215",
+                  "path": "q01CUy_gwdU/uid_121/strict/frames/frame_10.jpg",
+                  "timestamp_burn_in": true
+                }
+              ],
+              "ffmpeg_stderr": ""
+            }
+          ],
+          "start_seconds": 315.0,
+          "end_seconds": 331.0,
+          "point_reference": false
+        }
+      ],
+      "context_seconds": 20.0,
+      "frames": 10,
+      "metadata_sha256": "e12d4cde81e1be28633377fad650e55fbd16be119288e802d13417ae464a1f15",
+      "video_info": {
+        "duration_minutes": 54.93543611111111
+      },
+      "video_path": "/home/descfly/lpy/dataset/LVBench/videos/q01CUy_gwdU.mp4",
+      "video_exists": true,
+      "tools": {
+        "ffmpeg": "/home/descfly/miniconda3/envs/videorsi/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "ffmpeg_version": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+        "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe",
+        "ffprobe_version": "ffprobe version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2007-2024 the FFmpeg developers",
+        "font": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+      },
+      "probe": {
+        "duration_seconds": 3296.142222,
+        "width": 960,
+        "height": 720,
+        "fps": 23.976023976023978,
+        "fps_raw": "24000/1001",
+        "codec": "h264",
+        "has_audio": true,
+        "tool": "ffprobe",
+        "ffprobe": "/home/descfly/.cache/lvbench-comp/ffprobe"
+      },
+      "video_sha256": "ac362662226f29d6cfb43a1d05df57d51ff06ccf62ea9b67b141bf7d1666632f",
+      "video_size_bytes": 430249368,
+      "metadata_duration_seconds": 3296.1261666666664,
+      "probe_minus_metadata_seconds": 0.016,
+      "window_overlaps": [
+        {
+          "mode": "context",
+          "uids": [
+            "120",
+            "121"
+          ],
+          "overlap_start_seconds": 295.0,
+          "overlap_end_seconds": 320.0
+        }
+      ]
+    }
+  ]
+}

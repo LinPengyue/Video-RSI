@@ -52,3 +52,7 @@ research_audit/mlvu_test_prep/labels.local.*
 # Local unrestricted fix-path dumps (may contain perception text / options)
 research_audit/video_rsi_fix_paths/local_untracked/
 **/test-ground-truth/
+
+# LVBench-Compositional phase 1 local video evidence.
+# Clips, keyframes, and contact sheets stay on disk and out of git.
+research_audit/lvbench_compositional/phase1/local_media/
