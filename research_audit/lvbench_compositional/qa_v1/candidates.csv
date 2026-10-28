@@ -1,0 +1,406 @@
+id,video_id,source_uids,source_questions,source_answers,time_references,composition_type,new_question,new_answer,answer_derivation,review_status,video_verified,derived_from_v0
+LVCOMP-V1-001,Hf-n1yfd8II,3934 || 3944,"How to describe the feeling of Lee Chong Wei at 48:16?
+(A) He feels frustrated because he does not catch the shuttlecock from the opponent
+(B) He feels excited because he gets one point
+(C) He feels frustrated because he beats the buttlecock out of bounds
+(D) He feels frustrated because he does not beat the shuttlecock cross the net || Who is the final winner?
+(A) Chen Long
+(B) Lin Dan
+(C) Tan Boon Heong
+(D) Lee Chong Wei",A: He feels frustrated because he does not catch the shuttlecock from the opponent || D: Lee Chong Wei,48:00-48:17 || 90:13-90:40,entity_binding,How to describe the feeling of the final winner at 48:16?,He feels frustrated because he does not catch the shuttlecock from the opponent,"UID 3944 (90:13-90:40) official option D is 'Lee Chong Wei'. UID 3934 (48:00-48:17) official option A is 'He feels frustrated because he does not catch the shuttlecock from the opponent'. The new question replaces 'Lee Chong Wei' with 'the final winner' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-004
+LVCOMP-V1-002,JTa_Ue2MSwc,5130 || 5131,"What is the first interview's name?
+(A) Mia
+(B) Alexis
+(C) Sierra
+(D) Kindall || What does Sierra do after her former roommate comes to the stage?
+(A) She takes off her cloths
+(B) She takes off her scarf
+(C) She takes off her hats
+(D) She takes off her shoes",C: Sierra || D: She takes off her shoes,00:29-01:36 || 02:08-02:11,entity_binding,What does the first interview do after her former roommate comes to the stage?,She takes off her shoes,"UID 5130 (00:29-01:36) official option C is 'Sierra'. UID 5131 (02:08-02:11) official option D is 'She takes off her shoes'. The new question replaces 'Sierra' with 'the first interview' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-006
+LVCOMP-V1-003,JTa_Ue2MSwc,5130 || 5134,"What is the first interview's name?
+(A) Mia
+(B) Alexis
+(C) Sierra
+(D) Kindall || What does Sierra do after the first male guest show up on the stage?
+(A) She hugs the man
+(B) She talks  with the man
+(C) She slaps the man
+(D) She kisses the man",C: Sierra || C: She slaps the man,00:29-01:36 || 05:28-05:59,entity_binding,What does the first interview do after the first male guest show up on the stage?,She slaps the man,"UID 5130 (00:29-01:36) official option C is 'Sierra'. UID 5134 (05:28-05:59) official option C is 'She slaps the man'. The new question replaces 'Sierra' with 'the first interview' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-007
+LVCOMP-V1-004,JTa_Ue2MSwc,5130 || 5135,"What is the first interview's name?
+(A) Mia
+(B) Alexis
+(C) Sierra
+(D) Kindall || Who cheats on Sierra with Kindall?
+(A) Tony
+(B) Adrian
+(C) Brian
+(D) David",C: Sierra || D: David,00:29-01:36 || 05:24-06:04,entity_binding,Who cheats on the first interview with Kindall?,David,"UID 5130 (00:29-01:36) official option C is 'Sierra'. UID 5135 (05:24-06:04) official option D is 'David'. The new question replaces 'Sierra' with 'the first interview' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-008
+LVCOMP-V1-005,JTa_Ue2MSwc,5130 || 5137,"What is the first interview's name?
+(A) Mia
+(B) Alexis
+(C) Sierra
+(D) Kindall || What is the name of Sierra's former roommate?
+(A) Mia
+(B) Kindall
+(C) Alexis
+(D) Roxana",C: Sierra || B: Kindall,00:29-01:36 || 02:15-04:32,entity_binding,What is the name of the first interview's former roommate?,Kindall,"UID 5130 (00:29-01:36) official option C is 'Sierra'. UID 5137 (02:15-04:32) official option B is 'Kindall'. The new question replaces 'Sierra' with 'the first interview' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-009
+LVCOMP-V1-006,JTa_Ue2MSwc,5137 || 5135,"What is the name of Sierra's former roommate?
+(A) Mia
+(B) Kindall
+(C) Alexis
+(D) Roxana || Who cheats on Sierra with Kindall?
+(A) Tony
+(B) Adrian
+(C) Brian
+(D) David",B: Kindall || D: David,02:15-04:32 || 05:24-06:04,entity_binding,Who cheats on Sierra with Sierra's former roommate?,David,"UID 5137 (02:15-04:32) official option B is 'Kindall'. UID 5135 (05:24-06:04) official option D is 'David'. The new question replaces 'Kindall' with ""Sierra's former roommate"" from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-010
+LVCOMP-V1-007,JTa_Ue2MSwc,5140 || 5146,"What is the name of Dominique's crush?
+(A) Brian
+(B) Adrian
+(C) Tony
+(D) David || What happens to the green dress woman after Brian dumps his girlfriend?
+(A) She laughs
+(B) She cries
+(C) She applauds
+(D) She screams",A: Brian || B: She cries,08:25-12:35 || 17:32-17:57,entity_binding,What happens to the green dress woman after Dominique's crush dumps his girlfriend?,She cries,"UID 5140 (08:25-12:35) official option A is 'Brian'. UID 5146 (17:32-17:57) official option B is 'She cries'. The new question replaces 'Brian' with ""Dominique's crush"" from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-011
+LVCOMP-V1-008,QWXlvx1GoTY,2463 || 2465,"Who is the second person to speak on stage?
+(A) Carrie Palin
+(B) Jonathan Davidson
+(C) Rodney Clark
+(D) Britney Bartlett || Jonathan Davidson shows a video about what brand during his talk?
+(A) Saint Laurent
+(B) Gucci
+(C) Dior
+(D) L'Oreal",B: Jonathan Davidson || D: L'Oreal,42:12-42:35 || 51:15-53:23,entity_binding,The second person to speak on stage shows a video about what brand during his talk?,L'Oreal,"UID 2463 (42:12-42:35) official option B is 'Jonathan Davidson'. UID 2465 (51:15-53:23) official option D is ""L'Oreal"". The new question replaces 'Jonathan Davidson' with 'the second person to speak on stage' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-014
+LVCOMP-V1-009,VTCDQYYKA9o,4083 || 4092,"Who is the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath?
+(A) Fan Zhendong
+(B) Wang hao
+(C) Ma Long
+(D) Zhang Jike || How many points does Fan Zhendong score in the fourth game?
+(A) 7
+(B) 2
+(C) 9
+(D) 4",A: Fan Zhendong || C: 9,03:00-03:00 || 41:50-50:50,entity_binding,How many points does the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath score in the fourth game?,9,"UID 4083 (03:00-03:00) official option A is 'Fan Zhendong'. UID 4092 (41:50-50:50) official option C is '9'. The new question replaces 'Fan Zhendong' with 'the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-015
+LVCOMP-V1-010,Z86xysw5Ncc,4197 || 4199,"What's the number on the back of Tyson Gay?
+(A) 3218
+(B) 3712
+(C) 3718
+(D) 3217 || Who is the winner for Men's 100M Round 1 Heat 1?
+(A) Tyson Gay
+(B) Rondel Sorrillo
+(C) Asafa Powell
+(D) Jaysuma Saidy Naure",D: 3217 || A: Tyson Gay,02:18-02:36 || 03:46-04:25,entity_binding,What's the number on the back of the winner for Men's 100M Round 1 Heat 1?,3217,"UID 4199 (03:46-04:25) official option A is 'Tyson Gay'. UID 4197 (02:18-02:36) official option D is '3217'. The new question replaces 'Tyson Gay' with ""the winner for Men's 100M Round 1 Heat 1"" from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-017
+LVCOMP-V1-011,_T2Avd3tFHc,2873 || 2888,"What is the name of the elder who joins the vlogger on their travel?
+(A) Mikhail
+(B) Staffan
+(C) Eric
+(D) Nathan || How many kinds of desserts do the vlogger team and Mikhail have on the third day?
+(A) 0
+(B) 2
+(C) 1
+(D) 3",A: Mikhail || B: 2,04:44-04:44 || 08:17-08:26,entity_binding,How many kinds of desserts do the vlogger team and the elder who joins the vlogger on their travel have on the third day?,2,"UID 2873 (04:44-04:44) official option A is 'Mikhail'. UID 2888 (08:17-08:26) official option B is '2'. The new question replaces 'Mikhail' with 'the elder who joins the vlogger on their travel' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-019
+LVCOMP-V1-012,_T2Avd3tFHc,2873 || 2890,"What is the name of the elder who joins the vlogger on their travel?
+(A) Mikhail
+(B) Staffan
+(C) Eric
+(D) Nathan || Where do the vlogger team members invite Mikhail on the first night?
+(A) They invite Mikhail to the pub
+(B) They invite Mikhail to the park
+(C) They invite Mikhail to the swimming pool
+(D) They invite Mikhail to the hotel",A: Mikhail || D: They invite Mikhail to the hotel,04:44-04:44 || 15:58-16:07,entity_binding,Where do the vlogger team members invite the elder who joins the vlogger on their travel on the first night?,They invite the elder who joins the vlogger on their travel to the hotel,"UID 2873 (04:44-04:44) official option A is 'Mikhail'. UID 2890 (15:58-16:07) official option D is 'They invite Mikhail to the hotel'. The new question replaces 'Mikhail' with 'the elder who joins the vlogger on their travel' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-020
+LVCOMP-V1-013,_T2Avd3tFHc,2877 || 2873,"What color of clothes does Mikhail wear on the first day?
+(A) Black
+(B) Pink
+(C) Yellow
+(D) Green || What is the name of the elder who joins the vlogger on their travel?
+(A) Mikhail
+(B) Staffan
+(C) Eric
+(D) Nathan",D: Green || A: Mikhail,04:05-04:25 || 04:44-04:44,entity_binding,What color of clothes does the elder who joins the vlogger on their travel wear on the first day?,Green,"UID 2873 (04:44-04:44) official option A is 'Mikhail'. UID 2877 (04:05-04:25) official option D is 'Green'. The new question replaces 'Mikhail' with 'the elder who joins the vlogger on their travel' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-021
+LVCOMP-V1-014,cWEnogdsW78,4062 || 4071,"What is the hair color of Old Bruce Lee?
+(A) Brown
+(B) All white
+(C) White with some black
+(D) All black || Who is on the right side of the screen after the ground move in the third round?
+(A) The audience
+(B) Fire hulk
+(C) The referee
+(D) Old Bruce Lee",B: All white || D: Old Bruce Lee,03:29-03:59 || 16:56-17:00,entity_binding,What is the hair color of the one who is on the right side of the screen after the ground move in the third round?,All white,"UID 4071 (16:56-17:00) official option D is 'Old Bruce Lee'. UID 4062 (03:29-03:59) official option B is 'All white'. The new question replaces 'Old Bruce Lee' with 'the one who is on the right side of the screen after the ground move in the third round' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-022
+LVCOMP-V1-015,cWEnogdsW78,4065 || 4071,"At 11:14 in the video, how does Old Bruce Lee strike the opponent's head?
+(A) A front kick
+(B) A left hook
+(C) An uppercut punch
+(D) A left elbow strike || Who is on the right side of the screen after the ground move in the third round?
+(A) The audience
+(B) Fire hulk
+(C) The referee
+(D) Old Bruce Lee",C: An uppercut punch || D: Old Bruce Lee,11:14-11:15 || 16:56-17:00,entity_binding,"At 11:14 in the video, how does the one who is on the right side of the screen after the ground move in the third round strike the opponent's head?",An uppercut punch,"UID 4071 (16:56-17:00) official option D is 'Old Bruce Lee'. UID 4065 (11:14-11:15) official option C is 'An uppercut punch'. The new question replaces 'Old Bruce Lee' with 'the one who is on the right side of the screen after the ground move in the third round' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-023
+LVCOMP-V1-016,vZV2WCKMsKs,4682 || 4684,"What is the name of the third group?
+(A) Aron and Buddy
+(B) Amber and Nymeria
+(C) Heather and Bogart
+(D) Adrian Stoica and Hurricane || Why do the four judges stand up for Amber and Nymeria?
+(A) Because they are so touched about Nymeria's performance
+(B) Because they are so traumatised about Nymeria's performance errors
+(C) Because they are so sad about Nymeria's performance errors
+(D) Because they are so excited about Nymeria's performance",B: Amber and Nymeria || D: Because they are so excited about Nymeria's performance,00:01-07:58 || 11:15-11:30,entity_binding,Why do the four judges stand up for the third group?,Because they are so excited about the third group's performance,"UID 4682 (00:01-07:58) official option B is 'Amber and Nymeria'. UID 4684 (11:15-11:30) official option D is ""Because they are so excited about Nymeria's performance"". The new question replaces 'Amber and Nymeria' with 'the third group' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-017,q01CUy_gwdU,120 || 121,"What does the man do after the second collision?
+(A) He looks for his book
+(B) He looks for his phone
+(C) He looks for the woman
+(D) He looks for the post || Why does the man follow the woman in red after they meet for the third time?
+(A) He falls in love with the woman
+(B) He is a spy
+(C) The woman has his phone
+(D) The woman has his book",A: He looks for his book || D: The woman has his book,04:42-05:00 || 05:15-05:31,object_binding,"After they meet for the third time, who has the item the man searched for after the second collision?",the woman in red,"UID 120 (04:42-05:00) official option A is 'He looks for his book'. UID 121 (05:15-05:31) official option D is 'The woman has his book'. Both answers use the possessed object 'book', but the new question hides that noun. The holder wording is copied from the official question or answer. The annotation supports possession only. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-029
+LVCOMP-V1-018,2zkJFv-ro4A,3132 || 3119,"What is the relation beween Daesung and Kange Dae Sung?
+(A) They are team members
+(B) They are different names for the same person
+(C) They are fan and star
+(D) They are employer and employee || Who performs a solo after Seungri does?
+(A) Taeyang
+(B) G-dragon
+(C) Daesung
+(D) T.O.P",A: They are team members || C: Daesung,01:59-02:05 || 13:32-13:55,event_binding,What is the relation beween the person who performs a solo after Seungri does and Kange Dae Sung?,They are team members,"UID 3119 (13:32-13:55) official option C is 'Daesung'. UID 3132 (01:59-02:05) official option A is 'They are team members'. The new question replaces 'Daesung' with 'the person who performs a solo after Seungri does' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-019,9-gOCOu_KGU,4339 || 4345,"Who takes the lead when there is 19 laps to go?
+(A) Zersenay Tadese
+(B) Wilson Kiprop
+(C) Mo Farah
+(D) Daniele Meucci || Who leaves the runway shortly after there are 9 more laps to go?
+(A) Wilson Kiprop
+(B) Kenenisa Bekele
+(C) Galen Rupp
+(D) Mo Ahmed",B: Wilson Kiprop || A: Wilson Kiprop,12:16-14:02 || 23:20-23:28,event_binding,Is the person who takes the lead when there is 19 laps to go the same as the person who leaves the runway shortly after there are 9 more laps to go?,Yes,"UID 4339 (12:16-14:02) official option B is 'Wilson Kiprop'. UID 4345 (23:20-23:28) official option A is 'Wilson Kiprop'. Both official answers are this name, and neither question already states it. The new question asks whether the two described events are the same person. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-020,Hf-n1yfd8II,3919 || 3931,"Who serves first?
+(A) Victor Axelsen
+(B) Lin Dan
+(C) Lee Chong Wei
+(D) Chen Long || Who get the first point for the second game?
+(A) Lee Chong Wei
+(B) Lin Dan
+(C) Soong Joo Ven
+(D) Chen Long",C: Lee Chong Wei || A: Lee Chong Wei,08:30-08:35 || 34:35-35:05,event_binding,Is the person who serves first the same as the person who get the first point for the second game?,Yes,"UID 3919 (08:30-08:35) official option C is 'Lee Chong Wei'. UID 3931 (34:35-35:05) official option A is 'Lee Chong Wei'. Both official answers are this name, and neither question already states it. The new question asks whether the two described events are the same person. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-021,Hf-n1yfd8II,3919 || 3934,"Who serves first?
+(A) Victor Axelsen
+(B) Lin Dan
+(C) Lee Chong Wei
+(D) Chen Long || How to describe the feeling of Lee Chong Wei at 48:16?
+(A) He feels frustrated because he does not catch the shuttlecock from the opponent
+(B) He feels excited because he gets one point
+(C) He feels frustrated because he beats the buttlecock out of bounds
+(D) He feels frustrated because he does not beat the shuttlecock cross the net",C: Lee Chong Wei || A: He feels frustrated because he does not catch the shuttlecock from the opponent,08:30-08:35 || 48:00-48:17,event_binding,How to describe the feeling of the person who serves first at 48:16?,He feels frustrated because he does not catch the shuttlecock from the opponent,"UID 3919 (08:30-08:35) official option C is 'Lee Chong Wei'. UID 3934 (48:00-48:17) official option A is 'He feels frustrated because he does not catch the shuttlecock from the opponent'. The new question replaces 'Lee Chong Wei' with 'the person who serves first' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-022,JPPMz8fEml0,2963 || 2975,"Which country do the travelers choose?
+(A) Isreal
+(B) Afghanistan
+(C) Palestine
+(D) Lebanon || What is the attitudes of people living in Lebanon towards life?
+(A) They think their life are meaningless
+(B) They are happy about their life
+(C) They are hopeless about their life
+(D) They are angry about their life",D: Lebanon || B: They are happy about their life,01:18-01:21 || 08:37-08:50,event_binding,What is the attitudes of people living in the country the travelers choose towards life?,They are happy about their life,"UID 2963 (01:18-01:21) official option D is 'Lebanon'. UID 2975 (08:37-08:50) official option B is 'They are happy about their life'. The new question replaces 'Lebanon' with 'the country the travelers choose' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-023,JPPMz8fEml0,2977 || 2981,"Who goes to a party at night?
+(A) Ammar
+(B) Staffan
+(C) Ammar, Thomas, Staffan
+(D) Thomas || Thomas sleeps at ___ house.
+(A) A stranger's
+(B) His
+(C) A friend's
+(D) A stranger's friend's",D: Thomas || D: A stranger's friend's,09:38-09:47 || 16:03-16:07,event_binding,The person who goes to a party at night sleeps at ___ house?,A stranger's friend's,"UID 2977 (09:38-09:47) official option D is 'Thomas'. UID 2981 (16:03-16:07) official option D is ""A stranger's friend's"". The new question replaces 'Thomas' with 'the person who goes to a party at night' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-024,JTa_Ue2MSwc,5130 || 5132,"What is the first interview's name?
+(A) Mia
+(B) Alexis
+(C) Sierra
+(D) Kindall || What happens after Kindall comes to the stage?
+(A) Sierra fights the host, and Kindall joins her
+(B) They talk for a long time and eventually get back together
+(C) Sierra quarrels and fights with her
+(D) Sierra quarrels with her, but in the end they fights with Tony",C: Sierra || C: Sierra quarrels and fights with her,00:29-01:36 || 02:15-04:32,event_binding,What does the first interview do after Kindall comes to the stage?,She quarrels and fights with her,"UID 5130 (00:29-01:36) official option C is 'Sierra'. UID 5132 (02:15-04:32) official option C is 'Sierra quarrels and fights with her'. The later answer begins with the earlier name, so the new question asks what that described person does. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-025,JTa_Ue2MSwc,5142 || 5145,"Who is the last one appear during the second interview?
+(A) Alexis
+(B) Mia
+(C) Kindall
+(D) Dominique || What does the green dress woman claim?
+(A) Mia says she's Brain's first love
+(B) Alexis says she's Brain's first love
+(C) Mia says she's Tony's first love
+(D) Alexis says she's David's first love",A: Alexis || B: Alexis says she's Brain's first love,13:50-13:50 || 14:25-14:25,event_binding,What does the last one appear during the second interview claim?,She says she's Brain's first love,"UID 5142 (13:50-13:50) official option A is 'Alexis'. UID 5145 (14:25-14:25) official option B is ""Alexis says she's Brain's first love"". The later answer begins with the earlier name, so the new question asks what that described person does. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-012
+LVCOMP-V1-026,KLIa2UaE2KE,4169 || 4172,"Which country's flag is being waved at the beginning of the video?
+(A) Italy
+(B) China
+(C) Brazil
+(D) Japan || Which player scored the tenth point for Italy in the first set of the video?
+(A) 13
+(B) 20
+(C) 5
+(D) 15",A: Italy || C: 5,00:01-00:03 || 11:13-11:20,event_binding,Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?,5,"UID 4169 (00:01-00:03) official option A is 'Italy'. UID 4172 (11:13-11:20) official option C is '5'. The new question replaces 'Italy' with 'the country whose flag is being waved at the beginning of the video' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-027,KLIa2UaE2KE,4169 || 4178,"Which country's flag is being waved at the beginning of the video?
+(A) Italy
+(B) China
+(C) Brazil
+(D) Japan || Which team was leading before the eighteenth point in the second set?
+(A) Japan
+(B) China
+(C) Italy
+(D) Brazil",A: Italy || C: Italy,00:01-00:03 || 32:20-41:20,event_binding,Is the country whose flag is being waved at the beginning of the video the same as the team that was leading before the eighteenth point in the second set?,Yes,"UID 4169 (00:01-00:03) official option A is 'Italy'. UID 4178 (32:20-41:20) official option C is 'Italy'. Both official answers are this name, and neither question already states it. The new question asks whether the two described events are the same person. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-028,KLIa2UaE2KE,4172 || 4178,"Which player scored the tenth point for Italy in the first set of the video?
+(A) 13
+(B) 20
+(C) 5
+(D) 15 || Which team was leading before the eighteenth point in the second set?
+(A) Japan
+(B) China
+(C) Italy
+(D) Brazil",C: 5 || C: Italy,11:13-11:20 || 32:20-41:20,event_binding,Which player scored the tenth point for the team that was leading before the eighteenth point in the second set in the first set of the video?,5,"UID 4178 (32:20-41:20) official option C is 'Italy'. UID 4172 (11:13-11:20) official option C is '5'. The new question replaces 'Italy' with 'the team that was leading before the eighteenth point in the second set' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-029,T1yhBv1ytzw,3785 || 3789,"Who scores the first goal?
+(A) Salah
+(B) Gomez
+(C) Elliott
+(D) Thiago || Why does Elliott fall at 42:37?
+(A) His leg hurts
+(B) His bowl hurts
+(C) His head hurts
+(D) His knee hurts",C: Elliott || C: His head hurts,30:04-31:20 || 42:37-43:20,event_binding,Why does the person who scores the first goal fall at 42:37?,His head hurts,"UID 3785 (30:04-31:20) official option C is 'Elliott'. UID 3789 (42:37-43:20) official option C is 'His head hurts'. The new question replaces 'Elliott' with 'the person who scores the first goal' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-030,VTCDQYYKA9o,4083 || 4098,"Who is the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath?
+(A) Fan Zhendong
+(B) Wang hao
+(C) Ma Long
+(D) Zhang Jike || In what order do the three athletes, from front to back, walk to the podium?
+(A) Fan Zhendong, Ma Long, Dimitrij Ovtcharov
+(B) Ma Long, Dimitrij Ovtcharov, Fan Zhendong
+(C) Ma Long, Dimitrij Ovtcharov, Wang Hao
+(D) Dimitrij Ovtcharov, Fan Zhendong, Ma Long","A: Fan Zhendong || A: Fan Zhendong, Ma Long, Dimitrij Ovtcharov",03:00-03:00 || 71:17-71:17,event_binding,"From front to back, which place does the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath occupy when the three athletes walk to the podium?",First,"UID 4083 (03:00-03:00) official option A is 'Fan Zhendong'. UID 4098 (71:17-71:17) official option A is 'Fan Zhendong, Ma Long, Dimitrij Ovtcharov'. The place word is the position of that name in the official ordered answer. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-016
+LVCOMP-V1-031,XNtNNplAwiI,804 || 808,"What does the blue calabash boy use to scratch the scorpion's nose, causing the scorpion to sneeze?
+(A) The leave on his head
+(B) The stick on his head
+(C) The feather on his head
+(D) The calabash on his head || Who steals the S-shaped jade?
+(A) The red calabash boy
+(B) The blue calabash boy
+(C) The yellow calabash boy
+(D) The green calabash boy",A: The leave on his head || B: The blue calabash boy,40:54-42:56 || 64:45-65:53,event_binding,"What does the person who steals the S-shaped jade use to scratch the scorpion's nose, causing the scorpion to sneeze?",The leave on his head,"UID 808 (64:45-65:53) official option B is 'The blue calabash boy'. UID 804 (40:54-42:56) official option A is 'The leave on his head'. The new question replaces 'The blue calabash boy' with 'the person who steals the S-shaped jade' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-032,XNtNNplAwiI,807 || 808,"What are the skills of the blue calabash boy?
+(A) He has clairvoyance
+(B) He is indestructible
+(C) He has clairaudience
+(D) He has invisibility || Who steals the S-shaped jade?
+(A) The red calabash boy
+(B) The blue calabash boy
+(C) The yellow calabash boy
+(D) The green calabash boy",D: He has invisibility || B: The blue calabash boy,59:21-64:44 || 64:45-65:53,event_binding,What are the skills of the person who steals the S-shaped jade?,He has invisibility,"UID 808 (64:45-65:53) official option B is 'The blue calabash boy'. UID 807 (59:21-64:44) official option D is 'He has invisibility'. The new question replaces 'The blue calabash boy' with 'the person who steals the S-shaped jade' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-033,Xjf5N9S3jAA,3946 || 3961,"Who comes to the sports field?
+(A) Margaret Smith Court
+(B) Stefanos Tsitsipas
+(C) Goran Ivanisevic
+(D) Novak Djokovic || Who served first in this game?
+(A) Novak Djokovic
+(B) The referee
+(C) Stefanos Tsitsipas
+(D) Nobody",B: Stefanos Tsitsipas || C: Stefanos Tsitsipas,00:03-00:44 || 10:58-11:16,event_binding,Is the person who comes to the sports field the same as the person who served first in this game?,Yes,"UID 3946 (00:03-00:44) official option B is 'Stefanos Tsitsipas'. UID 3961 (10:58-11:16) official option C is 'Stefanos Tsitsipas'. Both official answers are this name, and neither question already states it. The new question asks whether the two described events are the same person. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-034,Xjf5N9S3jAA,3962 || 3964,"Who scored the first score?
+(A) No one scored
+(B) Novak Djokovic
+(C) Stefanos Tsitsipas
+(D) It was a draw, no one scored || Who won the first round?
+(A) Novak Djokovic
+(B) Nobody
+(C) Not mentioned in the video
+(D) Stefanos Tsitsipas",B: Novak Djokovic || A: Novak Djokovic,10:58-11:16 || 12:18-13:05,event_binding,Is the person who scored the first score the same as the person who won the first round?,Yes,"UID 3962 (10:58-11:16) official option B is 'Novak Djokovic'. UID 3964 (12:18-13:05) official option A is 'Novak Djokovic'. Both official answers are this name, and neither question already states it. The new question asks whether the two described events are the same person. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-035,_T2Avd3tFHc,2877 || 2890,"What color of clothes does Mikhail wear on the first day?
+(A) Black
+(B) Pink
+(C) Yellow
+(D) Green || Where do the vlogger team members invite Mikhail on the first night?
+(A) They invite Mikhail to the pub
+(B) They invite Mikhail to the park
+(C) They invite Mikhail to the swimming pool
+(D) They invite Mikhail to the hotel",D: Green || D: They invite Mikhail to the hotel,04:05-04:25 || 15:58-16:07,event_binding,Where do the vlogger team members invite the person wearing Green on the first day on the first night?,They invite the person wearing Green on the first day to the hotel,"UID 2877 (04:05-04:25) official option D is 'Green'. UID 2890 (15:58-16:07) official option D is 'They invite Mikhail to the hotel'. The earlier official answer is the clothing color. The later question is rewritten so it no longer names the person. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-030
+LVCOMP-V1-036,aJI8XTa_DII,1227 || 1249,"How many flags of the Russian Federation are there on the stage when Putin delivers the first speech?
+(A) 5
+(B) 1
+(C) 9
+(D) 4 || Which country's flag is on the flagpole on the top of the building with gold clock?
+(A) Russian Federation
+(B) The Republic of Belarus
+(C) Ukraine
+(D) France",A: 5 || A: Russian Federation,00:53-01:26 || 49:25-49:28,event_binding,How many flags of the country whose flag is on the flagpole on the top of the building with gold clock are there on the stage when Putin delivers the first speech?,5,"UID 1249 (49:25-49:28) official option A is 'Russian Federation'. UID 1227 (00:53-01:26) official option A is '5'. The new question replaces 'Russian Federation' with 'the country whose flag is on the flagpole on the top of the building with gold clock' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-037,f8DKD78BrQA,2082 || 2083,"Which company does the presenter mentions before Cohesity?
+(A) Nvidia
+(B) Servicenow
+(C) Sap
+(D) Dell Technologies || Which company claims to first to provide AI-powered business insights from secondary data?
+(A) Snowflakes
+(B) Cohesity
+(C) Nvidia
+(D) Servicenow",B: Servicenow || B: Cohesity,86:12-86:12 || 86:24-86:24,event_binding,Which company does the presenter mentions before the company that claims to first to provide AI-powered business insights from secondary data?,Servicenow,"UID 2083 (86:24-86:24) official option B is 'Cohesity'. UID 2082 (86:12-86:12) official option B is 'Servicenow'. The new question replaces 'Cohesity' with 'the company that claims to first to provide AI-powered business insights from secondary data' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-038,oZEVgDXJwCc,3529 || 3543,"Why is Puyol so sad at 15:06?
+(A) His team is goaled in by German
+(B) His header doesn't result in a goal
+(C) He is fouled by others
+(D) He fouls || Who scores the first goal?
+(A) Pedro
+(B) Puyol
+(C) Kroos
+(D) Alonso",B: His header doesn't result in a goal || B: Puyol,15:00-15:30 || 76:00-78:00,event_binding,Why is the person who scores the first goal so sad at 15:06?,His header doesn't result in a goal,"UID 3543 (76:00-78:00) official option B is 'Puyol'. UID 3529 (15:00-15:30) official option B is ""His header doesn't result in a goal"". The new question replaces 'Puyol' with 'the person who scores the first goal' from the other official QA. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,
+LVCOMP-V1-039,2zkJFv-ro4A,3118 || 3123,"Who is the man appearing on the screen from 01:38-01:40?
+(A) Taeyang
+(B) Seungri
+(C) G-dragon
+(D) T.O.P || Who does the vlogger see from the BigBang after the concert ends?
+(A) Daesung
+(B) G-dragon
+(C) Taeyang
+(D) T.O.P",A: Taeyang || C: Taeyang,01:38-01:40 || 33:49-34:04,attribute_binding,Who is the person the vloggers see from the BigBang after the concert ends?,the man appearing on the screen from 01:38-01:40,"UID 3118 (01:38-01:40) official option A is 'Taeyang'. UID 3123 (33:49-34:04) official option C is 'Taeyang'. The two official answers are the same name. The new question asks for the identity description instead of repeating that name. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-001
+LVCOMP-V1-040,Hf-n1yfd8II,3919 || 3944,"Who serves first?
+(A) Victor Axelsen
+(B) Lin Dan
+(C) Lee Chong Wei
+(D) Chen Long || Who is the final winner?
+(A) Chen Long
+(B) Lin Dan
+(C) Tan Boon Heong
+(D) Lee Chong Wei",C: Lee Chong Wei || D: Lee Chong Wei,08:30-08:35 || 90:13-90:40,attribute_binding,What is the role of the person who serves first?,the final winner,"UID 3944 (90:13-90:40) official option D is 'Lee Chong Wei'. UID 3919 (08:30-08:35) official option C is 'Lee Chong Wei'. The two official answers are the same name. The new question asks for the identity description instead of repeating that name. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-002
+LVCOMP-V1-041,Hf-n1yfd8II,3931 || 3944,"Who get the first point for the second game?
+(A) Lee Chong Wei
+(B) Lin Dan
+(C) Soong Joo Ven
+(D) Chen Long || Who is the final winner?
+(A) Chen Long
+(B) Lin Dan
+(C) Tan Boon Heong
+(D) Lee Chong Wei",A: Lee Chong Wei || D: Lee Chong Wei,34:35-35:05 || 90:13-90:40,attribute_binding,What is the role of the person who get the first point for the second game?,the final winner,"UID 3944 (90:13-90:40) official option D is 'Lee Chong Wei'. UID 3931 (34:35-35:05) official option A is 'Lee Chong Wei'. The two official answers are the same name. The new question asks for the identity description instead of repeating that name. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-003
+LVCOMP-V1-042,Hf-n1yfd8II,3937 || 3944,"Who's that guy in orange and always coughing?
+(A) Lin Dan's coach
+(B) Lee Chong Wei's coach
+(C) The audience
+(D) The referee || Who is the final winner?
+(A) Chen Long
+(B) Lin Dan
+(C) Tan Boon Heong
+(D) Lee Chong Wei",B: Lee Chong Wei's coach || D: Lee Chong Wei,57:55-57:55 || 90:13-90:40,attribute_binding,Whose coach is that guy in orange and always coughing?,the final winner,"UID 3944 (90:13-90:40) official option D is 'Lee Chong Wei'. UID 3937 (57:55-57:55) official option B is ""Lee Chong Wei's coach"". The official answer states the coach relation. The new question asks whose relation it is, using the other QA's description. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-005
+LVCOMP-V1-043,JTa_Ue2MSwc,5150 || 5153,"What is the name of the stripper?
+(A) Alexis
+(B) Roxana
+(C) Kindall
+(D) Mia || Who does Austin choose?
+(A) Roxana
+(B) Mia
+(C) No one
+(D) Both of them",D: Mia || B: Mia,27:04-29:49 || 31:15-33:45,attribute_binding,What is the role of the person Austin chooses?,the stripper,"UID 5150 (27:04-29:49) official option D is 'Mia'. UID 5153 (31:15-33:45) official option B is 'Mia'. The two official answers are the same name. The new question asks for the identity description instead of repeating that name. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-013
+LVCOMP-V1-044,_T2Avd3tFHc,2873 || 2883,"What is the name of the elder who joins the vlogger on their travel?
+(A) Mikhail
+(B) Staffan
+(C) Eric
+(D) Nathan || Who have quarrel with a grey T-shirt elder in the Monastery?
+(A) Eric
+(B) Mikhail
+(C) Matt, Eric, and Mikhail
+(D) Matt",A: Mikhail || B: Mikhail,04:44-04:44 || 07:41-08:02,attribute_binding,What is the role of the person who have quarrel with a grey T-shirt elder in the Monastery?,the elder who joins the vlogger on their travel,"UID 2873 (04:44-04:44) official option A is 'Mikhail'. UID 2883 (07:41-08:02) official option B is 'Mikhail'. The two official answers are the same name. The new question asks for the identity description instead of repeating that name. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-018
+LVCOMP-V1-045,vHlSoxg8WHo,5064 || 5068,"Who is the person at 00:02?
+(A) Raymond
+(B) Jason
+(C) Mario
+(D) Tacara || What can we know about Brittany?
+(A) She has an Irresponsible husband
+(B) She's Jason's girlfriend
+(C) She's Tacara's sister
+(D) She's close to her sister",D: Tacara || C: She's Tacara's sister,00:02-01:18 || 01:36-02:52,attribute_binding,Whose sister is Brittany?,the person at 00:02,"UID 5064 (00:02-01:18) official option D is 'Tacara'. UID 5068 (01:36-02:52) official option C is ""She's Tacara's sister"". The official answer states the sister relation. The new question asks whose relation it is, using the other QA's description. The wording uses those annotation strings only. It does not verify the video, and it is not a certified benchmark item.",PENDING_REVIEW,False,LVCOMP-V0-028

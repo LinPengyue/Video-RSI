@@ -1,0 +1,19 @@
+{
+  "phase": "lvbench-compositional-qa-v1",
+  "official_qa": 1549,
+  "official_videos": 103,
+  "scanned_same_video_pairs": 11470,
+  "preliminary_pairs": 72,
+  "complete_candidates": 45,
+  "needs_human_draft": 40,
+  "videos": 20,
+  "by_type": {
+    "entity_binding": 16,
+    "object_binding": 1,
+    "event_binding": 21,
+    "attribute_binding": 7
+  },
+  "new_source_pairs_vs_v0": 19,
+  "review_status": "PENDING_REVIEW",
+  "video_verified": false
+}
