@@ -1,0 +1,271 @@
+id,video_id,source_uids,source_questions,source_answers,time_references,composition_type,new_question,new_answer,answer_derivation,review_status,substitution_site,time_gap_seconds,video_verified
+LVCOMP-V0-001,2zkJFv-ro4A,3118 || 3123,"Who is the man appearing on the screen from 01:38-01:40?
+(A) Taeyang
+(B) Seungri
+(C) G-dragon
+(D) T.O.P || Who does the vlogger see from the BigBang after the concert ends?
+(A) Daesung
+(B) G-dragon
+(C) Taeyang
+(D) T.O.P",A: Taeyang || C: Taeyang,01:38-01:40 || 33:49-34:04,entity_binding,Who does the vlogger see from the BigBang after the concert ends?,the man appearing on the screen from 01:38-01:40,"UID 3118 (01:38-01:40) asks for a name and the official option A is 'Taeyang'. UID 3123 (33:49-34:04) the later official answer is or names this person, while its question does not. Official option C is 'Taeyang'. The new wording replaces 'Taeyang' with 'the man appearing on the screen from 01:38-01:40'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,1931.0,False
+LVCOMP-V0-002,Hf-n1yfd8II,3919 || 3944,"Who serves first?
+(A) Victor Axelsen
+(B) Lin Dan
+(C) Lee Chong Wei
+(D) Chen Long || Who is the final winner?
+(A) Chen Long
+(B) Lin Dan
+(C) Tan Boon Heong
+(D) Lee Chong Wei",C: Lee Chong Wei || D: Lee Chong Wei,08:30-08:35 || 90:13-90:40,entity_binding,Who serves first?,the final winner,"UID 3944 (90:13-90:40) asks for a name and the official option D is 'Lee Chong Wei'. UID 3919 (08:30-08:35) the later official answer is or names this person, while its question does not. Official option C is 'Lee Chong Wei'. The new wording replaces 'Lee Chong Wei' with 'the final winner'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,4903.0,False
+LVCOMP-V0-003,Hf-n1yfd8II,3931 || 3944,"Who get the first point for the second game?
+(A) Lee Chong Wei
+(B) Lin Dan
+(C) Soong Joo Ven
+(D) Chen Long || Who is the final winner?
+(A) Chen Long
+(B) Lin Dan
+(C) Tan Boon Heong
+(D) Lee Chong Wei",A: Lee Chong Wei || D: Lee Chong Wei,34:35-35:05 || 90:13-90:40,entity_binding,Who get the first point for the second game?,the final winner,"UID 3944 (90:13-90:40) asks for a name and the official option D is 'Lee Chong Wei'. UID 3931 (34:35-35:05) the later official answer is or names this person, while its question does not. Official option A is 'Lee Chong Wei'. The new wording replaces 'Lee Chong Wei' with 'the final winner'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,3338.0,False
+LVCOMP-V0-004,Hf-n1yfd8II,3934 || 3944,"How to describe the feeling of Lee Chong Wei at 48:16?
+(A) He feels frustrated because he does not catch the shuttlecock from the opponent
+(B) He feels excited because he gets one point
+(C) He feels frustrated because he beats the buttlecock out of bounds
+(D) He feels frustrated because he does not beat the shuttlecock cross the net || Who is the final winner?
+(A) Chen Long
+(B) Lin Dan
+(C) Tan Boon Heong
+(D) Lee Chong Wei",A: He feels frustrated because he does not catch the shuttlecock from the opponent || D: Lee Chong Wei,48:00-48:17 || 90:13-90:40,entity_binding,How to describe the feeling of the final winner at 48:16?,He feels frustrated because he does not catch the shuttlecock from the opponent,"UID 3944 (90:13-90:40) asks for a name and the official option D is 'Lee Chong Wei'. UID 3934 (48:00-48:17) the later question uses the official name. Official option A is 'He feels frustrated because he does not catch the shuttlecock from the opponent'. The new wording replaces 'Lee Chong Wei' with 'the final winner'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,2533.0,False
+LVCOMP-V0-005,Hf-n1yfd8II,3937 || 3944,"Who's that guy in orange and always coughing?
+(A) Lin Dan's coach
+(B) Lee Chong Wei's coach
+(C) The audience
+(D) The referee || Who is the final winner?
+(A) Chen Long
+(B) Lin Dan
+(C) Tan Boon Heong
+(D) Lee Chong Wei",B: Lee Chong Wei's coach || D: Lee Chong Wei,57:55-57:55 || 90:13-90:40,entity_binding,Who's that guy in orange and always coughing?,the final winner's coach,"UID 3944 (90:13-90:40) asks for a name and the official option D is 'Lee Chong Wei'. UID 3937 (57:55-57:55) the later official answer is or names this person, while its question does not. Official option B is ""Lee Chong Wei's coach"". The new wording replaces 'Lee Chong Wei' with 'the final winner'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,1938.0,False
+LVCOMP-V0-006,JTa_Ue2MSwc,5130 || 5131,"What is the first interview's name?
+(A) Mia
+(B) Alexis
+(C) Sierra
+(D) Kindall || What does Sierra do after her former roommate comes to the stage?
+(A) She takes off her cloths
+(B) She takes off her scarf
+(C) She takes off her hats
+(D) She takes off her shoes",C: Sierra || D: She takes off her shoes,00:29-01:36 || 02:08-02:11,entity_binding,What does the first interview do after her former roommate comes to the stage?,She takes off her shoes,"UID 5130 (00:29-01:36) asks for a name and the official option C is 'Sierra'. UID 5131 (02:08-02:11) the later question uses the official name. Official option D is 'She takes off her shoes'. The new wording replaces 'Sierra' with 'the first interview'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,99.0,False
+LVCOMP-V0-007,JTa_Ue2MSwc,5130 || 5134,"What is the first interview's name?
+(A) Mia
+(B) Alexis
+(C) Sierra
+(D) Kindall || What does Sierra do after the first male guest show up on the stage?
+(A) She hugs the man
+(B) She talks  with the man
+(C) She slaps the man
+(D) She kisses the man",C: Sierra || C: She slaps the man,00:29-01:36 || 05:28-05:59,entity_binding,What does the first interview do after the first male guest show up on the stage?,She slaps the man,"UID 5130 (00:29-01:36) asks for a name and the official option C is 'Sierra'. UID 5134 (05:28-05:59) the later question uses the official name. Official option C is 'She slaps the man'. The new wording replaces 'Sierra' with 'the first interview'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,299.0,False
+LVCOMP-V0-008,JTa_Ue2MSwc,5130 || 5135,"What is the first interview's name?
+(A) Mia
+(B) Alexis
+(C) Sierra
+(D) Kindall || Who cheats on Sierra with Kindall?
+(A) Tony
+(B) Adrian
+(C) Brian
+(D) David",C: Sierra || D: David,00:29-01:36 || 05:24-06:04,entity_binding,Who cheats on the first interview with Kindall?,David,"UID 5130 (00:29-01:36) asks for a name and the official option C is 'Sierra'. UID 5135 (05:24-06:04) the later question uses the official name. Official option D is 'David'. The new wording replaces 'Sierra' with 'the first interview'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,295.0,False
+LVCOMP-V0-009,JTa_Ue2MSwc,5130 || 5137,"What is the first interview's name?
+(A) Mia
+(B) Alexis
+(C) Sierra
+(D) Kindall || What is the name of Sierra's former roommate?
+(A) Mia
+(B) Kindall
+(C) Alexis
+(D) Roxana",C: Sierra || B: Kindall,00:29-01:36 || 02:15-04:32,entity_binding,What is the name of the first interview's former roommate?,Kindall,"UID 5130 (00:29-01:36) asks for a name and the official option C is 'Sierra'. UID 5137 (02:15-04:32) the later question uses the official name. Official option B is 'Kindall'. The new wording replaces 'Sierra' with 'the first interview'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,106.0,False
+LVCOMP-V0-010,JTa_Ue2MSwc,5137 || 5135,"What is the name of Sierra's former roommate?
+(A) Mia
+(B) Kindall
+(C) Alexis
+(D) Roxana || Who cheats on Sierra with Kindall?
+(A) Tony
+(B) Adrian
+(C) Brian
+(D) David",B: Kindall || D: David,02:15-04:32 || 05:24-06:04,entity_binding,Who cheats on Sierra with Sierra's former roommate?,David,"UID 5137 (02:15-04:32) asks for a name and the official option B is 'Kindall'. UID 5135 (05:24-06:04) the later question uses the official name. Official option D is 'David'. The new wording replaces 'Kindall' with ""Sierra's former roommate"". This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,189.0,False
+LVCOMP-V0-011,JTa_Ue2MSwc,5140 || 5146,"What is the name of Dominique's crush?
+(A) Brian
+(B) Adrian
+(C) Tony
+(D) David || What happens to the green dress woman after Brian dumps his girlfriend?
+(A) She laughs
+(B) She cries
+(C) She applauds
+(D) She screams",A: Brian || B: She cries,08:25-12:35 || 17:32-17:57,entity_binding,What happens to the green dress woman after Dominique's crush dumps his girlfriend?,She cries,"UID 5140 (08:25-12:35) asks for a name and the official option A is 'Brian'. UID 5146 (17:32-17:57) the later question uses the official name. Official option B is 'She cries'. The new wording replaces 'Brian' with ""Dominique's crush"". This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,547.0,False
+LVCOMP-V0-012,JTa_Ue2MSwc,5142 || 5145,"Who is the last one appear during the second interview?
+(A) Alexis
+(B) Mia
+(C) Kindall
+(D) Dominique || What does the green dress woman claim?
+(A) Mia says she's Brain's first love
+(B) Alexis says she's Brain's first love
+(C) Mia says she's Tony's first love
+(D) Alexis says she's David's first love",A: Alexis || B: Alexis says she's Brain's first love,13:50-13:50 || 14:25-14:25,entity_binding,What does the green dress woman claim?,the last one appear during the second interview says she's Brain's first love,"UID 5142 (13:50-13:50) asks for a name and the official option A is 'Alexis'. UID 5145 (14:25-14:25) the later official answer is or names this person, while its question does not. Official option B is ""Alexis says she's Brain's first love"". The new wording replaces 'Alexis' with 'the last one appear during the second interview'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,35.0,False
+LVCOMP-V0-013,JTa_Ue2MSwc,5150 || 5153,"What is the name of the stripper?
+(A) Alexis
+(B) Roxana
+(C) Kindall
+(D) Mia || Who does Austin choose?
+(A) Roxana
+(B) Mia
+(C) No one
+(D) Both of them",D: Mia || B: Mia,27:04-29:49 || 31:15-33:45,entity_binding,Who does Austin choose?,the stripper,"UID 5150 (27:04-29:49) asks for a name and the official option D is 'Mia'. UID 5153 (31:15-33:45) the later official answer is or names this person, while its question does not. Official option B is 'Mia'. The new wording replaces 'Mia' with 'the stripper'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,251.0,False
+LVCOMP-V0-014,QWXlvx1GoTY,2463 || 2465,"Who is the second person to speak on stage?
+(A) Carrie Palin
+(B) Jonathan Davidson
+(C) Rodney Clark
+(D) Britney Bartlett || Jonathan Davidson shows a video about what brand during his talk?
+(A) Saint Laurent
+(B) Gucci
+(C) Dior
+(D) L'Oreal",B: Jonathan Davidson || D: L'Oreal,42:12-42:35 || 51:15-53:23,entity_binding,The second person to speak on stage shows a video about what brand during his talk?,L'Oreal,"UID 2463 (42:12-42:35) asks for a name and the official option B is 'Jonathan Davidson'. UID 2465 (51:15-53:23) the later question uses the official name. Official option D is ""L'Oreal"". The new wording replaces 'Jonathan Davidson' with 'the second person to speak on stage'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,543.0,False
+LVCOMP-V0-015,VTCDQYYKA9o,4083 || 4092,"Who is the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath?
+(A) Fan Zhendong
+(B) Wang hao
+(C) Ma Long
+(D) Zhang Jike || How many points does Fan Zhendong score in the fourth game?
+(A) 7
+(B) 2
+(C) 9
+(D) 4",A: Fan Zhendong || C: 9,03:00-03:00 || 41:50-50:50,entity_binding,How many points does the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath score in the fourth game?,9,"UID 4083 (03:00-03:00) asks for a name and the official option A is 'Fan Zhendong'. UID 4092 (41:50-50:50) the later question uses the official name. Official option C is '9'. The new wording replaces 'Fan Zhendong' with 'the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,2330.0,False
+LVCOMP-V0-016,VTCDQYYKA9o,4083 || 4098,"Who is the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath?
+(A) Fan Zhendong
+(B) Wang hao
+(C) Ma Long
+(D) Zhang Jike || In what order do the three athletes, from front to back, walk to the podium?
+(A) Fan Zhendong, Ma Long, Dimitrij Ovtcharov
+(B) Ma Long, Dimitrij Ovtcharov, Fan Zhendong
+(C) Ma Long, Dimitrij Ovtcharov, Wang Hao
+(D) Dimitrij Ovtcharov, Fan Zhendong, Ma Long","A: Fan Zhendong || A: Fan Zhendong, Ma Long, Dimitrij Ovtcharov",03:00-03:00 || 71:17-71:17,entity_binding,"In what order do the three athletes, from front to back, walk to the podium?","the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath, Ma Long, Dimitrij Ovtcharov","UID 4083 (03:00-03:00) asks for a name and the official option A is 'Fan Zhendong'. UID 4098 (71:17-71:17) the later official answer is or names this person, while its question does not. Official option A is 'Fan Zhendong, Ma Long, Dimitrij Ovtcharov'. The new wording replaces 'Fan Zhendong' with 'the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,4097.0,False
+LVCOMP-V0-017,Z86xysw5Ncc,4197 || 4199,"What's the number on the back of Tyson Gay?
+(A) 3218
+(B) 3712
+(C) 3718
+(D) 3217 || Who is the winner for Men's 100M Round 1 Heat 1?
+(A) Tyson Gay
+(B) Rondel Sorrillo
+(C) Asafa Powell
+(D) Jaysuma Saidy Naure",D: 3217 || A: Tyson Gay,02:18-02:36 || 03:46-04:25,entity_binding,What's the number on the back of the winner for Men's 100M Round 1 Heat 1?,3217,"UID 4199 (03:46-04:25) asks for a name and the official option A is 'Tyson Gay'. UID 4197 (02:18-02:36) the later question uses the official name. Official option D is '3217'. The new wording replaces 'Tyson Gay' with ""the winner for Men's 100M Round 1 Heat 1"". This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,88.0,False
+LVCOMP-V0-018,_T2Avd3tFHc,2873 || 2883,"What is the name of the elder who joins the vlogger on their travel?
+(A) Mikhail
+(B) Staffan
+(C) Eric
+(D) Nathan || Who have quarrel with a grey T-shirt elder in the Monastery?
+(A) Eric
+(B) Mikhail
+(C) Matt, Eric, and Mikhail
+(D) Matt",A: Mikhail || B: Mikhail,04:44-04:44 || 07:41-08:02,entity_binding,Who have quarrel with a grey T-shirt elder in the Monastery?,the elder who joins the vlogger on their travel,"UID 2873 (04:44-04:44) asks for a name and the official option A is 'Mikhail'. UID 2883 (07:41-08:02) the later official answer is or names this person, while its question does not. Official option B is 'Mikhail'. The new wording replaces 'Mikhail' with 'the elder who joins the vlogger on their travel'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,177.0,False
+LVCOMP-V0-019,_T2Avd3tFHc,2873 || 2888,"What is the name of the elder who joins the vlogger on their travel?
+(A) Mikhail
+(B) Staffan
+(C) Eric
+(D) Nathan || How many kinds of desserts do the vlogger team and Mikhail have on the third day?
+(A) 0
+(B) 2
+(C) 1
+(D) 3",A: Mikhail || B: 2,04:44-04:44 || 08:17-08:26,entity_binding,How many kinds of desserts do the vlogger team and the elder who joins the vlogger on their travel have on the third day?,2,"UID 2873 (04:44-04:44) asks for a name and the official option A is 'Mikhail'. UID 2888 (08:17-08:26) the later question uses the official name. Official option B is '2'. The new wording replaces 'Mikhail' with 'the elder who joins the vlogger on their travel'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,213.0,False
+LVCOMP-V0-020,_T2Avd3tFHc,2873 || 2890,"What is the name of the elder who joins the vlogger on their travel?
+(A) Mikhail
+(B) Staffan
+(C) Eric
+(D) Nathan || Where do the vlogger team members invite Mikhail on the first night?
+(A) They invite Mikhail to the pub
+(B) They invite Mikhail to the park
+(C) They invite Mikhail to the swimming pool
+(D) They invite Mikhail to the hotel",A: Mikhail || D: They invite Mikhail to the hotel,04:44-04:44 || 15:58-16:07,entity_binding,Where do the vlogger team members invite the elder who joins the vlogger on their travel on the first night?,They invite the elder who joins the vlogger on their travel to the hotel,"UID 2873 (04:44-04:44) asks for a name and the official option A is 'Mikhail'. UID 2890 (15:58-16:07) the later question uses the official name. Official option D is 'They invite Mikhail to the hotel'. The new wording replaces 'Mikhail' with 'the elder who joins the vlogger on their travel'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,674.0,False
+LVCOMP-V0-021,_T2Avd3tFHc,2877 || 2873,"What color of clothes does Mikhail wear on the first day?
+(A) Black
+(B) Pink
+(C) Yellow
+(D) Green || What is the name of the elder who joins the vlogger on their travel?
+(A) Mikhail
+(B) Staffan
+(C) Eric
+(D) Nathan",D: Green || A: Mikhail,04:05-04:25 || 04:44-04:44,entity_binding,What color of clothes does the elder who joins the vlogger on their travel wear on the first day?,Green,"UID 2873 (04:44-04:44) asks for a name and the official option A is 'Mikhail'. UID 2877 (04:05-04:25) the later question uses the official name. Official option D is 'Green'. The new wording replaces 'Mikhail' with 'the elder who joins the vlogger on their travel'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,39.0,False
+LVCOMP-V0-022,cWEnogdsW78,4062 || 4071,"What is the hair color of Old Bruce Lee?
+(A) Brown
+(B) All white
+(C) White with some black
+(D) All black || Who is on the right side of the screen after the ground move in the third round?
+(A) The audience
+(B) Fire hulk
+(C) The referee
+(D) Old Bruce Lee",B: All white || D: Old Bruce Lee,03:29-03:59 || 16:56-17:00,entity_binding,What is the hair color of the one who is on the right side of the screen after the ground move in the third round?,All white,"UID 4071 (16:56-17:00) asks for a name and the official option D is 'Old Bruce Lee'. UID 4062 (03:29-03:59) the later question uses the official name. Official option B is 'All white'. The new wording replaces 'Old Bruce Lee' with 'the one who is on the right side of the screen after the ground move in the third round'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,807.0,False
+LVCOMP-V0-023,cWEnogdsW78,4065 || 4071,"At 11:14 in the video, how does Old Bruce Lee strike the opponent's head?
+(A) A front kick
+(B) A left hook
+(C) An uppercut punch
+(D) A left elbow strike || Who is on the right side of the screen after the ground move in the third round?
+(A) The audience
+(B) Fire hulk
+(C) The referee
+(D) Old Bruce Lee",C: An uppercut punch || D: Old Bruce Lee,11:14-11:15 || 16:56-17:00,entity_binding,"At 11:14 in the video, how does the one who is on the right side of the screen after the ground move in the third round strike the opponent's head?",An uppercut punch,"UID 4071 (16:56-17:00) asks for a name and the official option D is 'Old Bruce Lee'. UID 4065 (11:14-11:15) the later question uses the official name. Official option C is 'An uppercut punch'. The new wording replaces 'Old Bruce Lee' with 'the one who is on the right side of the screen after the ground move in the third round'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,342.0,False
+LVCOMP-V0-024,evYm0cELO3I,2759 || 2764,"What is the name of the vlogger?
+(A) Sonny
+(B) Alan Brown
+(C) Jonny
+(D) Conny || What happens from 04:50-05:20?
+(A) Sonny tastes Bohemain Lobster
+(B) The chef cooks Lobster Quesadilla
+(C) The chef cooks Bohemain Lobster
+(D) Sonny tastes  Lobster Quesadilla",A: Sonny || D: Sonny tastes Lobster Quesadilla,01:50-01:55 || 04:50-05:20,entity_binding,What happens from 04:50-05:20?,the vlogger tastes Lobster Quesadilla,"UID 2759 (01:50-01:55) asks for a name and the official option A is 'Sonny'. UID 2764 (04:50-05:20) the later official answer is or names this person, while its question does not. Official option D is 'Sonny tastes Lobster Quesadilla'. The new wording replaces 'Sonny' with 'the vlogger'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,180.0,False
+LVCOMP-V0-025,evYm0cELO3I,2759 || 2768,"What is the name of the vlogger?
+(A) Sonny
+(B) Alan Brown
+(C) Jonny
+(D) Conny || Why does Sonny look so expected at 07:27?
+(A) He wants to eat the Lobster Quesadilla
+(B) He wants to eat the Bohemian Lobster
+(C) He wants to start the maritime navigation
+(D) He enjoys the juicy cheese",A: Sonny || B: He wants to eat the Bohemian Lobster,01:50-01:55 || 07:27-07:27,entity_binding,Why does the vlogger look so expected at 07:27?,He wants to eat the Bohemian Lobster,"UID 2759 (01:50-01:55) asks for a name and the official option A is 'Sonny'. UID 2768 (07:27-07:27) the later question uses the official name. Official option B is 'He wants to eat the Bohemian Lobster'. The new wording replaces 'Sonny' with 'the vlogger'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,337.0,False
+LVCOMP-V0-026,evYm0cELO3I,2759 || 2770,"What is the name of the vlogger?
+(A) Sonny
+(B) Alan Brown
+(C) Jonny
+(D) Conny || What does Sonny look so happy at 08:23?
+(A) He eats the delicious lobster guts
+(B) He eats the delicious cheese
+(C) He eats the delicious lobster tail
+(D) He eats the delicious chunks of the lobster",A: Sonny || D: He eats the delicious chunks of the lobster,01:50-01:55 || 08:23-08:23,entity_binding,What does the vlogger look so happy at 08:23?,He eats the delicious chunks of the lobster,"UID 2759 (01:50-01:55) asks for a name and the official option A is 'Sonny'. UID 2770 (08:23-08:23) the later question uses the official name. Official option D is 'He eats the delicious chunks of the lobster'. The new wording replaces 'Sonny' with 'the vlogger'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,question,393.0,False
+LVCOMP-V0-027,evYm0cELO3I,2759 || 2776,"What is the name of the vlogger?
+(A) Sonny
+(B) Alan Brown
+(C) Jonny
+(D) Conny || What happens from 24:46-25:12?
+(A) Sonny tastes  Lobster Quesadilla
+(B) Sonny tastes Bohemian Lobster
+(C) Sonny tastes Kung Fruit Salad
+(D) The chef cooks Lobster Quesadilla",A: Sonny || C: Sonny tastes Kung Fruit Salad,01:50-01:55 || 24:46-25:12,entity_binding,What happens from 24:46-25:12?,the vlogger tastes Kung Fruit Salad,"UID 2759 (01:50-01:55) asks for a name and the official option A is 'Sonny'. UID 2776 (24:46-25:12) the later official answer is or names this person, while its question does not. Official option C is 'Sonny tastes Kung Fruit Salad'. The new wording replaces 'Sonny' with 'the vlogger'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,1376.0,False
+LVCOMP-V0-028,vHlSoxg8WHo,5064 || 5068,"Who is the person at 00:02?
+(A) Raymond
+(B) Jason
+(C) Mario
+(D) Tacara || What can we know about Brittany?
+(A) She has an Irresponsible husband
+(B) She's Jason's girlfriend
+(C) She's Tacara's sister
+(D) She's close to her sister",D: Tacara || C: She's Tacara's sister,00:02-01:18 || 01:36-02:52,entity_binding,What can we know about Brittany?,She's the person at 00:02's sister,"UID 5064 (00:02-01:18) asks for a name and the official option D is 'Tacara'. UID 5068 (01:36-02:52) the later official answer is or names this person, while its question does not. Official option C is ""She's Tacara's sister"". The new wording replaces 'Tacara' with 'the person at 00:02'. This uses the annotation string only. It does not verify that the picture shows the same person, and it is not a certified composition item.",PENDING_REVIEW,answer,94.0,False
+LVCOMP-V0-029,q01CUy_gwdU,120 || 121,"What does the man do after the second collision?
+(A) He looks for his book
+(B) He looks for his phone
+(C) He looks for the woman
+(D) He looks for the post || Why does the man follow the woman in red after they meet for the third time?
+(A) He falls in love with the woman
+(B) He is a spy
+(C) The woman has his phone
+(D) The woman has his book",A: He looks for his book || D: The woman has his book,04:42-05:00 || 05:15-05:31,object_binding,"Who has the book that the man looks for after the second collision, after they meet for the third time?",the woman in red,UID 120 (04:42-05:00) option A is 'He looks for his book'. UID 121 (05:15-05:31) option D is 'The woman has his book'. The shared object is 'book' with the same possessive 'his'. The holder wording 'the woman in red' is taken from the official question or answer. The annotation supports possession only. It does not support a more specific action such as picking the object up. Video identity is not verified.,PENDING_REVIEW,question,33.0,False
+LVCOMP-V0-030,_T2Avd3tFHc,2877 || 2890,"What color of clothes does Mikhail wear on the first day?
+(A) Black
+(B) Pink
+(C) Yellow
+(D) Green || Where do the vlogger team members invite Mikhail on the first night?
+(A) They invite Mikhail to the pub
+(B) They invite Mikhail to the park
+(C) They invite Mikhail to the swimming pool
+(D) They invite Mikhail to the hotel",D: Green || D: They invite Mikhail to the hotel,04:05-04:25 || 15:58-16:07,temporal_event,Where do the vlogger team members invite the person wearing Green on the first day on the first night?,They invite the person wearing Green on the first day to the hotel,UID 2877 (04:05-04:25) says the clothes Mikhail wears on the first day are 'Green'. UID 2890 (15:58-16:07) is a later official question about the same annotated name. Option D is 'They invite Mikhail to the hotel'. The time order comes from the official time references. The shared name is not video-verified identity.,PENDING_REVIEW,question,713.0,False
