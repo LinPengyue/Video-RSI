@@ -19,6 +19,7 @@ from .counterfactual import CounterfactualSuite, run_counterfactual_suite
 from .isolation import IsolationPolicy, assert_isolation
 from .evolution_loop import run_ablation_suite, evolve, build_task_split, split_witness, run_multiseed_stress
 from .evidence_graph import EvidenceDependencyGraph, EvidenceNode, BindingEdge
+from .oracle_free_loop import run_oracle_free_suite
 
 __all__ = [
     "AmbiguityFlag",
@@ -41,6 +42,7 @@ __all__ = [
     "build_task_split",
     "split_witness",
     "run_multiseed_stress",
+    "run_oracle_free_suite",
     "EvidenceDependencyGraph",
     "EvidenceNode",
     "BindingEdge",

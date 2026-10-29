@@ -1,0 +1,23 @@
+{
+  "policy": "SEALED_FINAL_RESERVOIR",
+  "rule": "Any video used for assistant-led design, CG-NEW discussion, or construction_discovery becomes ineligible for sealed blind final.",
+  "exposed_or_construction": [
+    "Cm73ma6Ibcs",
+    "JPPMz8fEml0",
+    "LLSJrEgOOtw",
+    "QWXlvx1GoTY",
+    "T1yhBv1ytzw",
+    "TJR1oYDDTwg",
+    "VTCDQYYKA9o",
+    "Z86xysw5Ncc",
+    "_T2Avd3tFHc",
+    "evYm0cELO3I",
+    "vaL_vSdZKZo"
+  ],
+  "sealed_reservoir": {
+    "status": "UNTOUCHED_PLACEHOLDER",
+    "current_ids": [],
+    "selection_rule": "Sample later from LVBench IDs absent from exposed_or_construction; freeze after dual review; never show answers to evolver."
+  },
+  "ok_for_expensive_rsi": false
+}
