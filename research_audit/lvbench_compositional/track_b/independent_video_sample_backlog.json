@@ -1,0 +1,29 @@
+{
+  "contaminated_excluded": [
+    "Cm73ma6Ibcs",
+    "LLSJrEgOOtw",
+    "TJR1oYDDTwg",
+    "_T2Avd3tFHc",
+    "evYm0cELO3I",
+    "vaL_vSdZKZo"
+  ],
+  "sample_candidates_from_local_jsonl": [
+    "2LH3JCGkEBU",
+    "2zkJFv-ro4A",
+    "9-gOCOu_KGU",
+    "Aiem1w_TvaA",
+    "GcRKREorGSc",
+    "Hf-n1yfd8II",
+    "HfEVEGf1A8Q",
+    "JPPMz8fEml0",
+    "JTa_Ue2MSwc",
+    "JlrzSvCsIjE",
+    "KLIa2UaE2KE",
+    "QWXlvx1GoTY",
+    "RbpKkvlHYTw",
+    "RjDrZkBwzho",
+    "S8vPx-u9p_A"
+  ],
+  "status": "BACKLOG_ONLY_NO_FACTS_ASSERTED",
+  "note": "IDs listed for future event discovery; no QA generated this round."
+}

@@ -429,23 +429,31 @@ class TypedEvidenceExecutor:
                     )
 
         decision = graph.evaluate()
-        strong = decision.get("composition_credit") == "STRONG_COMPOSITION"
-        control = str(decision.get("composition_credit", "")).startswith("CONTROL_ONLY")
+        credit = decision.get("composition_credit")
+        strong = credit == "STRONG_COMPOSITION"
+        path_valid = bool(decision.get("evidence_path_valid")) or credit in {
+            "STRONG_COMPOSITION",
+            "PATH_VALID_NECESSITY_UNPROVEN",
+        }
+        control = str(credit or "").startswith("CONTROL_ONLY")
         return OperationResult(
             op=OperationName.VERIFY_ANSWER,
             ok=bool(decision.get("ok")),
-            failure_code=None if decision.get("ok") else decision.get("composition_credit"),
+            failure_code=None if decision.get("ok") else credit,
             message="; ".join(decision.get("reasons") or []),
             ambiguity=AmbiguityFlag.SINGLE_CLIP_SUFFICIENT
             if control
-            else (AmbiguityFlag.NONE if strong else AmbiguityFlag.MISSING_EVIDENCE),
+            else (AmbiguityFlag.NONE if path_valid else AmbiguityFlag.MISSING_EVIDENCE),
             outputs={
                 "answer": answer,
-                "composition_credit": decision.get("composition_credit"),
+                "composition_credit": credit,
                 "bound_entity": decision.get("bound_entity")
                 or (self.memory.bound_entity.entity_id if self.memory.bound_entity else None),
                 "reasons": decision.get("reasons"),
                 "strong_composition": strong,
+                "evidence_path_valid": path_valid,
+                "composition_necessary_hint": bool(decision.get("composition_necessary_hint")),
+                "oracle_support_used": bool(decision.get("oracle_support_used")),
             },
         )
 

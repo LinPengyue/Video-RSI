@@ -1,0 +1,90 @@
+{
+  "fixed": {
+    "dev_acc": 0.5,
+    "test_semantic": 0.3333333333333333,
+    "test_strict": 0.0,
+    "test_necessity": 0.0,
+    "oracle_leak": 0.0,
+    "avg_calls": 4.0,
+    "strategy_changed": false,
+    "best_recovery": "none",
+    "selection_split": "none"
+  },
+  "fixed_rebind": {
+    "dev_acc": 1.0,
+    "test_semantic": 1.0,
+    "test_strict": 0.0,
+    "test_necessity": 0.0,
+    "oracle_leak": 0.6666666666666666,
+    "avg_calls": 5.666666666666667,
+    "strategy_changed": false,
+    "best_recovery": "rebind_from_a",
+    "selection_split": "none"
+  },
+  "random": {
+    "dev_acc": 1.0,
+    "test_semantic": 1.0,
+    "test_strict": 0.0,
+    "test_necessity": 0.6666666666666666,
+    "oracle_leak": 0.6666666666666666,
+    "avg_calls": 4.0,
+    "strategy_changed": true,
+    "best_recovery": "relocate_then_resolve",
+    "selection_split": "dev"
+  },
+  "vanilla": {
+    "dev_acc": 1.0,
+    "test_semantic": 1.0,
+    "test_strict": 0.0,
+    "test_necessity": 0.6666666666666666,
+    "oracle_leak": 0.6666666666666666,
+    "avg_calls": 4.0,
+    "strategy_changed": true,
+    "best_recovery": "relocate_then_resolve",
+    "selection_split": "dev"
+  },
+  "tece": {
+    "dev_acc": 1.0,
+    "test_semantic": 1.0,
+    "test_strict": 0.0,
+    "test_necessity": 0.6666666666666666,
+    "oracle_leak": 0.0,
+    "avg_calls": 4.0,
+    "strategy_changed": true,
+    "best_recovery": "relocate_then_resolve",
+    "selection_split": "dev"
+  },
+  "tece_minus_graph": {
+    "dev_acc": 1.0,
+    "test_semantic": 1.0,
+    "test_strict": 0.0,
+    "test_necessity": 0.6666666666666666,
+    "oracle_leak": 0.0,
+    "avg_calls": 4.0,
+    "strategy_changed": true,
+    "best_recovery": "relocate_then_resolve",
+    "selection_split": "dev"
+  },
+  "tece_minus_recovery": {
+    "dev_acc": 0.5,
+    "test_semantic": 0.3333333333333333,
+    "test_strict": 0.0,
+    "test_necessity": 0.0,
+    "oracle_leak": 0.0,
+    "avg_calls": 3.0,
+    "strategy_changed": true,
+    "best_recovery": "none",
+    "selection_split": "dev"
+  },
+  "tece_minus_verify": {
+    "dev_acc": 1.0,
+    "test_semantic": 1.0,
+    "test_strict": 0.0,
+    "test_necessity": 0.6666666666666666,
+    "oracle_leak": 0.0,
+    "avg_calls": 4.0,
+    "strategy_changed": true,
+    "best_recovery": "relocate_then_resolve",
+    "selection_split": "dev"
+  }
+}

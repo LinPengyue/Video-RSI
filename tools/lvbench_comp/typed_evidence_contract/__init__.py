@@ -17,7 +17,7 @@ from .executor import TypedEvidenceExecutor
 from .evolver import EvolutionGenome, EvolverWorkspace, mutate_genome
 from .counterfactual import CounterfactualSuite, run_counterfactual_suite
 from .isolation import IsolationPolicy, assert_isolation
-from .evolution_loop import run_ablation_suite, evolve, build_task_split
+from .evolution_loop import run_ablation_suite, evolve, build_task_split, split_witness, run_multiseed_stress
 from .evidence_graph import EvidenceDependencyGraph, EvidenceNode, BindingEdge
 
 __all__ = [
@@ -39,6 +39,8 @@ __all__ = [
     "run_ablation_suite",
     "evolve",
     "build_task_split",
+    "split_witness",
+    "run_multiseed_stress",
     "EvidenceDependencyGraph",
     "EvidenceNode",
     "BindingEdge",

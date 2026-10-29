@@ -1,0 +1,136 @@
+{
+  "leave_out_ok": true,
+  "structural_check": {
+    "ok": true,
+    "train_hashes": {
+      "forward_person_action": "eebe6b9bf1b690a3",
+      "forward_person_location": "2c4657eb4db45083"
+    },
+    "held_out_hashes": {
+      "reverse_event_to_prior_action": "0586bcbfab3f704b",
+      "av_reid_then_query": "948f9ec5a846dfb5"
+    },
+    "leaked_graph_hashes": [],
+    "note": "Text signature overlap is irrelevant if graph hashes differ; hash collision = invalid Unseen claim."
+  },
+  "train_dev_graph_hashes": [
+    "2c4657eb4db45083",
+    "eebe6b9bf1b690a3"
+  ],
+  "test_graph_hashes": [
+    "0586bcbfab3f704b",
+    "948f9ec5a846dfb5"
+  ],
+  "intersecting_hashes": [],
+  "tasks": {
+    "train": [
+      {
+        "task_id": "train_fwd_action_clear",
+        "signature_label": "identify_person + describe_action",
+        "schema_id": "forward_person_action",
+        "graph_hash": "eebe6b9bf1b690a3",
+        "direction": "forward",
+        "modalities": [
+          "visual"
+        ],
+        "property_name": "action",
+        "family": "meeting_jacket"
+      },
+      {
+        "task_id": "train_fwd_location_clear",
+        "signature_label": "identify_person + describe_location",
+        "schema_id": "forward_person_location",
+        "graph_hash": "2c4657eb4db45083",
+        "direction": "forward",
+        "modalities": [
+          "visual"
+        ],
+        "property_name": "location",
+        "family": "meeting_jacket"
+      },
+      {
+        "task_id": "train_fwd_action_amb",
+        "signature_label": "identify_person + describe_action",
+        "schema_id": "forward_person_action",
+        "graph_hash": "eebe6b9bf1b690a3",
+        "direction": "forward",
+        "modalities": [
+          "visual"
+        ],
+        "property_name": "action",
+        "family": "lab_point"
+      }
+    ],
+    "dev": [
+      {
+        "task_id": "dev_fwd_action",
+        "signature_label": "identify_person + describe_action",
+        "schema_id": "forward_person_action",
+        "graph_hash": "eebe6b9bf1b690a3",
+        "direction": "forward",
+        "modalities": [
+          "visual"
+        ],
+        "property_name": "action",
+        "family": "concert_bow"
+      },
+      {
+        "task_id": "dev_fwd_location",
+        "signature_label": "identify_person + describe_location",
+        "schema_id": "forward_person_location",
+        "graph_hash": "2c4657eb4db45083",
+        "direction": "forward",
+        "modalities": [
+          "visual"
+        ],
+        "property_name": "location",
+        "family": "concert_bow"
+      }
+    ],
+    "test": [
+      {
+        "task_id": "test_reverse_prior_action",
+        "signature_label": "reverse_event_to_prior_action",
+        "schema_id": "reverse_event_to_prior_action",
+        "graph_hash": "0586bcbfab3f704b",
+        "direction": "reverse",
+        "modalities": [
+          "visual"
+        ],
+        "property_name": "role_event",
+        "family": "concert_bow"
+      },
+      {
+        "task_id": "test_av_reid",
+        "signature_label": "av_reid_then_query",
+        "schema_id": "av_reid_then_query",
+        "graph_hash": "948f9ec5a846dfb5",
+        "direction": "forward",
+        "modalities": [
+          "audio",
+          "visual"
+        ],
+        "property_name": "action",
+        "family": "av_bark"
+      },
+      {
+        "task_id": "test_reverse_noisy_lookalike",
+        "signature_label": "reverse_event_to_prior_action",
+        "schema_id": "reverse_event_to_prior_action",
+        "graph_hash": "0586bcbfab3f704b",
+        "direction": "reverse",
+        "modalities": [
+          "visual"
+        ],
+        "property_name": "role_event",
+        "family": "meeting_jacket"
+      }
+    ]
+  },
+  "legacy_warnings": [
+    {
+      "warning": "Prior prototype used same property_name=action and same world DAG for Seen/Unseen labels",
+      "status": "FIXED_IN_STRUCTURAL_SPLIT"
+    }
+  ]
+}

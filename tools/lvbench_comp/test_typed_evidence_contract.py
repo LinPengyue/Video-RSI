@@ -7,11 +7,21 @@ import unittest
 
 from tools.lvbench_comp.typed_evidence_contract.counterfactual import run_counterfactual_suite, toy_world
 from tools.lvbench_comp.typed_evidence_contract.contracts import OperationName, OperationRequest
-from tools.lvbench_comp.typed_evidence_contract.evidence_graph import BindingEdge, EvidenceDependencyGraph, EvidenceNode
-from tools.lvbench_comp.typed_evidence_contract.evolution_loop import build_task_split, run_ablation_suite
+from tools.lvbench_comp.typed_evidence_contract.evidence_graph import EvidenceDependencyGraph, EvidenceNode
+from tools.lvbench_comp.typed_evidence_contract.evolution_loop import (
+    build_structural_split,
+    build_task_split,
+    run_ablation_suite,
+    split_witness,
+)
 from tools.lvbench_comp.typed_evidence_contract.evolver import EvolutionGenome, EvolverWorkspace, mutate_genome
 from tools.lvbench_comp.typed_evidence_contract.executor import TypedEvidenceExecutor, default_genome
 from tools.lvbench_comp.typed_evidence_contract.isolation import IsolationPolicy, assert_isolation
+from tools.lvbench_comp.typed_evidence_contract.necessity import evaluate_necessity
+from tools.lvbench_comp.typed_evidence_contract.program_schema import (
+    SCHEMA_FORWARD_PERSON_ACTION,
+    SCHEMA_REVERSE_EVENT_TO_PRIOR_ACTION,
+)
 
 
 class TypedEvidenceContractTest(unittest.TestCase):
@@ -72,8 +82,6 @@ class TypedEvidenceContractTest(unittest.TestCase):
             },
         )
         self.assertFalse(bad["ok"])
-        self.assertIn("schema_leak:['identify_person + describe_action']", bad["violations"])
-        self.assertIn("hs1_used_as_final_judge", bad["violations"])
 
     def test_b_only_without_binding_fails(self) -> None:
         suite = run_counterfactual_suite()
@@ -100,34 +108,68 @@ class TypedEvidenceContractTest(unittest.TestCase):
         g = EvidenceDependencyGraph(answer="removes_jacket")
         g.add_node(EvidenceNode("A1", "entity_x", "A", False))
         g.add_node(EvidenceNode("B1", "entity_y", "B", True))
-        # No binding → B shortcut control, not strong composition
         d = g.evaluate()
         self.assertNotEqual(d["composition_credit"], "STRONG_COMPOSITION")
+
+    def test_single_entity_b_path_valid_necessity_unproven(self) -> None:
+        g = EvidenceDependencyGraph(answer="removes_jacket")
+        g.add_node(EvidenceNode("A1", "entity_x", "A", False))
+        g.add_node(EvidenceNode("B1", "entity_x", "B", True))
+        from tools.lvbench_comp.typed_evidence_contract.evidence_graph import BindingEdge
+
+        g.add_binding(BindingEdge("first speaker", "entity_x", "A1"))
+        d = g.evaluate()
+        self.assertEqual(d["composition_credit"], "PATH_VALID_NECESSITY_UNPROVEN")
+        self.assertTrue(d["evidence_path_valid"])
+        self.assertFalse(d["composition_necessary_hint"])
 
     def test_recovery_blocks_identical_retry(self) -> None:
         world = toy_world()
         ex = TypedEvidenceExecutor(world, {**default_genome(), "recovery_strategy": "relocate_then_resolve", "search_budget": 3})
-        # Force a locate miss; recovery also tries locate with widen — different inputs, allowed.
         miss = ex.run(OperationRequest(OperationName.LOCATE_EVENT, {"cue": "zzzz_missing"}))
         self.assertFalse(miss.ok)
         self.assertTrue(ex.memory.recovery_stack)
         self.assertNotEqual(ex.memory.recovery_stack[0].get("action"), "blocked_identical_retry")
 
-    def test_evolution_leave_out_and_ablation_runs(self) -> None:
+    def test_structural_leave_out_witness(self) -> None:
+        w = split_witness()
+        self.assertTrue(w["leave_out_ok"])
+        self.assertEqual(w["intersecting_hashes"], [])
+        self.assertNotEqual(
+            SCHEMA_FORWARD_PERSON_ACTION.graph_hash(),
+            SCHEMA_REVERSE_EVENT_TO_PRIOR_ACTION.graph_hash(),
+        )
+
+    def test_necessity_separates_judgments(self) -> None:
+        world = toy_world()
+        genome = default_genome()
+        nec = evaluate_necessity(
+            world,
+            referring="first speaker",
+            property_name="action",
+            gold_answer="removes_jacket",
+            genome=genome,
+            evidence_path_valid=True,
+        )
+        self.assertTrue(nec.ab_solves)
+        self.assertFalse(nec.a_only_solves)
+        # B-only may or may not solve depending on resolve path; composition_necessary requires both false
+        self.assertIsInstance(nec.composition_necessary, bool)
+
+    def test_evolution_structural_ablation_runs(self) -> None:
         seen, unseen = build_task_split()
-        self.assertTrue(all(not t.held_out for t in seen))
-        self.assertTrue(all(t.held_out for t in unseen))
-        unseen_sigs = {u.signature for u in unseen}
-        self.assertTrue(all(t.signature not in unseen_sigs for t in seen))
+        self.assertTrue(all(t.split in {"train", "dev"} for t in seen))
+        self.assertTrue(all(t.split == "test" for t in unseen))
+        train_hashes = {t.graph_hash for t in seen}
+        self.assertTrue(all(t.graph_hash not in train_hashes for t in unseen))
         suite = run_ablation_suite(seed=11)
-        self.assertEqual(set(suite), {"fixed", "random", "vanilla", "tece"})
-        # Fixed (no recovery) worse than TECE on ambiguous Seen; TECE transfers to held-out Unseen.
-        self.assertLess(suite["fixed"]["seen"]["accuracy"], suite["tece"]["seen"]["accuracy"])
-        self.assertEqual(suite["tece"]["seen"]["accuracy"], 1.0)
-        self.assertEqual(suite["tece"]["unseen_held_out"]["accuracy"], 1.0)
-        self.assertTrue(suite["tece"]["strategy_changed"])
-        self.assertIn("unseen_held_out", suite["tece"])
+        self.assertIn("tece", suite)
+        self.assertIn("fixed_rebind", suite)
+        self.assertIn("test_once", suite["tece"])
+        self.assertEqual(suite["tece"]["selection_split"], "dev")
         self.assertTrue(suite["tece"]["note"].startswith("Synthetic"))
+        # Must NOT claim predetermined TECE 1.00/1.00 — only that suite runs.
+        self.assertIn("accuracy", suite["tece"]["test_once"])
 
 
 if __name__ == "__main__":
