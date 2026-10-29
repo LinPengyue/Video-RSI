@@ -1,0 +1,9 @@
+{
+  "unseen_schema_in_train_count": 0,
+  "train_test_video_overlap": [],
+  "train_test_uid_overlap": [],
+  "contradicted_in_train": [],
+  "contradicted_in_test": [],
+  "v2_038_excluded": true,
+  "ok": true
+}

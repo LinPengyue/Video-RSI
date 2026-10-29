@@ -1,0 +1,124 @@
+{
+  "status": "PILOT_ONLY_NOT_VIDEO_CERTIFIED",
+  "final_verdict": "STRUCTURAL_PILOT_FEASIBLE_BUT_UNVERIFIED",
+  "unseen_schema": "identify_person + query_action",
+  "train_ids": [
+    "LVCOMP-V2-001",
+    "LVCOMP-V2-008",
+    "LVCOMP-V2-009",
+    "LVCOMP-V2-010",
+    "LVCOMP-V2-011",
+    "LVCOMP-V2-012",
+    "LVCOMP-V2-013",
+    "LVCOMP-V2-016",
+    "LVCOMP-V2-017",
+    "LVCOMP-V2-021",
+    "LVCOMP-V2-022",
+    "LVCOMP-V2-023",
+    "LVCOMP-V2-026",
+    "LVCOMP-V2-028",
+    "LVCOMP-V2-029",
+    "LVCOMP-V2-030",
+    "LVCOMP-V2-035",
+    "LVCOMP-V2-036",
+    "LVCOMP-V2-037",
+    "LVCOMP-V2-040",
+    "LVCOMP-V2-041",
+    "LVCOMP-V2-042",
+    "LVCOMP-V2-045",
+    "LVCOMP-V2-100",
+    "LVCOMP-V2-101",
+    "LVCOMP-V2-102",
+    "LVCOMP-V2-103",
+    "LVCOMP-V2-104",
+    "LVCOMP-V2-105",
+    "LVCOMP-V2-107",
+    "LVCOMP-V2-108",
+    "LVCOMP-V2-109",
+    "LVCOMP-V2-110",
+    "LVCOMP-V2-111",
+    "LVCOMP-V2-112",
+    "LVCOMP-V2-115",
+    "LVCOMP-V2-116",
+    "LVCOMP-V2-201",
+    "LVCOMP-V2-203"
+  ],
+  "test_ids": [
+    "LVCOMP-V2-002",
+    "LVCOMP-V2-003",
+    "LVCOMP-V2-015",
+    "LVCOMP-V2-024",
+    "LVCOMP-V2-025",
+    "LVCOMP-V2-031"
+  ],
+  "test_videos": [
+    "JTa_Ue2MSwc",
+    "XNtNNplAwiI",
+    "cWEnogdsW78"
+  ],
+  "excluded": [
+    {
+      "id": "LVCOMP-V2-106",
+      "reason": "schema_audit=SCHEMA_MISMATCH: Official bridge answer is the pangolin. identify_person must not absorb animals."
+    },
+    {
+      "id": "LVCOMP-V2-113",
+      "reason": "schema_audit=SCHEMA_MISMATCH: The bound entity is the dog the boy and cat meet, not a person."
+    },
+    {
+      "id": "LVCOMP-V2-114",
+      "reason": "schema_audit=SCHEMA_MISMATCH: Same dog bridge as V2-113. The chase event still binds an animal, not a person."
+    },
+    {
+      "id": "LVCOMP-V2-004",
+      "reason": "shares test video JTa_Ue2MSwc; shares source UID(s) [('JTa_Ue2MSwc', '5130')]"
+    },
+    {
+      "id": "LVCOMP-V2-005",
+      "reason": "shares test video JTa_Ue2MSwc; shares source UID(s) [('JTa_Ue2MSwc', '5130')]"
+    },
+    {
+      "id": "LVCOMP-V2-006",
+      "reason": "shares test video JTa_Ue2MSwc"
+    },
+    {
+      "id": "LVCOMP-V2-007",
+      "reason": "shares test video JTa_Ue2MSwc"
+    },
+    {
+      "id": "LVCOMP-V2-014",
+      "reason": "shares test video cWEnogdsW78; shares source UID(s) [('cWEnogdsW78', '4071')]"
+    },
+    {
+      "id": "LVCOMP-V2-032",
+      "reason": "shares test video XNtNNplAwiI; shares source UID(s) [('XNtNNplAwiI', '808')]"
+    },
+    {
+      "id": "LVCOMP-V2-038",
+      "reason": "known contradicted by sample video review"
+    },
+    {
+      "id": "LVCOMP-V2-043",
+      "reason": "shares test video JTa_Ue2MSwc"
+    }
+  ],
+  "structural_counts": {
+    "train_n": 39,
+    "test_n": 6,
+    "train_videos": 19,
+    "test_videos": 3
+  },
+  "verified_counts": {
+    "train_n": 4,
+    "test_n": 0,
+    "train_ids": [
+      "LVCOMP-V2-008",
+      "LVCOMP-V2-012",
+      "LVCOMP-V2-017",
+      "LVCOMP-V2-022"
+    ],
+    "test_ids": []
+  },
+  "primitive_coverage_status": "PRIMITIVE_COVERAGE_UNCERTAIN",
+  "note": "Experimental structural pilot only. Most items remain PENDING_VIDEO_REVIEW. This is not a formal Compositional Generalization Benchmark."
+}
