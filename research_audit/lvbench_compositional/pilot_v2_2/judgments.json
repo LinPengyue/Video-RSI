@@ -1,0 +1,50 @@
+{
+  "LVCOMP-V2-002": {
+    "source_fact_status": "SUPPORTED",
+    "composition_status": "SUPPORTED",
+    "answer_status": "SUPPORTED",
+    "review_status": "SUPPORTED",
+    "evidence_timestamp": "00:00:39 (Sierra ID graphic); 00:02:08.15-00:02:08.75 (removes shoe)",
+    "notes": "uid_5130 lower-third names Sierra as the first seated interviewee. uid_5131 shows the same pink-haired woman bending to remove a shoe after the other woman is on stage."
+  },
+  "LVCOMP-V2-003": {
+    "source_fact_status": "SUPPORTED",
+    "composition_status": "SUPPORTED",
+    "answer_status": "SUPPORTED",
+    "review_status": "SUPPORTED",
+    "evidence_timestamp": "00:05:35-00:05:41 (lunge/slap); 00:05:41-00:05:48 (man touches cheek)",
+    "notes": "uid_5134 shows the pink-haired first interviewee lunging at the male guest; security intervenes and the man touches his cheek. Identity matches the Sierra appearance from uid_5130."
+  },
+  "LVCOMP-V2-015": {
+    "source_fact_status": "UNCERTAIN",
+    "composition_status": "UNCERTAIN",
+    "answer_status": "UNCERTAIN",
+    "review_status": "UNCERTAIN",
+    "evidence_timestamp": "00:11:14.05-00:11:14.95; 00:16:56-00:16:59",
+    "notes": "uid_4065 strike at 11:14 looks like a descending hook/overhand rather than a clear uppercut. uid_4071 later shows the elderly fighter on the right throwing a kick; no clear ground-move referent. Do not treat the official uppercut label as observed."
+  },
+  "LVCOMP-V2-024": {
+    "source_fact_status": "UNCERTAIN",
+    "composition_status": "UNCERTAIN",
+    "answer_status": "UNCERTAIN",
+    "review_status": "UNCERTAIN",
+    "evidence_timestamp": "00:02:21-00:03:30",
+    "notes": "uid_5132 shows confrontation between Sierra and the blonde woman with security intervention, but no on-screen name confirms Kindall and the sampled frames do not clearly show a sustained fight."
+  },
+  "LVCOMP-V2-025": {
+    "source_fact_status": "UNCERTAIN",
+    "composition_status": "UNCERTAIN",
+    "answer_status": "UNCERTAIN",
+    "review_status": "UNCERTAIN",
+    "evidence_timestamp": "00:14:25.05-00:14:25.95 (Alexis graphic)",
+    "notes": "uid_5145 lower-third names Alexis and reads \"Says she's Brian's first love\" (on-screen spelling Brian, not Brain). uid_5142 alone does not prove she is the last person to appear in the second interview."
+  },
+  "LVCOMP-V2-031": {
+    "source_fact_status": "UNCERTAIN",
+    "composition_status": "UNCERTAIN",
+    "answer_status": "UNCERTAIN",
+    "review_status": "UNCERTAIN",
+    "evidence_timestamp": "01:05:22-01:05:49",
+    "notes": "uid_808 shows a boy steal a golden S-shaped object after tickling the demon's nose with a pink leaf held in his hand. The leaf-on-his-head wording is not clearly confirmed; official leave spelling is not rewritten into a new action."
+  }
+}

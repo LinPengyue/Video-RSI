@@ -1,0 +1,30 @@
+{
+  "status": "PILOT_NOT_READY",
+  "note": "Pilot remains blocked until the listed gaps are closed without lowering review standards.",
+  "missing": [
+    "need >=3 SUPPORTED test items, have 2",
+    "need >=2 SUPPORTED test videos, have 1",
+    "need >=2 ACTION_PRIMITIVE_VALID train items, have 1",
+    "need >=2 videos for valid query_action, have 1"
+  ],
+  "gates": {
+    "supported_test_n": 2,
+    "supported_test_videos": 1,
+    "valid_query_action_n": 1,
+    "valid_query_action_videos": 1,
+    "schema_leak": 0,
+    "video_overlap": [],
+    "uid_overlap": [],
+    "contradicted_in_pilot": []
+  },
+  "supported_test_ids": [
+    "LVCOMP-V2-002",
+    "LVCOMP-V2-003"
+  ],
+  "valid_query_action_ids": [
+    "LVCOMP-V2-100"
+  ],
+  "structural_train_n": 39,
+  "structural_test_n": 6,
+  "unseen_schema": "identify_person + query_action"
+}
