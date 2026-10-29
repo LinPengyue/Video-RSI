@@ -1,0 +1,10 @@
+metric,value,videos
+screened_videos,21,
+test_videos_locked,8,
+new_unseen_candidates,7,
+seed_unseen_candidates,6,
+unseen_videos,8,
+seen_a,20,9
+seen_b,9,6
+seen_b_action_valid,7,4
+near_duplicate_clusters,2,

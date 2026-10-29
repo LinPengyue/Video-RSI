@@ -1,0 +1,22 @@
+video_id,n_official_qa,used_in_v2,has_identifiable_person,has_cross_time_action,candidate_event_times,planned_split,selection_reason
+JTa_Ue2MSwc,23,True,yes,yes,see candidates,TEST,Seed SUPPORTED person-action items from v2.2; multi-event interview.
+sk00epALZps,18,False,yes,yes,see candidates,TEST,Kobe appears across interview and highlight actions with official name bridges.
+t-RtDI2RWQs,26,False,yes,yes,see candidates,TEST,Award-title person ID plus on-stage dress event.
+JlrzSvCsIjE,17,False,yes,yes,see candidates,TEST,Post-game interview identity then photo action.
+HfEVEGf1A8Q,13,False,yes,yes,see candidates,TEST,Vampire identity via later event then earlier desk action.
+CgvJqGxzRfE,18,False,yes,maybe,see candidates,UNSUITABLE,Many turn/cry events but few proven same-person bridges; kept for screening.
+uusf1qG_uZ4,18,False,yes,maybe,see candidates,UNSUITABLE,Multiple named kids/adults; limited reliable action bridges.
+-WnyRMZqV1U,13,False,yes,maybe,see candidates,UNSUITABLE,Oscar ceremony; few valid person-action bridges after checks.
+RjDrZkBwzho,15,False,yes,yes,see candidates,TEST,Anthropomorphic sheriff action chain usable with caveats.
+cWEnogdsW78,8,True,yes,yes,see candidates,TEST,v2.2 reviewed person-strike item; kept in TEST for seed coverage.
+Aiem1w_TvaA,13,False,yes,maybe,see candidates,UNSUITABLE,Basketball; person names present but few clean action queries.
+xECIRjlxM3U,18,False,yes,maybe,see candidates,UNSUITABLE,Story video; limited dual-interval person-action pairs.
+Xjf5N9S3jAA,13,False,yes,maybe,see candidates,UNSUITABLE,"Tennis IDs mostly same-person recognition, weak action queries."
+evYm0cELO3I,20,True,yes,yes,see candidates,TRAIN,Prior v2 coverage / Seen-side reuse.
+2LH3JCGkEBU,17,True,yes,yes,see candidates,TRAIN,Prior v2 coverage / Seen-side reuse.
+oZEVgDXJwCc,15,True,yes,maybe,see candidates,TRAIN,Prior v2 coverage / Seen-side reuse.
+_T2Avd3tFHc,17,True,yes,maybe,see candidates,TRAIN,Prior v2 coverage / Seen-side reuse.
+T1yhBv1ytzw,20,True,yes,maybe,see candidates,TRAIN,Prior v2 coverage / Seen-side reuse.
+pXD3txG2bVQ,18,True,yes,maybe,see candidates,TRAIN,Prior v2 coverage / Seen-side reuse.
+wgBlACG927Y,15,True,yes,maybe,see candidates,TRAIN,Prior v2 coverage / Seen-side reuse.
+XNtNNplAwiI,17,True,yes,yes,see candidates,TEST,v2 seed person/character action item; TEST for seed coverage.
