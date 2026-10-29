@@ -1,0 +1,11 @@
+id,verdict,source_facts,composition_link,notes,reviewer
+LVCOMP-V1-012,SUPPORTED,SUPPORTED,SUPPORTED,Prior review: hotel invitation is visible; elder identity still leans on the original name annotation.,prior_human_pass
+LVCOMP-V1-017,SUPPORTED,SUPPORTED,SUPPORTED,Prior review: the woman in red holds the book; context frames are needed for the search event.,prior_human_pass
+LVCOMP-V1-030,UNCERTAIN,UNCERTAIN,UNCERTAIN,Prior review: podium order / first-place identity cannot be confirmed from the available evidence alone.,prior_human_pass
+LVCOMP-V1-008,SUPPORTED,SUPPORTED,SUPPORTED,Contact sheets: Jonathan Davidson is identified on stage; later window shows an explicit L'Oréal brand video.,contact_sheet_pass
+LVCOMP-V1-010,UNCERTAIN,UNCERTAIN,UNCERTAIN,"Bib 3217 is visible on a USA runner, but the heat-winner identity is not independently confirmed from the contact sheets alone.",contact_sheet_pass
+LVCOMP-V1-022,SUPPORTED,SUPPORTED,SUPPORTED,"LEBANON title card is on screen; later dialogue says people of Lebanon love life, matching the happy-life answer.",contact_sheet_pass
+LVCOMP-V1-029,UNCERTAIN,UNCERTAIN,UNCERTAIN,"A Liverpool player is down holding his head, but the first-goal scorer identity is not confirmed from the contact sheets alone.",contact_sheet_pass
+LVCOMP-V1-032,UNCERTAIN,UNCERTAIN,UNCERTAIN,"A boy takes a golden object from a demon, but invisibility and the S-shaped jade are not clear from the contact sheets.",contact_sheet_pass
+LVCOMP-V1-038,CONTRADICTED,CONTRADICTED,UNCERTAIN,"At ~15:06 the contact sheet shows a header into the net and a celebratory reaction, which conflicts with 'header doesn't result in a goal' / sadness.",contact_sheet_pass
+LVCOMP-V1-043,SUPPORTED,SUPPORTED,SUPPORTED,On-screen text labels Mia as a stripper and Austin as dumping his girlfriend for a stripper.,contact_sheet_pass

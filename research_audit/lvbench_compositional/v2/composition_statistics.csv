@@ -1,0 +1,11 @@
+composition_schema,n_questions,n_videos,primitive_a,primitive_b,videos
+identify_person + query_attribute,14,7,identify_person,query_attribute,Hf-n1yfd8II JTa_Ue2MSwc QWXlvx1GoTY VTCDQYYKA9o Z86xysw5Ncc _T2Avd3tFHc cWEnogdsW78
+identify_event_result + query_action,10,9,identify_event_result,query_action,2LH3JCGkEBU Hf-n1yfd8II JTa_Ue2MSwc KLIa2UaE2KE XNtNNplAwiI evYm0cELO3I f8DKD78BrQA oZEVgDXJwCc wgBlACG927Y
+identify_person + query_action,9,4,identify_person,query_action,JTa_Ue2MSwc XNtNNplAwiI cWEnogdsW78 pXD3txG2bVQ
+identify_person + query_location,7,4,identify_person,query_location,JPPMz8fEml0 KLIa2UaE2KE _T2Avd3tFHc aJI8XTa_DII
+identify_event_result + query_cause,4,4,identify_event_result,query_cause,Hf-n1yfd8II T1yhBv1ytzw oZEVgDXJwCc vZV2WCKMsKs
+identify_object + query_action,4,2,identify_object,query_action,LLSJrEgOOtw evYm0cELO3I
+identify_person + query_relation,4,3,identify_person,query_relation,Hf-n1yfd8II JTa_Ue2MSwc vHlSoxg8WHo
+identify_place + query_person,2,1,identify_place,query_person,9-gOCOu_KGU
+identify_object + query_cause,1,1,identify_object,query_cause,evYm0cELO3I
+identify_object + query_holder,1,1,identify_object,query_holder,q01CUy_gwdU
