@@ -1,10 +1,12 @@
 {
   "phase": "video_grounded_evidence_pilot",
+  "role": "SHARED_INFRASTRUCTURE",
   "composition_schema_target": "identify_person + query_action",
   "baseline_commit": "ecf25c3214ef6f386023fe4ffb16f5e553810adb",
   "n_videos_attempted": 3,
   "n_candidates_extracted": 3,
   "auto_supported": false,
+  "track_field_note": "applicable_track and data_partition_status describe potential use only; all start UNASSIGNED.",
   "candidates": [
     {
       "candidate_id": "VG-001",
@@ -12,6 +14,16 @@
       "video_type": "talk_show_interview",
       "bridge_entity": "Sierra",
       "status": "PENDING_HUMAN_REVIEW",
+      "applicable_track": "BOTH_CANDIDATE",
+      "composition_signature": "identify_person(event_role) -> bind_entity -> query_action(later_interval)",
+      "primitive_operations": [
+        "identify_person",
+        "query_action"
+      ],
+      "evidence_dependency": "REQUIRES_BOTH_INTERVALS_IF_VALID; Fact A from OFFICIAL_QA, Fact B from VIDEO_OBSERVATION_CANDIDATE",
+      "single_clip_shortcut_risk": "HIGH_IF_FACT_B_ALONE_IDS_SIERRA",
+      "annotation_scalability_notes": "Talk-show template is reusable for Route A mini-dev sets; same Fact A/B clip protocol transfers to attribute/location schemas for Route B, but multi-guest stages raise identity cost.",
+      "data_partition_status": "UNASSIGNED",
       "fact_A_window": "00:24.000-01:41.000",
       "fact_B_window": "02:55.000-03:50.000",
       "fact_A_clip": "local_media/VG-001/fact_A_clip.mp4",
@@ -28,6 +40,16 @@
       "video_type": "travel_vlog",
       "bridge_entity": "Mikhail",
       "status": "PENDING_HUMAN_REVIEW",
+      "applicable_track": "A_DEV",
+      "composition_signature": "identify_person(named_elder) -> bind_entity -> query_action(sparse_later_event)",
+      "primitive_operations": [
+        "identify_person",
+        "query_action"
+      ],
+      "evidence_dependency": "REQUIRES_BOTH_INTERVALS_IF_VALID; long temporal gap stresses entity binding for Harness diagnostics",
+      "single_clip_shortcut_risk": "MEDIUM_IF_RINGER_VISUALLY_UNIQUE",
+      "annotation_scalability_notes": "Good Route A diagnostic of long-horizon binding; Route B scale limited until multi-guest identity disambiguation protocol is standardized.",
+      "data_partition_status": "UNASSIGNED",
       "fact_A_window": "04:22.000-05:13.000",
       "fact_B_window": "26:32.000-26:58.000",
       "fact_A_clip": "local_media/VG-002/fact_A_clip.mp4",
@@ -44,6 +66,16 @@
       "video_type": "story_animation",
       "bridge_entity": "Prince",
       "status": "PENDING_HUMAN_REVIEW",
+      "applicable_track": "B_CANDIDATE",
+      "composition_signature": "identify_person(event_result) -> bind_entity -> query_action(post_event_interval)",
+      "primitive_operations": [
+        "identify_person",
+        "query_action"
+      ],
+      "evidence_dependency": "REQUIRES_BOTH_INTERVALS_IF_VALID; stylized character matching is the main failure mode",
+      "single_clip_shortcut_risk": "LOW_MEDIUM_IF_SAVE_CLIP_IMPLIES_PRINCE",
+      "annotation_scalability_notes": "Tests whether the same Fact A/B evidence protocol transfers beyond live-action talk shows; useful Route B schema-transfer probe. Prefer not to expose as Route A harness-tuning material if later sealed for B.",
+      "data_partition_status": "UNASSIGNED",
       "fact_A_window": "05:12.000-05:33.000",
       "fact_B_window": "13:03.000-13:37.000",
       "fact_A_clip": "local_media/VG-003/fact_A_clip.mp4",
@@ -61,10 +93,23 @@
     "Decide whether Fact B shows a concrete action by the same entity.",
     "Record SINGLE_CLIP_SHORTCUT_RISK if Fact B alone answers the would-be question.",
     "Do not mark SUPPORTED unless both facts are visually confirmed.",
-    "Do not invent actions from plot memory if the clip is unclear."
+    "Do not invent actions from plot memory if the clip is unclear.",
+    "Do not treat applicable_track as a formal train/test assignment."
   ],
+  "next_steps_proposed_not_started": {
+    "route_A": [
+      "Human-verify VG-001/VG-002; keep only dual-interval valid items for a tiny A_DEV Seen/Unseen set.",
+      "Compare frozen-model baselines: no-Harness / Vanilla RSI / Harness-only / Harness+Evolver.",
+      "Diagnose entity-binding failures and single-clip shortcuts under a fixed visibility protocol."
+    ],
+    "route_B": [
+      "Reuse this Fact A/B evidence protocol on 2-3 non person+action signatures.",
+      "Expand video-type coverage and measure annotation cost/failure modes.",
+      "Keep a sealed B test pool disjoint from A harness/evolver development."
+    ]
+  },
   "zip": {
     "path": "research_audit/lvbench_compositional/video_grounded_pilot/local_media/lvbench_video_grounded_3videos.zip",
-    "bytes": 28452090
+    "bytes": 28455864
   }
 }
