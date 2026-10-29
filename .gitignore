@@ -62,3 +62,9 @@ research_audit/lvbench_compositional/targeted_v3/local_media/
 research_audit/lvbench_compositional/video_grounded_pilot/local_media/
 research_audit/lvbench_compositional/track_b/local_media/
 research_audit/lvbench_compositional/track_b/local_media/cg_new_round/
+# Dense discovery dumps (contact sheets + keyframes are tracked instead)
+research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/score_probe_frames/
+research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/goal_window_candidates/
+research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/local_clips/
+research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/discovery_frames/
+research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/scoreboard_crops/

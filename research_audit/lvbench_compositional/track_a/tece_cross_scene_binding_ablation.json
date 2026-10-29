@@ -1,0 +1,1095 @@
+{
+  "n_seeds": 15,
+  "summary": {
+    "fixed": {
+      "acc": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "n": 15
+      },
+      "necessity": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "n": 15
+      },
+      "bridge_ok": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "generation_agreement": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 15
+      },
+      "dual_semantic": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "n": 15
+      },
+      "shortcut_detect": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      }
+    },
+    "fixed_rebind": {
+      "acc": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 15
+      },
+      "necessity": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 15
+      },
+      "bridge_ok": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "generation_agreement": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "dual_semantic": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "shortcut_detect": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      }
+    },
+    "random": {
+      "acc": {
+        "mean": 0.3333333333333333,
+        "std": 0.2439750182371333,
+        "ci95_low": 0.20986493881698576,
+        "ci95_high": 0.45680172784968087,
+        "n": 15
+      },
+      "necessity": {
+        "mean": 0.3333333333333333,
+        "std": 0.2439750182371333,
+        "ci95_low": 0.20986493881698576,
+        "ci95_high": 0.45680172784968087,
+        "n": 15
+      },
+      "bridge_ok": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "generation_agreement": {
+        "mean": 0.8333333333333334,
+        "std": 0.2439750182371333,
+        "ci95_low": 0.7098649388169858,
+        "ci95_high": 0.956801727849681,
+        "n": 15
+      },
+      "dual_semantic": {
+        "mean": 0.6666666666666666,
+        "std": 0.4879500364742666,
+        "ci95_low": 0.4197298776339715,
+        "ci95_high": 0.9136034556993617,
+        "n": 15
+      },
+      "shortcut_detect": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      }
+    },
+    "vanilla": {
+      "acc": {
+        "mean": 0.3333333333333333,
+        "std": 0.2439750182371333,
+        "ci95_low": 0.20986493881698576,
+        "ci95_high": 0.45680172784968087,
+        "n": 15
+      },
+      "necessity": {
+        "mean": 0.3333333333333333,
+        "std": 0.2439750182371333,
+        "ci95_low": 0.20986493881698576,
+        "ci95_high": 0.45680172784968087,
+        "n": 15
+      },
+      "bridge_ok": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "generation_agreement": {
+        "mean": 0.8333333333333334,
+        "std": 0.2439750182371333,
+        "ci95_low": 0.7098649388169858,
+        "ci95_high": 0.956801727849681,
+        "n": 15
+      },
+      "dual_semantic": {
+        "mean": 0.6666666666666666,
+        "std": 0.4879500364742666,
+        "ci95_low": 0.4197298776339715,
+        "ci95_high": 0.9136034556993617,
+        "n": 15
+      },
+      "shortcut_detect": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      }
+    },
+    "tece": {
+      "acc": {
+        "mean": 0.26666666666666666,
+        "std": 0.25819888974716115,
+        "ci95_low": 0.13599999999999998,
+        "ci95_high": 0.3973333333333333,
+        "n": 15
+      },
+      "necessity": {
+        "mean": 0.26666666666666666,
+        "std": 0.25819888974716115,
+        "ci95_low": 0.13599999999999998,
+        "ci95_high": 0.3973333333333333,
+        "n": 15
+      },
+      "bridge_ok": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "generation_agreement": {
+        "mean": 0.7666666666666667,
+        "std": 0.25819888974716115,
+        "ci95_low": 0.636,
+        "ci95_high": 0.8973333333333334,
+        "n": 15
+      },
+      "dual_semantic": {
+        "mean": 0.5333333333333333,
+        "std": 0.5163977794943223,
+        "ci95_low": 0.27199999999999996,
+        "ci95_high": 0.7946666666666666,
+        "n": 15
+      },
+      "shortcut_detect": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      }
+    },
+    "oracle_program_upper": {
+      "acc": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "necessity": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 15
+      },
+      "bridge_ok": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "generation_agreement": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "dual_semantic": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      },
+      "shortcut_detect": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 15
+      }
+    }
+  },
+  "per_seed": {
+    "fixed": [
+      {
+        "seed": 300,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 301,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 302,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 303,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 304,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 305,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 306,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 307,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 308,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 309,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 310,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 311,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 312,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 313,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 314,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      }
+    ],
+    "fixed_rebind": [
+      {
+        "seed": 300,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 301,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 302,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 303,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 304,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 305,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 306,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 307,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 308,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 309,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 310,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 311,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 312,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 313,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 314,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      }
+    ],
+    "random": [
+      {
+        "seed": 300,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 301,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 302,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 303,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 304,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 305,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 306,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 307,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 308,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 309,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 310,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 311,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 312,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 313,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 314,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      }
+    ],
+    "vanilla": [
+      {
+        "seed": 300,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 301,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 302,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 303,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 304,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 305,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 306,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 307,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 308,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 309,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 310,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 311,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 312,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 313,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 314,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      }
+    ],
+    "tece": [
+      {
+        "seed": 300,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 301,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 302,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 303,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 304,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 305,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 306,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 307,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 308,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 309,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 310,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 311,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 312,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 313,
+        "acc": 0.5,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 314,
+        "acc": 0.0,
+        "necessity": 0.0,
+        "bridge_ok": 1.0,
+        "gen_agree": 0.5,
+        "dual_sem": 0.0,
+        "shortcut_detect": 1.0
+      }
+    ],
+    "oracle_program_upper": [
+      {
+        "seed": 300,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 301,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 302,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 303,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 304,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 305,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 306,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 307,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 308,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 309,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 310,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 311,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 312,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 313,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      },
+      {
+        "seed": 314,
+        "acc": 1.0,
+        "necessity": 0.5,
+        "bridge_ok": 1.0,
+        "gen_agree": 1.0,
+        "dual_sem": 1.0,
+        "shortcut_detect": 1.0
+      }
+    ]
+  },
+  "failure_sample": [],
+  "interpretation": "No shared A/B track_id. TECE advantage not required. oracle_program_upper is diagnostic only. Not real-video RSI."
+}

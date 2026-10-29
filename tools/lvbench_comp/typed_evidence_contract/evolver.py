@@ -25,6 +25,7 @@ ALLOWED_MUTATION_KEYS = {
     "branch_on_ambiguity",
     "disambiguation_cue",
     "fallback_referring_expression",
+    "bind_score_threshold",
 }
 
 FORBIDDEN_ACTIONS = {
