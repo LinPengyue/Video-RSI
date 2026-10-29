@@ -1,0 +1,70 @@
+{
+  "phase": "video_grounded_evidence_pilot",
+  "composition_schema_target": "identify_person + query_action",
+  "baseline_commit": "ecf25c3214ef6f386023fe4ffb16f5e553810adb",
+  "n_videos_attempted": 3,
+  "n_candidates_extracted": 3,
+  "auto_supported": false,
+  "candidates": [
+    {
+      "candidate_id": "VG-001",
+      "video_id": "JTa_Ue2MSwc",
+      "video_type": "talk_show_interview",
+      "bridge_entity": "Sierra",
+      "status": "PENDING_HUMAN_REVIEW",
+      "fact_A_window": "00:24.000-01:41.000",
+      "fact_B_window": "02:55.000-03:50.000",
+      "fact_A_clip": "local_media/VG-001/fact_A_clip.mp4",
+      "fact_B_clip": "local_media/VG-001/fact_B_clip.mp4",
+      "fact_A_contact_sheet": "local_media/VG-001/fact_A_contact_sheet.jpg",
+      "fact_B_contact_sheet": "local_media/VG-001/fact_B_contact_sheet.jpg",
+      "official_qa": "local_media/VG-001/official_qa.json",
+      "reviewer_prompt_fact_B": "Confirm whether Sierra is clearly visible and what concrete action she performs in this window. Do not accept plot memory alone.",
+      "do_not_mark_supported_automatically": true
+    },
+    {
+      "candidate_id": "VG-002",
+      "video_id": "_T2Avd3tFHc",
+      "video_type": "travel_vlog",
+      "bridge_entity": "Mikhail",
+      "status": "PENDING_HUMAN_REVIEW",
+      "fact_A_window": "04:22.000-05:13.000",
+      "fact_B_window": "26:32.000-26:58.000",
+      "fact_A_clip": "local_media/VG-002/fact_A_clip.mp4",
+      "fact_B_clip": "local_media/VG-002/fact_B_clip.mp4",
+      "fact_A_contact_sheet": "local_media/VG-002/fact_A_contact_sheet.jpg",
+      "fact_B_contact_sheet": "local_media/VG-002/fact_B_contact_sheet.jpg",
+      "official_qa": "local_media/VG-002/official_qa.json",
+      "reviewer_prompt_fact_B": "Identify who rings the bell and describe the action. If Mikhail is absent or ambiguous, mark FAIL for this candidate.",
+      "do_not_mark_supported_automatically": true
+    },
+    {
+      "candidate_id": "VG-003",
+      "video_id": "TJR1oYDDTwg",
+      "video_type": "story_animation",
+      "bridge_entity": "Prince",
+      "status": "PENDING_HUMAN_REVIEW",
+      "fact_A_window": "05:12.000-05:33.000",
+      "fact_B_window": "13:03.000-13:37.000",
+      "fact_A_clip": "local_media/VG-003/fact_A_clip.mp4",
+      "fact_B_clip": "local_media/VG-003/fact_B_clip.mp4",
+      "fact_A_contact_sheet": "local_media/VG-003/fact_A_contact_sheet.jpg",
+      "fact_B_contact_sheet": "local_media/VG-003/fact_B_contact_sheet.jpg",
+      "official_qa": "local_media/VG-003/official_qa.json",
+      "reviewer_prompt_fact_B": "Confirm the prince remains the same character as in Fact A and list any clear action he performs in this window. If only dragons act, mark FAIL.",
+      "do_not_mark_supported_automatically": true
+    }
+  ],
+  "review_instructions": [
+    "Watch Fact A and Fact B clips independently.",
+    "Decide whether Fact A uniquely identifies the bridge entity.",
+    "Decide whether Fact B shows a concrete action by the same entity.",
+    "Record SINGLE_CLIP_SHORTCUT_RISK if Fact B alone answers the would-be question.",
+    "Do not mark SUPPORTED unless both facts are visually confirmed.",
+    "Do not invent actions from plot memory if the clip is unclear."
+  ],
+  "zip": {
+    "path": "research_audit/lvbench_compositional/video_grounded_pilot/local_media/lvbench_video_grounded_3videos.zip",
+    "bytes": 28452090
+  }
+}
