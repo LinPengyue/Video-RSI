@@ -1,10 +1,22 @@
 {
-  "expected_uploads": [
-    "cvpr2027_chatgpt_video_driven_qa_proposals.jsonl",
-    "cvpr2027_dual_track_next_round.md"
+  "canonical_commit": "1b44fc7225df0137f055ad320717d10b48c1f475",
+  "prior_cursor_commit": "85138431da3e0b00abacb4cf9d5e11324e53fba6",
+  "canonical_files": [
+    "canonical_qa_proposals.jsonl",
+    "CANONICAL_DESIGN_NOTES.md",
+    "IMPORT_RECONCILIATION.md"
   ],
-  "found_in_workspace": false,
-  "fallback": "Registered five PROPOSED candidates from the round brief's CG-NEW mappings; replace wording if official ChatGPT jsonl arrives.",
-  "contamination_policy": "These videos/candidates were used in public method discussion; never assign as blind sealed final test.",
-  "preserve_tb_001_007": true
+  "registry": "cg_new_registry_canonical.jsonl",
+  "fallback_preserved": "fallback_snapshot_85138431.jsonl",
+  "mapping": {
+    "CG-NEW-001": "TB-003",
+    "CG-NEW-002": "TB-007",
+    "CG-NEW-003": "TB-006",
+    "CG-NEW-004": "TB-005",
+    "CG-NEW-005": "TB-004"
+  },
+  "status_policy": "PROPOSED_* only; UNASSIGNED; no auto SUPPORTED",
+  "tb_001_007_preserved": true,
+  "mapping_regression_test": "tools/lvbench_comp/test_cg_new_mapping_regression.py",
+  "ok": true
 }

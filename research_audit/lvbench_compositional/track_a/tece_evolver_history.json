@@ -1,41 +1,561 @@
-[
-  {
-    "accepted": true,
-    "before": {
-      "search_budget": 5,
-      "recovery_strategy": "relocate_then_resolve",
-      "query_requires_bound_entity": true,
-      "verify_requires_dual_evidence": true,
-      "abort_on_hard_fail": false,
-      "op_order_template": [
-        "locate_event",
-        "resolve_reference",
-        "track_identity",
-        "query_property",
-        "verify_answer"
-      ]
+{
+  "fixed": [],
+  "random": [
+    {
+      "generation": 0,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
     },
-    "after": {
-      "search_budget": 6,
-      "recovery_strategy": "investigate_conflict",
-      "query_requires_bound_entity": true,
-      "verify_requires_dual_evidence": true,
-      "abort_on_hard_fail": false,
-      "op_order_template": [
-        "locate_event",
-        "resolve_reference",
-        "track_identity",
-        "query_property",
-        "verify_answer"
-      ]
+    {
+      "generation": 1,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
     },
-    "fingerprint": "452b97726ec6443d"
-  },
-  {
-    "accepted": false,
-    "illegal_keys": [
-      "update_frozen_video_model_weights"
-    ],
-    "forbidden_actions": []
-  }
-]
+    {
+      "generation": 2,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 3,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 4,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 5,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 6,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 7,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    }
+  ],
+  "vanilla": [
+    {
+      "generation": 0,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 1,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 2,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 3,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 4,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 5,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 6,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 7,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    }
+  ],
+  "tece": [
+    {
+      "generation": 0,
+      "best_score": 0.5866666666666667,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 1,
+      "best_score": 0.5866666666666667,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 2,
+      "best_score": 0.5866666666666667,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 3,
+      "best_score": 0.5866666666666667,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 4,
+      "best_score": 0.5866666666666667,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 5,
+      "best_score": 0.9133333333333333,
+      "accuracy": 1.0,
+      "avg_calls": 4.333333333333333,
+      "genome": {
+        "search_budget": 6,
+        "recovery_strategy": "rebind_from_a",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "first speaker",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": true
+    },
+    {
+      "generation": 6,
+      "best_score": 0.9133333333333333,
+      "accuracy": 1.0,
+      "avg_calls": 4.333333333333333,
+      "genome": {
+        "search_budget": 6,
+        "recovery_strategy": "rebind_from_a",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "first speaker",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "generation": 7,
+      "best_score": 0.9133333333333333,
+      "accuracy": 1.0,
+      "avg_calls": 4.333333333333333,
+      "genome": {
+        "search_budget": 6,
+        "recovery_strategy": "rebind_from_a",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "first speaker",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    }
+  ]
+}

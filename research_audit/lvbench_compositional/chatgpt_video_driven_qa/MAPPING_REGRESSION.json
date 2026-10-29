@@ -1,0 +1,16 @@
+{
+  "canonical_commit_intended": "1b44fc7225df0137f055ad320717d10b48c1f475",
+  "sync_method": "raw.githubusercontent.com download (git fetch timed out)",
+  "id_to_seed_ok": true,
+  "mapping": {
+    "CG-NEW-001": "TB-003",
+    "CG-NEW-002": "TB-007",
+    "CG-NEW-003": "TB-006",
+    "CG-NEW-004": "TB-005",
+    "CG-NEW-005": "TB-004"
+  },
+  "fallback_preserved": "fallback_snapshot_85138431.jsonl",
+  "canonical_sha256": "bb25fdb627822eb1fed45a4e0cce39323ed07103c1bdd16232bc5ba8769f9527",
+  "status_policy": "no auto SUPPORTED; all UNASSIGNED",
+  "tb_001_007_preserved": true
+}

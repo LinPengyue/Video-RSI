@@ -5,25 +5,62 @@
     "query_ok": true,
     "verify_ok": true,
     "value": "removes_jacket",
-    "credit": "STRONG_IF_BINDING_USED",
+    "credit": "STRONG_COMPOSITION",
+    "strong": true,
     "bound": "entity_x",
     "gaps": [],
     "recovery": []
   },
   "A_only": {
     "resolve_ok": true,
-    "track_ok": true,
+    "track_ok": false,
     "query_ok": false,
     "verify_ok": false,
     "value": null,
     "credit": null,
+    "strong": null,
     "bound": "entity_x",
     "gaps": [
       "query:entity_x:action"
     ],
     "recovery": [
-      "query_property:MISSING_EVIDENCE:relocate_then_resolve",
-      "verify_answer:EMPTY_ANSWER:relocate_then_resolve"
+      {
+        "failed_op": "track_identity",
+        "failure_code": "IDENTITY_LOST",
+        "strategy": "relocate_then_resolve",
+        "action": "locate_event",
+        "action_inputs": {
+          "cue": "Entity entity_x not observed in target span",
+          "widen": true
+        },
+        "resolved": true,
+        "rebound_entity": false,
+        "bound_after": "entity_x",
+        "budget_after": 2,
+        "evidence_delta": [
+          "a1",
+          "a2",
+          "b2"
+        ]
+      },
+      {
+        "failed_op": "query_property",
+        "failure_code": "MISSING_EVIDENCE",
+        "strategy": "relocate_then_resolve",
+        "action": "locate_event",
+        "action_inputs": {
+          "cue": "No property action for entity_x",
+          "widen": true
+        },
+        "resolved": true,
+        "rebound_entity": false,
+        "bound_after": "entity_x",
+        "budget_after": 0,
+        "evidence_delta": [
+          "a1",
+          "b2"
+        ]
+      }
     ]
   },
   "B_only": {
@@ -31,7 +68,25 @@
     "failure": "ENTITY_UNBOUND",
     "gaps": [],
     "recovery": [
-      "query_property:ENTITY_UNBOUND:relocate_then_resolve"
+      {
+        "failed_op": "query_property",
+        "failure_code": "ENTITY_UNBOUND",
+        "strategy": "relocate_then_resolve",
+        "action": "locate_event",
+        "action_inputs": {
+          "cue": "query_property requires a bound entity",
+          "widen": true
+        },
+        "resolved": true,
+        "rebound_entity": true,
+        "bound_after": "entity_y",
+        "budget_after": 3,
+        "evidence_delta": [
+          "a2",
+          "b1",
+          "b2"
+        ]
+      }
     ]
   },
   "subject_swap": {
@@ -40,24 +95,98 @@
     "query_ok": true,
     "verify_ok": true,
     "value": "waves_hand",
-    "credit": "STRONG_IF_BINDING_USED",
+    "credit": "STRONG_COMPOSITION",
+    "strong": true,
     "bound": "entity_y",
     "gaps": [],
     "recovery": []
   },
   "single_clip_shortcut": {
-    "verify_ok": false,
-    "credit": "DENIED_SINGLE_OR_MISSING",
-    "ambiguity": "single_clip_sufficient",
-    "failure": "DUAL_EVIDENCE_REQUIRED"
+    "graph_credit": "CONTROL_ONLY_SINGLE_INTERVAL",
+    "flag_ignored_credit": "CONTROL_ONLY_SINGLE_INTERVAL",
+    "strong": false,
+    "verify_ok": true
+  },
+  "forged_evidence": {
+    "ok": false,
+    "composition_credit": "DENIED_FORGED_EVIDENCE",
+    "reasons": [
+      "forged evidence present"
+    ]
+  },
+  "cross_entity": {
+    "ok": false,
+    "composition_credit": "DENIED_CROSS_ENTITY_INTERVALS",
+    "reasons": [
+      "bound entity entity_x not present in both intervals",
+      "A=['entity_x'] B=['entity_y']"
+    ]
+  },
+  "unsupported_answer": {
+    "ok": false,
+    "composition_credit": "DENIED_ANSWER_UNSUPPORTED",
+    "reasons": [
+      "no B evidence for bound entity supports the answer"
+    ]
+  },
+  "single_interval_control": {
+    "ok": true,
+    "composition_credit": "CONTROL_ONLY_SINGLE_INTERVAL",
+    "reasons": [
+      "answer supported with only interval B; missing A"
+    ]
+  },
+  "multi_candidate": {
+    "resolve_ok": false,
+    "failure": "AMBIGUOUS_REFERENCE",
+    "n_candidates": 2,
+    "recovery": [
+      {
+        "failed_op": "resolve_reference",
+        "failure_code": "AMBIGUOUS_REFERENCE",
+        "strategy": "relocate_then_resolve",
+        "action": "locate_event",
+        "action_inputs": {
+          "cue": "opens the meeting",
+          "widen": true
+        },
+        "resolved": true,
+        "rebound_entity": true,
+        "bound_after": "entity_x",
+        "budget_after": 4,
+        "evidence_delta": [
+          "a1"
+        ]
+      }
+    ],
+    "bound_after_recovery": "entity_x",
+    "recovered": true
   },
   "failure_recovery": {
     "initial_fail": true,
     "recovery_stack": [
-      "locate_event:MISSING_EVIDENCE:relocate_then_resolve",
-      "locate_event:MISSING_EVIDENCE:relocate_then_resolve",
-      "locate_event:MISSING_EVIDENCE:relocate_then_resolve",
-      "locate_event:MISSING_EVIDENCE:relocate_then_resolve"
+      {
+        "failed_op": "locate_event",
+        "failure_code": "MISSING_EVIDENCE",
+        "strategy": "none",
+        "action": "skip",
+        "resolved": false
+      },
+      {
+        "failed_op": "locate_event",
+        "failure_code": "MISSING_EVIDENCE",
+        "strategy": "relocate_then_resolve",
+        "action": "locate_event",
+        "action_inputs": {
+          "cue": "nonexistent_event_zzz",
+          "widen": true
+        },
+        "resolved": false,
+        "rebound_entity": false,
+        "bound_after": null,
+        "budget_after": 2,
+        "evidence_delta": []
+      }
     ],
     "tool_calls": [
       {
@@ -69,23 +198,19 @@
         "op": "locate_event",
         "ok": false,
         "failure": "MISSING_EVIDENCE"
-      },
-      {
-        "op": "locate_event",
-        "ok": false,
-        "failure": "MISSING_EVIDENCE"
-      },
-      {
-        "op": "locate_event",
-        "ok": false,
-        "failure": "MISSING_EVIDENCE"
       }
-    ]
+    ],
+    "no_identical_retry": true
   },
   "assertions": {
     "missing_evidence_reported": true,
     "binding_changes_query_target": true,
     "single_clip_not_strong_success": true,
-    "failure_triggers_recovery": true
+    "failure_triggers_recovery": true,
+    "forged_denied": true,
+    "cross_entity_denied": true,
+    "unsupported_denied": true,
+    "multi_candidate_needs_investigation": true,
+    "strong_requires_full_chain": true
   }
 }

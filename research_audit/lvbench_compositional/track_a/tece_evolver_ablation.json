@@ -1,0 +1,172 @@
+{
+  "fixed": {
+    "seen_accuracy": 0.6666666666666666,
+    "seen_avg_calls": 4.0,
+    "unseen_accuracy": 0.0,
+    "unseen_avg_calls": 4.0,
+    "strategy_changed": false,
+    "best_genome": {
+      "search_budget": 4,
+      "recovery_strategy": "none",
+      "query_requires_bound_entity": true,
+      "verify_requires_dual_evidence": true,
+      "abort_on_hard_fail": false,
+      "disambiguation_cue": "opens the meeting",
+      "fallback_referring_expression": null,
+      "op_order_template": [
+        "locate_event",
+        "resolve_reference",
+        "track_identity",
+        "query_property",
+        "verify_answer"
+      ]
+    },
+    "history_len": 0,
+    "last_gen": null,
+    "note": "Synthetic only; not a real-video RSI claim."
+  },
+  "random": {
+    "seen_accuracy": 0.6666666666666666,
+    "seen_avg_calls": 4.0,
+    "unseen_accuracy": 0.0,
+    "unseen_avg_calls": 4.0,
+    "strategy_changed": false,
+    "best_genome": {
+      "search_budget": 4,
+      "recovery_strategy": "none",
+      "query_requires_bound_entity": true,
+      "verify_requires_dual_evidence": true,
+      "abort_on_hard_fail": false,
+      "disambiguation_cue": "opens the meeting",
+      "fallback_referring_expression": null,
+      "op_order_template": [
+        "locate_event",
+        "resolve_reference",
+        "track_identity",
+        "query_property",
+        "verify_answer"
+      ]
+    },
+    "history_len": 8,
+    "last_gen": {
+      "generation": 7,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    "note": "Synthetic only; not a real-video RSI claim."
+  },
+  "vanilla": {
+    "seen_accuracy": 0.6666666666666666,
+    "seen_avg_calls": 4.0,
+    "unseen_accuracy": 0.0,
+    "unseen_avg_calls": 4.0,
+    "strategy_changed": false,
+    "best_genome": {
+      "search_budget": 4,
+      "recovery_strategy": "none",
+      "query_requires_bound_entity": true,
+      "verify_requires_dual_evidence": true,
+      "abort_on_hard_fail": false,
+      "disambiguation_cue": "opens the meeting",
+      "fallback_referring_expression": null,
+      "op_order_template": [
+        "locate_event",
+        "resolve_reference",
+        "track_identity",
+        "query_property",
+        "verify_answer"
+      ]
+    },
+    "history_len": 8,
+    "last_gen": {
+      "generation": 7,
+      "best_score": 0.6666666666666666,
+      "accuracy": 0.6666666666666666,
+      "avg_calls": 4.0,
+      "genome": {
+        "search_budget": 4,
+        "recovery_strategy": "none",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "opens the meeting",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    "note": "Synthetic only; not a real-video RSI claim."
+  },
+  "tece": {
+    "seen_accuracy": 1.0,
+    "seen_avg_calls": 4.333333333333333,
+    "unseen_accuracy": 1.0,
+    "unseen_avg_calls": 5.0,
+    "strategy_changed": true,
+    "best_genome": {
+      "search_budget": 6,
+      "recovery_strategy": "rebind_from_a",
+      "query_requires_bound_entity": true,
+      "verify_requires_dual_evidence": true,
+      "abort_on_hard_fail": false,
+      "disambiguation_cue": "first speaker",
+      "fallback_referring_expression": null,
+      "op_order_template": [
+        "locate_event",
+        "resolve_reference",
+        "track_identity",
+        "query_property",
+        "verify_answer"
+      ]
+    },
+    "history_len": 8,
+    "last_gen": {
+      "generation": 7,
+      "best_score": 0.9133333333333333,
+      "accuracy": 1.0,
+      "avg_calls": 4.333333333333333,
+      "genome": {
+        "search_budget": 6,
+        "recovery_strategy": "rebind_from_a",
+        "query_requires_bound_entity": true,
+        "verify_requires_dual_evidence": true,
+        "abort_on_hard_fail": false,
+        "disambiguation_cue": "first speaker",
+        "fallback_referring_expression": null,
+        "op_order_template": [
+          "locate_event",
+          "resolve_reference",
+          "track_identity",
+          "query_property",
+          "verify_answer"
+        ]
+      },
+      "changed": false
+    },
+    "note": "Synthetic only; not a real-video RSI claim."
+  }
+}

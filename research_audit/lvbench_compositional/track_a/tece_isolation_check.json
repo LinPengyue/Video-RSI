@@ -4,7 +4,7 @@
   "policy": {
     "initial_harness_id": "INITIAL_HARNESS_DECLARED",
     "held_out": [
-      "identify_person + query_action"
+      "identify_person + describe_action"
     ],
     "forbid_hs1": true
   }

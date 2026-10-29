@@ -23,6 +23,8 @@ ALLOWED_MUTATION_KEYS = {
     "abort_on_hard_fail",
     "op_order_template",
     "branch_on_ambiguity",
+    "disambiguation_cue",
+    "fallback_referring_expression",
 }
 
 FORBIDDEN_ACTIONS = {

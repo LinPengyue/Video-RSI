@@ -1,43 +1,40 @@
-# TRACK B PROGRESS — video-driven evidence round
+# TRACK B PROGRESS — video-driven evidence + canonical import
 
-Baseline: `791d25f9603a6533ef2ce0ee9e275430123ff667`
+Baseline prior Cursor: `8513843`  
+ChatGPT canonical docs: `1b44fc7` (synced via raw download when fetch timed out)
 
-## Method change
+## Method
 
-Primary path is **video evidence → fact discovery → mechanism → ChatGPT QA design → independent verification**.  
-Official-QA name-swap is no longer the main constructor.
+Primary path: **video evidence → fact discovery → mechanism → ChatGPT original QA → independent verification**.  
+Official-QA name-swap is not the main constructor.
 
-## High-value evidence supplements
+## Canonical mapping (authoritative)
 
-| ID | Video | Focus | Extracted |
+| ID | seed | video | status |
 |---|---|---|---|
-| CG-NEW-001 / TB-003 | TJR1oYDDTwg | cast continuity + dual performers | yes |
-| CG-NEW-002 / TB-007 | Cm73ma6Ibcs | restaurant second-level + snow identity | yes |
-| CG-NEW-003 / TB-006 | LLSJrEgOOtw | audio retained + zoomed dog + later play | yes |
-| CG-NEW-004 / TB-004 | vaL_vSdZKZo | reuse prior TB media | pending review |
-| CG-NEW-005 / TB-001 | _T2Avd3tFHc | reuse prior TB media | pending review |
+| CG-NEW-001 | TB-003 | TJR1oYDDTwg | PROPOSED_REVIEW_REQUIRED |
+| CG-NEW-002 | TB-007 | Cm73ma6Ibcs | PROPOSED_REVIEW_REQUIRED |
+| CG-NEW-003 | TB-006 | LLSJrEgOOtw | PROPOSED_REVIEW_REQUIRED |
+| CG-NEW-004 | TB-005 | evYm0cELO3I | PROPOSED_CONTROL_CANDIDATE |
+| CG-NEW-005 | TB-004 | vaL_vSdZKZo | PROPOSED_EVIDENCE_REQUEST |
 
-## New video facts
+Fallback snapshot of incorrect 004/005 fill retained: `../chatgpt_video_driven_qa/fallback_snapshot_85138431.jsonl`.
 
-Cursor **did not invent** new verified facts. Adjacent windows were extracted as `NEEDS_HUMAN_OR_CHATGPT_FACT_DESIGN` in `adjacent_new_fact_candidates.jsonl`.
+## Evidence
 
-## Second-round status
+Indexed in `CG_NEW_EVIDENCE_INDEX.jsonl` (no re-extract this round).  
+Pack: `local_media/lvbench_cg_new_evidence_round.zip` (~34.6 MB, gitignored).
 
-All five remain `PROPOSED` / `COMPOSITION_PENDING` / `UNASSIGNED`. No auto `SUPPORTED`.  
-See `cg_new_second_round_status.jsonl`.
+Adjacent windows remain `verified_as_new_fact=false`.
 
-## Mechanism coverage
+## Necessity
 
-role disambiguation; reverse temporal; audio-visual object link; attribute-role bridge; person→location.
+Scaffold: `NECESSITY_REVIEW_PREP.md` + `cg_new_second_round_status.jsonl`. All pending independent review.
 
-## Still needed from ChatGPT
+## Full benchmark
 
-Labeled new facts (if any) from adjacent clips; refined QA wording if import jsonl differs; necessity judgments A-only/B-only/A+B after watching new packs.
-
-## Evidence pack
-
-`local_media/cg_new_round/` + zip `local_media/lvbench_cg_new_evidence_round.zip` (gitignored).
+See `TRACK_B_NEXT_STAGE.md` and `BENCHMARK_EXPANSION_PLAN.md`. Contaminated CG-NEW videos ≠ sealed final test.
 
 ## Status
 
-**Track B: evidence advanced for 001–003; composition still pending independent review. Not a formal benchmark freeze.**
+**Track B: canonical five calibrated; evidence indexed; necessity prep ready; expansion plan maintained. Not a formal freeze.**
