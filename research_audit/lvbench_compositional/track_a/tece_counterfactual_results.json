@@ -1,0 +1,91 @@
+{
+  "A_plus_B": {
+    "resolve_ok": true,
+    "track_ok": true,
+    "query_ok": true,
+    "verify_ok": true,
+    "value": "removes_jacket",
+    "credit": "STRONG_IF_BINDING_USED",
+    "bound": "entity_x",
+    "gaps": [],
+    "recovery": []
+  },
+  "A_only": {
+    "resolve_ok": true,
+    "track_ok": true,
+    "query_ok": false,
+    "verify_ok": false,
+    "value": null,
+    "credit": null,
+    "bound": "entity_x",
+    "gaps": [
+      "query:entity_x:action"
+    ],
+    "recovery": [
+      "query_property:MISSING_EVIDENCE:relocate_then_resolve",
+      "verify_answer:EMPTY_ANSWER:relocate_then_resolve"
+    ]
+  },
+  "B_only": {
+    "query_ok": false,
+    "failure": "ENTITY_UNBOUND",
+    "gaps": [],
+    "recovery": [
+      "query_property:ENTITY_UNBOUND:relocate_then_resolve"
+    ]
+  },
+  "subject_swap": {
+    "resolve_ok": true,
+    "track_ok": true,
+    "query_ok": true,
+    "verify_ok": true,
+    "value": "waves_hand",
+    "credit": "STRONG_IF_BINDING_USED",
+    "bound": "entity_y",
+    "gaps": [],
+    "recovery": []
+  },
+  "single_clip_shortcut": {
+    "verify_ok": false,
+    "credit": "DENIED_SINGLE_OR_MISSING",
+    "ambiguity": "single_clip_sufficient",
+    "failure": "DUAL_EVIDENCE_REQUIRED"
+  },
+  "failure_recovery": {
+    "initial_fail": true,
+    "recovery_stack": [
+      "locate_event:MISSING_EVIDENCE:relocate_then_resolve",
+      "locate_event:MISSING_EVIDENCE:relocate_then_resolve",
+      "locate_event:MISSING_EVIDENCE:relocate_then_resolve",
+      "locate_event:MISSING_EVIDENCE:relocate_then_resolve"
+    ],
+    "tool_calls": [
+      {
+        "op": "locate_event",
+        "ok": false,
+        "failure": "MISSING_EVIDENCE"
+      },
+      {
+        "op": "locate_event",
+        "ok": false,
+        "failure": "MISSING_EVIDENCE"
+      },
+      {
+        "op": "locate_event",
+        "ok": false,
+        "failure": "MISSING_EVIDENCE"
+      },
+      {
+        "op": "locate_event",
+        "ok": false,
+        "failure": "MISSING_EVIDENCE"
+      }
+    ]
+  },
+  "assertions": {
+    "missing_evidence_reported": true,
+    "binding_changes_query_target": true,
+    "single_clip_not_strong_success": true,
+    "failure_triggers_recovery": true
+  }
+}

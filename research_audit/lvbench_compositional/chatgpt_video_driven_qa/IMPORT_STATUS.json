@@ -1,0 +1,10 @@
+{
+  "expected_uploads": [
+    "cvpr2027_chatgpt_video_driven_qa_proposals.jsonl",
+    "cvpr2027_dual_track_next_round.md"
+  ],
+  "found_in_workspace": false,
+  "fallback": "Registered five PROPOSED candidates from the round brief's CG-NEW mappings; replace wording if official ChatGPT jsonl arrives.",
+  "contamination_policy": "These videos/candidates were used in public method discussion; never assign as blind sealed final test.",
+  "preserve_tb_001_007": true
+}

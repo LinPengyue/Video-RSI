@@ -1,29 +1,20 @@
-# Dual-track progress (Shared / A / B)
+# Dual-track progress update
 
-Baseline: `db62562f03904a79dec8d5988f6ae9250ccd5517`  
-This round does **not** run RSI and does **not** mint formal benchmark splits.
+Baseline: `791d25f9603a6533ef2ce0ee9e275430123ff667`
 
 ## Shared
-
-- Independent review logged for VG-001/002/003 (`video_grounded_pilot/independent_review.jsonl`)
-- Filter rules updated (`FILTER_RULES.md`)
-- None enter formal Unseen; all remain `UNASSIGNED`
+- Registered CG-NEW-001..005 as PROPOSED / UNASSIGNED under `chatgpt_video_driven_qa/`
+- Source label: CHATGPT_DESIGN_FROM_UPLOADED_EVIDENCE (official upload file missing → brief fallback; see IMPORT_STATUS.json)
+- TB-001..007 preserved; not overwritten
+- Contaminated for blind sealed final test
 
 ## Track A
-
-- Status: **prep ready / RSI execution blocked**
-- Artifacts: `track_a/TRACK_A_READINESS.md`
-- Supported composition Qs: 2 on 1 video; Seen query_action VALID: 1
-- Hypotheses: transferable entity binder; evidence-dependency verifier
-- H_S1 forbidden as strict final judge
+- TECE prototype + unit tests
+- Counterfactual assertions: {'missing_evidence_reported': True, 'binding_changes_query_target': True, 'single_clip_not_strong_success': True, 'failure_triggers_recovery': True}
+- Isolation dry-check ok: True
+- Expensive RSI: not run
 
 ## Track B
-
-- Status: **discovery advanced / pending independent review**
-- Artifacts: `track_b/TRACK_B_CONSTRUCTION_REPORT.md`
-- Event-first candidates TB-001..007 extracted; zip under `track_b/local_media/` (gitignored)
-- Signatures beyond person+action: location, object+action, condition→later action
-
-## Isolation reminder
-
-Track B sealed final tests must not guide Track A harness/evolver tuning. Shared annotation protocol only.
+- Evidence pack: research_audit/lvbench_compositional/track_b/local_media/lvbench_cg_new_evidence_round.zip (34.55 MB)
+- Extracted clips: 9; adjacent fact windows: 6
+- No auto SUPPORTED

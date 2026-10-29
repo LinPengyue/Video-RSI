@@ -1,0 +1,41 @@
+[
+  {
+    "accepted": true,
+    "before": {
+      "search_budget": 5,
+      "recovery_strategy": "relocate_then_resolve",
+      "query_requires_bound_entity": true,
+      "verify_requires_dual_evidence": true,
+      "abort_on_hard_fail": false,
+      "op_order_template": [
+        "locate_event",
+        "resolve_reference",
+        "track_identity",
+        "query_property",
+        "verify_answer"
+      ]
+    },
+    "after": {
+      "search_budget": 6,
+      "recovery_strategy": "investigate_conflict",
+      "query_requires_bound_entity": true,
+      "verify_requires_dual_evidence": true,
+      "abort_on_hard_fail": false,
+      "op_order_template": [
+        "locate_event",
+        "resolve_reference",
+        "track_identity",
+        "query_property",
+        "verify_answer"
+      ]
+    },
+    "fingerprint": "452b97726ec6443d"
+  },
+  {
+    "accepted": false,
+    "illegal_keys": [
+      "update_frozen_video_model_weights"
+    ],
+    "forbidden_actions": []
+  }
+]
