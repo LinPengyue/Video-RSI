@@ -60,3 +60,16 @@
 
 - zip: `research_audit/lvbench_compositional/video_grounded_pilot/local_media/lvbench_video_grounded_3videos.zip`
 - size_bytes: 28455864 (28.5 MB)
+
+
+## Independent review (Shared)
+
+Source: `INDEPENDENT_EXTERNAL_REVIEW` (not Cursor video confirmation). All remain `data_partition_status=UNASSIGNED`.
+
+| ID | New status | Formal Unseen |
+|---|---|---|
+| VG-001 | VISUALLY_SUPPORTED_BUT_NOT_NOVEL | No (positive control only) |
+| VG-002 | UNCERTAIN_AGENT | No |
+| VG-003 | NO_CLEAR_NEW_FACT | No |
+
+See `independent_review.jsonl` and `FILTER_RULES.md`.

@@ -1,0 +1,8 @@
+stage,n,note
+priority_videos_screened,12,_T2Avd3tFHc TJR vaL Cm73 xECI evYm 20lTg uusf O14 pe_Ldd Z4HG hjoD
+raw_event_bridge_hits,33,Automatic name/bridge scan
+rejected_wrong_agent_or_noise,20,"e.g. villain-car↔prince, With-token noise, self-name leaks"
+rejected_low_composition_novelty,5,Official Q already fully binds entity+answer
+vg002_vg003_alt_factB_kept,3,TB-001/002/003 replace bell/post-net proposals
+promising_pending_review,7,TB-001..007; TB-008 borderline not extracted
+media_extracted,7,Local clips+sheets only for extract=True

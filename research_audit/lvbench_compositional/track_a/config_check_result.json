@@ -1,0 +1,15 @@
+{
+  "ok_for_expensive_rsi": false,
+  "checks": {
+    "supported_unseen_items_ge_6": false,
+    "supported_unseen_videos_ge_3": false,
+    "valid_seen_query_action_ge_4": false,
+    "hs1_not_used_as_final": true,
+    "dry_run_config_present": true
+  },
+  "blockers": [
+    "Only 2 video-supported composition questions on 1 video (JTa).",
+    "Seen query_action VALID audit still too thin for multi-video transfer claims.",
+    "v3 new Unseen remain UNVERIFIED; VG-001/002/003 cannot fill Unseen."
+  ]
+}

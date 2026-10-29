@@ -1,0 +1,45 @@
+{
+  "baselines": [
+    {
+      "arm_id": "no_harness",
+      "description": "Frozen model, no harness tools/planner beyond raw VLM"
+    },
+    {
+      "arm_id": "fixed_strong_planner",
+      "description": "Fixed strong planner/prompt; no evolver updates"
+    },
+    {
+      "arm_id": "vanilla_rsi",
+      "description": "Existing RSI loop without new composition-oriented mechanisms"
+    },
+    {
+      "arm_id": "new_rsi",
+      "description": "RSI with hypothesized composition-transfer mechanisms"
+    }
+  ],
+  "ablations": [
+    {
+      "arm_id": "harness_only",
+      "description": "Allow harness edits/tools without evolver search"
+    },
+    {
+      "arm_id": "harness_plus_evolver",
+      "description": "Harness + evolver with matched step/token budget"
+    }
+  ],
+  "mechanism_hypotheses": [
+    {
+      "id": "H1_transferable_entity_binder",
+      "claim": "A harness skill that stores (referring_expression → entity_trace → later_interval_query) and reuses binding checks will improve Unseen identify_person+query_action without schema memorization.",
+      "not_just_prompt_rewrite": true,
+      "targets_error_mode": "entity binding failure / wrong agent across intervals"
+    },
+    {
+      "id": "H2_evidence_dependency_verifier",
+      "claim": "Before final answer, require explicit dual-interval evidence tickets; reject answers supportable from one clip alone. Evolver mutates verification predicates, not only surface prompts.",
+      "not_just_prompt_rewrite": true,
+      "targets_error_mode": "single-clip shortcut / premature answer"
+    }
+  ],
+  "dry_run_only": true
+}

@@ -1,0 +1,29 @@
+{
+  "experiment": "track_a_comp_rsi_prep",
+  "dry_run": true,
+  "forbid_paid_api": true,
+  "forbid_hs1_as_final_judge": true,
+  "arms_required": [
+    "no_harness",
+    "fixed_strong_planner",
+    "vanilla_rsi",
+    "new_rsi"
+  ],
+  "isolation_checks": [
+    "schema_leaveout",
+    "video_disjoint",
+    "uid_disjoint",
+    "shortcut_flag_present"
+  ],
+  "min_supported_unseen_items_to_start": 6,
+  "min_supported_unseen_videos": 3,
+  "min_valid_seen_query_action_items": 4,
+  "min_valid_seen_query_action_videos": 3,
+  "min_seen_identify_person_items": 8,
+  "current_counts": {
+    "supported_composition_questions": 2,
+    "supported_composition_videos": 1,
+    "valid_query_action_train_audited": 1,
+    "status": "BLOCKED"
+  }
+}

@@ -13,7 +13,7 @@
       "video_id": "JTa_Ue2MSwc",
       "video_type": "talk_show_interview",
       "bridge_entity": "Sierra",
-      "status": "PENDING_HUMAN_REVIEW",
+      "status": "VISUALLY_SUPPORTED_BUT_NOT_NOVEL",
       "applicable_track": "BOTH_CANDIDATE",
       "composition_signature": "identify_person(event_role) -> bind_entity -> query_action(later_interval)",
       "primitive_operations": [
@@ -32,14 +32,16 @@
       "fact_B_contact_sheet": "local_media/VG-001/fact_B_contact_sheet.jpg",
       "official_qa": "local_media/VG-001/official_qa.json",
       "reviewer_prompt_fact_B": "Confirm whether Sierra is clearly visible and what concrete action she performs in this window. Do not accept plot memory alone.",
-      "do_not_mark_supported_automatically": true
+      "do_not_mark_supported_automatically": true,
+      "review_source": "INDEPENDENT_EXTERNAL_REVIEW",
+      "enter_formal_unseen": false
     },
     {
       "candidate_id": "VG-002",
       "video_id": "_T2Avd3tFHc",
       "video_type": "travel_vlog",
       "bridge_entity": "Mikhail",
-      "status": "PENDING_HUMAN_REVIEW",
+      "status": "UNCERTAIN_AGENT",
       "applicable_track": "A_DEV",
       "composition_signature": "identify_person(named_elder) -> bind_entity -> query_action(sparse_later_event)",
       "primitive_operations": [
@@ -58,14 +60,16 @@
       "fact_B_contact_sheet": "local_media/VG-002/fact_B_contact_sheet.jpg",
       "official_qa": "local_media/VG-002/official_qa.json",
       "reviewer_prompt_fact_B": "Identify who rings the bell and describe the action. If Mikhail is absent or ambiguous, mark FAIL for this candidate.",
-      "do_not_mark_supported_automatically": true
+      "do_not_mark_supported_automatically": true,
+      "review_source": "INDEPENDENT_EXTERNAL_REVIEW",
+      "enter_formal_unseen": false
     },
     {
       "candidate_id": "VG-003",
       "video_id": "TJR1oYDDTwg",
       "video_type": "story_animation",
       "bridge_entity": "Prince",
-      "status": "PENDING_HUMAN_REVIEW",
+      "status": "NO_CLEAR_NEW_FACT",
       "applicable_track": "B_CANDIDATE",
       "composition_signature": "identify_person(event_result) -> bind_entity -> query_action(post_event_interval)",
       "primitive_operations": [
@@ -84,7 +88,9 @@
       "fact_B_contact_sheet": "local_media/VG-003/fact_B_contact_sheet.jpg",
       "official_qa": "local_media/VG-003/official_qa.json",
       "reviewer_prompt_fact_B": "Confirm the prince remains the same character as in Fact A and list any clear action he performs in this window. If only dragons act, mark FAIL.",
-      "do_not_mark_supported_automatically": true
+      "do_not_mark_supported_automatically": true,
+      "review_source": "INDEPENDENT_EXTERNAL_REVIEW",
+      "enter_formal_unseen": false
     }
   ],
   "review_instructions": [
@@ -111,5 +117,7 @@
   "zip": {
     "path": "research_audit/lvbench_compositional/video_grounded_pilot/local_media/lvbench_video_grounded_3videos.zip",
     "bytes": 28455864
-  }
+  },
+  "independent_review_applied": true,
+  "independent_review_file": "independent_review.jsonl"
 }

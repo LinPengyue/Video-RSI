@@ -1,0 +1,44 @@
+{
+  "phase": "track_b_event_first_discovery",
+  "role": "TRACK_B + SHARED discovery",
+  "auto_supported": false,
+  "formal_qa_minted": false,
+  "data_partition_status_all": "UNASSIGNED",
+  "n_pending_review": 7,
+  "extracted_ids": [
+    "TB-001",
+    "TB-002",
+    "TB-003",
+    "TB-004",
+    "TB-005",
+    "TB-006",
+    "TB-007"
+  ],
+  "signatures_probed": [
+    "condition_event + later_action",
+    "identify_object + query_action",
+    "identify_person + query_action",
+    "identify_person + query_attribute",
+    "identify_person + query_location"
+  ],
+  "review_instructions": [
+    "Judge Fact A and Fact B visually from clips/sheets.",
+    "Confirm same agent/object across intervals.",
+    "Score fact_novelty vs composition_novelty using official Q/options/answer.",
+    "Flag single-clip shortcuts.",
+    "Do not mark SUPPORTED in this pack automatically."
+  ],
+  "zip": {
+    "path": "research_audit/lvbench_compositional/track_b/local_media/lvbench_track_b_pending_review.zip",
+    "bytes": 48216454,
+    "extracted_ids": [
+      "TB-001",
+      "TB-002",
+      "TB-003",
+      "TB-004",
+      "TB-005",
+      "TB-006",
+      "TB-007"
+    ]
+  }
+}

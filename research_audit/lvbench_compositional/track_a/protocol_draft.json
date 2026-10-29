@@ -1,0 +1,49 @@
+{
+  "name": "track_a_min_protocol_draft_v0",
+  "frozen_video_model": true,
+  "initial_harness_policy": "Start from a declared Initial Harness snapshot. Do NOT reuse H_S1 as a strict held-out final evaluator (prior LVBench exposure).",
+  "evolution_set_requirements": [
+    "Primitive A instances present",
+    "Primitive B instances present",
+    "Target composition signature absent (strict leave-out)"
+  ],
+  "isolation": {
+    "no_video_overlap_train_test": true,
+    "no_uid_overlap_train_test": true,
+    "development_vs_final_test": "Separate sealed final test; development may iterate"
+  },
+  "shortcut_checks": [
+    "single_clip_answerability",
+    "name_leak_in_question",
+    "official_qa_semantic_coverage"
+  ],
+  "arms": [
+    {
+      "arm_id": "no_harness",
+      "description": "Frozen model, no harness tools/planner beyond raw VLM"
+    },
+    {
+      "arm_id": "fixed_strong_planner",
+      "description": "Fixed strong planner/prompt; no evolver updates"
+    },
+    {
+      "arm_id": "vanilla_rsi",
+      "description": "Existing RSI loop without new composition-oriented mechanisms"
+    },
+    {
+      "arm_id": "new_rsi",
+      "description": "RSI with hypothesized composition-transfer mechanisms"
+    }
+  ],
+  "ablations_under_fair_budget": [
+    {
+      "arm_id": "harness_only",
+      "description": "Allow harness edits/tools without evolver search"
+    },
+    {
+      "arm_id": "harness_plus_evolver",
+      "description": "Harness + evolver with matched step/token budget"
+    }
+  ],
+  "fair_budget_notes": "Match max tool calls, frames, tokens, and wall-clock per item across arms; no arm-specific leakage from sealed B tests."
+}
