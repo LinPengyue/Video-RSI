@@ -1,0 +1,4 @@
+id,video_id,source_uids,old_question,old_answer,reason
+LVCOMP-V1-018,2zkJFv-ro4A,3132 3119,What is the relation beween the person who performs a solo after Seungri does and Kange Dae Sung?,They are team members,"Daesung and Kang Dae-sung may be aliases of one person, so the relation answer is not reliable."
+LVCOMP-V1-039,2zkJFv-ro4A,3118 3123,Who is the person the vloggers see from the BigBang after the concert ends?,the man appearing on the screen from 01:38-01:40,The new question and answer do not form a usable identity reference for this composition.
+LVCOMP-V1-044,_T2Avd3tFHc,2873 2883,What is the role of the person who have quarrel with a grey T-shirt elder in the Monastery?,the elder who joins the vlogger on their travel,"The question asks for a role, but the answer is not a job or role attribute."

@@ -1,0 +1,648 @@
+{
+  "selected_ids": [
+    "LVCOMP-V1-010",
+    "LVCOMP-V1-012",
+    "LVCOMP-V1-017",
+    "LVCOMP-V1-022",
+    "LVCOMP-V1-029",
+    "LVCOMP-V1-030",
+    "LVCOMP-V1-032",
+    "LVCOMP-V1-038",
+    "LVCOMP-V1-043",
+    "LVCOMP-V1-008"
+  ],
+  "video_count": 10,
+  "items": [
+    {
+      "id": "LVCOMP-V1-010",
+      "video_id": "Z86xysw5Ncc",
+      "composition_type": "entity_binding",
+      "question": "What's the number on the back of the winner for Men's 100M Round 1 Heat 1?",
+      "answer": "3217",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "4197",
+          "time_reference": "02:18-02:36",
+          "official_start_seconds": 138.0,
+          "official_end_seconds": 156.0,
+          "windows": {
+            "context": {
+              "clip_path": "Z86xysw5Ncc/uid_4197/context/clip.mp4",
+              "clip_sha256": "3f3d2fec0e546f5ae2305958e9dea952da275669f3d5f9331df953c28a75d587",
+              "contact_sheet": "Z86xysw5Ncc/uid_4197/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 118.0,
+              "end_seconds": 176.0
+            },
+            "strict": {
+              "clip_path": "Z86xysw5Ncc/uid_4197/strict/clip.mp4",
+              "clip_sha256": "9642c1acb95a7ba94557cb4bc038d6cef04189521597c9c3fc3a9c145e1e1277",
+              "contact_sheet": "Z86xysw5Ncc/uid_4197/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 138.0,
+              "end_seconds": 156.0
+            }
+          }
+        },
+        {
+          "uid": "4199",
+          "time_reference": "03:46-04:25",
+          "official_start_seconds": 226.0,
+          "official_end_seconds": 265.0,
+          "windows": {
+            "context": {
+              "clip_path": "Z86xysw5Ncc/uid_4199/context/clip.mp4",
+              "clip_sha256": "3993e68b0ae0391544ca0abdb6b63acf134e5eb1359b92b411926c97cf0c1622",
+              "contact_sheet": "Z86xysw5Ncc/uid_4199/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 206.0,
+              "end_seconds": 285.0
+            },
+            "strict": {
+              "clip_path": "Z86xysw5Ncc/uid_4199/strict/clip.mp4",
+              "clip_sha256": "5cabb6f445307c4121579455c7494cb750ffcd68070834aae94a2cbbd2355c54",
+              "contact_sheet": "Z86xysw5Ncc/uid_4199/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 226.0,
+              "end_seconds": 265.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVCOMP-V1-012",
+      "video_id": "_T2Avd3tFHc",
+      "composition_type": "entity_binding",
+      "question": "Where do the vlogger team members invite the elder who joins the vlogger on their travel on the first night?",
+      "answer": "They invite the elder who joins the vlogger on their travel to the hotel",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "2873",
+          "time_reference": "04:44-04:44",
+          "official_start_seconds": 284.0,
+          "official_end_seconds": 284.0,
+          "windows": {
+            "strict": {
+              "clip_path": "_T2Avd3tFHc/uid_2873/strict/clip.mp4",
+              "clip_sha256": "8eb54fb7e62891594b8a43288da8771c9cf0f237e5d5ca42c422b5bb951d8bf2",
+              "contact_sheet": "_T2Avd3tFHc/uid_2873/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": true,
+              "start_seconds": 284.0,
+              "end_seconds": 285.0
+            },
+            "context": {
+              "clip_path": "_T2Avd3tFHc/uid_2873/context/clip.mp4",
+              "clip_sha256": "496c596a86bee3feb9e15802c915e1fd233c66fb61d215f50097027f92d4c577",
+              "contact_sheet": "_T2Avd3tFHc/uid_2873/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": true,
+              "start_seconds": 264.0,
+              "end_seconds": 304.0
+            }
+          }
+        },
+        {
+          "uid": "2890",
+          "time_reference": "15:58-16:07",
+          "official_start_seconds": 958.0,
+          "official_end_seconds": 967.0,
+          "windows": {
+            "strict": {
+              "clip_path": "_T2Avd3tFHc/uid_2890/strict/clip.mp4",
+              "clip_sha256": "45f145589f7f1697c07f976a41700f6166b3030b64ead99306aaf4934d0a44bd",
+              "contact_sheet": "_T2Avd3tFHc/uid_2890/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": true,
+              "start_seconds": 958.0,
+              "end_seconds": 967.0
+            },
+            "context": {
+              "clip_path": "_T2Avd3tFHc/uid_2890/context/clip.mp4",
+              "clip_sha256": "1750c56e05766524cf4cf1a97182f579cc85e74dc34e97cf6724370e0d9a9083",
+              "contact_sheet": "_T2Avd3tFHc/uid_2890/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": true,
+              "start_seconds": 938.0,
+              "end_seconds": 987.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVCOMP-V1-017",
+      "video_id": "q01CUy_gwdU",
+      "composition_type": "object_binding",
+      "question": "After they meet for the third time, who has the item the man searched for after the second collision?",
+      "answer": "the woman in red",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "120",
+          "time_reference": "04:42-05:00",
+          "official_start_seconds": 282.0,
+          "official_end_seconds": 300.0,
+          "windows": {
+            "strict": {
+              "clip_path": "q01CUy_gwdU/uid_120/strict/clip.mp4",
+              "clip_sha256": "0043205204025bdaf86406cd02ea6e86e245d02ae7516fd18fb7caa5dca5cb34",
+              "contact_sheet": "q01CUy_gwdU/uid_120/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": true,
+              "start_seconds": 282.0,
+              "end_seconds": 300.0
+            },
+            "context": {
+              "clip_path": "q01CUy_gwdU/uid_120/context/clip.mp4",
+              "clip_sha256": "abd483216f07b1146859fafdae4b472e225bd2a165a3f120686f652058103332",
+              "contact_sheet": "q01CUy_gwdU/uid_120/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": true,
+              "start_seconds": 262.0,
+              "end_seconds": 320.0
+            }
+          }
+        },
+        {
+          "uid": "121",
+          "time_reference": "05:15-05:31",
+          "official_start_seconds": 315.0,
+          "official_end_seconds": 331.0,
+          "windows": {
+            "strict": {
+              "clip_path": "q01CUy_gwdU/uid_121/strict/clip.mp4",
+              "clip_sha256": "a867f4b6d9d23c6144d4a3ba645638913e026334830867a27e5de8d932dd3249",
+              "contact_sheet": "q01CUy_gwdU/uid_121/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": true,
+              "start_seconds": 315.0,
+              "end_seconds": 331.0
+            },
+            "context": {
+              "clip_path": "q01CUy_gwdU/uid_121/context/clip.mp4",
+              "clip_sha256": "eb607261049bf050cff0c37344365ccd69a825a149e27a61a623ca7967f4751b",
+              "contact_sheet": "q01CUy_gwdU/uid_121/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": true,
+              "start_seconds": 295.0,
+              "end_seconds": 351.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVCOMP-V1-022",
+      "video_id": "JPPMz8fEml0",
+      "composition_type": "event_binding",
+      "question": "What are the attitudes of people living in the country the travelers choose towards life?",
+      "answer": "They are happy about their life",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "2963",
+          "time_reference": "01:18-01:21",
+          "official_start_seconds": 78.0,
+          "official_end_seconds": 81.0,
+          "windows": {
+            "context": {
+              "clip_path": "JPPMz8fEml0/uid_2963/context/clip.mp4",
+              "clip_sha256": "232dcb1e410e50dee429228bfeafef9b02d57cae45a386e7d1db04dd006b74fc",
+              "contact_sheet": "JPPMz8fEml0/uid_2963/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 58.0,
+              "end_seconds": 101.0
+            },
+            "strict": {
+              "clip_path": "JPPMz8fEml0/uid_2963/strict/clip.mp4",
+              "clip_sha256": "b449e6bf09affe42ef91f0b15f5bb6b0a415313861fe09df8548173e7b9ad505",
+              "contact_sheet": "JPPMz8fEml0/uid_2963/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 78.0,
+              "end_seconds": 81.0
+            }
+          }
+        },
+        {
+          "uid": "2975",
+          "time_reference": "08:37-08:50",
+          "official_start_seconds": 517.0,
+          "official_end_seconds": 530.0,
+          "windows": {
+            "context": {
+              "clip_path": "JPPMz8fEml0/uid_2975/context/clip.mp4",
+              "clip_sha256": "a73ebf0e235502ee1ca0768edc6f14cd2b1a94dac957ca3c5b28044421a68f1f",
+              "contact_sheet": "JPPMz8fEml0/uid_2975/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 497.0,
+              "end_seconds": 550.0
+            },
+            "strict": {
+              "clip_path": "JPPMz8fEml0/uid_2975/strict/clip.mp4",
+              "clip_sha256": "a3984c5eda6cf115da8768067fb9a8fba43817d9f4b65a61fc2dfc1be4afc446",
+              "contact_sheet": "JPPMz8fEml0/uid_2975/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 517.0,
+              "end_seconds": 530.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVCOMP-V1-029",
+      "video_id": "T1yhBv1ytzw",
+      "composition_type": "event_binding",
+      "question": "Why does the person who scores the first goal fall at 42:37?",
+      "answer": "His head hurts",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "3785",
+          "time_reference": "30:04-31:20",
+          "official_start_seconds": 1804.0,
+          "official_end_seconds": 1880.0,
+          "windows": {
+            "context": {
+              "clip_path": "T1yhBv1ytzw/uid_3785/context/clip.mp4",
+              "clip_sha256": "a22f67ec6fef1651462b723e9c3911d22694145eca96ae89ebb098d26e8d30d5",
+              "contact_sheet": "T1yhBv1ytzw/uid_3785/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 1784.0,
+              "end_seconds": 1900.0
+            },
+            "strict": {
+              "clip_path": "T1yhBv1ytzw/uid_3785/strict/clip.mp4",
+              "clip_sha256": "3a393759cd35e9535475cbf38868bd6e493f8359fb84bc514a66689cee5414f9",
+              "contact_sheet": "T1yhBv1ytzw/uid_3785/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 1804.0,
+              "end_seconds": 1880.0
+            }
+          }
+        },
+        {
+          "uid": "3789",
+          "time_reference": "42:37-43:20",
+          "official_start_seconds": 2557.0,
+          "official_end_seconds": 2600.0,
+          "windows": {
+            "context": {
+              "clip_path": "T1yhBv1ytzw/uid_3789/context/clip.mp4",
+              "clip_sha256": "f83d1102f3f877493dbfb3f3c34d457a40c25669b3594b1f6a47b0d3be47e5ac",
+              "contact_sheet": "T1yhBv1ytzw/uid_3789/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 2537.0,
+              "end_seconds": 2620.0
+            },
+            "strict": {
+              "clip_path": "T1yhBv1ytzw/uid_3789/strict/clip.mp4",
+              "clip_sha256": "e2ae5359700f4431bace60a276ef64abad1a7f1cc3983a9d9647d0ab87b8cfa3",
+              "contact_sheet": "T1yhBv1ytzw/uid_3789/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 2557.0,
+              "end_seconds": 2600.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVCOMP-V1-030",
+      "video_id": "VTCDQYYKA9o",
+      "composition_type": "event_binding",
+      "question": "From front to back, which place does the person in the video wearing red clothes and then taking them off to reveal the blue clothes underneath occupy when the three athletes walk to the podium?",
+      "answer": "First",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "4083",
+          "time_reference": "03:00-03:00",
+          "official_start_seconds": 180.0,
+          "official_end_seconds": 180.0,
+          "windows": {
+            "context": {
+              "clip_path": "VTCDQYYKA9o/uid_4083/context/clip.mp4",
+              "clip_sha256": "8887d2e07f64d16360507d7c398febb90d9454096520f547ae5436ebe75d6017",
+              "contact_sheet": "VTCDQYYKA9o/uid_4083/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 160.0,
+              "end_seconds": 200.0
+            },
+            "strict": {
+              "clip_path": "VTCDQYYKA9o/uid_4083/strict/clip.mp4",
+              "clip_sha256": "50792b43950e120d8111151685baca3026f76d8efdff6656507a9fd4190dabfa",
+              "contact_sheet": "VTCDQYYKA9o/uid_4083/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 180.0,
+              "end_seconds": 181.0
+            }
+          }
+        },
+        {
+          "uid": "4098",
+          "time_reference": "71:17-71:17",
+          "official_start_seconds": 4277.0,
+          "official_end_seconds": 4277.0,
+          "windows": {
+            "context": {
+              "clip_path": "VTCDQYYKA9o/uid_4098/context/clip.mp4",
+              "clip_sha256": "8bf301883b20bcc4ebafa1867fb3f1142156b67e63ccf0c2548f0d701c998171",
+              "contact_sheet": "VTCDQYYKA9o/uid_4098/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 4257.0,
+              "end_seconds": 4297.0
+            },
+            "strict": {
+              "clip_path": "VTCDQYYKA9o/uid_4098/strict/clip.mp4",
+              "clip_sha256": "c0be9675f96d0caf1379f37d429573bf15ad189da6845c9fa40548d7dcccfecf",
+              "contact_sheet": "VTCDQYYKA9o/uid_4098/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 4277.0,
+              "end_seconds": 4278.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVCOMP-V1-032",
+      "video_id": "XNtNNplAwiI",
+      "composition_type": "event_binding",
+      "question": "What are the skills of the person who steals the S-shaped jade?",
+      "answer": "He has invisibility",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "807",
+          "time_reference": "59:21-64:44",
+          "official_start_seconds": 3561.0,
+          "official_end_seconds": 3884.0,
+          "windows": {
+            "context": {
+              "clip_path": "XNtNNplAwiI/uid_807/context/clip.mp4",
+              "clip_sha256": "006a49df770cdeb05ead2da902c3993fad531b513bd26bb960267d6a22d632e5",
+              "contact_sheet": "XNtNNplAwiI/uid_807/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 3541.0,
+              "end_seconds": 3904.0
+            },
+            "strict": {
+              "clip_path": "XNtNNplAwiI/uid_807/strict/clip.mp4",
+              "clip_sha256": "e3e28da9372acc3e289cf315bad38853ae6fd9b91bae85413ddd44baca78f757",
+              "contact_sheet": "XNtNNplAwiI/uid_807/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 3561.0,
+              "end_seconds": 3884.0
+            }
+          }
+        },
+        {
+          "uid": "808",
+          "time_reference": "64:45-65:53",
+          "official_start_seconds": 3885.0,
+          "official_end_seconds": 3953.0,
+          "windows": {
+            "context": {
+              "clip_path": "XNtNNplAwiI/uid_808/context/clip.mp4",
+              "clip_sha256": "703ceeb8659f1b3801a4ba337751932971995c5d23ed8df43609db692f2f200d",
+              "contact_sheet": "XNtNNplAwiI/uid_808/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 3865.0,
+              "end_seconds": 3973.0
+            },
+            "strict": {
+              "clip_path": "XNtNNplAwiI/uid_808/strict/clip.mp4",
+              "clip_sha256": "d71558a4ec1b45c0e5dca7262de53d5178c97a231f87e99588489a7f7aa7fd87",
+              "contact_sheet": "XNtNNplAwiI/uid_808/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 3885.0,
+              "end_seconds": 3953.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVCOMP-V1-038",
+      "video_id": "oZEVgDXJwCc",
+      "composition_type": "event_binding",
+      "question": "Why is the person who scores the first goal so sad at 15:06?",
+      "answer": "His header doesn't result in a goal",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "3529",
+          "time_reference": "15:00-15:30",
+          "official_start_seconds": 900.0,
+          "official_end_seconds": 930.0,
+          "windows": {
+            "context": {
+              "clip_path": "oZEVgDXJwCc/uid_3529/context/clip.mp4",
+              "clip_sha256": "f0d2d067f0a65901128cfe693cac4875c707babfe200c3e0fa1234854aceba61",
+              "contact_sheet": "oZEVgDXJwCc/uid_3529/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 880.0,
+              "end_seconds": 950.0
+            },
+            "strict": {
+              "clip_path": "oZEVgDXJwCc/uid_3529/strict/clip.mp4",
+              "clip_sha256": "e05f93f9530ed69bfb94da7f688cffdb211686fe6bb639bfb1ea64d6b84b310c",
+              "contact_sheet": "oZEVgDXJwCc/uid_3529/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 900.0,
+              "end_seconds": 930.0
+            }
+          }
+        },
+        {
+          "uid": "3543",
+          "time_reference": "76:00-78:00",
+          "official_start_seconds": 4560.0,
+          "official_end_seconds": 4680.0,
+          "windows": {
+            "context": {
+              "clip_path": "oZEVgDXJwCc/uid_3543/context/clip.mp4",
+              "clip_sha256": "04df188ce742fb3fd5b5826aa4c59f9875e6d86b48a746afa097c5728028ab3a",
+              "contact_sheet": "oZEVgDXJwCc/uid_3543/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 4540.0,
+              "end_seconds": 4700.0
+            },
+            "strict": {
+              "clip_path": "oZEVgDXJwCc/uid_3543/strict/clip.mp4",
+              "clip_sha256": "9e1ef58fce2e78d31f16e3ce185363ff19f06f131204f506d4289cf1937bcb3b",
+              "contact_sheet": "oZEVgDXJwCc/uid_3543/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 4560.0,
+              "end_seconds": 4680.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVCOMP-V1-043",
+      "video_id": "JTa_Ue2MSwc",
+      "composition_type": "attribute_binding",
+      "question": "What is the role of the person Austin chooses?",
+      "answer": "the stripper",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "5150",
+          "time_reference": "27:04-29:49",
+          "official_start_seconds": 1624.0,
+          "official_end_seconds": 1789.0,
+          "windows": {
+            "context": {
+              "clip_path": "JTa_Ue2MSwc/uid_5150/context/clip.mp4",
+              "clip_sha256": "b27ca96b47c1b6061723a46677980d23fd583a8f149ffb9f1ee3f91e4fc6bd31",
+              "contact_sheet": "JTa_Ue2MSwc/uid_5150/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 1604.0,
+              "end_seconds": 1809.0
+            },
+            "strict": {
+              "clip_path": "JTa_Ue2MSwc/uid_5150/strict/clip.mp4",
+              "clip_sha256": "cb30dd5f746aee909bff9e585bf57c8a8e16c3c312185e6b0d6a9816ddec9c63",
+              "contact_sheet": "JTa_Ue2MSwc/uid_5150/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 1624.0,
+              "end_seconds": 1789.0
+            }
+          }
+        },
+        {
+          "uid": "5153",
+          "time_reference": "31:15-33:45",
+          "official_start_seconds": 1875.0,
+          "official_end_seconds": 2025.0,
+          "windows": {
+            "context": {
+              "clip_path": "JTa_Ue2MSwc/uid_5153/context/clip.mp4",
+              "clip_sha256": "4dde22157fe1da0205914945689f1cbe7042ce5712e3070f2fbfae0f5f86106b",
+              "contact_sheet": "JTa_Ue2MSwc/uid_5153/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 1855.0,
+              "end_seconds": 2045.0
+            },
+            "strict": {
+              "clip_path": "JTa_Ue2MSwc/uid_5153/strict/clip.mp4",
+              "clip_sha256": "24be74e6a1961e1096ffb84b7b5d17c70a8e01563e2026dd3d37edb84f1b11ce",
+              "contact_sheet": "JTa_Ue2MSwc/uid_5153/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 1875.0,
+              "end_seconds": 2025.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVCOMP-V1-008",
+      "video_id": "QWXlvx1GoTY",
+      "composition_type": "entity_binding",
+      "question": "What brand does the second person to speak on stage show a video about during his talk?",
+      "answer": "L'Oreal",
+      "review_status": "PENDING_VIDEO_REVIEW",
+      "video_verified": false,
+      "uids": [
+        {
+          "uid": "2463",
+          "time_reference": "42:12-42:35",
+          "official_start_seconds": 2532.0,
+          "official_end_seconds": 2555.0,
+          "windows": {
+            "context": {
+              "clip_path": "QWXlvx1GoTY/uid_2463/context/clip.mp4",
+              "clip_sha256": "4dce61b170349d3aaa215a531cc0ac1e62dd8c9af23cb390343323d59242ba19",
+              "contact_sheet": "QWXlvx1GoTY/uid_2463/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 2512.0,
+              "end_seconds": 2575.0
+            },
+            "strict": {
+              "clip_path": "QWXlvx1GoTY/uid_2463/strict/clip.mp4",
+              "clip_sha256": "c2274231effc740f43399e171707c535b327ffc8f1ee4f3999a94c54219364b1",
+              "contact_sheet": "QWXlvx1GoTY/uid_2463/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 2532.0,
+              "end_seconds": 2555.0
+            }
+          }
+        },
+        {
+          "uid": "2465",
+          "time_reference": "51:15-53:23",
+          "official_start_seconds": 3075.0,
+          "official_end_seconds": 3203.0,
+          "windows": {
+            "context": {
+              "clip_path": "QWXlvx1GoTY/uid_2465/context/clip.mp4",
+              "clip_sha256": "648ca3fae15586eaf8239a0fbaca036d5b60ad7a63657cdea7c6f3e14caf157f",
+              "contact_sheet": "QWXlvx1GoTY/uid_2465/context/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 3055.0,
+              "end_seconds": 3223.0
+            },
+            "strict": {
+              "clip_path": "QWXlvx1GoTY/uid_2465/strict/clip.mp4",
+              "clip_sha256": "7bd710391a0e600c07187d3945f7127d04d47da2706ac27e72b69cb46e9281be",
+              "contact_sheet": "QWXlvx1GoTY/uid_2465/strict/contact_sheet.jpg",
+              "frame_count": 10,
+              "reused_from_phase1": false,
+              "start_seconds": 3075.0,
+              "end_seconds": 3203.0
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "judgment": "PENDING_VIDEO_REVIEW"
+}

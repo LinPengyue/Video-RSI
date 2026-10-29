@@ -1,0 +1,46 @@
+id,video_id,source_uids,decision,review_status,included_in_clean_set,reason
+LVCOMP-V1-001,Hf-n1yfd8II,3934 3944,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-002,JTa_Ue2MSwc,5130 5131,REVISE,PENDING_VIDEO_REVIEW,yes,Replace 'first interview' with 'first interviewee'. The answer is unchanged.
+LVCOMP-V1-003,JTa_Ue2MSwc,5130 5134,REVISE,PENDING_VIDEO_REVIEW,yes,Replace 'first interview' with 'first interviewee' and correct 'show' to 'shows'.
+LVCOMP-V1-004,JTa_Ue2MSwc,5130 5135,REVISE,PENDING_VIDEO_REVIEW,yes,Replace 'first interview' with 'first interviewee'. The answer is unchanged.
+LVCOMP-V1-005,JTa_Ue2MSwc,5130 5137,REVISE,PENDING_VIDEO_REVIEW,yes,Replace 'first interview' with 'first interviewee'. The answer is unchanged.
+LVCOMP-V1-006,JTa_Ue2MSwc,5137 5135,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-007,JTa_Ue2MSwc,5140 5146,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-008,QWXlvx1GoTY,2463 2465,REVISE,PENDING_VIDEO_REVIEW,yes,Turn the official statement-question into a direct question. The brand answer is unchanged.
+LVCOMP-V1-009,VTCDQYYKA9o,4083 4092,REVISE,PENDING_VIDEO_REVIEW,yes,Shorten the official clothing description without dropping the red-to-blue reveal.
+LVCOMP-V1-010,Z86xysw5Ncc,4197 4199,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-011,_T2Avd3tFHc,2873 2888,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-012,_T2Avd3tFHc,2873 2890,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-013,_T2Avd3tFHc,2877 2873,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-014,cWEnogdsW78,4062 4071,REVISE,PENDING_VIDEO_REVIEW,yes,Replace the ungrammatical 'one who is' with 'person'. The hair-color answer is unchanged.
+LVCOMP-V1-015,cWEnogdsW78,4065 4071,REVISE,PENDING_VIDEO_REVIEW,yes,Use 'person' for the official on-screen description. The strike answer is unchanged.
+LVCOMP-V1-016,vZV2WCKMsKs,4682 4684,REVISE,NEEDS_VERIFICATION,yes,"The official answer names Nymeria's performance, while the question refers to the pair Amber and Nymeria. The pair-wide rewrite is withdrawn."
+LVCOMP-V1-017,q01CUy_gwdU,120 121,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-018,2zkJFv-ro4A,3132 3119,DROP,DROPPED,no,"Daesung and Kang Dae-sung may be aliases of one person, so the relation answer is not reliable."
+LVCOMP-V1-019,9-gOCOu_KGU,4339 4345,REVISE,HOLD_LABEL_BALANCE,no,All current answers in this Yes/No group are Yes. Held out of the review set. No No answer was invented.
+LVCOMP-V1-020,Hf-n1yfd8II,3919 3931,REVISE,HOLD_LABEL_BALANCE,no,All current answers in this Yes/No group are Yes. Held out of the review set. No No answer was invented.
+LVCOMP-V1-021,Hf-n1yfd8II,3919 3934,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-022,JPPMz8fEml0,2963 2975,KEEP,PENDING_VIDEO_REVIEW,yes,Correct 'is the attitudes' to 'are the attitudes'. The answer is unchanged.
+LVCOMP-V1-023,JPPMz8fEml0,2977 2981,REVISE,PENDING_VIDEO_REVIEW,yes,Replace the fill-in-the-blank with a whose-question. The official option text is unchanged.
+LVCOMP-V1-024,JTa_Ue2MSwc,5130 5132,REVISE,PENDING_VIDEO_REVIEW,yes,Replace 'first interview' with 'first interviewee'. The answer is unchanged.
+LVCOMP-V1-025,JTa_Ue2MSwc,5142 5145,REVISE,PENDING_VIDEO_REVIEW,yes,Repair the official 'last one appear' wording. The name Brain is left as annotated.
+LVCOMP-V1-026,KLIa2UaE2KE,4169 4172,REVISE,NEEDS_VERIFICATION,yes,"The official answer options are the numbers 13, 20, 5, and 15. They do not say that 5 is a jersey number, so the question was not rewritten."
+LVCOMP-V1-027,KLIa2UaE2KE,4169 4178,REVISE,HOLD_LABEL_BALANCE,no,All current answers in this Yes/No group are Yes. Held out of the review set. No No answer was invented.
+LVCOMP-V1-028,KLIa2UaE2KE,4172 4178,REVISE,NEEDS_VERIFICATION,yes,"The official answer options are the numbers 13, 20, 5, and 15. They do not say that 5 is a jersey number, so the question was not rewritten."
+LVCOMP-V1-029,T1yhBv1ytzw,3785 3789,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-030,VTCDQYYKA9o,4083 4098,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-031,XNtNNplAwiI,804 808,REVISE,PENDING_VIDEO_REVIEW,yes,The question already matches the official event. The option spelling 'leave' is not changed.
+LVCOMP-V1-032,XNtNNplAwiI,807 808,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-033,Xjf5N9S3jAA,3946 3961,REVISE,HOLD_LABEL_BALANCE,no,All current answers in this Yes/No group are Yes. Held out of the review set. No No answer was invented.
+LVCOMP-V1-034,Xjf5N9S3jAA,3962 3964,REVISE,HOLD_LABEL_BALANCE,no,All current answers in this Yes/No group are Yes. Held out of the review set. No No answer was invented.
+LVCOMP-V1-035,_T2Avd3tFHc,2877 2890,REVISE,PENDING_VIDEO_REVIEW,yes,This binds a clothing attribute to a later place. It is not an independent temporal-reasoning item.
+LVCOMP-V1-036,aJI8XTa_DII,1227 1249,REVISE,PENDING_VIDEO_REVIEW,yes,Keep both official facts and remove the stacked 'of the ... are there' wording.
+LVCOMP-V1-037,f8DKD78BrQA,2082 2083,REVISE,PENDING_VIDEO_REVIEW,yes,Correct 'does ... mentions' to 'does ... mention'. The official claim clause is otherwise unchanged.
+LVCOMP-V1-038,oZEVgDXJwCc,3529 3543,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-039,2zkJFv-ro4A,3118 3123,DROP,DROPPED,no,The new question and answer do not form a usable identity reference for this composition.
+LVCOMP-V1-040,Hf-n1yfd8II,3919 3944,REVISE,PENDING_VIDEO_REVIEW,yes,"The final winner is a match result, not an occupation. The answer string is unchanged."
+LVCOMP-V1-041,Hf-n1yfd8II,3931 3944,REVISE,PENDING_VIDEO_REVIEW,yes,"Ask for the match result, and correct the official 'who get' to 'who gets'."
+LVCOMP-V1-042,Hf-n1yfd8II,3937 3944,REVISE,PENDING_VIDEO_REVIEW,yes,"The coughing man is annotated as Lee Chong Wei's coach, and Lee Chong Wei is the final winner."
+LVCOMP-V1-043,JTa_Ue2MSwc,5150 5153,KEEP,PENDING_VIDEO_REVIEW,yes,Kept. The wording already matches the official annotations.
+LVCOMP-V1-044,_T2Avd3tFHc,2873 2883,DROP,DROPPED,no,"The question asks for a role, but the answer is not a job or role attribute."
+LVCOMP-V1-045,vHlSoxg8WHo,5064 5068,REVISE,PENDING_VIDEO_REVIEW,yes,"The official answer says Brittany is Tacara's sister, and Tacara is the person at 00:02."

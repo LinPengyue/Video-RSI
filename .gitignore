@@ -56,3 +56,4 @@ research_audit/video_rsi_fix_paths/local_untracked/
 # LVBench-Compositional phase 1 local video evidence.
 # Clips, keyframes, and contact sheets stay on disk and out of git.
 research_audit/lvbench_compositional/phase1/local_media/
+research_audit/lvbench_compositional/qa_v1_clean/local_media/
