@@ -17,7 +17,13 @@ from .evolution_loop import _world_pair, SHARED_MUTATION_POOL
 from .executor import SimulatedWorld, WorldFact, default_genome
 from .evolver import ALLOWED_MUTATION_KEYS, EvolutionGenome, EvolverWorkspace
 from .contracts import TimeSpan, EntityCandidate
-from .observations_v2 import assert_no_oracle_bridge, binding_impossible_from_ids_alone, project_scene_local
+from .observations_v2 import (
+    assert_local_ids_disjoint,
+    assert_no_oracle_bridge,
+    binding_impossible_from_ids_alone,
+    pair_ranking_metrics,
+    project_scene_local,
+)
 
 
 @dataclass
@@ -97,7 +103,8 @@ def run_bind_task(genome: dict[str, Any], task: BindTask, *, mode: str) -> dict[
         salt=f"{task.task_id}_{task.seed}",
         seed=task.seed,
     )
-    bridge = assert_no_oracle_bridge(bundle)
+    ids = assert_local_ids_disjoint(bundle)
+    pair = pair_ranking_metrics(bundle, omap)
     nec = evaluate_necessity_v2(
         bundle,
         omap,
@@ -106,6 +113,10 @@ def run_bind_task(genome: dict[str, Any], task: BindTask, *, mode: str) -> dict[
         genome=genome,
         mode=mode,
     )
+    # Bound pair accuracy vs gold (when AB bind succeeded)
+    bound_a = nec["details"]["ab"].get("bound_a")
+    bound_b = nec["details"]["ab"].get("bound_b")
+    pair_correct = bool(bound_a and bound_b and (bound_a, bound_b) in set(omap.gold_matches))
     # Expected necessity by generation
     expect_necessary = task.kind == "dual_necessary"
     expect_shortcut = task.kind == "b_only_shortcut"
@@ -114,8 +125,13 @@ def run_bind_task(genome: dict[str, Any], task: BindTask, *, mode: str) -> dict[
         "kind": task.kind,
         "mode": mode,
         "split": task.split,
-        "bridge_ok": bridge["ok"],
+        "local_ids_disjoint": ids["local_ids_disjoint"],
+        "bridge_ok": ids["ok"],  # legacy alias: ID intersection empty only
         "ids_alone_impossible": binding_impossible_from_ids_alone(bundle),
+        "pair_accuracy_top1": pair["pair_accuracy_top1"],
+        "topk_pair_recall": pair["topk_pair_recall"],
+        "pair_score_gap": pair["pair_score_gap"],
+        "pair_correct_at_bind": pair_correct,
         "semantic": nec["semantic_answer_correct"],
         "necessary": nec["composition_necessary"],
         "a_only": nec["a_only_solves"],
@@ -129,6 +145,7 @@ def run_bind_task(genome: dict[str, Any], task: BindTask, *, mode: str) -> dict[
         ),
         "details": nec["details"],
         "used_oracle_match": nec["details"]["ab"].get("used_oracle_match"),
+        "experiment_label": "binding_policy_evolution_only",
     }
 
 
@@ -140,10 +157,16 @@ def evaluate_mode(genome: dict[str, Any], tasks: list[BindTask], mode: str) -> d
     return {
         "accuracy": sum(1 for r in rows if r["semantic"]) / n,
         "necessity_rate": sum(1 for r in rows if r["necessary"]) / n,
-        "bridge_ok_rate": sum(1 for r in rows if r["bridge_ok"]) / n,
+        "local_ids_disjoint_rate": sum(1 for r in rows if r["local_ids_disjoint"]) / n,
+        "bridge_ok_rate": sum(1 for r in rows if r["bridge_ok"]) / n,  # = local_ids_disjoint
+        "pair_accuracy_top1": sum(r["pair_accuracy_top1"] for r in rows) / n,
+        "topk_pair_recall": sum(r["topk_pair_recall"] for r in rows) / n,
+        "pair_correct_at_bind": sum(1 for r in rows if r["pair_correct_at_bind"]) / n,
+        "pair_score_gap": sum(r["pair_score_gap"] for r in rows) / n,
         "generation_agreement": sum(1 for r in rows if r["necessity_matches_generation"]) / n,
         "dual_semantic": sum(1 for r in dual if r["semantic"]) / max(1, len(dual)),
         "shortcut_b_only_detected": sum(1 for r in short if r["b_only"]) / max(1, len(short)),
+        "experiment_label": "binding_policy_evolution_only",
         "rows": rows,
     }
 
@@ -268,20 +291,48 @@ def run_binding_ablation(n_seeds: int = 15, base_seed: int = 300) -> dict[str, A
                     "seed": seed,
                     "acc": te["accuracy"],
                     "necessity": te["necessity_rate"],
+                    "local_ids_disjoint": te["local_ids_disjoint_rate"],
                     "bridge_ok": te["bridge_ok_rate"],
+                    "pair_top1": te["pair_accuracy_top1"],
+                    "pair_topk": te["topk_pair_recall"],
+                    "pair_bind": te["pair_correct_at_bind"],
+                    "pair_gap": te["pair_score_gap"],
                     "gen_agree": te["generation_agreement"],
                     "dual_sem": te["dual_semantic"],
                     "shortcut_detect": te["shortcut_b_only_detected"],
                 }
             )
             for row in te["rows"]:
-                if not row["bridge_ok"] or (row["kind"] == "dual_necessary" and row["b_only"]):
-                    failures.append({"seed": seed, "arm": arm, **{k: row[k] for k in ("task_id", "kind", "semantic", "necessary", "a_only", "b_only", "bridge_ok")}})
+                if not row["local_ids_disjoint"] or (row["kind"] == "dual_necessary" and row["b_only"]):
+                    failures.append(
+                        {
+                            "seed": seed,
+                            "arm": arm,
+                            **{
+                                k: row[k]
+                                for k in (
+                                    "task_id",
+                                    "kind",
+                                    "semantic",
+                                    "necessary",
+                                    "a_only",
+                                    "b_only",
+                                    "local_ids_disjoint",
+                                    "pair_correct_at_bind",
+                                )
+                            },
+                        }
+                    )
     summary = {
         a: {
             "acc": _ci([r["acc"] for r in rows]),
             "necessity": _ci([r["necessity"] for r in rows]),
+            "local_ids_disjoint": _ci([r["local_ids_disjoint"] for r in rows]),
             "bridge_ok": _ci([r["bridge_ok"] for r in rows]),
+            "pair_accuracy_top1": _ci([r["pair_top1"] for r in rows]),
+            "topk_pair_recall": _ci([r["pair_topk"] for r in rows]),
+            "pair_correct_at_bind": _ci([r["pair_bind"] for r in rows]),
+            "pair_score_gap": _ci([r["pair_gap"] for r in rows]),
             "generation_agreement": _ci([r["gen_agree"] for r in rows]),
             "dual_semantic": _ci([r["dual_sem"] for r in rows]),
             "shortcut_detect": _ci([r["shortcut_detect"] for r in rows]),
@@ -293,8 +344,11 @@ def run_binding_ablation(n_seeds: int = 15, base_seed: int = 300) -> dict[str, A
         "summary": summary,
         "per_seed": per,
         "failure_sample": failures[:50],
+        "experiment_label": "binding_policy_evolution_only",
+        "ok_for_expensive_rsi": False,
         "interpretation": (
-            "No shared A/B track_id. TECE advantage not required. "
+            "Agent-visible link scores use cue overlap only (no gold boost). "
+            "local_ids_disjoint ≠ pair_accuracy. TECE advantage not required. "
             "oracle_program_upper is diagnostic only. Not real-video RSI."
         ),
     }
