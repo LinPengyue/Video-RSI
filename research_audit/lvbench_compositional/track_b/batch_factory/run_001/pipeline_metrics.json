@@ -1,0 +1,47 @@
+{
+  "run_id": "run_001",
+  "factory_version": "0.1.0",
+  "extractor_version": "batch_factory_v1_2026-10-30",
+  "elapsed_s": 0.23,
+  "videos_processed": 8,
+  "videos_skipped_media": 0,
+  "videos_extraction_failed": 0,
+  "videos_total_inventory": 8,
+  "genre_distribution": {
+    "documentary_travel": 1,
+    "tech_talk": 1,
+    "athletics": 1,
+    "table_tennis": 1,
+    "football_broadcast": 1,
+    "unlabeled_lvbench": 3
+  },
+  "n_events_total": 110,
+  "n_events_semantic": 13,
+  "n_evidence_index": 103,
+  "n_relations": 8,
+  "n_qa_drafts": 8,
+  "n_independent_evidence_families": 8,
+  "n_family_duplicates_flagged": 0,
+  "duplicate_rate": 0.0,
+  "auto_grade_counts": {
+    "AUTO_MEDIUM": 4,
+    "AUTO_LOW": 1,
+    "AUTO_HIGH": 3
+  },
+  "mechanism_coverage_independent": {
+    "cross_shot_narrative": 1,
+    "same_local_actor_temporal": 1,
+    "slide_speech_av_grounding": 1,
+    "heat_boundary_name_contrast": 2,
+    "reverse_name_to_early_garment": 2,
+    "ordered_state_transitions": 1
+  },
+  "n_human_packet_items": 8,
+  "human_packet_status": "PENDING_HUMAN",
+  "candidate_yield_per_video": 1.0,
+  "auto_high_rate": 0.375,
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "ok_for_expensive_rsi": false,
+  "sealed_accessed": false
+}

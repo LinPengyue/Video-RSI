@@ -1,0 +1,2808 @@
+{
+  "experiment_label": "execution_over_selection_v1",
+  "ok_for_expensive_rsi": false,
+  "sealed_accessed": false,
+  "n_test_questions": 6,
+  "n_held_out_examples": 4,
+  "n_independent_test_worlds": 6,
+  "structural_leave_out": {
+    "ok": true,
+    "train_hashes": {
+      "forward_person_action": "eebe6b9bf1b690a3",
+      "reverse_event_to_prior_action": "0586bcbfab3f704b"
+    },
+    "held_out_hashes": {
+      "compare_two_state_transitions": "3b7b93286889d065",
+      "missing_evidence_abstain": "2755edda56579c3c"
+    },
+    "leaked_graph_hashes": [],
+    "note": "Text signature overlap is irrelevant if graph hashes differ; hash collision = invalid Unseen claim."
+  },
+  "train_schema_ids": [
+    "forward_person_action",
+    "reverse_event_to_prior_action"
+  ],
+  "held_out_schema_ids": [
+    "compare_two_state_transitions",
+    "missing_evidence_abstain"
+  ],
+  "dag_library_hashes": {
+    "forward_person_action": "eebe6b9bf1b690a3",
+    "reverse_event_to_prior_action": "0586bcbfab3f704b",
+    "compare_two_state_transitions": "3b7b93286889d065",
+    "missing_evidence_abstain": "2755edda56579c3c"
+  },
+  "selected_policy_summary": {
+    "n": 6,
+    "program_choice_accuracy": 0.8333333333333334,
+    "execution_answer_accuracy": 0.3333333333333333,
+    "both_select_and_execute": 0.3333333333333333,
+    "abstention_rate": 1.0,
+    "mean_tool_calls": 4.666666666666667,
+    "held_out_exec_acc": 0.5
+  },
+  "gold_dag_upper_summary": {
+    "n": 6,
+    "program_choice_accuracy": 1.0,
+    "execution_answer_accuracy": 0.3333333333333333,
+    "both_select_and_execute": 0.3333333333333333,
+    "abstention_rate": 1.0,
+    "mean_tool_calls": 4.666666666666667,
+    "held_out_exec_acc": 0.5
+  },
+  "budget_matched_arms": {
+    "strong_static_selector": {
+      "n": 6,
+      "program_choice_accuracy": 0.8333333333333334,
+      "execution_answer_accuracy": 0.3333333333333333,
+      "both_select_and_execute": 0.3333333333333333,
+      "abstention_rate": 1.0,
+      "mean_tool_calls": 4.5,
+      "held_out_exec_acc": 0.5
+    },
+    "random": {
+      "n": 6,
+      "program_choice_accuracy": 0.3333333333333333,
+      "execution_answer_accuracy": 0.3333333333333333,
+      "both_select_and_execute": 0.16666666666666666,
+      "abstention_rate": 1.0,
+      "mean_tool_calls": 4.166666666666667,
+      "held_out_exec_acc": 0.5
+    },
+    "evolver_weights": {
+      "n": 6,
+      "program_choice_accuracy": 0.8333333333333334,
+      "execution_answer_accuracy": 0.3333333333333333,
+      "both_select_and_execute": 0.3333333333333333,
+      "abstention_rate": 1.0,
+      "mean_tool_calls": 4.333333333333333,
+      "held_out_exec_acc": 0.5
+    },
+    "oracle_gold_dag": {
+      "n": 6,
+      "program_choice_accuracy": 1.0,
+      "execution_answer_accuracy": 0.3333333333333333,
+      "both_select_and_execute": 0.3333333333333333,
+      "abstention_rate": 1.0,
+      "mean_tool_calls": 4.166666666666667,
+      "held_out_exec_acc": 0.5
+    }
+  },
+  "semantic_controls_n": 24,
+  "semantic_controls_exec_ok_rate": 0.4166666666666667,
+  "keyword_traps": [
+    {
+      "question": "Later, compare which earlier action matches the graphic",
+      "features": {
+        "has_later": 1.0,
+        "has_earlier": 1.0,
+        "has_compare": 1.0,
+        "has_missing": 0.0,
+        "has_remove": 0.0,
+        "len_bucket": 0.6875
+      },
+      "selected": "compare_two_state_transitions",
+      "note": "keywords mix later+compare; selection≠execution proof"
+    }
+  ],
+  "rows_selected": [
+    {
+      "task_id": "test_0_compare_",
+      "question": "Which of the two score changes happened first and who led after the first?",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": null,
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0→0-1→1-1",
+      "gold_answer": "first_0-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_1_compare_",
+      "question": "Compare both state transitions: order the two board changes.",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": null,
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0→0-1→1-1",
+      "gold_answer": "0-1_then_1-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_2_missing_",
+      "question": "If the required action evidence is missing or absent, should we abstain?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": null,
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_3_missing_",
+      "question": "Cannot observe the action — missing evidence; abstain or answer?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": null,
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_4_reverse_",
+      "question": "Later graphic names the player; earlier what color jacket was removed?",
+      "gold_schema_id": "reverse_event_to_prior_action",
+      "selected_schema_id": "reverse_event_to_prior_action",
+      "selection_correct": true,
+      "selected_graph_hash": "0586bcbfab3f704b",
+      "mask": null,
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_late_event",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "track_reverse",
+          "op": "track_identity",
+          "ok": false,
+          "failure_code": "IDENTITY_LOST",
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_early_prop",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": null,
+      "gold_answer": "red",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_5_forward_",
+      "question": "Teal scarf person later action?",
+      "gold_schema_id": "forward_person_action",
+      "selected_schema_id": "reverse_event_to_prior_action",
+      "selection_correct": false,
+      "selected_graph_hash": "0586bcbfab3f704b",
+      "mask": null,
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_late_event",
+          "op": "locate_event",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "track_reverse",
+          "op": "track_identity",
+          "ok": false,
+          "failure_code": "IDENTITY_LOST",
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_early_prop",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": null,
+      "gold_answer": "drops_ball",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    }
+  ],
+  "rows_gold_dag": [
+    {
+      "task_id": "test_0_compare_",
+      "question": "Which of the two score changes happened first and who led after the first?",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": null,
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0→0-1→1-1",
+      "gold_answer": "first_0-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_1_compare_",
+      "question": "Compare both state transitions: order the two board changes.",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": null,
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0→0-1→1-1",
+      "gold_answer": "0-1_then_1-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_2_missing_",
+      "question": "If the required action evidence is missing or absent, should we abstain?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": null,
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_3_missing_",
+      "question": "Cannot observe the action — missing evidence; abstain or answer?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": null,
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_4_reverse_",
+      "question": "Later graphic names the player; earlier what color jacket was removed?",
+      "gold_schema_id": "reverse_event_to_prior_action",
+      "selected_schema_id": "reverse_event_to_prior_action",
+      "selection_correct": true,
+      "selected_graph_hash": "0586bcbfab3f704b",
+      "mask": null,
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_late_event",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "track_reverse",
+          "op": "track_identity",
+          "ok": false,
+          "failure_code": "IDENTITY_LOST",
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_early_prop",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": null,
+      "gold_answer": "red",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    },
+    {
+      "task_id": "test_5_forward_",
+      "question": "Teal scarf person later action?",
+      "gold_schema_id": "forward_person_action",
+      "selected_schema_id": "forward_person_action",
+      "selection_correct": true,
+      "selected_graph_hash": "eebe6b9bf1b690a3",
+      "mask": null,
+      "program_n_ops": 4,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "track_forward",
+          "op": "track_identity",
+          "ok": false,
+          "failure_code": "IDENTITY_LOST",
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "query_prop",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": null,
+      "gold_answer": "drops_ball",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false
+    }
+  ],
+  "semantic_controls": [
+    {
+      "task_id": "test_0_compare_",
+      "question": "Which of the two score changes happened first and who led after the first?",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": "drop_A",
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-1→1-1",
+      "gold_answer": "first_0-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "drop_A"
+    },
+    {
+      "task_id": "test_0_compare_",
+      "question": "Which of the two score changes happened first and who led after the first?",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": "drop_B",
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0",
+      "gold_answer": "first_0-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "drop_B"
+    },
+    {
+      "task_id": "test_0_compare_",
+      "question": "Which of the two score changes happened first and who led after the first?",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": "swap_roles",
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0→0-1→1-1",
+      "gold_answer": "first_0-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "swap_roles"
+    },
+    {
+      "task_id": "test_0_compare_",
+      "question": "Which of the two score changes happened first and who led after the first?",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": "swap_order",
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "1-1→0-1→0-0→0-0",
+      "gold_answer": "first_0-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "swap_order"
+    },
+    {
+      "task_id": "test_0_compare__para",
+      "question": "Which of the two score changes happened first and who led after the first?",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": null,
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0→0-1→1-1",
+      "gold_answer": "first_0-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "paraphrase"
+    },
+    {
+      "task_id": "test_0_compare_",
+      "question": "Which of the two score changes happened first and who led after the first?",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "forward_person_action",
+      "selection_correct": false,
+      "selected_graph_hash": "eebe6b9bf1b690a3",
+      "mask": null,
+      "program_n_ops": 4,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "track_forward",
+          "op": "track_identity",
+          "ok": false,
+          "failure_code": "IDENTITY_LOST",
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "query_prop",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": null,
+      "gold_answer": "first_0-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "force_forward_dag"
+    },
+    {
+      "task_id": "test_1_compare_",
+      "question": "Compare both state transitions: order the two board changes.",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": "drop_A",
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-1→1-1",
+      "gold_answer": "0-1_then_1-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "drop_A"
+    },
+    {
+      "task_id": "test_1_compare_",
+      "question": "Compare both state transitions: order the two board changes.",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": "drop_B",
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0",
+      "gold_answer": "0-1_then_1-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "drop_B"
+    },
+    {
+      "task_id": "test_1_compare_",
+      "question": "Compare both state transitions: order the two board changes.",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": "swap_roles",
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0→0-1→1-1",
+      "gold_answer": "0-1_then_1-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "swap_roles"
+    },
+    {
+      "task_id": "test_1_compare_",
+      "question": "Compare both state transitions: order the two board changes.",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": "swap_order",
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "1-1→0-1→0-0→0-0",
+      "gold_answer": "0-1_then_1-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "swap_order"
+    },
+    {
+      "task_id": "test_1_compare__para",
+      "question": "Order both state transitions: order the two board changes.",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "compare_two_state_transitions",
+      "selection_correct": true,
+      "selected_graph_hash": "3b7b93286889d065",
+      "mask": null,
+      "program_n_ops": 5,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "index_state_a",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "index_state_b",
+          "op": "locate_event",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "fact_ids",
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "bind_pair",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "query_order",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 4,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": "0-0→0-0→0-1→1-1",
+      "gold_answer": "0-1_then_1-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "paraphrase"
+    },
+    {
+      "task_id": "test_1_compare_",
+      "question": "Compare both state transitions: order the two board changes.",
+      "gold_schema_id": "compare_two_state_transitions",
+      "selected_schema_id": "forward_person_action",
+      "selection_correct": false,
+      "selected_graph_hash": "eebe6b9bf1b690a3",
+      "mask": null,
+      "program_n_ops": 4,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "track_forward",
+          "op": "track_identity",
+          "ok": false,
+          "failure_code": "IDENTITY_LOST",
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "query_prop",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": null,
+      "gold_answer": "0-1_then_1-1",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "force_forward_dag"
+    },
+    {
+      "task_id": "test_2_missing_",
+      "question": "If the required action evidence is missing or absent, should we abstain?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": "drop_A",
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_MISSING_A",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "drop_A"
+    },
+    {
+      "task_id": "test_2_missing_",
+      "question": "If the required action evidence is missing or absent, should we abstain?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": "drop_B",
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_MISSING_B",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "drop_B"
+    },
+    {
+      "task_id": "test_2_missing_",
+      "question": "If the required action evidence is missing or absent, should we abstain?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": "swap_roles",
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "swap_roles"
+    },
+    {
+      "task_id": "test_2_missing_",
+      "question": "If the required action evidence is missing or absent, should we abstain?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": "swap_order",
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "swap_order"
+    },
+    {
+      "task_id": "test_2_missing__para",
+      "question": "If the required action evidence is absent or absent, should we refuse to answer?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": null,
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "paraphrase"
+    },
+    {
+      "task_id": "test_2_missing_",
+      "question": "If the required action evidence is missing or absent, should we abstain?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "forward_person_action",
+      "selection_correct": false,
+      "selected_graph_hash": "eebe6b9bf1b690a3",
+      "mask": null,
+      "program_n_ops": 4,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "track_forward",
+          "op": "track_identity",
+          "ok": false,
+          "failure_code": "IDENTITY_LOST",
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "query_prop",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": null,
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "force_forward_dag"
+    },
+    {
+      "task_id": "test_3_missing_",
+      "question": "Cannot observe the action — missing evidence; abstain or answer?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": "drop_A",
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": false,
+          "failure_code": "ENTITY_UNBOUND",
+          "outputs_keys": [
+            "cue"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_MISSING_A",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": null,
+      "steps_ok": [
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "drop_A"
+    },
+    {
+      "task_id": "test_3_missing_",
+      "question": "Cannot observe the action — missing evidence; abstain or answer?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": "drop_B",
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_MISSING_B",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "drop_B"
+    },
+    {
+      "task_id": "test_3_missing_",
+      "question": "Cannot observe the action — missing evidence; abstain or answer?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": "swap_roles",
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "swap_roles"
+    },
+    {
+      "task_id": "test_3_missing_",
+      "question": "Cannot observe the action — missing evidence; abstain or answer?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": "swap_order",
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "swap_order"
+    },
+    {
+      "task_id": "test_3_missing__para",
+      "question": "Cannot observe the action — absent evidence; abstain or answer?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "missing_evidence_abstain",
+      "selection_correct": true,
+      "selected_graph_hash": "2755edda56579c3c",
+      "mask": null,
+      "program_n_ops": 3,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "probe_evidence",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "abstain_or_verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
+          "outputs_keys": [
+            "answer",
+            "composition_credit",
+            "bound_entity",
+            "reasons",
+            "strong_composition",
+            "evidence_path_valid",
+            "composition_necessary_hint",
+            "oracle_support_used"
+          ],
+          "budget_spent": 1
+        }
+      ],
+      "pred": "ABSTAIN",
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": true,
+      "abstained": true,
+      "tool_calls": 4,
+      "budget_remaining": 1,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "paraphrase"
+    },
+    {
+      "task_id": "test_3_missing_",
+      "question": "Cannot observe the action — missing evidence; abstain or answer?",
+      "gold_schema_id": "missing_evidence_abstain",
+      "selected_schema_id": "forward_person_action",
+      "selection_correct": false,
+      "selected_graph_hash": "eebe6b9bf1b690a3",
+      "mask": null,
+      "program_n_ops": 4,
+      "trace": [
+        {
+          "i": 0,
+          "node_id": "bind_referent",
+          "op": "resolve_reference",
+          "ok": true,
+          "failure_code": null,
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 1,
+          "node_id": "track_forward",
+          "op": "track_identity",
+          "ok": false,
+          "failure_code": "IDENTITY_LOST",
+          "outputs_keys": [
+            "entity_id"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 2,
+          "node_id": "query_prop",
+          "op": "query_property",
+          "ok": false,
+          "failure_code": "MISSING_EVIDENCE",
+          "outputs_keys": [
+            "entity_id",
+            "property_name"
+          ],
+          "budget_spent": 1
+        },
+        {
+          "i": 3,
+          "node_id": "verify",
+          "op": "verify_answer",
+          "ok": false,
+          "failure_code": "BUDGET_EXHAUSTED",
+          "outputs_keys": [],
+          "budget_spent": 0
+        }
+      ],
+      "pred": null,
+      "gold_answer": "ABSTAIN",
+      "execution_answer_ok": false,
+      "abstained": true,
+      "tool_calls": 5,
+      "budget_remaining": 0,
+      "bound_entity": "entity_x",
+      "steps_ok": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "ok_for_expensive_rsi": false,
+      "control": "force_forward_dag"
+    }
+  ],
+  "frozen_binding_negative_control": "DO_NOT_TUNE — see matched_budget_parity.json",
+  "distinction": {
+    "program_choice_accuracy": "label match of selected schema_id",
+    "execution_answer_accuracy": "answer after running selected DAG ops on world",
+    "note": "held_out_graph_accuracy previously reported was selection-only"
+  },
+  "evolver_weights_used": {
+    "w_forward": 0.5999999999999999,
+    "w_reverse": 0.6,
+    "w_compare": 1.0,
+    "w_abstain": 1.0,
+    "search_budget": 6
+  }
+}

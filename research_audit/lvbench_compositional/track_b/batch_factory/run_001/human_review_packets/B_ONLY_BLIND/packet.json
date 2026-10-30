@@ -1,0 +1,567 @@
+{
+  "packet_id": "run_001_B_ONLY_BLIND",
+  "variant": "B_ONLY_BLIND",
+  "n_items": 8,
+  "items": [
+    {
+      "priority": 1,
+      "qa_id": "QA_DRAFT_0006",
+      "video_id": "VTCDQYYKA9o",
+      "mechanism": "reverse_name_to_early_garment",
+      "auto_grade": "AUTO_HIGH",
+      "auto_score": 0.8,
+      "risks": [],
+      "question_zh": "后来画面用姓名/成绩类字幕介绍的那位蓝黄色比赛服运动员，在较早的场边准备阶段先脱下了什么颜色的外套？",
+      "question_en": null,
+      "answer_status": "HIDDEN",
+      "provisional_answer_zh": "[REDACTED_FOR_BLIND]",
+      "provisional_answer_note": "Hidden during blind review if following blind protocol",
+      "required_windows": [
+        [
+          166,
+          175
+        ],
+        [
+          270,
+          275
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "VTCD_E_red_jacket_towel",
+          "time_start_s": 166,
+          "time_end_s": 175,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/VTCDQYYKA9o/garment_0240_0320_1fps.jpg"
+          ],
+          "source": null
+        },
+        {
+          "event_id": "VTCD_E_previous_results_fan",
+          "time_start_s": 270,
+          "time_end_s": 275,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/VTCDQYYKA9o/event_stills/later_t_4_30.jpg"
+          ],
+          "source": null
+        }
+      ],
+      "proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "Proxy only — not formal necessity"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      },
+      "blind_variant": "B_ONLY_BLIND",
+      "visible_windows": [
+        [
+          270,
+          275
+        ]
+      ]
+    },
+    {
+      "priority": 2,
+      "qa_id": "QA_DRAFT_0008",
+      "video_id": "T1yhBv1ytzw",
+      "mechanism": "ordered_state_transitions",
+      "auto_grade": "AUTO_HIGH",
+      "auto_score": 0.8,
+      "risks": [
+        "possible_B_only_order_leak"
+      ],
+      "question_zh": "两次改变比分的事件按文件时间顺序，比分状态如何变化？请只依据两段比分覆盖层作答。",
+      "question_en": null,
+      "answer_status": "HIDDEN",
+      "provisional_answer_zh": "[REDACTED_FOR_BLIND]",
+      "provisional_answer_note": "Hidden during blind review if following blind protocol",
+      "required_windows": [
+        [
+          1870,
+          1895
+        ],
+        [
+          2328,
+          2380
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "T1yh_E_liv_lead",
+          "time_start_s": 1870,
+          "time_end_s": 1895,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/T1yhBv1ytzw/liv_live_pre_2950_3014.jpg",
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/T1yhBv1ytzw/score_state_keyframes/t_31_30.jpg"
+          ],
+          "source": null
+        },
+        {
+          "event_id": "T1yh_E_bri_equalize",
+          "time_start_s": 2328,
+          "time_end_s": 2380,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/T1yhBv1ytzw/bha_live_3845_3919.jpg",
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/T1yhBv1ytzw/score_state_keyframes/t_39_40.jpg"
+          ],
+          "source": null
+        }
+      ],
+      "proxy_necessity": {
+        "a_solves": true,
+        "b_solves": false,
+        "note": "Proxy only — not formal necessity"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      },
+      "blind_variant": "B_ONLY_BLIND",
+      "visible_windows": [
+        [
+          2328,
+          2380
+        ]
+      ]
+    },
+    {
+      "priority": 3,
+      "qa_id": "QA_DRAFT_0001",
+      "video_id": "JPPMz8fEml0",
+      "mechanism": "cross_shot_narrative",
+      "auto_grade": "AUTO_MEDIUM",
+      "auto_score": 0.5,
+      "risks": [],
+      "question_zh": "室内人物片段与之后城市航拍之间是否存在可核实的地点/叙事因果关系？",
+      "question_en": null,
+      "answer_status": "HIDDEN",
+      "provisional_answer_zh": "[REDACTED_FOR_BLIND]",
+      "provisional_answer_note": "Hidden during blind review if following blind protocol",
+      "required_windows": [
+        [
+          60,
+          65
+        ],
+        [
+          78,
+          82
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "JPP_E_indoor_talk",
+          "time_start_s": 60,
+          "time_end_s": 65,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/JPPMz8fEml0/uid_2963_context_frame_01.jpg"
+          ],
+          "source": null
+        },
+        {
+          "event_id": "JPP_E_city_aerial",
+          "time_start_s": 78,
+          "time_end_s": 82,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/JPPMz8fEml0/uid_2963_strict_frame_01.jpg"
+          ],
+          "source": null
+        }
+      ],
+      "proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "Proxy only — not formal necessity"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      },
+      "blind_variant": "B_ONLY_BLIND",
+      "visible_windows": [
+        [
+          78,
+          82
+        ]
+      ]
+    },
+    {
+      "priority": 4,
+      "qa_id": "QA_DRAFT_0002",
+      "video_id": "QWXlvx1GoTY",
+      "mechanism": "same_local_actor_temporal",
+      "auto_grade": "AUTO_MEDIUM",
+      "auto_score": 0.65,
+      "risks": [
+        "no_provisional_answer"
+      ],
+      "question_zh": "同一本地轨迹 `presenter_local` 在较早与较晚事件中分别做了什么？（仅依据已记录事件，勿臆造）",
+      "question_en": null,
+      "answer_status": "HIDDEN",
+      "provisional_answer_zh": "[REDACTED_FOR_BLIND]",
+      "provisional_answer_note": "Hidden during blind review if following blind protocol",
+      "required_windows": [
+        [
+          2515,
+          2520
+        ],
+        [
+          2533,
+          2538
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "QWX_E_slide_questions",
+          "time_start_s": 2515,
+          "time_end_s": 2520,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/QWXlvx1GoTY/uid_2463_context_frame_01.jpg"
+          ],
+          "source": null
+        },
+        {
+          "event_id": "QWX_E_presenter_closeup",
+          "time_start_s": 2533,
+          "time_end_s": 2538,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/QWXlvx1GoTY/uid_2463_strict_frame_01.jpg"
+          ],
+          "source": null
+        }
+      ],
+      "proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "Proxy only — not formal necessity"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      },
+      "blind_variant": "B_ONLY_BLIND",
+      "visible_windows": [
+        [
+          2533,
+          2538
+        ]
+      ]
+    },
+    {
+      "priority": 5,
+      "qa_id": "QA_DRAFT_0004",
+      "video_id": "Z86xysw5Ncc",
+      "mechanism": "heat_boundary_name_contrast",
+      "auto_grade": "AUTO_MEDIUM",
+      "auto_score": 0.6,
+      "risks": [
+        "text_overlay_low_complexity_control"
+      ],
+      "question_zh": "画面早先介绍的美国短跑运动员，与后来 START LIST / ROUND 1 HEAT 2 名单中列出的美国运动员，是同一人吗？分别是谁？",
+      "question_en": null,
+      "answer_status": "HIDDEN",
+      "provisional_answer_zh": "[REDACTED_FOR_BLIND]",
+      "provisional_answer_note": "Hidden during blind review if following blind protocol",
+      "required_windows": [
+        [
+          165,
+          190
+        ],
+        [
+          325,
+          332
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "Z86_E_intro_gay",
+          "time_start_s": 165,
+          "time_end_s": 190,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/Z86xysw5Ncc/z86_0205_0410.jpg"
+          ],
+          "source": null
+        },
+        {
+          "event_id": "Z86_E_start_list_heat2",
+          "time_start_s": 325,
+          "time_end_s": 332,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/Z86xysw5Ncc/board_stills/t_5_27_crop.jpg"
+          ],
+          "source": null
+        }
+      ],
+      "proxy_necessity": {
+        "a_solves": true,
+        "b_solves": true,
+        "note": "Proxy only — not formal necessity"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      },
+      "blind_variant": "B_ONLY_BLIND",
+      "visible_windows": [
+        [
+          325,
+          332
+        ]
+      ]
+    },
+    {
+      "priority": 6,
+      "qa_id": "QA_DRAFT_0003",
+      "video_id": "QWXlvx1GoTY",
+      "mechanism": "slide_speech_av_grounding",
+      "auto_grade": "AUTO_LOW",
+      "auto_score": 0.45,
+      "risks": [
+        "audio_required_unresolved",
+        "no_provisional_answer"
+      ],
+      "question_zh": "讲者在展示基础设施/安全相关幻灯后，口头回答是否对应其中某一问题？具体内容是什么？",
+      "question_en": null,
+      "answer_status": "HIDDEN",
+      "provisional_answer_zh": "[REDACTED_FOR_BLIND]",
+      "provisional_answer_note": "Hidden during blind review if following blind protocol",
+      "required_windows": [
+        [
+          2515,
+          2520
+        ],
+        [
+          2533,
+          2538
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "QWX_E_slide_questions",
+          "time_start_s": 2515,
+          "time_end_s": 2520,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/QWXlvx1GoTY/uid_2463_context_frame_01.jpg"
+          ],
+          "source": null
+        },
+        {
+          "event_id": "QWX_E_presenter_closeup",
+          "time_start_s": 2533,
+          "time_end_s": 2538,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/QWXlvx1GoTY/uid_2463_strict_frame_01.jpg"
+          ],
+          "source": null
+        }
+      ],
+      "proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "Proxy only — not formal necessity"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      },
+      "blind_variant": "B_ONLY_BLIND",
+      "visible_windows": [
+        [
+          2533,
+          2538
+        ]
+      ]
+    },
+    {
+      "priority": 7,
+      "qa_id": "QA_DRAFT_0007",
+      "video_id": "VTCDQYYKA9o",
+      "mechanism": "reverse_name_to_early_garment",
+      "auto_grade": "AUTO_HIGH",
+      "auto_score": 0.8,
+      "risks": [],
+      "question_zh": "后来画面用姓名/成绩类字幕介绍的那位蓝黄色比赛服运动员，在较早的场边准备阶段先脱下了什么颜色的外套？",
+      "question_en": null,
+      "answer_status": "HIDDEN",
+      "provisional_answer_zh": "[REDACTED_FOR_BLIND]",
+      "provisional_answer_note": "Hidden during blind review if following blind protocol",
+      "required_windows": [
+        [
+          170,
+          185
+        ],
+        [
+          270,
+          275
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "VTCD_E_remove_red_jacket",
+          "time_start_s": 170,
+          "time_end_s": 185,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/VTCDQYYKA9o/tt_qa_adjudication/contact_A.jpg"
+          ],
+          "source": null
+        },
+        {
+          "event_id": "VTCD_E_previous_results_fan",
+          "time_start_s": 270,
+          "time_end_s": 275,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/VTCDQYYKA9o/event_stills/later_t_4_30.jpg"
+          ],
+          "source": null
+        }
+      ],
+      "proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "Proxy only — not formal necessity"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      },
+      "blind_variant": "B_ONLY_BLIND",
+      "visible_windows": [
+        [
+          270,
+          275
+        ]
+      ]
+    },
+    {
+      "priority": 8,
+      "qa_id": "QA_DRAFT_0005",
+      "video_id": "Z86xysw5Ncc",
+      "mechanism": "heat_boundary_name_contrast",
+      "auto_grade": "AUTO_MEDIUM",
+      "auto_score": 0.6,
+      "risks": [
+        "text_overlay_low_complexity_control"
+      ],
+      "question_zh": "画面早先介绍的美国短跑运动员，与后来 START LIST / ROUND 1 HEAT 2 名单中列出的美国运动员，是同一人吗？分别是谁？",
+      "question_en": null,
+      "answer_status": "HIDDEN",
+      "provisional_answer_zh": "[REDACTED_FOR_BLIND]",
+      "provisional_answer_note": "Hidden during blind review if following blind protocol",
+      "required_windows": [
+        [
+          125,
+          145
+        ],
+        [
+          325,
+          332
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "Z86_E_intro_ndure",
+          "time_start_s": 125,
+          "time_end_s": 145,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/Z86xysw5Ncc/z86_0205_0410.jpg"
+          ],
+          "source": null
+        },
+        {
+          "event_id": "Z86_E_start_list_heat2",
+          "time_start_s": 325,
+          "time_end_s": 332,
+          "event_type": null,
+          "summary_zh": null,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/Z86xysw5Ncc/board_stills/t_5_27_crop.jpg"
+          ],
+          "source": null
+        }
+      ],
+      "proxy_necessity": {
+        "a_solves": true,
+        "b_solves": true,
+        "note": "Proxy only — not formal necessity"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      },
+      "blind_variant": "B_ONLY_BLIND",
+      "visible_windows": [
+        [
+          325,
+          332
+        ]
+      ]
+    }
+  ],
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "human_status": "PENDING_HUMAN"
+}
