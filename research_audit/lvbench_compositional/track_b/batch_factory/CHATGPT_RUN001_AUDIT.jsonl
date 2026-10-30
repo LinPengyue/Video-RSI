@@ -1,0 +1,8 @@
+{"qa_id":"QA_DRAFT_0001","decision":"HYPOTHESIS_ONLY_NOT_BENCHMARK_QA","reason":"问句询问是否有可核实叙事因果，但视频之间没有关系证据；答案 UNKNOWN，不是可评分的 grounded QA。","priority":"LOW","is_novel_fact":false}
+{"qa_id":"QA_DRAFT_0002","decision":"REWRITE_OR_CONTROL","reason":"问句暴露内部 present_local track token，且说话语义无音轨；需自然问法和真实动作，不能把内部轨迹名泄露进 benchmark。","priority":"LOW","is_novel_fact":false}
+{"qa_id":"QA_DRAFT_0003","decision":"AUDIO_REQUIRED_PENDING","reason":"slide-speech 配对尚无独立音轨核验，缺 gold；只能作为待补证据假设。","priority":"MEDIUM_IF_AUDIO","is_novel_fact":false}
+{"qa_id":"QA_DRAFT_0004","decision":"DEVELOPMENT_TEXT_CONTROL","reason":"Gay vs Gatlin 的文字覆盖层对比；若人工确认，只能作为低复杂度开发对照。","priority":"MEDIUM","is_novel_fact":false}
+{"qa_id":"QA_DRAFT_0005","decision":"REJECT_AS_GENERATED_AND_COLLAPSE_DUPLICATE","reason":"其引用首事实 Z86_E_intro_ndure (NOR Ndure) 与问题/候选答案 USA Gay vs USA Gatlin 不符；文本/答案还与 QA_DRAFT_0004 完全相同。事实与问题映射错误。","duplicate_of":"QA_DRAFT_0004","priority":"P0_BUG","is_novel_fact":false}
+{"qa_id":"QA_DRAFT_0006","decision":"RETAIN_PROPOSED_VIDEO_REVIEW","reason":"TT 脱红外套→后段 Fan Zhendong 的候选，视频连续身份及 exact-question A/B/AB 仍未独立验证；原素材曾经详细讨论，不是本轮新发现。","priority":"HIGH_HUMAN_AFTER_BLIND_FIX","is_novel_fact":false}
+{"qa_id":"QA_DRAFT_0007","decision":"COLLAPSE_WITH_0006","reason":"question_zh、provisional_answer 与 QA_DRAFT_0006 完全相同，源事件时间窗高度重叠，同一视频同一身份关系；按实际问题及 episode/evidence-family 去重。","duplicate_of":"QA_DRAFT_0006","priority":"P0_DEDUP","is_novel_fact":false}
+{"qa_id":"QA_DRAFT_0008","decision":"DEVELOPMENT_SCORE_STATE_CONTROL","reason":"视频 scoreboard 0–0→0–1→1–1 已核查，但问题直接要从比分覆盖层报顺序，B-only 可能泄露历史分数；不是先前已停止的强进球因果题。自动 HIGH 应标强组合证据不足。","priority":"MEDIUM","is_novel_fact":false}
