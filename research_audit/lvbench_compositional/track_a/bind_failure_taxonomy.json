@@ -1,0 +1,602 @@
+{
+  "suite": "frozen_4task_negative_control",
+  "note": "Do not optimize TECE against these tasks.",
+  "arm_failure_counts": {
+    "strong_fixed_rebind": {
+      "ok": 2,
+      "resolve_A_failed": 2
+    },
+    "tece_like_init": {
+      "ranking_ok_but_threshold_reject": 2,
+      "resolve_A_failed": 2
+    },
+    "matched_init_no_recovery": {
+      "ok": 2,
+      "resolve_A_failed": 2
+    },
+    "matched_init_with_recovery": {
+      "ok": 2,
+      "resolve_A_failed": 2
+    }
+  },
+  "examples_by_axis": {
+    "ok": [
+      {
+        "arm": "strong_fixed_rebind",
+        "task_id": "te_dual_a",
+        "kind": "dual_necessary",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "top1_score": 0.345,
+        "top1_is_gold": true,
+        "pass_raw_threshold": true,
+        "pass_with_recovery": true,
+        "bind_ok": true,
+        "reject_reason": null,
+        "failure_axis": "ok",
+        "pair_correct_at_bind": true,
+        "answer_ok": true
+      },
+      {
+        "arm": "strong_fixed_rebind",
+        "task_id": "te_dual_b",
+        "kind": "dual_necessary",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "top1_score": 0.389,
+        "top1_is_gold": true,
+        "pass_raw_threshold": true,
+        "pass_with_recovery": true,
+        "bind_ok": true,
+        "reject_reason": null,
+        "failure_axis": "ok",
+        "pair_correct_at_bind": true,
+        "answer_ok": true
+      }
+    ],
+    "resolve_A_failed": [
+      {
+        "arm": "strong_fixed_rebind",
+        "task_id": "te_short_a",
+        "kind": "b_only_shortcut",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "top1_score": null,
+        "top1_is_gold": false,
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false,
+        "answer_ok": false
+      },
+      {
+        "arm": "strong_fixed_rebind",
+        "task_id": "te_short_b",
+        "kind": "b_only_shortcut",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "top1_score": null,
+        "top1_is_gold": false,
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false,
+        "answer_ok": false
+      }
+    ],
+    "ranking_ok_but_threshold_reject": [
+      {
+        "arm": "tece_like_init",
+        "task_id": "te_dual_a",
+        "kind": "dual_necessary",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.45,
+          "search_budget": 4
+        },
+        "top1_score": 0.345,
+        "top1_is_gold": true,
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "IDENTITY_LOST",
+        "failure_axis": "ranking_ok_but_threshold_reject",
+        "pair_correct_at_bind": false,
+        "answer_ok": false
+      },
+      {
+        "arm": "tece_like_init",
+        "task_id": "te_dual_b",
+        "kind": "dual_necessary",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.45,
+          "search_budget": 4
+        },
+        "top1_score": 0.389,
+        "top1_is_gold": true,
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "IDENTITY_LOST",
+        "failure_axis": "ranking_ok_but_threshold_reject",
+        "pair_correct_at_bind": false,
+        "answer_ok": false
+      }
+    ]
+  },
+  "full_traces": {
+    "strong_fixed_rebind": [
+      {
+        "task_id": "te_dual_a",
+        "kind": "dual_necessary",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": true,
+        "bound_a": "a_11d0519531",
+        "n_cands": 2,
+        "top1_score": 0.345,
+        "top1_is_gold": true,
+        "gold_b_for_a": [
+          "b_9365a46043"
+        ],
+        "pass_raw_threshold": true,
+        "pass_with_recovery": true,
+        "bind_ok": true,
+        "reject_reason": null,
+        "recovery_stack": [],
+        "tool_calls": 3,
+        "pred": "fetches_stick",
+        "answer_ok": true,
+        "pair_accuracy_top1_bundle": 0.5,
+        "failure_axis": "ok",
+        "pair_correct_at_bind": true
+      },
+      {
+        "task_id": "te_dual_b",
+        "kind": "dual_necessary",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": true,
+        "bound_a": "a_410945b35b",
+        "n_cands": 2,
+        "top1_score": 0.389,
+        "top1_is_gold": true,
+        "gold_b_for_a": [
+          "b_1a4e730928"
+        ],
+        "pass_raw_threshold": true,
+        "pass_with_recovery": true,
+        "bind_ok": true,
+        "reject_reason": null,
+        "recovery_stack": [],
+        "tool_calls": 3,
+        "pred": "claps_sign",
+        "answer_ok": true,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "ok",
+        "pair_correct_at_bind": true
+      },
+      {
+        "task_id": "te_short_a",
+        "kind": "b_only_shortcut",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": false,
+        "bound_a": null,
+        "n_cands": 0,
+        "top1_score": null,
+        "top1_is_gold": false,
+        "gold_b_for_a": [],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false
+      },
+      {
+        "task_id": "te_short_b",
+        "kind": "b_only_shortcut",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": false,
+        "bound_a": null,
+        "n_cands": 0,
+        "top1_score": null,
+        "top1_is_gold": false,
+        "gold_b_for_a": [],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false
+      }
+    ],
+    "tece_like_init": [
+      {
+        "task_id": "te_dual_a",
+        "kind": "dual_necessary",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.45,
+          "search_budget": 4
+        },
+        "resolve_ok": true,
+        "bound_a": "a_11d0519531",
+        "n_cands": 2,
+        "top1_score": 0.345,
+        "top1_is_gold": true,
+        "gold_b_for_a": [
+          "b_9365a46043"
+        ],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "IDENTITY_LOST",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 0.5,
+        "failure_axis": "ranking_ok_but_threshold_reject",
+        "pair_correct_at_bind": false
+      },
+      {
+        "task_id": "te_dual_b",
+        "kind": "dual_necessary",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.45,
+          "search_budget": 4
+        },
+        "resolve_ok": true,
+        "bound_a": "a_410945b35b",
+        "n_cands": 2,
+        "top1_score": 0.389,
+        "top1_is_gold": true,
+        "gold_b_for_a": [
+          "b_1a4e730928"
+        ],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "IDENTITY_LOST",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "ranking_ok_but_threshold_reject",
+        "pair_correct_at_bind": false
+      },
+      {
+        "task_id": "te_short_a",
+        "kind": "b_only_shortcut",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.45,
+          "search_budget": 4
+        },
+        "resolve_ok": false,
+        "bound_a": null,
+        "n_cands": 0,
+        "top1_score": null,
+        "top1_is_gold": false,
+        "gold_b_for_a": [],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false
+      },
+      {
+        "task_id": "te_short_b",
+        "kind": "b_only_shortcut",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.45,
+          "search_budget": 4
+        },
+        "resolve_ok": false,
+        "bound_a": null,
+        "n_cands": 0,
+        "top1_score": null,
+        "top1_is_gold": false,
+        "gold_b_for_a": [],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false
+      }
+    ],
+    "matched_init_no_recovery": [
+      {
+        "task_id": "te_dual_a",
+        "kind": "dual_necessary",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": true,
+        "bound_a": "a_11d0519531",
+        "n_cands": 2,
+        "top1_score": 0.345,
+        "top1_is_gold": true,
+        "gold_b_for_a": [
+          "b_9365a46043"
+        ],
+        "pass_raw_threshold": true,
+        "pass_with_recovery": true,
+        "bind_ok": true,
+        "reject_reason": null,
+        "recovery_stack": [],
+        "tool_calls": 3,
+        "pred": "fetches_stick",
+        "answer_ok": true,
+        "pair_accuracy_top1_bundle": 0.5,
+        "failure_axis": "ok",
+        "pair_correct_at_bind": true
+      },
+      {
+        "task_id": "te_dual_b",
+        "kind": "dual_necessary",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": true,
+        "bound_a": "a_410945b35b",
+        "n_cands": 2,
+        "top1_score": 0.389,
+        "top1_is_gold": true,
+        "gold_b_for_a": [
+          "b_1a4e730928"
+        ],
+        "pass_raw_threshold": true,
+        "pass_with_recovery": true,
+        "bind_ok": true,
+        "reject_reason": null,
+        "recovery_stack": [],
+        "tool_calls": 3,
+        "pred": "claps_sign",
+        "answer_ok": true,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "ok",
+        "pair_correct_at_bind": true
+      },
+      {
+        "task_id": "te_short_a",
+        "kind": "b_only_shortcut",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": false,
+        "bound_a": null,
+        "n_cands": 0,
+        "top1_score": null,
+        "top1_is_gold": false,
+        "gold_b_for_a": [],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false
+      },
+      {
+        "task_id": "te_short_b",
+        "kind": "b_only_shortcut",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "none",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": false,
+        "bound_a": null,
+        "n_cands": 0,
+        "top1_score": null,
+        "top1_is_gold": false,
+        "gold_b_for_a": [],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false
+      }
+    ],
+    "matched_init_with_recovery": [
+      {
+        "task_id": "te_dual_a",
+        "kind": "dual_necessary",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": true,
+        "bound_a": "a_11d0519531",
+        "n_cands": 2,
+        "top1_score": 0.345,
+        "top1_is_gold": true,
+        "gold_b_for_a": [
+          "b_9365a46043"
+        ],
+        "pass_raw_threshold": true,
+        "pass_with_recovery": true,
+        "bind_ok": true,
+        "reject_reason": null,
+        "recovery_stack": [],
+        "tool_calls": 3,
+        "pred": "fetches_stick",
+        "answer_ok": true,
+        "pair_accuracy_top1_bundle": 0.5,
+        "failure_axis": "ok",
+        "pair_correct_at_bind": true
+      },
+      {
+        "task_id": "te_dual_b",
+        "kind": "dual_necessary",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": true,
+        "bound_a": "a_410945b35b",
+        "n_cands": 2,
+        "top1_score": 0.389,
+        "top1_is_gold": true,
+        "gold_b_for_a": [
+          "b_1a4e730928"
+        ],
+        "pass_raw_threshold": true,
+        "pass_with_recovery": true,
+        "bind_ok": true,
+        "reject_reason": null,
+        "recovery_stack": [],
+        "tool_calls": 3,
+        "pred": "claps_sign",
+        "answer_ok": true,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "ok",
+        "pair_correct_at_bind": true
+      },
+      {
+        "task_id": "te_short_a",
+        "kind": "b_only_shortcut",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": false,
+        "bound_a": null,
+        "n_cands": 0,
+        "top1_score": null,
+        "top1_is_gold": false,
+        "gold_b_for_a": [],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false
+      },
+      {
+        "task_id": "te_short_b",
+        "kind": "b_only_shortcut",
+        "mode": "program_selection",
+        "genome": {
+          "recovery_strategy": "rebind_from_a",
+          "bind_score_threshold": 0.25,
+          "search_budget": 6
+        },
+        "resolve_ok": false,
+        "bound_a": null,
+        "n_cands": 0,
+        "top1_score": null,
+        "top1_is_gold": false,
+        "gold_b_for_a": [],
+        "pass_raw_threshold": false,
+        "pass_with_recovery": false,
+        "bind_ok": false,
+        "reject_reason": "ENTITY_UNBOUND",
+        "recovery_stack": [],
+        "tool_calls": 2,
+        "pred": null,
+        "answer_ok": false,
+        "pair_accuracy_top1_bundle": 1.0,
+        "failure_axis": "resolve_A_failed",
+        "pair_correct_at_bind": false
+      }
+    ]
+  }
+}

@@ -66,6 +66,9 @@ research_audit/lvbench_compositional/track_b/local_media/cg_new_round/
 research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/score_probe_frames/
 research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/goal_window_candidates/
 research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/goal_action_verify/
+research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/attack_origin_dense/
+research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/result_board_probe/
+research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/later_rally_probe/
 research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/finish_probe/
 research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/local_clips/
 research_audit/lvbench_compositional/track_b/construction_discovery_assets/**/discovery_frames/

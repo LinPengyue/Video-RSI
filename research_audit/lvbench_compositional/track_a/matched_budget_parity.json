@@ -1,0 +1,174 @@
+{
+  "n_seeds": 10,
+  "shared_init": {
+    "search_budget": 6,
+    "recovery_strategy": "none",
+    "query_requires_bound_entity": true,
+    "verify_requires_dual_evidence": true,
+    "abort_on_hard_fail": false,
+    "disambiguation_cue": "opens the meeting",
+    "fallback_referring_expression": null,
+    "op_order_template": [
+      "locate_event",
+      "resolve_reference",
+      "track_identity",
+      "query_property",
+      "verify_answer"
+    ],
+    "bind_score_threshold": 0.25
+  },
+  "strong_ref": {
+    "search_budget": 6,
+    "recovery_strategy": "rebind_from_a",
+    "query_requires_bound_entity": true,
+    "verify_requires_dual_evidence": true,
+    "abort_on_hard_fail": false,
+    "disambiguation_cue": "opens the meeting",
+    "fallback_referring_expression": null,
+    "op_order_template": [
+      "locate_event",
+      "resolve_reference",
+      "track_identity",
+      "query_property",
+      "verify_answer"
+    ],
+    "bind_score_threshold": 0.25
+  },
+  "summary": {
+    "matched_static": {
+      "acc": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 10
+      },
+      "pair_correct_at_bind": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 10
+      },
+      "pair_accuracy_top1": {
+        "mean": 0.875,
+        "std": 0.0,
+        "ci95_low": 0.875,
+        "ci95_high": 0.875,
+        "n": 10
+      },
+      "necessity": {
+        "mean": 0.25,
+        "std": 0.0,
+        "ci95_low": 0.25,
+        "ci95_high": 0.25,
+        "n": 10
+      },
+      "dual_semantic": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 10
+      },
+      "shortcut_detect": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 10
+      }
+    },
+    "matched_tece_evolve": {
+      "acc": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 10
+      },
+      "pair_correct_at_bind": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 10
+      },
+      "pair_accuracy_top1": {
+        "mean": 0.875,
+        "std": 0.0,
+        "ci95_low": 0.875,
+        "ci95_high": 0.875,
+        "n": 10
+      },
+      "necessity": {
+        "mean": 0.25,
+        "std": 0.0,
+        "ci95_low": 0.25,
+        "ci95_high": 0.25,
+        "n": 10
+      },
+      "dual_semantic": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 10
+      },
+      "shortcut_detect": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 10
+      }
+    },
+    "strong_fixed_rebind_ref": {
+      "acc": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 10
+      },
+      "pair_correct_at_bind": {
+        "mean": 0.5,
+        "std": 0.0,
+        "ci95_low": 0.5,
+        "ci95_high": 0.5,
+        "n": 10
+      },
+      "pair_accuracy_top1": {
+        "mean": 0.875,
+        "std": 0.0,
+        "ci95_low": 0.875,
+        "ci95_high": 0.875,
+        "n": 10
+      },
+      "necessity": {
+        "mean": 0.25,
+        "std": 0.0,
+        "ci95_low": 0.25,
+        "ci95_high": 0.25,
+        "n": 10
+      },
+      "dual_semantic": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 10
+      },
+      "shortcut_detect": {
+        "mean": 1.0,
+        "std": 0.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0,
+        "n": 10
+      }
+    }
+  },
+  "interpretation": "matched_static vs matched_tece_evolve share init/budget/threshold; strong_fixed_rebind_ref is a separate best-practice baseline (not weakened). Frozen 4-task suite is negative-control only.",
+  "ok_for_expensive_rsi": false,
+  "experiment_label": "binding_policy_evolution_only"
+}

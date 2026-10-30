@@ -1,0 +1,767 @@
+{
+  "n_tasks": 24,
+  "seed": 900,
+  "note": "Independent synthetic scenarios; disjoint from frozen 4-task suite. Not TECE optimization.",
+  "arms": {
+    "strong_fixed_rebind": {
+      "arm": "strong_fixed_rebind",
+      "n": 24,
+      "acc": 0.5,
+      "dual_acc": 0.8,
+      "shortcut_b_detect": 1.0,
+      "pair_bind": 0.5833333333333334,
+      "missing_should_not_answer": 1.0,
+      "failure_axes": {
+        "wrong_pair_accepted": 5,
+        "bind_ok_but_wrong_answer": 2,
+        "ok": 12,
+        "resolve_A_failed": 5
+      },
+      "rows": [
+        {
+          "task_id": "ind_dual_necessary_0",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 0.3333333333333333,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_dual_necessary_1",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 1.0,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_role_reversal_2",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 1.0,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_b_only_shortcut_3",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_4",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": true,
+          "top1": true,
+          "failure_axis": "bind_ok_but_wrong_answer",
+          "bind_ok": true
+        },
+        {
+          "task_id": "ind_dual_necessary_5",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 1.0,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_dual_necessary_6",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 1.0,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_role_reversal_7",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 1.0,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_b_only_shortcut_8",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_9",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": true,
+          "top1": true,
+          "failure_axis": "bind_ok_but_wrong_answer",
+          "bind_ok": true
+        },
+        {
+          "task_id": "ind_dual_necessary_10",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_dual_necessary_11",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 1.0,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_role_reversal_12",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 0.5,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_b_only_shortcut_13",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_14",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": false,
+          "failure_axis": "wrong_pair_accepted",
+          "bind_ok": true
+        },
+        {
+          "task_id": "ind_dual_necessary_15",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_dual_necessary_16",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.3333333333333333,
+          "failure_axis": "wrong_pair_accepted",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_17",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "wrong_pair_accepted",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_b_only_shortcut_18",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_19",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": false,
+          "failure_axis": "wrong_pair_accepted",
+          "bind_ok": true
+        },
+        {
+          "task_id": "ind_dual_necessary_20",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_dual_necessary_21",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_role_reversal_22",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "wrong_pair_accepted",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_b_only_shortcut_23",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        }
+      ]
+    },
+    "weak_tece_like_init": {
+      "arm": "weak_tece_like_init",
+      "n": 24,
+      "acc": 0.0,
+      "dual_acc": 0.0,
+      "shortcut_b_detect": 1.0,
+      "pair_bind": 0.0,
+      "missing_should_not_answer": 1.0,
+      "failure_axes": {
+        "ranking_miss_and_reject": 5,
+        "resolve_A_failed": 5,
+        "ranking_ok_but_threshold_reject": 14
+      },
+      "rows": [
+        {
+          "task_id": "ind_dual_necessary_0",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.3333333333333333,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_dual_necessary_1",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_2",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_b_only_shortcut_3",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_4",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": true,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "bind_ok": false
+        },
+        {
+          "task_id": "ind_dual_necessary_5",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_dual_necessary_6",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_7",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_b_only_shortcut_8",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_9",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": true,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "bind_ok": false
+        },
+        {
+          "task_id": "ind_dual_necessary_10",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_dual_necessary_11",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_12",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_b_only_shortcut_13",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_14",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": false,
+          "failure_axis": "ranking_miss_and_reject",
+          "bind_ok": false
+        },
+        {
+          "task_id": "ind_dual_necessary_15",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_dual_necessary_16",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.3333333333333333,
+          "failure_axis": "ranking_miss_and_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_17",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "ranking_miss_and_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_b_only_shortcut_18",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_19",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": false,
+          "failure_axis": "ranking_miss_and_reject",
+          "bind_ok": false
+        },
+        {
+          "task_id": "ind_dual_necessary_20",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_dual_necessary_21",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_22",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "ranking_miss_and_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_b_only_shortcut_23",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        }
+      ]
+    },
+    "matched_static": {
+      "arm": "matched_static",
+      "n": 24,
+      "acc": 0.20833333333333334,
+      "dual_acc": 0.3333333333333333,
+      "shortcut_b_detect": 1.0,
+      "pair_bind": 0.25,
+      "missing_should_not_answer": 1.0,
+      "failure_axes": {
+        "ranking_miss_and_reject": 5,
+        "bind_ok_but_wrong_answer": 1,
+        "resolve_A_failed": 5,
+        "ok": 5,
+        "ranking_ok_but_threshold_reject": 8
+      },
+      "rows": [
+        {
+          "task_id": "ind_dual_necessary_0",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 0.3333333333333333,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_dual_necessary_1",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 1.0,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_role_reversal_2",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 1.0,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_b_only_shortcut_3",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_4",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": true,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "bind_ok": false
+        },
+        {
+          "task_id": "ind_dual_necessary_5",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_dual_necessary_6",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_7",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 1.0,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_b_only_shortcut_8",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_9",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": true,
+          "top1": true,
+          "failure_axis": "bind_ok_but_wrong_answer",
+          "bind_ok": true
+        },
+        {
+          "task_id": "ind_dual_necessary_10",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_dual_necessary_11",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_12",
+          "kind": "dual_necessary",
+          "semantic": true,
+          "pair_correct_at_bind": true,
+          "top1": 0.5,
+          "failure_axis": "ok",
+          "b_only": false,
+          "necessary": true
+        },
+        {
+          "task_id": "ind_b_only_shortcut_13",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_14",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": false,
+          "failure_axis": "ranking_miss_and_reject",
+          "bind_ok": false
+        },
+        {
+          "task_id": "ind_dual_necessary_15",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_dual_necessary_16",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.3333333333333333,
+          "failure_axis": "ranking_miss_and_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_17",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "ranking_miss_and_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_b_only_shortcut_18",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 1.0,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_missing_evidence_19",
+          "kind": "missing_evidence",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": false,
+          "failure_axis": "ranking_miss_and_reject",
+          "bind_ok": false
+        },
+        {
+          "task_id": "ind_dual_necessary_20",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_dual_necessary_21",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.6666666666666666,
+          "failure_axis": "ranking_ok_but_threshold_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_role_reversal_22",
+          "kind": "dual_necessary",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "ranking_miss_and_reject",
+          "b_only": false,
+          "necessary": false
+        },
+        {
+          "task_id": "ind_b_only_shortcut_23",
+          "kind": "b_only_shortcut",
+          "semantic": false,
+          "pair_correct_at_bind": false,
+          "top1": 0.5,
+          "failure_axis": "resolve_A_failed",
+          "b_only": true,
+          "necessary": false
+        }
+      ]
+    }
+  },
+  "ok_for_expensive_rsi": false
+}
