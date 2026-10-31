@@ -49,6 +49,8 @@ def screen_one(qa: dict[str, Any], events_by_id: dict[str, dict[str, Any]]) -> d
         risks.append("duplicate_evidence_family")
     if qa.get("generation_error"):
         errors.append("generation_error:" + ",".join((qa.get("fact_binding") or {}).get("errors") or ["unspecified"]))
+    if qa.get("leakage_error"):
+        errors.append("question_side_semantic_leakage")
     binding = qa.get("fact_binding") or {}
     if binding.get("binding_status") == "QUARANTINE_BINDING_ERROR":
         errors.append("fact_binding_quarantine")

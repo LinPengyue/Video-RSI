@@ -69,13 +69,13 @@
     "random": {
       "n": 6,
       "program_choice_accuracy": 0.3333333333333333,
-      "execution_answer_accuracy": 0.3333333333333333,
+      "execution_answer_accuracy": 0.16666666666666666,
       "both_select_and_execute": 0.16666666666666666,
       "abstention_rate": 0.5,
       "explicit_abstain_rate": 0.5,
       "oracle_world_scraped_rate": 0.0,
       "mean_tool_calls": 4.166666666666667,
-      "held_out_exec_acc": 0.5
+      "held_out_exec_acc": 0.25
     },
     "evolver_weights": {
       "n": 6,
@@ -210,7 +210,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_1_compare_",
@@ -304,7 +306,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_2_missing_",
@@ -378,7 +382,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_3_missing_",
@@ -452,7 +458,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_4_reverse_",
@@ -544,7 +552,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_5_forward_",
@@ -632,7 +642,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     }
   ],
   "rows_gold_dag": [
@@ -728,7 +740,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_1_compare_",
@@ -822,7 +836,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_2_missing_",
@@ -896,7 +912,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_3_missing_",
@@ -970,7 +988,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_4_reverse_",
@@ -1062,7 +1082,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     },
     {
       "task_id": "test_5_forward_",
@@ -1140,7 +1162,9 @@
         false
       ],
       "ok_for_expensive_rsi": false,
-      "oracle_world_scraped": false
+      "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false
     }
   ],
   "semantic_controls": [
@@ -1233,6 +1257,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "drop_A"
     },
     {
@@ -1324,6 +1350,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "drop_B"
     },
     {
@@ -1419,6 +1447,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "swap_roles"
     },
     {
@@ -1514,6 +1544,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "swap_order"
     },
     {
@@ -1609,6 +1641,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "paraphrase"
     },
     {
@@ -1688,6 +1722,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "force_forward_dag"
     },
     {
@@ -1779,6 +1815,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "drop_A"
     },
     {
@@ -1870,6 +1908,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "drop_B"
     },
     {
@@ -1965,6 +2005,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "swap_roles"
     },
     {
@@ -2060,6 +2102,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "swap_order"
     },
     {
@@ -2155,6 +2199,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "paraphrase"
     },
     {
@@ -2234,6 +2280,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "force_forward_dag"
     },
     {
@@ -2309,6 +2357,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "drop_A"
     },
     {
@@ -2384,6 +2434,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "drop_B"
     },
     {
@@ -2459,6 +2511,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "swap_roles"
     },
     {
@@ -2534,6 +2588,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "swap_order"
     },
     {
@@ -2609,6 +2665,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "paraphrase"
     },
     {
@@ -2688,6 +2746,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "force_forward_dag"
     },
     {
@@ -2763,6 +2823,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "drop_A"
     },
     {
@@ -2838,6 +2900,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "drop_B"
     },
     {
@@ -2913,6 +2977,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "swap_roles"
     },
     {
@@ -2988,6 +3054,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "swap_order"
     },
     {
@@ -3063,6 +3131,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "paraphrase"
     },
     {
@@ -3142,6 +3212,8 @@
       ],
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
+      "scorer_sees_gold": true,
+      "executor_saw_gold_answer": false,
       "control": "force_forward_dag"
     }
   ],

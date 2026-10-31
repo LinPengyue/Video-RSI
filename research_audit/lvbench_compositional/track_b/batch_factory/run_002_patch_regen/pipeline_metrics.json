@@ -1,0 +1,22 @@
+{
+  "run_id": "run_002_patch_regen",
+  "note": "Regenerated drafts from immutable run_002 events with leakage/metrics/readiness patches. NOT new video discovery. NOT run_003.",
+  "n_qa_drafts": 17,
+  "n_leakage_error": 0,
+  "n_provisional_answer_present": 13,
+  "n_independently_answer_verified": 0,
+  "n_packet_serialized": 8,
+  "n_answerable_candidate": 6,
+  "n_reviewer_asset_verified": 0,
+  "n_continuous_media_reviewable": 0,
+  "n_formal_blind_ready": 0,
+  "n_true_blind_evaluated": 0,
+  "n_cursor_frame_observations": 9,
+  "n_chatgpt_frame_observations": 0,
+  "n_model_inferred_semantic_events": 0,
+  "semantic_extractor_status": "BLOCKED_NO_SEMANTIC_EXTRACTOR",
+  "run_003_status": "NOT_STARTED_BLOCKED_NO_NEW_DEV_VIDEO_AND_NO_SEMANTIC_EXTRACTOR",
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "ok_for_expensive_rsi": false
+}

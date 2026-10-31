@@ -1,18 +1,18 @@
 # Dual-track progress update
 
-Latest: Batch Factory **V2** + run_002 · see `track_b/batch_factory/RUN001_AUDIT_AND_RUN002_REPORT.md`  
-Handoff: `CHATGPT_AUDIT_22214A1_BATCH_FACTORY_V2_HANDOFF_2026-10-30.md`
+Latest: run_002 **P0 patch** + run_003 **blocked** · `track_b/batch_factory/RUN002_PATCH_AND_RUN003_REPORT.md`  
+Audits: `CHATGPT_AUDIT_68AB45C_RUN002_FOLLOWUP_2026-10-31.md`, `CHATGPT_RUN002_FRAME_AUDIT.jsonl`
 
 ## Shared
 - **UNASSIGNED**; no auto-**SUPPORTED**; sealed untouched; `ok_for_expensive_rsi=false`
+- run_001 / run_002 immutable
 
 ## Track A
-- Scoring integrity fixed: explicit ABSTAIN; no oracle-world scrape; per-op success logged
-- Report: `track_a/TRACK_A_EXECUTION_SCORING_INTEGRITY.md`
-- exec_acc remains ~0.333 after removing soft credit — accepted harness negative
+- Scoring integrity: wrong-schema abstain blocked; compare exact match; oracle boundary tests
+- choice≈0.833 / exec≈0.333 retained negative
+- `track_a/TRACK_A_EXECUTION_SCORING_INTEGRITY.md`
 
 ## Track B
-- Factory v0.2.0: provenance, dedup, binding gate, true-blind packets, honest metrics
-- run_001 preserved as I/O baseline (not silently rewritten)
-- run_002: **9** new frame observations on 3 unlabeled seeds; **3** new independent candidate families; 8-item true-blind packet PENDING_HUMAN
-- Blocker: no paid/local VLM; novelty is still-frame agent observation, not continuous video model
+- Factory v0.2.1: question leakage gate, metric split, review readiness gates
+- `run_002_patch_regen/`: leakage_error=0; formal_blind_ready=0; model_inferred=0
+- run_003: **BLOCKED_NO_NEW_DEV_VIDEO_AND_NO_SEMANTIC_EXTRACTOR**

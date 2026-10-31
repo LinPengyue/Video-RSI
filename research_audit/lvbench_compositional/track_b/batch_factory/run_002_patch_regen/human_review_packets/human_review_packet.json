@@ -1,0 +1,22 @@
+{
+  "packet_id": "run_002_patch_regen_human_batch_01",
+  "run_id": "run_002_patch_regen",
+  "n_packet_serialized": 8,
+  "n_reviewable": 8,
+  "n_answerable_candidate": 6,
+  "n_reviewer_asset_verified": 0,
+  "n_continuous_media_reviewable": 0,
+  "n_still_only_serialized": 8,
+  "n_formal_blind_ready": 0,
+  "n_true_blind_evaluated": 0,
+  "user_formal_blind_batch_authorized": false,
+  "variants": {
+    "B_ONLY_BLIND": 8,
+    "A_ONLY_BLIND": 8,
+    "A_PLUS_B_ADJUDICATION": 8
+  },
+  "blind_keys_path": "research_audit/lvbench_compositional/track_b/batch_factory/run_002_patch_regen/human_review_packets/blind_keys/answers_key.json",
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "note": "Serialized ≠ formal user blind batch. Still-only paths do not set reviewer_asset_verified. Do not request user review until n_formal_blind_ready>0."
+}

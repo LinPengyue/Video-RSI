@@ -59,18 +59,80 @@ def _facts_for_side(facts: list[dict[str, Any]], side: str) -> list[dict[str, An
     return out
 
 
+def _resolve_path(p: str) -> Path | None:
+    if not p:
+        return None
+    cand = [Path(p), Path("/home/descfly/lpy/Video-RSI") / p]
+    for c in cand:
+        if c.exists():
+            return c
+    return None
+
+
 def _media_state(paths: list[str]) -> str:
     ok = 0
+    kinds: list[str] = []
     for p in paths:
-        if p and (Path(p).exists() or Path("/home/descfly/lpy/Video-RSI/" + p).exists()):
-            ok += 1
+        rp = _resolve_path(p)
+        if rp is None:
+            continue
+        ok += 1
+        suf = rp.suffix.lower()
+        if suf in {".mp4", ".mkv", ".webm", ".mov", ".wav", ".mp3"}:
+            kinds.append("continuous")
+        elif suf in {".jpg", ".jpeg", ".png", ".webp", ".gif"}:
+            kinds.append("still")
+        else:
+            kinds.append("other")
     if not paths:
         return "NO_ASSET_PATH"
-    if ok == len(paths):
-        return "PATHS_EXIST_STILLS_OR_CLIPS"
-    if ok:
+    if ok == 0:
+        return "ASSETS_MISSING"
+    if ok < len(paths):
         return "PARTIAL_ASSETS"
-    return "ASSETS_MISSING"
+    if kinds and all(k == "still" for k in kinds):
+        return "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+    if "continuous" in kinds:
+        return "CONTINUOUS_MEDIA_PATH_EXISTS"
+    return "PATHS_EXIST_STILLS_OR_CLIPS"
+
+
+def classify_review_readiness(qa: dict[str, Any], facts: list[dict[str, Any]]) -> dict[str, Any]:
+    """Strict gates — path presence ≠ human-review-ready Benchmark QA."""
+    paths: list[str] = []
+    for f in facts:
+        paths.extend(f.get("evidence_paths") or [])
+    state = _media_state(paths)
+    has_prov = bool(qa.get("provisional_answer_zh")) and (qa.get("provisional_answer_zh") or "").upper() != "UNKNOWN"
+    answer_verified = qa.get("answer_status") in {"ANSWER_VERIFIED", "HUMAN_VERIFIED"}
+    audio_needed = "audio_required" in (qa.get("uncertainty") or [])
+    leakage = (qa.get("question_leakage") or {}).get("ok", True)
+    continuous = state == "CONTINUOUS_MEDIA_PATH_EXISTS"
+    still_only = state == "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+    answerable_candidate = (
+        has_prov
+        and not qa.get("generation_error")
+        and not qa.get("leakage_error")
+        and leakage
+        and qa.get("answer_status") == "ANSWER_PENDING"
+        and not audio_needed
+    )
+    # Asset verified only if continuous media exists and was explicitly checked playable
+    # Stills alone never set reviewer_asset_verified=true for formal blind video review
+    reviewer_asset_verified = False
+    formal_blind_ready = False  # requires continuous + answerable + no leakage
+    return {
+        "media_access_state": state,
+        "still_only": still_only,
+        "continuous_media_path": continuous,
+        "provisional_answer_present": has_prov,
+        "independently_answer_verified": answer_verified,
+        "answerable_candidate": answerable_candidate,
+        "reviewer_asset_verified": reviewer_asset_verified,
+        "formal_blind_ready": formal_blind_ready,
+        "review_mode": "STILL_STATIC_ONLY" if still_only else ("CONTINUOUS" if continuous else "NO_MEDIA"),
+        "audio_required_unresolved": audio_needed,
+    }
 
 
 def build_true_blind_item(
@@ -83,6 +145,7 @@ def build_true_blind_item(
     """B_ONLY / A_ONLY: question + that side's media only."""
     wins = _window_side(qa.get("required_windows") or qa.get("time_intervals"), side)
     side_facts = _facts_for_side(facts_full, side)
+    readiness = classify_review_readiness(qa, facts_full)
     item = {
         "priority": priority,
         "qa_id": qa["qa_id"],
@@ -91,8 +154,11 @@ def build_true_blind_item(
         "question_zh": qa.get("question_zh"),
         "visible_windows": wins,
         "visible_media": side_facts,
-        "media_access_state": side_facts[0]["media_access_state"] if side_facts else "NO_ASSET_PATH",
-        "reviewer_asset_verified": False,
+        "media_access_state": readiness["media_access_state"],
+        "review_mode": readiness["review_mode"],
+        "reviewer_asset_verified": readiness["reviewer_asset_verified"],
+        "formal_blind_ready": readiness["formal_blind_ready"],
+        "answerable_candidate": readiness["answerable_candidate"],
         "reviewer_fields": {
             "answer": None,
             "confidence": None,
@@ -160,18 +226,18 @@ def build_packet(
 ) -> dict[str, Any]:
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # Only reviewable: retained independent, not quarantined, not UNKNOWN-only pad
+    # Serialize candidates for inspection; formal user blind batch only if readiness gates pass
     reviewable = []
     for p in prioritized:
         qa = drafts_by_id[p["qa_id"]]
-        if qa.get("generation_error"):
+        if qa.get("generation_error") or qa.get("leakage_error"):
             continue
         if qa.get("funnel_level") == "REJECTED_OR_QUARANTINE":
             continue
         if not qa.get("retained_as_independent_sample", True) and qa.get("duplicate_of_family"):
             continue
         if (qa.get("provisional_answer_zh") or "").upper() == "UNKNOWN" and qa.get("mechanism") == "cross_shot_narrative":
-            continue  # do not send unanswerable narrative to human as primary
+            continue
         reviewable.append(p)
 
     blind_keys_dir = out_dir / "blind_keys"
@@ -285,11 +351,26 @@ def build_packet(
         ],
     )
 
+    # Readiness tallies from B-side items (same QAs)
+    n_answerable = sum(1 for it in b_items if it.get("answerable_candidate"))
+    n_asset_verified = sum(1 for it in b_items if it.get("reviewer_asset_verified"))
+    n_formal = sum(1 for it in b_items if it.get("formal_blind_ready"))
+    n_still = sum(1 for it in b_items if it.get("review_mode") == "STILL_STATIC_ONLY")
+    n_continuous = sum(1 for it in b_items if it.get("review_mode") == "CONTINUOUS")
+
     # Index (no answers)
     index = {
         "packet_id": f"{run_id}_human_batch_01",
         "run_id": run_id,
-        "n_reviewable": len(reviewable),
+        "n_packet_serialized": len(reviewable),
+        "n_reviewable": len(reviewable),  # legacy alias = serialized, NOT formal-ready
+        "n_answerable_candidate": n_answerable,
+        "n_reviewer_asset_verified": n_asset_verified,
+        "n_continuous_media_reviewable": n_continuous,
+        "n_still_only_serialized": n_still,
+        "n_formal_blind_ready": n_formal,
+        "n_true_blind_evaluated": 0,  # no independent A/B human/model eval completed this run
+        "user_formal_blind_batch_authorized": False,
         "variants": {
             "B_ONLY_BLIND": b_pkt["n_items"],
             "A_ONLY_BLIND": a_pkt["n_items"],
@@ -298,16 +379,24 @@ def build_packet(
         "blind_keys_path": str(blind_keys_dir / "answers_key.json"),
         "data_partition_status": "UNASSIGNED",
         "formal_supported": False,
-        "note": "Do not use run_001 packets; those leaked A/B metadata",
+        "note": (
+            "Serialized ≠ formal user blind batch. "
+            "Still-only paths do not set reviewer_asset_verified. "
+            "Do not request user review until n_formal_blind_ready>0."
+        ),
     }
     (out_dir / "human_review_packet.json").write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
     (out_dir / "human_review_packet.md").write_text(
         f"# Human review index `{index['packet_id']}`\n\n"
-        f"Reviewable items: {index['n_reviewable']}\n\n"
+        f"Serialized: {index['n_packet_serialized']} | answerable_candidate: {n_answerable} | "
+        f"asset_verified: {n_asset_verified} | formal_blind_ready: {n_formal} | "
+        f"true_blind_evaluated: 0\n\n"
         f"- Blind B: `B_ONLY_BLIND/packet.md`\n"
         f"- Blind A: `A_ONLY_BLIND/packet.md`\n"
         f"- Adjudication (unblinded): `A_PLUS_B_ADJUDICATION/packet.md`\n"
-        f"- Answers key (separate): `blind_keys/answers_key.json`\n",
+        f"- Answers key (separate): `blind_keys/answers_key.json`\n"
+        f"\n**Do not send as formal user blind batch** while formal_blind_ready=0 "
+        f"(stills ≠ continuous video verification).\n",
         encoding="utf-8",
     )
     return index

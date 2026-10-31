@@ -8,6 +8,7 @@ from typing import Any
 
 from .dedup import apply_semantic_dedup
 from .fact_binding import apply_binding_gate
+from .leakage import apply_leakage_gate
 
 
 def _family(fact_ids: list[str], sig: str) -> str:
@@ -192,22 +193,27 @@ def draft_qa(
                 }
             )
         elif rtype == "cross_scene_attribute_contrast":
-            loc_a = a.get("location") or "场景A"
-            loc_b = b.get("location") or "场景B"
+            # Do NOT embed location/object tokens from either side into the question
+            # (question-side semantic leakage defeats A-only/B-only necessity).
             sum_a = a.get("summary_zh") or a.get("object") or a.get("verb")
             sum_b = b.get("summary_zh") or b.get("object") or b.get("verb")
             drafts.append(
                 {
                     **base,
                     "question_zh": (
-                        f"按文件时间顺序，较早在「{loc_a}」可见的内容与较晚在「{loc_b}」可见的内容有何不同？"
-                        f"（请依据两段画面，勿编造因果）"
+                        "按文件时间顺序观看两段指定片段（较早一段与较晚一段）。"
+                        "两段在可见环境与主要物体上有何不同？"
+                        "请只依据画面作答，勿编造人物身份或因果关系。"
                     ),
                     "normalized_answer": f"{sum_a} || {sum_b}",
                     "gold_answer": None,
                     "answer_status": "ANSWER_PENDING",
-                    "answer_derivation": "Attribute contrast from new frame observations; causality not claimed",
+                    "answer_derivation": (
+                        "Attribute contrast; scene labels kept in answer key only — "
+                        "not in question text (leakage fix)"
+                    ),
                     "mechanism": "cross_scene_attribute_contrast",
+                    "development_control": True,  # basic two-scene contrast, not novel composition
                     "provisional_answer_zh": f"早：{sum_a}；晚：{sum_b}",
                     "distractors_with_rationale": [
                         {"text": "两段为同一地点连续镜头", "why": "locations differ in recorded events"},
@@ -241,8 +247,13 @@ def draft_qa(
 
     unique = apply_semantic_dedup(unique)
     unique = apply_binding_gate(unique, events_by_id)
-    # Quarantined / binding errors cannot be independent samples
+    unique = apply_leakage_gate(unique, events_by_id)
+    # Quarantined / binding / leakage errors cannot be independent samples
     for d in unique:
-        if d.get("generation_error") or d.get("funnel_level") == "REJECTED_OR_QUARANTINE":
+        if (
+            d.get("generation_error")
+            or d.get("leakage_error")
+            or d.get("funnel_level") == "REJECTED_OR_QUARANTINE"
+        ):
             d["retained_as_independent_sample"] = False
     return unique

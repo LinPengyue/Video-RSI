@@ -1,0 +1,85 @@
+{
+  "note": "Separate from blind packets; do not mix into B_ONLY/A_ONLY",
+  "items": [
+    {
+      "qa_id": "QA_DRAFT_0009",
+      "provisional_answer_zh": "早：动画：雪地中两名儿童（深色大衣男孩与红裙蓝帽女孩）在建筑前行走；晚：动画：深色晶柱夹道中向上的阶梯",
+      "normalized_answer": "动画：雪地中两名儿童（深色大衣男孩与红裙蓝帽女孩）在建筑前行走 || 动画：深色晶柱夹道中向上的阶梯",
+      "fact_ids": [
+        "S8v_E_snow_children",
+        "S8v_E_crystal_stairs"
+      ],
+      "mechanism": "cross_scene_attribute_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0012",
+      "provisional_answer_zh": "早：室内水果盘（中央菠萝）旁一只手指向/触碰红葡萄；右上角字幕 Walk With Me；晚：短发男子坐彩色格纹扶手椅，右手持黑色自拍杆；Walk With Me 角标",
+      "normalized_answer": "室内水果盘（中央菠萝）旁一只手指向/触碰红葡萄；右上角字幕 Walk With Me || 短发男子坐彩色格纹扶手椅，右手持黑色自拍杆；Walk With Me 角标",
+      "fact_ids": [
+        "iA_E_fruit_platter_point",
+        "iA_E_host_armchair_selfie"
+      ],
+      "mechanism": "cross_scene_attribute_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0015",
+      "provisional_answer_zh": "早：城市人行道：门牌 67、红建筑、青绿色毛衣行人背影、秋叶；晚：火山熔岩与灰褐山丘空旷景观（无行人）",
+      "normalized_answer": "城市人行道：门牌 67、红建筑、青绿色毛衣行人背影、秋叶 || 火山熔岩与灰褐山丘空旷景观（无行人）",
+      "fact_ids": [
+        "hRO_E_sidewalk_67",
+        "hRO_E_lava_hills"
+      ],
+      "mechanism": "cross_scene_attribute_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0006",
+      "provisional_answer_zh": "红色外套",
+      "normalized_answer": "red_outer_jacket",
+      "fact_ids": [
+        "VTCD_E_red_jacket_towel",
+        "VTCD_E_previous_results_fan"
+      ],
+      "mechanism": "reverse_name_to_early_garment"
+    },
+    {
+      "qa_id": "QA_DRAFT_0002",
+      "provisional_answer_zh": null,
+      "normalized_answer": null,
+      "fact_ids": [
+        "QWX_E_slide_questions",
+        "QWX_E_presenter_closeup"
+      ],
+      "mechanism": "same_local_actor_temporal"
+    },
+    {
+      "qa_id": "QA_DRAFT_0004",
+      "provisional_answer_zh": "不是；早先 Gay，名单 Justin Gatlin",
+      "normalized_answer": "no; Gay vs Justin Gatlin",
+      "fact_ids": [
+        "Z86_E_intro_gay",
+        "Z86_E_start_list_heat2"
+      ],
+      "mechanism": "heat_boundary_name_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0008",
+      "provisional_answer_zh": "先 0-1，后 1-1",
+      "normalized_answer": "0-0→0-1; then 0-1→1-1",
+      "fact_ids": [
+        "T1yh_E_liv_lead",
+        "T1yh_E_bri_equalize"
+      ],
+      "mechanism": "ordered_state_transitions"
+    },
+    {
+      "qa_id": "QA_DRAFT_0003",
+      "provisional_answer_zh": null,
+      "normalized_answer": null,
+      "fact_ids": [
+        "QWX_E_slide_questions",
+        "QWX_E_presenter_closeup"
+      ],
+      "mechanism": "slide_speech_av_grounding"
+    }
+  ]
+}

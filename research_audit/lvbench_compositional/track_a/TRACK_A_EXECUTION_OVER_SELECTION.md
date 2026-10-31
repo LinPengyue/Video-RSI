@@ -16,7 +16,7 @@ n_independent_test_worlds=6.
 | Arm | choice_acc | exec_acc | both | abstain | mean_tools | held_exec |
 |-----|------------|----------|------|---------|------------|-----------|
 | strong_static_selector | 0.833 | 0.333 | 0.333 | 0.333 | 4.50 | 0.500 |
-| random | 0.333 | 0.333 | 0.167 | 0.500 | 4.17 | 0.500 |
+| random | 0.333 | 0.167 | 0.167 | 0.500 | 4.17 | 0.250 |
 | evolver_weights | 0.833 | 0.333 | 0.333 | 0.333 | 4.33 | 0.500 |
 | oracle_gold_dag | 1.000 | 0.333 | 0.333 | 0.333 | 4.17 | 0.500 |
 

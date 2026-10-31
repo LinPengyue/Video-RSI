@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import random
+import re
 from copy import deepcopy
 from dataclasses import asdict
 from pathlib import Path
@@ -141,30 +142,54 @@ def execute_selected(
     # Answer check — scorer may see gold; agent path must not scrape oracle world
     gold = task.answer
     scorer_notes: list[str] = []
+
+    def _norm_ans(x: Any) -> str:
+        return re.sub(r"\s+", " ", str(x).strip().lower()) if x is not None else ""
+
+    def _exact_or_canon(pred: Any, gold_v: Any) -> bool:
+        if pred is None:
+            return False
+        p, g = _norm_ans(pred), _norm_ans(gold_v)
+        if not p or not g:
+            return False
+        if p == g:
+            return True
+        # Allow exact token-set equality after splitting on arrows/separators
+        def toks(s: str) -> list[str]:
+            return [t for t in re.split(r"[→>;,|/\s]+", s) if t]
+
+        return toks(p) == toks(g)
+
     if sid == SCHEMA_MISSING_ABSTAIN.schema_id:
-        answer_ok = explicit_abstain and str(pred_out).upper() == "ABSTAIN"
-        if not answer_ok:
+        # Wrong abstain DAG on a non-abstain gold must NOT score correct
+        gold_is_abstain = _norm_ans(gold) == "abstain"
+        answer_ok = bool(explicit_abstain and gold_is_abstain and _norm_ans(pred_out) == "abstain")
+        if explicit_abstain and not gold_is_abstain:
+            answer_ok = False
+            scorer_notes.append("wrong_schema_abstain_not_credited")
+        if not answer_ok and not explicit_abstain:
             scorer_notes.append("abstain_requires_explicit_missing_evidence_decision")
     elif sid == SCHEMA_COMPARE_TWO_STATES.schema_id:
         answer_ok = False
-        # Prefer verify_answer outputs only
+        evidence_path_valid_seen = False
         for r in results:
-            if r.op == OperationName.VERIFY_ANSWER and r.ok:
-                pred_out = r.outputs.get("answer") or pred_out
-                answer_ok = pred_out is not None and (
-                    str(gold) in str(pred_out) or str(pred_out) in str(gold) or r.outputs.get("evidence_path_valid")
-                )
+            if r.op == OperationName.VERIFY_ANSWER:
+                if r.outputs.get("evidence_path_valid"):
+                    evidence_path_valid_seen = True
+                if r.ok:
+                    pred_out = r.outputs.get("answer") or pred_out
                 break
-        if not answer_ok and compare_states_from_tools:
+        if compare_states_from_tools and pred_out is None:
             pred_out = "→".join(str(s) for s in compare_states_from_tools)
-            answer_ok = str(gold) in str(pred_out) or str(pred_out) in str(gold)
             scorer_notes.append("compare_from_tool_outputs_only")
+        # evidence_path_valid alone is NEVER sufficient
+        answer_ok = _exact_or_canon(pred_out, gold)
+        if evidence_path_valid_seen and not answer_ok:
+            scorer_notes.append("evidence_path_valid_ignored_without_answer_match")
         if not answer_ok:
-            # Do NOT fall back to scanning world.facts (oracle leakage)
             scorer_notes.append("no_oracle_world_fallback")
-            pred_out = pred_out
     else:
-        answer_ok = pred_out == gold
+        answer_ok = _exact_or_canon(pred_out, gold)
 
     trace = []
     for i, (step, r) in enumerate(zip(program, results)):
@@ -202,7 +227,10 @@ def execute_selected(
         "bound_entity": getattr(ex.memory.bound_entity, "entity_id", None) if ex.memory.bound_entity else None,
         "steps_ok": [t["ok"] for t in trace],
         "ok_for_expensive_rsi": False,
+        # Instrumented: True only if scorer path scraped executor world state for credit
         "oracle_world_scraped": False,
+        "scorer_sees_gold": True,  # scorer-only; executor never receives task.answer
+        "executor_saw_gold_answer": False,
     }
 
 

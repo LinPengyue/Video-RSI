@@ -118,7 +118,7 @@ class TestBatchFactoryV2(unittest.TestCase):
         self.assertIn("RULE_PROXY", s["proxy_A_only"]["note"])
 
     def test_new_observations_without_curated_map(self) -> None:
-        """Removing CURATED still yields new semantic events on seed videos."""
+        """Hardcoded NEW_FRAME_OBSERVATIONS still produce drafts; not proof of auto discovery."""
         events_by_video = {vid: list(evs) for vid, evs in NEW_FRAME_OBSERVATIONS.items()}
         self.assertGreaterEqual(sum(len(v) for v in events_by_video.values()), 1)
         rels = mine_relations(events_by_video)
@@ -126,6 +126,64 @@ class TestBatchFactoryV2(unittest.TestCase):
         events_by_id = {e["event_id"]: e for evs in events_by_video.values() for e in evs}
         drafts = draft_qa(rels, events_by_id)
         self.assertTrue(any(d.get("from_new_observation") for d in drafts))
+        # Post-fix: no both-side location leakage in contrast questions
+        for d in drafts:
+            if d.get("mechanism") != "cross_scene_attribute_contrast":
+                continue
+            q = d.get("question_zh") or ""
+            self.assertNotIn("snowy_building_exterior", q)
+            self.assertNotIn("dark_crystalline_corridor", q)
+            self.assertNotIn("indoor_luxury_table", q)
+            self.assertFalse(d.get("leakage_error"), msg=d.get("question_leakage"))
+
+    def test_question_side_semantic_leakage_detects_run002_bug(self) -> None:
+        from tools.lvbench_comp.batch_factory.leakage import question_side_leakage
+
+        events = {
+            "A": {
+                "event_id": "A",
+                "location": "snowy_building_exterior",
+                "object": "kids",
+                "verb": "walk",
+                "summary_zh": "雪地儿童",
+            },
+            "B": {
+                "event_id": "B",
+                "location": "dark_crystalline_corridor",
+                "object": "stairs",
+                "verb": "show",
+                "summary_zh": "晶柱楼梯",
+            },
+        }
+        bad = {
+            "mechanism": "cross_scene_attribute_contrast",
+            "fact_ids": ["A", "B"],
+            "question_zh": "较早在「snowy_building_exterior」与较晚在「dark_crystalline_corridor」有何不同？",
+        }
+        rep = question_side_leakage(bad, events)
+        self.assertFalse(rep["ok"])
+        self.assertTrue(rep["both_sides_leaked"])
+        good = {
+            "mechanism": "cross_scene_attribute_contrast",
+            "fact_ids": ["A", "B"],
+            "question_zh": "按文件时间顺序观看两段指定片段。两段在可见环境与主要物体上有何不同？",
+        }
+        self.assertTrue(question_side_leakage(good, events)["ok"])
+
+    def test_metric_aliases_do_not_conflate_provisional_with_verified(self) -> None:
+        """Regression: provisional text ≠ independently verified answer."""
+        drafts = [
+            {"provisional_answer_zh": "foo", "answer_status": "ANSWER_PENDING"},
+            {"provisional_answer_zh": "bar", "answer_status": "ANSWER_VERIFIED"},
+            {"provisional_answer_zh": "UNKNOWN", "answer_status": "ANSWER_PENDING"},
+        ]
+        n_prov = sum(
+            1 for d in drafts if d.get("provisional_answer_zh") and str(d["provisional_answer_zh"]).upper() != "UNKNOWN"
+        )
+        n_ver = sum(1 for d in drafts if d.get("answer_status") in {"ANSWER_VERIFIED", "HUMAN_VERIFIED"})
+        self.assertEqual(n_prov, 2)
+        self.assertEqual(n_ver, 1)
+        self.assertNotEqual(n_prov, n_ver)
 
 
 if __name__ == "__main__":

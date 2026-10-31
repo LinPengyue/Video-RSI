@@ -162,25 +162,42 @@ def run_factory(
     fam_indep = sum(1 for d in drafts if d.get("retained_as_independent_sample"))
     fam_dup = sum(1 for d in drafts if d.get("duplicate_of_family"))
     n_distinct_q = n_distinct_questions(drafts)
-    n_answer_known = sum(1 for d in drafts if d.get("provisional_answer_zh") and d["provisional_answer_zh"] != "UNKNOWN")
+    n_prov_present = sum(
+        1 for d in drafts if d.get("provisional_answer_zh") and str(d["provisional_answer_zh"]).upper() != "UNKNOWN"
+    )
+    n_answer_verified = sum(
+        1 for d in drafts if d.get("answer_status") in {"ANSWER_VERIFIED", "HUMAN_VERIFIED"}
+    )
     n_new_rel_families = sum(
         1 for d in drafts if d.get("from_new_observation") and d.get("retained_as_independent_sample")
     )
     n_quarantine = sum(1 for d in drafts if d.get("generation_error") or d.get("funnel_level") == "REJECTED_OR_QUARANTINE")
+    n_leakage = sum(1 for d in drafts if d.get("leakage_error"))
     videos_ok = sum(1 for s in extract_status if s["status"] in {"OK", "PARTIAL"})
     videos_skip = sum(1 for s in extract_status if s["status"] == "MEDIA_UNAVAILABLE")
     videos_fail = sum(1 for s in extract_status if s["status"] == "EXTRACTION_FAILED")
     genre = Counter(i.get("genre_guess") for i in inventory)
     semantic_events = sum(1 for e in events_all if e.get("verb") not in {"visual_sample", "seed_frame_present"})
-    decode_sum = sum(float(s.get("decode_or_extract_s") or 0) for s in extract_status)
-    n_human = int(packet.get("n_reviewable") or packet.get("n_items") or 0)
+    decode_sum = round(sum(float(s.get("decode_or_extract_s") or 0) for s in extract_status), 3)
+    tier = prov["by_tier"]
+    n_cursor_obs = int(tier.get("CURSOR_FRAME_VISUAL_OBSERVATION", 0))
+    n_chatgpt_obs = int(tier.get("CHATGPT_FRAME_OBSERVATION", 0))
+    n_model_inf = int(tier.get("AUTOMATIC_SEMANTIC_MODEL_OBSERVATION", 0))
+    n_packet = int(packet.get("n_packet_serialized") or packet.get("n_reviewable") or 0)
 
     metrics = {
         "run_id": run_id,
         "factory_version": __version__,
         "extractor_version": EXTRACTOR_VERSION,
         "elapsed_s": round(time.time() - t0, 2),
-        "new_video_decoding_time_s": round(decode_sum, 3),
+        "new_video_decoding_time_s": decode_sum,
+        "cost_per_new_candidate_decode_only_s": round(decode_sum / max(1, n_new_rel_families), 3),
+        "cost_note": (
+            "decode_only: ffmpeg/coarse extract wall time / new families; "
+            "excludes Cursor/ChatGPT still interpretation and QA validation time (not instrumented)"
+        ),
+        "qa_production_time_s": None,
+        "review_time_s": None,
         "cached_frame_reuse_note": "coarse frames skipped when file already present in extract_events._extract_frame",
         "videos_processed": videos_ok,
         "videos_skipped_media": videos_skip,
@@ -191,29 +208,42 @@ def run_factory(
         "n_events_semantic": semantic_events,
         "n_total_coarse_frames": prov["n_total_coarse_frames"],
         "n_curated_semantic_events": prov["n_curated_semantic_events"],
-        "n_new_machine_semantic_events": prov["n_new_machine_or_agent_semantic_events"],
+        "n_cursor_frame_observations": n_cursor_obs,
+        "n_chatgpt_frame_observations": n_chatgpt_obs,
+        "n_model_inferred_semantic_events": n_model_inf,
+        "n_new_machine_semantic_events": n_model_inf,  # alias: ONLY automatic model, not Cursor stills
+        "n_agent_or_human_still_observations": n_cursor_obs + n_chatgpt_obs,
         "human_curated_events_loaded": prov["n_curated_semantic_events"],
-        "model_inferred_events": 0,
-        "provenance_by_tier": prov["by_tier"],
+        "model_inferred_events": n_model_inf,
+        "provenance_by_tier": tier,
         "n_evidence_index": len(evidence_all),
         "n_relations": len(relations),
         "n_qa_drafts": len(drafts),
         "n_distinct_questions": n_distinct_q,
-        "n_answer_known": n_answer_known,
+        "n_provisional_answer_present": n_prov_present,
+        "n_independently_answer_verified": n_answer_verified,
+        "n_answer_known": n_answer_verified,  # corrected: no longer equals provisional text
         "n_independent_evidence_families": fam_indep,
         "n_new_relation_families": n_new_rel_families,
         "n_family_duplicates_flagged": fam_dup,
         "n_quarantine_binding_errors": n_quarantine,
+        "n_question_leakage_flagged": n_leakage,
         "duplicate_rate": round(fam_dup / max(1, len(drafts)), 3),
         "auto_grade_counts": dict(grade_counts),
         "mechanism_coverage_independent": dict(mech_counts),
-        "n_human_reviewable": n_human,
-        "n_human_packet_items": n_human,
+        "n_packet_serialized": n_packet,
+        "n_answerable_candidate": int(packet.get("n_answerable_candidate") or 0),
+        "n_reviewer_asset_verified": int(packet.get("n_reviewer_asset_verified") or 0),
+        "n_continuous_media_reviewable": int(packet.get("n_continuous_media_reviewable") or 0),
+        "n_true_blind_evaluated": int(packet.get("n_true_blind_evaluated") or 0),
+        "n_formal_blind_ready": int(packet.get("n_formal_blind_ready") or 0),
+        "n_human_reviewable": n_packet,  # legacy alias = serialized only
+        "n_human_packet_items": n_packet,
         "n_video_verified": 0,
-        "human_packet_status": "PENDING_HUMAN",
+        "human_packet_status": "SERIALIZED_NOT_FORMAL_USER_BATCH",
+        "user_formal_blind_batch_authorized": bool(packet.get("user_formal_blind_batch_authorized")),
         "candidate_yield_per_video_independent": round(fam_indep / max(1, videos_ok), 3),
         "new_candidate_yield_per_video": round(n_new_rel_families / max(1, videos_ok), 3),
-        "cost_per_new_candidate_s": round(decode_sum / max(1, n_new_rel_families), 3),
         "heuristic_high_rate_not_video_tested": round(
             grade_counts.get("HEURISTIC_HIGH_NOT_VIDEO_TESTED", 0) / max(1, len(screened)), 3
         ),
@@ -222,6 +252,9 @@ def run_factory(
         "ok_for_expensive_rsi": False,
         "sealed_accessed": False,
         "no_paid_vlm": True,
+        "semantic_extractor_status": (
+            "BLOCKED_NO_SEMANTIC_EXTRACTOR" if n_model_inf == 0 else "MODEL_AVAILABLE"
+        ),
     }
     _write_json(output / "pipeline_metrics.json", metrics)
 
@@ -259,18 +292,19 @@ def _render_report(
         "## Funnel (not SUPPORTED) — honest provenance",
         f"- Coarse frames: {metrics.get('n_total_coarse_frames')}",
         f"- Curated semantic (fixtures): {metrics.get('n_curated_semantic_events')}",
-        f"- **New** agent/machine semantic: {metrics.get('n_new_machine_semantic_events')}",
+        f"- Cursor still observations: {metrics.get('n_cursor_frame_observations')} | ChatGPT still: {metrics.get('n_chatgpt_frame_observations')} | **model_inferred**: {metrics.get('n_model_inferred_semantic_events')}",
         f"- Relations: {metrics['n_relations']}",
-        f"- QA drafts: {metrics['n_qa_drafts']} | distinct Q: {metrics.get('n_distinct_questions')} | independent families: {metrics['n_independent_evidence_families']} | dup: {metrics['n_family_duplicates_flagged']} | quarantine: {metrics.get('n_quarantine_binding_errors')}",
+        f"- QA drafts: {metrics['n_qa_drafts']} | distinct Q: {metrics.get('n_distinct_questions')} | independent families: {metrics['n_independent_evidence_families']} | dup: {metrics['n_family_duplicates_flagged']} | quarantine: {metrics.get('n_quarantine_binding_errors')} | leakage: {metrics.get('n_question_leakage_flagged')}",
+        f"- provisional_answer_present: {metrics.get('n_provisional_answer_present')} | independently_answer_verified: {metrics.get('n_independently_answer_verified')}",
         f"- New relation families (from new obs): {metrics.get('n_new_relation_families')}",
         f"- Grades (heuristic, not video-tested): `{metrics['auto_grade_counts']}`",
         f"- Mechanism coverage (independent): `{metrics['mechanism_coverage_independent']}`",
         f"- New-candidate yield / video: {metrics.get('new_candidate_yield_per_video')}",
-        f"- cost_per_new_candidate_s: {metrics.get('cost_per_new_candidate_s')}",
+        f"- cost_per_new_candidate_decode_only_s: {metrics.get('cost_per_new_candidate_decode_only_s')} ({metrics.get('cost_note')})",
         "",
-        "## Human review packet (true-blind)",
-        f"- Reviewable items: {metrics.get('n_human_reviewable')} (status `{metrics['human_packet_status']}`)",
-        f"- Do not pad with duplicates/UNKNOWN; production continues without waiting for human.",
+        "## Human review packet",
+        f"- packet_serialized: {metrics.get('n_packet_serialized')} | answerable_candidate: {metrics.get('n_answerable_candidate')} | asset_verified: {metrics.get('n_reviewer_asset_verified')} | continuous_media: {metrics.get('n_continuous_media_reviewable')} | formal_blind_ready: {metrics.get('n_formal_blind_ready')} | true_blind_evaluated: {metrics.get('n_true_blind_evaluated')}",
+        f"- status: `{metrics['human_packet_status']}` — not a formal user batch while formal_blind_ready=0",
         "",
         "### Priority sample",
     ]
