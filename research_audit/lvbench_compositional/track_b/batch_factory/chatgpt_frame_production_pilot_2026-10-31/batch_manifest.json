@@ -2,7 +2,7 @@
   "meta": {
     "batch_id": "chatgpt_frame_production_pilot_2026-10-31",
     "utc": "2026-10-31T06:35:09.359947+00:00",
-    "status": "PENDING_CHATGPT_FRAME_PRODUCTION",
+    "status": "CHATGPT_STILL_OBSERVATIONS_COMMITTED_PENDING_FACTORY_INTAKE",
     "n_frames": 12,
     "n_videos": 3,
     "videos": [
@@ -24,7 +24,21 @@
     "ok_for_expensive_rsi": false,
     "data_partition_status": "UNASSIGNED",
     "formal_supported": false,
-    "sealed_accessed": false
+    "sealed_accessed": false,
+    "chatgpt_frame_production": {
+      "submitted_event_records": 12,
+      "source_frames_reviewed": 12,
+      "from_existing_dev_unused_region": 4,
+      "from_newly_registered_dev": 8,
+      "continuous_video_verified_events": 0,
+      "independent_blind_verified": 0,
+      "automatic_vlm_events": 0,
+      "qa_families_verified": 0,
+      "event_commit": "aef575c63a8537f569f3f5d875e893fa775daf1d",
+      "file": "events_CHATGPT_FRAME_OBSERVATION.jsonl",
+      "report": "CHATGPT_FRAME_PRODUCTION_COMPLETION_REPORT.md",
+      "note": "One frame-grounded static observation per source frame; QA/relations and run_003 still pending Cursor factory intake"
+    }
   },
   "frames": [
     {
