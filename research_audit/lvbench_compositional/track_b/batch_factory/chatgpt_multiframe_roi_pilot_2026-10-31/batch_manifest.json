@@ -1,0 +1,1540 @@
+{
+  "batch_id": "chatgpt_multiframe_roi_pilot_2026-10-31",
+  "utc": "2026-10-31T12:01:51.401824+00:00",
+  "status": "PENDING_CHATGPT_MULTIFRAME_SEMANTIC_REVIEW",
+  "parent_audit": "CHATGPT_AUDIT_BCD1A0F_RUN003_COMPOSITION_GATE_2026-10-31.md",
+  "parent_sha_known": "ccff4f3310fc7e7175781fa6a9202d0e2b5acd2a",
+  "run_003_unchanged": true,
+  "run_004_status": "NOT_STARTED",
+  "run_004_block_if_no_chatgpt_events": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE until ChatGPT multiframe events + nontrivial relation feasibility",
+  "cap": {
+    "max_videos": 2,
+    "max_roi_per_video": 2,
+    "roi_duration_s": "8-12",
+    "fps": "1-2",
+    "max_frames_per_roi": 16
+  },
+  "videos": [
+    "Mcggugol2ts",
+    "xi6r3hZe5Tg"
+  ],
+  "n_rois": 4,
+  "n_frames": 64,
+  "extraction_wall_s": 2.555,
+  "chatgpt_role": "Inspect multi-frame ROI sheets; emit candidate events with STATIC_VISIBLE|ORDERED_MULTIFRAME_SUGGESTS|CONTINUOUS_VIDEO_VERIFIED|UNRESOLVED. Cannot mark CONTINUOUS_VIDEO_VERIFIED from stills alone. Same pass must not serve as independent A/B blind.",
+  "cursor_role": "Bounded ROI extraction + packaging only; scout hypotheses are provisional seeds, not certified events.",
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "ok_for_expensive_rsi": false,
+  "sealed_accessed": false,
+  "rois": [
+    {
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "video_id": "Mcggugol2ts",
+      "t_start_s": 1060.0,
+      "t_end_s": 1070.0,
+      "fps": 1.5,
+      "rationale": "Scout shows wide vending facade → first-person hand pointing at priced drinks → pullback to street machines; candidate for selection/interaction state change (not certified).",
+      "prior_single_still_anchor_s": 1067.124,
+      "hypothesis_seed": "hand_selection_at_vending_machine",
+      "n_frames": 16,
+      "frame_times_s": [
+        1060.0,
+        1060.667,
+        1061.333,
+        1062.0,
+        1062.667,
+        1063.333,
+        1064.0,
+        1064.667,
+        1065.333,
+        1066.0,
+        1066.667,
+        1067.333,
+        1068.0,
+        1068.667,
+        1069.333,
+        1070.0
+      ],
+      "begin_middle_end_s": [
+        1060.0,
+        1065.333,
+        1070.0
+      ],
+      "local_continuous_clip": {
+        "path": "research_audit/lvbench_compositional/track_b/local_media/roi_clips_2026-10-31/Mcgg_ROI_vending_hand_1060_1070.mp4",
+        "exists": true,
+        "bytes": 830858,
+        "git_committed": false,
+        "note": "Local ffprobe/ffmpeg-playable clip for optional continuous review; not uploaded as primary GitHub evidence (size). ChatGPT still-sheet review cannot mark CONTINUOUS_VIDEO_VERIFIED."
+      },
+      "cursor_scout_notes": {
+        "modality_labels_allowed_for_next_chatgpt_pass": [
+          "STATIC_VISIBLE",
+          "ORDERED_MULTIFRAME_SUGGESTS",
+          "CONTINUOUS_VIDEO_VERIFIED",
+          "UNRESOLVED"
+        ],
+        "cursor_does_not_certify_continuous": true
+      },
+      "frames": [
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f00",
+          "time_s": 1060.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_00_t1060.0.jpg",
+          "sha256": "8fe281f25bb4afef735c1d057b556a74525fd22f1e014201318c2173b26cbaef",
+          "bytes": 29366,
+          "index_in_roi": 0
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f01",
+          "time_s": 1060.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_01_t1060.7.jpg",
+          "sha256": "9e942ebeb16760dba42d13d24fd490cf34e71493ea1433f5d098ef5f1c140830",
+          "bytes": 27363,
+          "index_in_roi": 1
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f02",
+          "time_s": 1061.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_02_t1061.3.jpg",
+          "sha256": "3186e141587c8858245c32e21e67820707e8f0cbdf4c8f1ff919e809ac077090",
+          "bytes": 38320,
+          "index_in_roi": 2
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f03",
+          "time_s": 1062.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_03_t1062.0.jpg",
+          "sha256": "ac528803049773cb5ae2e3a599698085eac7bb1469d017b67c351d7ca5aa0f00",
+          "bytes": 38480,
+          "index_in_roi": 3
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f04",
+          "time_s": 1062.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_04_t1062.7.jpg",
+          "sha256": "aaf7d871e9073c4e6864a5a0aba6aa4e4b95093644532d8aeba65ef3a755eab8",
+          "bytes": 39173,
+          "index_in_roi": 4
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f05",
+          "time_s": 1063.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_05_t1063.3.jpg",
+          "sha256": "8a19cc3d71aa43b47b82ecb35adebd38dafe356c284a0dae31d88d5c5102dd4e",
+          "bytes": 44110,
+          "index_in_roi": 5
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f06",
+          "time_s": 1064.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_06_t1064.0.jpg",
+          "sha256": "fddbe1efaf48d4348c8ff8308757face72c3b9f9006e923428375ac6603e5ecc",
+          "bytes": 46196,
+          "index_in_roi": 6
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f07",
+          "time_s": 1064.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_07_t1064.7.jpg",
+          "sha256": "dfc8cd3bfd86014aecc4e96860a6d1fbab1ffa93b31d25ea31ebac20009f55e9",
+          "bytes": 49613,
+          "index_in_roi": 7
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f08",
+          "time_s": 1065.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_08_t1065.3.jpg",
+          "sha256": "516fc2e807df1b54bfa61a806dabb94bddfb837864fb5e6447b5a0d353096756",
+          "bytes": 49313,
+          "index_in_roi": 8
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f09",
+          "time_s": 1066.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_09_t1066.0.jpg",
+          "sha256": "c77b751cff3e35a02bf81be0501c7567f20abac3d7259e4ec8ddf35fd6d15e53",
+          "bytes": 55407,
+          "index_in_roi": 9
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f10",
+          "time_s": 1066.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_10_t1066.7.jpg",
+          "sha256": "8949c80fff1e48e81e754b8881567cc6707a202ebd3c926c3b95c140d90162f0",
+          "bytes": 50777,
+          "index_in_roi": 10
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f11",
+          "time_s": 1067.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_11_t1067.3.jpg",
+          "sha256": "e81cb3882c155c21e4a486f4224af1fe6979900c9a7a41e3e4d3ee2a0b21bb5c",
+          "bytes": 50568,
+          "index_in_roi": 11
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f12",
+          "time_s": 1068.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_12_t1068.0.jpg",
+          "sha256": "e9af8b19a8639f1a799e25b6bb6190201a28b126a08a43dab942d3c4d9562d68",
+          "bytes": 50948,
+          "index_in_roi": 12
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f13",
+          "time_s": 1068.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_13_t1068.7.jpg",
+          "sha256": "e872a56cd9122be3d40e376777974c888f0040dc22cd756e0e5132dd006ec629",
+          "bytes": 48903,
+          "index_in_roi": 13
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f14",
+          "time_s": 1069.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_14_t1069.3.jpg",
+          "sha256": "1062d279139967fd10888c117289fc08a77c538da717b6e2aca2544f3404cd0b",
+          "bytes": 32498,
+          "index_in_roi": 14
+        },
+        {
+          "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f15",
+          "time_s": 1070.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_15_t1070.0.jpg",
+          "sha256": "a2c00f6b00f8e5ca3567673b3db1cfee44a19775c87ac254a24fce7f5754dd11",
+          "bytes": 26038,
+          "index_in_roi": 15
+        }
+      ]
+    },
+    {
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "video_id": "Mcggugol2ts",
+      "t_start_s": 2128.0,
+      "t_end_s": 2138.0,
+      "fps": 1.5,
+      "rationale": "Scout shows aisle-level shop approach then closer priced trading-card case; candidate for camera approach / display focus change, not assumed purchase.",
+      "prior_single_still_anchor_s": 2134.248,
+      "hypothesis_seed": "card_display_approach",
+      "n_frames": 16,
+      "frame_times_s": [
+        2128.0,
+        2128.667,
+        2129.333,
+        2130.0,
+        2130.667,
+        2131.333,
+        2132.0,
+        2132.667,
+        2133.333,
+        2134.0,
+        2134.667,
+        2135.333,
+        2136.0,
+        2136.667,
+        2137.333,
+        2138.0
+      ],
+      "begin_middle_end_s": [
+        2128.0,
+        2133.333,
+        2138.0
+      ],
+      "local_continuous_clip": {
+        "path": "research_audit/lvbench_compositional/track_b/local_media/roi_clips_2026-10-31/Mcgg_ROI_cardshop_approach_2128_2138.mp4",
+        "exists": true,
+        "bytes": 1432916,
+        "git_committed": false,
+        "note": "Local ffprobe/ffmpeg-playable clip for optional continuous review; not uploaded as primary GitHub evidence (size). ChatGPT still-sheet review cannot mark CONTINUOUS_VIDEO_VERIFIED."
+      },
+      "cursor_scout_notes": {
+        "modality_labels_allowed_for_next_chatgpt_pass": [
+          "STATIC_VISIBLE",
+          "ORDERED_MULTIFRAME_SUGGESTS",
+          "CONTINUOUS_VIDEO_VERIFIED",
+          "UNRESOLVED"
+        ],
+        "cursor_does_not_certify_continuous": true
+      },
+      "frames": [
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f00",
+          "time_s": 2128.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_00_t2128.0.jpg",
+          "sha256": "8c58d90e64a0d9dc44d083881c03f8ffb120381adf4bf8cb9d6cd39c73ce68b1",
+          "bytes": 52178,
+          "index_in_roi": 0
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f01",
+          "time_s": 2128.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_01_t2128.7.jpg",
+          "sha256": "8c0c4ef4efc640d8e1b8cc14c1924de2451f65c4d27b7a1a0010e787956eab3e",
+          "bytes": 54005,
+          "index_in_roi": 1
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f02",
+          "time_s": 2129.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_02_t2129.3.jpg",
+          "sha256": "602ef6efc3e2867a3eee08279fc18294af72139e49d1e6b304cf99228e076368",
+          "bytes": 63337,
+          "index_in_roi": 2
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f03",
+          "time_s": 2130.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_03_t2130.0.jpg",
+          "sha256": "13b97d9fabe1fe3569b1b2543d589e941e458d66c9de9d0dca6f6c5e1f566fc3",
+          "bytes": 59010,
+          "index_in_roi": 3
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f04",
+          "time_s": 2130.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_04_t2130.7.jpg",
+          "sha256": "2fea174d998924591bbc8f8637a518955a706a57bd91bdd5c6bce4464ed260ea",
+          "bytes": 60462,
+          "index_in_roi": 4
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f05",
+          "time_s": 2131.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_05_t2131.3.jpg",
+          "sha256": "5d9bf4374263dc4ee91656bc9c099aacafc6ad8b65b33735cdb83d59c423c41a",
+          "bytes": 58077,
+          "index_in_roi": 5
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f06",
+          "time_s": 2132.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_06_t2132.0.jpg",
+          "sha256": "cb604ffa01cf1d887df47b5979f82d16840cedfbacc0e2f7a77a2f133c8ed516",
+          "bytes": 52624,
+          "index_in_roi": 6
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f07",
+          "time_s": 2132.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_07_t2132.7.jpg",
+          "sha256": "89d8a9dc2a2dab5f7dca89747f6ae6f4030350b86e7820cf4a39c60af97579a3",
+          "bytes": 47232,
+          "index_in_roi": 7
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f08",
+          "time_s": 2133.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_08_t2133.3.jpg",
+          "sha256": "514b7b1bacc580d5ad2625ec3928aafeb230d27a78d5798f5b61425f40251461",
+          "bytes": 41173,
+          "index_in_roi": 8
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f09",
+          "time_s": 2134.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_09_t2134.0.jpg",
+          "sha256": "4eb2155aa145290b4a8ce4598c64f96cd55af0ab0a5d1d6d5fe052726bae2b45",
+          "bytes": 44716,
+          "index_in_roi": 9
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f10",
+          "time_s": 2134.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_10_t2134.7.jpg",
+          "sha256": "9b2c225d7400f0b4ba8056a93d178b060509ec5ad0b5226e510f2c9e3480cede",
+          "bytes": 49096,
+          "index_in_roi": 10
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f11",
+          "time_s": 2135.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_11_t2135.3.jpg",
+          "sha256": "0b02bbf0fb8d9f9e6410f50d2fc62cb39d5d1bf5ee04fad1e9058536f5a08e1f",
+          "bytes": 46856,
+          "index_in_roi": 11
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f12",
+          "time_s": 2136.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_12_t2136.0.jpg",
+          "sha256": "789ca9fbb59aac127771baaad8f5591ca5a6611c49b2a6257dd6f9781ef86dd8",
+          "bytes": 47817,
+          "index_in_roi": 12
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f13",
+          "time_s": 2136.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_13_t2136.7.jpg",
+          "sha256": "e5d2480ff32d06498fcdd5268492246350e4ec8de0c465af3512f9935b9b7231",
+          "bytes": 47711,
+          "index_in_roi": 13
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f14",
+          "time_s": 2137.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_14_t2137.3.jpg",
+          "sha256": "f7c9542039572ec2e502fbb062f734000af5a9d843e0762652f9b8a815ee4f40",
+          "bytes": 50502,
+          "index_in_roi": 14
+        },
+        {
+          "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f15",
+          "time_s": 2138.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_15_t2138.0.jpg",
+          "sha256": "a101830f436148fa47796bee0baf734f600d20f701c767b99bdcccabecf5fb0c",
+          "bytes": 56633,
+          "index_in_roi": 15
+        }
+      ]
+    },
+    {
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "video_id": "xi6r3hZe5Tg",
+      "t_start_s": 528.0,
+      "t_end_s": 538.0,
+      "fps": 1.5,
+      "rationale": "Scout shows city aerial (~528) cutting to indoor speaker gesturing (~538); ordered multi-frame cut candidate — identity/causality UNRESOLVED without continuous certification.",
+      "prior_single_still_anchor_s": 532.93,
+      "hypothesis_seed": "aerial_cut_to_interview_speaker",
+      "n_frames": 16,
+      "frame_times_s": [
+        528.0,
+        528.667,
+        529.333,
+        530.0,
+        530.667,
+        531.333,
+        532.0,
+        532.667,
+        533.333,
+        534.0,
+        534.667,
+        535.333,
+        536.0,
+        536.667,
+        537.333,
+        538.0
+      ],
+      "begin_middle_end_s": [
+        528.0,
+        533.333,
+        538.0
+      ],
+      "local_continuous_clip": {
+        "path": "research_audit/lvbench_compositional/track_b/local_media/roi_clips_2026-10-31/xi6_ROI_aerial_to_speaker_528_538.mp4",
+        "exists": true,
+        "bytes": 2045220,
+        "git_committed": false,
+        "note": "Local ffprobe/ffmpeg-playable clip for optional continuous review; not uploaded as primary GitHub evidence (size). ChatGPT still-sheet review cannot mark CONTINUOUS_VIDEO_VERIFIED."
+      },
+      "cursor_scout_notes": {
+        "modality_labels_allowed_for_next_chatgpt_pass": [
+          "STATIC_VISIBLE",
+          "ORDERED_MULTIFRAME_SUGGESTS",
+          "CONTINUOUS_VIDEO_VERIFIED",
+          "UNRESOLVED"
+        ],
+        "cursor_does_not_certify_continuous": true
+      },
+      "frames": [
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f00",
+          "time_s": 528.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_00_t528.0.jpg",
+          "sha256": "a61dd879f76d430a560de134784fc4e93828cdbdb64c575d48f48c1aa7898ade",
+          "bytes": 229078,
+          "index_in_roi": 0
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f01",
+          "time_s": 528.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_01_t528.7.jpg",
+          "sha256": "11e545e073b61c953d5201a9565ab13dd8a6c72d27b6bf2c87af4198a2b07acf",
+          "bytes": 255497,
+          "index_in_roi": 1
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f02",
+          "time_s": 529.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_02_t529.3.jpg",
+          "sha256": "57855a2b042d05eec0300d954dcbb03776fb8a7189d592b1d6aa00dc282404a9",
+          "bytes": 250589,
+          "index_in_roi": 2
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f03",
+          "time_s": 530.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_03_t530.0.jpg",
+          "sha256": "714f2bc4ca5fdc15b9c585009961ea8415a1b6cbfb252ec35477aafe9293f40d",
+          "bytes": 250618,
+          "index_in_roi": 3
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f04",
+          "time_s": 530.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_04_t530.7.jpg",
+          "sha256": "fe68dc94256bf58daf28173a70f5d5b6c3fccc1bedc423bed59685b3a1ab5a88",
+          "bytes": 249547,
+          "index_in_roi": 4
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f05",
+          "time_s": 531.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_05_t531.3.jpg",
+          "sha256": "594c116b424debb1e667c9231cbf297a4b1c1999aecca48a773ded554b1250aa",
+          "bytes": 250214,
+          "index_in_roi": 5
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f06",
+          "time_s": 532.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_06_t532.0.jpg",
+          "sha256": "5ecdfb9119f3cc7ff5b9f1515ba0a9a64bb0d84ae8d36dd6bc50e0088869f6a6",
+          "bytes": 250274,
+          "index_in_roi": 6
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f07",
+          "time_s": 532.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_07_t532.7.jpg",
+          "sha256": "12a4287442f08f4f231460443e909529813f89d78c95a8ee1b415ce0bc977c93",
+          "bytes": 251034,
+          "index_in_roi": 7
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f08",
+          "time_s": 533.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_08_t533.3.jpg",
+          "sha256": "19c82b599623fab2ef864065bd3f3991e94d2fc20d1f964135f3d7cc94cf54e6",
+          "bytes": 250922,
+          "index_in_roi": 8
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f09",
+          "time_s": 534.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_09_t534.0.jpg",
+          "sha256": "86f4c9f4ea509618b7be485cd96255da3cde6df676b998ef131a9edd37a4079a",
+          "bytes": 258310,
+          "index_in_roi": 9
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f10",
+          "time_s": 534.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_10_t534.7.jpg",
+          "sha256": "a4fa195605506122777fa8da8096a93345bd99f599e67d006a8d3718816272ae",
+          "bytes": 248576,
+          "index_in_roi": 10
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f11",
+          "time_s": 535.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_11_t535.3.jpg",
+          "sha256": "8f4a1c50d3c47870024d979b9ef58362137fddaa646fd3238dbb8837b635549a",
+          "bytes": 278436,
+          "index_in_roi": 11
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f12",
+          "time_s": 536.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_12_t536.0.jpg",
+          "sha256": "2836115b6ef2de3c82fa5565b8daf05f04ae26b9961b0a1cb727fbd8b2d51375",
+          "bytes": 95637,
+          "index_in_roi": 12
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f13",
+          "time_s": 536.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_13_t536.7.jpg",
+          "sha256": "c390a20d94af16feb0d84df3d617719f555dbddc4b5b1ccaf07e4c69b2c4b8aa",
+          "bytes": 94840,
+          "index_in_roi": 13
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f14",
+          "time_s": 537.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_14_t537.3.jpg",
+          "sha256": "b2d258ab2dd2c89d58b22a0227780275c3c61d65af3c6835d83673a6d5c6d2b5",
+          "bytes": 94057,
+          "index_in_roi": 14
+        },
+        {
+          "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f15",
+          "time_s": 538.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_15_t538.0.jpg",
+          "sha256": "5447b6025865809198d37939b1aa4cd950ad79b951fca753da8b1238357f5bc1",
+          "bytes": 94236,
+          "index_in_roi": 15
+        }
+      ]
+    },
+    {
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "video_id": "xi6r3hZe5Tg",
+      "t_start_s": 1060.0,
+      "t_end_s": 1070.0,
+      "fps": 1.5,
+      "rationale": "Scout shows 3D/food printer nozzle depositing purple lattice on plate; strongest within-window state-change candidate (material accumulation). Prior coarse 'food plate' still was a different instant; this ROI targets deposition process.",
+      "prior_single_still_anchor_s": 1065.861,
+      "hypothesis_seed": "printer_deposit_state_change",
+      "n_frames": 16,
+      "frame_times_s": [
+        1060.0,
+        1060.667,
+        1061.333,
+        1062.0,
+        1062.667,
+        1063.333,
+        1064.0,
+        1064.667,
+        1065.333,
+        1066.0,
+        1066.667,
+        1067.333,
+        1068.0,
+        1068.667,
+        1069.333,
+        1070.0
+      ],
+      "begin_middle_end_s": [
+        1060.0,
+        1065.333,
+        1070.0
+      ],
+      "local_continuous_clip": {
+        "path": "research_audit/lvbench_compositional/track_b/local_media/roi_clips_2026-10-31/xi6_ROI_bioprint_deposit_1060_1070.mp4",
+        "exists": true,
+        "bytes": 849067,
+        "git_committed": false,
+        "note": "Local ffprobe/ffmpeg-playable clip for optional continuous review; not uploaded as primary GitHub evidence (size). ChatGPT still-sheet review cannot mark CONTINUOUS_VIDEO_VERIFIED."
+      },
+      "cursor_scout_notes": {
+        "modality_labels_allowed_for_next_chatgpt_pass": [
+          "STATIC_VISIBLE",
+          "ORDERED_MULTIFRAME_SUGGESTS",
+          "CONTINUOUS_VIDEO_VERIFIED",
+          "UNRESOLVED"
+        ],
+        "cursor_does_not_certify_continuous": true
+      },
+      "frames": [
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f00",
+          "time_s": 1060.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_00_t1060.0.jpg",
+          "sha256": "d61daae9ec42590f51b71cfc78c598a37f633158bc651c231248c82c2fb41305",
+          "bytes": 46836,
+          "index_in_roi": 0
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f01",
+          "time_s": 1060.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_01_t1060.7.jpg",
+          "sha256": "3a6a0bcf46e81bec3f0553c718edb7ffdf14e81ca881209ba90a052f0bd99e96",
+          "bytes": 47785,
+          "index_in_roi": 1
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f02",
+          "time_s": 1061.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_02_t1061.3.jpg",
+          "sha256": "369cb6c85e72b523bf273d932172411c7f327257a3c578249f041d46399ada8d",
+          "bytes": 46465,
+          "index_in_roi": 2
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f03",
+          "time_s": 1062.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_03_t1062.0.jpg",
+          "sha256": "b611b8895e9a4e8946c8695a828ba4ac4de70921b7be1a8cebdaf2e5c7b11dd1",
+          "bytes": 45427,
+          "index_in_roi": 3
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f04",
+          "time_s": 1062.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_04_t1062.7.jpg",
+          "sha256": "a3e08ef31a4fa522b3ae437e002c0c57cc9f44e208794c728e3fe2c8b80dc319",
+          "bytes": 46233,
+          "index_in_roi": 4
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f05",
+          "time_s": 1063.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_05_t1063.3.jpg",
+          "sha256": "4d4eba59dce7469ed5e0e675ccc8ebb5d0eb11a378ec5bda3085426f6bb98140",
+          "bytes": 47801,
+          "index_in_roi": 5
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f06",
+          "time_s": 1064.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_06_t1064.0.jpg",
+          "sha256": "cc45783bb5dc48a3d48e159caeadb67dc86a8ed988130537286cde671f8750ee",
+          "bytes": 47247,
+          "index_in_roi": 6
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f07",
+          "time_s": 1064.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_07_t1064.7.jpg",
+          "sha256": "128cda3924648651cbbef985f5f5ac086c9a88a0ce833ce4b3d46f499d170322",
+          "bytes": 45522,
+          "index_in_roi": 7
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f08",
+          "time_s": 1065.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_08_t1065.3.jpg",
+          "sha256": "a9a024c31d5e75810bcee3289b0790870fb23c5f1ba2be7d58b6b4e0fb4a8a86",
+          "bytes": 44379,
+          "index_in_roi": 8
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f09",
+          "time_s": 1066.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_09_t1066.0.jpg",
+          "sha256": "c9cbd06cc1711642898ef5df749e049cbd61c7ed5365b50e3d880b4329154299",
+          "bytes": 44941,
+          "index_in_roi": 9
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f10",
+          "time_s": 1066.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_10_t1066.7.jpg",
+          "sha256": "7bcfa139f8977004df2237271af62978948bff86c33ab704b74fc60e1d4c92a6",
+          "bytes": 44988,
+          "index_in_roi": 10
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f11",
+          "time_s": 1067.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_11_t1067.3.jpg",
+          "sha256": "dd4b5142eb320c06459263c7ccf1891a94f04eaf3f914b9c6c2b2513b3b68f09",
+          "bytes": 31390,
+          "index_in_roi": 11
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f12",
+          "time_s": 1068.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_12_t1068.0.jpg",
+          "sha256": "ff15295e7d3bd39e6ec9577dba55f85c4eb3933d69228326dbe4989a779d8cec",
+          "bytes": 33690,
+          "index_in_roi": 12
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f13",
+          "time_s": 1068.667,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_13_t1068.7.jpg",
+          "sha256": "fffefc83a9125fa53835521cf295f93baeab2b3d25074f6f0c943c9fb98b4111",
+          "bytes": 41818,
+          "index_in_roi": 13
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f14",
+          "time_s": 1069.333,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_14_t1069.3.jpg",
+          "sha256": "75cf447b754891a114c1ca61d74f0c31e6ba96c0b38c0e8e31caa33a9e43b786",
+          "bytes": 45224,
+          "index_in_roi": 14
+        },
+        {
+          "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f15",
+          "time_s": 1070.0,
+          "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_15_t1070.0.jpg",
+          "sha256": "67d99c5e99d1a33337bca94ee8957024f8869d20c3a5d8ac59bf97ab26859f52",
+          "bytes": 44815,
+          "index_in_roi": 15
+        }
+      ]
+    }
+  ],
+  "frames_flat": [
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f00",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1060.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_00_t1060.0.jpg",
+      "sha256": "8fe281f25bb4afef735c1d057b556a74525fd22f1e014201318c2173b26cbaef",
+      "bytes": 29366,
+      "index_in_roi": 0
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f01",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1060.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_01_t1060.7.jpg",
+      "sha256": "9e942ebeb16760dba42d13d24fd490cf34e71493ea1433f5d098ef5f1c140830",
+      "bytes": 27363,
+      "index_in_roi": 1
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f02",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1061.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_02_t1061.3.jpg",
+      "sha256": "3186e141587c8858245c32e21e67820707e8f0cbdf4c8f1ff919e809ac077090",
+      "bytes": 38320,
+      "index_in_roi": 2
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f03",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1062.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_03_t1062.0.jpg",
+      "sha256": "ac528803049773cb5ae2e3a599698085eac7bb1469d017b67c351d7ca5aa0f00",
+      "bytes": 38480,
+      "index_in_roi": 3
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f04",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1062.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_04_t1062.7.jpg",
+      "sha256": "aaf7d871e9073c4e6864a5a0aba6aa4e4b95093644532d8aeba65ef3a755eab8",
+      "bytes": 39173,
+      "index_in_roi": 4
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f05",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1063.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_05_t1063.3.jpg",
+      "sha256": "8a19cc3d71aa43b47b82ecb35adebd38dafe356c284a0dae31d88d5c5102dd4e",
+      "bytes": 44110,
+      "index_in_roi": 5
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f06",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1064.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_06_t1064.0.jpg",
+      "sha256": "fddbe1efaf48d4348c8ff8308757face72c3b9f9006e923428375ac6603e5ecc",
+      "bytes": 46196,
+      "index_in_roi": 6
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f07",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1064.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_07_t1064.7.jpg",
+      "sha256": "dfc8cd3bfd86014aecc4e96860a6d1fbab1ffa93b31d25ea31ebac20009f55e9",
+      "bytes": 49613,
+      "index_in_roi": 7
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f08",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1065.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_08_t1065.3.jpg",
+      "sha256": "516fc2e807df1b54bfa61a806dabb94bddfb837864fb5e6447b5a0d353096756",
+      "bytes": 49313,
+      "index_in_roi": 8
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f09",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1066.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_09_t1066.0.jpg",
+      "sha256": "c77b751cff3e35a02bf81be0501c7567f20abac3d7259e4ec8ddf35fd6d15e53",
+      "bytes": 55407,
+      "index_in_roi": 9
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f10",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1066.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_10_t1066.7.jpg",
+      "sha256": "8949c80fff1e48e81e754b8881567cc6707a202ebd3c926c3b95c140d90162f0",
+      "bytes": 50777,
+      "index_in_roi": 10
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f11",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1067.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_11_t1067.3.jpg",
+      "sha256": "e81cb3882c155c21e4a486f4224af1fe6979900c9a7a41e3e4d3ee2a0b21bb5c",
+      "bytes": 50568,
+      "index_in_roi": 11
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f12",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1068.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_12_t1068.0.jpg",
+      "sha256": "e9af8b19a8639f1a799e25b6bb6190201a28b126a08a43dab942d3c4d9562d68",
+      "bytes": 50948,
+      "index_in_roi": 12
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f13",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1068.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_13_t1068.7.jpg",
+      "sha256": "e872a56cd9122be3d40e376777974c888f0040dc22cd756e0e5132dd006ec629",
+      "bytes": 48903,
+      "index_in_roi": 13
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f14",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1069.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_14_t1069.3.jpg",
+      "sha256": "1062d279139967fd10888c117289fc08a77c538da717b6e2aca2544f3404cd0b",
+      "bytes": 32498,
+      "index_in_roi": 14
+    },
+    {
+      "frame_id": "Mcgg_ROI_vending_hand_1060_1070_f15",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "time_s": 1070.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_vending_hand_1060_1070/mf_15_t1070.0.jpg",
+      "sha256": "a2c00f6b00f8e5ca3567673b3db1cfee44a19775c87ac254a24fce7f5754dd11",
+      "bytes": 26038,
+      "index_in_roi": 15
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f00",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2128.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_00_t2128.0.jpg",
+      "sha256": "8c58d90e64a0d9dc44d083881c03f8ffb120381adf4bf8cb9d6cd39c73ce68b1",
+      "bytes": 52178,
+      "index_in_roi": 0
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f01",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2128.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_01_t2128.7.jpg",
+      "sha256": "8c0c4ef4efc640d8e1b8cc14c1924de2451f65c4d27b7a1a0010e787956eab3e",
+      "bytes": 54005,
+      "index_in_roi": 1
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f02",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2129.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_02_t2129.3.jpg",
+      "sha256": "602ef6efc3e2867a3eee08279fc18294af72139e49d1e6b304cf99228e076368",
+      "bytes": 63337,
+      "index_in_roi": 2
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f03",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2130.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_03_t2130.0.jpg",
+      "sha256": "13b97d9fabe1fe3569b1b2543d589e941e458d66c9de9d0dca6f6c5e1f566fc3",
+      "bytes": 59010,
+      "index_in_roi": 3
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f04",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2130.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_04_t2130.7.jpg",
+      "sha256": "2fea174d998924591bbc8f8637a518955a706a57bd91bdd5c6bce4464ed260ea",
+      "bytes": 60462,
+      "index_in_roi": 4
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f05",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2131.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_05_t2131.3.jpg",
+      "sha256": "5d9bf4374263dc4ee91656bc9c099aacafc6ad8b65b33735cdb83d59c423c41a",
+      "bytes": 58077,
+      "index_in_roi": 5
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f06",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2132.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_06_t2132.0.jpg",
+      "sha256": "cb604ffa01cf1d887df47b5979f82d16840cedfbacc0e2f7a77a2f133c8ed516",
+      "bytes": 52624,
+      "index_in_roi": 6
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f07",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2132.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_07_t2132.7.jpg",
+      "sha256": "89d8a9dc2a2dab5f7dca89747f6ae6f4030350b86e7820cf4a39c60af97579a3",
+      "bytes": 47232,
+      "index_in_roi": 7
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f08",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2133.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_08_t2133.3.jpg",
+      "sha256": "514b7b1bacc580d5ad2625ec3928aafeb230d27a78d5798f5b61425f40251461",
+      "bytes": 41173,
+      "index_in_roi": 8
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f09",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2134.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_09_t2134.0.jpg",
+      "sha256": "4eb2155aa145290b4a8ce4598c64f96cd55af0ab0a5d1d6d5fe052726bae2b45",
+      "bytes": 44716,
+      "index_in_roi": 9
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f10",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2134.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_10_t2134.7.jpg",
+      "sha256": "9b2c225d7400f0b4ba8056a93d178b060509ec5ad0b5226e510f2c9e3480cede",
+      "bytes": 49096,
+      "index_in_roi": 10
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f11",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2135.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_11_t2135.3.jpg",
+      "sha256": "0b02bbf0fb8d9f9e6410f50d2fc62cb39d5d1bf5ee04fad1e9058536f5a08e1f",
+      "bytes": 46856,
+      "index_in_roi": 11
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f12",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2136.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_12_t2136.0.jpg",
+      "sha256": "789ca9fbb59aac127771baaad8f5591ca5a6611c49b2a6257dd6f9781ef86dd8",
+      "bytes": 47817,
+      "index_in_roi": 12
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f13",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2136.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_13_t2136.7.jpg",
+      "sha256": "e5d2480ff32d06498fcdd5268492246350e4ec8de0c465af3512f9935b9b7231",
+      "bytes": 47711,
+      "index_in_roi": 13
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f14",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2137.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_14_t2137.3.jpg",
+      "sha256": "f7c9542039572ec2e502fbb062f734000af5a9d843e0762652f9b8a815ee4f40",
+      "bytes": 50502,
+      "index_in_roi": 14
+    },
+    {
+      "frame_id": "Mcgg_ROI_cardshop_approach_2128_2138_f15",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "time_s": 2138.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/Mcggugol2ts/Mcgg_ROI_cardshop_approach_2128_2138/mf_15_t2138.0.jpg",
+      "sha256": "a101830f436148fa47796bee0baf734f600d20f701c767b99bdcccabecf5fb0c",
+      "bytes": 56633,
+      "index_in_roi": 15
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f00",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 528.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_00_t528.0.jpg",
+      "sha256": "a61dd879f76d430a560de134784fc4e93828cdbdb64c575d48f48c1aa7898ade",
+      "bytes": 229078,
+      "index_in_roi": 0
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f01",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 528.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_01_t528.7.jpg",
+      "sha256": "11e545e073b61c953d5201a9565ab13dd8a6c72d27b6bf2c87af4198a2b07acf",
+      "bytes": 255497,
+      "index_in_roi": 1
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f02",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 529.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_02_t529.3.jpg",
+      "sha256": "57855a2b042d05eec0300d954dcbb03776fb8a7189d592b1d6aa00dc282404a9",
+      "bytes": 250589,
+      "index_in_roi": 2
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f03",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 530.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_03_t530.0.jpg",
+      "sha256": "714f2bc4ca5fdc15b9c585009961ea8415a1b6cbfb252ec35477aafe9293f40d",
+      "bytes": 250618,
+      "index_in_roi": 3
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f04",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 530.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_04_t530.7.jpg",
+      "sha256": "fe68dc94256bf58daf28173a70f5d5b6c3fccc1bedc423bed59685b3a1ab5a88",
+      "bytes": 249547,
+      "index_in_roi": 4
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f05",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 531.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_05_t531.3.jpg",
+      "sha256": "594c116b424debb1e667c9231cbf297a4b1c1999aecca48a773ded554b1250aa",
+      "bytes": 250214,
+      "index_in_roi": 5
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f06",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 532.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_06_t532.0.jpg",
+      "sha256": "5ecdfb9119f3cc7ff5b9f1515ba0a9a64bb0d84ae8d36dd6bc50e0088869f6a6",
+      "bytes": 250274,
+      "index_in_roi": 6
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f07",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 532.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_07_t532.7.jpg",
+      "sha256": "12a4287442f08f4f231460443e909529813f89d78c95a8ee1b415ce0bc977c93",
+      "bytes": 251034,
+      "index_in_roi": 7
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f08",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 533.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_08_t533.3.jpg",
+      "sha256": "19c82b599623fab2ef864065bd3f3991e94d2fc20d1f964135f3d7cc94cf54e6",
+      "bytes": 250922,
+      "index_in_roi": 8
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f09",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 534.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_09_t534.0.jpg",
+      "sha256": "86f4c9f4ea509618b7be485cd96255da3cde6df676b998ef131a9edd37a4079a",
+      "bytes": 258310,
+      "index_in_roi": 9
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f10",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 534.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_10_t534.7.jpg",
+      "sha256": "a4fa195605506122777fa8da8096a93345bd99f599e67d006a8d3718816272ae",
+      "bytes": 248576,
+      "index_in_roi": 10
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f11",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 535.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_11_t535.3.jpg",
+      "sha256": "8f4a1c50d3c47870024d979b9ef58362137fddaa646fd3238dbb8837b635549a",
+      "bytes": 278436,
+      "index_in_roi": 11
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f12",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 536.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_12_t536.0.jpg",
+      "sha256": "2836115b6ef2de3c82fa5565b8daf05f04ae26b9961b0a1cb727fbd8b2d51375",
+      "bytes": 95637,
+      "index_in_roi": 12
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f13",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 536.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_13_t536.7.jpg",
+      "sha256": "c390a20d94af16feb0d84df3d617719f555dbddc4b5b1ccaf07e4c69b2c4b8aa",
+      "bytes": 94840,
+      "index_in_roi": 13
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f14",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 537.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_14_t537.3.jpg",
+      "sha256": "b2d258ab2dd2c89d58b22a0227780275c3c61d65af3c6835d83673a6d5c6d2b5",
+      "bytes": 94057,
+      "index_in_roi": 14
+    },
+    {
+      "frame_id": "xi6_ROI_aerial_to_speaker_528_538_f15",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "time_s": 538.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_aerial_to_speaker_528_538/mf_15_t538.0.jpg",
+      "sha256": "5447b6025865809198d37939b1aa4cd950ad79b951fca753da8b1238357f5bc1",
+      "bytes": 94236,
+      "index_in_roi": 15
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f00",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1060.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_00_t1060.0.jpg",
+      "sha256": "d61daae9ec42590f51b71cfc78c598a37f633158bc651c231248c82c2fb41305",
+      "bytes": 46836,
+      "index_in_roi": 0
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f01",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1060.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_01_t1060.7.jpg",
+      "sha256": "3a6a0bcf46e81bec3f0553c718edb7ffdf14e81ca881209ba90a052f0bd99e96",
+      "bytes": 47785,
+      "index_in_roi": 1
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f02",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1061.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_02_t1061.3.jpg",
+      "sha256": "369cb6c85e72b523bf273d932172411c7f327257a3c578249f041d46399ada8d",
+      "bytes": 46465,
+      "index_in_roi": 2
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f03",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1062.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_03_t1062.0.jpg",
+      "sha256": "b611b8895e9a4e8946c8695a828ba4ac4de70921b7be1a8cebdaf2e5c7b11dd1",
+      "bytes": 45427,
+      "index_in_roi": 3
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f04",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1062.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_04_t1062.7.jpg",
+      "sha256": "a3e08ef31a4fa522b3ae437e002c0c57cc9f44e208794c728e3fe2c8b80dc319",
+      "bytes": 46233,
+      "index_in_roi": 4
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f05",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1063.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_05_t1063.3.jpg",
+      "sha256": "4d4eba59dce7469ed5e0e675ccc8ebb5d0eb11a378ec5bda3085426f6bb98140",
+      "bytes": 47801,
+      "index_in_roi": 5
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f06",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1064.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_06_t1064.0.jpg",
+      "sha256": "cc45783bb5dc48a3d48e159caeadb67dc86a8ed988130537286cde671f8750ee",
+      "bytes": 47247,
+      "index_in_roi": 6
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f07",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1064.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_07_t1064.7.jpg",
+      "sha256": "128cda3924648651cbbef985f5f5ac086c9a88a0ce833ce4b3d46f499d170322",
+      "bytes": 45522,
+      "index_in_roi": 7
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f08",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1065.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_08_t1065.3.jpg",
+      "sha256": "a9a024c31d5e75810bcee3289b0790870fb23c5f1ba2be7d58b6b4e0fb4a8a86",
+      "bytes": 44379,
+      "index_in_roi": 8
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f09",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1066.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_09_t1066.0.jpg",
+      "sha256": "c9cbd06cc1711642898ef5df749e049cbd61c7ed5365b50e3d880b4329154299",
+      "bytes": 44941,
+      "index_in_roi": 9
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f10",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1066.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_10_t1066.7.jpg",
+      "sha256": "7bcfa139f8977004df2237271af62978948bff86c33ab704b74fc60e1d4c92a6",
+      "bytes": 44988,
+      "index_in_roi": 10
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f11",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1067.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_11_t1067.3.jpg",
+      "sha256": "dd4b5142eb320c06459263c7ccf1891a94f04eaf3f914b9c6c2b2513b3b68f09",
+      "bytes": 31390,
+      "index_in_roi": 11
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f12",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1068.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_12_t1068.0.jpg",
+      "sha256": "ff15295e7d3bd39e6ec9577dba55f85c4eb3933d69228326dbe4989a779d8cec",
+      "bytes": 33690,
+      "index_in_roi": 12
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f13",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1068.667,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_13_t1068.7.jpg",
+      "sha256": "fffefc83a9125fa53835521cf295f93baeab2b3d25074f6f0c943c9fb98b4111",
+      "bytes": 41818,
+      "index_in_roi": 13
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f14",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1069.333,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_14_t1069.3.jpg",
+      "sha256": "75cf447b754891a114c1ca61d74f0c31e6ba96c0b38c0e8e31caa33a9e43b786",
+      "bytes": 45224,
+      "index_in_roi": 14
+    },
+    {
+      "frame_id": "xi6_ROI_bioprint_deposit_1060_1070_f15",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "time_s": 1070.0,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/frames/xi6r3hZe5Tg/xi6_ROI_bioprint_deposit_1060_1070/mf_15_t1070.0.jpg",
+      "sha256": "67d99c5e99d1a33337bca94ee8957024f8869d20c3a5d8ac59bf97ab26859f52",
+      "bytes": 44815,
+      "index_in_roi": 15
+    }
+  ],
+  "cursor_provisional_hypotheses": [
+    {
+      "hypothesis_id": "HYP_Mcgg_vending_hand_selection",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "claim": "Within ROI, camera moves from wide vending facade to a hand pointing at priced drinks, then pulls back to street-level machines — candidate ordered multi-frame interaction/selection cue.",
+      "provisional_modality": "ORDERED_MULTIFRAME_SUGGESTS",
+      "not": [
+        "CONTINUOUS_VIDEO_VERIFIED",
+        "purchase_completed",
+        "cross_shot_identity"
+      ],
+      "two_witness_necessity_hypothesis": "Early wide still alone may not show hand; late pullback alone may not show pointing; middle close-up alone may not show street context — tentative A/B necessity only after independent review.",
+      "shortcut_risks": [
+        "middle close-up alone shows prices+hand",
+        "signage text readable without full sequence"
+      ],
+      "status": "PENDING_CHATGPT_MULTIFRAME_SEMANTIC_REVIEW",
+      "formal_supported": false
+    },
+    {
+      "hypothesis_id": "HYP_Mcgg_cardshop_approach",
+      "video_id": "Mcggugol2ts",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "claim": "ROI may show approach from aisle to closer priced card case; weak composition candidate (camera move / focus), not assumed commerce causality with vending ROI.",
+      "provisional_modality": "ORDERED_MULTIFRAME_SUGGESTS",
+      "not": [
+        "CONTINUOUS_VIDEO_VERIFIED",
+        "link_to_vending_roi",
+        "purchase"
+      ],
+      "two_witness_necessity_hypothesis": "Unclear; may collapse to single close-up sufficiency — likely SHORTCUT-prone.",
+      "shortcut_risks": [
+        "final card-case still alone answers display content"
+      ],
+      "status": "PENDING_CHATGPT_MULTIFRAME_SEMANTIC_REVIEW",
+      "formal_supported": false
+    },
+    {
+      "hypothesis_id": "HYP_xi6_aerial_cut_to_speaker",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "claim": "Ordered frames suggest cut from aerial cityscape to indoor speaking person with raised hand; narrative/identity link UNRESOLVED.",
+      "provisional_modality": "ORDERED_MULTIFRAME_SUGGESTS",
+      "not": [
+        "CONTINUOUS_VIDEO_VERIFIED",
+        "same_person_as_elsewhere",
+        "causal_link_to_city"
+      ],
+      "two_witness_necessity_hypothesis": "If QA asked about both city and speaker gesture, may need both ends; many QAs answerable from speaker still alone.",
+      "shortcut_risks": [
+        "speaker still alone",
+        "aerial still alone"
+      ],
+      "status": "PENDING_CHATGPT_MULTIFRAME_SEMANTIC_REVIEW",
+      "formal_supported": false
+    },
+    {
+      "hypothesis_id": "HYP_xi6_printer_deposit_progress",
+      "video_id": "xi6r3hZe5Tg",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "claim": "Strongest candidate: nozzle deposits purple lattice material; multi-frame may show accumulation/progress of printed structure (state change).",
+      "provisional_modality": "ORDERED_MULTIFRAME_SUGGESTS",
+      "not": [
+        "CONTINUOUS_VIDEO_VERIFIED",
+        "named_dish",
+        "finished_product_identity"
+      ],
+      "two_witness_necessity_hypothesis": "Early frame (sparse deposit) vs late frame (more filled lattice) could require both for 'progress' questions; single late frame may shortcut 'what is being printed'.",
+      "shortcut_risks": [
+        "late frame alone shows lattice",
+        "on-screen printer context"
+      ],
+      "status": "PENDING_CHATGPT_MULTIFRAME_SEMANTIC_REVIEW",
+      "formal_supported": false
+    }
+  ],
+  "events_CHATGPT_MULTIFRAME": {
+    "path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31/events_CHATGPT_MULTIFRAME_OBSERVATION.jsonl",
+    "status": "PENDING_CHATGPT_MULTIFRAME_SEMANTIC_REVIEW",
+    "n_events": 0
+  }
+}

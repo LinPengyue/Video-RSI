@@ -59,6 +59,66 @@ class TestChatGPTIngest(unittest.TestCase):
             self.assertEqual(rep["n_accepted"], 1)
             self.assertEqual(rep["n_rejected"], 1)
 
+    def test_manifest_membership_and_sha_required_in_production_mode(self) -> None:
+        """When manifest is supplied, evidence must be listed and SHA declared."""
+        with tempfile.TemporaryDirectory() as td:
+            td_path = Path(td)
+            listed = td_path / "listed.jpg"
+            listed.write_bytes(b"listed-bytes")
+            orphan = td_path / "orphan.jpg"
+            orphan.write_bytes(b"orphan-bytes")
+            import hashlib
+
+            listed_sha = hashlib.sha256(b"listed-bytes").hexdigest()
+            manifest_frames = [
+                {
+                    "evidence_path": str(listed),
+                    "video_id": "vidA",
+                    "time_s": 1.0,
+                    "sha256": listed_sha,
+                }
+            ]
+            # Missing SHA + path not in manifest → reject
+            bad = {
+                "event_id": "E_bad",
+                "video_id": "vidA",
+                "time_span": {"start_s": 1.0, "end_s": 1.0},
+                "action_or_state": "x",
+                "evidence_paths": [str(orphan)],
+                "observed_vs_inferred": "observed",
+                "uncertainty": "u",
+                "provenance": "CHATGPT_FRAME_OBSERVATION",
+            }
+            rep = validate_chatgpt_events([bad], manifest_frames=manifest_frames)
+            self.assertEqual(rep["n_accepted"], 0)
+            reasons = rep["rejected"][0]["reasons"]
+            self.assertTrue(any(r.startswith("not_in_manifest:") for r in reasons))
+            self.assertIn("missing_source_frame_sha256", reasons)
+
+            # Valid membership + matching SHA → accept
+            good = {
+                **bad,
+                "event_id": "E_good",
+                "evidence_paths": [str(listed)],
+                "source_frame_sha256": listed_sha,
+            }
+            rep2 = validate_chatgpt_events([good], manifest_frames=manifest_frames)
+            self.assertEqual(rep2["n_accepted"], 1)
+            self.assertEqual(rep2["n_rejected"], 0)
+
+            # No manifest → legacy lenient path still accepts existing file without SHA
+            lenient = validate_chatgpt_events(
+                [
+                    {
+                        **bad,
+                        "event_id": "E_lenient",
+                        "evidence_paths": [str(orphan)],
+                    }
+                ],
+                manifest_frames=None,
+            )
+            self.assertEqual(lenient["n_accepted"], 1)
+
     def test_still_relations_are_consecutive_not_all_pairs(self) -> None:
         evs = []
         for i, t in enumerate([10.0, 20.0, 30.0, 40.0]):

@@ -51,24 +51,39 @@ def validate_chatgpt_events(
     raw: list[dict[str, Any]],
     *,
     manifest_frames: list[dict[str, Any]] | None = None,
+    require_manifest_membership: bool | None = None,
+    require_source_sha: bool | None = None,
+    allowed_provenances: tuple[str, ...] = ("CHATGPT_FRAME_OBSERVATION",),
 ) -> dict[str, Any]:
-    """Schema / path / sha / dedup checks. Does not invent semantics."""
+    """Schema / path / sha / dedup checks. Does not invent semantics.
+
+    When ``manifest_frames`` is provided, trusted-production mode defaults ON:
+    every evidence path must appear in the manifest and ``source_frame_sha256``
+    must be present and match the file. Pass
+    ``require_manifest_membership=False`` / ``require_source_sha=False`` to keep
+    the legacy lenient path (no-manifest callers unchanged).
+    """
     accepted: list[dict[str, Any]] = []
     rejected: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
     seen_frame_ids: set[str] = set()
-    frame_by_path = {}
+    frame_by_path: dict[str, dict[str, Any]] = {}
     if manifest_frames:
         for f in manifest_frames:
             frame_by_path[f.get("evidence_path")] = f
             frame_by_path[str(Path(f.get("evidence_path") or ""))] = f
+    # Trusted production when a manifest is explicitly supplied
+    if require_manifest_membership is None:
+        require_manifest_membership = bool(manifest_frames)
+    if require_source_sha is None:
+        require_source_sha = bool(manifest_frames)
 
     for row in raw:
         reasons: list[str] = []
         for k in REQUIRED:
             if k not in row:
                 reasons.append(f"missing:{k}")
-        if row.get("provenance") != "CHATGPT_FRAME_OBSERVATION":
+        if row.get("provenance") not in allowed_provenances:
             reasons.append("bad_provenance")
         ts = row.get("time_span") or {}
         if not isinstance(ts, dict) or "start_s" not in ts or "end_s" not in ts:
@@ -87,26 +102,35 @@ def validate_chatgpt_events(
         if fid and fid in seen_frame_ids:
             reasons.append("duplicate_evidence_frame_id")
 
-        # Evidence path existence + optional sha check
+        declared = row.get("source_frame_sha256")
+        if require_source_sha and not declared:
+            reasons.append("missing_source_frame_sha256")
+
+        # Evidence path existence + sha / manifest checks
         for p in paths:
             pp = Path(p)
             if not pp.is_file():
                 reasons.append(f"missing_file:{p}")
                 continue
-            declared = row.get("source_frame_sha256")
             if declared:
                 got = _sha256_file(pp)
                 if got and got != declared:
                     reasons.append(f"sha256_mismatch:{p}")
-            # Manifest cross-check when available
-            mf = frame_by_path.get(p)
-            if mf is not None:
+            mf = frame_by_path.get(p) or frame_by_path.get(str(pp))
+            if mf is None:
+                if require_manifest_membership:
+                    reasons.append(f"not_in_manifest:{p}")
+            else:
                 if mf.get("video_id") and mf["video_id"] != row.get("video_id"):
                     reasons.append("manifest_video_id_mismatch")
                 # allow ~2s clock skew between manifest time_s and event time_span
                 mt = mf.get("time_s")
                 if mt is not None and abs(float(mt) - float(ts.get("start_s", mt))) > 2.5:
                     reasons.append("manifest_time_mismatch")
+                # If manifest carries sha256, event must match it when declared
+                msha = mf.get("sha256") or mf.get("source_frame_sha256")
+                if declared and msha and declared != msha:
+                    reasons.append("manifest_sha256_mismatch")
 
         if row.get("video_motion_verified") is True:
             reasons.append("claimed_motion_verified_on_still_batch")
@@ -212,13 +236,26 @@ def ingest_chatgpt_events_file(
     path: Path,
     *,
     manifest_path: Path | None = None,
+    require_manifest_membership: bool | None = None,
+    require_source_sha: bool | None = None,
 ) -> dict[str, Any]:
     raw = load_raw_chatgpt_events(path)
     manifest_frames = None
     if manifest_path and manifest_path.exists():
         man = json.loads(manifest_path.read_text())
-        manifest_frames = man.get("frames") or []
-    report = validate_chatgpt_events(raw, manifest_frames=manifest_frames)
+        # Support both flat `frames` and nested ROI `frames_flat`
+        manifest_frames = man.get("frames") or man.get("frames_flat") or []
+        if not manifest_frames and isinstance(man.get("meta"), dict):
+            # older batch_manifest shape: {"meta":..., "frames":...}
+            pass
+        if not manifest_frames and "meta" in man:
+            manifest_frames = man.get("frames") or []
+    report = validate_chatgpt_events(
+        raw,
+        manifest_frames=manifest_frames,
+        require_manifest_membership=require_manifest_membership,
+        require_source_sha=require_source_sha,
+    )
     normalized = [normalize_chatgpt_event(r) for r in report["accepted"]]
     by_video: dict[str, list[dict[str, Any]]] = {}
     for ev in normalized:
