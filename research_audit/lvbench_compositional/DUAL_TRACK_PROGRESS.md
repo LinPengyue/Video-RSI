@@ -1,23 +1,18 @@
 # Dual-track progress update
 
-Latest factory baseline: see `DUAL_TRACK_ROUND_REPORT_BATCH_FACTORY_2026-10-30.md`  
-Plan executed: `TRACK_B_BATCH_FACTORY_AND_DUAL_TRACK_RESET_2026-10-30.md`
+Latest: Batch Factory **V2** + run_002 · see `track_b/batch_factory/RUN001_AUDIT_AND_RUN002_REPORT.md`  
+Handoff: `CHATGPT_AUDIT_22214A1_BATCH_FACTORY_V2_HANDOFF_2026-10-30.md`
 
 ## Shared
-- All candidates remain **UNASSIGNED**; no auto-**SUPPORTED**
-- Sealed final not accessed; `ok_for_expensive_rsi=false`
-- Contaminated construction videos are DEV only
+- **UNASSIGNED**; no auto-**SUPPORTED**; sealed untouched; `ok_for_expensive_rsi=false`
 
 ## Track A
-- Selection-only metrics frozen as incomplete: choice ≠ execution
-- New: `program_execution.py` compiles selected DAGs → `TypedEvidenceExecutor` traces
-- Result: choice_acc≈0.833 vs **exec_acc≈0.333** (gold DAG also 0.333 on this harness)
-- Frozen 4-task matched binding parity: do not retune
-- Report: `track_a/TRACK_A_EXECUTION_OVER_SELECTION.md`
+- Scoring integrity fixed: explicit ABSTAIN; no oracle-world scrape; per-op success logged
+- Report: `track_a/TRACK_A_EXECUTION_SCORING_INTEGRITY.md`
+- exec_acc remains ~0.333 after removing soft credit — accepted harness negative
 
 ## Track B
-- Batch factory CLI: `python -m tools.lvbench_comp.batch_factory run ...`
-- Real run_001 on 8 DEV_CONSTRUCTION videos with local MP4s
-- Funnel: 110 events → 8 relations → 8 QA drafts → auto grades → **8-item human packet PENDING_HUMAN**
-- Uncertain QAs do not block production
-- Report: `track_b/batch_factory/run_001/PRODUCTION_AND_QUALITY_REPORT.md`
+- Factory v0.2.0: provenance, dedup, binding gate, true-blind packets, honest metrics
+- run_001 preserved as I/O baseline (not silently rewritten)
+- run_002: **9** new frame observations on 3 unlabeled seeds; **3** new independent candidate families; 8-item true-blind packet PENDING_HUMAN
+- Blocker: no paid/local VLM; novelty is still-frame agent observation, not continuous video model

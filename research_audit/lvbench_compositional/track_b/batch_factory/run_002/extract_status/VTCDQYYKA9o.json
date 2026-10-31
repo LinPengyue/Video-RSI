@@ -1,0 +1,13 @@
+{
+  "video_id": "VTCDQYYKA9o",
+  "status": "OK",
+  "flags": [],
+  "n_events": 14,
+  "n_curated": 3,
+  "n_new_semantic": 0,
+  "n_coarse": 11,
+  "semantic_extractor_status": "CURATED_ONLY",
+  "decode_or_extract_s": 0.816,
+  "n_evidence": 14,
+  "cached_frame_paths_present": 11
+}

@@ -1,10 +1,152 @@
-"""B6 — concentrated human/ChatGPT review packets (8–12 QAs)."""
+"""B6 — true-blind human/ChatGPT review packets (V2)."""
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
 from typing import Any
+
+# Fields forbidden in B_ONLY / A_ONLY blind serializations
+BLIND_FORBIDDEN_KEYS = {
+    "provisional_answer_zh",
+    "normalized_answer",
+    "gold_answer",
+    "auto_grade",
+    "auto_score",
+    "proxy_necessity",
+    "proxy_A_only",
+    "proxy_B_only",
+    "proxy_A_plus_B",
+    "necessity_proxy",
+    "answer_derivation",
+    "risks",
+    "fact_binding",
+    "generation_error",
+}
+
+
+def _window_side(windows: list | None, side: str) -> list:
+    wins = windows or []
+    if not wins:
+        return []
+    if side == "B" and len(wins) >= 2:
+        return [wins[-1]]
+    if side == "A" and len(wins) >= 1:
+        return [wins[0]]
+    return list(wins)
+
+
+def _facts_for_side(facts: list[dict[str, Any]], side: str) -> list[dict[str, Any]]:
+    if not facts:
+        return []
+    if side == "B" and len(facts) >= 2:
+        chosen = [facts[-1]]
+    elif side == "A":
+        chosen = [facts[0]]
+    else:
+        chosen = facts
+    # Strip cross-side leakage: only path + time for this side
+    out = []
+    for f in chosen:
+        out.append(
+            {
+                "time_start_s": f.get("time_start_s"),
+                "time_end_s": f.get("time_end_s"),
+                "evidence_paths": f.get("evidence_paths") or [],
+                "media_access_state": _media_state(f.get("evidence_paths") or []),
+            }
+        )
+    return out
+
+
+def _media_state(paths: list[str]) -> str:
+    ok = 0
+    for p in paths:
+        if p and (Path(p).exists() or Path("/home/descfly/lpy/Video-RSI/" + p).exists()):
+            ok += 1
+    if not paths:
+        return "NO_ASSET_PATH"
+    if ok == len(paths):
+        return "PATHS_EXIST_STILLS_OR_CLIPS"
+    if ok:
+        return "PARTIAL_ASSETS"
+    return "ASSETS_MISSING"
+
+
+def build_true_blind_item(
+    *,
+    qa: dict[str, Any],
+    facts_full: list[dict[str, Any]],
+    side: str,
+    priority: int,
+) -> dict[str, Any]:
+    """B_ONLY / A_ONLY: question + that side's media only."""
+    wins = _window_side(qa.get("required_windows") or qa.get("time_intervals"), side)
+    side_facts = _facts_for_side(facts_full, side)
+    item = {
+        "priority": priority,
+        "qa_id": qa["qa_id"],
+        "video_id": qa["video_id"],
+        "blind_variant": f"{side}_ONLY_BLIND",
+        "question_zh": qa.get("question_zh"),
+        "visible_windows": wins,
+        "visible_media": side_facts,
+        "media_access_state": side_facts[0]["media_access_state"] if side_facts else "NO_ASSET_PATH",
+        "reviewer_asset_verified": False,
+        "reviewer_fields": {
+            "answer": None,
+            "confidence": None,
+            "evidence_note": None,
+        },
+        "data_partition_status": "UNASSIGNED",
+        "formal_supported": False,
+        # Explicitly absent (tests search for these)
+        "answer_hidden": True,
+        "grades_hidden": True,
+        "other_side_hidden": True,
+    }
+    # Sanity: no forbidden keys
+    for k in BLIND_FORBIDDEN_KEYS:
+        assert k not in item
+    return item
+
+
+def build_adjudication_item(
+    *,
+    qa: dict[str, Any],
+    sc: dict[str, Any],
+    facts_full: list[dict[str, Any]],
+    priority: int,
+) -> dict[str, Any]:
+    """Unblinded A+B adjudication packet (intentionally full)."""
+    return {
+        "priority": priority,
+        "qa_id": qa["qa_id"],
+        "video_id": qa["video_id"],
+        "blind_variant": "A_PLUS_B_ADJUDICATION",
+        "unblinded": True,
+        "mechanism": qa.get("mechanism"),
+        "heuristic_grade": sc.get("grade"),
+        "heuristic_score": sc.get("score"),
+        "evidence_tested": sc.get("evidence_tested", False),
+        "masked_qa_executed": sc.get("masked_qa_executed", False),
+        "risks": sc.get("risks"),
+        "question_zh": qa.get("question_zh"),
+        "answer_status": qa.get("answer_status"),
+        "provisional_answer_zh": qa.get("provisional_answer_zh"),
+        "required_windows": qa.get("required_windows"),
+        "facts": facts_full,
+        "rule_proxy_necessity": sc.get("necessity_proxy"),
+        "fact_binding": qa.get("fact_binding"),
+        "data_partition_status": "UNASSIGNED",
+        "formal_supported": False,
+        "reviewer_fields": {
+            "verdict": None,
+            "answer_ok": None,
+            "necessity_ok": None,
+            "notes": None,
+        },
+    }
 
 
 def build_packet(
@@ -17,8 +159,27 @@ def build_packet(
     out_dir: Path,
 ) -> dict[str, Any]:
     out_dir.mkdir(parents=True, exist_ok=True)
-    items = []
+
+    # Only reviewable: retained independent, not quarantined, not UNKNOWN-only pad
+    reviewable = []
     for p in prioritized:
+        qa = drafts_by_id[p["qa_id"]]
+        if qa.get("generation_error"):
+            continue
+        if qa.get("funnel_level") == "REJECTED_OR_QUARANTINE":
+            continue
+        if not qa.get("retained_as_independent_sample", True) and qa.get("duplicate_of_family"):
+            continue
+        if (qa.get("provisional_answer_zh") or "").upper() == "UNKNOWN" and qa.get("mechanism") == "cross_shot_narrative":
+            continue  # do not send unanswerable narrative to human as primary
+        reviewable.append(p)
+
+    blind_keys_dir = out_dir / "blind_keys"
+    blind_keys_dir.mkdir(parents=True, exist_ok=True)
+    keys = []
+
+    b_items, a_items, ab_items = [], [], []
+    for p in reviewable:
         qa = drafts_by_id[p["qa_id"]]
         sc = screened_by_id[p["qa_id"]]
         facts = []
@@ -31,84 +192,153 @@ def build_packet(
                     "event_id": fid,
                     "time_start_s": ev["time_start_s"],
                     "time_end_s": ev["time_end_s"],
-                    "event_type": ev.get("event_type"),
+                    "event_type": ev.get("event_type") or ev.get("verb"),
                     "summary_zh": ev.get("summary_zh"),
                     "evidence_paths": ev.get("evidence_paths"),
-                    "source": ev.get("source"),
+                    "source": ev.get("provenance_tier") or ev.get("source"),
                 }
             )
-        items.append(
+        b_items.append(build_true_blind_item(qa=qa, facts_full=facts, side="B", priority=p["priority"]))
+        a_items.append(build_true_blind_item(qa=qa, facts_full=facts, side="A", priority=p["priority"]))
+        ab_items.append(build_adjudication_item(qa=qa, sc=sc, facts_full=facts, priority=p["priority"]))
+        keys.append(
             {
-                "priority": p["priority"],
                 "qa_id": qa["qa_id"],
-                "video_id": qa["video_id"],
-                "mechanism": qa.get("mechanism"),
-                "auto_grade": sc["grade"],
-                "auto_score": sc["score"],
-                "risks": sc.get("risks"),
-                "question_zh": qa.get("question_zh"),
-                "question_en": qa.get("question_en"),
-                "answer_status": qa.get("answer_status"),
                 "provisional_answer_zh": qa.get("provisional_answer_zh"),
-                "provisional_answer_note": "Hidden during blind review if following blind protocol",
-                "required_windows": qa.get("required_windows"),
-                "facts": facts,
-                "proxy_necessity": sc.get("necessity_proxy"),
-                "data_partition_status": "UNASSIGNED",
-                "formal_supported": False,
-                "reviewer_fields": {
-                    "verdict": None,
-                    "answer_ok": None,
-                    "necessity_ok": None,
-                    "notes": None,
-                },
+                "normalized_answer": qa.get("normalized_answer"),
+                "fact_ids": qa.get("fact_ids"),
+                "mechanism": qa.get("mechanism"),
             }
         )
 
-    packet = {
+    (blind_keys_dir / "answers_key.json").write_text(
+        json.dumps(
+            {
+                "note": "Separate from blind packets; do not mix into B_ONLY/A_ONLY",
+                "items": keys,
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    def _write_variant(name: str, items: list[dict[str, Any]], protocol: list[str]) -> dict[str, Any]:
+        vdir = out_dir / name
+        vdir.mkdir(parents=True, exist_ok=True)
+        packet = {
+            "packet_id": f"{run_id}_{name}",
+            "variant": name,
+            "n_items": len(items),
+            "protocol": protocol,
+            "items": items,
+            "data_partition_status": "UNASSIGNED",
+            "formal_supported": False,
+            "human_status": "PENDING_HUMAN",
+            "blind_integrity": name.endswith("BLIND"),
+        }
+        (vdir / "packet.json").write_text(json.dumps(packet, ensure_ascii=False, indent=2), encoding="utf-8")
+        # Markdown without answers for blind
+        lines = [f"# {name} — {packet['packet_id']}", "", f"Items: {len(items)}", ""]
+        for it in items:
+            lines.append(f"## [{it['priority']}] {it['qa_id']} — {it['video_id']}")
+            lines.append(f"- Q: {it.get('question_zh')}")
+            if name.endswith("BLIND"):
+                lines.append(f"- visible_windows: {it.get('visible_windows')}")
+                lines.append(f"- media_access_state: {it.get('media_access_state')}")
+                for m in it.get("visible_media") or []:
+                    for pth in m.get("evidence_paths") or []:
+                        lines.append(f"- media: `{pth}`")
+                lines.append("- reviewer answer= / confidence= / evidence_note=")
+            else:
+                lines.append(f"- provisional: {it.get('provisional_answer_zh')}")
+                lines.append(f"- heuristic_grade: {it.get('heuristic_grade')} (NOT video-tested)")
+            lines.append("")
+        (vdir / "packet.md").write_text("\n".join(lines), encoding="utf-8")
+        return packet
+
+    b_pkt = _write_variant(
+        "B_ONLY_BLIND",
+        b_items,
+        [
+            "TRUE BLIND: only question + B-side media",
+            "No A paths, A event IDs, answers, grades, or proxies",
+            "Do not claim independent blindness if you already saw A+B",
+        ],
+    )
+    a_pkt = _write_variant(
+        "A_ONLY_BLIND",
+        a_items,
+        [
+            "TRUE BLIND: only question + A-side media",
+            "No B paths/answers/grades",
+            "Prefer a reviewer who has not seen B or A+B",
+        ],
+    )
+    ab_pkt = _write_variant(
+        "A_PLUS_B_ADJUDICATION",
+        ab_items,
+        [
+            "UNBLINDED adjudication — full evidence intentional",
+            "Heuristic grades are NOT video-tested necessity proofs",
+            "Do not mark SUPPORTED",
+        ],
+    )
+
+    # Index (no answers)
+    index = {
         "packet_id": f"{run_id}_human_batch_01",
         "run_id": run_id,
-        "n_items": len(items),
-        "protocol": [
-            "Blind: do not reveal provisional_answer until after attempting QA from clips",
-            "Judge: answer correctness, evidence sufficiency, A/B necessity (proxy then human)",
-            "Do not mark SUPPORTED; only funnel progress toward HUMAN_VERIFIED / CANDIDATE_POOL",
-            "Uncertain QAs stay UNCERTAIN — do not block the batch",
-        ],
-        "items": items,
+        "n_reviewable": len(reviewable),
+        "variants": {
+            "B_ONLY_BLIND": b_pkt["n_items"],
+            "A_ONLY_BLIND": a_pkt["n_items"],
+            "A_PLUS_B_ADJUDICATION": ab_pkt["n_items"],
+        },
+        "blind_keys_path": str(blind_keys_dir / "answers_key.json"),
         "data_partition_status": "UNASSIGNED",
         "formal_supported": False,
+        "note": "Do not use run_001 packets; those leaked A/B metadata",
     }
-
-    (out_dir / "human_review_packet.json").write_text(
-        json.dumps(packet, ensure_ascii=False, indent=2), encoding="utf-8"
+    (out_dir / "human_review_packet.json").write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
+    (out_dir / "human_review_packet.md").write_text(
+        f"# Human review index `{index['packet_id']}`\n\n"
+        f"Reviewable items: {index['n_reviewable']}\n\n"
+        f"- Blind B: `B_ONLY_BLIND/packet.md`\n"
+        f"- Blind A: `A_ONLY_BLIND/packet.md`\n"
+        f"- Adjudication (unblinded): `A_PLUS_B_ADJUDICATION/packet.md`\n"
+        f"- Answers key (separate): `blind_keys/answers_key.json`\n",
+        encoding="utf-8",
     )
-    # Markdown for ChatGPT / human batch review
-    lines = [
-        f"# Human Review Packet — {packet['packet_id']}",
-        "",
-        f"Items: {len(items)} | partition: UNASSIGNED | formal_supported: false",
-        "",
-        "## Protocol",
-        "- Blind answer attempt before reading provisional_answer_zh",
-        "- Do not promote to SUPPORTED",
-        "- Uncertain QAs may remain UNCERTAIN without blocking the batch",
-        "",
-    ]
-    for it in items:
-        lines.extend(
-            [
-                f"## [{it['priority']}] {it['qa_id']} — {it['video_id']}",
-                f"- mechanism: `{it['mechanism']}`",
-                f"- auto: `{it['auto_grade']}` score={it['auto_score']}",
-                f"- risks: {it.get('risks')}",
-                f"- Q(zh): {it['question_zh']}",
-                f"- windows: {it.get('required_windows')}",
-                f"- facts: {', '.join(f['event_id'] for f in it['facts'])}",
-                f"- provisional_answer_zh: ||{it.get('provisional_answer_zh')}||",
-                "- reviewer: verdict= / answer_ok= / necessity_ok= / notes=",
-                "",
-            ]
-        )
-    (out_dir / "human_review_packet.md").write_text("\n".join(lines), encoding="utf-8")
-    return packet
+    return index
+
+
+def assert_blind_packet_integrity(packet: dict[str, Any]) -> list[str]:
+    """Return list of integrity violations (empty = ok)."""
+    viol = []
+    blob = json.dumps(packet, ensure_ascii=False)
+    if packet.get("variant") in {"B_ONLY_BLIND", "A_ONLY_BLIND"}:
+        for bad in (
+            "provisional_answer_zh",
+            "auto_grade",
+            "auto_score",
+            "proxy_necessity",
+            "necessity_proxy",
+            "gold_answer",
+            "normalized_answer",
+            "fact_binding",
+            "heuristic_grade",
+        ):
+            if f'"{bad}"' in blob:
+                viol.append(f"forbidden_key_present:{bad}")
+        # Other side event ids should not appear as event_id fields
+        for it in packet.get("items") or []:
+            for m in it.get("visible_media") or []:
+                if "event_id" in m:
+                    viol.append(f"event_id_in_blind_media:{it.get('qa_id')}")
+            if "facts" in it:
+                viol.append(f"full_facts_in_blind:{it.get('qa_id')}")
+            if "required_windows" in it and it.get("required_windows") and len(it.get("required_windows") or []) > 1:
+                # Blind should only expose visible_windows
+                viol.append(f"required_windows_in_blind:{it.get('qa_id')}")
+    return viol

@@ -1,0 +1,585 @@
+{
+  "packet_id": "run_002_A_PLUS_B_ADJUDICATION",
+  "variant": "A_PLUS_B_ADJUDICATION",
+  "n_items": 8,
+  "protocol": [
+    "UNBLINDED adjudication — full evidence intentional",
+    "Heuristic grades are NOT video-tested necessity proofs",
+    "Do not mark SUPPORTED"
+  ],
+  "items": [
+    {
+      "priority": 1,
+      "qa_id": "QA_DRAFT_0009",
+      "video_id": "S8vPx-u9p_A",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "cross_scene_attribute_contrast",
+      "heuristic_grade": "HEURISTIC_HIGH_NOT_VIDEO_TESTED",
+      "heuristic_score": 0.85,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "按文件时间顺序，较早在「snowy_building_exterior」可见的内容与较晚在「dark_crystalline_corridor」可见的内容有何不同？（请依据两段画面，勿编造因果）",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早：动画：雪地中两名儿童（深色大衣男孩与红裙蓝帽女孩）在建筑前行走；晚：动画：深色晶柱夹道中向上的阶梯",
+      "required_windows": [
+        [
+          848,
+          849
+        ],
+        [
+          2121,
+          2122
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "S8v_E_snow_children",
+          "time_start_s": 848,
+          "time_end_s": 849,
+          "event_type": "walk_in_snow",
+          "summary_zh": "动画：雪地中两名儿童（深色大衣男孩与红裙蓝帽女孩）在建筑前行走",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/S8vPx-u9p_A/seed_frame_1_t848.jpg"
+          ],
+          "source": "CURSOR_FRAME_VISUAL_OBSERVATION"
+        },
+        {
+          "event_id": "S8v_E_crystal_stairs",
+          "time_start_s": 2121,
+          "time_end_s": 2122,
+          "event_type": "show_ascending_stairs",
+          "summary_zh": "动画：深色晶柱夹道中向上的阶梯",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/S8vPx-u9p_A/seed_frame_2_t2121.jpg"
+          ],
+          "source": "CURSOR_FRAME_VISUAL_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 2,
+      "qa_id": "QA_DRAFT_0012",
+      "video_id": "iA_69g87Ilw",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "cross_scene_attribute_contrast",
+      "heuristic_grade": "HEURISTIC_HIGH_NOT_VIDEO_TESTED",
+      "heuristic_score": 0.85,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "按文件时间顺序，较早在「indoor_luxury_table」可见的内容与较晚在「indoor_armchair_blue_gold_room」可见的内容有何不同？（请依据两段画面，勿编造因果）",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早：室内水果盘（中央菠萝）旁一只手指向/触碰红葡萄；右上角字幕 Walk With Me；晚：短发男子坐彩色格纹扶手椅，右手持黑色自拍杆；Walk With Me 角标",
+      "required_windows": [
+        [
+          361,
+          362
+        ],
+        [
+          904,
+          905
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "iA_E_fruit_platter_point",
+          "time_start_s": 361,
+          "time_end_s": 362,
+          "event_type": "point_touch_grapes",
+          "summary_zh": "室内水果盘（中央菠萝）旁一只手指向/触碰红葡萄；右上角字幕 Walk With Me",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/iA_69g87Ilw/seed_frame_1_t361.jpg"
+          ],
+          "source": "CURSOR_FRAME_VISUAL_OBSERVATION"
+        },
+        {
+          "event_id": "iA_E_host_armchair_selfie",
+          "time_start_s": 904,
+          "time_end_s": 905,
+          "event_type": "sit_hold_selfie_stick",
+          "summary_zh": "短发男子坐彩色格纹扶手椅，右手持黑色自拍杆；Walk With Me 角标",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/iA_69g87Ilw/seed_frame_2_t904.jpg"
+          ],
+          "source": "CURSOR_FRAME_VISUAL_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 3,
+      "qa_id": "QA_DRAFT_0015",
+      "video_id": "hROKtPqktO8",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "cross_scene_attribute_contrast",
+      "heuristic_grade": "HEURISTIC_HIGH_NOT_VIDEO_TESTED",
+      "heuristic_score": 0.85,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "按文件时间顺序，较早在「urban_sidewalk_autumn」可见的内容与较晚在「high_altitude_volcanic」可见的内容有何不同？（请依据两段画面，勿编造因果）",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早：城市人行道：门牌 67、红建筑、青绿色毛衣行人背影、秋叶；晚：火山熔岩与灰褐山丘空旷景观（无行人）",
+      "required_windows": [
+        [
+          503,
+          504
+        ],
+        [
+          1259,
+          1260
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "hRO_E_sidewalk_67",
+          "time_start_s": 503,
+          "time_end_s": 504,
+          "event_type": "walk_away_on_sidewalk",
+          "summary_zh": "城市人行道：门牌 67、红建筑、青绿色毛衣行人背影、秋叶",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/hROKtPqktO8/seed_frame_1_t503.jpg"
+          ],
+          "source": "CURSOR_FRAME_VISUAL_OBSERVATION"
+        },
+        {
+          "event_id": "hRO_E_lava_hills",
+          "time_start_s": 1259,
+          "time_end_s": 1260,
+          "event_type": "show_volcanic_terrain",
+          "summary_zh": "火山熔岩与灰褐山丘空旷景观（无行人）",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/hROKtPqktO8/seed_frame_2_t1259.jpg"
+          ],
+          "source": "CURSOR_FRAME_VISUAL_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 4,
+      "qa_id": "QA_DRAFT_0006",
+      "video_id": "VTCDQYYKA9o",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "reverse_name_to_early_garment",
+      "heuristic_grade": "HEURISTIC_HIGH_NOT_VIDEO_TESTED",
+      "heuristic_score": 0.8,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [],
+      "question_zh": "后来画面用姓名/成绩类字幕介绍的那位蓝黄色比赛服运动员，在较早的场边准备阶段先脱下了什么颜色的外套？",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "红色外套",
+      "required_windows": [
+        [
+          166,
+          175
+        ],
+        [
+          270,
+          275
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "VTCD_E_red_jacket_towel",
+          "time_start_s": 166,
+          "time_end_s": 175,
+          "event_type": "wipe_face_wear_jacket",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/VTCDQYYKA9o/garment_0240_0320_1fps.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        },
+        {
+          "event_id": "VTCD_E_previous_results_fan",
+          "time_start_s": 270,
+          "time_end_s": 275,
+          "event_type": "display_previous_results_overlay",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/VTCDQYYKA9o/event_stills/later_t_4_30.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 6,
+      "qa_id": "QA_DRAFT_0002",
+      "video_id": "QWXlvx1GoTY",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "same_local_actor_temporal",
+      "heuristic_grade": "HEURISTIC_MEDIUM_NOT_VIDEO_TESTED",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "no_provisional_answer"
+      ],
+      "question_zh": "较早片段中可见动作「present_slide」与较晚片段中「speak_closeup」是否由画面中同一可跟踪人物完成？（仅依据已记录事件，勿臆造身份）",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": null,
+      "required_windows": [
+        [
+          2515,
+          2520
+        ],
+        [
+          2533,
+          2538
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "QWX_E_slide_questions",
+          "time_start_s": 2515,
+          "time_end_s": 2520,
+          "event_type": "present_slide",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/QWXlvx1GoTY/uid_2463_context_frame_01.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        },
+        {
+          "event_id": "QWX_E_presenter_closeup",
+          "time_start_s": 2533,
+          "time_end_s": 2538,
+          "event_type": "speak_closeup",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/QWXlvx1GoTY/uid_2463_strict_frame_01.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 7,
+      "qa_id": "QA_DRAFT_0004",
+      "video_id": "Z86xysw5Ncc",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "heat_boundary_name_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.6,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "text_overlay_low_complexity_control"
+      ],
+      "question_zh": "较早介绍字幕中的USA运动员与后来 START LIST 中的USA运动员是同一人吗？两处姓名分别是什么？",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "不是；早先 Gay，名单 Justin Gatlin",
+      "required_windows": [
+        [
+          165,
+          190
+        ],
+        [
+          325,
+          332
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "Z86_E_intro_gay",
+          "time_start_s": 165,
+          "time_end_s": 190,
+          "event_type": "broadcast_intro_caption",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/Z86xysw5Ncc/z86_0205_0410.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        },
+        {
+          "event_id": "Z86_E_start_list_heat2",
+          "time_start_s": 325,
+          "time_end_s": 332,
+          "event_type": "display_start_list",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/Z86xysw5Ncc/board_stills/t_5_27_crop.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": true,
+        "b_solves": true,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 8,
+      "qa_id": "QA_DRAFT_0008",
+      "video_id": "T1yhBv1ytzw",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "ordered_state_transitions",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.6,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "possible_B_only_order_leak"
+      ],
+      "question_zh": "两次改变比分的事件按文件时间顺序，比分状态如何变化？请只依据两段比分覆盖层作答。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "先 0-1，后 1-1",
+      "required_windows": [
+        [
+          1870,
+          1895
+        ],
+        [
+          2328,
+          2380
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "T1yh_E_liv_lead",
+          "time_start_s": 1870,
+          "time_end_s": 1895,
+          "event_type": "score_change_observed",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/T1yhBv1ytzw/liv_live_pre_2950_3014.jpg",
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/T1yhBv1ytzw/score_state_keyframes/t_31_30.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        },
+        {
+          "event_id": "T1yh_E_bri_equalize",
+          "time_start_s": 2328,
+          "time_end_s": 2380,
+          "event_type": "score_change_observed",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/chatgpt_review_assets/T1yhBv1ytzw/bha_live_3845_3919.jpg",
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/T1yhBv1ytzw/score_state_keyframes/t_39_40.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": true,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 9,
+      "qa_id": "QA_DRAFT_0003",
+      "video_id": "QWXlvx1GoTY",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "slide_speech_av_grounding",
+      "heuristic_grade": "HEURISTIC_LOW_NOT_VIDEO_TESTED",
+      "heuristic_score": 0.45,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "audio_required_unresolved",
+        "no_provisional_answer"
+      ],
+      "question_zh": "讲者在展示基础设施/安全相关幻灯后，口头回答是否对应其中某一问题？具体内容是什么？",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": null,
+      "required_windows": [
+        [
+          2515,
+          2520
+        ],
+        [
+          2533,
+          2538
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "QWX_E_slide_questions",
+          "time_start_s": 2515,
+          "time_end_s": 2520,
+          "event_type": "present_slide",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/QWXlvx1GoTY/uid_2463_context_frame_01.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        },
+        {
+          "event_id": "QWX_E_presenter_closeup",
+          "time_start_s": 2533,
+          "time_end_s": 2538,
+          "event_type": "speak_closeup",
+          "summary_zh": "",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/construction_discovery_assets/QWXlvx1GoTY/uid_2463_strict_frame_01.jpg"
+          ],
+          "source": "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    }
+  ],
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "human_status": "PENDING_HUMAN",
+  "blind_integrity": false
+}

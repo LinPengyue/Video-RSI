@@ -1,14 +1,38 @@
-"""B4 — batch QA drafting from real recorded events/relations (not official QA concat)."""
+"""B4 — batch QA drafting from recorded events/relations (V2: attribute-conditioned)."""
 
 from __future__ import annotations
 
 import hashlib
+import re
 from typing import Any
+
+from .dedup import apply_semantic_dedup
+from .fact_binding import apply_binding_gate
 
 
 def _family(fact_ids: list[str], sig: str) -> str:
     key = "|".join(sorted(fact_ids)) + "#" + sig
     return "FAM_" + hashlib.sha256(key.encode()).hexdigest()[:10]
+
+
+def _name_from_obj(obj: str) -> str | None:
+    # Prefer last capitalized token sequence resembling a person name
+    if not obj:
+        return None
+    # Patterns: "USA Gay", "USA Justin Gatlin", "NOR Jaysuma Saidy Ndure", "CHN FAN ZHENDONG"
+    m = re.search(
+        r"(?:USA|NOR|CHN|GBR|JPN)\s+([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,3})",
+        obj,
+    )
+    if m:
+        return m.group(1).title() if m.group(1).isupper() else m.group(1)
+    m2 = re.search(r"\b(Gay|Gatlin|Ndure|Fan\s*Zhendong)\b", obj, re.I)
+    return m2.group(1) if m2 else None
+
+
+def _country_from_obj(obj: str) -> str | None:
+    m = re.search(r"\b(USA|NOR|CHN|GBR|JPN|BRI|LIV)\b", obj or "")
+    return m.group(1) if m else None
 
 
 def draft_qa(
@@ -36,13 +60,16 @@ def draft_qa(
             "witness_set": rel["minimal_witness_set"],
             "time_intervals": rel["source_intervals"],
             "single_clip_shortcut_risk": rel.get("possible_shortcut"),
-            "uncertainty": rel.get("uncertainty") or [],
+            "uncertainty": list(rel.get("uncertainty") or []),
             "funnel_level": "QA_DRAFT",
             "data_partition_status": "UNASSIGNED",
             "formal_supported": False,
-            "prompt_model_version": "rule_drafter_v1",
+            "prompt_model_version": "rule_drafter_v2_attr",
             "distractors_with_rationale": [],
             "counterfactual_probe": None,
+            "from_new_observation": any(
+                events_by_id.get(i, {}).get("is_newly_discovered_semantic") for i in rel["source_fact_ids"]
+            ),
         }
 
         rtype = rel["type"]
@@ -57,11 +84,12 @@ def draft_qa(
                     "answer_derivation": "Derived from recorded overlay state_before/after; attack origins NOT claimed",
                     "mechanism": "ordered_state_transitions",
                     "provisional_answer_zh": f"先 {a.get('state_after')}，后 {b.get('state_after')}",
+                    "development_control": True,
                 }
             )
         elif rtype == "late_name_condition_early_attribute":
-            color = (a.get("object") or "").split()[0] if a.get("verb") == "remove_outer_garment" else "红色"
-            if "red" in (a.get("object") or "") or "红" in (a.get("object") or "") or a.get("state_before") == "red_jacket":
+            color = "红色"
+            if "red" in (a.get("object") or "") or a.get("state_before") == "red_jacket":
                 color = "红色"
             drafts.append(
                 {
@@ -81,28 +109,57 @@ def draft_qa(
                 }
             )
         elif rtype == "event_boundary_identity_contrast":
-            drafts.append(
-                {
-                    **base,
-                    "question_zh": "画面早先介绍的美国短跑运动员，与后来 START LIST / ROUND 1 HEAT 2 名单中列出的美国运动员，是同一人吗？分别是谁？",
-                    "normalized_answer": "no; Gay vs Gatlin",
-                    "gold_answer": None,
-                    "answer_status": "ANSWER_PENDING",
-                    "answer_derivation": "Two overlay name reads; START LIST ≠ results",
-                    "mechanism": "heat_boundary_name_contrast",
-                    "provisional_answer_zh": "不是；早先介绍 Tyson Gay，名单为 Justin Gatlin",
-                    "development_control": True,
-                }
-            )
+            # Bind names/countries ONLY from cited event objects
+            name_a = _name_from_obj(a.get("object") or "")
+            name_b = _name_from_obj(b.get("object") or "")
+            c_a = _country_from_obj(a.get("object") or "")
+            c_b = _country_from_obj(b.get("object") or "")
+            if not name_a or not name_b:
+                drafts.append(
+                    {
+                        **base,
+                        "question_zh": "较早介绍字幕中的运动员，与后来 START LIST 中列出的运动员，是否为同一人？请写出两处可见姓名。",
+                        "normalized_answer": None,
+                        "gold_answer": None,
+                        "answer_status": "ANSWER_PENDING",
+                        "answer_derivation": "Names not parseable from cited events — leave pending",
+                        "mechanism": "heat_boundary_name_contrast",
+                        "provisional_answer_zh": None,
+                        "development_control": True,
+                    }
+                )
+            else:
+                same = name_a.lower() == name_b.lower()
+                drafts.append(
+                    {
+                        **base,
+                        "question_zh": (
+                            f"较早介绍字幕中的{(c_a or '')}运动员与后来 START LIST 中的{(c_b or '')}运动员是同一人吗？"
+                            f"两处姓名分别是什么？"
+                        ).replace("  ", " "),
+                        "normalized_answer": f"{'yes' if same else 'no'}; {name_a} vs {name_b}",
+                        "gold_answer": None,
+                        "answer_status": "ANSWER_PENDING",
+                        "answer_derivation": f"From cited objects: {a.get('object')} vs {b.get('object')}; START LIST ≠ results",
+                        "mechanism": "heat_boundary_name_contrast",
+                        "provisional_answer_zh": (
+                            f"{'是' if same else '不是'}；早先 {name_a}，名单 {name_b}"
+                        ),
+                        "development_control": True,
+                    }
+                )
         elif rtype == "same_local_actor_nonadjacent":
             drafts.append(
                 {
                     **base,
-                    "question_zh": f"同一本地轨迹 `{a['actor_local_track']}` 在较早与较晚事件中分别做了什么？（仅依据已记录事件，勿臆造）",
-                    "normalized_answer": f"{a['verb']} then {b['verb']}",
+                    "question_zh": (
+                        f"较早片段中可见动作「{a.get('verb')}」与较晚片段中「{b.get('verb')}」"
+                        f"是否由画面中同一可跟踪人物完成？（仅依据已记录事件，勿臆造身份）"
+                    ),
+                    "normalized_answer": None,
                     "gold_answer": None,
                     "answer_status": "ANSWER_PENDING",
-                    "answer_derivation": "Local track reuse; cross-cut identity not proven",
+                    "answer_derivation": "Local track reuse; cross-cut identity not proven — no internal tokens in question",
                     "mechanism": "same_local_actor_temporal",
                     "provisional_answer_zh": None,
                 }
@@ -134,11 +191,34 @@ def draft_qa(
                     "provisional_answer_zh": "UNKNOWN",
                 }
             )
+        elif rtype == "cross_scene_attribute_contrast":
+            loc_a = a.get("location") or "场景A"
+            loc_b = b.get("location") or "场景B"
+            sum_a = a.get("summary_zh") or a.get("object") or a.get("verb")
+            sum_b = b.get("summary_zh") or b.get("object") or b.get("verb")
+            drafts.append(
+                {
+                    **base,
+                    "question_zh": (
+                        f"按文件时间顺序，较早在「{loc_a}」可见的内容与较晚在「{loc_b}」可见的内容有何不同？"
+                        f"（请依据两段画面，勿编造因果）"
+                    ),
+                    "normalized_answer": f"{sum_a} || {sum_b}",
+                    "gold_answer": None,
+                    "answer_status": "ANSWER_PENDING",
+                    "answer_derivation": "Attribute contrast from new frame observations; causality not claimed",
+                    "mechanism": "cross_scene_attribute_contrast",
+                    "provisional_answer_zh": f"早：{sum_a}；晚：{sum_b}",
+                    "distractors_with_rationale": [
+                        {"text": "两段为同一地点连续镜头", "why": "locations differ in recorded events"},
+                    ],
+                }
+            )
         else:
             drafts.append(
                 {
                     **base,
-                    "question_zh": f"根据事件 {a['event_id']} 与 {b['event_id']}，二者存在何种跨时间关系？",
+                    "question_zh": "根据两段已记录事件，二者存在何种跨时间关系？（勿臆造未记录事实）",
                     "normalized_answer": None,
                     "gold_answer": None,
                     "answer_status": "ANSWER_PENDING",
@@ -147,15 +227,22 @@ def draft_qa(
                 }
             )
 
-    # Deduplicate within evidence_family: keep first per family
+    # Family-level then semantic dedup + binding gate
     seen_fam: set[str] = set()
     unique: list[dict[str, Any]] = []
     for d in drafts:
         fam = d["evidence_family"]
         if fam in seen_fam:
-            d = {**d, "duplicate_of_family": True, "retained_as_independent_sample": False}
+            d = {**d, "duplicate_of_family": True, "retained_as_independent_sample": False, "dedup_reason": "same_fact_id_family"}
         else:
             seen_fam.add(fam)
             d = {**d, "duplicate_of_family": False, "retained_as_independent_sample": True}
         unique.append(d)
+
+    unique = apply_semantic_dedup(unique)
+    unique = apply_binding_gate(unique, events_by_id)
+    # Quarantined / binding errors cannot be independent samples
+    for d in unique:
+        if d.get("generation_error") or d.get("funnel_level") == "REJECTED_OR_QUARANTINE":
+            d["retained_as_independent_sample"] = False
     return unique

@@ -97,41 +97,74 @@ def execute_selected(
     program = schema_to_program(schema, task)
     results = ex.run_program(program)
 
-    last_ok = results[-1].ok if results else False
     pred = None
     abstained = False
+    explicit_abstain = False
+    compare_states_from_tools: list[Any] = []
+    per_op_ok: dict[str, list[bool]] = {}
     for r in results:
+        per_op_ok.setdefault(r.op.value, []).append(r.ok)
         if r.op == OperationName.QUERY_PROPERTY and r.ok:
             pred = r.outputs.get("property_value")
-        if r.failure_code == "MISSING_EVIDENCE" or (r.op == OperationName.VERIFY_ANSWER and r.outputs.get("abstain")):
-            abstained = True
-        if r.outputs.get("property_value") is None and sid == SCHEMA_MISSING_ABSTAIN.schema_id and not last_ok:
+            if r.outputs.get("property_name") == "order" or "order" in str(r.outputs):
+                pass
+        if r.op == OperationName.LOCATE_EVENT and r.ok:
+            # Tool-visible located values only (not oracle world scrape)
+            val = r.outputs.get("property_value") or r.outputs.get("matched_value")
+            if val is not None:
+                compare_states_from_tools.append(val)
+            # Some locate handlers return facts list
+            for f in r.outputs.get("facts") or []:
+                if isinstance(f, dict) and f.get("property_value") is not None:
+                    compare_states_from_tools.append(f["property_value"])
+        # Explicit abstention policy: missing-evidence schema must decide ABSTAIN
+        if r.failure_code == "MISSING_EVIDENCE":
+            if sid == SCHEMA_MISSING_ABSTAIN.schema_id:
+                # calibrated: treat as abstain decision only when schema is abstain DAG
+                explicit_abstain = True
+                abstained = True
+        if r.op == OperationName.VERIFY_ANSWER and (r.outputs.get("abstain") or r.outputs.get("answer") == "ABSTAIN"):
+            explicit_abstain = True
             abstained = True
 
-    # Answer check
+    # If missing-evidence DAG ends without a property and with MISSING_EVIDENCE somewhere → explicit ABSTAIN
+    if sid == SCHEMA_MISSING_ABSTAIN.schema_id and explicit_abstain:
+        pred_out = "ABSTAIN"
+        abstained = True
+    elif sid == SCHEMA_MISSING_ABSTAIN.schema_id and pred is None and not explicit_abstain:
+        # Null output alone is NOT credited as abstain (integrity fix)
+        pred_out = None
+        abstained = False
+    else:
+        pred_out = pred
+
+    # Answer check — scorer may see gold; agent path must not scrape oracle world
     gold = task.answer
+    scorer_notes: list[str] = []
     if sid == SCHEMA_MISSING_ABSTAIN.schema_id:
-        answer_ok = abstained or pred is None or str(pred).upper() == "ABSTAIN"
-        pred_out = "ABSTAIN" if answer_ok else pred
+        answer_ok = explicit_abstain and str(pred_out).upper() == "ABSTAIN"
+        if not answer_ok:
+            scorer_notes.append("abstain_requires_explicit_missing_evidence_decision")
     elif sid == SCHEMA_COMPARE_TWO_STATES.schema_id:
-        # Executor may not fully implement order; mark execution attempted
         answer_ok = False
-        # Heuristic: if verify ran and path valid
+        # Prefer verify_answer outputs only
         for r in results:
             if r.op == OperationName.VERIFY_ANSWER and r.ok:
-                answer_ok = True
-                pred_out = r.outputs.get("answer") or pred or "order_checked"
+                pred_out = r.outputs.get("answer") or pred_out
+                answer_ok = pred_out is not None and (
+                    str(gold) in str(pred_out) or str(pred_out) in str(gold) or r.outputs.get("evidence_path_valid")
+                )
                 break
-        else:
-            pred_out = pred
-            # Fallback: inspect score states in world
-            states = [f.property_value for f in world.facts if f.property_name == "score_state"]
-            if states:
-                pred_out = "→".join(str(s) for s in states)
-                answer_ok = str(gold) in str(pred_out) or str(pred_out) in str(gold)
+        if not answer_ok and compare_states_from_tools:
+            pred_out = "→".join(str(s) for s in compare_states_from_tools)
+            answer_ok = str(gold) in str(pred_out) or str(pred_out) in str(gold)
+            scorer_notes.append("compare_from_tool_outputs_only")
+        if not answer_ok:
+            # Do NOT fall back to scanning world.facts (oracle leakage)
+            scorer_notes.append("no_oracle_world_fallback")
+            pred_out = pred_out
     else:
-        answer_ok = pred == gold
-        pred_out = pred
+        answer_ok = pred_out == gold
 
     trace = []
     for i, (step, r) in enumerate(zip(program, results)):
@@ -161,11 +194,15 @@ def execute_selected(
         "gold_answer": gold,
         "execution_answer_ok": bool(answer_ok),
         "abstained": abstained,
+        "explicit_abstain": explicit_abstain,
+        "per_op_success": {k: sum(v) / max(1, len(v)) for k, v in per_op_ok.items()},
+        "scorer_notes": scorer_notes,
         "tool_calls": len(ex.memory.tool_calls),
         "budget_remaining": ex.budget,
         "bound_entity": getattr(ex.memory.bound_entity, "entity_id", None) if ex.memory.bound_entity else None,
         "steps_ok": [t["ok"] for t in trace],
         "ok_for_expensive_rsi": False,
+        "oracle_world_scraped": False,
     }
 
 
@@ -265,6 +302,8 @@ def run_execution_suite(*, seed: int = 42) -> dict[str, Any]:
             "execution_answer_accuracy": sum(1 for r in rows if r["execution_answer_ok"]) / n,
             "both_select_and_execute": sum(1 for r in rows if r["selection_correct"] and r["execution_answer_ok"]) / n,
             "abstention_rate": sum(1 for r in rows if r["abstained"]) / n,
+            "explicit_abstain_rate": sum(1 for r in rows if r.get("explicit_abstain")) / n,
+            "oracle_world_scraped_rate": sum(1 for r in rows if r.get("oracle_world_scraped")) / n,
             "mean_tool_calls": sum(r["tool_calls"] for r in rows) / n,
             "held_out_exec_acc": (
                 sum(1 for r in rows if r["gold_schema_id"] in held_ids and r["execution_answer_ok"])
@@ -317,12 +356,46 @@ def run_execution_suite(*, seed: int = 42) -> dict[str, Any]:
     }
 
 
+def write_scoring_integrity_report(out_dir: Path, result: dict[str, Any]) -> None:
+    sel = result["selected_policy_summary"]
+    gold = result["gold_dag_upper_summary"]
+    md = f"""# Track A — Execution Scoring Integrity
+
+Date: 2026-10-31 · `ok_for_expensive_rsi=false` · sealed untouched
+
+## Integrity fixes applied
+
+1. **ABSTAIN credit** requires an *explicit* missing-evidence decision (`explicit_abstain=true`), not mere `pred is None`.
+2. **Compare path** may use tool-visible locate/query outputs only; **forbidden** to scrape `world.facts` in the agent/scorer fallback (`oracle_world_scraped=false` on all rows).
+3. Per-operation success rates recorded in each trace under `per_op_success`.
+4. Selection weight search remains label-based on train — **not** claimed as trace-optimized TECE; frozen 4-task binding negative control untuned.
+
+## Current numbers (after integrity fix)
+
+| | choice_acc | exec_acc | abstain | explicit_abstain | oracle_scrape |
+|--|------------|----------|---------|------------------|---------------|
+| selected policy | {sel['program_choice_accuracy']:.3f} | {sel['execution_answer_accuracy']:.3f} | {sel['abstention_rate']:.3f} | {sel.get('explicit_abstain_rate', 0):.3f} | {sel.get('oracle_world_scraped_rate', 0):.3f} |
+| gold DAG upper | {gold['program_choice_accuracy']:.3f} | {gold['execution_answer_accuracy']:.3f} | {gold['abstention_rate']:.3f} | {gold.get('explicit_abstain_rate', 0):.3f} | {gold.get('oracle_world_scraped_rate', 0):.3f} |
+
+Semantic-control exec_ok_rate={result['semantic_controls_exec_ok_rate']:.3f} (masks/swaps/paraphrase).
+
+## Non-claims
+
+- No real-video generalization.
+- No expensive RSI.
+- Low exec_acc after removing oracle leakage / soft abstain is an **accepted negative** on this tiny harness, not a method failure to paper over.
+"""
+    (out_dir / "TRACK_A_EXECUTION_SCORING_INTEGRITY.md").write_text(md, encoding="utf-8")
+
+
 def write_execution_report(out_dir: Path) -> dict[str, Any]:
     out_dir.mkdir(parents=True, exist_ok=True)
     result = run_execution_suite()
+    result["experiment_label"] = "execution_scoring_integrity_v2"
     (out_dir / "execution_over_selection.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
     )
+    write_scoring_integrity_report(out_dir, result)
     sel = result["selected_policy_summary"]
     gold = result["gold_dag_upper_summary"]
     arms = result["budget_matched_arms"]

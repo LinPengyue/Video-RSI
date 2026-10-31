@@ -1,0 +1,14 @@
+{
+  "packet_id": "run_002_human_batch_01",
+  "run_id": "run_002",
+  "n_reviewable": 8,
+  "variants": {
+    "B_ONLY_BLIND": 8,
+    "A_ONLY_BLIND": 8,
+    "A_PLUS_B_ADJUDICATION": 8
+  },
+  "blind_keys_path": "research_audit/lvbench_compositional/track_b/batch_factory/run_002/human_review_packets/blind_keys/answers_key.json",
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "note": "Do not use run_001 packets; those leaked A/B metadata"
+}

@@ -10,9 +10,11 @@ from typing import Any
 
 from . import EXTRACTOR_VERSION, __version__
 from .auto_screen import prioritize_for_human, screen_batch
+from .dedup import n_distinct_questions
 from .extract_events import extract_for_video
 from .human_packets import build_packet
 from .inventory import build_inventory
+from .provenance import annotate_event, count_by_provenance
 from .qa_draft import draft_qa
 from .relations import mine_relations
 
@@ -54,16 +56,20 @@ def run_factory(
     for inv in inventory:
         vid = inv["video_id"]
         status_path = output / "extract_status" / f"{vid}.json"
-        if resume and status_path.exists():
+        per = output / "per_video"
+        per.mkdir(parents=True, exist_ok=True)
+        ev_path = per / f"{vid}_events.jsonl"
+        evi_path = per / f"{vid}_evidence.jsonl"
+        if resume and status_path.exists() and ev_path.exists() and evi_path.exists():
             st = json.loads(status_path.read_text())
             extract_status.append(st)
-            # reload events if present
-            eg = output / "per_video" / f"{vid}_events.jsonl"
-            if eg.exists():
-                evs = [json.loads(l) for l in eg.read_text().splitlines() if l.strip()]
-                events_by_video[vid] = evs
-                events_all.extend(evs)
+            evs = [annotate_event(json.loads(l)) for l in ev_path.read_text().splitlines() if l.strip()]
+            evi = [json.loads(l) for l in evi_path.read_text().splitlines() if l.strip()]
+            events_by_video[vid] = evs
+            events_all.extend(evs)
+            evidence_all.extend(evi)
             continue
+        decode_t0 = time.time()
         try:
             result = extract_for_video(inv, output)
         except Exception as e:  # never block batch
@@ -75,6 +81,13 @@ def run_factory(
                 "flags": [f"exception:{type(e).__name__}:{e}"],
                 "n_events": 0,
             }
+        decode_s = round(time.time() - decode_t0, 3)
+        cached_reuse = sum(
+            1
+            for e in (result.get("evidence") or [])
+            if e.get("kind") == "coarse_scan_frame"
+            and Path(str(e.get("path") or "")).exists()
+        )
         extract_status.append(
             {
                 "video_id": vid,
@@ -82,18 +95,23 @@ def run_factory(
                 "flags": result.get("flags") or [],
                 "n_events": result.get("n_events", len(result.get("events") or [])),
                 "n_curated": result.get("n_curated", 0),
+                "n_new_semantic": result.get("n_new_semantic", 0),
                 "n_coarse": result.get("n_coarse", 0),
+                "semantic_extractor_status": result.get("semantic_extractor_status"),
+                "decode_or_extract_s": decode_s,
+                "n_evidence": len(result.get("evidence") or []),
+                "cached_frame_paths_present": cached_reuse,
             }
         )
         status_path.parent.mkdir(parents=True, exist_ok=True)
         _write_json(status_path, extract_status[-1])
-        evs = result.get("events") or []
+        evs = [annotate_event(e) for e in (result.get("events") or [])]
+        evi = result.get("evidence") or []
         events_by_video[vid] = evs
         events_all.extend(evs)
-        evidence_all.extend(result.get("evidence") or [])
-        per = output / "per_video"
-        per.mkdir(parents=True, exist_ok=True)
-        _write_jsonl(per / f"{vid}_events.jsonl", evs)
+        evidence_all.extend(evi)
+        _write_jsonl(ev_path, evs)
+        _write_jsonl(evi_path, evi)
 
     _write_jsonl(output / "event_graphs.jsonl", events_all)
     _write_jsonl(output / "evidence_index.jsonl", evidence_all)
@@ -126,7 +144,7 @@ def run_factory(
     prioritized = prioritize_for_human(screened, drafts_by_id, k=human_k)
     _write_jsonl(output / "review_queue_priority.jsonl", prioritized)
 
-    # B6 human packets
+    # B6 true-blind human packets (V2 — no A/B leakage in blind variants)
     packet_dir = output / "human_review_packets"
     packet = build_packet(
         run_id=run_id,
@@ -136,60 +154,34 @@ def run_factory(
         events_by_id=events_by_id,
         out_dir=packet_dir,
     )
-    # Blind variants (same items; answer redacted in B/A only views)
-    for variant in ("B_ONLY_BLIND", "A_ONLY_BLIND", "A_PLUS_B_ADJUDICATION"):
-        vdir = packet_dir / variant
-        vdir.mkdir(parents=True, exist_ok=True)
-        items = []
-        for it in packet["items"]:
-            copy = dict(it)
-            if variant != "A_PLUS_B_ADJUDICATION":
-                copy["provisional_answer_zh"] = "[REDACTED_FOR_BLIND]"
-                copy["answer_status"] = "HIDDEN"
-            copy["blind_variant"] = variant
-            # Restrict windows hint: B_ONLY shows later windows, A_ONLY earlier
-            wins = it.get("required_windows") or []
-            if variant == "B_ONLY_BLIND" and len(wins) >= 2:
-                copy["visible_windows"] = [wins[-1]]
-            elif variant == "A_ONLY_BLIND" and len(wins) >= 1:
-                copy["visible_windows"] = [wins[0]]
-            else:
-                copy["visible_windows"] = wins
-            items.append(copy)
-        _write_json(
-            vdir / "packet.json",
-            {
-                "packet_id": f"{run_id}_{variant}",
-                "variant": variant,
-                "n_items": len(items),
-                "items": items,
-                "data_partition_status": "UNASSIGNED",
-                "formal_supported": False,
-                "human_status": "PENDING_HUMAN",
-            },
-        )
 
-    # B7 metrics
+    # B7 metrics (honest provenance split)
+    prov = count_by_provenance(events_all)
     grade_counts = Counter(s["grade"] for s in screened)
     mech_counts = Counter(d.get("mechanism") for d in drafts if d.get("retained_as_independent_sample"))
     fam_indep = sum(1 for d in drafts if d.get("retained_as_independent_sample"))
     fam_dup = sum(1 for d in drafts if d.get("duplicate_of_family"))
+    n_distinct_q = n_distinct_questions(drafts)
+    n_answer_known = sum(1 for d in drafts if d.get("provisional_answer_zh") and d["provisional_answer_zh"] != "UNKNOWN")
+    n_new_rel_families = sum(
+        1 for d in drafts if d.get("from_new_observation") and d.get("retained_as_independent_sample")
+    )
+    n_quarantine = sum(1 for d in drafts if d.get("generation_error") or d.get("funnel_level") == "REJECTED_OR_QUARANTINE")
     videos_ok = sum(1 for s in extract_status if s["status"] in {"OK", "PARTIAL"})
     videos_skip = sum(1 for s in extract_status if s["status"] == "MEDIA_UNAVAILABLE")
     videos_fail = sum(1 for s in extract_status if s["status"] == "EXTRACTION_FAILED")
     genre = Counter(i.get("genre_guess") for i in inventory)
-    curated_events = sum(1 for e in events_all if not str(e["event_id"]).endswith(tuple(f"_coarse_vis_{i}" for i in range(20))) and e.get("verb") != "visual_sample" and e.get("verb") != "seed_frame_present")
-    semantic_events = sum(
-        1
-        for e in events_all
-        if e.get("verb") not in {"visual_sample", "seed_frame_present"}
-    )
+    semantic_events = sum(1 for e in events_all if e.get("verb") not in {"visual_sample", "seed_frame_present"})
+    decode_sum = sum(float(s.get("decode_or_extract_s") or 0) for s in extract_status)
+    n_human = int(packet.get("n_reviewable") or packet.get("n_items") or 0)
 
     metrics = {
         "run_id": run_id,
         "factory_version": __version__,
         "extractor_version": EXTRACTOR_VERSION,
         "elapsed_s": round(time.time() - t0, 2),
+        "new_video_decoding_time_s": round(decode_sum, 3),
+        "cached_frame_reuse_note": "coarse frames skipped when file already present in extract_events._extract_frame",
         "videos_processed": videos_ok,
         "videos_skipped_media": videos_skip,
         "videos_extraction_failed": videos_fail,
@@ -197,22 +189,39 @@ def run_factory(
         "genre_distribution": dict(genre),
         "n_events_total": len(events_all),
         "n_events_semantic": semantic_events,
+        "n_total_coarse_frames": prov["n_total_coarse_frames"],
+        "n_curated_semantic_events": prov["n_curated_semantic_events"],
+        "n_new_machine_semantic_events": prov["n_new_machine_or_agent_semantic_events"],
+        "human_curated_events_loaded": prov["n_curated_semantic_events"],
+        "model_inferred_events": 0,
+        "provenance_by_tier": prov["by_tier"],
         "n_evidence_index": len(evidence_all),
         "n_relations": len(relations),
         "n_qa_drafts": len(drafts),
+        "n_distinct_questions": n_distinct_q,
+        "n_answer_known": n_answer_known,
         "n_independent_evidence_families": fam_indep,
+        "n_new_relation_families": n_new_rel_families,
         "n_family_duplicates_flagged": fam_dup,
+        "n_quarantine_binding_errors": n_quarantine,
         "duplicate_rate": round(fam_dup / max(1, len(drafts)), 3),
         "auto_grade_counts": dict(grade_counts),
         "mechanism_coverage_independent": dict(mech_counts),
-        "n_human_packet_items": packet["n_items"],
+        "n_human_reviewable": n_human,
+        "n_human_packet_items": n_human,
+        "n_video_verified": 0,
         "human_packet_status": "PENDING_HUMAN",
-        "candidate_yield_per_video": round(fam_indep / max(1, videos_ok), 3),
-        "auto_high_rate": round(grade_counts.get("AUTO_HIGH", 0) / max(1, len(screened)), 3),
+        "candidate_yield_per_video_independent": round(fam_indep / max(1, videos_ok), 3),
+        "new_candidate_yield_per_video": round(n_new_rel_families / max(1, videos_ok), 3),
+        "cost_per_new_candidate_s": round(decode_sum / max(1, n_new_rel_families), 3),
+        "heuristic_high_rate_not_video_tested": round(
+            grade_counts.get("HEURISTIC_HIGH_NOT_VIDEO_TESTED", 0) / max(1, len(screened)), 3
+        ),
         "data_partition_status": "UNASSIGNED",
         "formal_supported": False,
         "ok_for_expensive_rsi": False,
         "sealed_accessed": False,
+        "no_paid_vlm": True,
     }
     _write_json(output / "pipeline_metrics.json", metrics)
 
@@ -223,7 +232,7 @@ def run_factory(
         "metrics": metrics,
         "output": str(output),
         "packet_id": packet["packet_id"],
-        "n_human_items": packet["n_items"],
+        "n_human_items": n_human,
     }
 
 
@@ -247,24 +256,27 @@ def _render_report(
         f"- EXTRACTION_FAILED: {metrics['videos_extraction_failed']}",
         f"- Genre: `{metrics['genre_distribution']}`",
         "",
-        "## Funnel (not SUPPORTED)",
-        f"- Events total / semantic: {metrics['n_events_total']} / {metrics['n_events_semantic']}",
+        "## Funnel (not SUPPORTED) — honest provenance",
+        f"- Coarse frames: {metrics.get('n_total_coarse_frames')}",
+        f"- Curated semantic (fixtures): {metrics.get('n_curated_semantic_events')}",
+        f"- **New** agent/machine semantic: {metrics.get('n_new_machine_semantic_events')}",
         f"- Relations: {metrics['n_relations']}",
-        f"- QA drafts: {metrics['n_qa_drafts']} (independent families {metrics['n_independent_evidence_families']}, dup-flagged {metrics['n_family_duplicates_flagged']}, dup rate {metrics['duplicate_rate']})",
-        f"- Auto grades: `{metrics['auto_grade_counts']}`",
+        f"- QA drafts: {metrics['n_qa_drafts']} | distinct Q: {metrics.get('n_distinct_questions')} | independent families: {metrics['n_independent_evidence_families']} | dup: {metrics['n_family_duplicates_flagged']} | quarantine: {metrics.get('n_quarantine_binding_errors')}",
+        f"- New relation families (from new obs): {metrics.get('n_new_relation_families')}",
+        f"- Grades (heuristic, not video-tested): `{metrics['auto_grade_counts']}`",
         f"- Mechanism coverage (independent): `{metrics['mechanism_coverage_independent']}`",
-        f"- Candidate yield / processed video: {metrics['candidate_yield_per_video']}",
-        f"- AUTO_HIGH rate: {metrics['auto_high_rate']}",
+        f"- New-candidate yield / video: {metrics.get('new_candidate_yield_per_video')}",
+        f"- cost_per_new_candidate_s: {metrics.get('cost_per_new_candidate_s')}",
         "",
-        "## Human review packet",
-        f"- Items prepared: {metrics['n_human_packet_items']} (status `{metrics['human_packet_status']}`)",
-        f"- Priority queue does not block further production batches.",
+        "## Human review packet (true-blind)",
+        f"- Reviewable items: {metrics.get('n_human_reviewable')} (status `{metrics['human_packet_status']}`)",
+        f"- Do not pad with duplicates/UNKNOWN; production continues without waiting for human.",
         "",
         "### Priority sample",
     ]
     for p in prioritized[:12]:
         lines.append(
-            f"- [{p['priority']}] `{p['qa_id']}` {p['video_id']} `{p['mechanism']}` grade={p['grade']} score={p['score']} — {p['reason']}"
+            f"- [{p['priority']}] `{p['qa_id']}` {p['video_id']} `{p['mechanism']}` grade={p['grade']} score={p['score']} new={p.get('from_new_observation')} — {p['reason']}"
         )
     lines.extend(
         [

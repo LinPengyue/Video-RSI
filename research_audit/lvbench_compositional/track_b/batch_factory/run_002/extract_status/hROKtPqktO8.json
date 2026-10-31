@@ -1,0 +1,13 @@
+{
+  "video_id": "hROKtPqktO8",
+  "status": "OK",
+  "flags": [],
+  "n_events": 14,
+  "n_curated": 0,
+  "n_new_semantic": 3,
+  "n_coarse": 11,
+  "semantic_extractor_status": "CURSOR_FRAME_OBSERVATIONS_PRESENT",
+  "decode_or_extract_s": 0.563,
+  "n_evidence": 14,
+  "cached_frame_paths_present": 11
+}

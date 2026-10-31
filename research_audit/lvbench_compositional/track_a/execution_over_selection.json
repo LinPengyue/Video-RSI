@@ -1,5 +1,5 @@
 {
-  "experiment_label": "execution_over_selection_v1",
+  "experiment_label": "execution_scoring_integrity_v2",
   "ok_for_expensive_rsi": false,
   "sealed_accessed": false,
   "n_test_questions": 6,
@@ -37,7 +37,9 @@
     "program_choice_accuracy": 0.8333333333333334,
     "execution_answer_accuracy": 0.3333333333333333,
     "both_select_and_execute": 0.3333333333333333,
-    "abstention_rate": 1.0,
+    "abstention_rate": 0.3333333333333333,
+    "explicit_abstain_rate": 0.3333333333333333,
+    "oracle_world_scraped_rate": 0.0,
     "mean_tool_calls": 4.666666666666667,
     "held_out_exec_acc": 0.5
   },
@@ -46,7 +48,9 @@
     "program_choice_accuracy": 1.0,
     "execution_answer_accuracy": 0.3333333333333333,
     "both_select_and_execute": 0.3333333333333333,
-    "abstention_rate": 1.0,
+    "abstention_rate": 0.3333333333333333,
+    "explicit_abstain_rate": 0.3333333333333333,
+    "oracle_world_scraped_rate": 0.0,
     "mean_tool_calls": 4.666666666666667,
     "held_out_exec_acc": 0.5
   },
@@ -56,7 +60,9 @@
       "program_choice_accuracy": 0.8333333333333334,
       "execution_answer_accuracy": 0.3333333333333333,
       "both_select_and_execute": 0.3333333333333333,
-      "abstention_rate": 1.0,
+      "abstention_rate": 0.3333333333333333,
+      "explicit_abstain_rate": 0.3333333333333333,
+      "oracle_world_scraped_rate": 0.0,
       "mean_tool_calls": 4.5,
       "held_out_exec_acc": 0.5
     },
@@ -65,7 +71,9 @@
       "program_choice_accuracy": 0.3333333333333333,
       "execution_answer_accuracy": 0.3333333333333333,
       "both_select_and_execute": 0.16666666666666666,
-      "abstention_rate": 1.0,
+      "abstention_rate": 0.5,
+      "explicit_abstain_rate": 0.5,
+      "oracle_world_scraped_rate": 0.0,
       "mean_tool_calls": 4.166666666666667,
       "held_out_exec_acc": 0.5
     },
@@ -74,7 +82,9 @@
       "program_choice_accuracy": 0.8333333333333334,
       "execution_answer_accuracy": 0.3333333333333333,
       "both_select_and_execute": 0.3333333333333333,
-      "abstention_rate": 1.0,
+      "abstention_rate": 0.3333333333333333,
+      "explicit_abstain_rate": 0.3333333333333333,
+      "oracle_world_scraped_rate": 0.0,
       "mean_tool_calls": 4.333333333333333,
       "held_out_exec_acc": 0.5
     },
@@ -83,7 +93,9 @@
       "program_choice_accuracy": 1.0,
       "execution_answer_accuracy": 0.3333333333333333,
       "both_select_and_execute": 0.3333333333333333,
-      "abstention_rate": 1.0,
+      "abstention_rate": 0.3333333333333333,
+      "explicit_abstain_rate": 0.3333333333333333,
+      "oracle_world_scraped_rate": 0.0,
       "mean_tool_calls": 4.166666666666667,
       "held_out_exec_acc": 0.5
     }
@@ -173,10 +185,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0→0-1→1-1",
+      "pred": null,
       "gold_answer": "first_0-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -187,7 +209,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_1_compare_",
@@ -256,10 +279,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0→0-1→1-1",
+      "pred": null,
       "gold_answer": "0-1_then_1-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -270,7 +303,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_2_missing_",
@@ -328,6 +362,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -336,7 +377,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_3_missing_",
@@ -394,6 +436,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -402,7 +451,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_4_reverse_",
@@ -473,7 +523,16 @@
       "pred": null,
       "gold_answer": "red",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 1.0,
+        "track_identity": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": "entity_x",
@@ -484,7 +543,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_5_forward_",
@@ -551,7 +611,16 @@
       "pred": null,
       "gold_answer": "drops_ball",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 0.0,
+        "resolve_reference": 1.0,
+        "track_identity": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": "entity_x",
@@ -562,7 +631,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     }
   ],
   "rows_gold_dag": [
@@ -633,10 +703,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0→0-1→1-1",
+      "pred": null,
       "gold_answer": "first_0-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -647,7 +727,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_1_compare_",
@@ -716,10 +797,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0→0-1→1-1",
+      "pred": null,
       "gold_answer": "0-1_then_1-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -730,7 +821,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_2_missing_",
@@ -788,6 +880,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -796,7 +895,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_3_missing_",
@@ -854,6 +954,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -862,7 +969,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_4_reverse_",
@@ -933,7 +1041,16 @@
       "pred": null,
       "gold_answer": "red",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 1.0,
+        "track_identity": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": "entity_x",
@@ -944,7 +1061,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     },
     {
       "task_id": "test_5_forward_",
@@ -1003,7 +1121,15 @@
       "pred": null,
       "gold_answer": "drops_ball",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "track_identity": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": "entity_x",
@@ -1013,7 +1139,8 @@
         false,
         false
       ],
-      "ok_for_expensive_rsi": false
+      "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false
     }
   ],
   "semantic_controls": [
@@ -1080,10 +1207,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-1→1-1",
+      "pred": null,
       "gold_answer": "first_0-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 0.5,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1095,6 +1232,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "drop_A"
     },
     {
@@ -1160,10 +1298,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0",
+      "pred": null,
       "gold_answer": "first_0-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 0.5,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1175,6 +1323,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "drop_B"
     },
     {
@@ -1244,10 +1393,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0→0-1→1-1",
+      "pred": null,
       "gold_answer": "first_0-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1259,6 +1418,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "swap_roles"
     },
     {
@@ -1328,10 +1488,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "1-1→0-1→0-0→0-0",
+      "pred": null,
       "gold_answer": "first_0-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1343,6 +1513,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "swap_order"
     },
     {
@@ -1412,10 +1583,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0→0-1→1-1",
+      "pred": null,
       "gold_answer": "first_0-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1427,6 +1608,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "paraphrase"
     },
     {
@@ -1486,7 +1668,15 @@
       "pred": null,
       "gold_answer": "first_0-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "resolve_reference": 0.0,
+        "track_identity": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": "entity_x",
@@ -1497,6 +1687,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "force_forward_dag"
     },
     {
@@ -1562,10 +1753,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-1→1-1",
+      "pred": null,
       "gold_answer": "0-1_then_1-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 0.5,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1577,6 +1778,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "drop_A"
     },
     {
@@ -1642,10 +1844,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0",
+      "pred": null,
       "gold_answer": "0-1_then_1-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 0.5,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1657,6 +1869,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "drop_B"
     },
     {
@@ -1726,10 +1939,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0→0-1→1-1",
+      "pred": null,
       "gold_answer": "0-1_then_1-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1741,6 +1964,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "swap_roles"
     },
     {
@@ -1810,10 +2034,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "1-1→0-1→0-0→0-0",
+      "pred": null,
       "gold_answer": "0-1_then_1-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1825,6 +2059,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "swap_order"
     },
     {
@@ -1894,10 +2129,20 @@
           "budget_spent": 0
         }
       ],
-      "pred": "0-0→0-0→0-1→1-1",
+      "pred": null,
       "gold_answer": "0-1_then_1-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "locate_event": 1.0,
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [
+        "no_oracle_world_fallback"
+      ],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -1909,6 +2154,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "paraphrase"
     },
     {
@@ -1968,7 +2214,15 @@
       "pred": null,
       "gold_answer": "0-1_then_1-1",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "resolve_reference": 0.0,
+        "track_identity": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": "entity_x",
@@ -1979,6 +2233,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "force_forward_dag"
     },
     {
@@ -2037,6 +2292,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -2046,6 +2308,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "drop_A"
     },
     {
@@ -2104,6 +2367,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -2113,6 +2383,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "drop_B"
     },
     {
@@ -2171,6 +2442,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -2180,6 +2458,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "swap_roles"
     },
     {
@@ -2238,6 +2517,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -2247,6 +2533,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "swap_order"
     },
     {
@@ -2305,6 +2592,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -2314,6 +2608,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "paraphrase"
     },
     {
@@ -2373,7 +2668,15 @@
       "pred": null,
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "track_identity": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": "entity_x",
@@ -2384,6 +2687,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "force_forward_dag"
     },
     {
@@ -2442,6 +2746,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": null,
@@ -2451,6 +2762,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "drop_A"
     },
     {
@@ -2509,6 +2821,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -2518,6 +2837,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "drop_B"
     },
     {
@@ -2576,6 +2896,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -2585,6 +2912,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "swap_roles"
     },
     {
@@ -2643,6 +2971,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -2652,6 +2987,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "swap_order"
     },
     {
@@ -2710,6 +3046,13 @@
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": true,
       "abstained": true,
+      "explicit_abstain": true,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 4,
       "budget_remaining": 1,
       "bound_entity": "entity_x",
@@ -2719,6 +3062,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "paraphrase"
     },
     {
@@ -2778,7 +3122,15 @@
       "pred": null,
       "gold_answer": "ABSTAIN",
       "execution_answer_ok": false,
-      "abstained": true,
+      "abstained": false,
+      "explicit_abstain": false,
+      "per_op_success": {
+        "resolve_reference": 1.0,
+        "track_identity": 0.0,
+        "query_property": 0.0,
+        "verify_answer": 0.0
+      },
+      "scorer_notes": [],
       "tool_calls": 5,
       "budget_remaining": 0,
       "bound_entity": "entity_x",
@@ -2789,6 +3141,7 @@
         false
       ],
       "ok_for_expensive_rsi": false,
+      "oracle_world_scraped": false,
       "control": "force_forward_dag"
     }
   ],
