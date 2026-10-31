@@ -1,5 +1,5 @@
 {
-  "experiment_label": "execution_scoring_integrity_v2",
+  "experiment_label": "execution_over_selection_v1",
   "ok_for_expensive_rsi": false,
   "sealed_accessed": false,
   "n_test_questions": 6,
@@ -40,6 +40,7 @@
     "abstention_rate": 0.3333333333333333,
     "explicit_abstain_rate": 0.3333333333333333,
     "oracle_world_scraped_rate": 0.0,
+    "executor_saw_gold_answer_rate": 0.0,
     "mean_tool_calls": 4.666666666666667,
     "held_out_exec_acc": 0.5
   },
@@ -51,6 +52,7 @@
     "abstention_rate": 0.3333333333333333,
     "explicit_abstain_rate": 0.3333333333333333,
     "oracle_world_scraped_rate": 0.0,
+    "executor_saw_gold_answer_rate": 0.0,
     "mean_tool_calls": 4.666666666666667,
     "held_out_exec_acc": 0.5
   },
@@ -63,6 +65,7 @@
       "abstention_rate": 0.3333333333333333,
       "explicit_abstain_rate": 0.3333333333333333,
       "oracle_world_scraped_rate": 0.0,
+      "executor_saw_gold_answer_rate": 0.0,
       "mean_tool_calls": 4.5,
       "held_out_exec_acc": 0.5
     },
@@ -71,9 +74,10 @@
       "program_choice_accuracy": 0.3333333333333333,
       "execution_answer_accuracy": 0.16666666666666666,
       "both_select_and_execute": 0.16666666666666666,
-      "abstention_rate": 0.5,
-      "explicit_abstain_rate": 0.5,
+      "abstention_rate": 0.3333333333333333,
+      "explicit_abstain_rate": 0.3333333333333333,
       "oracle_world_scraped_rate": 0.0,
+      "executor_saw_gold_answer_rate": 0.0,
       "mean_tool_calls": 4.166666666666667,
       "held_out_exec_acc": 0.25
     },
@@ -85,6 +89,7 @@
       "abstention_rate": 0.3333333333333333,
       "explicit_abstain_rate": 0.3333333333333333,
       "oracle_world_scraped_rate": 0.0,
+      "executor_saw_gold_answer_rate": 0.0,
       "mean_tool_calls": 4.333333333333333,
       "held_out_exec_acc": 0.5
     },
@@ -96,6 +101,7 @@
       "abstention_rate": 0.3333333333333333,
       "explicit_abstain_rate": 0.3333333333333333,
       "oracle_world_scraped_rate": 0.0,
+      "executor_saw_gold_answer_rate": 0.0,
       "mean_tool_calls": 4.166666666666667,
       "held_out_exec_acc": 0.5
     }
@@ -212,7 +218,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_1_compare_",
@@ -308,7 +316,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_2_missing_",
@@ -348,17 +358,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -384,7 +385,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_3_missing_",
@@ -424,17 +427,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -460,7 +454,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_4_reverse_",
@@ -554,7 +550,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_5_forward_",
@@ -644,7 +642,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     }
   ],
   "rows_gold_dag": [
@@ -742,7 +742,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_1_compare_",
@@ -838,7 +840,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_2_missing_",
@@ -878,17 +882,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -914,7 +909,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_3_missing_",
@@ -954,17 +951,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -990,7 +978,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_4_reverse_",
@@ -1084,7 +1074,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     },
     {
       "task_id": "test_5_forward_",
@@ -1164,7 +1156,9 @@
       "ok_for_expensive_rsi": false,
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
-      "executor_saw_gold_answer": false
+      "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate"
     }
   ],
   "semantic_controls": [
@@ -1259,6 +1253,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "drop_A"
     },
     {
@@ -1352,6 +1348,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "drop_B"
     },
     {
@@ -1449,6 +1447,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "swap_roles"
     },
     {
@@ -1546,6 +1546,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "swap_order"
     },
     {
@@ -1643,6 +1645,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "paraphrase"
     },
     {
@@ -1724,6 +1728,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "force_forward_dag"
     },
     {
@@ -1817,6 +1823,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "drop_A"
     },
     {
@@ -1910,6 +1918,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "drop_B"
     },
     {
@@ -2007,6 +2017,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "swap_roles"
     },
     {
@@ -2104,6 +2116,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "swap_order"
     },
     {
@@ -2201,6 +2215,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "paraphrase"
     },
     {
@@ -2282,6 +2298,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "force_forward_dag"
     },
     {
@@ -2322,17 +2340,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_MISSING_A",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -2359,6 +2368,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "drop_A"
     },
     {
@@ -2399,17 +2410,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_MISSING_B",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -2436,6 +2438,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "drop_B"
     },
     {
@@ -2476,17 +2480,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -2513,6 +2508,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "swap_roles"
     },
     {
@@ -2553,17 +2550,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -2590,6 +2578,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "swap_order"
     },
     {
@@ -2630,17 +2620,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -2667,6 +2648,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "paraphrase"
     },
     {
@@ -2748,6 +2731,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "force_forward_dag"
     },
     {
@@ -2788,17 +2773,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_MISSING_A",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -2825,6 +2801,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "drop_A"
     },
     {
@@ -2865,17 +2843,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_MISSING_B",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -2902,6 +2871,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "drop_B"
     },
     {
@@ -2942,17 +2913,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -2979,6 +2941,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "swap_roles"
     },
     {
@@ -3019,17 +2983,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -3056,6 +3011,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "swap_order"
     },
     {
@@ -3096,17 +3053,8 @@
           "node_id": "abstain_or_verify",
           "op": "verify_answer",
           "ok": false,
-          "failure_code": "DENIED_ANSWER_UNSUPPORTED",
-          "outputs_keys": [
-            "answer",
-            "composition_credit",
-            "bound_entity",
-            "reasons",
-            "strong_composition",
-            "evidence_path_valid",
-            "composition_necessary_hint",
-            "oracle_support_used"
-          ],
+          "failure_code": "EMPTY_ANSWER",
+          "outputs_keys": [],
           "budget_spent": 1
         }
       ],
@@ -3133,6 +3081,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "paraphrase"
     },
     {
@@ -3214,6 +3164,8 @@
       "oracle_world_scraped": false,
       "scorer_sees_gold": true,
       "executor_saw_gold_answer": false,
+      "verify_answer_source": "agent_prediction_runtime",
+      "historical_note": "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; not a leakage-free method estimate",
       "control": "force_forward_dag"
     }
   ],

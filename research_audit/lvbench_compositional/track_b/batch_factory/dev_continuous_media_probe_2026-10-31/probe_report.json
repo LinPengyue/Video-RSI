@@ -1,0 +1,158 @@
+{
+  "probe_id": "dev_continuous_media_probe_2026-10-31",
+  "utc": "2026-10-31T06:01:03.023715+00:00",
+  "cap": {
+    "max_clips": 4,
+    "max_frames_per_clip": 3,
+    "purpose": "verify local continuous DEV media playable; not new VLM discovery"
+  },
+  "clips": [
+    {
+      "video_id": "VTCDQYYKA9o",
+      "path": "research_audit/lvbench_compositional/track_b/local_media/VTCDQYYKA9o_garment/tt_garment_0243_0306.mp4",
+      "role": "A_window_garment",
+      "note": "existing DEV continuous clip",
+      "exists": true,
+      "bytes": 3819209,
+      "duration_s": 23.0,
+      "playable_ffprobe": true,
+      "contact_frames": [
+        {
+          "t_s": 4.6,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/VTCDQYYKA9o_A_window_garment_f0_t4.6.jpg",
+          "ok": true
+        },
+        {
+          "t_s": 11.5,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/VTCDQYYKA9o_A_window_garment_f1_t11.5.jpg",
+          "ok": true
+        },
+        {
+          "t_s": 18.4,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/VTCDQYYKA9o_A_window_garment_f2_t18.4.jpg",
+          "ok": true
+        }
+      ],
+      "status": "OK_CONTINUOUS_LOCAL",
+      "gitignored_mp4": true,
+      "new_semantic_events_from_this_probe": 0,
+      "formal_supported": false
+    },
+    {
+      "video_id": "VTCDQYYKA9o",
+      "path": "research_audit/lvbench_compositional/track_b/local_media/VTCDQYYKA9o_garment/tt_previous_results_0425_0435.mp4",
+      "role": "B_window_overlay",
+      "note": "existing DEV continuous clip",
+      "exists": true,
+      "bytes": 2199487,
+      "duration_s": 10.0,
+      "playable_ffprobe": true,
+      "contact_frames": [
+        {
+          "t_s": 2.0,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/VTCDQYYKA9o_B_window_overlay_f0_t2.0.jpg",
+          "ok": true
+        },
+        {
+          "t_s": 5.0,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/VTCDQYYKA9o_B_window_overlay_f1_t5.0.jpg",
+          "ok": true
+        },
+        {
+          "t_s": 8.0,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/VTCDQYYKA9o_B_window_overlay_f2_t8.0.jpg",
+          "ok": true
+        }
+      ],
+      "status": "OK_CONTINUOUS_LOCAL",
+      "gitignored_mp4": true,
+      "new_semantic_events_from_this_probe": 0,
+      "formal_supported": false
+    },
+    {
+      "video_id": "T1yhBv1ytzw",
+      "path": "research_audit/lvbench_compositional/track_b/construction_discovery_assets/T1yhBv1ytzw/local_clips/score_state_00_anchor.mp4",
+      "role": "score_anchor",
+      "note": "existing DEV continuous clip",
+      "exists": true,
+      "bytes": 8540520,
+      "duration_s": 25.0,
+      "playable_ffprobe": true,
+      "contact_frames": [
+        {
+          "t_s": 5.0,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/T1yhBv1ytzw_score_anchor_f0_t5.0.jpg",
+          "ok": true
+        },
+        {
+          "t_s": 12.5,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/T1yhBv1ytzw_score_anchor_f1_t12.5.jpg",
+          "ok": true
+        },
+        {
+          "t_s": 20.0,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/T1yhBv1ytzw_score_anchor_f2_t20.0.jpg",
+          "ok": true
+        }
+      ],
+      "status": "OK_CONTINUOUS_LOCAL",
+      "gitignored_mp4": true,
+      "new_semantic_events_from_this_probe": 0,
+      "formal_supported": false
+    },
+    {
+      "video_id": "T1yhBv1ytzw",
+      "path": "research_audit/lvbench_compositional/track_b/construction_discovery_assets/T1yhBv1ytzw/local_clips/goal_window_A_liv_candidate.mp4",
+      "role": "goal_window_dev_only",
+      "note": "STOP gate remains for attack-origin QA",
+      "exists": true,
+      "bytes": 28992526,
+      "duration_s": 90.0,
+      "playable_ffprobe": true,
+      "contact_frames": [
+        {
+          "t_s": 18.0,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/T1yhBv1ytzw_goal_window_dev_only_f0_t18.0.jpg",
+          "ok": true
+        },
+        {
+          "t_s": 45.0,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/T1yhBv1ytzw_goal_window_dev_only_f1_t45.0.jpg",
+          "ok": true
+        },
+        {
+          "t_s": 72.0,
+          "path": "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/T1yhBv1ytzw_goal_window_dev_only_f2_t72.0.jpg",
+          "ok": true
+        }
+      ],
+      "status": "OK_CONTINUOUS_LOCAL",
+      "gitignored_mp4": true,
+      "new_semantic_events_from_this_probe": 0,
+      "formal_supported": false
+    }
+  ],
+  "n_playable_continuous_clips": 4,
+  "n_new_model_inferred_semantic_events": 0,
+  "n_new_cursor_frame_observations": 0,
+  "semantic_extractor_status": "BLOCKED_NO_SEMANTIC_EXTRACTOR",
+  "run_003_status": "NOT_STARTED",
+  "resource_dependencies": [
+    "No additional unlabeled DEV_CONSTRUCTION video IDs registered beyond the existing 8",
+    "No approved low-cost continuous-video semantic extractor (local VLM/API) available",
+    "Local continuous MP4 clips exist under gitignored track_b/local_media and construction local_clips — usable for future human continuous review, not auto discovery",
+    "Sealed reservoir untouched (SEALED_POOL_SPLIT_POLICY.json)"
+  ],
+  "distinct_question_recount": {
+    "source": "run_002_patch_regen/qa_drafts.jsonl (immutable history; recount only)",
+    "n_drafts": 17,
+    "n_distinct_question_texts": 8,
+    "n_distinct_question_answer_pairs": 16,
+    "n_distinct_program_structures": 7,
+    "prior_overstated_n_distinct_questions_was_qa_pair_hash": 16
+  },
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "ok_for_expensive_rsi": false,
+  "sealed_accessed": false
+}

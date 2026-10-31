@@ -31,7 +31,11 @@ from .program_selection import (
 
 
 def schema_to_program(schema: ProgramSchema, task: ProgTask) -> list[dict[str, Any]]:
-    """Compile schema nodes into executor program steps with task-conditioned inputs."""
+    """Compile schema nodes into executor program steps with task-conditioned inputs.
+
+    CRITICAL: never inject ``task.answer`` (scorer-only gold) into any executable node.
+    ``verify_answer`` receives an agent prediction at runtime via ``run_program_agent_pred``.
+    """
     prog: list[dict[str, Any]] = []
     for node in schema.nodes:
         role = node.role
@@ -51,21 +55,71 @@ def schema_to_program(schema: ProgramSchema, task: ProgTask) -> list[dict[str, A
             inputs["entity_id"] = "bound"  # executor uses memory.bound_entity
             inputs["property_name"] = task.property_name
         elif node.op == "verify_answer":
-            inputs["answer"] = task.answer
+            # Agent prediction filled at runtime — NOT task.answer
+            inputs["answer"] = None
+            inputs["answer_source"] = "agent_prediction_runtime"
             inputs["interval_a"] = {"start_s": 0.0, "end_s": 10.0}
             inputs["interval_b"] = {"start_s": 20.0, "end_s": 40.0}
         elif node.op == "track_identity":
             inputs["entity_id"] = "bound"
+        # Hard ban: gold must never appear in compiled inputs
+        if task.answer is not None and any(
+            (isinstance(v, str) and v == str(task.answer)) or v == task.answer for v in inputs.values()
+        ):
+            raise RuntimeError(f"oracle_gold_leaked_into_program_inputs node={role} op={node.op}")
         prog.append({"op": node.op, "inputs": inputs, "node_id": role})
     return prog
 
 
-def _world_for_task(task: ProgTask) -> Any:
+def _world_for_task(task: ProgTask, *, world_property_value: Any | None = None) -> Any:
+    """Build synthetic observations. ``world_property_value`` may differ from scorer gold."""
     sid = task.gold_schema_id
     reverse = sid == SCHEMA_B_BIND_A.schema_id
     missing = sid == SCHEMA_MISSING_ABSTAIN.schema_id
     compare = sid == SCHEMA_COMPARE_TWO_STATES.schema_id
-    return _make_world(str(task.answer), reverse=reverse, missing=missing, compare=compare)
+    prop = world_property_value if world_property_value is not None else task.answer
+    return _make_world(str(prop), reverse=reverse, missing=missing, compare=compare)
+
+
+def run_program_with_agent_pred(
+    ex: TypedEvidenceExecutor,
+    program: list[dict[str, Any]],
+    *,
+    gold_answer: Any,
+) -> tuple[list[Any], Any, bool]:
+    """Execute ops sequentially; verify consumes agent prediction only (never gold)."""
+    from .contracts import OperationRequest
+
+    results = []
+    agent_pred: Any = None
+    executor_saw_gold = False
+    for step in program:
+        inputs = dict(step.get("inputs") or {})
+        if step["op"] == "verify_answer":
+            # Strip any accidental gold; bind runtime prediction
+            if inputs.get("answer") is not None and inputs.get("answer") == gold_answer:
+                executor_saw_gold = True
+            inputs["answer"] = agent_pred
+            inputs["answer_source"] = "agent_prediction_runtime"
+        # Detect gold appearing in any non-scorer input
+        for v in inputs.values():
+            if gold_answer is not None and v == gold_answer and step["op"] != "verify_answer":
+                # verify uses agent_pred which may equal gold after correct query — checked separately
+                pass
+            if gold_answer is not None and v == gold_answer and step["op"] == "verify_answer" and agent_pred != gold_answer:
+                executor_saw_gold = True
+        req = OperationRequest(
+            op=OperationName(step["op"]),
+            inputs=inputs,
+            budget_remaining=ex.budget,
+        )
+        r = ex.run(req)
+        results.append(r)
+        if r.op == OperationName.QUERY_PROPERTY and r.ok:
+            agent_pred = r.outputs.get("property_value")
+        if not r.ok and ex.genome.get("abort_on_hard_fail", False):
+            break
+    return results, agent_pred, executor_saw_gold
 
 
 def execute_selected(
@@ -74,13 +128,18 @@ def execute_selected(
     selected_schema_id: str | None = None,
     genome: dict[str, Any] | None = None,
     mask: str | None = None,
+    world_property_value: Any | None = None,
 ) -> dict[str, Any]:
-    """Select (or force) a DAG, execute on synthetic world, return trace + answer metrics."""
+    """Select (or force) a DAG, execute on synthetic world, return trace + answer metrics.
+
+    ``task.answer`` is scorer-only gold. Optional ``world_property_value`` builds observations
+    independently (for sentinel-gold leakage tests).
+    """
     genome = genome or default_genome()
     sel = select_program(task.question, genome={k: genome.get(k, 1.0) for k in ("w_forward", "w_reverse", "w_compare", "w_abstain")})
     sid = selected_schema_id or sel["selected_schema_id"]
     schema = DAG_LIBRARY[sid]
-    world = _world_for_task(task)
+    world = _world_for_task(task, world_property_value=world_property_value)
 
     # Optional evidence masks for semantic controls
     if mask == "drop_A":
@@ -96,37 +155,36 @@ def execute_selected(
 
     ex = TypedEvidenceExecutor(world, genome=genome)
     program = schema_to_program(schema, task)
-    results = ex.run_program(program)
+    results, agent_pred, executor_saw_gold = run_program_with_agent_pred(
+        ex, program, gold_answer=task.answer
+    )
 
-    pred = None
+    pred = agent_pred
     abstained = False
     explicit_abstain = False
     compare_states_from_tools: list[Any] = []
     per_op_ok: dict[str, list[bool]] = {}
     for r in results:
         per_op_ok.setdefault(r.op.value, []).append(r.ok)
-        if r.op == OperationName.QUERY_PROPERTY and r.ok:
-            pred = r.outputs.get("property_value")
-            if r.outputs.get("property_name") == "order" or "order" in str(r.outputs):
-                pass
         if r.op == OperationName.LOCATE_EVENT and r.ok:
             # Tool-visible located values only (not oracle world scrape)
             val = r.outputs.get("property_value") or r.outputs.get("matched_value")
             if val is not None:
                 compare_states_from_tools.append(val)
-            # Some locate handlers return facts list
             for f in r.outputs.get("facts") or []:
                 if isinstance(f, dict) and f.get("property_value") is not None:
                     compare_states_from_tools.append(f["property_value"])
-        # Explicit abstention policy: missing-evidence schema must decide ABSTAIN
         if r.failure_code == "MISSING_EVIDENCE":
             if sid == SCHEMA_MISSING_ABSTAIN.schema_id:
-                # calibrated: treat as abstain decision only when schema is abstain DAG
                 explicit_abstain = True
                 abstained = True
         if r.op == OperationName.VERIFY_ANSWER and (r.outputs.get("abstain") or r.outputs.get("answer") == "ABSTAIN"):
             explicit_abstain = True
             abstained = True
+        if r.op == OperationName.VERIFY_ANSWER and r.failure_code == "EMPTY_ANSWER":
+            if sid == SCHEMA_MISSING_ABSTAIN.schema_id:
+                explicit_abstain = True
+                abstained = True
 
     # If missing-evidence DAG ends without a property and with MISSING_EVIDENCE somewhere → explicit ABSTAIN
     if sid == SCHEMA_MISSING_ABSTAIN.schema_id and explicit_abstain:
@@ -229,8 +287,13 @@ def execute_selected(
         "ok_for_expensive_rsi": False,
         # Instrumented: True only if scorer path scraped executor world state for credit
         "oracle_world_scraped": False,
-        "scorer_sees_gold": True,  # scorer-only; executor never receives task.answer
-        "executor_saw_gold_answer": False,
+        "scorer_sees_gold": True,  # scorer-only gold
+        "executor_saw_gold_answer": bool(executor_saw_gold),
+        "verify_answer_source": "agent_prediction_runtime",
+        "historical_note": (
+            "Pre-fix exec_acc≈0.333 was a diagnostic under gold-fed verify; "
+            "not a leakage-free method estimate"
+        ),
     }
 
 
@@ -332,6 +395,7 @@ def run_execution_suite(*, seed: int = 42) -> dict[str, Any]:
             "abstention_rate": sum(1 for r in rows if r["abstained"]) / n,
             "explicit_abstain_rate": sum(1 for r in rows if r.get("explicit_abstain")) / n,
             "oracle_world_scraped_rate": sum(1 for r in rows if r.get("oracle_world_scraped")) / n,
+            "executor_saw_gold_answer_rate": sum(1 for r in rows if r.get("executor_saw_gold_answer")) / n,
             "mean_tool_calls": sum(r["tool_calls"] for r in rows) / n,
             "held_out_exec_acc": (
                 sum(1 for r in rows if r["gold_schema_id"] in held_ids and r["execution_answer_ok"])

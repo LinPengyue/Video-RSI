@@ -10,7 +10,11 @@ from typing import Any
 
 from . import EXTRACTOR_VERSION, __version__
 from .auto_screen import prioritize_for_human, screen_batch
-from .dedup import n_distinct_questions
+from .dedup import (
+    n_distinct_program_structures,
+    n_distinct_question_answer_pairs,
+    n_distinct_question_texts,
+)
 from .extract_events import extract_for_video
 from .human_packets import build_packet
 from .inventory import build_inventory
@@ -161,7 +165,9 @@ def run_factory(
     mech_counts = Counter(d.get("mechanism") for d in drafts if d.get("retained_as_independent_sample"))
     fam_indep = sum(1 for d in drafts if d.get("retained_as_independent_sample"))
     fam_dup = sum(1 for d in drafts if d.get("duplicate_of_family"))
-    n_distinct_q = n_distinct_questions(drafts)
+    n_distinct_q_texts = n_distinct_question_texts(drafts)
+    n_distinct_qa_pairs = n_distinct_question_answer_pairs(drafts)
+    n_distinct_programs = n_distinct_program_structures(drafts)
     n_prov_present = sum(
         1 for d in drafts if d.get("provisional_answer_zh") and str(d["provisional_answer_zh"]).upper() != "UNKNOWN"
     )
@@ -219,7 +225,11 @@ def run_factory(
         "n_evidence_index": len(evidence_all),
         "n_relations": len(relations),
         "n_qa_drafts": len(drafts),
-        "n_distinct_questions": n_distinct_q,
+        "n_distinct_question_texts": n_distinct_q_texts,
+        "n_distinct_question_answer_pairs": n_distinct_qa_pairs,
+        "n_distinct_program_structures": n_distinct_programs,
+        "n_distinct_questions": n_distinct_q_texts,  # corrected alias = stems only
+        "n_distinct_questions_legacy_qa_pair_hash": n_distinct_qa_pairs,  # prior overcount mode
         "n_provisional_answer_present": n_prov_present,
         "n_independently_answer_verified": n_answer_verified,
         "n_answer_known": n_answer_verified,  # corrected: no longer equals provisional text
@@ -294,7 +304,7 @@ def _render_report(
         f"- Curated semantic (fixtures): {metrics.get('n_curated_semantic_events')}",
         f"- Cursor still observations: {metrics.get('n_cursor_frame_observations')} | ChatGPT still: {metrics.get('n_chatgpt_frame_observations')} | **model_inferred**: {metrics.get('n_model_inferred_semantic_events')}",
         f"- Relations: {metrics['n_relations']}",
-        f"- QA drafts: {metrics['n_qa_drafts']} | distinct Q: {metrics.get('n_distinct_questions')} | independent families: {metrics['n_independent_evidence_families']} | dup: {metrics['n_family_duplicates_flagged']} | quarantine: {metrics.get('n_quarantine_binding_errors')} | leakage: {metrics.get('n_question_leakage_flagged')}",
+        f"- QA drafts: {metrics['n_qa_drafts']} | distinct question texts: {metrics.get('n_distinct_question_texts')} | distinct Q+A pairs: {metrics.get('n_distinct_question_answer_pairs')} | program structures: {metrics.get('n_distinct_program_structures')} | independent families: {metrics['n_independent_evidence_families']} | dup: {metrics['n_family_duplicates_flagged']} | quarantine: {metrics.get('n_quarantine_binding_errors')} | leakage: {metrics.get('n_question_leakage_flagged')}",
         f"- provisional_answer_present: {metrics.get('n_provisional_answer_present')} | independently_answer_verified: {metrics.get('n_independently_answer_verified')}",
         f"- New relation families (from new obs): {metrics.get('n_new_relation_families')}",
         f"- Grades (heuristic, not video-tested): `{metrics['auto_grade_counts']}`",

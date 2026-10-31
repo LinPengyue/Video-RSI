@@ -1,12 +1,13 @@
 # Track A — Execution Over Selection
 
-Date: 2026-10-30 · `ok_for_expensive_rsi=false` · sealed: not accessed · partition: N/A (synthetic)
+Date: 2026-10-31 · post VERIFY gold-feed closure · `ok_for_expensive_rsi=false` · sealed: not accessed · partition: N/A (synthetic)
 
 ## Verdict
 
 Selector **program_choice_accuracy=0.833** is **not** the same as
 **execution_answer_accuracy=0.333** after running the chosen DAG.
 Gold-DAG upper bound execution_answer_accuracy=0.333.
+`executor_saw_gold_answer_rate=0.000` after removing `task.answer` from VERIFY inputs.
 
 n_test_questions=6, n_held_out_examples=4,
 n_independent_test_worlds=6.
@@ -16,7 +17,7 @@ n_independent_test_worlds=6.
 | Arm | choice_acc | exec_acc | both | abstain | mean_tools | held_exec |
 |-----|------------|----------|------|---------|------------|-----------|
 | strong_static_selector | 0.833 | 0.333 | 0.333 | 0.333 | 4.50 | 0.500 |
-| random | 0.333 | 0.167 | 0.167 | 0.500 | 4.17 | 0.250 |
+| random | 0.333 | 0.167 | 0.167 | 0.333 | 4.17 | 0.250 |
 | evolver_weights | 0.833 | 0.333 | 0.333 | 0.333 | 4.33 | 0.500 |
 | oracle_gold_dag | 1.000 | 0.333 | 0.333 | 0.333 | 4.17 | 0.500 |
 

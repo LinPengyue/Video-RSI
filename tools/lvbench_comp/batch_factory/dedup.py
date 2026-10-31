@@ -16,7 +16,14 @@ def _norm_text(s: str | None) -> str:
     return t
 
 
+def question_text_key(qa: dict[str, Any]) -> str:
+    """Hash of question stem only (not answer)."""
+    q = _norm_text(qa.get("question_zh") or qa.get("question_en"))
+    return hashlib.sha256(f"Q::{q}".encode()).hexdigest()[:16]
+
+
 def question_answer_key(qa: dict[str, Any]) -> str:
+    """Hash of question+answer pair — for dedup, NOT for 'distinct questions' reporting."""
     q = _norm_text(qa.get("question_zh") or qa.get("question_en"))
     a = _norm_text(qa.get("provisional_answer_zh") or qa.get("normalized_answer") or "")
     return hashlib.sha256(f"{q}||{a}".encode()).hexdigest()[:16]
@@ -116,5 +123,18 @@ def apply_semantic_dedup(drafts: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return out
 
 
-def n_distinct_questions(drafts: list[dict[str, Any]]) -> int:
+def n_distinct_question_texts(drafts: list[dict[str, Any]]) -> int:
+    return len({question_text_key(d) for d in drafts})
+
+
+def n_distinct_question_answer_pairs(drafts: list[dict[str, Any]]) -> int:
     return len({question_answer_key(d) for d in drafts})
+
+
+def n_distinct_questions(drafts: list[dict[str, Any]]) -> int:
+    """Deprecated alias — historically hashed Q+A; now equals question texts only."""
+    return n_distinct_question_texts(drafts)
+
+
+def n_distinct_program_structures(drafts: list[dict[str, Any]]) -> int:
+    return len({(d.get("dependency_program") or d.get("mechanism") or "") for d in drafts})

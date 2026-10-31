@@ -185,6 +185,21 @@ class TestBatchFactoryV2(unittest.TestCase):
         self.assertEqual(n_ver, 1)
         self.assertNotEqual(n_prov, n_ver)
 
+    def test_distinct_question_texts_not_inflated_by_answers(self) -> None:
+        from tools.lvbench_comp.batch_factory.dedup import (
+            n_distinct_question_answer_pairs,
+            n_distinct_question_texts,
+        )
+
+        stem = "按文件时间顺序观看两段指定片段。两段有何不同？"
+        drafts = [
+            {"question_zh": stem, "provisional_answer_zh": f"ans_{i}"} for i in range(9)
+        ]
+        self.assertEqual(n_distinct_question_texts(drafts), 1)
+        self.assertEqual(n_distinct_question_answer_pairs(drafts), 9)
+        # Historical overcount mode must not be used as 'distinct questions'
+        self.assertLess(n_distinct_question_texts(drafts), n_distinct_question_answer_pairs(drafts))
+
 
 if __name__ == "__main__":
     unittest.main()
