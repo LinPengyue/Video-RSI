@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-31T06:35:09.360053+00:00",
+  "lvbench_meta_n": 103,
+  "lvbench_local_mp4_n": 103,
+  "exposed_or_construction_n": 26,
+  "registered_dev_construction_before": 8,
+  "registered_dev_construction_after": 10,
+  "eligible_not_exposed_n": 79,
+  "eligible_with_local_mp4_n": 79,
+  "eligible_local_excluding_gate_split_n": 67,
+  "new_dev_registered_this_turn": [
+    "Mcggugol2ts",
+    "xi6r3hZe5Tg"
+  ],
+  "semantic_extractor": {
+    "local_torch_transformers": false,
+    "local_vlm_api_authorized": false,
+    "openai_anthropic_sdk": false,
+    "ocr_onnx_present": true,
+    "ocr_is_not_video_semantics": true,
+    "status": "BLOCKED_NO_SEMANTIC_EXTRACTOR_MODEL",
+    "alternate_path": "CHATGPT_FRAME_OBSERVATION via GitHub batch (PENDING)"
+  },
+  "run_003_status": "NOT_STARTED",
+  "blockers_before_chatgpt_return": [
+    "PENDING_CHATGPT_FRAME_PRODUCTION",
+    "No local authorized VLM"
+  ]
+}

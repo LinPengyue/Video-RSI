@@ -3,21 +3,62 @@
   "rule": "Any video used for assistant-led design, CG-NEW discussion, or construction_discovery becomes ineligible for sealed blind final.",
   "exposed_or_construction": [
     "Cm73ma6Ibcs",
+    "HfEVEGf1A8Q",
     "JPPMz8fEml0",
+    "JTa_Ue2MSwc",
+    "JlrzSvCsIjE",
     "LLSJrEgOOtw",
+    "Mcggugol2ts",
     "QWXlvx1GoTY",
+    "RjDrZkBwzho",
+    "S8vPx-u9p_A",
     "T1yhBv1ytzw",
     "TJR1oYDDTwg",
     "VTCDQYYKA9o",
+    "XNtNNplAwiI",
     "Z86xysw5Ncc",
     "_T2Avd3tFHc",
+    "cWEnogdsW78",
     "evYm0cELO3I",
-    "vaL_vSdZKZo"
+    "hROKtPqktO8",
+    "iA_69g87Ilw",
+    "oZEVgDXJwCc",
+    "q01CUy_gwdU",
+    "sk00epALZps",
+    "t-RtDI2RWQs",
+    "vaL_vSdZKZo",
+    "xi6r3hZe5Tg"
   ],
   "sealed_reservoir": {
     "status": "UNTOUCHED_PLACEHOLDER",
     "current_ids": [],
     "selection_rule": "Sample later from LVBench IDs absent from exposed_or_construction; freeze after dual review; never show answers to evolver."
   },
-  "ok_for_expensive_rsi": false
+  "ok_for_expensive_rsi": false,
+  "reconciliation": {
+    "utc": "2026-10-31T06:35:08.908470+00:00",
+    "basis": "union of prior policy + construction_video_pool + discovery/review/local_media dirs + run_001/002/patch_regen inventories",
+    "added_ids": [
+      "HfEVEGf1A8Q",
+      "JTa_Ue2MSwc",
+      "JlrzSvCsIjE",
+      "Mcggugol2ts",
+      "RjDrZkBwzho",
+      "S8vPx-u9p_A",
+      "XNtNNplAwiI",
+      "cWEnogdsW78",
+      "hROKtPqktO8",
+      "iA_69g87Ilw",
+      "oZEVgDXJwCc",
+      "q01CUy_gwdU",
+      "sk00epALZps",
+      "t-RtDI2RWQs",
+      "xi6r3hZe5Tg"
+    ],
+    "n_before": 11,
+    "n_after": 26,
+    "sealed_reservoir_untouched": true,
+    "seen_unseen_program_structures": "UNASSIGNED",
+    "note": "Exclusion-from-sealed ≠ Seen/Unseen composition assignment"
+  }
 }

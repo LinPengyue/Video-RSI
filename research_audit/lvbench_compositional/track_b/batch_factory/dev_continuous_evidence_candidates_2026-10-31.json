@@ -1,0 +1,96 @@
+{
+  "probe_id": "dev_continuous_evidence_candidates_2026-10-31",
+  "cap": "max_2_candidates",
+  "continuous_motion_auditor": "NONE",
+  "global_status": "BLOCKED_NO_CONTINUOUS_SEMANTIC_REVIEWER",
+  "note": "Stills + ffprobe playability only. Do not upgrade decode proof to video-fact certification.",
+  "candidates": [
+    {
+      "candidate_id": "DEV_CONT_VTCD_IDENTITY_01",
+      "video_id": "VTCDQYYKA9o",
+      "hypothesis": "Person holding/removing red jacket in early garment window is the same athlete later labeled FAN ZHENDONG on PREVIOUS RESULTS overlay.",
+      "media": [
+        {
+          "path": "research_audit/lvbench_compositional/track_b/local_media/VTCDQYYKA9o_garment/tt_garment_0243_0306.mp4",
+          "role": "A_window_garment",
+          "duration_s": 23.0,
+          "playable_ffprobe": true,
+          "approx_source_window": "file clock ~02:43-03:06 of source edit",
+          "evidence_type": "continuous_clip_gitignored"
+        },
+        {
+          "path": "research_audit/lvbench_compositional/track_b/local_media/VTCDQYYKA9o_garment/tt_previous_results_0425_0435.mp4",
+          "role": "B_window_overlay",
+          "duration_s": 10.0,
+          "playable_ffprobe": true,
+          "approx_source_window": "file clock ~04:25-04:35 of source edit",
+          "evidence_type": "continuous_clip_gitignored"
+        }
+      ],
+      "still_contact_evidence": [
+        "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/VTCDQYYKA9o_A_window_garment_f1_t11.5.jpg",
+        "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/VTCDQYYKA9o_B_window_overlay_f1_t5.0.jpg"
+      ],
+      "watched_continuous_motion": false,
+      "still_observation_notes": {
+        "A_still": "Athlete in blue shirt holds a bright red jacket; name not readable on this still.",
+        "B_still": "Broadcast overlay PREVIOUS RESULTS / FAN ZHENDONG (1) while athlete in blue plays; identity text is on overlay."
+      },
+      "a_only_may_answer_name": false,
+      "b_only_may_answer_name": true,
+      "cross_clip_identity_binding_requires": "continuous co-presence or stronger multi-witness linkage; stills alone are insufficient for formal certification",
+      "uncertainties": [
+        "No continuous motion review in this environment",
+        "A and B are separate cut clips; temporal continuity across the gap is not verified here",
+        "Same-jersey resemblance is suggestive only"
+      ],
+      "answerability": "HYPOTHESIS_ONLY",
+      "shortcut_risk": "HIGH_if_question_asks_name_and_B_overlay_visible",
+      "status": "UNVERIFIED",
+      "formal_supported": false
+    },
+    {
+      "candidate_id": "DEV_CONT_T1YH_SCORE_ORDER_CTRL_01",
+      "video_id": "T1yhBv1ytzw",
+      "hypothesis": "Scoreboard state ordering 0-0 (early anchor) preceding later equalized/other states is observable as a DEV control; single-window score text may shortcut multi-event causal questions.",
+      "media": [
+        {
+          "path": "research_audit/lvbench_compositional/track_b/construction_discovery_assets/T1yhBv1ytzw/local_clips/score_state_00_anchor.mp4",
+          "role": "score_anchor_00",
+          "duration_s": 25.0,
+          "playable_ffprobe": true,
+          "evidence_type": "continuous_clip_gitignored"
+        },
+        {
+          "path": "research_audit/lvbench_compositional/track_b/construction_discovery_assets/T1yhBv1ytzw/local_clips/goal_window_A_liv_candidate.mp4",
+          "role": "goal_window_dev_only",
+          "duration_s": 90.0,
+          "playable_ffprobe": true,
+          "evidence_type": "continuous_clip_gitignored",
+          "note": "STOP gate remains for attack-origin causal QA"
+        }
+      ],
+      "still_contact_evidence": [
+        "research_audit/lvbench_compositional/track_b/batch_factory/dev_continuous_media_probe_2026-10-31/contact_sheets/T1yhBv1ytzw_score_anchor_f1_t12.5.jpg"
+      ],
+      "watched_continuous_motion": false,
+      "still_observation_notes": {
+        "score_anchor_still": "Overlay BRI 0-0 LIV at match clock ~29:39 (FA Cup broadcast chrome)."
+      },
+      "a_only_may_answer_score_state": true,
+      "b_only_goal_window_may_shortcut_causality": true,
+      "uncertainties": [
+        "No continuous motion auditor confirmed state transitions inside the clips this turn",
+        "Attack-origin / goal-scorer causality intentionally not reopened"
+      ],
+      "answerability": "DEV_CONTROL_ONLY",
+      "shortcut_risk": "HIGH_for_causal_goal_QA_from_single_window",
+      "status": "SHORTCUT_CONTROL",
+      "formal_supported": false
+    }
+  ],
+  "n_new_certified_video_events": 0,
+  "n_formal_composition_candidates": 0,
+  "ok_for_expensive_rsi": false,
+  "data_partition_status": "UNASSIGNED"
+}

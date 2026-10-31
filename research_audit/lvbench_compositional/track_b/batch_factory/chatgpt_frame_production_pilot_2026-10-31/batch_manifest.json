@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "batch_id": "chatgpt_frame_production_pilot_2026-10-31",
+    "utc": "2026-10-31T06:35:09.359947+00:00",
+    "status": "PENDING_CHATGPT_FRAME_PRODUCTION",
+    "n_frames": 12,
+    "n_videos": 3,
+    "videos": [
+      "JPPMz8fEml0",
+      "Mcggugol2ts",
+      "xi6r3hZe5Tg"
+    ],
+    "new_dev_registered": [
+      "Mcggugol2ts",
+      "xi6r3hZe5Tg"
+    ],
+    "existing_dev_unused_region": [
+      "JPPMz8fEml0"
+    ],
+    "provenance_target": "CHATGPT_FRAME_OBSERVATION",
+    "cursor_role": "timestamped frame extraction + packaging only; coarse samples are NOT semantic discoveries",
+    "chatgpt_role": "inspect evidence frames; emit event JSONL; do not treat this same ChatGPT pass as independent A/B blind review",
+    "run_003_gate": "Do not start run_003 until ChatGPT events land and pass factory intake",
+    "ok_for_expensive_rsi": false,
+    "data_partition_status": "UNASSIGNED",
+    "formal_supported": false,
+    "sealed_accessed": false
+  },
+  "frames": [
+    {
+      "frame_id": "JPPMz8fEml0_pilot_0_t311",
+      "video_id": "JPPMz8fEml0",
+      "time_s": 311.212,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_0_t311.jpg",
+      "sha256": "e5043f16de5c5a0906bf412aee4f8e7609f4168ee901038e393228cac054103c",
+      "bytes": 37071,
+      "role": "EXISTING_DEV_UNUSED_REGION",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "JPPMz8fEml0_pilot_1_t726",
+      "video_id": "JPPMz8fEml0",
+      "time_s": 726.162,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_1_t726.jpg",
+      "sha256": "d8944894c41b1a08934b13cf0d908117656f54ca7e951d4e25c83d12cc424102",
+      "bytes": 33457,
+      "role": "EXISTING_DEV_UNUSED_REGION",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "JPPMz8fEml0_pilot_2_t1141",
+      "video_id": "JPPMz8fEml0",
+      "time_s": 1141.112,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_2_t1141.jpg",
+      "sha256": "31021d9912fbf228582c8dde80ad9a1130e08b2af92b43f70837ded9b84eaf35",
+      "bytes": 22807,
+      "role": "EXISTING_DEV_UNUSED_REGION",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "JPPMz8fEml0_pilot_3_t1556",
+      "video_id": "JPPMz8fEml0",
+      "time_s": 1556.062,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_3_t1556.jpg",
+      "sha256": "ef7b32e83f8009f3d0daecf941c45ed44e884652f96cb292dbdc6f344a32e067",
+      "bytes": 14959,
+      "role": "EXISTING_DEV_UNUSED_REGION",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "Mcggugol2ts_pilot_0_t534",
+      "video_id": "Mcggugol2ts",
+      "time_s": 533.562,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_0_t534.jpg",
+      "sha256": "e54a06a1092c9fa9e253a61f4541a4f4936625860a3460df38e9620824aec177",
+      "bytes": 33693,
+      "role": "NEW_DEV_CONSTRUCTION_SEED",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "Mcggugol2ts_pilot_1_t1067",
+      "video_id": "Mcggugol2ts",
+      "time_s": 1067.124,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_1_t1067.jpg",
+      "sha256": "1a5f432a6cc73116fbab4161c09785a5ebf86cba29a44d3f848cf9c45ab6c8fe",
+      "bytes": 49773,
+      "role": "NEW_DEV_CONSTRUCTION_SEED",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "Mcggugol2ts_pilot_2_t1601",
+      "video_id": "Mcggugol2ts",
+      "time_s": 1600.686,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_2_t1601.jpg",
+      "sha256": "00ee939606240b5ddfd4faecdb36dd9574ccb8e873a4b6759287200ad8b5cc24",
+      "bytes": 27440,
+      "role": "NEW_DEV_CONSTRUCTION_SEED",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "Mcggugol2ts_pilot_3_t2134",
+      "video_id": "Mcggugol2ts",
+      "time_s": 2134.248,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_3_t2134.jpg",
+      "sha256": "76365f1e68a326a99ae18341ecb961f31155e50818e616106699456ac783d0b8",
+      "bytes": 47182,
+      "role": "NEW_DEV_CONSTRUCTION_SEED",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "xi6r3hZe5Tg_pilot_0_t533",
+      "video_id": "xi6r3hZe5Tg",
+      "time_s": 532.93,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_0_t533.jpg",
+      "sha256": "eebd88a2adb721b5f2fe75ab77b8e6ed78cc1e1e0bbdbb403622d728f334e2af",
+      "bytes": 257905,
+      "role": "NEW_DEV_CONSTRUCTION_SEED",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "xi6r3hZe5Tg_pilot_1_t1066",
+      "video_id": "xi6r3hZe5Tg",
+      "time_s": 1065.861,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_1_t1066.jpg",
+      "sha256": "e77c0db37815160b7cb12ce0ba1e585b1d355dd46d9a7dbdb5f365e87aea4540",
+      "bytes": 45514,
+      "role": "NEW_DEV_CONSTRUCTION_SEED",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "xi6r3hZe5Tg_pilot_2_t1599",
+      "video_id": "xi6r3hZe5Tg",
+      "time_s": 1598.791,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_2_t1599.jpg",
+      "sha256": "d94f570db9f3bf1a1e985c7a39210da29ec7047386ca1e0c0cec7bbbb878c388",
+      "bytes": 29150,
+      "role": "NEW_DEV_CONSTRUCTION_SEED",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    },
+    {
+      "frame_id": "xi6r3hZe5Tg_pilot_3_t2132",
+      "video_id": "xi6r3hZe5Tg",
+      "time_s": 2131.722,
+      "time_unit": "seconds_file_clock",
+      "evidence_path": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_3_t2132.jpg",
+      "sha256": "31420cc35e715ef04708bb7cb25f51383aa89391bf2b695836a1737b6c11795e",
+      "bytes": 41056,
+      "role": "NEW_DEV_CONSTRUCTION_SEED",
+      "note": "Coarse sample for ChatGPT semantic production; NOT itself a semantic discovery"
+    }
+  ]
+}
