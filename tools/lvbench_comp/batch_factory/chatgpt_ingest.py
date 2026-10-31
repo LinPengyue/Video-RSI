@@ -103,18 +103,33 @@ def validate_chatgpt_events(
             reasons.append("duplicate_evidence_frame_id")
 
         declared = row.get("source_frame_sha256")
-        if require_source_sha and not declared:
+        sha_list = row.get("evidence_sha256")
+        if sha_list is not None and not isinstance(sha_list, list):
+            reasons.append("bad_evidence_sha256_type")
+            sha_list = None
+        if (
+            require_source_sha
+            and not declared
+            and not (isinstance(sha_list, list) and len(sha_list) == len(paths) and all(sha_list))
+        ):
             reasons.append("missing_source_frame_sha256")
+        if isinstance(sha_list, list) and paths and len(sha_list) != len(paths):
+            reasons.append("evidence_sha256_length_mismatch")
 
         # Evidence path existence + sha / manifest checks
-        for p in paths:
+        for i, p in enumerate(paths):
             pp = Path(p)
             if not pp.is_file():
                 reasons.append(f"missing_file:{p}")
                 continue
-            if declared:
+            path_declared = None
+            if isinstance(sha_list, list) and i < len(sha_list):
+                path_declared = sha_list[i]
+            elif declared and len(paths) == 1:
+                path_declared = declared
+            if path_declared:
                 got = _sha256_file(pp)
-                if got and got != declared:
+                if got and got != path_declared:
                     reasons.append(f"sha256_mismatch:{p}")
             mf = frame_by_path.get(p) or frame_by_path.get(str(pp))
             if mf is None:
@@ -123,14 +138,18 @@ def validate_chatgpt_events(
             else:
                 if mf.get("video_id") and mf["video_id"] != row.get("video_id"):
                     reasons.append("manifest_video_id_mismatch")
-                # allow ~2s clock skew between manifest time_s and event time_span
+                # Path must fall within the event's time_span (multiframe) or near start (single)
                 mt = mf.get("time_s")
-                if mt is not None and abs(float(mt) - float(ts.get("start_s", mt))) > 2.5:
-                    reasons.append("manifest_time_mismatch")
-                # If manifest carries sha256, event must match it when declared
+                if mt is not None and isinstance(ts, dict) and "start_s" in ts and "end_s" in ts:
+                    t0, t1 = float(ts["start_s"]), float(ts["end_s"])
+                    if not (t0 - 2.5 <= float(mt) <= t1 + 2.5):
+                        reasons.append(f"manifest_time_outside_span:{p}")
                 msha = mf.get("sha256") or mf.get("source_frame_sha256")
-                if declared and msha and declared != msha:
+                if path_declared and msha and path_declared != msha:
                     reasons.append("manifest_sha256_mismatch")
+                # ROI consistency when both sides declare roi_id
+                if row.get("roi_id") and mf.get("roi_id") and row["roi_id"] != mf["roi_id"]:
+                    reasons.append("manifest_roi_mismatch")
 
         if row.get("video_motion_verified") is True:
             reasons.append("claimed_motion_verified_on_still_batch")
@@ -156,21 +175,20 @@ def validate_chatgpt_events(
 
 
 def normalize_chatgpt_event(row: dict[str, Any]) -> dict[str, Any]:
-    """Map ChatGPT still schema → factory event graph node (still-point, not continuous)."""
+    """Map ChatGPT still / multiframe schema → factory event node (not continuous-certified)."""
     ts = row["time_span"]
     t0 = float(ts["start_s"])
     t1 = float(ts["end_s"])
-    # Keep instantaneous stills as a point interval (t1==t0); do not invent duration.
     actor = row.get("actor")
     if actor is None or (isinstance(actor, str) and not actor.strip()):
         actor_local = f"unspecified_still_{row['event_id'][-3:]}"
     else:
         actor_local = str(actor)[:120]
     action = str(row.get("action_or_state") or "")
-    # Verb is a short machine tag; full text stays in notes/summary
-    verb = "still_scene_observation"
+    prov = row.get("provenance") or "CHATGPT_FRAME_OBSERVATION"
+    is_mf = prov == "CHATGPT_MULTIFRAME_OBSERVATION" or bool(row.get("roi_id"))
+    verb = "multiframe_still_observation" if is_mf else "still_scene_observation"
     location = ""
-    # Light location hint from text without claiming geo
     low = action.lower()
     if "street" in low or "shop" in low or "road" in low:
         location = "outdoor_street_or_commercial"
@@ -180,53 +198,74 @@ def normalize_chatgpt_event(row: dict[str, Any]) -> dict[str, Any]:
         location = "aerial_urban"
     elif "schematic" in low or "animated" in low or "diagram" in low:
         location = "computer_graphic"
-    elif "vending" in low:
+    elif "vending" in low or "售货" in action:
         location = "vending_machine_closeup"
-    elif "card" in low and "display" in low:
+    elif "card" in low or "卡" in action:
         location = "collectible_card_display"
+    elif "nozzle" in low or "lattice" in low or "打印" in action or "网格" in action:
+        location = "printer_build_plate"
 
     unresolved = [
-        "evidence_modality_single_static_frame",
         "video_motion_unverified",
         "cross_shot_identity_unverified",
         "not_continuous_video_event",
     ]
+    if is_mf:
+        unresolved.append("evidence_modality_ordered_still_sheet")
+        unresolved.append("still_sequence_only")
+    else:
+        unresolved.append("evidence_modality_single_static_frame")
     if row.get("uncertainty"):
         unresolved.append("chatgpt_uncertainty_recorded")
+    if row.get("modality_label") == "UNRESOLVED":
+        unresolved.append("modality_label_unresolved")
 
     ev = {
         "event_id": row["event_id"],
         "video_id": row["video_id"],
+        "roi_id": row.get("roi_id"),
         "time_start_s": round(t0, 3),
         "time_end_s": round(t1, 3),
-        "time_point_still_s": round(t0, 3),
+        "time_point_still_s": round(t0, 3) if abs(t1 - t0) < 1e-6 else None,
         "actor_local_track": actor_local,
         "verb": verb,
         "object": str(row.get("object") or "")[:240],
         "location": location,
-        "state_before": None,
-        "state_after": None,
-        "modality": "visual_still",
+        "state_before": row.get("state_before"),
+        "state_after": row.get("state_after"),
+        "modality": "visual_multiframe_still" if is_mf else "visual_still",
+        "modality_label": row.get("modality_label"),
         "evidence_paths": list(row.get("evidence_paths") or []),
-        "confidence": 0.55,
+        "evidence_frame_ids": list(row.get("evidence_frame_ids") or []),
+        "evidence_sha256": list(row.get("evidence_sha256") or []),
+        "confidence": 0.55 if row.get("observed_vs_inferred") == "observed" else 0.45,
         "observed_vs_inferred": row.get("observed_vs_inferred") or "observed",
         "unresolved_flags": unresolved,
         "extractor_version": EXTRACTOR_VERSION,
-        "provenance": "CHATGPT_FRAME_OBSERVATION",
-        "provenance_tier": "CHATGPT_FRAME_OBSERVATION",
+        "provenance": prov,
+        "provenance_tier": prov if prov in {
+            "CHATGPT_FRAME_OBSERVATION",
+            "CHATGPT_MULTIFRAME_OBSERVATION",
+        } else "CHATGPT_FRAME_OBSERVATION",
         "from_curated_dict": False,
         "notes": action[:500],
         "summary_zh": action[:240],
         "identity_link": {"status": "LOCAL_ONLY", "match_confidence": None, "distractors": []},
-        "evidence_modality": row.get("evidence_modality") or "single_static_frame",
+        "evidence_modality": (
+            row.get("evidence_modality")
+            or ("multiframe_still_sheet" if is_mf else "single_static_frame")
+        ),
         "evidence_frame_id": row.get("evidence_frame_id"),
         "source_frame_sha256": row.get("source_frame_sha256"),
+        "candidate_kind": row.get("candidate_kind"),
+        "composition_certification": row.get("composition_certification") or "NOT_CERTIFIED",
         "video_motion_verified": False,
         "cross_shot_identity_verified": False,
         "is_continuous_video_event": False,
         "is_still_frame_observation": True,
+        "is_multiframe_still_observation": is_mf,
         "relation_or_qa_certification": row.get("relation_or_qa_certification") or "NOT_ASSESSED",
-        "data_partition_status": row.get("partition") or "UNASSIGNED",
+        "data_partition_status": row.get("data_partition_status") or row.get("partition") or "UNASSIGNED",
         "formal_supported": False,
     }
     return annotate_event(ev)
@@ -238,16 +277,24 @@ def ingest_chatgpt_events_file(
     manifest_path: Path | None = None,
     require_manifest_membership: bool | None = None,
     require_source_sha: bool | None = None,
+    allowed_provenances: tuple[str, ...] | None = None,
 ) -> dict[str, Any]:
     raw = load_raw_chatgpt_events(path)
+    # Auto-detect multiframe provenance from file contents
+    provs = {r.get("provenance") for r in raw if r.get("provenance")}
+    if allowed_provenances is None:
+        if "CHATGPT_MULTIFRAME_OBSERVATION" in provs:
+            allowed_provenances = (
+                "CHATGPT_FRAME_OBSERVATION",
+                "CHATGPT_MULTIFRAME_OBSERVATION",
+            )
+        else:
+            allowed_provenances = ("CHATGPT_FRAME_OBSERVATION",)
     manifest_frames = None
     if manifest_path and manifest_path.exists():
         man = json.loads(manifest_path.read_text())
         # Support both flat `frames` and nested ROI `frames_flat`
         manifest_frames = man.get("frames") or man.get("frames_flat") or []
-        if not manifest_frames and isinstance(man.get("meta"), dict):
-            # older batch_manifest shape: {"meta":..., "frames":...}
-            pass
         if not manifest_frames and "meta" in man:
             manifest_frames = man.get("frames") or []
     report = validate_chatgpt_events(
@@ -255,6 +302,7 @@ def ingest_chatgpt_events_file(
         manifest_frames=manifest_frames,
         require_manifest_membership=require_manifest_membership,
         require_source_sha=require_source_sha,
+        allowed_provenances=allowed_provenances,
     )
     normalized = [normalize_chatgpt_event(r) for r in report["accepted"]]
     by_video: dict[str, list[dict[str, Any]]] = {}
@@ -262,17 +310,25 @@ def ingest_chatgpt_events_file(
         by_video.setdefault(ev["video_id"], []).append(ev)
     evidence: list[dict[str, Any]] = []
     for ev in normalized:
-        for p in ev.get("evidence_paths") or []:
+        for i, p in enumerate(ev.get("evidence_paths") or []):
             evidence.append(
                 {
-                    "evidence_id": f"{ev['event_id']}_ev",
+                    "evidence_id": f"{ev['event_id']}_ev{i}",
                     "video_id": ev["video_id"],
+                    "roi_id": ev.get("roi_id"),
                     "time_s": ev["time_start_s"],
                     "path": p,
-                    "kind": "chatgpt_frame_observation",
+                    "kind": (
+                        "chatgpt_multiframe_observation"
+                        if ev.get("is_multiframe_still_observation")
+                        else "chatgpt_frame_observation"
+                    ),
                     "time_unit": "seconds_file_clock",
-                    "provenance_tier": "CHATGPT_FRAME_OBSERVATION",
-                    "evidence_modality": "single_static_frame",
+                    "provenance_tier": ev.get("provenance_tier"),
+                    "evidence_modality": ev.get("evidence_modality"),
+                    "sha256": (ev.get("evidence_sha256") or [None])[i]
+                    if i < len(ev.get("evidence_sha256") or [])
+                    else None,
                 }
             )
     report["normalized_events"] = normalized

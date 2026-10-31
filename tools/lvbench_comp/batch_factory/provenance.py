@@ -9,6 +9,7 @@ PROVENANCE_TIERS = (
     "CURATED_FROM_PRIOR_HUMAN_OR_CHATGPT_AUDIT",
     "CURSOR_FRAME_VISUAL_OBSERVATION",  # agent-inspected stills this round
     "CHATGPT_FRAME_OBSERVATION",
+    "CHATGPT_MULTIFRAME_OBSERVATION",  # ordered still-sheet review (not continuous-certified)
     "AUTOMATIC_COARSE_FRAME",
     "AUTOMATIC_SEMANTIC_MODEL_OBSERVATION",
     "HUMAN_VIDEO_VERIFIED",
@@ -48,6 +49,7 @@ def annotate_event(ev: dict[str, Any]) -> dict[str, Any]:
     out["is_newly_discovered_semantic"] = tier in {
         "CURSOR_FRAME_VISUAL_OBSERVATION",
         "CHATGPT_FRAME_OBSERVATION",
+        "CHATGPT_MULTIFRAME_OBSERVATION",
         "AUTOMATIC_SEMANTIC_MODEL_OBSERVATION",
         "HUMAN_VIDEO_VERIFIED",
     } and (out.get("verb") not in {"visual_sample", "seed_frame_present"})

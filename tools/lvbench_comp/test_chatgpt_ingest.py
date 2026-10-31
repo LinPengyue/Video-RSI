@@ -59,6 +59,30 @@ class TestChatGPTIngest(unittest.TestCase):
             self.assertEqual(rep["n_accepted"], 1)
             self.assertEqual(rep["n_rejected"], 1)
 
+    def test_multiframe_roi_events_validate_against_manifest(self) -> None:
+        path = Path(
+            "research_audit/lvbench_compositional/track_b/batch_factory/"
+            "chatgpt_multiframe_roi_pilot_2026-10-31/events_CHATGPT_MULTIFRAME_OBSERVATION.jsonl"
+        )
+        man = Path(
+            "research_audit/lvbench_compositional/track_b/batch_factory/"
+            "chatgpt_multiframe_roi_pilot_2026-10-31/batch_manifest.json"
+        )
+        if not path.exists() or path.stat().st_size < 200:
+            self.skipTest("multiframe events not present")
+        # Skip placeholder-only status file
+        first = path.read_text().splitlines()[0]
+        if "PENDING_CHATGPT_MULTIFRAME" in first and "event_id" not in first:
+            self.skipTest("events still pending placeholder")
+        report = ingest_chatgpt_events_file(path, manifest_path=man)
+        self.assertEqual(report["n_rejected"], 0)
+        self.assertGreaterEqual(report["n_accepted"], 1)
+        for ev in report["normalized_events"]:
+            self.assertEqual(ev["provenance_tier"], "CHATGPT_MULTIFRAME_OBSERVATION")
+            self.assertTrue(ev.get("is_multiframe_still_observation"))
+            self.assertFalse(ev.get("is_continuous_video_event"))
+            self.assertFalse(ev.get("video_motion_verified"))
+
     def test_manifest_membership_and_sha_required_in_production_mode(self) -> None:
         """When manifest is supplied, evidence must be listed and SHA declared."""
         with tempfile.TemporaryDirectory() as td:

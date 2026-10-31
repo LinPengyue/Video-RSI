@@ -1,0 +1,23 @@
+{
+  "n_raw": 10,
+  "n_accepted": 10,
+  "n_rejected": 0,
+  "rejected": [],
+  "modality_counts": {
+    "STATIC_VISIBLE": 3,
+    "ORDERED_MULTIFRAME_SUGGESTS": 6,
+    "UNRESOLVED": 1
+  },
+  "candidate_kinds": {
+    "display_anchor": 1,
+    "gesture_appearance_and_retraction": 1,
+    "camera_view_approach": 1,
+    "pointing_at_card": 1,
+    "view_shift_to_aisle": 1,
+    "aerial_built_environment": 1,
+    "shot_cut_to_interview_style": 1,
+    "local_lattice_extension": 1,
+    "editing_cut_unrelated_causality": 1,
+    "later_nozzle_static_view": 1
+  }
+}

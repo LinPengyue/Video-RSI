@@ -1,0 +1,218 @@
+{
+  "summary": {
+    "status": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE",
+    "run_004_status": "NOT_STARTED",
+    "n_events_accepted": 10,
+    "n_events_rejected_validation": 0,
+    "n_relation_candidates_assessed": 10,
+    "n_run004_qualifying_relations": 0,
+    "n_control_only": 2,
+    "n_rejected_as_composition": 7,
+    "n_dev_hypothesis_not_qualifying": 1,
+    "best_nonqualifying_hypothesis": "REL_FEAS_008_bioprint_local_lattice_extension",
+    "blockers": [
+      "No CONTINUOUS_VIDEO_VERIFIED events (ChatGPT still-sheet only)",
+      "No independently verified two-witness necessity",
+      "No nontrivial held-out directed composition structure beyond basic temporal state-change",
+      "Producer ChatGPT cannot serve as independent A/B blind adjudicator",
+      "Local gitignored ROI clips exist but lack independent continuous review provenance"
+    ],
+    "resource_needed_for_progress": [
+      "Independent continuous reviewer (non-ChatGPT) of gitignored local ROI clips, especially xi6 bioprint 1060-1070",
+      "Or approved low-cost continuous VLM with distinct provenance tier",
+      "Separate blinded adjudicator pathway if any QA is later drafted"
+    ],
+    "qa_drafts_generated": 0,
+    "data_partition_status": "UNASSIGNED",
+    "formal_supported": false,
+    "ok_for_expensive_rsi": false,
+    "sealed_accessed": false,
+    "track_a_frozen": true
+  },
+  "candidates": [
+    {
+      "relation_id": "REL_FEAS_001_vending_display_anchor",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_001"
+      ],
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "proposed_structure": "observe_static_price_display",
+      "decision": "CONTROL_ONLY",
+      "run_004_qualifying": false,
+      "primitives": [
+        "read_static_overlay_prices"
+      ],
+      "minimal_evidence": [
+        "CHATGPT_MF_ROI_20261031_001"
+      ],
+      "a_only_shortcut": "Single still of shelves answers price/display Q",
+      "b_only_shortcut": "n/a (single event)",
+      "continuous_required": false,
+      "independent_answer_verifiable": false,
+      "reason": "STATIC_VISIBLE display anchor; no directed multi-step composition."
+    },
+    {
+      "relation_id": "REL_FEAS_002_vending_pointing_gesture",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_001",
+        "CHATGPT_MF_ROI_20261031_002"
+      ],
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "proposed_structure": "observe_display → observe_pointing_gesture",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "primitives": [
+        "observe_display",
+        "observe_hand_appear_point_withdraw"
+      ],
+      "minimal_evidence": [
+        "CHATGPT_MF_ROI_20261031_002"
+      ],
+      "a_only_shortcut": "Middle pointing frames alone show PICNIC WATER + hand",
+      "b_only_shortcut": "Display-only still answers prices without gesture",
+      "continuous_required": true,
+      "forbidden_claims": [
+        "purchase",
+        "button_press",
+        "payment",
+        "dispensed_item"
+      ],
+      "independent_answer_verifiable": false,
+      "reason": "Pointing ≠ buying. Ordered stills suggest gesture only; basic temporal appearance, not nontrivial directed composition. Same ChatGPT pass cannot independently verify."
+    },
+    {
+      "relation_id": "REL_FEAS_003_cardshop_camera_approach",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_003"
+      ],
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "proposed_structure": "camera_near_far_change",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "primitives": [
+        "observe_wide_aisle",
+        "observe_close_display"
+      ],
+      "a_only_shortcut": "Late close-up alone shows cards",
+      "continuous_required": true,
+      "reason": "Camera approach / zoom; not actor-state composition."
+    },
+    {
+      "relation_id": "REL_FEAS_004_card_pointing_gesture",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_004"
+      ],
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "proposed_structure": "observe_pointing_at_card",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "forbidden_claims": [
+        "purchase",
+        "card_identity",
+        "touch_confirmed"
+      ],
+      "a_only_shortcut": "Single pointing still may suffice",
+      "continuous_required": true,
+      "reason": "Gesture hypothesis only; no acquisition/causality."
+    },
+    {
+      "relation_id": "REL_FEAS_005_cardshop_view_shift",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_005"
+      ],
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "proposed_structure": "camera_pan_to_aisle",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "reason": "Viewpoint change only."
+    },
+    {
+      "relation_id": "REL_FEAS_006_aerial_static",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_006"
+      ],
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "proposed_structure": "observe_aerial_built_environment",
+      "decision": "CONTROL_ONLY",
+      "run_004_qualifying": false,
+      "reason": "STATIC_VISIBLE architecture/road; no composition."
+    },
+    {
+      "relation_id": "REL_FEAS_007_aerial_cut_to_speaker",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_006",
+        "CHATGPT_MF_ROI_20261031_007"
+      ],
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "proposed_structure": "aerial_shot → interview_shot (edit order)",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "forbidden_claims": [
+        "speaker_in_building",
+        "speech_about_building",
+        "causal_link",
+        "audio_content"
+      ],
+      "a_only_shortcut": "Speaker still alone",
+      "b_only_shortcut": "Aerial still alone",
+      "continuous_required": true,
+      "reason": "Hard cut / edit order ≠ causality. Explicitly disallowed as composed program."
+    },
+    {
+      "relation_id": "REL_FEAS_008_bioprint_local_lattice_extension",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_008"
+      ],
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "proposed_structure": "observe_lattice_state_t0 → observe_lattice_state_t1 (local extension under nozzle)",
+      "decision": "DEV_HYPOTHESIS_NOT_QUALIFYING",
+      "run_004_qualifying": false,
+      "primitives": [
+        "observe_nozzle_position",
+        "observe_lattice_boundary",
+        "compare_local_extent"
+      ],
+      "minimal_evidence_hypothesis": [
+        "early frames ~1060",
+        "late frames ~1065.3 within same continuous-looking segment"
+      ],
+      "a_only_shortcut": "Late frame alone shows purple lattice + nozzle (answers 'what is printed')",
+      "b_only_shortcut": "Early frame alone shows partial lattice",
+      "two_witness_necessity": "Only for narrow 'progress/extension' questions; NOT independently verified; still-sheet ORDERED_MULTIFRAME_SUGGESTS only",
+      "continuous_required": true,
+      "continuous_status": "LOCAL_CLIP_EXISTS_GITIGNORED_NOT_INDEPENDENTLY_REVIEWED",
+      "independent_answer_verifiable": false,
+      "reason": "Strongest local process hypothesis in this pilot: ordered stills suggest lattice line extension. However this is a basic temporal state-change, NOT a held-out multi-step directed composition. Not CONTINUOUS_VIDEO_VERIFIED; ChatGPT producer cannot be independent A/B adjudicator; late-frame shortcut risk high. Does NOT pass run_004 development gate."
+    },
+    {
+      "relation_id": "REL_FEAS_009_print_to_plated_food_cut",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_008",
+        "CHATGPT_MF_ROI_20261031_009",
+        "CHATGPT_MF_ROI_20261031_010"
+      ],
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "proposed_structure": "lattice_print → plated_food (causal)",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "forbidden_claims": [
+        "print_produces_plated_dish",
+        "same_material_identity",
+        "uninterrupted_process"
+      ],
+      "reason": "ChatGPT modality UNRESOLVED for edit cut; Cursor confirms forbid print↔plated binding."
+    },
+    {
+      "relation_id": "REL_FEAS_010_later_nozzle_view_bind_to_008",
+      "source_event_ids": [
+        "CHATGPT_MF_ROI_20261031_008",
+        "CHATGPT_MF_ROI_20261031_010"
+      ],
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "proposed_structure": "early_lattice_extent → later_angle_same_point",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "reason": "Different camera angle after edit; same spatial point of lattice not established."
+    }
+  ]
+}
