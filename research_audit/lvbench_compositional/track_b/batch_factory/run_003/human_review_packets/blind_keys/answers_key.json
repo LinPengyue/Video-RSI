@@ -1,0 +1,105 @@
+{
+  "note": "Separate from blind packets; do not mix into B_ONLY/A_ONLY",
+  "items": [
+    {
+      "qa_id": "QA_DRAFT_0001",
+      "provisional_answer_zh": "早静帧：Two men appear in a sunlit street scene: left man has dark hair tied in a bun, a；晚静帧：Three women stand together on a paved street outside a stone-faced building: lef",
+      "normalized_answer": "Two men appear in a sunlit street scene: left man has dark hair tied in a bun, a beard, white collared shirt and dark backpack; right man is partially visible in a pale shirt. English on-screen subtitle reads 'For one family'. || Three women stand together on a paved street outside a stone-faced building: left wears a light short-sleeved top and light shorts with a small black bag, middle wears a striped sleeveless top and blue jeans holding a small white paper, rig",
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_001",
+        "CHATGPT_FRAME_PILOT_20261031_002"
+      ],
+      "mechanism": "still_ordered_setting_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0002",
+      "provisional_answer_zh": "早静帧：Three women stand together on a paved street outside a stone-faced building: lef；晚静帧：Nighttime street close-up of a short-haired man with facial hair, dark top and t",
+      "normalized_answer": "Three women stand together on a paved street outside a stone-faced building: left wears a light short-sleeved top and light shorts with a small black bag, middle wears a striped sleeveless top and blue jeans holding a small white paper, rig || Nighttime street close-up of a short-haired man with facial hair, dark top and thin gold-colored chain; lit buildings and street lights are visible behind him.",
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_002",
+        "CHATGPT_FRAME_PILOT_20261031_003"
+      ],
+      "mechanism": "still_ordered_setting_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0003",
+      "provisional_answer_zh": "早静帧：Nighttime street close-up of a short-haired man with facial hair, dark top and t；晚静帧：A bearded man wearing a backward gray cap and a shirt with light and blue panels",
+      "normalized_answer": "Nighttime street close-up of a short-haired man with facial hair, dark top and thin gold-colored chain; lit buildings and street lights are visible behind him. || A bearded man wearing a backward gray cap and a shirt with light and blue panels sits on a sofa in a bright interior; a doorway at right shows a bed in an adjoining room.",
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_003",
+        "CHATGPT_FRAME_PILOT_20261031_004"
+      ],
+      "mechanism": "still_ordered_setting_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0004",
+      "provisional_answer_zh": "早静帧：A short-haired man in a dark shirt with dark backpack straps is in the foregroun；晚静帧：A foreground hand extends toward a brightly illuminated vending-machine display ",
+      "normalized_answer": "A short-haired man in a dark shirt with dark backpack straps is in the foreground of a commercial street with lit shops and several pedestrians in the background; the sky is dim. || A foreground hand extends toward a brightly illuminated vending-machine display containing bottled water, teas and canned drinks; visible shelf price numerals include 100 and 120.",
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_005",
+        "CHATGPT_FRAME_PILOT_20261031_006"
+      ],
+      "mechanism": "still_ordered_setting_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0005",
+      "provisional_answer_zh": "早静帧：A foreground hand extends toward a brightly illuminated vending-machine display ；晚静帧：A lit urban street at night is shown between mid-rise buildings, with storefront",
+      "normalized_answer": "A foreground hand extends toward a brightly illuminated vending-machine display containing bottled water, teas and canned drinks; visible shelf price numerals include 100 and 120. || A lit urban street at night is shown between mid-rise buildings, with storefront lighting, a mostly open road, a few small roadside objects and a light-colored vehicle in the distance.",
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_006",
+        "CHATGPT_FRAME_PILOT_20261031_007"
+      ],
+      "mechanism": "still_ordered_setting_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0006",
+      "provisional_answer_zh": "早静帧：A lit urban street at night is shown between mid-rise buildings, with storefront；晚静帧：Multiple colorful illustrated trading or collectible cards are arranged in trans",
+      "normalized_answer": "A lit urban street at night is shown between mid-rise buildings, with storefront lighting, a mostly open road, a few small roadside objects and a light-colored vehicle in the distance. || Multiple colorful illustrated trading or collectible cards are arranged in transparent compartments of a display case, some with printed price labels attached.",
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_007",
+        "CHATGPT_FRAME_PILOT_20261031_008"
+      ],
+      "mechanism": "still_ordered_setting_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0007",
+      "provisional_answer_zh": "两处均可见价格类信息；商品类型不同（待独立核对）",
+      "normalized_answer": null,
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_006",
+        "CHATGPT_FRAME_PILOT_20261031_008"
+      ],
+      "mechanism": "still_commerce_price_display_pair"
+    },
+    {
+      "qa_id": "QA_DRAFT_0008",
+      "provisional_answer_zh": "早静帧：A near-vertical aerial view shows glass-faced buildings with the visible sign 'P；晚静帧：A plated food close-up shows glossy red-brown sliced food on a white plate, pale",
+      "normalized_answer": "A near-vertical aerial view shows glass-faced buildings with the visible sign 'PARKROYAL', green landscaped roof or terrace areas between the towers, and a multilane road with vehicles and yellow box junction markings below. || A plated food close-up shows glossy red-brown sliced food on a white plate, pale round slices, and purple and yellow flower-shaped garnish.",
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_009",
+        "CHATGPT_FRAME_PILOT_20261031_010"
+      ],
+      "mechanism": "still_ordered_setting_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0009",
+      "provisional_answer_zh": "早静帧：A plated food close-up shows glossy red-brown sliced food on a white plate, pale；晚静帧：A computer-animated schematic on a pale blue background depicts four small brown",
+      "normalized_answer": "A plated food close-up shows glossy red-brown sliced food on a white plate, pale round slices, and purple and yellow flower-shaped garnish. || A computer-animated schematic on a pale blue background depicts four small brown kiosk- or pavilion-like objects arranged roughly in a quadrilateral, each with a green circular emblem, together with white upright shapes and several small ye",
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_010",
+        "CHATGPT_FRAME_PILOT_20261031_011"
+      ],
+      "mechanism": "still_ordered_setting_contrast"
+    },
+    {
+      "qa_id": "QA_DRAFT_0010",
+      "provisional_answer_zh": "早静帧：A computer-animated schematic on a pale blue background depicts four small brown；晚静帧：In a bright indoor setting, two children wearing yellow tops are visible; the ch",
+      "normalized_answer": "A computer-animated schematic on a pale blue background depicts four small brown kiosk- or pavilion-like objects arranged roughly in a quadrilateral, each with a green circular emblem, together with white upright shapes and several small ye || In a bright indoor setting, two children wearing yellow tops are visible; the child in focus has a straight dark bob haircut with bangs and looks downward, while another child appears partly out of focus on the left.",
+      "fact_ids": [
+        "CHATGPT_FRAME_PILOT_20261031_011",
+        "CHATGPT_FRAME_PILOT_20261031_012"
+      ],
+      "mechanism": "still_ordered_setting_contrast"
+    }
+  ]
+}

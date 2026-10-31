@@ -220,6 +220,57 @@ def draft_qa(
                     ],
                 }
             )
+        elif rtype == "still_ordered_setting_contrast":
+            sum_a = a.get("summary_zh") or a.get("notes") or a.get("object") or a.get("verb")
+            sum_b = b.get("summary_zh") or b.get("notes") or b.get("object") or b.get("verb")
+            drafts.append(
+                {
+                    **base,
+                    "question_zh": (
+                        "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。"
+                        "按时间顺序，两帧的可见场景设置有何不同？"
+                        "勿推断人物跨镜头身份、连续动作或因果关系。"
+                    ),
+                    "normalized_answer": f"{sum_a} || {sum_b}",
+                    "gold_answer": None,
+                    "answer_status": "ANSWER_PENDING",
+                    "answer_derivation": (
+                        "Still-pair ordered setting contrast from CHATGPT_FRAME_OBSERVATION; "
+                        "not continuous-video certified; not novel directed composition by itself"
+                    ),
+                    "mechanism": "still_ordered_setting_contrast",
+                    "development_control": True,
+                    "evidence_modality": "still_pair",
+                    "continuous_video_verified": False,
+                    "provisional_answer_zh": f"早静帧：{str(sum_a)[:80]}；晚静帧：{str(sum_b)[:80]}",
+                    "uncertainty": list(base["uncertainty"])
+                    + ["still_pair_not_continuous_motion", "same_chatgpt_pass_not_independent_blind"],
+                }
+            )
+        elif rtype == "still_commerce_price_display_pair":
+            drafts.append(
+                {
+                    **base,
+                    "question_zh": (
+                        "在同一视频的两个指定静帧中，是否都能看到带价格信息的商业陈列？"
+                        "两处陈列的商品类型是否明显不同？勿声称已完成购买或推断因果关系。"
+                    ),
+                    "normalized_answer": None,
+                    "gold_answer": None,
+                    "answer_status": "ANSWER_PENDING",
+                    "answer_derivation": (
+                        "Bounded commerce/price-display pair hypothesis from stills; "
+                        "currency/purchase unverified; not continuous motion"
+                    ),
+                    "mechanism": "still_commerce_price_display_pair",
+                    "development_control": True,
+                    "evidence_modality": "still_pair",
+                    "continuous_video_verified": False,
+                    "provisional_answer_zh": "两处均可见价格类信息；商品类型不同（待独立核对）",
+                    "uncertainty": list(base["uncertainty"])
+                    + ["currency_unverified", "purchase_unverified", "same_chatgpt_pass_not_independent_blind"],
+                }
+            )
         else:
             drafts.append(
                 {

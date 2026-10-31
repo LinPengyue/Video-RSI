@@ -1,0 +1,396 @@
+{
+  "packet_id": "run_003_B_ONLY_BLIND",
+  "variant": "B_ONLY_BLIND",
+  "n_items": 10,
+  "protocol": [
+    "TRUE BLIND: only question + B-side media",
+    "No A paths, A event IDs, answers, grades, or proxies",
+    "Do not claim independent blindness if you already saw A+B"
+  ],
+  "items": [
+    {
+      "priority": 1,
+      "qa_id": "QA_DRAFT_0001",
+      "video_id": "JPPMz8fEml0",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "visible_windows": [
+        [
+          726.162,
+          726.162
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 726.162,
+          "time_end_s": 726.162,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_1_t726.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    },
+    {
+      "priority": 2,
+      "qa_id": "QA_DRAFT_0002",
+      "video_id": "JPPMz8fEml0",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "visible_windows": [
+        [
+          1141.112,
+          1141.112
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 1141.112,
+          "time_end_s": 1141.112,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_2_t1141.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    },
+    {
+      "priority": 3,
+      "qa_id": "QA_DRAFT_0003",
+      "video_id": "JPPMz8fEml0",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "visible_windows": [
+        [
+          1556.062,
+          1556.062
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 1556.062,
+          "time_end_s": 1556.062,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_3_t1556.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    },
+    {
+      "priority": 4,
+      "qa_id": "QA_DRAFT_0004",
+      "video_id": "Mcggugol2ts",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "visible_windows": [
+        [
+          1067.124,
+          1067.124
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 1067.124,
+          "time_end_s": 1067.124,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_1_t1067.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    },
+    {
+      "priority": 5,
+      "qa_id": "QA_DRAFT_0005",
+      "video_id": "Mcggugol2ts",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "visible_windows": [
+        [
+          1600.686,
+          1600.686
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 1600.686,
+          "time_end_s": 1600.686,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_2_t1601.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    },
+    {
+      "priority": 6,
+      "qa_id": "QA_DRAFT_0006",
+      "video_id": "Mcggugol2ts",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "visible_windows": [
+        [
+          2134.248,
+          2134.248
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 2134.248,
+          "time_end_s": 2134.248,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_3_t2134.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    },
+    {
+      "priority": 7,
+      "qa_id": "QA_DRAFT_0007",
+      "video_id": "Mcggugol2ts",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "在同一视频的两个指定静帧中，是否都能看到带价格信息的商业陈列？两处陈列的商品类型是否明显不同？勿声称已完成购买或推断因果关系。",
+      "visible_windows": [
+        [
+          2134.248,
+          2134.248
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 2134.248,
+          "time_end_s": 2134.248,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_3_t2134.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    },
+    {
+      "priority": 8,
+      "qa_id": "QA_DRAFT_0008",
+      "video_id": "xi6r3hZe5Tg",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "visible_windows": [
+        [
+          1065.861,
+          1065.861
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 1065.861,
+          "time_end_s": 1065.861,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_1_t1066.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    },
+    {
+      "priority": 9,
+      "qa_id": "QA_DRAFT_0009",
+      "video_id": "xi6r3hZe5Tg",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "visible_windows": [
+        [
+          1598.791,
+          1598.791
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 1598.791,
+          "time_end_s": 1598.791,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_2_t1599.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    },
+    {
+      "priority": 10,
+      "qa_id": "QA_DRAFT_0010",
+      "video_id": "xi6r3hZe5Tg",
+      "blind_variant": "B_ONLY_BLIND",
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "visible_windows": [
+        [
+          2131.722,
+          2131.722
+        ]
+      ],
+      "visible_media": [
+        {
+          "time_start_s": 2131.722,
+          "time_end_s": 2131.722,
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_3_t2132.jpg"
+          ],
+          "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO"
+        }
+      ],
+      "media_access_state": "STILL_PATHS_EXIST_NOT_CONTINUOUS_VIDEO",
+      "review_mode": "STILL_STATIC_ONLY",
+      "reviewer_asset_verified": false,
+      "formal_blind_ready": false,
+      "answerable_candidate": true,
+      "reviewer_fields": {
+        "answer": null,
+        "confidence": null,
+        "evidence_note": null
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "answer_hidden": true,
+      "grades_hidden": true,
+      "other_side_hidden": true
+    }
+  ],
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "human_status": "PENDING_HUMAN",
+  "blind_integrity": true
+}

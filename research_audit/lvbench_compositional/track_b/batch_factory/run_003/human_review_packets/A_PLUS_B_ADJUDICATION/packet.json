@@ -1,0 +1,726 @@
+{
+  "packet_id": "run_003_A_PLUS_B_ADJUDICATION",
+  "variant": "A_PLUS_B_ADJUDICATION",
+  "n_items": 10,
+  "protocol": [
+    "UNBLINDED adjudication — full evidence intentional",
+    "Heuristic grades are NOT video-tested necessity proofs",
+    "Do not mark SUPPORTED"
+  ],
+  "items": [
+    {
+      "priority": 1,
+      "qa_id": "QA_DRAFT_0001",
+      "video_id": "JPPMz8fEml0",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_ordered_setting_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早静帧：Two men appear in a sunlit street scene: left man has dark hair tied in a bun, a；晚静帧：Three women stand together on a paved street outside a stone-faced building: lef",
+      "required_windows": [
+        [
+          311.212,
+          311.212
+        ],
+        [
+          726.162,
+          726.162
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_001",
+          "time_start_s": 311.212,
+          "time_end_s": 311.212,
+          "event_type": "still_scene_observation",
+          "summary_zh": "Two men appear in a sunlit street scene: left man has dark hair tied in a bun, a beard, white collared shirt and dark backpack; right man is partially visible in a pale shirt. English on-screen subtitle reads 'For one family'.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_0_t311.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_002",
+          "time_start_s": 726.162,
+          "time_end_s": 726.162,
+          "event_type": "still_scene_observation",
+          "summary_zh": "Three women stand together on a paved street outside a stone-faced building: left wears a light short-sleeved top and light shorts with a small black bag, middle wears a striped sleeveless top and blue jeans holding a small white paper, rig",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_1_t726.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 2,
+      "qa_id": "QA_DRAFT_0002",
+      "video_id": "JPPMz8fEml0",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_ordered_setting_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早静帧：Three women stand together on a paved street outside a stone-faced building: lef；晚静帧：Nighttime street close-up of a short-haired man with facial hair, dark top and t",
+      "required_windows": [
+        [
+          726.162,
+          726.162
+        ],
+        [
+          1141.112,
+          1141.112
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_002",
+          "time_start_s": 726.162,
+          "time_end_s": 726.162,
+          "event_type": "still_scene_observation",
+          "summary_zh": "Three women stand together on a paved street outside a stone-faced building: left wears a light short-sleeved top and light shorts with a small black bag, middle wears a striped sleeveless top and blue jeans holding a small white paper, rig",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_1_t726.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_003",
+          "time_start_s": 1141.112,
+          "time_end_s": 1141.112,
+          "event_type": "still_scene_observation",
+          "summary_zh": "Nighttime street close-up of a short-haired man with facial hair, dark top and thin gold-colored chain; lit buildings and street lights are visible behind him.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_2_t1141.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 3,
+      "qa_id": "QA_DRAFT_0003",
+      "video_id": "JPPMz8fEml0",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_ordered_setting_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早静帧：Nighttime street close-up of a short-haired man with facial hair, dark top and t；晚静帧：A bearded man wearing a backward gray cap and a shirt with light and blue panels",
+      "required_windows": [
+        [
+          1141.112,
+          1141.112
+        ],
+        [
+          1556.062,
+          1556.062
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_003",
+          "time_start_s": 1141.112,
+          "time_end_s": 1141.112,
+          "event_type": "still_scene_observation",
+          "summary_zh": "Nighttime street close-up of a short-haired man with facial hair, dark top and thin gold-colored chain; lit buildings and street lights are visible behind him.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_2_t1141.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_004",
+          "time_start_s": 1556.062,
+          "time_end_s": 1556.062,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A bearded man wearing a backward gray cap and a shirt with light and blue panels sits on a sofa in a bright interior; a doorway at right shows a bed in an adjoining room.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/JPPMz8fEml0/pilot_frame_3_t1556.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 4,
+      "qa_id": "QA_DRAFT_0004",
+      "video_id": "Mcggugol2ts",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_ordered_setting_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早静帧：A short-haired man in a dark shirt with dark backpack straps is in the foregroun；晚静帧：A foreground hand extends toward a brightly illuminated vending-machine display ",
+      "required_windows": [
+        [
+          533.562,
+          533.562
+        ],
+        [
+          1067.124,
+          1067.124
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_005",
+          "time_start_s": 533.562,
+          "time_end_s": 533.562,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A short-haired man in a dark shirt with dark backpack straps is in the foreground of a commercial street with lit shops and several pedestrians in the background; the sky is dim.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_0_t534.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_006",
+          "time_start_s": 1067.124,
+          "time_end_s": 1067.124,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A foreground hand extends toward a brightly illuminated vending-machine display containing bottled water, teas and canned drinks; visible shelf price numerals include 100 and 120.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_1_t1067.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 5,
+      "qa_id": "QA_DRAFT_0005",
+      "video_id": "Mcggugol2ts",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_ordered_setting_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早静帧：A foreground hand extends toward a brightly illuminated vending-machine display ；晚静帧：A lit urban street at night is shown between mid-rise buildings, with storefront",
+      "required_windows": [
+        [
+          1067.124,
+          1067.124
+        ],
+        [
+          1600.686,
+          1600.686
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_006",
+          "time_start_s": 1067.124,
+          "time_end_s": 1067.124,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A foreground hand extends toward a brightly illuminated vending-machine display containing bottled water, teas and canned drinks; visible shelf price numerals include 100 and 120.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_1_t1067.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_007",
+          "time_start_s": 1600.686,
+          "time_end_s": 1600.686,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A lit urban street at night is shown between mid-rise buildings, with storefront lighting, a mostly open road, a few small roadside objects and a light-colored vehicle in the distance.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_2_t1601.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 6,
+      "qa_id": "QA_DRAFT_0006",
+      "video_id": "Mcggugol2ts",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_ordered_setting_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早静帧：A lit urban street at night is shown between mid-rise buildings, with storefront；晚静帧：Multiple colorful illustrated trading or collectible cards are arranged in trans",
+      "required_windows": [
+        [
+          1600.686,
+          1600.686
+        ],
+        [
+          2134.248,
+          2134.248
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_007",
+          "time_start_s": 1600.686,
+          "time_end_s": 1600.686,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A lit urban street at night is shown between mid-rise buildings, with storefront lighting, a mostly open road, a few small roadside objects and a light-colored vehicle in the distance.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_2_t1601.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_008",
+          "time_start_s": 2134.248,
+          "time_end_s": 2134.248,
+          "event_type": "still_scene_observation",
+          "summary_zh": "Multiple colorful illustrated trading or collectible cards are arranged in transparent compartments of a display case, some with printed price labels attached.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_3_t2134.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 7,
+      "qa_id": "QA_DRAFT_0007",
+      "video_id": "Mcggugol2ts",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_commerce_price_display_pair",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "在同一视频的两个指定静帧中，是否都能看到带价格信息的商业陈列？两处陈列的商品类型是否明显不同？勿声称已完成购买或推断因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "两处均可见价格类信息；商品类型不同（待独立核对）",
+      "required_windows": [
+        [
+          1067.124,
+          1067.124
+        ],
+        [
+          2134.248,
+          2134.248
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_006",
+          "time_start_s": 1067.124,
+          "time_end_s": 1067.124,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A foreground hand extends toward a brightly illuminated vending-machine display containing bottled water, teas and canned drinks; visible shelf price numerals include 100 and 120.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_1_t1067.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_008",
+          "time_start_s": 2134.248,
+          "time_end_s": 2134.248,
+          "event_type": "still_scene_observation",
+          "summary_zh": "Multiple colorful illustrated trading or collectible cards are arranged in transparent compartments of a display case, some with printed price labels attached.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/Mcggugol2ts/pilot_frame_3_t2134.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 8,
+      "qa_id": "QA_DRAFT_0008",
+      "video_id": "xi6r3hZe5Tg",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_ordered_setting_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早静帧：A near-vertical aerial view shows glass-faced buildings with the visible sign 'P；晚静帧：A plated food close-up shows glossy red-brown sliced food on a white plate, pale",
+      "required_windows": [
+        [
+          532.93,
+          532.93
+        ],
+        [
+          1065.861,
+          1065.861
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_009",
+          "time_start_s": 532.93,
+          "time_end_s": 532.93,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A near-vertical aerial view shows glass-faced buildings with the visible sign 'PARKROYAL', green landscaped roof or terrace areas between the towers, and a multilane road with vehicles and yellow box junction markings below.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_0_t533.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_010",
+          "time_start_s": 1065.861,
+          "time_end_s": 1065.861,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A plated food close-up shows glossy red-brown sliced food on a white plate, pale round slices, and purple and yellow flower-shaped garnish.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_1_t1066.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 9,
+      "qa_id": "QA_DRAFT_0009",
+      "video_id": "xi6r3hZe5Tg",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_ordered_setting_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早静帧：A plated food close-up shows glossy red-brown sliced food on a white plate, pale；晚静帧：A computer-animated schematic on a pale blue background depicts four small brown",
+      "required_windows": [
+        [
+          1065.861,
+          1065.861
+        ],
+        [
+          1598.791,
+          1598.791
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_010",
+          "time_start_s": 1065.861,
+          "time_end_s": 1065.861,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A plated food close-up shows glossy red-brown sliced food on a white plate, pale round slices, and purple and yellow flower-shaped garnish.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_1_t1066.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_011",
+          "time_start_s": 1598.791,
+          "time_end_s": 1598.791,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A computer-animated schematic on a pale blue background depicts four small brown kiosk- or pavilion-like objects arranged roughly in a quadrilateral, each with a green circular emblem, together with white upright shapes and several small ye",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_2_t1599.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    },
+    {
+      "priority": 10,
+      "qa_id": "QA_DRAFT_0010",
+      "video_id": "xi6r3hZe5Tg",
+      "blind_variant": "A_PLUS_B_ADJUDICATION",
+      "unblinded": true,
+      "mechanism": "still_ordered_setting_contrast",
+      "heuristic_grade": "SHORTCUT_CONTROL",
+      "heuristic_score": 0.65,
+      "evidence_tested": false,
+      "masked_qa_executed": false,
+      "risks": [
+        "from_new_frame_observation_unverified_video"
+      ],
+      "question_zh": "给定两个带文件时间戳的静帧（较早一帧与较晚一帧）。按时间顺序，两帧的可见场景设置有何不同？勿推断人物跨镜头身份、连续动作或因果关系。",
+      "answer_status": "ANSWER_PENDING",
+      "provisional_answer_zh": "早静帧：A computer-animated schematic on a pale blue background depicts four small brown；晚静帧：In a bright indoor setting, two children wearing yellow tops are visible; the ch",
+      "required_windows": [
+        [
+          1598.791,
+          1598.791
+        ],
+        [
+          2131.722,
+          2131.722
+        ]
+      ],
+      "facts": [
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_011",
+          "time_start_s": 1598.791,
+          "time_end_s": 1598.791,
+          "event_type": "still_scene_observation",
+          "summary_zh": "A computer-animated schematic on a pale blue background depicts four small brown kiosk- or pavilion-like objects arranged roughly in a quadrilateral, each with a green circular emblem, together with white upright shapes and several small ye",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_2_t1599.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        },
+        {
+          "event_id": "CHATGPT_FRAME_PILOT_20261031_012",
+          "time_start_s": 2131.722,
+          "time_end_s": 2131.722,
+          "event_type": "still_scene_observation",
+          "summary_zh": "In a bright indoor setting, two children wearing yellow tops are visible; the child in focus has a straight dark bob haircut with bangs and looks downward, while another child appears partly out of focus on the left.",
+          "evidence_paths": [
+            "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_frame_production_pilot_2026-10-31/frames/xi6r3hZe5Tg/pilot_frame_3_t2132.jpg"
+          ],
+          "source": "CHATGPT_FRAME_OBSERVATION"
+        }
+      ],
+      "rule_proxy_necessity": {
+        "a_solves": false,
+        "b_solves": false,
+        "note": "RULE_PROXY_NOT_VIDEO_TESTED — not formal necessity"
+      },
+      "fact_binding": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "binding_status": "OK"
+      },
+      "data_partition_status": "UNASSIGNED",
+      "formal_supported": false,
+      "reviewer_fields": {
+        "verdict": null,
+        "answer_ok": null,
+        "necessity_ok": null,
+        "notes": null
+      }
+    }
+  ],
+  "data_partition_status": "UNASSIGNED",
+  "formal_supported": false,
+  "human_status": "PENDING_HUMAN",
+  "blind_integrity": false
+}

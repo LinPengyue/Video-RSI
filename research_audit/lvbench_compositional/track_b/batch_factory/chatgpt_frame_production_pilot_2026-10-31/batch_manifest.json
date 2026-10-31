@@ -38,7 +38,11 @@
       "file": "events_CHATGPT_FRAME_OBSERVATION.jsonl",
       "report": "CHATGPT_FRAME_PRODUCTION_COMPLETION_REPORT.md",
       "note": "One frame-grounded static observation per source frame; QA/relations and run_003 still pending Cursor factory intake"
-    }
+    },
+    "factory_intake_status": "RUN_003_COMPLETED_STILL_INTAKE",
+    "run_003_path": "research_audit/lvbench_compositional/track_b/batch_factory/run_003",
+    "n_events_accepted_by_factory": 12,
+    "n_continuous_video_events_certified": 0
   },
   "frames": [
     {

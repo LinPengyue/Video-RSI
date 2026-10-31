@@ -19,6 +19,7 @@ from .extract_events import extract_for_video
 from .human_packets import build_packet
 from .inventory import build_inventory
 from .provenance import annotate_event, count_by_provenance
+from .chatgpt_ingest import ingest_chatgpt_events_file
 from .qa_draft import draft_qa
 from .relations import mine_relations
 
@@ -43,13 +44,36 @@ def run_factory(
     max_videos: int = 12,
     resume: bool = False,
     human_k: int = 12,
+    chatgpt_events_path: Path | None = None,
+    chatgpt_manifest_path: Path | None = None,
+    video_id_allowlist: list[str] | None = None,
+    skip_coarse_and_curated: bool = False,
 ) -> dict[str, Any]:
     t0 = time.time()
     output.mkdir(parents=True, exist_ok=True)
     run_id = output.name
 
+    # Optional ChatGPT still intake (validated before extract merge)
+    chatgpt_report: dict[str, Any] | None = None
+    chatgpt_by_video: dict[str, list[dict[str, Any]]] = {}
+    chatgpt_evidence: list[dict[str, Any]] = []
+    if chatgpt_events_path is not None:
+        chatgpt_report = ingest_chatgpt_events_file(
+            chatgpt_events_path,
+            manifest_path=chatgpt_manifest_path,
+        )
+        _write_json(output / "chatgpt_ingest_report.json", {
+            k: chatgpt_report[k]
+            for k in ("n_raw", "n_accepted", "n_rejected", "rejected", "duplicate_event_ids_caught")
+        })
+        chatgpt_by_video = chatgpt_report.get("events_by_video") or {}
+        chatgpt_evidence = chatgpt_report.get("evidence") or []
+
     # B1 inventory
     inventory = build_inventory(manifest, pool=pool, max_videos=max_videos)
+    if video_id_allowlist is not None:
+        allow = set(video_id_allowlist)
+        inventory = [i for i in inventory if i["video_id"] in allow]
     _write_jsonl(output / "video_inventory.jsonl", inventory)
 
     events_all: list[dict[str, Any]] = []
@@ -74,17 +98,47 @@ def run_factory(
             evidence_all.extend(evi)
             continue
         decode_t0 = time.time()
-        try:
-            result = extract_for_video(inv, output)
-        except Exception as e:  # never block batch
+        if skip_coarse_and_curated and vid in chatgpt_by_video:
+            # ChatGPT-intake run: use validated still observations only (no coarse/curated mix).
+            cg = [annotate_event(e) for e in chatgpt_by_video.get(vid, [])]
+            evi_cg = [e for e in chatgpt_evidence if e.get("video_id") == vid]
             result = {
                 "video_id": vid,
-                "status": "EXTRACTION_FAILED",
-                "events": [],
-                "evidence": [],
-                "flags": [f"exception:{type(e).__name__}:{e}"],
-                "n_events": 0,
+                "status": "OK" if cg else "EXTRACTION_FAILED",
+                "events": cg,
+                "evidence": evi_cg,
+                "flags": ["CHATGPT_STILL_INTAKE_ONLY", "NO_CONTINUOUS_VIDEO_EVENTS"],
+                "n_events": len(cg),
+                "n_curated": 0,
+                "n_new_semantic": sum(1 for e in cg if e.get("is_newly_discovered_semantic")),
+                "n_coarse": 0,
+                "semantic_extractor_status": "CHATGPT_FRAME_OBSERVATION_INTAKE",
             }
+        else:
+            try:
+                result = extract_for_video(inv, output)
+            except Exception as e:  # never block batch
+                result = {
+                    "video_id": vid,
+                    "status": "EXTRACTION_FAILED",
+                    "events": [],
+                    "evidence": [],
+                    "flags": [f"exception:{type(e).__name__}:{e}"],
+                    "n_events": 0,
+                }
+            # Merge any ChatGPT stills for this video (dedupe by event_id)
+            if vid in chatgpt_by_video:
+                have = {e.get("event_id") for e in (result.get("events") or [])}
+                extra = [annotate_event(e) for e in chatgpt_by_video[vid] if e.get("event_id") not in have]
+                result["events"] = list(result.get("events") or []) + extra
+                result["evidence"] = list(result.get("evidence") or []) + [
+                    e for e in chatgpt_evidence if e.get("video_id") == vid
+                ]
+                result["n_events"] = len(result["events"])
+                result["n_new_semantic"] = sum(
+                    1 for e in result["events"] if annotate_event(e).get("is_newly_discovered_semantic")
+                )
+                result.setdefault("flags", []).append("MERGED_CHATGPT_FRAME_OBSERVATION")
         decode_s = round(time.time() - decode_t0, 3)
         cached_reuse = sum(
             1
@@ -263,8 +317,16 @@ def run_factory(
         "sealed_accessed": False,
         "no_paid_vlm": True,
         "semantic_extractor_status": (
-            "BLOCKED_NO_SEMANTIC_EXTRACTOR" if n_model_inf == 0 else "MODEL_AVAILABLE"
+            "CHATGPT_FRAME_OBSERVATION_INTAKE"
+            if n_chatgpt_obs > 0 and n_model_inf == 0
+            else ("BLOCKED_NO_SEMANTIC_EXTRACTOR" if n_model_inf == 0 else "MODEL_AVAILABLE")
         ),
+        "n_still_frame_events": sum(1 for e in events_all if e.get("is_still_frame_observation")),
+        "n_continuous_video_events": sum(1 for e in events_all if e.get("is_continuous_video_event")),
+        "n_chatgpt_events_accepted": (chatgpt_report or {}).get("n_accepted"),
+        "n_chatgpt_events_rejected": (chatgpt_report or {}).get("n_rejected"),
+        "chatgpt_intake_mode": bool(chatgpt_events_path),
+        "skip_coarse_and_curated": skip_coarse_and_curated,
     }
     _write_json(output / "pipeline_metrics.json", metrics)
 
@@ -275,7 +337,11 @@ def run_factory(
         "metrics": metrics,
         "output": str(output),
         "packet_id": packet["packet_id"],
-        "n_human_items": n_human,
+        "n_human_items": n_packet,
+        "chatgpt_ingest": {
+            "n_accepted": (chatgpt_report or {}).get("n_accepted"),
+            "n_rejected": (chatgpt_report or {}).get("n_rejected"),
+        },
     }
 
 

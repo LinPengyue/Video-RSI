@@ -1,0 +1,16 @@
+{
+  "video_id": "Mcggugol2ts",
+  "status": "OK",
+  "flags": [
+    "CHATGPT_STILL_INTAKE_ONLY",
+    "NO_CONTINUOUS_VIDEO_EVENTS"
+  ],
+  "n_events": 4,
+  "n_curated": 0,
+  "n_new_semantic": 4,
+  "n_coarse": 0,
+  "semantic_extractor_status": "CHATGPT_FRAME_OBSERVATION_INTAKE",
+  "decode_or_extract_s": 0.0,
+  "n_evidence": 4,
+  "cached_frame_paths_present": 0
+}

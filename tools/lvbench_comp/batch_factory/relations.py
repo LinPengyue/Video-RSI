@@ -44,9 +44,12 @@ def mine_relations(events_by_video: dict[str, list[dict[str, Any]]]) -> list[dic
             )
 
         # Same local actor across non-adjacent events
+        # Skip still-frame observations: ChatGPT stills do not certify cross-shot identity.
         by_actor: dict[str, list[dict[str, Any]]] = {}
         for e in events:
-            if e["verb"] in {"visual_sample", "seed_frame_present"}:
+            if e["verb"] in {"visual_sample", "seed_frame_present", "still_scene_observation"}:
+                continue
+            if e.get("is_still_frame_observation"):
                 continue
             by_actor.setdefault(e["actor_local_track"], []).append(e)
         for actor, evs in by_actor.items():
@@ -160,11 +163,14 @@ def mine_relations(events_by_video: dict[str, list[dict[str, Any]]]) -> list[dic
                 )
 
         # Schema-general: non-adjacent semantic observations with distinct locations/objects
-        # (transferable join; not sport-specific hardcoding)
+        # (transferable join; not sport-specific hardcoding).
+        # STILL-frame ChatGPT/Cursor observations use consecutive-only pairing below —
+        # do NOT expand all still pairs into cross_scene_attribute_contrast (template churn).
         semantic = [
             e
             for e in events
-            if e.get("verb") not in {"visual_sample", "seed_frame_present"}
+            if e.get("verb") not in {"visual_sample", "seed_frame_present", "still_scene_observation"}
+            and not e.get("is_still_frame_observation")
             and (e.get("is_newly_discovered_semantic") or e.get("provenance_tier") == "CURSOR_FRAME_VISUAL_OBSERVATION")
         ]
         semantic = sorted(semantic, key=lambda e: e["time_start_s"])
@@ -197,6 +203,87 @@ def mine_relations(events_by_video: dict[str, list[dict[str, Any]]]) -> list[dic
                         "cause_status": "CAUSE_UNVERIFIED",
                         "attrs_a": {"location": a.get("location"), "object": a.get("object"), "verb": a.get("verb")},
                         "attrs_b": {"location": b.get("location"), "object": b.get("object"), "verb": b.get("verb")},
+                    }
+                )
+
+        # Still-only observations: consecutive temporal pairs only (ordered setting contrast).
+        # Explicitly NOT continuous-video events; identity/causality remain PENDING.
+        stills = sorted(
+            [e for e in events if e.get("is_still_frame_observation") or e.get("verb") == "still_scene_observation"],
+            key=lambda e: e["time_start_s"],
+        )
+        for i in range(len(stills) - 1):
+            a, b = stills[i], stills[i + 1]
+            if b["time_start_s"] - a["time_end_s"] < 1.0:
+                continue
+            add(
+                {
+                    "video_id": vid,
+                    "type": "still_ordered_setting_contrast",
+                    "source_fact_ids": [a["event_id"], b["event_id"]],
+                    "minimal_witness_set": [a["event_id"], b["event_id"]],
+                    "composition_signature": _sig(
+                        ["observe_still_A_setting", "observe_still_B_setting", "order_by_file_clock"]
+                    ),
+                    "time_span_s": [a["time_start_s"], b["time_end_s"]],
+                    "possible_shortcut": "Either still alone may answer a vague setting question; timestamps needed for order",
+                    "uncertainty": list(
+                        set(
+                            (a.get("unresolved_flags") or [])
+                            + (b.get("unresolved_flags") or [])
+                            + [
+                                "still_pair_not_continuous_motion",
+                                "cross_shot_identity_unverified",
+                                "cause_unverified",
+                            ]
+                        )
+                    ),
+                    "source_intervals": [[a["time_start_s"], a["time_end_s"]], [b["time_start_s"], b["time_end_s"]]],
+                    "cause_status": "CAUSE_UNVERIFIED",
+                    "evidence_modality": "still_pair",
+                    "continuous_video_verified": False,
+                    "development_control": True,
+                    "attrs_a": {"location": a.get("location"), "object": a.get("object"), "notes": (a.get("notes") or "")[:80]},
+                    "attrs_b": {"location": b.get("location"), "object": b.get("object"), "notes": (b.get("notes") or "")[:80]},
+                }
+            )
+
+        # Bounded domain hypothesis: two stills both showing price-bearing commercial displays
+        # (distinct from generic scene-contrast template). Still NOT verified purchase/causality.
+        priceish = [
+            e
+            for e in stills
+            if any(
+                k in ((e.get("notes") or "") + " " + (e.get("object") or "")).lower()
+                for k in ("price", "vending", "100", "120", "display case", "trading", "collectible")
+            )
+        ]
+        priceish = sorted(priceish, key=lambda e: e["time_start_s"])
+        if len(priceish) >= 2:
+            a, b = priceish[0], priceish[-1]
+            if b["time_start_s"] - a["time_end_s"] >= 5:
+                add(
+                    {
+                        "video_id": vid,
+                        "type": "still_commerce_price_display_pair",
+                        "source_fact_ids": [a["event_id"], b["event_id"]],
+                        "minimal_witness_set": [a["event_id"], b["event_id"]],
+                        "composition_signature": _sig(
+                            ["observe_price_display_A", "observe_price_display_B", "compare_commercial_settings"]
+                        ),
+                        "time_span_s": [a["time_start_s"], b["time_end_s"]],
+                        "possible_shortcut": "A-only or B-only may already show prices; no purchase/causality claimed",
+                        "uncertainty": [
+                            "still_pair_not_continuous_motion",
+                            "currency_unverified",
+                            "purchase_unverified",
+                            "cause_unverified",
+                        ],
+                        "source_intervals": [[a["time_start_s"], a["time_end_s"]], [b["time_start_s"], b["time_end_s"]]],
+                        "cause_status": "CAUSE_UNVERIFIED",
+                        "evidence_modality": "still_pair",
+                        "continuous_video_verified": False,
+                        "development_control": True,
                     }
                 )
 
