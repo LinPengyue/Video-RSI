@@ -1,0 +1,26 @@
+{
+  "round": "003",
+  "intake_base_sha": "6f5e50de82c1a6c08ded06497376bc69ddb515fe",
+  "user_record": "TJR_USER_QA_REVISION_2026-11-01.json",
+  "record_note": "ChatGPT-organized from user annotations; not the local JSON original",
+  "human_first_trial": "RAN_OK",
+  "data_partition_status": "UNASSIGNED",
+  "composition_necessity_status": "NOT_TESTED",
+  "gold_qa_minted": false,
+  "seen_unseen_status": "UNASSIGNED",
+  "run_004": "NOT_STARTED",
+  "track_a": "FROZEN",
+  "p0_untouched": true,
+  "current_tjr_qa_candidate": {
+    "question_zh": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+    "answer_zh": "绿色的龙",
+    "identity": "SAME_PERSON",
+    "original_qa_preserved": true
+  },
+  "return_path": "user_local_json → ChatGPT_GitHub → Cursor_sync",
+  "artifacts": [
+    "ROUND3_INTAKE_SUMMARY.md",
+    "GPT_REVIEW_SKILL_v1.md",
+    "TRACK_B_HUMAN_FIRST_FLOW_v1.md"
+  ]
+}
