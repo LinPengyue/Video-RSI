@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>P7 Round 2 — TJR Optional Early-Window Review</title>
+<style>
+  body { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; background:#f7f4ef; color:#1a1a1a; margin:0; line-height:1.45; }
+  header, main { max-width:920px; margin:0 auto; padding:1rem 1.25rem; }
+  header { background:#fff; border-bottom:1px solid #d9d2c5; max-width:100%; padding:1.25rem 1.5rem; }
+  .banner { background:#fff8e8; border:1px solid #e7d2a8; padding:.75rem 1rem; border-radius:8px; margin:1rem 0; }
+  section { background:#fff; border:1px solid #d9d2c5; border-radius:10px; padding:1rem; margin:1rem 0; }
+  video { width:100%; max-height:400px; background:#000; border-radius:6px; }
+  label { display:block; font-weight:600; margin:.8rem 0 .3rem; }
+  textarea, input { width:100%; font:inherit; padding:.5rem; border:1px solid #d9d2c5; border-radius:6px; }
+  textarea { min-height:70px; }
+  button { background:#0b5fff; color:#fff; border:0; border-radius:6px; padding:.45rem .75rem; cursor:pointer; margin-top:.5rem; }
+  .muted { color:#5a564e; font-size:.9rem; }
+  pre { background:#f3f0ea; padding:.75rem; border-radius:6px; white-space:pre-wrap; font-size:.8rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>可选 · TJR 早期窗口复核（次于 VTCD）</h1>
+  <p class="muted">原「紫衣近国王 → 后来打鼓」假设：<strong>NO_VALID_EARLY_WINDOW_FOUND</strong>（国王场景 ≠ 舞台表演者）。本页仅提供稀疏探测发现的<strong>候选</strong>，不视为已验证身份绑定。</p>
+</header>
+<main>
+  <div class="banner">请先完成 VTCD 审核。本页无标准答案；不要强行绑定不同人物。</div>
+
+  <section>
+    <h2>早期候选 · 约 1100–1125 s</h2>
+    <p class="muted">Video ID：<code>TJR1oYDDTwg</code> · 探测帧提示可能为舞台表演者更早出现（龙背场景）。</p>
+    <video id="vidE" controls preload="metadata" src="media/early_candidate_dragon_ride_1100_1125.mp4"></video>
+    <label>你看到了谁？服装/外貌？</label>
+    <textarea id="e_obs"></textarea>
+  </section>
+
+  <section>
+    <h2>晚期参考 · 1200–1220 s（双重表演）</h2>
+    <p class="muted">历史「紫衣」标签可能不准确；以你所见为准。</p>
+    <video id="vidL" controls preload="metadata" src="media/late_dual_performers_1200_1220.mp4"></video>
+    <label>是否为与早期候选同一人物？（是 / 否 / 证据不足）</label>
+    <input id="e_id" placeholder="是 / 否 / 证据不足" />
+    <label>支持或反驳的画面</label>
+    <textarea id="e_ev"></textarea>
+    <label>判定</label>
+    <input id="e_dec" placeholder="ACCEPT / CORRECT / REJECT / UNCERTAIN" />
+    <label>审核分钟数</label>
+    <input id="mins" />
+    <button type="button" onclick="exp()">导出 JSON</button>
+    <pre id="out">（填写后导出）</pre>
+  </section>
+</main>
+<script>
+function exp(){
+  const p={
+    round:"002", video_id:"TJR1oYDDTwg", reviewer:"USER",
+    original_hypothesis_status:"NO_VALID_EARLY_WINDOW_FOUND",
+    candidate_status:"PENDING_USER_REVIEW",
+    early_window:"1100-1125", late_window:"1200-1220",
+    human_observation_early:document.getElementById('e_obs').value,
+    identity_decision:document.getElementById('e_id').value,
+    evidence_reason:document.getElementById('e_ev').value,
+    decision:document.getElementById('e_dec').value||"PENDING_USER_REVIEW",
+    actual_review_minutes:document.getElementById('mins').value||null,
+    review_completed:false,
+    counts_as_relation_verified:false,
+    composition_necessity_status:"NOT_STARTED",
+    data_partition_status:"UNASSIGNED"
+  };
+  document.getElementById('out').textContent=JSON.stringify(p,null,2);
+}
+</script>
+</body>
+</html>

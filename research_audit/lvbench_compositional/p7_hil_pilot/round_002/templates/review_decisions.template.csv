@@ -1,0 +1,4 @@
+video_id,event_id,source_time_window,human_observation,action_label,identity_decision,evidence_reason,uncertainty,corrected_time_span,decision,reviewer,review_completed,actual_review_minutes
+VTCDQYYKA9o,P7_E_VTCD_garment_window_A,163-186,,,,,,,PENDING_USER_REVIEW,USER,false,
+VTCDQYYKA9o,P7_E_VTCD_previous_results_B,265-280,,,,,,,PENDING_USER_REVIEW,USER,false,
+TJR1oYDDTwg,P7_E_TJR_early_dragon_ride_candidate,1100-1125,,,,,,,PENDING_USER_REVIEW,USER,false,

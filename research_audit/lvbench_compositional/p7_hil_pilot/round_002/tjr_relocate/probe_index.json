@@ -1,0 +1,226 @@
+{
+  "video_id": "TJR1oYDDTwg",
+  "searched_ranges": [
+    {
+      "label": "hist_king_embrace",
+      "t_start_s": 315,
+      "t_end_s": 335,
+      "note": "KNOWN_WRONG_CAST_royal",
+      "kind": "historical_index"
+    },
+    {
+      "label": "hist_adjacent_0535",
+      "t_start_s": 335,
+      "t_end_s": 360,
+      "note": "adjacent_to_king",
+      "kind": "historical_index"
+    },
+    {
+      "label": "hist_adjacent_1920",
+      "t_start_s": 1160,
+      "t_end_s": 1180,
+      "note": "near_performance_not_early_cross_scene",
+      "kind": "historical_index"
+    },
+    {
+      "label": "hist_pre_performance",
+      "t_start_s": 1180,
+      "t_end_s": 1200,
+      "note": "same_performance_cluster_not_early",
+      "kind": "historical_index"
+    },
+    {
+      "label": "hist_dual_performers",
+      "t_start_s": 1200,
+      "t_end_s": 1220,
+      "note": "LATE_REFERENCE_target_B_not_early",
+      "kind": "historical_index"
+    },
+    {
+      "label": "sparse_pre_1160_stage_costume_hunt",
+      "t_start_s": 60,
+      "t_end_s": 1110,
+      "sample_times_s": [
+        60,
+        150,
+        240,
+        390,
+        480,
+        570,
+        660,
+        750,
+        840,
+        930,
+        1020,
+        1110
+      ],
+      "note": "Bounded 1-frame probes; not exhaustive search",
+      "kind": "sparse_probe"
+    }
+  ],
+  "probes": [
+    {
+      "t_s": 315,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_king_embrace_t0315.jpg",
+      "range": "hist_king_embrace",
+      "sha256": "0755d68f076fd8d698f014b0ef9bcd8917c6a90cf79930f3a8cc705d06306aff"
+    },
+    {
+      "t_s": 325.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_king_embrace_t0325.jpg",
+      "range": "hist_king_embrace",
+      "sha256": "a16f32a74bbde2df6ecf1fa17acaa85420ba7c7876412654634533e3b054ca94"
+    },
+    {
+      "t_s": 335,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_king_embrace_t0335.jpg",
+      "range": "hist_king_embrace",
+      "sha256": "49a9783bf018d683a3463231e1ed952e93a5c6e68016e78c23143be4a22196af"
+    },
+    {
+      "t_s": 335,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_adjacent_0535_t0335.jpg",
+      "range": "hist_adjacent_0535",
+      "sha256": "49a9783bf018d683a3463231e1ed952e93a5c6e68016e78c23143be4a22196af"
+    },
+    {
+      "t_s": 347.5,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_adjacent_0535_t0347.jpg",
+      "range": "hist_adjacent_0535",
+      "sha256": "f1678d448ea9ab15484f6ef6e137ea8ae5a5983fb5ac257ec907d2cedfe65d86"
+    },
+    {
+      "t_s": 360,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_adjacent_0535_t0360.jpg",
+      "range": "hist_adjacent_0535",
+      "sha256": "f062cc8b9c569922fa44ed7ae0e7874981b26aa78e6c9410f3af6c7ae811b394"
+    },
+    {
+      "t_s": 1160,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_adjacent_1920_t1160.jpg",
+      "range": "hist_adjacent_1920",
+      "sha256": "60383c7f5794297aa0f6433eef57bece9a9a6dd0667f5ef0279aa68ed7c8fdca"
+    },
+    {
+      "t_s": 1170.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_adjacent_1920_t1170.jpg",
+      "range": "hist_adjacent_1920",
+      "sha256": "48b85b2e92078ba744f8629ca57f99251ac43aeff6a1d90e4d372a8860887baa"
+    },
+    {
+      "t_s": 1180,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_adjacent_1920_t1180.jpg",
+      "range": "hist_adjacent_1920",
+      "sha256": "b65296b6fcceeb3cbf683f597b890981a24894e2a01468e94f88e255bc1d31b4"
+    },
+    {
+      "t_s": 1180,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_pre_performance_t1180.jpg",
+      "range": "hist_pre_performance",
+      "sha256": "b65296b6fcceeb3cbf683f597b890981a24894e2a01468e94f88e255bc1d31b4"
+    },
+    {
+      "t_s": 1190.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_pre_performance_t1190.jpg",
+      "range": "hist_pre_performance",
+      "sha256": "ecb0bb2fb5b0ca811244f5d869ccdc2378183eeac85dac12f092518abfb462d6"
+    },
+    {
+      "t_s": 1200,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_pre_performance_t1200.jpg",
+      "range": "hist_pre_performance",
+      "sha256": "8a7b0499d429b1f44d7e2d38ed93d1ccf2711aa14546859efc72c2f4d68c6230"
+    },
+    {
+      "t_s": 1200,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_dual_performers_t1200.jpg",
+      "range": "hist_dual_performers",
+      "sha256": "8a7b0499d429b1f44d7e2d38ed93d1ccf2711aa14546859efc72c2f4d68c6230"
+    },
+    {
+      "t_s": 1210.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_dual_performers_t1210.jpg",
+      "range": "hist_dual_performers",
+      "sha256": "2633e666b2665055dfed0f07bcd46bf937456fd2f68aa030bd4fe184a56f71eb"
+    },
+    {
+      "t_s": 1220,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/hist_dual_performers_t1220.jpg",
+      "range": "hist_dual_performers",
+      "sha256": "2d57bcbd3efe2986426e14202ac5f1a8c684e3929563cd7031d8a4fe3372357e"
+    },
+    {
+      "t_s": 60.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0060.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "2a8549b6aea1644d1858565ed2b072e1b8b052b3843e5d606aee481dea6b1aa7"
+    },
+    {
+      "t_s": 150.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0150.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "7433d1b7a17402b53a9a8a8e9cd405c36bf03d95d25180079ff7916cbb7013f9"
+    },
+    {
+      "t_s": 240.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0240.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "4551c4265f908bdd57a8c7df6856a5611dccaf8d92383d16b302d27f116c6392"
+    },
+    {
+      "t_s": 390.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0390.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "52fdb81d1c8801e8cdf34e2dd822043bc6ea87f129986d36c86f2dc8129b2453"
+    },
+    {
+      "t_s": 480.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0480.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "1e1f88081b5f43481e6ec2405c8d8f6017733bd861319e91e4461a84255be3c1"
+    },
+    {
+      "t_s": 570.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0570.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "16e2e19258a90c574587a8a31d8baa922207347abd73d746069c2a49792ab245"
+    },
+    {
+      "t_s": 660.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0660.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "c742881815dd2c7a90b961be219396cbb3ebc73b8d8b6b1832443121e7123e56"
+    },
+    {
+      "t_s": 750.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0750.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "62c9a387c13d017a159a58dd4b5bd81af42ee763cf75d19dd4042335813483cb"
+    },
+    {
+      "t_s": 840.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0840.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "d66274deaa226f021f900a040abc17534aee8a233b9525c556f42d674e006575"
+    },
+    {
+      "t_s": 930.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t0930.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "1b39419ca68dfa972994e2b94b2474515704670b3ec216db2181febeaef9715e"
+    },
+    {
+      "t_s": 1020.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t1020.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "7f88ac4901b61bf234c6b6f31dd336b41526f34e4f44006de502723ede26db7d"
+    },
+    {
+      "t_s": 1110.0,
+      "path": "research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/probe_frames/sparse_t1110.jpg",
+      "range": "sparse_pre_1160",
+      "sha256": "42e320d884278973b3d7d6ac038784df81197db5e17c32a77692167d1fde038a"
+    }
+  ],
+  "target_description": "Same purple stage-costume child performer as dual_performers@1200\u20131220, in an EARLIER distinct scene (not royal cast; not same performance cluster)."
+}

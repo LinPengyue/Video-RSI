@@ -1,0 +1,104 @@
+{
+  "round": "002",
+  "video_id": "TJR1oYDDTwg",
+  "created_utc": "2026-11-01T12:26:49.394355+00:00",
+  "hypothesis_original": {
+    "claim": "Purple stage-costume child near king (315–335) → later drums (1200–1220)",
+    "status": "NO_VALID_EARLY_WINDOW_FOUND",
+    "reason": "315–335 is Carmen Sandiego royal cast (king/prince), not the later stage performers. Sparse probes 60–1110 did not recover that royal child as the stage drummer/guitarist cast. Do not force-bind distinct casts.",
+    "searched_ranges": [
+      {
+        "label": "hist_king_embrace",
+        "t_start_s": 315,
+        "t_end_s": 335,
+        "note": "KNOWN_WRONG_CAST_royal",
+        "kind": "historical_index"
+      },
+      {
+        "label": "hist_adjacent_0535",
+        "t_start_s": 335,
+        "t_end_s": 360,
+        "note": "adjacent_to_king",
+        "kind": "historical_index"
+      },
+      {
+        "label": "hist_adjacent_1920",
+        "t_start_s": 1160,
+        "t_end_s": 1180,
+        "note": "near_performance_not_early_cross_scene",
+        "kind": "historical_index"
+      },
+      {
+        "label": "hist_pre_performance",
+        "t_start_s": 1180,
+        "t_end_s": 1200,
+        "note": "same_performance_cluster_not_early",
+        "kind": "historical_index"
+      },
+      {
+        "label": "hist_dual_performers",
+        "t_start_s": 1200,
+        "t_end_s": 1220,
+        "note": "LATE_REFERENCE_target_B_not_early",
+        "kind": "historical_index"
+      },
+      {
+        "label": "sparse_pre_1160_stage_costume_hunt",
+        "t_start_s": 60,
+        "t_end_s": 1110,
+        "sample_times_s": [
+          60,
+          150,
+          240,
+          390,
+          480,
+          570,
+          660,
+          750,
+          840,
+          930,
+          1020,
+          1110
+        ],
+        "note": "Bounded 1-frame probes; not exhaustive search",
+        "kind": "sparse_probe"
+      }
+    ]
+  },
+  "hypothesis_corrected_candidate": {
+    "claim": "Blonde children visible ~1100–1125 (dragon-ride scene) may be same performers as dual stage act ~1200–1220 (pink-dress guitarist + drummer). Historical 'purple costume' label appears inaccurate on contact evidence.",
+    "status": "CANDIDATE_FOR_USER_REVIEW",
+    "not_verified": true,
+    "counts_as_relation_verified": false,
+    "counts_as_independent_family": false,
+    "note": "Optional second review item only. Identity bind requires user continuous-video judgment. Shared evidence with condition-select template must not be double-counted as two families.",
+    "clips": [
+      {
+        "clip_id": "early_candidate_dragon_ride_1100_1125",
+        "role": "EARLY_CANDIDATE",
+        "video_id": "TJR1oYDDTwg",
+        "source_t_start_s": 1100.0,
+        "source_t_end_s": 1125.0,
+        "relative_path": "media/early_candidate_dragon_ride_1100_1125.mp4",
+        "absolute_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/media/early_candidate_dragon_ride_1100_1125.mp4",
+        "bytes": 5041359,
+        "sha256": "89a3da5c3ac06e50cdcc1304308d7ea2956d8882b4f4480282f94cf0ec7d825b",
+        "extract_ok": true
+      },
+      {
+        "clip_id": "late_dual_performers_1200_1220",
+        "role": "LATE_REFERENCE",
+        "video_id": "TJR1oYDDTwg",
+        "source_t_start_s": 1200.0,
+        "source_t_end_s": 1220.0,
+        "relative_path": "media/late_dual_performers_1200_1220.mp4",
+        "absolute_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/round_002/tjr_relocate/media/late_dual_performers_1200_1220.mp4",
+        "bytes": 4191779,
+        "sha256": "e677d15df7cb3a3d787a64826ceda442727b60bc89a1500ced0f93273f3c8640",
+        "extract_ok": true
+      }
+    ]
+  },
+  "playable_review_item_generated": true,
+  "primary_this_round": "VTCD first; TJR optional after"
+}

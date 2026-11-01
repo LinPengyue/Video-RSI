@@ -1,0 +1,19 @@
+{
+  "round": "002",
+  "branch": "research/lvbench-comp-p7-hil-pilot",
+  "baseline_head_at_start": "6bdb7e92625f13030fdca3120cec442d98152b18",
+  "data_partition_status": "UNASSIGNED",
+  "run_004": "NOT_STARTED",
+  "p0_runs_untouched": true,
+  "REVIEW_PACKAGE_READY": true,
+  "USER_REVIEW_PENDING": true,
+  "USER_VIDEO_REVIEW_COMPLETED": false,
+  "RELATION_VERIFIED": false,
+  "COMPOSITION_NECESSITY_VERIFIED": false,
+  "primary_review": "VTCDQYYKA9o",
+  "optional_review": "TJR1oYDDTwg candidate early window 1100-1125",
+  "tjr_original_hypothesis": "NO_VALID_EARLY_WINDOW_FOUND",
+  "ok_for_expensive_rsi": false,
+  "paid_api_used": false,
+  "note": "Package ready ≠ human verification complete."
+}

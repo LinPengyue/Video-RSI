@@ -1,0 +1,60 @@
+{
+  "round": "002",
+  "schema_version": 1,
+  "reviewer": "USER",
+  "review_completed": false,
+  "actual_review_minutes": null,
+  "confirmed_watched_continuous_video": false,
+  "data_partition_status": "UNASSIGNED",
+  "status_note": "Do not set review_completed=true unless continuous video was actually watched. Cursor must not fill decisions for the user.",
+  "composition_necessity_status": "NOT_STARTED",
+  "items": [
+    {
+      "video_id": "VTCDQYYKA9o",
+      "event_id": "P7_E_VTCD_garment_window_A",
+      "source_time_window": "163-186",
+      "human_observation": "",
+      "action_label": "",
+      "identity_decision": "",
+      "evidence_reason": "",
+      "uncertainty": "",
+      "corrected_time_span": "",
+      "decision": "PENDING_USER_REVIEW",
+      "reviewer": "USER",
+      "review_completed": false,
+      "actual_review_minutes": null
+    },
+    {
+      "video_id": "VTCDQYYKA9o",
+      "event_id": "P7_E_VTCD_previous_results_B",
+      "source_time_window": "265-280",
+      "human_observation": "",
+      "action_label": "",
+      "identity_decision": "",
+      "evidence_reason": "",
+      "uncertainty": "",
+      "corrected_time_span": "",
+      "decision": "PENDING_USER_REVIEW",
+      "reviewer": "USER",
+      "review_completed": false,
+      "actual_review_minutes": null
+    },
+    {
+      "video_id": "TJR1oYDDTwg",
+      "event_id": "P7_E_TJR_early_dragon_ride_candidate",
+      "source_time_window": "1100-1125",
+      "human_observation": "",
+      "action_label": "",
+      "identity_decision": "",
+      "evidence_reason": "",
+      "uncertainty": "",
+      "corrected_time_span": "",
+      "decision": "PENDING_USER_REVIEW",
+      "reviewer": "USER",
+      "review_completed": false,
+      "actual_review_minutes": null,
+      "optional": true,
+      "note": "Original purple-near-king hypothesis remains NO_VALID_EARLY_WINDOW_FOUND"
+    }
+  ]
+}

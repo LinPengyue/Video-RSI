@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>P7 Round 2 — VTCD Continuous Video Review</title>
+<style>
+  :root { --bg:#f7f4ef; --ink:#1a1a1a; --muted:#5a564e; --line:#d9d2c5; --accent:#0b5fff; --warn:#8a4b08; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "IBM Plex Sans", "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); line-height:1.45; }
+  header { padding:1.25rem 1.5rem; border-bottom:1px solid var(--line); background:#fff; }
+  header h1 { margin:0 0 .35rem; font-size:1.25rem; }
+  header p { margin:0; color:var(--muted); font-size:.95rem; }
+  main { max-width:980px; margin:0 auto; padding:1rem 1.25rem 3rem; }
+  .banner { background:#fff8e8; border:1px solid #e7d2a8; color:var(--warn); padding:.75rem 1rem; border-radius:8px; margin:1rem 0; font-size:.92rem; }
+  .meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:.5rem; margin:1rem 0; }
+  .meta div { background:#fff; border:1px solid var(--line); border-radius:8px; padding:.6rem .75rem; font-size:.88rem; }
+  .meta strong { display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  section { background:#fff; border:1px solid var(--line); border-radius:10px; padding:1rem; margin:1.25rem 0; }
+  section h2 { margin:0 0 .75rem; font-size:1.05rem; }
+  .hint { color:var(--muted); font-size:.88rem; margin:.25rem 0 .75rem; }
+  video { width:100%; max-height:420px; background:#000; border-radius:6px; }
+  .controls { display:flex; flex-wrap:wrap; gap:.5rem; margin:.65rem 0 0; align-items:center; }
+  button, .speed label { font:inherit; }
+  button { background:var(--accent); color:#fff; border:0; border-radius:6px; padding:.45rem .75rem; cursor:pointer; }
+  button.secondary { background:#ece7de; color:var(--ink); }
+  .speed { display:flex; gap:.35rem; align-items:center; font-size:.88rem; color:var(--muted); }
+  textarea, input[type=text] { width:100%; font:inherit; padding:.55rem .65rem; border:1px solid var(--line); border-radius:6px; background:#fcfcfa; }
+  textarea { min-height:72px; resize:vertical; }
+  label.q { display:block; margin:.85rem 0 .3rem; font-weight:600; font-size:.92rem; }
+  .kf { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.6rem; }
+  .kf figure { margin:0; width:110px; }
+  .kf img { width:110px; height:62px; object-fit:cover; border-radius:4px; border:1px solid var(--line); cursor:pointer; }
+  .kf figcaption { font-size:.7rem; color:var(--muted); text-align:center; }
+  details.machine { margin-top:1rem; border-top:1px dashed var(--line); padding-top:.75rem; }
+  details.machine summary { cursor:pointer; color:var(--muted); font-size:.9rem; }
+  .export { margin-top:1rem; padding-top:.75rem; border-top:1px solid var(--line); }
+  pre#export_box { white-space:pre-wrap; background:#f3f0ea; padding:.75rem; border-radius:6px; font-size:.8rem; max-height:220px; overflow:auto; }
+  footer { color:var(--muted); font-size:.82rem; margin-top:1.5rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>P7 Round 2 · VTCD 连续视频人工审核</h1>
+  <p>先独立观看视频再展开机器假设。静帧仅辅助定位，不能替代连续视频。本页不含标准答案。</p>
+</header>
+<main>
+  <div class="banner">
+    <strong>操作：</strong>用浏览器打开本文件（推荐 Chrome / Edge / Firefox）。若视频无法播放，确认同目录下
+    <code>media/</code> 已生成（见上级 <code>ROUND2_REVIEW_START_HERE.md</code>）。填写后点页面底部「导出 JSON」，复制到
+    <code>templates/review_decisions.template.json</code> 的对应字段，或粘贴回对话。
+  </div>
+
+  <div class="meta">
+    <div><strong>Video ID</strong>VTCDQYYKA9o</div>
+    <div><strong>Pool</strong>DEV exposed · UNASSIGNED</div>
+    <div><strong>Reviewer</strong>USER（你）</div>
+    <div><strong>Status</strong>USER_REVIEW_PENDING</div>
+  </div>
+
+  <!-- ========== VIDEO A ========== -->
+  <section id="video-a">
+    <h2>视频 A · 运动员与红色外套</h2>
+    <p class="hint">源时间窗（精确）：<strong>163.0 – 186.0 s</strong>（约 02:43–03:06）。下方默认播放带 ±5s 上下文的片段（源 158–191 s）；可用按钮切到纯核心窗。</p>
+    <video id="vidA" controls preload="metadata" playsinline>
+      <source src="media/A_context_158_191.mp4" type="video/mp4" />
+      无法加载视频。
+    </video>
+    <div class="controls">
+      <button type="button" onclick="setSrc('vidA','media/A_context_158_191.mp4',158)">上下文 158–191s</button>
+      <button type="button" class="secondary" onclick="setSrc('vidA','media/A_core_browser_163_186.mp4',163)">仅核心 163–186s</button>
+      <button type="button" class="secondary" onclick="nudge('vidA',-1)">−1s</button>
+      <button type="button" class="secondary" onclick="nudge('vidA',1)">+1s</button>
+      <button type="button" class="secondary" onclick="togglePause('vidA')">暂停/继续</button>
+      <span class="speed">速度
+        <button type="button" class="secondary" onclick="rate('vidA',0.5)">0.5×</button>
+        <button type="button" class="secondary" onclick="rate('vidA',1)">1×</button>
+        <button type="button" class="secondary" onclick="rate('vidA',0.25)">0.25×</button>
+      </span>
+      <span id="clockA" class="speed">源时钟：—</span>
+    </div>
+    <p class="hint">可选关键帧（点击跳转；仍须看完整段视频）：</p>
+    <div class="kf" id="kfA"></div>
+
+    <label class="q">A1. 人物实际进行了什么动作？（先写你自己的观察）</label>
+    <textarea id="a_obs" data-field="human_observation" placeholder="用自己的话描述所见…"></textarea>
+
+    <label class="q">A2. 动作类型（选一或写其他）</label>
+    <input type="text" id="a_action" placeholder="穿上外套 / 脱下外套 / 拿着外套 / 其他：…" />
+
+    <label class="q">A3. 动作大致起止时间（源视频秒或 mm:ss）</label>
+    <input type="text" id="a_span" placeholder="例如 170–178 s" />
+
+    <label class="q">A4. 哪些可见特征能识别人物？</label>
+    <textarea id="a_idfeat" placeholder="发型、球衣颜色/文字、体型…"></textarea>
+
+    <label class="q">A5. 不确定性？</label>
+    <textarea id="a_unc" placeholder="看不清、遮挡、剪辑跳跃…"></textarea>
+
+    <label class="q">A6. 你的判定</label>
+    <input type="text" id="a_decision" placeholder="ACCEPT / CORRECT / REJECT / UNCERTAIN" />
+
+    <details class="machine">
+      <summary>观看并填写以上问题后再展开：机器既有假设（可能错误）</summary>
+      <p class="hint">历史标注曾写「脱下红色外套」；Round 1 联系表提示可能是「穿上」。不要默认历史正确。</p>
+      <ul>
+        <li>Event 候选：<code>P7_E_VTCD_red_jacket_towel</code> / <code>P7_E_VTCD_remove_red_jacket</code></li>
+        <li>窗口：163–186 s</li>
+        <li>未经验证假设：同一短发运动员；外套动作极性待定</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- ========== VIDEO B ========== -->
+  <section id="video-b">
+    <h2>视频 B · 运动员与 PREVIOUS RESULTS 字幕</h2>
+    <p class="hint">源时间窗（精确）：<strong>265.0 – 280.0 s</strong>（约 04:25–04:40）。默认上下文源 260–285 s。</p>
+    <video id="vidB" controls preload="metadata" playsinline>
+      <source src="media/B_context_260_285.mp4" type="video/mp4" />
+    </video>
+    <div class="controls">
+      <button type="button" onclick="setSrc('vidB','media/B_context_260_285.mp4',260)">上下文 260–285s</button>
+      <button type="button" class="secondary" onclick="setSrc('vidB','media/B_core_browser_265_280.mp4',265)">仅核心 265–280s</button>
+      <button type="button" class="secondary" onclick="nudge('vidB',-1)">−1s</button>
+      <button type="button" class="secondary" onclick="nudge('vidB',1)">+1s</button>
+      <button type="button" class="secondary" onclick="togglePause('vidB')">暂停/继续</button>
+      <span class="speed">速度
+        <button type="button" class="secondary" onclick="rate('vidB',0.5)">0.5×</button>
+        <button type="button" class="secondary" onclick="rate('vidB',1)">1×</button>
+        <button type="button" class="secondary" onclick="rate('vidB',0.25)">0.25×</button>
+      </span>
+      <span id="clockB" class="speed">源时钟：—</span>
+    </div>
+    <div class="kf" id="kfB"></div>
+
+    <label class="q">B1. 可直接观察到哪些人物、服装和字幕？</label>
+    <textarea id="b_obs" placeholder="人物、服装、屏幕文字原文…"></textarea>
+
+    <label class="q">B2. 字幕所指人物是否能与 A 中人物建立同一身份？（是 / 否 / 证据不足）</label>
+    <input type="text" id="b_identity" placeholder="是 / 否 / 证据不足" />
+
+    <label class="q">B3. 哪些画面支持或反驳这个判断？</label>
+    <textarea id="b_evidence" placeholder="写出支持/反驳点…"></textarea>
+
+    <label class="q">B4. 不确定性？</label>
+    <textarea id="b_unc"></textarea>
+
+    <label class="q">B5. 你的判定</label>
+    <input type="text" id="b_decision" placeholder="ACCEPT / CORRECT / REJECT / UNCERTAIN" />
+
+    <details class="machine">
+      <summary>观看并填写后再展开：机器既有假设</summary>
+      <ul>
+        <li>Event 候选：<code>P7_E_VTCD_fan_previous_results_overlay</code></li>
+        <li>窗口：265–280 s · 字幕可能含 PREVIOUS RESULTS / 姓名</li>
+        <li>关系假设（未验证）：A 中运动员 ↔ B 中字幕身份同一人</li>
+        <li>注意：PREVIOUS RESULTS 不一定等于当场比分身份证明</li>
+      </ul>
+    </details>
+  </section>
+
+  <section>
+    <h2>全局</h2>
+    <label class="q">实际审核分钟数（你估计）</label>
+    <input type="text" id="minutes" placeholder="例如 12" />
+    <label class="q">是否确认已实际观看连续视频（非仅看静帧）？</label>
+    <input type="text" id="watched" placeholder="true / false" />
+    <div class="export">
+      <button type="button" onclick="exportJson()">导出审核 JSON</button>
+      <button type="button" class="secondary" onclick="copyExport()">复制</button>
+      <pre id="export_box">（填写后点击导出）</pre>
+    </div>
+  </section>
+
+  <footer>
+    Round 002 · Cursor 不代填结论 · 无隐藏答案密钥 · 完成事件审核后不自动升级 COMPOSITION_NECESSITY_VERIFIED
+  </footer>
+</main>
+<script>
+const offsetA = { path: null, sourceStart: 158 };
+const offsetB = { path: null, sourceStart: 260 };
+const state = { A: offsetA, B: offsetB };
+
+function setSrc(id, path, sourceStart) {
+  const v = document.getElementById(id);
+  const st = id === 'vidA' ? state.A : state.B;
+  st.path = path; st.sourceStart = sourceStart;
+  const t = v.currentTime || 0;
+  v.src = path; v.load();
+  v.addEventListener('loadedmetadata', () => { v.currentTime = Math.min(t, Math.max(0, v.duration - 0.1)); }, { once: true });
+}
+function nudge(id, dt) {
+  const v = document.getElementById(id);
+  v.currentTime = Math.max(0, Math.min(v.duration || 0, (v.currentTime || 0) + dt));
+}
+function togglePause(id) {
+  const v = document.getElementById(id);
+  if (v.paused) v.play(); else v.pause();
+}
+function rate(id, r) { document.getElementById(id).playbackRate = r; }
+function tick(id, clockId, st) {
+  const v = document.getElementById(id);
+  const src = (st.sourceStart || 0) + (v.currentTime || 0);
+  document.getElementById(clockId).textContent = '源时钟：' + src.toFixed(1) + 's';
+}
+setInterval(() => { tick('vidA','clockA',state.A); tick('vidB','clockB',state.B); }, 200);
+state.A.path = 'media/A_context_158_191.mp4';
+state.B.path = 'media/B_context_260_285.mp4';
+
+function addKf(containerId, vidId, prefix, times, sourceStartDefault) {
+  const box = document.getElementById(containerId);
+  times.forEach(t => {
+    const fig = document.createElement('figure');
+    const img = document.createElement('img');
+    img.src = `keyframes/${prefix}_t${String(t).padStart(4,'0')}.jpg`;
+    img.alt = `t=${t}s`;
+    img.title = `跳到约源 ${t}s（辅助）`;
+    img.onclick = () => {
+      const v = document.getElementById(vidId);
+      const st = vidId === 'vidA' ? state.A : state.B;
+      const local = Math.max(0, t - (st.sourceStart || sourceStartDefault));
+      v.currentTime = local;
+      v.pause();
+    };
+    const cap = document.createElement('figcaption');
+    cap.textContent = t + 's';
+    fig.appendChild(img); fig.appendChild(cap); box.appendChild(fig);
+  });
+}
+addKf('kfA','vidA','A',[163,168,172,176,181,186],158);
+addKf('kfB','vidB','B',[265,268,271,274,277,280],260);
+
+function exportJson() {
+  const payload = {
+    round: "002",
+    reviewer: "USER",
+    review_completed: false,
+    note: "Fill decisions then set review_completed=true only after actually watching continuous video.",
+    actual_review_minutes: document.getElementById('minutes').value || null,
+    confirmed_watched_continuous_video: document.getElementById('watched').value || null,
+    items: [
+      {
+        video_id: "VTCDQYYKA9o",
+        event_id: "P7_E_VTCD_garment_window_A",
+        source_time_window: "163-186",
+        human_observation: document.getElementById('a_obs').value,
+        action_label: document.getElementById('a_action').value,
+        identity_decision: null,
+        evidence_reason: document.getElementById('a_idfeat').value,
+        uncertainty: document.getElementById('a_unc').value,
+        corrected_time_span: document.getElementById('a_span').value,
+        decision: document.getElementById('a_decision').value || "PENDING_USER_REVIEW",
+        reviewer: "USER",
+        review_completed: false
+      },
+      {
+        video_id: "VTCDQYYKA9o",
+        event_id: "P7_E_VTCD_previous_results_B",
+        source_time_window: "265-280",
+        human_observation: document.getElementById('b_obs').value,
+        action_label: null,
+        identity_decision: document.getElementById('b_identity').value,
+        evidence_reason: document.getElementById('b_evidence').value,
+        uncertainty: document.getElementById('b_unc').value,
+        corrected_time_span: null,
+        decision: document.getElementById('b_decision').value || "PENDING_USER_REVIEW",
+        reviewer: "USER",
+        review_completed: false
+      }
+    ],
+    data_partition_status: "UNASSIGNED",
+    composition_necessity_status: "NOT_STARTED"
+  };
+  document.getElementById('export_box').textContent = JSON.stringify(payload, null, 2);
+}
+function copyExport() {
+  const t = document.getElementById('export_box').textContent;
+  navigator.clipboard.writeText(t).catch(() => {});
+}
+</script>
+</body>
+</html>
