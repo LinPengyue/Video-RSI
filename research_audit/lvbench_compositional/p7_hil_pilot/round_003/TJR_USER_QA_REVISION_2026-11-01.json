@@ -1,0 +1,93 @@
+{
+  "record_id": "P7_R3_TJR_USER_QA_REVISION_2026-11-01",
+  "round": "003",
+  "video_id": "TJR1oYDDTwg",
+  "origin": "USER_DIRECT_CONFIRMATION_AND_PRIOR_USER_REVIEWS",
+  "recorded_utc_date": "2026-11-01",
+  "purpose": "Preserve original two user review records and the later explicitly approved QA wording/answer; no automated status promotion.",
+  "source_intervals_s": {
+    "A": [
+      1100,
+      1125
+    ],
+    "B": [
+      1200,
+      1220
+    ]
+  },
+  "user_review_sources": [
+    {
+      "source": "USER_CHAT_PASTED_ROUND002_JSON_2026-11-01",
+      "source_round": "002",
+      "reviewer": "USER",
+      "human_observation_early": "穿着蓝色衣服，打着领结的王子，穿着粉色裙子的公主。四头龙，分别是绿色、蓝色、红色、黄色。带着蓝色帽子的毛茸茸动物。带着皇冠的秃头的国王，带着皇冠的长发王后。",
+      "identity_decision_user_raw": "是的",
+      "evidence_reason_user_raw": "服装相同，0:00，0:05-0:13，0:19-0:20",
+      "decision_user_raw": "Accept",
+      "actual_review_minutes_user_raw": "2",
+      "review_completed_source_value": false,
+      "counts_as_relation_verified_source_value": false,
+      "original_hypothesis_status": "NO_VALID_EARLY_WINDOW_FOUND",
+      "caveat": "Original pasted record's review_completed=false is preserved. Do not silently rewrite despite the user-supplied decision text."
+    },
+    {
+      "source": "USER_UPLOADED_TJR_USER_REVIEW_ROUND003_JSON",
+      "source_round": "003",
+      "reviewer": "USER",
+      "confirmed_watched_continuous_video": true,
+      "reviewer_actual_minutes_source_value": null,
+      "user_event_observation_A": "一条绿龙载着三只小龙、一个毛茸茸的动物（在说话）、还有王子和公主在飞往王宫，国王和王后在王宫迎接他们，国王发现了他们，并且指给王妃看。",
+      "user_event_time_A_local_approx": "飞行出现0：07-0:10，毛茸茸说话在0:10-0:15，国王说话和指明在0:20-0:21左右，0:24-0:25飞龙降落。",
+      "user_event_observation_B": "王子拥抱了国王，公主拥抱了王后，群众们在欢呼。短头发王子在打架子鼓，长头发公主在弹吉他，",
+      "same_person_decision": "SAME_PERSON",
+      "same_person_reason": "王子短头发，小红帽，蓝色上衣。公主粉色公主裙，有个头饰。国王有王冠，光头。王妃棕色长发，有和公主不一样款式的头饰。",
+      "question_candidate": "后来在舞台上打鼓的孩子，在更早的场景中做了什么？",
+      "question_review": "ACCEPT",
+      "question_reason_or_answer": "拥抱了国王。",
+      "original_question_review_remains": "ACCEPT_AS_RECORDED",
+      "caveat": "These are user observations; answer '拥抱了国王' is part of B observation, not a verified A-derived answer to the original ambiguous question."
+    }
+  ],
+  "latest_user_explicit_revision": {
+    "source": "USER_CHAT_EXPLICIT_FINAL_CONFIRMATION_2026-11-01",
+    "revision_type": "USER_APPROVED_REVISED_QUESTION_AND_ANSWER",
+    "revised_question_zh": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+    "revised_answer_zh": "绿色的龙",
+    "evidence_anchor_A": "User describes a green dragon carrying the prince and princess toward the palace in A, ~1100–1125s.",
+    "evidence_anchor_B": "User describes prince playing drums in B, ~1200–1220s, with same-person evidence from clothes and appearance across A/B.",
+    "identity_cross_interval": "USER_SAME_PERSON",
+    "answer_provenance": "USER_PROVIDED",
+    "draft_status": "USER_APPROVED_REVISED_QA_CANDIDATE",
+    "note": "Approval concerns question wording and user-provided answer, not Seen/Unseen assignment, composition necessity or Gold QA."
+  },
+  "history_policy": {
+    "original_question_and_answer_preserved": true,
+    "original_accept_not_deleted": true,
+    "revised_question_is_current_candidate": true,
+    "original_record_files_not_overwritten": true,
+    "review_duration_handling": "User pasted 2 minutes for Round 2; Round 3 uploaded file reports null; retain both provenance and do not invent/reconcile a total.",
+    "original_315_335_royal_cast_hypothesis": "NO_VALID_EARLY_WINDOW_FOUND",
+    "original_315_335_hypothesis_not_reopened": true
+  },
+  "scientific_and_implementation_status": {
+    "data_partition_status": "UNASSIGNED",
+    "seen_unseen_status": "UNASSIGNED",
+    "composition_necessity_status": "NOT_TESTED",
+    "composition_necessity_verified": false,
+    "gold_qa_minted": false,
+    "formally_supported": false,
+    "a_only_b_only_ab_evaluated": false,
+    "qualified_independent_family_count_increment": 0,
+    "new_user_video_review_requested": false,
+    "run_004": "NOT_STARTED",
+    "track_a": "FROZEN",
+    "sealed_access": "NONE",
+    "p0_runs_modified": false
+  },
+  "skill_learning_case": {
+    "class": "USER_CASE_JUDGMENT",
+    "confirmed_fact": "User corrected question to target A's transportation action/property while B identifies the later drummer, using user-observed same-person evidence.",
+    "general_rule": "NOT_PROMOTED",
+    "assistant_inference_pending_confirmation": "When constructing cross-interval QA, clearly anchor the queried answer in the intended evidence interval rather than an event visible only in the referent interval."
+  }
+}
