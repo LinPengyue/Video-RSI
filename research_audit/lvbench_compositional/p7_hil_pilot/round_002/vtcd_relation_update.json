@@ -1,0 +1,49 @@
+{
+  "round": "002",
+  "updated_utc_note": "After USER continuous-video review 2026-11-01",
+  "data_partition_status": "UNASSIGNED",
+  "withdrawn_assistant_claims": [
+    {
+      "claim": "A already contains Fan Zhendong text ⇒ cross-clip identity bind does not need B",
+      "status": "WITHDRAWN",
+      "reason": "User task was A↔B same-person; requires inspecting both clips' identity evidence",
+      "does_not_decide": "QA_COMPOSITIONAL_NECESSITY"
+    },
+    {
+      "claim": "Contact-sheet polarity may be put-on rather than remove",
+      "status": "SUPERSEDED_BY_USER_EVENT_VERIFICATION",
+      "user_action_label": "REMOVE_JACKET"
+    }
+  ],
+  "verified_facts_user": {
+    "A_action": "REMOVE_JACKET",
+    "A_action_source_s_approx": [168.0, 170.0],
+    "A_fan_text_source_s_approx": 184.0,
+    "B_fan_text_source_s_approx": 269.0,
+    "identity": "SAME_PERSON",
+    "identity_basis": "Fan Zhendong text in both A and B (user)",
+    "provenance": "USER continuous video; record VTCD_USER_REVIEW_2026-11-01.json"
+  },
+  "relations": [
+    {
+      "relation_id": "P7_R_VTCD_garment_to_fan_overlay_bind",
+      "prior_status": "PENDING_INDEPENDENT_REVIEW",
+      "event_verification_A": "USER_ACCEPTED_REMOVE_JACKET",
+      "cross_clip_identity": "USER_ACCEPTED_SAME_PERSON",
+      "relation_status": "IDENTITY_BINDING_USER_ACCEPTED",
+      "composition_necessity_status": "NOT_TESTED",
+      "gold_answer_status": "NOT_MINTED",
+      "formal_supported": false,
+      "qa_draft_allowed": false,
+      "counts_as_p7_new_qualified_family": false,
+      "notes": "Identity bind accepted by USER. Per-question compositional necessity still NOT_TESTED. Presence of Fan text in A is relevant to QA shortcut analysis but does NOT void the completed CROSS_CLIP_IDENTITY_BINDING task."
+    },
+    {
+      "relation_id": "P7_R_VTCD_identify_jacket_query_later_jersey",
+      "prior_status": "PENDING_INDEPENDENT_REVIEW",
+      "update": "A remove accepted; jersey-after-remove state in same short window still unreviewed as separate event; composition necessity NOT_TESTED",
+      "composition_necessity_status": "NOT_TESTED",
+      "relation_status": "PARTIAL_EVENT_USER_ACCEPTED_ACTION_ONLY"
+    }
+  ]
+}

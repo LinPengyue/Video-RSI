@@ -1,0 +1,117 @@
+{
+  "record_id": "P7_R2_USER_VTCD_2026-11-01",
+  "round": "002",
+  "video_id": "VTCDQYYKA9o",
+  "reviewer": "USER",
+  "review_modality": "CONTINUOUS_VIDEO_WATCHED",
+  "confirmed_watched_continuous_video": true,
+  "actual_review_minutes": null,
+  "actual_review_minutes_note": "User did not report minutes; must not invent.",
+  "data_partition_status": "UNASSIGNED",
+  "source_message": "User chat 2026-11-01 — personally watched A and B continuous clips",
+  "player_defaults": {
+    "A_clip": "vtcd_review/media/A_context_158_191.mp4",
+    "A_context_source_start_s": 158.0,
+    "A_core_window_s": [163.0, 186.0],
+    "B_clip": "vtcd_review/media/B_context_260_285.mp4",
+    "B_context_source_start_s": 260.0,
+    "B_core_window_s": [265.0, 280.0],
+    "timestamp_precision": "APPROXIMATE_FROM_USER_PLAYBACK_OFFSETS_NOT_FRAME_ACCURATE"
+  },
+  "layers_completed": {
+    "EVENT_VERIFICATION": true,
+    "CROSS_CLIP_IDENTITY_BINDING": true,
+    "QA_COMPOSITIONAL_NECESSITY": false
+  },
+  "items": [
+    {
+      "event_id": "P7_E_VTCD_garment_window_A",
+      "task_layer": "EVENT_VERIFICATION",
+      "source_time_window_reviewed": "context_158_191",
+      "human_observation_verbatim": "人物动作：脱下外套。动作发生于片段播放约第 10–12 秒。片段约第 26 秒出现 Fan Zhendong 的身份文字。",
+      "action_label": "REMOVE_JACKET",
+      "action_label_zh": "脱下外套",
+      "user_playback_offsets": {
+        "remove_jacket_approx_s": [10, 12],
+        "fan_zhendong_text_approx_s": 26
+      },
+      "converted_source_times_approx": {
+        "formula": "context_start + playback_offset",
+        "remove_jacket_source_s_approx": [168.0, 170.0],
+        "fan_zhendong_text_source_s_approx": 184.0,
+        "precision": "approximate; not frame-accurate"
+      },
+      "identity_decision": null,
+      "evidence_reason": "User continuous-video observation of jacket removal; Fan Zhendong text observed in same A context later in clip",
+      "uncertainty": "User reported no additional uncertainty",
+      "decision": "ACCEPT",
+      "reviewer": "USER",
+      "review_completed": true,
+      "supersedes_prior_machine_hypothesis": {
+        "prior": "Round1 contact-sheet suggested possible put-on / polarity conflict",
+        "user_resolution": "REMOVE_JACKET (脱下外套)",
+        "note": "User judgment overrides prior assistant contact-sheet polarity suspicion for this event"
+      }
+    },
+    {
+      "event_id": "P7_E_VTCD_previous_results_B",
+      "task_layer": "EVENT_VERIFICATION",
+      "source_time_window_reviewed": "context_260_285",
+      "human_observation_verbatim": "片段约第 9 秒出现 Fan Zhendong 的身份文字。",
+      "action_label": null,
+      "user_playback_offsets": {
+        "fan_zhendong_text_approx_s": 9
+      },
+      "converted_source_times_approx": {
+        "formula": "context_start + playback_offset",
+        "fan_zhendong_text_source_s_approx": 269.0,
+        "precision": "approximate; not frame-accurate"
+      },
+      "identity_decision": null,
+      "evidence_reason": "User observed Fan Zhendong identity text in B continuous clip",
+      "uncertainty": "User reported no additional uncertainty",
+      "decision": "ACCEPT",
+      "reviewer": "USER",
+      "review_completed": true
+    },
+    {
+      "event_id": "P7_E_VTCD_A_B_same_person_bind",
+      "task_layer": "CROSS_CLIP_IDENTITY_BINDING",
+      "source_time_windows": ["context_158_191", "context_260_285"],
+      "human_observation_verbatim": "A 和 B 中的人物是同一个人。判断依据：分别查看了 A 和 B 的人物身份信息，两段均出现 Fan Zhendong。当前没有需要补看的视频。",
+      "action_label": null,
+      "identity_decision": "SAME_PERSON",
+      "identity_basis": "Fan Zhendong identity text observed in both A and B clips by user",
+      "evidence_reason": "Cross-clip comparison of identity text in A and in B (not A-alone inference by assistant)",
+      "uncertainty": "User reported no additional uncertainty; no further footage requested",
+      "decision": "ACCEPT",
+      "reviewer": "USER",
+      "review_completed": true,
+      "assistant_must_not": [
+        "Treat presence of Fan Zhendong text in A alone as completing the user task 'are A and B the same person?' without B",
+        "Auto-upgrade QA_COMPOSITIONAL_NECESSITY from this identity ACCEPT"
+      ]
+    }
+  ],
+  "corrections_to_assistant_logic": [
+    {
+      "error_id": "CHATGPT_LOGIC_ERR_IDENTITY_VS_NECESSITY_2026-11-01",
+      "wrong_claim": "Because A already shows Fan Zhendong name text, A/B identity matching does not require both clips",
+      "user_correction": "The assigned task was whether the person in A and the person in B are the same; that requires inspecting identity evidence in both clips",
+      "required_distinction": [
+        "EVENT_VERIFICATION",
+        "CROSS_CLIP_IDENTITY_BINDING",
+        "QA_COMPOSITIONAL_NECESSITY"
+      ],
+      "status": "WITHDRAWN_ASSISTANT_CLAIM"
+    }
+  ],
+  "downstream_status": {
+    "EVENT_VERIFIED_for_A_remove_jacket": true,
+    "CROSS_CLIP_IDENTITY_BINDING_VERIFIED": true,
+    "RELATION_for_identity_bind": "USER_ACCEPTED_SAME_PERSON",
+    "COMPOSITION_NECESSITY_VERIFIED": false,
+    "composition_necessity_status": "NOT_TESTED",
+    "GOLD_QA_MINTED": false
+  }
+}

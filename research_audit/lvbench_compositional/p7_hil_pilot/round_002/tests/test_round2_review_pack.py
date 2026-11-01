@@ -47,9 +47,9 @@ for name, a, b in windows:
 # 3) playable media paths match manifest / expected layout
 manifest = json.loads((R2 / "vtcd_review/media_manifest.json").read_text())
 check(manifest["video_id"] == "VTCDQYYKA9o", "manifest video_id")
-check(manifest.get("user_review_status") == "USER_REVIEW_PENDING", "user review still pending")
 check(manifest.get("status") == "REVIEW_PACKAGE_READY", "package ready status")
 check(manifest.get("no_hidden_answers") is True, "manifest declares no hidden answers")
+# Manifest may still say PENDING (pack metadata); ROUND2_STATUS is source of truth after intake
 
 for clip in manifest["clips"]:
     rel = R2 / "vtcd_review" / clip["relative_path"]
@@ -77,13 +77,29 @@ for it in tmpl["items"]:
     check(it["review_completed"] is False, f"item not completed: {it['event_id']}")
 check(tmpl["composition_necessity_status"] == "NOT_STARTED", "necessity not started")
 
-# 5) no unverified upgrade in status file
+# 5) status honesty: never auto-claim composition necessity / gold
 status = json.loads((R2 / "ROUND2_STATUS.json").read_text())
-check(status["USER_VIDEO_REVIEW_COMPLETED"] is False, "not claiming user review completed")
-check(status["RELATION_VERIFIED"] is False, "relation not verified")
 check(status["COMPOSITION_NECESSITY_VERIFIED"] is False, "necessity not verified")
+check(status.get("composition_necessity_status", "NOT_TESTED") in ("NOT_TESTED", "NOT_VERIFIED"), "necessity not tested")
 check(status["REVIEW_PACKAGE_READY"] is True, "package ready true")
-check(status["USER_REVIEW_PENDING"] is True, "user review pending true")
+check(status.get("GOLD_QA_MINTED", False) is False, "no gold minted")
+check(status.get("RELATION_VERIFIED", False) is False, "full relation stack not auto-verified")
+# After user intake, VIDEO_REVIEW_COMPLETED may be true while necessity stays false
+if status.get("USER_VIDEO_REVIEW_COMPLETED"):
+    check(status.get("IDENTITY_BINDING_USER_ACCEPTED") is True, "identity accepted when review completed")
+    ur = R2 / "user_reviews/VTCD_USER_REVIEW_2026-11-01.json"
+    check(ur.exists(), "user review record exists")
+    rec = json.loads(ur.read_text())
+    check(rec["reviewer"] == "USER", "reviewer USER")
+    check(rec["confirmed_watched_continuous_video"] is True, "watched continuous")
+    check(rec["actual_review_minutes"] is None, "minutes not fabricated")
+    acts = [i for i in rec["items"] if i.get("action_label") == "REMOVE_JACKET"]
+    check(len(acts) == 1, "REMOVE_JACKET recorded")
+    ids = [i for i in rec["items"] if i.get("identity_decision") == "SAME_PERSON"]
+    check(len(ids) == 1, "SAME_PERSON recorded")
+    check(rec["layers_completed"]["QA_COMPOSITIONAL_NECESSITY"] is False, "necessity layer not completed")
+else:
+    check(status.get("USER_REVIEW_PENDING") is True, "user review pending before intake")
 
 # 6) sealed / P0 untouched (existence ok; we only assert we didn't write run_004)
 check(not (REPO / "research_audit/lvbench_compositional/track_b/batch_factory/run_004").exists(), "run_004 not created")

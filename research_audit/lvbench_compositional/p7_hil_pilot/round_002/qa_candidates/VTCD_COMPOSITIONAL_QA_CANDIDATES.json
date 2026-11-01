@@ -1,0 +1,78 @@
+{
+  "round": "002",
+  "video_id": "VTCDQYYKA9o",
+  "gold_minted": false,
+  "composition_necessity_status_global": "NOT_TESTED",
+  "user_facts_ref": "user_reviews/VTCD_USER_REVIEW_2026-11-01.json",
+  "candidates": [
+    {
+      "candidate_id": "VTCD_C1_name_to_remove",
+      "question_en": "What does Fan Zhendong do with the (red) jacket in the earlier segment of this video?",
+      "evidence_A": "REMOVE_JACKET ~168-170s; Fan text ~184s",
+      "evidence_B": "Fan text ~269s (optional for this wording)",
+      "directed_program": ["identify_named_athlete", "query_earlier_jacket_action"],
+      "expected_answer": "removes / takes off the jacket",
+      "a_only_may_answer": true,
+      "b_only_may_answer": false,
+      "a_plus_b_needed": false,
+      "necessity_risk": "HIGH_A_ONLY",
+      "duplicate_of_existing": "family_pattern_like_sierra_calib_new_video",
+      "recommend": "negative_control_or_drop"
+    },
+    {
+      "candidate_id": "VTCD_C2_previous_results_referent_to_remove",
+      "question_en": "What jacket-related action did the athlete who appears with the PREVIOUS RESULTS name graphic perform earlier?",
+      "evidence_A": "REMOVE_JACKET",
+      "evidence_B": "PREVIOUS RESULTS + Fan Zhendong",
+      "directed_program": ["select_via_B_graphic", "bind_same_person", "query_A_action"],
+      "expected_answer": "removes / takes off jacket",
+      "a_only_may_answer": "risk_true_because_Fan_text_also_in_A",
+      "b_only_may_answer": false,
+      "a_plus_b_needed": "uncertain_until_blind_test",
+      "necessity_risk": "MEDIUM_HIGH",
+      "duplicate_of_existing": "related_to_C1_not_independent_if_both_name_to_remove",
+      "recommend": "optional_after_C4"
+    },
+    {
+      "candidate_id": "VTCD_C3_remover_to_B_name",
+      "question_en": "What name appears on the later PREVIOUS RESULTS graphic for the athlete who removed a jacket earlier?",
+      "evidence_A": "REMOVE_JACKET; Fan text ~184s",
+      "evidence_B": "Fan Zhendong on PREVIOUS RESULTS ~269s",
+      "directed_program": ["observe_remove", "bind", "read_B_name"],
+      "expected_answer": "Fan Zhendong",
+      "a_only_may_answer": true,
+      "b_only_may_answer": "partial_name_without_remove_bind",
+      "a_plus_b_needed": false,
+      "necessity_risk": "HIGH_A_ONLY",
+      "recommend": "drop_or_negative_control"
+    },
+    {
+      "candidate_id": "VTCD_C4_temporal_order_remove_vs_previous_results",
+      "question_en": "Does Fan Zhendong remove the jacket before or after the PREVIOUS RESULTS identity graphic appears?",
+      "evidence_A": "remove ~168-170s",
+      "evidence_B": "PREVIOUS RESULTS Fan ~269s",
+      "directed_program": ["localize_remove", "localize_previous_results_graphic", "order"],
+      "expected_answer": "before",
+      "a_only_may_answer": "should_fail_if_PREVIOUS_RESULTS_literal_not_confused_with_A_Fan_text",
+      "b_only_may_answer": false,
+      "a_plus_b_needed": true,
+      "necessity_risk": "MEDIUM_wording_sensitive",
+      "recommend": "best_candidate_for_formal_necessity_pack",
+      "wording_hazard": "Do not allow equating any Fan text in A with PREVIOUS RESULTS graphic"
+    },
+    {
+      "candidate_id": "VTCD_C5_identity_match_qa",
+      "question_en": "Is the person who removes the jacket the same person named on the later PREVIOUS RESULTS graphic?",
+      "evidence_A": "REMOVE_JACKET; Fan in A",
+      "evidence_B": "Fan on PREVIOUS RESULTS",
+      "directed_program": ["observe_remove", "read_B_name", "bind"],
+      "expected_answer": "yes",
+      "a_only_may_answer": true,
+      "b_only_may_answer": false,
+      "a_plus_b_needed": "for_user_identity_task_yes_for_QA_necessity_uncertain",
+      "necessity_risk": "HIGH_A_ONLY",
+      "recommend": "identity_layer_not_auto_composition_gold",
+      "maps_to_user_layer": "CROSS_CLIP_IDENTITY_BINDING"
+    }
+  ]
+}
