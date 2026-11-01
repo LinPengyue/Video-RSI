@@ -1,0 +1,43 @@
+{
+  "new_qualified_composition_families": 0,
+  "primary_failure_layer": "视频核验 (independent continuous HUMAN_VIDEO_VERIFIED)",
+  "layer_breakdown": [
+    {
+      "layer": "事件发现",
+      "assessment": "PARTIAL_WITH_ERRORS",
+      "detail": "11 cards prepared; contact-sheet spot-check found TJR 315–335s royal cast ≠ purple stage costume, and VTCD garment polarity may be put-on not remove. Still ≠ continuous verify."
+    },
+    {
+      "layer": "视频核验",
+      "assessment": "BLOCKING",
+      "detail": "No independent continuous video reviewer this round; 8 events remain PENDING_INDEPENDENT_REVIEW. Cursor/LLM must not auto-verify."
+    },
+    {
+      "layer": "身份关联",
+      "assessment": "BLOCKED_DOWNSTREAM",
+      "detail": "TJR purple cross-scene bind likely broken by wrong early window; VTCD FAN/CHN jersey text appears on contact still but continuous identity bind still unverified."
+    },
+    {
+      "layer": "组合枚举",
+      "assessment": "PARTIAL_OK",
+      "detail": "10 candidates ≤12; 3 rejected as co-occurrence/shot-order/scene-contrast; 5 pending; 2 calibration."
+    },
+    {
+      "layer": "必要性",
+      "assessment": "NOT_REACHED",
+      "detail": "A/B blind packet prepared; 0 necessity adjudications completed."
+    },
+    {
+      "layer": "QA真值",
+      "assessment": "NOT_REACHED",
+      "detail": "No new QA drafts; gold key sealed sketches only."
+    }
+  ],
+  "minimal_fix_options": [
+    "Independent continuous review of VTCD garment + overlay windows first (action polarity + identity).",
+    "Rediscover a verified early purple-costume window on TJR before claiming embrace→drums family; do not force king-window bind.",
+    "Keep T1yh scoreboard as development control only.",
+    "Do NOT start run_004 or rewrite P0."
+  ],
+  "secondary_failure_signal": "事件发现/身份关联 — TJR king-window cast mismatch; VTCD action polarity conflict on contact sheets"
+}

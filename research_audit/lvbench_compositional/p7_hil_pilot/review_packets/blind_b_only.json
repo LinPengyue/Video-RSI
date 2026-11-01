@@ -1,0 +1,50 @@
+{
+  "status": "PENDING_INDEPENDENT_REVIEW",
+  "items": [
+    {
+      "relation_id": "P7_R_VTCD_garment_to_fan_overlay_bind",
+      "side": "B_ONLY",
+      "video_id": "VTCDQYYKA9o",
+      "clip": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/VTCDQYYKA9o/previous_results_overlay_265_280.mp4",
+      "t_start_s": 265.0,
+      "t_end_s": 280.0,
+      "prompt": "From this clip alone, what action/state is visible? Do not use earlier identity evidence."
+    },
+    {
+      "relation_id": "P7_R_VTCD_identify_jacket_query_later_jersey",
+      "side": "B_ONLY",
+      "video_id": "VTCDQYYKA9o",
+      "clip": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/VTCDQYYKA9o/garment_window_163_186.mp4",
+      "t_start_s": 170.0,
+      "t_end_s": 185.0,
+      "prompt": "From this clip alone, what action/state is visible? Do not use earlier identity evidence."
+    },
+    {
+      "relation_id": "P7_R_TJR_purple_embrace_to_drums",
+      "side": "B_ONLY",
+      "video_id": "TJR1oYDDTwg",
+      "clip": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/TJR1oYDDTwg/dual_performers_1200_1220.mp4",
+      "t_start_s": 1200.0,
+      "t_end_s": 1220.0,
+      "prompt": "From this clip alone, what action/state is visible? Do not use earlier identity evidence."
+    },
+    {
+      "relation_id": "P7_R_TJR_condition_select_purple_query_instrument",
+      "side": "B_ONLY",
+      "video_id": "TJR1oYDDTwg",
+      "clip": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/TJR1oYDDTwg/dual_performers_1200_1220.mp4",
+      "t_start_s": 1200.0,
+      "t_end_s": 1220.0,
+      "prompt": "From this clip alone, what action/state is visible? Do not use earlier identity evidence."
+    },
+    {
+      "relation_id": "P7_R_T1yh_score_00_to_later_state",
+      "side": "B_ONLY",
+      "video_id": "T1yhBv1ytzw",
+      "clip": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/T1yhBv1ytzw/score_later_region_2320_2345.mp4",
+      "t_start_s": 2320.0,
+      "t_end_s": 2345.0,
+      "prompt": "From this clip alone, what action/state is visible? Do not use earlier identity evidence."
+    }
+  ]
+}

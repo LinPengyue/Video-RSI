@@ -1,0 +1,13 @@
+{
+  "human_review_minutes_this_round": 0,
+  "human_reviewer_present": false,
+  "machine_processing": {
+    "clip_extract_ffmpeg": "9 local continuous clips",
+    "contact_sheets": "github review_assets frames",
+    "gpu_inference": false,
+    "paid_api": false,
+    "track_a_rsi": false,
+    "estimated_machine_wall_seconds": "~4\u201310s local ffmpeg + JSON write"
+  },
+  "note": "Costs not fabricated; human minutes = 0 because independent review not executed."
+}

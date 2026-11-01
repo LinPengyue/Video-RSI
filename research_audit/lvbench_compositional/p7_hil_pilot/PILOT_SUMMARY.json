@@ -1,0 +1,22 @@
+{
+  "events_total": 11,
+  "events_by_status": {
+    "EVENT_VERIFIED": 3,
+    "PENDING_INDEPENDENT_REVIEW": 8
+  },
+  "events_calibration_verified": 3,
+  "events_pending": 8,
+  "relations_total": 10,
+  "relations_by_status": {
+    "RELATION_VERIFIED": 2,
+    "PENDING_INDEPENDENT_REVIEW": 5,
+    "REJECTED": 3
+  },
+  "new_independent_qualified_families": 0,
+  "run_004": "NOT_STARTED",
+  "p0_runs_untouched": [
+    "run_001",
+    "run_002",
+    "run_003"
+  ]
+}

@@ -1,0 +1,443 @@
+[
+  {
+    "video_id": "JTa_Ue2MSwc",
+    "clip_name": "sierra_id",
+    "t_start_s": 35,
+    "t_end_s": 45,
+    "local_clip_path": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/JTa_Ue2MSwc/sierra_id_35_45.mp4",
+    "local_clip_exists": true,
+    "local_clip_bytes": 663669,
+    "git_committed_clip": false,
+    "github_contact_frames": [
+      {
+        "time_s": 35.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/sierra_id/f00_t35.0.jpg",
+        "sha256": "e9091fed211f3bf2aff9f9a6d558a8870ec783201a1bfaf714d0bf7568d17cb4",
+        "bytes": 65093
+      },
+      {
+        "time_s": 37.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/sierra_id/f01_t37.0.jpg",
+        "sha256": "05f1e9557fb35ebc013d71f25afb4d2a33fbde699796e202d8dff156a79a47d1",
+        "bytes": 66101
+      },
+      {
+        "time_s": 39.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/sierra_id/f02_t39.0.jpg",
+        "sha256": "2fef0de42302bbb11ae28b99eaf3d0ad86698bec15450750472ad7cd37ed4992",
+        "bytes": 66201
+      },
+      {
+        "time_s": 41.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/sierra_id/f03_t41.0.jpg",
+        "sha256": "19577d291de0f389a45d9f311050ad54bd597d317abd24852bb1f24780ff65d1",
+        "bytes": 65043
+      },
+      {
+        "time_s": 43.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/sierra_id/f04_t43.0.jpg",
+        "sha256": "4764377b392467e98e5940abe3ca4e25b5ea49bd3fa77573109825b3c3aad016",
+        "bytes": 57145
+      },
+      {
+        "time_s": 45.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/sierra_id/f05_t45.0.jpg",
+        "sha256": "a2e6990dbff94affe9cd80dba7f0b9993faaaf84348e7dec97acb56e5549494a",
+        "bytes": 68346
+      }
+    ],
+    "continuous_accessible_locally": true
+  },
+  {
+    "video_id": "JTa_Ue2MSwc",
+    "clip_name": "remove_shoe",
+    "t_start_s": 125,
+    "t_end_s": 135,
+    "local_clip_path": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/JTa_Ue2MSwc/remove_shoe_125_135.mp4",
+    "local_clip_exists": true,
+    "local_clip_bytes": 1229967,
+    "git_committed_clip": false,
+    "github_contact_frames": [
+      {
+        "time_s": 125.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/remove_shoe/f00_t125.0.jpg",
+        "sha256": "0c38f44ed76b1eeb550ad3df759c50ecf1d4664977c098c69f73fad6f2ff6baa",
+        "bytes": 58953
+      },
+      {
+        "time_s": 127.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/remove_shoe/f01_t127.0.jpg",
+        "sha256": "2539092709774caae193222f2e1df9c0cda18b427d1be6f294f7f62020ab1a99",
+        "bytes": 72864
+      },
+      {
+        "time_s": 129.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/remove_shoe/f02_t129.0.jpg",
+        "sha256": "49a5ef24e342b3758e38c6d68ef00c701ec11e82287dca4f2d2e0f2ee9cf736e",
+        "bytes": 64850
+      },
+      {
+        "time_s": 131.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/remove_shoe/f03_t131.0.jpg",
+        "sha256": "024cd27b56b6a45cc282bee72af0430aef9050c8baf22a814b2ca58b4e125010",
+        "bytes": 55908
+      },
+      {
+        "time_s": 133.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/remove_shoe/f04_t133.0.jpg",
+        "sha256": "44f988d57560fbae8d4ed1128dd3d52285ec66d89a4bf27d7fba0c7d10ade07e",
+        "bytes": 89234
+      },
+      {
+        "time_s": 135.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/remove_shoe/f05_t135.0.jpg",
+        "sha256": "58099d632f17e7fff6e8392dfdd5f6d67e7d781803272a0543bc30f2bf5ba09e",
+        "bytes": 87103
+      }
+    ],
+    "continuous_accessible_locally": true
+  },
+  {
+    "video_id": "JTa_Ue2MSwc",
+    "clip_name": "slap_lunge",
+    "t_start_s": 335,
+    "t_end_s": 350,
+    "local_clip_path": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/JTa_Ue2MSwc/slap_lunge_335_350.mp4",
+    "local_clip_exists": true,
+    "local_clip_bytes": 1879045,
+    "git_committed_clip": false,
+    "github_contact_frames": [
+      {
+        "time_s": 335.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/slap_lunge/f00_t335.0.jpg",
+        "sha256": "7f0f830bb59789a68b7da1b2a765e84091673b4e8a75e293d2500664b1f6acb3",
+        "bytes": 74011
+      },
+      {
+        "time_s": 338.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/slap_lunge/f01_t338.0.jpg",
+        "sha256": "d51d11bc14c42e7ac06e9670d0b6702167f12e792a4d470eb6bd7525c58251f0",
+        "bytes": 63171
+      },
+      {
+        "time_s": 341.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/slap_lunge/f02_t341.0.jpg",
+        "sha256": "f44aee540a5cfab153fe14642a1f45ce6a4ee82c34e5946d44bf12a694a2b656",
+        "bytes": 62283
+      },
+      {
+        "time_s": 344.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/slap_lunge/f03_t344.0.jpg",
+        "sha256": "697f790c2a65494b0f1e7977ef3432d9d888d38955af8df09677b076081614a5",
+        "bytes": 70525
+      },
+      {
+        "time_s": 347.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/slap_lunge/f04_t347.0.jpg",
+        "sha256": "144879d7c4027394db8c1d34ca3569aca81e9dc9c9c84890c4037054a4959ae0",
+        "bytes": 61462
+      },
+      {
+        "time_s": 350.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/JTa_Ue2MSwc/slap_lunge/f05_t350.0.jpg",
+        "sha256": "755fe9ec80577e93ec2f2864717db84fc5c3b9ae5805c1ae4dfbca90b0cbe391",
+        "bytes": 72702
+      }
+    ],
+    "continuous_accessible_locally": true
+  },
+  {
+    "video_id": "VTCDQYYKA9o",
+    "clip_name": "garment_window",
+    "t_start_s": 163,
+    "t_end_s": 186,
+    "local_clip_path": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/VTCDQYYKA9o/garment_window_163_186.mp4",
+    "local_clip_exists": true,
+    "local_clip_bytes": 4978128,
+    "git_committed_clip": false,
+    "github_contact_frames": [
+      {
+        "time_s": 163.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/garment_window/f00_t163.0.jpg",
+        "sha256": "3e05fff60ba175fe61628e18aa3db73d67331e890130f99e85898388cf659cd2",
+        "bytes": 55059
+      },
+      {
+        "time_s": 167.6,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/garment_window/f01_t167.6.jpg",
+        "sha256": "280b1b973e5b0c121d69da73279825f2ac68ad53b57b0ea852fd6c69c571c034",
+        "bytes": 61363
+      },
+      {
+        "time_s": 172.2,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/garment_window/f02_t172.2.jpg",
+        "sha256": "7eaa080a819f6ca61e08eb46866bba7388726aea897e020878e354dd14239869",
+        "bytes": 68275
+      },
+      {
+        "time_s": 176.8,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/garment_window/f03_t176.8.jpg",
+        "sha256": "bd554581540538b9b3f370b388b8bba944ad8fcbea229e8a18e8e997149b0b7e",
+        "bytes": 69088
+      },
+      {
+        "time_s": 181.4,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/garment_window/f04_t181.4.jpg",
+        "sha256": "bd18b57529c21a164e3ab23a3b20be0e0cea9bd50f4acf8203648edf05d1d6f9",
+        "bytes": 66169
+      },
+      {
+        "time_s": 186.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/garment_window/f05_t186.0.jpg",
+        "sha256": "e075dfb23980c1ae492e50ab96965e4f05c5fe03fc98a2832d744fd2b231f756",
+        "bytes": 67854
+      }
+    ],
+    "continuous_accessible_locally": true
+  },
+  {
+    "video_id": "VTCDQYYKA9o",
+    "clip_name": "previous_results_overlay",
+    "t_start_s": 265,
+    "t_end_s": 280,
+    "local_clip_path": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/VTCDQYYKA9o/previous_results_overlay_265_280.mp4",
+    "local_clip_exists": true,
+    "local_clip_bytes": 4069294,
+    "git_committed_clip": false,
+    "github_contact_frames": [
+      {
+        "time_s": 265.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/previous_results_overlay/f00_t265.0.jpg",
+        "sha256": "d8ada2a1bff7e2fd3c75827d1c695cda6d3ad6c1571a165ad564a5f91f617f25",
+        "bytes": 91239
+      },
+      {
+        "time_s": 268.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/previous_results_overlay/f01_t268.0.jpg",
+        "sha256": "49306eabd9e10294e9f48685c717bb758a994b08dee68ac87ad220ba28aea280",
+        "bytes": 76176
+      },
+      {
+        "time_s": 271.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/previous_results_overlay/f02_t271.0.jpg",
+        "sha256": "48ea2f7f40a75b36073a391398ea54687c33d6aecad3791a940f4ccaf1bb5e8c",
+        "bytes": 111425
+      },
+      {
+        "time_s": 274.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/previous_results_overlay/f03_t274.0.jpg",
+        "sha256": "afb75776ff25f28bef721807fb2e0b951096d845a5b3dd1c8afd8f2f75318804",
+        "bytes": 109803
+      },
+      {
+        "time_s": 277.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/previous_results_overlay/f04_t277.0.jpg",
+        "sha256": "91393850d07acc10c908f44c1db779816f2a1e498656e4606a862cb9ae2856a5",
+        "bytes": 121130
+      },
+      {
+        "time_s": 280.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/VTCDQYYKA9o/previous_results_overlay/f05_t280.0.jpg",
+        "sha256": "50446cffe6f78c35a44774f0a86f7f81935c19846f9ec19a05b99a9b459d0445",
+        "bytes": 122290
+      }
+    ],
+    "continuous_accessible_locally": true
+  },
+  {
+    "video_id": "TJR1oYDDTwg",
+    "clip_name": "king_embrace_window",
+    "t_start_s": 315,
+    "t_end_s": 335,
+    "local_clip_path": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/TJR1oYDDTwg/king_embrace_window_315_335.mp4",
+    "local_clip_exists": true,
+    "local_clip_bytes": 4777546,
+    "git_committed_clip": false,
+    "github_contact_frames": [
+      {
+        "time_s": 315.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/king_embrace_window/f00_t315.0.jpg",
+        "sha256": "a6780262c1fc09ccc47f254b146bb27df0092ca828cda24af05c95d49f82ff2f",
+        "bytes": 44602
+      },
+      {
+        "time_s": 319.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/king_embrace_window/f01_t319.0.jpg",
+        "sha256": "02244a94ad7629715f2ac97afa51f06d62487e6e874480fbe31730109d2e2353",
+        "bytes": 58363
+      },
+      {
+        "time_s": 323.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/king_embrace_window/f02_t323.0.jpg",
+        "sha256": "72f21c59bcba76ade30c87d91c27d79e8972ef30127e4148d6a1c1263c793555",
+        "bytes": 55664
+      },
+      {
+        "time_s": 327.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/king_embrace_window/f03_t327.0.jpg",
+        "sha256": "116ef4ee22af4cfd91622bf413d81b9e45de393671a92487a05936b7a4e426e2",
+        "bytes": 51968
+      },
+      {
+        "time_s": 331.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/king_embrace_window/f04_t331.0.jpg",
+        "sha256": "19557cf562088bad57d2cd234f23fda27ad2a5aa488ca4eb7b258b4f33b6c4fa",
+        "bytes": 56084
+      },
+      {
+        "time_s": 335.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/king_embrace_window/f05_t335.0.jpg",
+        "sha256": "7e8870980704a2749aed875c99e49172d6d2e83be20e0d84a6d28b7ae55c8ef8",
+        "bytes": 56774
+      }
+    ],
+    "continuous_accessible_locally": true
+  },
+  {
+    "video_id": "TJR1oYDDTwg",
+    "clip_name": "dual_performers",
+    "t_start_s": 1200,
+    "t_end_s": 1220,
+    "local_clip_path": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/TJR1oYDDTwg/dual_performers_1200_1220.mp4",
+    "local_clip_exists": true,
+    "local_clip_bytes": 5938887,
+    "git_committed_clip": false,
+    "github_contact_frames": [
+      {
+        "time_s": 1200.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/dual_performers/f00_t1200.0.jpg",
+        "sha256": "ee41d3df88fff6c9f1feb9d1ded24caaf442f850231f0d5c108b537ad87d46fd",
+        "bytes": 64133
+      },
+      {
+        "time_s": 1204.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/dual_performers/f01_t1204.0.jpg",
+        "sha256": "4c3e718f7ea99f85af4d548ab139aabe526fd6ea5a41afc8ffa20dd10c2518c4",
+        "bytes": 52973
+      },
+      {
+        "time_s": 1208.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/dual_performers/f02_t1208.0.jpg",
+        "sha256": "bd386c2e8f2ae8963d826ce4646354f03be2cc551610058c14bed1c08d585f9d",
+        "bytes": 53770
+      },
+      {
+        "time_s": 1212.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/dual_performers/f03_t1212.0.jpg",
+        "sha256": "579f93d60aec250ef7b6c5c2121dfcee5daed547e0eb43e0a551f2fb8bab6392",
+        "bytes": 54504
+      },
+      {
+        "time_s": 1216.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/dual_performers/f04_t1216.0.jpg",
+        "sha256": "c9ba793919ac00dda987673d5bc305636118ddc19f2d9ae4e798a1e8bbf3586a",
+        "bytes": 36148
+      },
+      {
+        "time_s": 1220.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/TJR1oYDDTwg/dual_performers/f05_t1220.0.jpg",
+        "sha256": "c3328bf585419dc8dbc24f400f45c48090f8a06bc478311ce7ac6f06ad069565",
+        "bytes": 42876
+      }
+    ],
+    "continuous_accessible_locally": true
+  },
+  {
+    "video_id": "T1yhBv1ytzw",
+    "clip_name": "score_00_region",
+    "t_start_s": 1785,
+    "t_end_s": 1805,
+    "local_clip_path": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/T1yhBv1ytzw/score_00_region_1785_1805.mp4",
+    "local_clip_exists": true,
+    "local_clip_bytes": 12839183,
+    "git_committed_clip": false,
+    "github_contact_frames": [
+      {
+        "time_s": 1785.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_00_region/f00_t1785.0.jpg",
+        "sha256": "6b3d0a863c007d34741c7b8962e43a8e2c10e7d4e1a2dcfeb37b9fd649518c1a",
+        "bytes": 202584
+      },
+      {
+        "time_s": 1789.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_00_region/f01_t1789.0.jpg",
+        "sha256": "f2376fa2f488aad4bcfdba3c1d0fafb845cc6ede0358df0ef48fafc75443d086",
+        "bytes": 199565
+      },
+      {
+        "time_s": 1793.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_00_region/f02_t1793.0.jpg",
+        "sha256": "7b275e19b2d9a3946fe39ca09f1016ca06aadd0f5dbbe64002b65ea431dff066",
+        "bytes": 111144
+      },
+      {
+        "time_s": 1797.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_00_region/f03_t1797.0.jpg",
+        "sha256": "8dbec0db6aa6afbe4787c71913875d9f4a5655ffc16b91af3dac8325eb4df75c",
+        "bytes": 137115
+      },
+      {
+        "time_s": 1801.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_00_region/f04_t1801.0.jpg",
+        "sha256": "361a840817407da1ea039d2869af53a6c192414e3a32670a9bf154be119dd991",
+        "bytes": 116321
+      },
+      {
+        "time_s": 1805.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_00_region/f05_t1805.0.jpg",
+        "sha256": "1db9102f3cc93fabfbaecd849bc4fe45c4dbcaa72ba7eb4fd965726101411c9d",
+        "bytes": 149841
+      }
+    ],
+    "continuous_accessible_locally": true
+  },
+  {
+    "video_id": "T1yhBv1ytzw",
+    "clip_name": "score_later_region",
+    "t_start_s": 2320,
+    "t_end_s": 2345,
+    "local_clip_path": "research_audit/lvbench_compositional/p7_hil_pilot/local_media/T1yhBv1ytzw/score_later_region_2320_2345.mp4",
+    "local_clip_exists": true,
+    "local_clip_bytes": 14314927,
+    "git_committed_clip": false,
+    "github_contact_frames": [
+      {
+        "time_s": 2320.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_later_region/f00_t2320.0.jpg",
+        "sha256": "a3d5a48c702326593350410192dd89384b531de6331211ace65050fec4f05d6a",
+        "bytes": 73583
+      },
+      {
+        "time_s": 2325.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_later_region/f01_t2325.0.jpg",
+        "sha256": "38f0a0edc5a699d2cf308ee44c261e4cb0b236a6bfd45a909431903a4d79b75a",
+        "bytes": 72552
+      },
+      {
+        "time_s": 2330.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_later_region/f02_t2330.0.jpg",
+        "sha256": "e741eb2877f263e67d411e1b4cccbd1c665f6b0d799412f56d3ae06030b63751",
+        "bytes": 284788
+      },
+      {
+        "time_s": 2335.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_later_region/f03_t2335.0.jpg",
+        "sha256": "b03e8594c45801c5e5d0698699e2a702e285ce9f6911d27ac4ae253f8e218d23",
+        "bytes": 175957
+      },
+      {
+        "time_s": 2340.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_later_region/f04_t2340.0.jpg",
+        "sha256": "c3474581f16f008c9f0bedd8bdabc648be42341a3a41142afebd614ff516a499",
+        "bytes": 157083
+      },
+      {
+        "time_s": 2345.0,
+        "path": "research_audit/lvbench_compositional/p7_hil_pilot/review_assets/T1yhBv1ytzw/score_later_region/f05_t2345.0.jpg",
+        "sha256": "cfe322d5df46f504ac1217f59c254e0919181b34317722fa9dcdbf5058e7bf4b",
+        "bytes": 130650
+      }
+    ],
+    "continuous_accessible_locally": true
+  }
+]

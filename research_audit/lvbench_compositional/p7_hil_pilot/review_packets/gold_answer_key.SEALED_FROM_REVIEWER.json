@@ -1,0 +1,48 @@
+{
+  "WARNING": "Do not show during A-only/B-only necessity blind. Only after necessity pass.",
+  "status": "KEYS_DRAFTED_PENDING_EVENT_VERIFY",
+  "items": [
+    {
+      "relation_id": "P7_R_CALIB_sierra_id_to_remove_shoe",
+      "expected_answer_sketch": "removes / takes off shoe",
+      "source": "PILOT_V2_2_LVCOMP-V2-002",
+      "p7_new": false
+    },
+    {
+      "relation_id": "P7_R_CALIB_sierra_id_to_slap",
+      "expected_answer_sketch": "lunges / slaps male guest",
+      "source": "PILOT_V2_2_LVCOMP-V2-003",
+      "p7_new": false
+    },
+    {
+      "relation_id": "P7_R_VTCD_garment_to_fan_overlay_bind",
+      "expected_answer_sketch": "PENDING \u2014 if bind holds: Fan Zhendong / red jacket early state",
+      "locked": false,
+      "note": "Sketch only; GOLD_ANSWER_VERIFIED requires event+relation+necessity first."
+    },
+    {
+      "relation_id": "P7_R_VTCD_identify_jacket_query_later_jersey",
+      "expected_answer_sketch": "PENDING \u2014 blue/yellow jersey after removal",
+      "locked": false,
+      "note": "Sketch only; GOLD_ANSWER_VERIFIED requires event+relation+necessity first."
+    },
+    {
+      "relation_id": "P7_R_TJR_purple_embrace_to_drums",
+      "expected_answer_sketch": "PENDING \u2014 plays drums (if identity bind holds)",
+      "locked": false,
+      "note": "Sketch only; GOLD_ANSWER_VERIFIED requires event+relation+necessity first."
+    },
+    {
+      "relation_id": "P7_R_TJR_condition_select_purple_query_instrument",
+      "expected_answer_sketch": "PENDING \u2014 drums (vs pink \u2192 string)",
+      "locked": false,
+      "note": "Sketch only; GOLD_ANSWER_VERIFIED requires event+relation+necessity first."
+    },
+    {
+      "relation_id": "P7_R_T1yh_score_00_to_later_state",
+      "expected_answer_sketch": "PENDING_READ \u2014 later score digits",
+      "locked": false,
+      "note": "Sketch only; GOLD_ANSWER_VERIFIED requires event+relation+necessity first."
+    }
+  ]
+}
