@@ -77,7 +77,7 @@ function record(){
   user_event_observation_A:val('obsA'), user_event_time_A_local_approx:val('whenA')||null,
   user_event_observation_B:val('obsB'), same_person_decision:s||"NOT_REPORTED",
   same_person_reason:val('identityReason'),
-  question_candidate_shown_after_identity:true,
+  question_candidate_shown_after_identity:!document.getElementById('qBlock').classList.contains('hidden'),
   question_candidate:"后来在舞台上打鼓的孩子，在更早的场景中做了什么？",
   question_review:s==="SAME_PERSON"?(selected('qa')||"PENDING_USER"):"NOT_APPLICABLE",
   question_reason_or_answer:s==="SAME_PERSON"?val('qaReason'):null,
