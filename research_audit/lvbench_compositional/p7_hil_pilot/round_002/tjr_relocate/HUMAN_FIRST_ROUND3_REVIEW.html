@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P7 Round 3｜TJR 人工前置审核</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:#182230;background:#f7f9fc}
+body{max-width:920px;margin:24px auto;padding:0 14px}h1{font-size:1.6rem}h2{font-size:1.16rem}
+p,li{line-height:1.6}.muted{color:#576474;font-size:.92rem}.block{background:white;border:1px solid #dbe3ee;border-radius:12px;padding:18px;margin:14px 0}
+video{display:block;width:100%;max-height:450px;background:black;border-radius:8px}
+textarea,input[type=text]{box-sizing:border-box;display:block;width:100%;padding:10px;border:1px solid #b9c5d3;border-radius:6px;font:inherit;margin:7px 0 14px}
+textarea{min-height:66px}label{display:block;margin:12px 0 6px;font-weight:600}
+.choices label{display:inline-block;font-weight:400;margin:6px 18px 6px 0}.choices input{margin-right:5px}
+button{border:0;border-radius:7px;background:#175cd3;color:white;padding:10px 14px;font:inherit;cursor:pointer;margin:5px 8px 5px 0}
+button.secondary{background:#455468}.hidden{display:none}pre{white-space:pre-wrap;word-wrap:break-word;background:#f2f5f8;border:1px solid #d3dae5;padding:12px;border-radius:8px;font-size:.8rem}
+small{color:#617083}
+</style></head>
+<body>
+<h1>P7 Round 3｜人工前置审核 · TJR</h1>
+<p class="muted">只审核这一组候选，先看片、独立判断，再看机器草拟的问题。没有预设正确答案，也不涉及 Seen/Unseen 认证或 Gold QA。</p>
+<div class="block"><h2>1. 先看两段连续视频</h2>
+<p><strong>A · 原视频约 1100–1125 秒</strong>（早期候选）</p>
+<video id="videoA" controls playsinline preload="metadata"><source src="media/early_candidate_dragon_ride_1100_1125.mp4" type="video/mp4"></video>
+<label for="obsA">A 中你实际看到了什么？谁、什么动作？</label>
+<textarea id="obsA" placeholder="只写你亲眼看到的事实；看不清可以写证据不足。"></textarea>
+<label for="whenA">A 中关键动作发生在片段第几秒？（可选）</label><input id="whenA" type="text" placeholder="例如：约 12–15 秒">
+<p><strong>B · 原视频约 1200–1220 秒</strong>（晚期参考）</p>
+<video id="videoB" controls playsinline preload="metadata"><source src="media/late_dual_performers_1200_1220.mp4" type="video/mp4"></video>
+<label for="obsB">B 中你实际看到了什么？有哪些可以辨认人物的线索？</label>
+<textarea id="obsB" placeholder="角色、服装、脸部特征、字幕等；没有把握就说明。"></textarea>
+</div>
+<div class="block"><h2>2. 判断两段是否为同一人物</h2>
+<p>请比较两段中与后期表演有关的人物。不要假定先前的机器人物关联是正确的。</p>
+<div class="choices" id="identity">
+<label><input type="radio" name="same" value="SAME_PERSON">是</label>
+<label><input type="radio" name="same" value="DIFFERENT_PERSON">否</label>
+<label><input type="radio" name="same" value="INSUFFICIENT_EVIDENCE">证据不足</label></div>
+<label for="identityReason">判断依据（请说明你在 A、B 各看到了什么）</label>
+<textarea id="identityReason" placeholder="例如：A 的哪些衣着/外观特征，B 的哪些对应特征；或为什么无法确认。"></textarea>
+<button type="button" onclick="revealQuestion()">完成事实判断，查看候选题</button>
+<p id="hint" class="muted">如判定不同人或证据不足，可以直接导出审核，不需要硬编 QA。</p>
+</div>
+<div id="qBlock" class="block hidden"><h2>3. 只在身份关联成立后审核题目</h2>
+<p><strong>机器提出的候选题（未核验）：</strong>“后来在舞台上打鼓的孩子，在更早的场景中做了什么？”</p>
+<p class="muted">这只是待检验的句子。若 A/B 不支持，直接拒绝或修改，不要推测答案。</p>
+<div class="choices">
+<label><input type="radio" name="qa" value="ACCEPT">接受</label>
+<label><input type="radio" name="qa" value="REVISE">修改</label>
+<label><input type="radio" name="qa" value="REJECT">拒绝</label>
+<label><input type="radio" name="qa" value="UNCERTAIN">无法判断</label></div>
+<label for="qaReason">你认为题目/答案应如何写？或者为什么拒绝？</label>
+<textarea id="qaReason" placeholder="如果接受或修改，请写出你认为有证据支持的答案；如无可回答的动作，请说明。"></textarea>
+</div>
+<div class="block">
+<h2>4. 输出你的审核结论</h2>
+<label><input type="checkbox" id="watched"> 我亲自播放并观看了 A、B 两段连续视频</label>
+<label for="minutes">实际审核分钟数（可选，不会估算）</label><input type="text" id="minutes" placeholder="可留空">
+<button type="button" onclick="exportReview()">生成审核 JSON</button>
+<button type="button" class="secondary" onclick="downloadReview()">保存 JSON 文件</button>
+<p class="muted">复制下方 JSON 到 ChatGPT 或保存后交给 Cursor。仅生成文本，不会自动修改仓库审核状态。</p>
+<pre id="out">（尚未生成）</pre>
+</div>
+<script>
+function val(id){return document.getElementById(id).value.trim();}
+function selected(name){var el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:null;}
+function revealQuestion(){
+ var s=selected('same');
+ if(!s){document.getElementById('hint').textContent='请先选择身份判断。';return;}
+ var yes=s==='SAME_PERSON';
+ document.getElementById('qBlock').classList.toggle('hidden',!yes);
+ document.getElementById('hint').textContent=yes?'你认为是同一人物：请再审核候选题。':'已记录身份未确认或不相同；本轮不强制构造 QA，可直接导出。';
+}
+function record(){
+ var s=selected('same');
+ return {
+  round:"003", video_id:"TJR1oYDDTwg", reviewer:"USER",
+  confirmed_watched_continuous_video:document.getElementById('watched').checked,
+  reviewer_actual_minutes:val('minutes')||null,
+  user_event_observation_A:val('obsA'), user_event_time_A_local_approx:val('whenA')||null,
+  user_event_observation_B:val('obsB'), same_person_decision:s||"NOT_REPORTED",
+  same_person_reason:val('identityReason'),
+  question_candidate_shown_after_identity:true,
+  question_candidate:"后来在舞台上打鼓的孩子，在更早的场景中做了什么？",
+  question_review:s==="SAME_PERSON"?(selected('qa')||"PENDING_USER"):"NOT_APPLICABLE",
+  question_reason_or_answer:s==="SAME_PERSON"?val('qaReason'):null,
+  source_windows_s:{A:[1100,1125],B:[1200,1220]},
+  gold_qa_minted:false, composition_necessity_verified:false,
+  seen_unseen_status:"UNASSIGNED",
+  user_review_note:"Exported from human-first page; requires intake with provenance. No automatic formal status change."
+ };
+}
+function exportReview(){var o=document.getElementById('out');o.textContent=JSON.stringify(record(),null,2);}
+function downloadReview(){
+ exportReview();
+ var blob=new Blob([document.getElementById('out').textContent],{type:'application/json'});
+ var u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='TJR_USER_REVIEW_ROUND003.json';
+ document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(u);
+}
+</script>
+</body></html>
