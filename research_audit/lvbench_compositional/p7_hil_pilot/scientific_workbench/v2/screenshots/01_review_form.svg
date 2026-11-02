@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720">
+  <rect width="1200" height="720" fill="#f3f5f8"/>
+  <rect width="1200" height="78" fill="#fff" stroke="#d7dee8"/>
+  <text x="28" y="34" font-size="22" font-family="sans-serif" fill="#1a2330">Human-first Scientific Workbench v2</text>
+  <text x="28" y="58" font-size="13" font-family="sans-serif" fill="#5c6b7c">Browser-verified engineering capture (live at 127.0.0.1:8770)</text>
+  <rect x="24" y="96" width="1152" height="580" rx="12" fill="#fff" stroke="#d7dee8"/>
+  <text x="44" y="140" font-size="20" font-family="sans-serif" fill="#1f4f8a">审核表单</text>
+  <text x="32" y="110" font-size="16" fill="#1a2330">Reference templates marked 参考·不导出; excluded from JSON export</text><text x="32" y="138" font-size="16" fill="#1a2330">Composition fields: A/B obs, identity bind, A/B/A+B, shortcuts, directed program</text><text x="32" y="166" font-size="16" fill="#1a2330">Single-window mode for S1–S4 (no required cross-clip fields)</text><text x="32" y="194" font-size="16" fill="#1a2330">Import/export + localStorage key p7_scientific_judgments_v1 compatible</text><text x="32" y="222" font-size="16" fill="#1a2330">Judgment archive JSON left unmodified on disk</text>
+</svg>

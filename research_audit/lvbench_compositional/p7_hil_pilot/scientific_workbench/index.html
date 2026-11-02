@@ -3,230 +3,33 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>P7 科学认证工作台｜USER + GPT</title>
-<style>
-:root{--bg:#f3f5f8;--card:#fff;--line:#d7dee8;--ink:#1a2330;--muted:#5c6b7c;--accent:#1f4f8a;--warn:#8a5a00;--warnbg:#fff6e5}
-*{box-sizing:border-box}
-body{margin:0;font:15px/1.55 system-ui,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
-header{padding:18px 20px;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:5}
-h1{margin:0;font-size:1.25rem}
-.muted{color:var(--muted);font-size:.92rem}
-.banner{margin:12px 20px;padding:12px 14px;background:var(--warnbg);border:1px solid #e7d3a4;border-radius:10px;color:var(--warn)}
-nav{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 12px}
-nav a{color:var(--accent);text-decoration:none;font-size:.9rem;background:#eaf1fa;padding:4px 10px;border-radius:999px}
-main{max-width:980px;margin:0 auto;padding:8px 16px 48px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
-.card h2{margin:0 0 8px;font-size:1.08rem}
-.meta{font-size:.88rem;color:var(--muted)}
-.qa{background:#f7fafc;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0}
-.qa strong{display:block;margin-bottom:4px}
-.players{display:grid;gap:12px}
-@media(min-width:820px){.players.ab{grid-template-columns:1fr 1fr}}
-video{width:100%;max-height:360px;background:#000;border-radius:8px;display:block}
-label{display:block;font-weight:600;margin:10px 0 4px;font-size:.92rem}
-textarea,select,input[type=text]{width:100%;padding:8px;border:1px solid #b9c5d4;border-radius:6px;font:inherit;background:#fff}
-textarea{min-height:64px;resize:vertical}
-details{margin-top:10px}
-details>summary{cursor:pointer;color:var(--accent);font-weight:600}
-pre{white-space:pre-wrap;word-break:break-word;background:#eef2f6;border:1px solid #d0d8e2;padding:10px;border-radius:8px;font-size:.75rem;max-height:320px;overflow:auto}
-.tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:999px;background:#e8eef8;color:#1d4f91;margin-left:6px}
-.tag.cal{background:#ece8f8;color:#4b3a86}
-.tag.seen{background:#e4f5ea;color:#0b6b3a}
-.fields{border-top:1px dashed var(--line);margin-top:12px;padding-top:8px}
-button{border:0;border-radius:7px;background:var(--accent);color:#fff;padding:8px 12px;font:inherit;cursor:pointer;margin:8px 6px 0 0}
-button.secondary{background:#445468}
-.toast{position:fixed;right:16px;bottom:16px;background:#123;color:#fff;padding:10px 14px;border-radius:8px;display:none}
-</style>
+<title>P7 Scientific Workbench v2｜USER + GPT</title>
+<link rel="stylesheet" href="v2/styles.css"/>
 </head>
 <body>
 <header>
-  <h1>P7 科学认证工作台 <span class="tag">USER + GPT 裁决</span></h1>
-  <p class="muted">Cursor 仅提供工程呈现。本页为<strong>已知答案的专家证据依赖审核</strong>，不是独立盲审。科学判断字段默认留空，由用户与 ChatGPT 填写。</p>
+  <h1>Human-first Scientific Workbench v2 <span class="tag">USER + GPT 裁决 · Cursor 工程</span></h1>
+  <p class="muted">已知答案的专家证据依赖审核，不是独立盲审。Cursor 不裁决 QA / 必要性 / Seen·Unseen / Gold。</p>
 </header>
 <div class="banner">
-  请勿将本页结果写成独立盲测通过。正式隔离包仍在 <code>round_004/certification/independent_review_packets/</code>。
-  Cursor 历史 <code>STRUCTURE_LEAVEOUT_DEFINITION_V1.json</code> 仅为草案，不代表已批准划分。
+  用户预分类 Unseen ≠ 正式 Unseen；S1–S4 ≠ 正式 Seen；Sierra = 历史校准；旧 39 训练划分题 = 历史候选不计入认证覆盖。
+  DEMO 图仅供界面演示。结构比较在无批准规范化图时显示「待结构化确认 / 尚不可计算」。
 </div>
+<nav class="tabs" aria-label="Workbench tabs">
+  <button type="button" data-tab="review" class="active">审核表单</button>
+  <button type="button" data-tab="a">窗口 A · 程序图库</button>
+  <button type="button" data-tab="b">窗口 B · 算子覆盖</button>
+  <button type="button" data-tab="checks">结构/隔离检查</button>
+</nav>
 <nav id="toc"></nav>
-<main id="root">
-  <p class="muted">正在加载 WORKBENCH_CATALOG.json …</p>
+<main>
+  <div id="pane-review" class="tab-pane"></div>
+  <div id="pane-a" class="tab-pane hidden"></div>
+  <div id="pane-b" class="tab-pane hidden"></div>
+  <div id="pane-checks" class="tab-pane hidden"></div>
 </main>
 <div class="toast" id="toast"></div>
-<script>
-const FIELD_DEFS = [
-  ['a_only_sufficient', 'A-only 是否足以回答？', 'select', ['','是','否','不确定','未评']],
-  ['b_only_sufficient', 'B-only 是否足以回答？', 'select', ['','是','否','不确定','未评']],
-  ['a_plus_b_supports_user_answer', 'A+B 是否支持用户确认的答案？', 'select', ['','是','否','不确定','未评']],
-  ['truly_needs_cross_clip_composition', '是否真正需要跨片段组合？', 'select', ['','是','否','不确定','未评']],
-  ['directed_program_structure', '完整有向程序结构是什么？', 'text', null],
-  ['bucket_seen_unseen_control_or_hold', '应归入 Seen / Unseen / 对照 / 暂缓？', 'select', ['','Seen','Unseen','对照','暂缓','未定']],
-  ['rationale_and_open_issues', '判断依据与未解决问题', 'textarea', null],
-];
-
-function esc(s){
-  return String(s??'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-
-function videoBlock(label, src){
-  if(!src) return '';
-  return `<div><div class="meta">${esc(label)} · <code>${esc(src)}</code></div>
-    <video controls playsinline preload="metadata" src="${esc(src)}"></video></div>`;
-}
-
-function judgmentFields(id){
-  let html = `<div class="fields"><h3>科学判断（留空待 USER/GPT 填写）</h3>`;
-  for(const [key,label,type,opts] of FIELD_DEFS){
-    const fid = `${id}__${key}`;
-    html += `<label for="${fid}">${esc(label)}</label>`;
-    if(type==='select'){
-      html += `<select id="${fid}" data-item="${esc(id)}" data-field="${esc(key)}">` +
-        opts.map(o=>`<option value="${esc(o)}">${esc(o||'（空）')}</option>`).join('') +
-        `</select>`;
-    } else if(type==='textarea'){
-      html += `<textarea id="${fid}" data-item="${esc(id)}" data-field="${esc(key)}" placeholder="由用户/GPT 填写"></textarea>`;
-    } else {
-      html += `<input type="text" id="${fid}" data-item="${esc(id)}" data-field="${esc(key)}" placeholder="由用户/GPT 填写"/>`;
-    }
-  }
-  html += `<label for="${id}__filled_by">填写人</label>
-    <input type="text" id="${id}__filled_by" data-item="${esc(id)}" data-field="filled_by" placeholder="USER / GPT+USER"/>
-    <button type="button" onclick="exportJudgments()">导出本页判断 JSON</button>
-    <button type="button" class="secondary" onclick="saveLocal()">暂存到本机 localStorage</button>
-  </div>`;
-  return html;
-}
-
-function renderItem(it){
-  const id = it.workbench_id;
-  const sectionTag = it.section==='track_a_sierra_calibration' ? '<span class="tag cal">校准</span>'
-    : it.section==='round4_seen_primitive_observations' ? '<span class="tag seen">Seen 原语观察</span>'
-    : '<span class="tag">P7 候选</span>';
-  const q = it.user_final_qa || {};
-  const question = q.question_zh || q.question_en || q.observation_accepted || '';
-  const answer = q.answer_zh || q.answer_en || q.decision || '';
-  const iv = it.intervals || {};
-  const clips = it.clips || {};
-  let players = '';
-  if(clips.single){
-    players = `<div class="players">${videoBlock('单窗', clips.single)}</div>`;
-  } else {
-    players = `<div class="players ab">
-      ${videoBlock('A-only', clips.A || clips.A_id)}
-      ${videoBlock('B-only', clips.B || clips.B_action)}
-    </div>
-    <details open><summary>A+B 对照（同页并排；也可分别聚焦上方播放器）</summary>
-      <p class="meta">请分别用 A-only / B-only / 对照观看。不要把本页当作独立盲审。</p>
-    </details>`;
-  }
-  const hist = esc(JSON.stringify(it.history_payload || it.history || {}, null, 2));
-  return `<section class="card" id="${esc(id)}">
-    <h2>${esc(id)} ${sectionTag}</h2>
-    <p class="meta">video_id=<code>${esc(it.video_id)}</code> · qa_uid=<code>${esc(it.qa_uid)}</code>
-      ${it.role_note? ' · '+esc(it.role_note):''}</p>
-    <p class="meta">区间：<code>${esc(JSON.stringify(iv))}</code></p>
-    <div class="qa">
-      <strong>用户最终确认 Q/A（或观察）</strong>
-      <div>Q：${esc(question)}</div>
-      <div>A：${esc(answer)}</div>
-      <div class="meta">status=${esc(q.status||'')} · necessity=${esc(q.composition_necessity_status||'n/a')}</div>
-      ${q.raw_relation? `<div class="meta">raw_relation=${esc(q.raw_relation)}</div>`:''}
-      ${q.interpretation_note? `<div class="meta">${esc(q.interpretation_note)}</div>`:''}
-      ${q.wording_caveat? `<div class="meta">caveat: ${esc(q.wording_caveat)}</div>`:''}
-      ${q.source_original_question? `<div class="meta">原题：${esc(q.source_original_question)}</div>`:''}
-      ${q.prior_accepted_question_zh? `<div class="meta">修订前题：${esc(q.prior_accepted_question_zh)} / ${esc(q.prior_answer_field_zh||'')}</div>`:''}
-    </div>
-    ${players}
-    ${it.identity_and_events? `<details><summary>身份 / 事件摘要</summary><pre>${esc(JSON.stringify(it.identity_and_events,null,2))}</pre></details>`:''}
-    <details><summary>历史人工标注（可展开）</summary>
-      <p class="meta">来源：${esc((it.history_refs||[]).join(' · '))}</p>
-      <pre>${hist}</pre>
-    </details>
-    ${it.note? `<p class="meta">${esc(it.note)}</p>`:''}
-    ${judgmentFields(id)}
-  </section>`;
-}
-
-function collectJudgments(){
-  const out = {exported_utc: new Date().toISOString(), disclaimer:'USER/GPT filled; Cursor did not adjudicate', items:{}};
-  document.querySelectorAll('[data-item][data-field]').forEach(el=>{
-    const id = el.dataset.item; const field = el.dataset.field;
-    out.items[id] = out.items[id] || {};
-    out.items[id][field] = el.value;
-  });
-  for(const id of Object.keys(out.items)){
-    out.items[id].filled_utc = out.items[id].filled_by ? new Date().toISOString() : '';
-  }
-  return out;
-}
-
-function exportJudgments(){
-  const data = collectJudgments();
-  const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'SCIENTIFIC_JUDGMENTS_FILLED.json';
-  a.click();
-  toast('已导出判断 JSON');
-}
-
-function saveLocal(){
-  localStorage.setItem('p7_scientific_judgments_v1', JSON.stringify(collectJudgments()));
-  toast('已写入 localStorage');
-}
-
-function restoreLocal(){
-  try{
-    const raw = localStorage.getItem('p7_scientific_judgments_v1');
-    if(!raw) return;
-    const data = JSON.parse(raw);
-    for(const [id, fields] of Object.entries(data.items||{})){
-      for(const [k,v] of Object.entries(fields)){
-        const el = document.getElementById(`${id}__${k}`);
-        if(el) el.value = v;
-      }
-    }
-  }catch(e){}
-}
-
-function toast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.style.display='block';
-  setTimeout(()=>t.style.display='none', 1800);
-}
-
-async function main(){
-  const res = await fetch('WORKBENCH_CATALOG.json', {cache:'no-store'});
-  const catalog = await res.json();
-  const root = document.getElementById('root');
-  const toc = document.getElementById('toc');
-  const groups = [
-    ['p7_composition_candidates','P7 候选（7）'],
-    ['track_a_sierra_calibration','Sierra 校准（2）'],
-    ['round4_seen_primitive_observations','Seen 原语观察（4）'],
-  ];
-  let html = `<div class="card"><h2>纳入清单</h2>
-    <p>P7 候选 <strong>${catalog.counts.p7_user_accepted_or_confirmed_qa_candidates}</strong> ·
-       Sierra 校准 <strong>${catalog.counts.track_a_sierra_calibration_qa}</strong> ·
-       Seen 原语观察 <strong>${catalog.counts.round4_seen_primitive_observations}</strong></p>
-    <p class="meta">Skill: ${esc(catalog.skill_ref)} @ ${esc(catalog.skill_git_sha_at_build)}</p>
-    <p class="meta">${esc(catalog.disclaimer)}</p>
-  </div>`;
-  toc.innerHTML = '';
-  for(const [sec, title] of groups){
-    const items = catalog.items.filter(x=>x.section===sec);
-    html += `<h2 style="margin:18px 4px 6px">${esc(title)}</h2>`;
-    for(const it of items){
-      toc.innerHTML += `<a href="#${esc(it.workbench_id)}">${esc(it.workbench_id)}</a>`;
-      html += renderItem(it);
-    }
-  }
-  root.innerHTML = html;
-  restoreLocal();
-}
-main().catch(err=>{
-  document.getElementById('root').innerHTML = `<div class="card"><p>加载失败：${esc(err)}</p>
-  <p class="meta">请确认通过 http://127.0.0.1:8770/ 打开，而不是 file://</p></div>`;
-});
-</script>
+<script src="v2/templates.js"></script>
+<script src="v2/app.js"></script>
 </body>
 </html>
