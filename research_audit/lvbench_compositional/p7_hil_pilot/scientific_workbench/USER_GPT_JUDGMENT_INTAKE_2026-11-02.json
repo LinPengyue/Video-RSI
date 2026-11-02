@@ -1,0 +1,56 @@
+{
+  "record_kind": "USER_GPT_SCIENTIFIC_JUDGMENT_INTAKE",
+  "ingested_utc": "2026-11-02T09:36:45.957644+00:00",
+  "source_attachment": "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+  "archived_as": "scientific_workbench/SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+  "sha256": "295c049187870f8ebec1e086becb706b9a6669ff848573b222f11cd286784e21",
+  "cursor_role": "ENGINEERING_ARCHIVE_ONLY_NO_SCIENTIFIC_REWRITE",
+  "item_count": 13,
+  "bucket_counts": {
+    "Unseen": 9,
+    "未定": 3,
+    "暂缓": 1
+  },
+  "bucket_members": {
+    "Unseen": [
+      "P7_VTCD_C2",
+      "P7_VTCD_C4",
+      "P7_TJR_R3",
+      "P7_R4_F1",
+      "P7_R4_F2",
+      "P7_R4_F3",
+      "P7_R4_F4",
+      "TA_LVCOMP-V2-002",
+      "TA_LVCOMP-V2-003"
+    ],
+    "未定": [
+      "P7_R4_S1",
+      "P7_R4_S2",
+      "P7_R4_S3"
+    ],
+    "暂缓": [
+      "P7_R4_S4"
+    ]
+  },
+  "composition_needed_yes": [
+    "P7_VTCD_C2",
+    "P7_VTCD_C4",
+    "P7_TJR_R3",
+    "P7_R4_F1",
+    "P7_R4_F2",
+    "P7_R4_F3",
+    "P7_R4_F4",
+    "TA_LVCOMP-V2-002",
+    "TA_LVCOMP-V2-003",
+    "P7_R4_S3"
+  ],
+  "items_with_user_suggested_wording_or_clip_changes": [
+    "P7_TJR_R3",
+    "P7_R4_F1",
+    "P7_R4_F2",
+    "P7_R4_F3",
+    "P7_R4_F4",
+    "TA_LVCOMP-V2-003"
+  ],
+  "note": "Judgment text preserved verbatim. Suggested QA rewrites and clip edits are recorded as open engineering follow-ups only; not applied."
+}
