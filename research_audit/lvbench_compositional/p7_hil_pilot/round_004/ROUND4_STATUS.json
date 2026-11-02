@@ -1,7 +1,7 @@
 {
   "round": "004",
-  "status": "REVIEW_PACKAGE_READY",
-  "user_review": "PENDING",
+  "status": "USER_REVIEW_INTAKEN_PENDING_QA_REPAIR_AND_STRUCTURAL_VALIDATION",
+  "user_review": "RECEIVED",
   "flow": "Human-First Flow v1",
   "skill": "GPT_REVIEW_SKILL_v1",
   "data_partition_status": "UNASSIGNED",
@@ -26,5 +26,24 @@
     "port": 8767,
     "root": "round_004/",
     "url_path": "/HUMAN_FIRST_ROUND4_REVIEW.html"
-  }
+  },
+  "user_review_source": "user_reviews/ROUND4_USER_REVIEW_2026-11-02_RAW.json",
+  "user_review_source_kind": "USER_PASTED_JSON_NOT_LOCAL_FILE_BYTES",
+  "user_review_minutes_reported": "15min",
+  "user_continuous_video_watched_reported": true,
+  "user_reviewed_seen_primitives": 4,
+  "user_reviewed_structure_families": 4,
+  "user_accepted_structure_question_candidates": [
+    "R4_F1",
+    "R4_F4"
+  ],
+  "user_revision_requested_structure_question_candidates": [
+    "R4_F2",
+    "R4_F3"
+  ],
+  "qa_answer_completeness_note": "F1 blank; F2/F3 answer field contains rewritten question; F4 causality/EDIT_JUXTAPOSITION conflict; no new formal answer-complete composition",
+  "round4_new_qualified_composition_families": 0,
+  "round4_new_gold_qa": 0,
+  "audit_ref": "ROUND4_USER_INTAKE_AUDIT.md",
+  "skill_addendum_ref": "GPT_REVIEW_SKILL_R4_CASE_ADDENDUM.md"
 }
