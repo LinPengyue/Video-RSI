@@ -1,0 +1,33 @@
+{
+  "qa_id": "P7_VTCD_C2",
+  "video_id": "VTCDQYYKA9o",
+  "frozen_question": "在 PREVIOUS RESULTS（过往成绩）姓名画面中出现的那名运动员，更早时对夹克做了什么？",
+  "WARNING": "Do not include frozen_answer in reviewer-facing materials. This packet is for a future INDEPENDENT reviewer. Cursor/GPT must not self-adjudicate.",
+  "conditions": {
+    "A_only": {
+      "visible_clip": "round_002/vtcd_review/media/A_context_158_191.mp4",
+      "forbidden": [
+        "clip B",
+        "answer key"
+      ]
+    },
+    "B_only": {
+      "visible_clip": "round_002/vtcd_review/media/B_context_260_285.mp4",
+      "forbidden": [
+        "clip A",
+        "answer key"
+      ]
+    },
+    "A_plus_B": {
+      "visible_clips": [
+        "round_002/vtcd_review/media/A_context_158_191.mp4",
+        "round_002/vtcd_review/media/B_context_260_285.mp4"
+      ],
+      "forbidden": [
+        "answer key"
+      ]
+    }
+  },
+  "answer_key_path": "ANSWER_KEYS_DO_NOT_SERVE_TO_REVIEWER.json",
+  "status": "PACKET_READY_PENDING_INDEPENDENT_REVIEWER"
+}

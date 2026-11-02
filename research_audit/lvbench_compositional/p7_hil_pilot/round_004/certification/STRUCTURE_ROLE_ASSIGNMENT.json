@@ -1,0 +1,109 @@
+{
+  "definition_id": "P7_DIRECTED_STRUCTURE_LEAVEOUT_V1",
+  "rows": [
+    {
+      "qa_id": "TA_LVCOMP-V2-002",
+      "video_id": "JTa_Ue2MSwc",
+      "directed_program": "IDENTIFY_PERSON → BIND_SAME_ENTITY_CROSS_INTERVAL → QUERY_ACTION_OTHER_INTERVAL",
+      "temporary_structure_role": "UNSEEN_TARGET_STRUCTURE_CANDIDATE",
+      "meets_first_study_unseen_signature": true,
+      "final_conclusion": "待证_结构符合Unseen目标_必要性未独立执行"
+    },
+    {
+      "qa_id": "TA_LVCOMP-V2-003",
+      "video_id": "JTa_Ue2MSwc",
+      "directed_program": "IDENTIFY_PERSON → BIND_SAME_ENTITY_CROSS_INTERVAL → QUERY_ACTION_OTHER_INTERVAL",
+      "temporary_structure_role": "UNSEEN_TARGET_STRUCTURE_CANDIDATE",
+      "meets_first_study_unseen_signature": true,
+      "final_conclusion": "待证_结构符合Unseen目标_必要性未独立执行"
+    },
+    {
+      "qa_id": "P7_VTCD_C4",
+      "video_id": "VTCDQYYKA9o",
+      "directed_program": "ORDER_TWO_INTERVAL_EVENTS",
+      "temporary_structure_role": "RELATED_STRUCTURE_NOT_FIRST_STUDY_UNSEEN_TARGET",
+      "meets_first_study_unseen_signature": false,
+      "final_conclusion": "待证_相关结构_非本轮Unseen目标签名"
+    },
+    {
+      "qa_id": "P7_VTCD_C2",
+      "video_id": "VTCDQYYKA9o",
+      "directed_program": "IDENTIFY_PERSON → BIND_SAME_ENTITY_CROSS_INTERVAL → QUERY_ACTION_OTHER_INTERVAL",
+      "temporary_structure_role": "UNSEEN_TARGET_STRUCTURE_CANDIDATE",
+      "meets_first_study_unseen_signature": true,
+      "final_conclusion": "待证_结构符合Unseen目标_必要性未独立执行"
+    },
+    {
+      "qa_id": "P7_TJR_R3",
+      "video_id": "TJR1oYDDTwg",
+      "directed_program": "IDENTIFY_PERSON → BIND_SAME_ENTITY_CROSS_INTERVAL → QUERY_ATTRIBUTE_OTHER_INTERVAL",
+      "temporary_structure_role": "RELATED_STRUCTURE_NOT_FIRST_STUDY_UNSEEN_TARGET",
+      "meets_first_study_unseen_signature": false,
+      "final_conclusion": "待证_相关结构_非本轮Unseen目标签名"
+    },
+    {
+      "qa_id": "P7_R4_F1",
+      "video_id": "Cm73ma6Ibcs",
+      "directed_program": "IDENTIFY_PERSON → BIND_SAME_ENTITY_CROSS_INTERVAL → QUERY_ACTION_OTHER_INTERVAL",
+      "temporary_structure_role": "UNSEEN_TARGET_STRUCTURE_CANDIDATE",
+      "meets_first_study_unseen_signature": true,
+      "final_conclusion": "待证_结构符合Unseen目标_必要性未独立执行"
+    },
+    {
+      "qa_id": "P7_R4_F2",
+      "video_id": "LLSJrEgOOtw",
+      "directed_program": "IDENTIFY_ANIMAL → BIND_SAME_ENTITY_CROSS_INTERVAL → QUERY_ACTION_OTHER_INTERVAL",
+      "temporary_structure_role": "RELATED_STRUCTURE_NOT_FIRST_STUDY_UNSEEN_TARGET",
+      "meets_first_study_unseen_signature": false,
+      "final_conclusion": "待证_相关结构_非本轮Unseen目标签名"
+    },
+    {
+      "qa_id": "P7_R4_F3",
+      "video_id": "Z86xysw5Ncc",
+      "directed_program": "IDENTIFY_PERSON → BIND_SAME_ENTITY_CROSS_INTERVAL → QUERY_ATTRIBUTE_OTHER_INTERVAL",
+      "temporary_structure_role": "RELATED_STRUCTURE_NOT_FIRST_STUDY_UNSEEN_TARGET",
+      "meets_first_study_unseen_signature": false,
+      "final_conclusion": "待证_相关结构_非本轮Unseen目标签名"
+    },
+    {
+      "qa_id": "P7_R4_F4",
+      "video_id": "xi6r3hZe5Tg",
+      "directed_program": "IDENTIFY_OBJECT_OR_ATTRIBUTE → RELATE_TWO_SCENES_NONCAUSAL",
+      "temporary_structure_role": "HOLD_NO_GOLD_PATH",
+      "meets_first_study_unseen_signature": false,
+      "final_conclusion": "失败_暂缓Gold路径"
+    },
+    {
+      "qa_id": "P7_R4_S1",
+      "video_id": "JTa_Ue2MSwc",
+      "directed_program": "IDENTIFY_PERSON",
+      "temporary_structure_role": "SEEN_PRIMITIVE_OK_BUT_VIDEO_ALSO_HAS_SIERRA_COMPOSITION_CALIBRATION",
+      "meets_first_study_unseen_signature": false,
+      "final_conclusion": "待证_Seen原语候选_未冻结分割"
+    },
+    {
+      "qa_id": "P7_R4_S2",
+      "video_id": "JTa_Ue2MSwc",
+      "directed_program": "QUERY_ACTION_OTHER_INTERVAL",
+      "temporary_structure_role": "SEEN_PRIMITIVE_OK_BUT_VIDEO_ALSO_HAS_SIERRA_COMPOSITION_CALIBRATION",
+      "meets_first_study_unseen_signature": false,
+      "final_conclusion": "待证_Seen原语候选_未冻结分割"
+    },
+    {
+      "qa_id": "P7_R4_S3",
+      "video_id": "T1yhBv1ytzw",
+      "directed_program": "IDENTIFY_OBJECT_OR_ATTRIBUTE",
+      "temporary_structure_role": "SEEN_PRIMITIVE_CANDIDATE",
+      "meets_first_study_unseen_signature": false,
+      "final_conclusion": "待证_Seen原语候选_未冻结分割"
+    },
+    {
+      "qa_id": "P7_R4_S4",
+      "video_id": "VTCDQYYKA9o",
+      "directed_program": "IDENTIFY_PERSON",
+      "temporary_structure_role": "SEEN_PRIMITIVE_BLOCKED_SAME_VIDEO_AS_UNSEEN_TARGET_CANDIDATE",
+      "meets_first_study_unseen_signature": false,
+      "final_conclusion": "失败_视频泄漏_不可作Train原语"
+    }
+  ]
+}

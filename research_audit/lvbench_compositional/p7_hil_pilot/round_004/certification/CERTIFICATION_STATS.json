@@ -1,0 +1,24 @@
+{
+  "formal_qualified_families": 0,
+  "formal_gold": 0,
+  "formal_seen_split_frozen_count": 0,
+  "formal_unseen_necessity_passed_count": 0,
+  "temporary_unseen_target_structure_candidates": 4,
+  "independent_videos_touching_unseen_target_candidates": [
+    "Cm73ma6Ibcs",
+    "JTa_Ue2MSwc",
+    "VTCDQYYKA9o"
+  ],
+  "necessity_blind_executed": false,
+  "necessity_reason": "Adjudicator contamination (Cursor/GPT know answers). Packets prepared for independent reviewer.",
+  "track_a_restart_gate": {
+    "need_unseen_items": 6,
+    "have_formal_unseen": 0,
+    "need_unseen_videos": 3,
+    "have_formal_unseen_videos": 0,
+    "need_seen_query_action_items_videos": "4 items / 3 videos",
+    "need_seen_identify_person_items_videos": "8 items / 4 videos",
+    "status": "BLOCKED",
+    "gap": "0 formal Unseen after this round because necessity NOT_EXECUTED; structure leave-out V1 frozen; S4 blocked from train if VTCD compositions are test; TJR lacks Seen attribute primitive; F2 not first-study Unseen signature; F3/C4 related not target signature"
+  }
+}

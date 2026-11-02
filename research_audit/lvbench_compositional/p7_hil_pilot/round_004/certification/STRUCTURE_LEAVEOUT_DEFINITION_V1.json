@@ -1,0 +1,70 @@
+{
+  "definition_id": "P7_DIRECTED_STRUCTURE_LEAVEOUT_V1",
+  "frozen_utc": "2026-11-02T03:08:42.825655+00:00",
+  "frozen_before_necessity_results": true,
+  "study_target": "Track A first strict compositional generalization: identify_person + query_action composition leave-out",
+  "step_alphabet": [
+    "IDENTIFY_PERSON",
+    "IDENTIFY_ANIMAL",
+    "IDENTIFY_OBJECT_OR_ATTRIBUTE",
+    "BIND_SAME_ENTITY_CROSS_INTERVAL",
+    "QUERY_ACTION_OTHER_INTERVAL",
+    "QUERY_ATTRIBUTE_OTHER_INTERVAL",
+    "ORDER_TWO_INTERVAL_EVENTS",
+    "RELATE_TWO_SCENES_NONCAUSAL"
+  ],
+  "signature_rule": "signature = tuple(step_type for step in directed_program); entity_class is a parameter on IDENTIFY/BIND/QUERY but PERSON vs ANIMAL changes signature for leave-out",
+  "seen_train_primitives_allowed": [
+    "IDENTIFY_PERSON",
+    "IDENTIFY_ANIMAL",
+    "IDENTIFY_OBJECT_OR_ATTRIBUTE",
+    "QUERY_ACTION_OTHER_INTERVAL",
+    "READ_SCOREBOARD"
+  ],
+  "seen_full_program_graphs_in_train": [],
+  "note_seen_full_graphs": "First study: train must NOT contain any full BIND_CROSS_INTERVAL composition graph.",
+  "unseen_target_signatures": [
+    [
+      "IDENTIFY_PERSON",
+      "BIND_SAME_ENTITY_CROSS_INTERVAL",
+      "QUERY_ACTION_OTHER_INTERVAL"
+    ]
+  ],
+  "related_but_not_first_study_unseen_target": [
+    [
+      "IDENTIFY_ANIMAL",
+      "BIND_SAME_ENTITY_CROSS_INTERVAL",
+      "QUERY_ACTION_OTHER_INTERVAL"
+    ],
+    [
+      "IDENTIFY_PERSON",
+      "BIND_SAME_ENTITY_CROSS_INTERVAL",
+      "QUERY_ATTRIBUTE_OTHER_INTERVAL"
+    ],
+    [
+      "ORDER_TWO_INTERVAL_EVENTS"
+    ],
+    [
+      "IDENTIFY_OBJECT_OR_ATTRIBUTE",
+      "RELATE_TWO_SCENES_NONCAUSAL"
+    ]
+  ],
+  "leakage_rules": [
+    "No video_id in both train and test",
+    "No qa_uid in both train and test",
+    "If video V has an Unseen-target composition candidate in test, no Seen primitive from V may be in train",
+    "Do not inherit conflicting Track A v3 Unseen prototype labels"
+  ],
+  "isomorphism_notes": {
+    "sierra_v2_002_003": [
+      "IDENTIFY_PERSON",
+      "BIND_SAME_ENTITY_CROSS_INTERVAL",
+      "QUERY_ACTION_OTHER_INTERVAL"
+    ],
+    "F1": "ISOMORPHIC to Sierra program (person bind → later action/state)",
+    "F2": "NOT isomorphic if animal≠person; uses IDENTIFY_ANIMAL signature",
+    "VTCD_C2": "ISOMORPHIC to Sierra/Unseen-target (person bind → action other interval)",
+    "VTCD_C4": "NOT isomorphic; ORDER_TWO_INTERVAL_EVENTS",
+    "TJR": "NOT isomorphic to action-query; QUERY_ATTRIBUTE_OTHER_INTERVAL (transport); lacks matching Seen attribute/vehicle primitive"
+  }
+}
