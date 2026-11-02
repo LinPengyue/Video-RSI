@@ -1,0 +1,20 @@
+{
+  "phase": "PRE_INGEST_MINIMAL_ORGANIZATION",
+  "new_video_production": "PAUSED",
+  "synced_branch_tip": "a7134ece9d95203bfc2dc3c8f2b62999c98d1f1a",
+  "includes_user_named_sha": "dc657a8ae0c44e69417143207497bd774f2f88cd",
+  "formal_qualified_families": 0,
+  "formal_gold": 0,
+  "formal_seen": 0,
+  "formal_unseen": 0,
+  "p7_user_accepted_or_confirmed_qa_candidates": 7,
+  "round4_seen_observations_accepted": 4,
+  "composition_necessity_status": "NOT_TESTED",
+  "gold_upgrade": false,
+  "run_004": "NOT_STARTED",
+  "track_a": "FROZEN",
+  "track_a_rsi_gate": "BLOCKED",
+  "p0_untouched": true,
+  "sealed": "UNTOUCHED",
+  "awaiting": "user_and_chatgpt_review_of_pre_ingest_plan"
+}
