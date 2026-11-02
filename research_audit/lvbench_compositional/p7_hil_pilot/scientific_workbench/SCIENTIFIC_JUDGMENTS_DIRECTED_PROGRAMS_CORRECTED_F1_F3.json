@@ -127,7 +127,7 @@
       "a_only_sufficient": "是",
       "b_only_sufficient": "未评",
       "a_plus_b_supports_user_answer": "未评",
-      "truly_needs_cross_clip_composition": "是",
+      "truly_needs_cross_clip_composition": "否",
       "directed_program_structure": "",
       "bucket_seen_unseen_control_or_hold": "未定",
       "rationale_and_open_issues": "图像识别和OCV可以识别出图像内容，BRI 0-0 LIV",
