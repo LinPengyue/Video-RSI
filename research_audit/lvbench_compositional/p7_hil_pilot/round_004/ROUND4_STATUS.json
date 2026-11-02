@@ -1,6 +1,6 @@
 {
   "round": "004",
-  "status": "USER_REVIEW_INTAKEN_PENDING_QA_REPAIR_AND_STRUCTURAL_VALIDATION",
+  "status": "USER_CONFIRMED_QA_REVISIONS_RECORDED_PENDING_FORMAL_VALIDATION",
   "user_review": "RECEIVED",
   "flow": "Human-First Flow v1",
   "skill": "GPT_REVIEW_SKILL_v1",
@@ -41,9 +41,24 @@
     "R4_F2",
     "R4_F3"
   ],
-  "qa_answer_completeness_note": "F1 blank; F2/F3 answer field contains rewritten question; F4 causality/EDIT_JUXTAPOSITION conflict; no new formal answer-complete composition",
+  "qa_answer_completeness_note": "F1-F3 missing answers now supplied/confirmed by user in separate revision record; F4 keeps its original user response. No new formal answer-complete composition certification.",
   "round4_new_qualified_composition_families": 0,
   "round4_new_gold_qa": 0,
   "audit_ref": "ROUND4_USER_INTAKE_AUDIT.md",
-  "skill_addendum_ref": "GPT_REVIEW_SKILL_R4_CASE_ADDENDUM.md"
+  "skill_addendum_ref": "GPT_REVIEW_SKILL_R4_CASE_ADDENDUM.md",
+  "user_confirmed_revision_ref": "user_reviews/ROUND4_USER_CONFIRMED_QA_REVISION_2026-11-02.json",
+  "user_confirmed_revision_items": [
+    "R4_F1",
+    "R4_F2",
+    "R4_F3"
+  ],
+  "f4_original_user_judgment_preserved": true,
+  "round4_user_accepted_or_confirmed_structure_qa_candidates": 4,
+  "p7_cumulative_user_accepted_or_confirmed_qa_candidates": 7,
+  "question_or_evidence_risks_pending": [
+    "F3 literal question includes '几名运动' — preserved, polishing not user approved",
+    "F3 B-only answer shortcut may exist",
+    "F4 EDIT_JUXTAPOSITION vs causal-reference interpretation unresolved",
+    "F1,F2 evidence necessity not tested"
+  ]
 }
