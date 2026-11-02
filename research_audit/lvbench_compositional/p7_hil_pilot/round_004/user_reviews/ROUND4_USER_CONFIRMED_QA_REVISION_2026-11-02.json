@@ -1,0 +1,85 @@
+{
+  "round": "004",
+  "video_set": "DEV_EXPOSED_ONLY",
+  "reviewer": "USER",
+  "record_kind": "USER_DIRECT_CHAT_CONFIRMATION",
+  "source_and_history": {
+    "raw_user_review": "user_reviews/ROUND4_USER_REVIEW_2026-11-02_RAW.json",
+    "previous_audit": "ROUND4_USER_INTAKE_AUDIT.md",
+    "raw_user_review_unchanged": true,
+    "original_question_answer_and_decision_preserved": true,
+    "purpose": "Append explicitly user-confirmed new question and answer wording. The local original file itself was not accessed or replaced."
+  },
+  "user_confirmed_revisions": [
+    {
+      "id": "R4_F1",
+      "video_id": "Cm73ma6Ibcs",
+      "source_qa_decision": "ACCEPT",
+      "source_original_question": "在更早室内片段中对峙/持械的那个人，在后来的雪地片段中与地面发生了什么可见互动？",
+      "source_original_answer": "",
+      "user_confirmed_question": "更早室内片段中穿蓝衣、戴白围巾、佩刀并前来解围的人，在后来的雪地中发生了什么？",
+      "user_confirmed_answer": "被打倒在雪地上，并用雪擦脸。",
+      "status": "USER_CONFIRMED_REVISED_QA_CANDIDATE",
+      "resolved": "Question now selects blue-clothed rescuer rather than potentially referring to armed villain; user supplied missing answer.",
+      "not_resolved": "Composition necessity, cross-clip shortcut and formal structure membership."
+    },
+    {
+      "id": "R4_F2",
+      "video_id": "LLSJrEgOOtw",
+      "source_qa_decision": "REVISE",
+      "source_original_question": "更早雾林空地中穿蓝色外套走动的人，在后来落叶林中在做什么？",
+      "source_answer_field_was_revision_not_answer": "更早雾林空地中走动的动物，在后来落叶林中在做什么？",
+      "user_confirmed_question": "更早雾林空地中出现的那只狗，在后来落叶林中做了什么？",
+      "user_confirmed_answer": "与提着桶的女人打闹。",
+      "status": "USER_CONFIRMED_REVISED_QA_CANDIDATE",
+      "resolved": "Dog is now question target rather than unidentifiable early human; user supplied specific later action and target (woman carrying bucket).",
+      "not_resolved": "Dog individual identity support and question-specific compositional necessity still need formal checks; user raw identity=SAME_PERSON is preserved."
+    },
+    {
+      "id": "R4_F3",
+      "video_id": "Z86xysw5Ncc",
+      "source_qa_decision": "REVISE",
+      "source_original_question": "在更早片段姓名条出现的那名运动员，在后来片段中穿的是什么颜色的比赛服/号码衣？（无法确认同一人请证据不足）",
+      "source_answer_field_was_revision_not_answer": "在更早片段的那名美国运动员，在后来片段中穿的是什么颜色的比赛服/号码衣？",
+      "user_confirmed_question": "更早片段中的几名运动，在后来的片段中哪个取得第一名？",
+      "user_confirmed_answer": "美国运动员 Tyson Gay，深红色。背部号码可见 217。",
+      "status": "USER_CONFIRMED_REVISED_QA_CANDIDATE",
+      "user_literal_wording_preserved": true,
+      "wording_caveat": "The literal '几名运动' appears incomplete; do not silently rewrite as '几名运动员'. A polished suggestion requires user approval before becoming the frozen final question.",
+      "evidence_caveat": "Only 217 reported visible in later clip; leading digit not claimed. Need check B-only shortcut: later result may directly give winner; no composition necessity claim.",
+      "not_resolved": "Formal necessity, gold validity, identity robustification and structure assignment."
+    }
+  ],
+  "f4_unchanged": {
+    "id": "R4_F4",
+    "video_id": "xi6r3hZe5Tg",
+    "original_qa_decision": "ACCEPT",
+    "original_question": "打印紫色网格的设备，与紧随其后的摆盘画面是什么关系？",
+    "original_answer": "答案：参考与被参考关系",
+    "raw_relation": "EDIT_JUXTAPOSITION",
+    "user_instruction": "F4 维持原始人工意见，不升级 Gold 或 Seen/Unseen。",
+    "interpretation_note": "Preserve the original relation label and separate user causal/reference interpretation. Clip overlap/editing and physical causality are not certified."
+  },
+  "accounting": {
+    "round4_seen_primitive_observations_user_accepted": 4,
+    "round4_structure_qa_user_confirmed_or_accepted": 4,
+    "previous_p7_user_accepted_c2_c4_tjr": 3,
+    "cumulative_p7_user_accepted_or_user_confirmed_qa_candidates": 7,
+    "formal_new_qualified_composition_families": 0,
+    "formal_gold_qa": 0,
+    "count_note": "Candidate-level, not independent-formal-family, formal Seen, formal Unseen or gold counts."
+  },
+  "formal_status": {
+    "data_partition_status": "UNASSIGNED",
+    "seen_unseen_status": "UNASSIGNED",
+    "composition_necessity_status": "NOT_TESTED",
+    "composition_necessity_verified": false,
+    "formal_split_frozen": false,
+    "gold_qa_minted": false,
+    "qualified_independent_family_count_increment": 0,
+    "track_a": "FROZEN",
+    "p0_runs": "UNCHANGED",
+    "run_004": "NOT_STARTED",
+    "sealed": "UNTOUCHED"
+  }
+}
