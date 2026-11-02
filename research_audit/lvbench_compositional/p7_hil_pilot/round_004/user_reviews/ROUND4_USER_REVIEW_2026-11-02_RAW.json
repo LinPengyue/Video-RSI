@@ -1,0 +1,76 @@
+{
+  "round": "004",
+  "reviewer": "USER",
+  "flow": "Human-First Flow v1",
+  "confirmed_watched_continuous_video": "true",
+  "actual_review_minutes": "15min",
+  "data_partition_status": "UNASSIGNED",
+  "composition_necessity_status": "NOT_TESTED",
+  "gold_qa_minted": false,
+  "seen_unseen_status": "UNASSIGNED",
+  "note": "Accepted items → human-accepted candidate pool only; necessity+Seen/Unseen structure required before Gold.",
+  "seen_primitives": [
+    {
+      "id": "R4_S1",
+      "obs": "SIERRA",
+      "decision": "ACCEPT"
+    },
+    {
+      "id": "R4_S2",
+      "obs": "脱下鞋子",
+      "decision": "ACCEPT"
+    },
+    {
+      "id": "R4_S3",
+      "obs": "BRI 0-0 LIV",
+      "decision": "ACCEPT"
+    },
+    {
+      "id": "R4_S4",
+      "obs": "Fan Z.D.",
+      "decision": "ACCEPT"
+    }
+  ],
+  "structure_candidates": [
+    {
+      "id": "R4_F1",
+      "obs_A": "有一个持枪的坏人在威胁厨子，一个坐在旁边吃饭的穿着蓝色衣服，带着帽子，脖子上缠着白色围巾，腰上戴着佩刀的人过来解围。",
+      "obs_B": "穿着蓝色衣服，脖子上有围巾，戴着佩刀的人被打倒在雪地上，并用雪擦脸。",
+      "identity": "SAME_PERSON",
+      "identity_reason": "穿着蓝色衣服，脖子上有围巾，戴着佩刀",
+      "question": "在更早室内片段中对峙/持械的那个人，在后来的雪地片段中与地面发生了什么可见互动？",
+      "answer": "",
+      "qa_decision": "ACCEPT"
+    },
+    {
+      "id": "R4_F2",
+      "obs_A": "首先是远处有一条狗，传来了狗叫的声音，后来切到狗在单独和一个木头在玩，之后又在挖洞",
+      "obs_B": "一堆农民夫妇在森林里捡松果，森林里都是落叶，狗在和女人一起打闹，玩桶，狗嘴里传出呼呼声",
+      "identity": "SAME_PERSON",
+      "identity_reason": "狗是黑白相间的，但人第一个片段里太小了，看不清",
+      "question": "更早雾林空地中穿蓝色外套走动的人，在后来落叶林中在做什么？",
+      "answer": "更早雾林空地中走动的动物，在后来落叶林中在做什么？",
+      "qa_decision": "REVISE"
+    },
+    {
+      "id": "R4_F3",
+      "obs_A": "第四道，Jaysuma Saidy Ndure（蓝色红色相间队服，有着挪威国旗），第六道Richard Thompson（浅红色，阿迪达斯队服），第七道 Tyson Gay（深红色，耐克队服，USA，美国国旗，后背有3217号），",
+      "obs_B": "第七道Tyson Gay得到了第一名（深红色，背后有217的数字）",
+      "identity": "SAME_PERSON",
+      "identity_reason": "深红色运动衣，黑人，没有配饰，后背有217的数字（第一个数字3看不见，但基本能推断），且有洞。",
+      "question": "在更早片段姓名条出现的那名运动员，在后来片段中穿的是什么颜色的比赛服/号码衣？（无法确认同一人请证据不足）",
+      "answer": "在更早片段的那名美国运动员，在后来片段中穿的是什么颜色的比赛服/号码衣？",
+      "qa_decision": "REVISE"
+    },
+    {
+      "id": "R4_F4",
+      "obs_A": "机器在用紫色材料模仿实物在3D打印成网格",
+      "obs_B": "机器在用紫色材料模仿摆盘实物在3D打印",
+      "relation": "EDIT_JUXTAPOSITION",
+      "relation_reason": "A,B是有因果关系，但需要把A的位置剪辑到第10秒，这样A和B就不会有重叠部分。这样A的观察就是，一台机器在打印紫色网格，B能看到摆盘食物，推测出根据摆盘食物做打印",
+      "question": "打印紫色网格的设备，与紧随其后的摆盘画面是什么关系？",
+      "answer": "答案：参考与被参考关系",
+      "qa_decision": "ACCEPT"
+    }
+  ]
+}
