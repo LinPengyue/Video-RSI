@@ -1,0 +1,148 @@
+{
+  "schema_note": "Fill ONLY by USER/GPT. Cursor must not auto-complete.",
+  "items": {
+    "P7_VTCD_C2": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_VTCD_C4": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_TJR_R3": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_R4_F1": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_R4_F2": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_R4_F3": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_R4_F4": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "TA_LVCOMP-V2-002": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "TA_LVCOMP-V2-003": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_R4_S1": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_R4_S2": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_R4_S3": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    },
+    "P7_R4_S4": {
+      "a_only_sufficient": "",
+      "b_only_sufficient": "",
+      "a_plus_b_supports_user_answer": "",
+      "truly_needs_cross_clip_composition": "",
+      "directed_program_structure": "",
+      "bucket_seen_unseen_control_or_hold": "",
+      "rationale_and_open_issues": "",
+      "filled_by": "",
+      "filled_utc": ""
+    }
+  }
+}
