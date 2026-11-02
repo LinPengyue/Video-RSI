@@ -23,6 +23,8 @@ config.local.*
 credentials/
 secrets/
 data/
+!research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/data/
+!research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/data/**
 datasets/
 videos/
 cache/
