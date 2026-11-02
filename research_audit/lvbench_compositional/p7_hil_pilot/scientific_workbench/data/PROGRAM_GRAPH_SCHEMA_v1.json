@@ -1,0 +1,42 @@
+{
+  "schema_id": "P7_STRUCTURED_PROGRAM_GRAPH_v1",
+  "version": "1.0.0-pending-scientific-operator-vocab",
+  "note": "Engineering interface only. Operator type vocabulary must be confirmed by USER/GPT before any graph is treated as approved for equivalence/coverage.",
+  "required_top_level": [
+    "graph_id",
+    "qa_uid",
+    "video_id",
+    "source_refs",
+    "raw_directed_program_text",
+    "user_confirmation_status",
+    "nodes",
+    "edges",
+    "is_demo"
+  ],
+  "user_confirmation_status_enum": [
+    "PENDING_STRUCTURED_CONFIRMATION",
+    "USER_APPROVED_STRUCTURED_GRAPH",
+    "REJECTED",
+    "DEMO_NOT_SCIENTIFIC"
+  ],
+  "node_fields": {
+    "node_id": "string",
+    "operator_type": "string from approved vocabulary version",
+    "operator_vocab_version": "string",
+    "inputs": "array",
+    "outputs": "array",
+    "clip_role": "A|B|AB|single|unknown|other",
+    "time_conditions": "array of free-form or structured time predicates",
+    "source": "string provenance",
+    "user_confirmed": "boolean"
+  },
+  "edge_fields": {
+    "edge_id": "string",
+    "from_node": "node_id",
+    "to_node": "node_id",
+    "dependency_kind": "data|control|temporal|bind|other",
+    "required_time_condition": "optional string",
+    "user_confirmed": "boolean"
+  },
+  "equivalence_rule": "Full directed-graph equivalence requires USER_APPROVED_STRUCTURED_GRAPH on both sides, identical operator_vocab_version, and exact node-type multiset along with directed edge multiset under a certified node bijection. Operator-set equality alone is NEVER full-graph equivalence."
+}

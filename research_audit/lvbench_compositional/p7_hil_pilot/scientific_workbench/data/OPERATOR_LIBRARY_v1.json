@@ -1,0 +1,32 @@
+{
+  "library_id": "P7_OPERATOR_LIBRARY_v1",
+  "operator_vocab_version": null,
+  "vocab_status": "PENDING_USER_GPT_CONFIRMATION",
+  "disclaimer": "Operator definitions are placeholders until USER/GPT confirm vocabulary. Coverage is 尚不可计算 without approved graphs + frozen train pool + valid train evidence.",
+  "operators": [
+    {
+      "operator_name": "TBD_OPERATOR_SLOT",
+      "definition_version": null,
+      "definition_status": "PENDING_USER_GPT_CONFIRMATION",
+      "confirmed_observation_instances": [],
+      "candidate_seen_instances": [],
+      "formal_valid_seen_train_instances": [],
+      "valid_train_instance_count": "尚不可计算",
+      "independent_video_count": "尚不可计算",
+      "needed_by_current_target_items": [],
+      "uncovered_operators_and_edges": "尚不可计算",
+      "coverage_layers": {
+        "user_confirmed_exists": "尚不可计算",
+        "approved_as_train_sample": "尚不可计算",
+        "controlled_train_exposure": "尚不可计算"
+      }
+    }
+  ],
+  "historical_39_train_split_items": {
+    "status": "HISTORICAL_CANDIDATE_ONLY",
+    "note": "Old 39 train-split items must NOT be counted as certified coverage.",
+    "counted_in_certified_coverage": false
+  },
+  "frozen_train_pool": null,
+  "coverage_computable": false
+}

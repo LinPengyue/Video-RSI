@@ -1,0 +1,233 @@
+{
+  "library_id": "P7_DEMO_STRUCTURED_GRAPHS",
+  "is_demo_library": true,
+  "disclaimer": "DEMO ONLY — not scientific data; excluded from coverage and formal equivalence stats.",
+  "operator_vocab_version": "DEMO_VOCAB_v0",
+  "graphs": [
+    {
+      "graph_id": "DEMO_G1",
+      "qa_uid": "DEMO_QA_1",
+      "video_id": "DEMO_VIDEO_X",
+      "source_refs": [
+        "DEMO"
+      ],
+      "raw_directed_program_text": "DEMO: IdentifyPerson → Bind → QueryAction",
+      "user_confirmation_status": "DEMO_NOT_SCIENTIFIC",
+      "operator_vocab_version": "DEMO_VOCAB_v0",
+      "is_demo": true,
+      "nodes": [
+        {
+          "node_id": "n1",
+          "operator_type": "IdentifyPerson",
+          "operator_vocab_version": "DEMO_VOCAB_v0",
+          "inputs": [],
+          "outputs": [
+            "person"
+          ],
+          "clip_role": "A",
+          "time_conditions": [],
+          "source": "DEMO",
+          "user_confirmed": false
+        },
+        {
+          "node_id": "n2",
+          "operator_type": "BindSameEntity",
+          "operator_vocab_version": "DEMO_VOCAB_v0",
+          "inputs": [
+            "person"
+          ],
+          "outputs": [
+            "bound"
+          ],
+          "clip_role": "AB",
+          "time_conditions": [],
+          "source": "DEMO",
+          "user_confirmed": false
+        },
+        {
+          "node_id": "n3",
+          "operator_type": "QueryAction",
+          "operator_vocab_version": "DEMO_VOCAB_v0",
+          "inputs": [
+            "bound"
+          ],
+          "outputs": [
+            "action"
+          ],
+          "clip_role": "B",
+          "time_conditions": [],
+          "source": "DEMO",
+          "user_confirmed": false
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "e1",
+          "from_node": "n1",
+          "to_node": "n2",
+          "dependency_kind": "data",
+          "required_time_condition": null,
+          "user_confirmed": false
+        },
+        {
+          "edge_id": "e2",
+          "from_node": "n2",
+          "to_node": "n3",
+          "dependency_kind": "data",
+          "required_time_condition": null,
+          "user_confirmed": false
+        }
+      ]
+    },
+    {
+      "graph_id": "DEMO_G2",
+      "qa_uid": "DEMO_QA_2",
+      "video_id": "DEMO_VIDEO_Y",
+      "source_refs": [
+        "DEMO"
+      ],
+      "raw_directed_program_text": "DEMO: IdentifyPerson → Bind → QueryAttribute (different query op)",
+      "user_confirmation_status": "DEMO_NOT_SCIENTIFIC",
+      "operator_vocab_version": "DEMO_VOCAB_v0",
+      "is_demo": true,
+      "nodes": [
+        {
+          "node_id": "n1",
+          "operator_type": "IdentifyPerson",
+          "operator_vocab_version": "DEMO_VOCAB_v0",
+          "inputs": [],
+          "outputs": [
+            "person"
+          ],
+          "clip_role": "A",
+          "time_conditions": [],
+          "source": "DEMO",
+          "user_confirmed": false
+        },
+        {
+          "node_id": "n2",
+          "operator_type": "BindSameEntity",
+          "operator_vocab_version": "DEMO_VOCAB_v0",
+          "inputs": [
+            "person"
+          ],
+          "outputs": [
+            "bound"
+          ],
+          "clip_role": "AB",
+          "time_conditions": [],
+          "source": "DEMO",
+          "user_confirmed": false
+        },
+        {
+          "node_id": "n3",
+          "operator_type": "QueryAttribute",
+          "operator_vocab_version": "DEMO_VOCAB_v0",
+          "inputs": [
+            "bound"
+          ],
+          "outputs": [
+            "attr"
+          ],
+          "clip_role": "B",
+          "time_conditions": [],
+          "source": "DEMO",
+          "user_confirmed": false
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "e1",
+          "from_node": "n1",
+          "to_node": "n2",
+          "dependency_kind": "data",
+          "required_time_condition": null,
+          "user_confirmed": false
+        },
+        {
+          "edge_id": "e2",
+          "from_node": "n2",
+          "to_node": "n3",
+          "dependency_kind": "data",
+          "required_time_condition": null,
+          "user_confirmed": false
+        }
+      ]
+    },
+    {
+      "graph_id": "DEMO_G1_CLONE",
+      "qa_uid": "DEMO_QA_1B",
+      "video_id": "DEMO_VIDEO_Z",
+      "source_refs": [
+        "DEMO"
+      ],
+      "raw_directed_program_text": "DEMO clone of G1 for full-graph match UI",
+      "user_confirmation_status": "DEMO_NOT_SCIENTIFIC",
+      "operator_vocab_version": "DEMO_VOCAB_v0",
+      "is_demo": true,
+      "nodes": [
+        {
+          "node_id": "n1",
+          "operator_type": "IdentifyPerson",
+          "operator_vocab_version": "DEMO_VOCAB_v0",
+          "inputs": [],
+          "outputs": [
+            "person"
+          ],
+          "clip_role": "A",
+          "time_conditions": [],
+          "source": "DEMO",
+          "user_confirmed": false
+        },
+        {
+          "node_id": "n2",
+          "operator_type": "BindSameEntity",
+          "operator_vocab_version": "DEMO_VOCAB_v0",
+          "inputs": [
+            "person"
+          ],
+          "outputs": [
+            "bound"
+          ],
+          "clip_role": "AB",
+          "time_conditions": [],
+          "source": "DEMO",
+          "user_confirmed": false
+        },
+        {
+          "node_id": "n3",
+          "operator_type": "QueryAction",
+          "operator_vocab_version": "DEMO_VOCAB_v0",
+          "inputs": [
+            "bound"
+          ],
+          "outputs": [
+            "action"
+          ],
+          "clip_role": "B",
+          "time_conditions": [],
+          "source": "DEMO",
+          "user_confirmed": false
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "e1",
+          "from_node": "n1",
+          "to_node": "n2",
+          "dependency_kind": "data",
+          "required_time_condition": null,
+          "user_confirmed": false
+        },
+        {
+          "edge_id": "e2",
+          "from_node": "n2",
+          "to_node": "n3",
+          "dependency_kind": "data",
+          "required_time_condition": null,
+          "user_confirmed": false
+        }
+      ]
+    }
+  ]
+}

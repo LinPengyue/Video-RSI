@@ -1,0 +1,653 @@
+{
+  "library_id": "P7_PROGRAM_GRAPH_LIBRARY_v1",
+  "created_utc": "2026-11-02T12:36:06.111528+00:00",
+  "schema_ref": "data/PROGRAM_GRAPH_SCHEMA_v1.json",
+  "disclaimer": "Raw program texts from USER/GPT judgments. No auto structured-graph approval. User pre-Unseen ≠ formal Unseen. Demo graphs excluded from scientific stats.",
+  "approved_structured_graph_count": 0,
+  "pending_structured_confirmation_count": 9,
+  "records": [
+    {
+      "graph_id": "raw::P7_VTCD_C2",
+      "qa_uid": "P7_VTCD_C2",
+      "workbench_id": "P7_VTCD_C2",
+      "video_id": "VTCDQYYKA9o",
+      "section": "p7_composition_candidates",
+      "data_identity": "P7_COMPOSITION_CANDIDATE",
+      "user_preclassification_bucket": "Unseen",
+      "bucket_note": "User pre-classification only; not auto-promoted to formal Unseen/Gold.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "B: 定位 PREVIOUS RESULTS 姓名画面中的运动员 + 提取身份线索（姓名/蓝色 T-shirt） → A: 检索更早人物并提取外观与脱外套事件 → CrossIntervalSamePersonBind(B运动员, A脱外套者；双侧身份/服装线索) → QueryEarlierAction(A, 同一人) → 脱掉夹克。依赖方向：后期身份指代 B → 早期动作 A。",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "否",
+        "b_only_sufficient": "否",
+        "a_plus_b_supports_user_answer": "是",
+        "truly_needs_cross_clip_composition": "是",
+        "rationale_and_open_issues": "用户观察：A包含动作脱外套，留有有蓝色衣服T-shirt。B包含PREVIOUS RESULTS界面，蓝色衣服T-shirt确保身份一致。A+B判断是一个运动员，做了脱外套动作。这是第一条通过（识别人物外观，跨时间绑定，回溯早期动作），建议给出UnSeen。",
+        "filled_by": "User"
+      },
+      "qa_display": {
+        "question_zh": "在 PREVIOUS RESULTS（过往成绩）姓名画面中出现的那名运动员，更早时对夹克做了什么？",
+        "answer_zh": "脱掉夹克",
+        "question_en_candidate_source": "What jacket-related action did the athlete who appears with the PREVIOUS RESULTS name graphic perform earlier?",
+        "answer_en_candidate_source": "removes / takes off jacket",
+        "status": "USER_ACCEPTED_QA_CANDIDATE",
+        "composition_necessity_status": "NOT_TESTED"
+      },
+      "clips": {
+        "A": "media/vtcd_A_context_158_191.mp4",
+        "B": "media/vtcd_B_context_260_285.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_VTCD_C4",
+      "qa_uid": "P7_VTCD_C4",
+      "workbench_id": "P7_VTCD_C4",
+      "video_id": "VTCDQYYKA9o",
+      "section": "p7_composition_candidates",
+      "data_identity": "P7_COMPOSITION_CANDIDATE",
+      "user_preclassification_bucket": "Unseen",
+      "bucket_note": "User pre-classification only; not auto-promoted to formal Unseen/Gold.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "A: IdentifyPerson(Fan Zhendong) + DetectAction(脱外套) + TimeAnchor(动作时间) → B: ReadNameGraphic(PREVIOUS RESULTS 上的 Fan Zhendong) + TimeAnchor(成绩画面时间) → CrossIntervalSamePersonBind(A,B) → CompareTemporalOrder(A脱外套, B的PREVIOUS RESULTS画面) → BEFORE（之前）。注意比较对象是 B 的特定成绩画面，不是 A 内任意出现的人名。",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "否",
+        "b_only_sufficient": "否",
+        "a_plus_b_supports_user_answer": "是",
+        "truly_needs_cross_clip_composition": "是",
+        "rationale_and_open_issues": "用户观察：A包含动作脱外套，里面衣服是Fan Zhendong 。B包含PREVIOUS RESULTS界面，上面有Fan Zhendong 名字。A+B判断是确定A出现在B前。建议给出UnSeen,这是第一条通过（识别动作，识别人物名称，跨时间绑定，确定时间先后）之前未出现过。",
+        "filled_by": "User"
+      },
+      "qa_display": {
+        "question_zh": "Fan Zhendong 脱掉夹克，是在 PREVIOUS RESULTS（过往成绩）身份画面出现之前还是之后？",
+        "answer_zh": "之前",
+        "question_en_candidate_source": "Does Fan Zhendong remove the jacket before or after the PREVIOUS RESULTS identity graphic appears?",
+        "answer_en_candidate_source": "before",
+        "status": "USER_ACCEPTED_QA_CANDIDATE",
+        "composition_necessity_status": "NOT_TESTED",
+        "wording_hazard": "Do not allow equating any Fan text in A with PREVIOUS RESULTS graphic"
+      },
+      "clips": {
+        "A": "media/vtcd_A_context_158_191.mp4",
+        "B": "media/vtcd_B_context_260_285.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_TJR_R3",
+      "qa_uid": "P7_TJR_R3",
+      "workbench_id": "P7_TJR_R3",
+      "video_id": "TJR1oYDDTwg",
+      "section": "p7_composition_candidates",
+      "data_identity": "P7_COMPOSITION_CANDIDATE",
+      "user_preclassification_bucket": "Unseen",
+      "bucket_note": "User pre-classification only; not auto-promoted to formal Unseen/Gold.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "B: DetectAction(舞台打鼓) → IdentifyActorByAppearance(短发/红帽/蓝衣) → A: DetectTransportToPalace(乘坐绿色龙) + IdentifyPassengerAppearance → CrossIntervalSamePersonBind(B打鼓者, A乘龙者) → QueryEarlierTransport(A, B所指人物) → 绿色的龙。依赖方向：后期动作角色 B → 早期交通工具 A。",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "否",
+        "b_only_sufficient": "否",
+        "a_plus_b_supports_user_answer": "是",
+        "truly_needs_cross_clip_composition": "是",
+        "rationale_and_open_issues": "建议问题改一下后，自动归入Unseen类。问题改成后来在舞台上打鼓的人，在更早的场景中乘坐什么前往王宫？这样避免A-only猜到原问题提到的“王子”。B-only能判断打鼓是短头发，红色帽子，蓝色上衣，A-only判断绿龙上有人，有一个是B描述大鼓的人，它的动作时飞往宫殿。因此是A+B判断后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫，答案：绿色的龙。这是第一条通过（识别动作，绑定人物外观，明确时间，确定目标）之前未出现过。",
+        "filled_by": "User"
+      },
+      "qa_display": {
+        "question_zh": "后来在舞台上打鼓的人，在更早的场景中乘坐什么前往王宫？",
+        "answer_zh": "绿色的龙",
+        "status": "USER_APPROVED_REVISED_QA_CANDIDATE",
+        "composition_necessity_status": "NOT_TESTED",
+        "prior_accepted_question_zh": "后来在舞台上打鼓的孩子，在更早的场景中做了什么？",
+        "prior_answer_field_zh": "拥抱了国王。",
+        "prior_qa_decision": "ACCEPT",
+        "pre_display_revision_question_zh": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+        "pre_display_revision_answer_zh": "绿色的龙",
+        "display_revision_status": "USER_APPROVED_ENGINEERING_DISPLAY_UPDATE",
+        "display_revision_source": "scientific_workbench/SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json"
+      },
+      "clips": {
+        "A": "media/tjr_A_1100_1125.mp4",
+        "B": "media/tjr_B_1200_1220.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_R4_F1",
+      "qa_uid": "P7_R4_F1",
+      "workbench_id": "P7_R4_F1",
+      "video_id": "Cm73ma6Ibcs",
+      "section": "p7_composition_candidates",
+      "data_identity": "P7_COMPOSITION_CANDIDATE",
+      "user_preclassification_bucket": "Unseen",
+      "bucket_note": "User pre-classification only; not auto-promoted to formal Unseen/Gold.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "A: DetectScene(厨师被威胁) → IdentifyRescuerByRole(前来解围者；区别于持枪威胁者) + ExtractAppearance(蓝衣/白围巾/佩刀) → B: DetectSnowScene + IdentifyPersonByAppearance(蓝衣/围巾/佩刀) + DetectAction(被打倒、用雪擦脸) → CrossIntervalSamePersonBind(A解围者, B雪地人物) → QueryLaterAction(B, A所指解围者) → 被打倒在雪地并用雪擦脸。",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "否",
+        "b_only_sufficient": "否",
+        "a_plus_b_supports_user_answer": "是",
+        "truly_needs_cross_clip_composition": "是",
+        "rationale_and_open_issues": "建议问题改一下后，自动归入Unseen类。问题改成“更早室内片段中帮头戴毛巾的厨师解围的人，在后来的雪地中发生了什么？”这样避免B-only服饰特点猜到 解围的人是谁”。现在的问题A-only判断一个头戴毛巾的人是厨子，他在被人威胁，穿蓝衣、戴白围巾、佩刀人过来帮他解围；B-only能判断穿蓝衣、戴白围巾、佩刀在雪地被打倒，做出用雪擦脸的动作。因此是A+B判断指代的人物被人打到后，用雪擦脸。这是第一条通过（识别外观，确定锚点人物，确定人物外观，识别人物，确定动作）之前未出现过。",
+        "filled_by": "User"
+      },
+      "qa_display": {
+        "question_zh": "更早室内片段中帮头戴毛巾的厨师解围的人，在后来的雪地中发生了什么？",
+        "answer_zh": "被打倒在雪地上，并用雪擦脸。",
+        "status": "USER_CONFIRMED_REVISED_QA_CANDIDATE",
+        "source_qa_decision": "ACCEPT",
+        "source_original_question": "在更早室内片段中对峙/持械的那个人，在后来的雪地片段中与地面发生了什么可见互动？",
+        "source_original_answer_or_revision_field": "",
+        "user_literal_wording_preserved": null,
+        "wording_caveat": null,
+        "evidence_caveat": null,
+        "composition_necessity_status": "NOT_TESTED",
+        "pre_display_revision_question_zh": "更早室内片段中穿蓝衣、戴白围巾、佩刀并前来解围的人，在后来的雪地中发生了什么？",
+        "pre_display_revision_answer_zh": "被打倒在雪地上，并用雪擦脸。",
+        "display_revision_status": "USER_APPROVED_ENGINEERING_DISPLAY_UPDATE",
+        "display_revision_source": "scientific_workbench/SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json"
+      },
+      "clips": {
+        "A": "media/F1A_restaurant_259_295.mp4",
+        "B": "media/F1B_snow_2995_3015.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_R4_F2",
+      "qa_uid": "P7_R4_F2",
+      "workbench_id": "P7_R4_F2",
+      "video_id": "LLSJrEgOOtw",
+      "section": "p7_composition_candidates",
+      "data_identity": "P7_COMPOSITION_CANDIDATE",
+      "user_preclassification_bucket": "Unseen",
+      "bucket_note": "User pre-classification only; not auto-promoted to formal Unseen/Gold.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "A: DetectAnimalCue(雾林中的狗叫声及狗的可见活动) → IdentifyAnimal(A中的狗，结合声音/外观) → B: DetectAnimalAndInteraction(落叶林中的狗与提桶女人打闹) → CrossIntervalSameAnimalBind(A狗, B狗；黑白毛色等身份线索) → QueryLaterInteraction(B, A所指动物) → 与提着桶的女人打闹。",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "否",
+        "b_only_sufficient": "否",
+        "a_plus_b_supports_user_answer": "是",
+        "truly_needs_cross_clip_composition": "是",
+        "rationale_and_open_issues": "建议问题改一下后，自动归入Unseen类。问题改成“更早雾林空地中出现的动物，在后来落叶林中做了什么？”这样避免B-only通过狗猜到它就是目标”。现在的问题A-only通过声音判断更早雾林空地中出现的动物是狗；B-only能判断狗在落叶林里与提着桶的女人打闹。因此是A+B判断那只狗的后续动作。这是第一条通过（识别声音，识别身份，绑定目标，确定动作）之前未出现过。",
+        "filled_by": "User"
+      },
+      "qa_display": {
+        "question_zh": "更早雾林空地中出现的动物，在后来落叶林中做了什么？",
+        "answer_zh": "与提着桶的女人打闹。",
+        "status": "USER_CONFIRMED_REVISED_QA_CANDIDATE",
+        "source_qa_decision": "REVISE",
+        "source_original_question": "更早雾林空地中穿蓝色外套走动的人，在后来落叶林中在做什么？",
+        "source_original_answer_or_revision_field": "更早雾林空地中走动的动物，在后来落叶林中在做什么？",
+        "user_literal_wording_preserved": null,
+        "wording_caveat": null,
+        "evidence_caveat": null,
+        "composition_necessity_status": "NOT_TESTED",
+        "pre_display_revision_question_zh": "更早雾林空地中出现的那只狗，在后来落叶林中做了什么？",
+        "pre_display_revision_answer_zh": "与提着桶的女人打闹。",
+        "display_revision_status": "USER_APPROVED_ENGINEERING_DISPLAY_UPDATE",
+        "display_revision_source": "scientific_workbench/SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json"
+      },
+      "clips": {
+        "A": "media/F2A_dog_wood_20_45.mp4",
+        "B": "media/F2B_later_play_123_165.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_R4_F3",
+      "qa_uid": "P7_R4_F3",
+      "workbench_id": "P7_R4_F3",
+      "video_id": "Z86xysw5Ncc",
+      "section": "p7_composition_candidates",
+      "data_identity": "P7_COMPOSITION_CANDIDATE",
+      "user_preclassification_bucket": "Unseen",
+      "bucket_note": "User pre-classification only; not auto-promoted to formal Unseen/Gold.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "A: ParseAthleteIntroductions(多名运动员的姓名、国家、服装及号码) → BuildIdentityAppearanceMap(A) → B: DetectWinner(第一名) + ExtractWinnerAppearance(深红色队服、背部破洞、部分可见号码217；B不显示姓名) → CrossIntervalSameAthleteBind(B获胜者, A候选运动员；外观与部分号码匹配) → QueryEarlierNamedIdentity(A, B获胜者) → 美国运动员 Tyson Gay。依赖方向：后期获胜者 B → 早期姓名 A。",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "否",
+        "b_only_sufficient": "否",
+        "a_plus_b_supports_user_answer": "是",
+        "truly_needs_cross_clip_composition": "是",
+        "rationale_and_open_issues": "建议回答改一下后，自动归入Unseen类。回答改为“美国运动员Tyson Gay”。这样避免B-only通过217和红色才到答案。现在的问题A-only明确几名运动员身份外观后，做成candidates，其中一个candidate是有美国国徽，红色外衣，3217的号码；B-only通过特写镜头，判断红色外衣”，“217”号码为第一。因此是A+B找到最终答案美国运动员Tyson Gay。这是第一条通过（确定目标，跨片段识别目标，识别外观）之前未出现过，所以是Unseen。",
+        "filled_by": "User"
+      },
+      "qa_display": {
+        "question_zh": "更早片段中的几名运动，在后来的片段中哪个取得第一名？",
+        "answer_zh": "美国运动员Tyson Gay",
+        "status": "USER_CONFIRMED_REVISED_QA_CANDIDATE",
+        "source_qa_decision": "REVISE",
+        "source_original_question": "在更早片段姓名条出现的那名运动员，在后来片段中穿的是什么颜色的比赛服/号码衣？（无法确认同一人请证据不足）",
+        "source_original_answer_or_revision_field": "在更早片段的那名美国运动员，在后来片段中穿的是什么颜色的比赛服/号码衣？",
+        "user_literal_wording_preserved": true,
+        "wording_caveat": "The literal '几名运动' appears incomplete; do not silently rewrite as '几名运动员'. A polished suggestion requires user approval before becoming the frozen final question.",
+        "evidence_caveat": "Only 217 reported visible in later clip; leading digit not claimed. Need check B-only shortcut: later result may directly give winner; no composition necessity claim.",
+        "composition_necessity_status": "NOT_TESTED",
+        "pre_display_revision_question_zh": "更早片段中的几名运动，在后来的片段中哪个取得第一名？",
+        "pre_display_revision_answer_zh": "美国运动员 Tyson Gay，深红色。背部号码可见 217。",
+        "display_revision_status": "USER_APPROVED_ENGINEERING_DISPLAY_UPDATE",
+        "display_revision_source": "scientific_workbench/SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json"
+      },
+      "clips": {
+        "A": "media/F3A_race_intro_125_190.mp4",
+        "B": "media/F3B_result_board_290_340.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_R4_F4",
+      "qa_uid": "P7_R4_F4",
+      "workbench_id": "P7_R4_F4",
+      "video_id": "xi6r3hZe5Tg",
+      "section": "p7_composition_candidates",
+      "data_identity": "P7_COMPOSITION_CANDIDATE",
+      "user_preclassification_bucket": "Unseen",
+      "bucket_note": "User pre-classification only; not auto-promoted to formal Unseen/Gold.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "A: Detect3DPrinting(紫色网格打印) + InterpretAudioReferent(用户报告音频提到 dish/参考菜品) → B: DetectPlatedDish(后续摆盘食物) → CrossModalReferentBind(A音频所指 dish, B摆盘画面) → QueryReferenceRelation(A打印所参照的对象, B可见菜品) → 参照物/参考与被参考关系（用户判断）。该图表示待核实的音画指代关系，不自动证明设备与菜品存在真实物理因果；A/B原始区间重叠5秒。",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "否",
+        "b_only_sufficient": "否",
+        "a_plus_b_supports_user_answer": "是",
+        "truly_needs_cross_clip_composition": "是",
+        "rationale_and_open_issues": "第一段视频，到底是秒需要截取，后五秒属于B，这是技术问题。Anwser 建议答案是参照物。A：通过音频确定3D打印可以“参考”dish打印。B：看到后面餐盘就是A提到的dish。A+B确定是参照物。这是第一段（音频识别，目标识别，目标绑定，回溯关系），放到Unseen",
+        "filled_by": "User"
+      },
+      "qa_display": {
+        "question_zh": "打印紫色网格的设备，与紧随其后的摆盘画面是什么关系？",
+        "answer_zh": "答案：参考与被参考关系",
+        "status": "USER_ACCEPT_HELD",
+        "raw_relation": "EDIT_JUXTAPOSITION",
+        "user_instruction": "F4 维持原始人工意见，不升级 Gold 或 Seen/Unseen。",
+        "interpretation_note": "Preserve the original relation label and separate user causal/reference interpretation. Clip overlap/editing and physical causality are not certified.",
+        "composition_necessity_status": "NOT_TESTED",
+        "media_engineering_note": "A clip updated 1055–1065s; B unchanged 1065–1075s. Answer not altered in this engineering pass."
+      },
+      "clips": {
+        "A": "media/F4A_bioprint_1055_1065.mp4",
+        "B": "media/F4B_plated_insert_1065_1075.mp4",
+        "A_historical_superseded": "media/F4A_bioprint_1055_1070.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::TA_LVCOMP-V2-002",
+      "qa_uid": "LVCOMP-V2-002",
+      "workbench_id": "TA_LVCOMP-V2-002",
+      "video_id": "JTa_Ue2MSwc",
+      "section": "track_a_sierra_calibration",
+      "data_identity": "HISTORICAL_CALIBRATION",
+      "user_preclassification_bucket": "Unseen",
+      "bucket_note": "Historical calibration identity; not a new P7 formal Unseen.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "A: ReadOnScreenText(人物/roommate 身份或关系线索) + IdentifyFirstInterviewee(第一位受访者的外观/时间位置) → B: DetectTriggerEvent(前室友上台) + DetectAction(人物脱鞋) → CrossIntervalSamePersonBind(A第一位受访者, B执行动作人物) → VerifyTemporalRelation(前室友上台后) → QueryAction(B, A所指第一位受访者) → 脱下鞋子。历史校准案例，不因结构匹配自动成为新Unseen。",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "否",
+        "b_only_sufficient": "否",
+        "a_plus_b_supports_user_answer": "是",
+        "truly_needs_cross_clip_composition": "是",
+        "rationale_and_open_issues": "用户观察：A.否，不知道动作，通过字幕roommate 推断她是第一位采访者。B.否，只有脱下鞋子动作，不知道人物关系。A+B：通过OCR识别，关系理解，跨视频人物绑定，动作识别确定。第一次出现因果逻辑，因此属于Unseen。",
+        "filled_by": "User"
+      },
+      "qa_display": {
+        "question_en": "What does the first interviewee do after her former roommate comes to the stage?",
+        "answer_en": "She takes off her shoes",
+        "status": "TRACK_A_HISTORICALLY_SUPPORTED",
+        "source_fact_status": "SUPPORTED",
+        "composition_status": "SUPPORTED"
+      },
+      "clips": {
+        "A": "media/sierra_calib_id_35_45.mp4",
+        "B": "media/sierra_calib_remove_shoe_125_135.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::TA_LVCOMP-V2-003",
+      "qa_uid": "LVCOMP-V2-003",
+      "workbench_id": "TA_LVCOMP-V2-003",
+      "video_id": "JTa_Ue2MSwc",
+      "section": "track_a_sierra_calibration",
+      "data_identity": "HISTORICAL_CALIBRATION",
+      "user_preclassification_bucket": "Unseen",
+      "bucket_note": "Historical calibration identity; not a new P7 formal Unseen.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "A: IdentifyFirstInterviewee(通过出场先后及粉色头发等特征) → B: DetectTriggerEvent(第一名男性嘉宾登台) + DetectPhysicalInteraction(粉发女子与男性发生推搡/击打动作) → CrossIntervalSamePersonBind(A第一位受访者, B粉发女子) → VerifyTemporalRelation(男嘉宾登台后) → QueryLaterInteraction(B, A所指人物)。动作标签“slap/推搡”及当前裁剪是否完整覆盖事件，按用户最新观察仍需单独核对；不在此字段擅自确定。历史校准案例。",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "否",
+        "b_only_sufficient": "否",
+        "a_plus_b_supports_user_answer": "是",
+        "truly_needs_cross_clip_composition": "是",
+        "rationale_and_open_issues": "并没有裁剪到slap的动作，应该改为推搡。A通过时间轴上的位置确定第一个受访人，目标人物外观（粉色头发），没办法知道动作。B确定粉色头发推了一个男的，没办法确定她是第一个受访人。A+B 确定答案。第一个（时间识别，目标绑定，外观识别，动作识别），建议Unseen",
+        "filled_by": "User"
+      },
+      "qa_display": {
+        "question_en": "What does the first interviewee do after the first male guest shows up on the stage?",
+        "answer_en": "She slaps the man",
+        "status": "TRACK_A_HISTORICALLY_SUPPORTED",
+        "source_fact_status": "SUPPORTED",
+        "composition_status": "SUPPORTED"
+      },
+      "clips": {
+        "A": "media/sierra_calib_id_35_45.mp4",
+        "B": "media/sierra_calib_slap_lunge_335_350.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_R4_S1",
+      "qa_uid": "P7_R4_S1",
+      "workbench_id": "P7_R4_S1",
+      "video_id": "JTa_Ue2MSwc",
+      "section": "round4_seen_primitive_observations",
+      "data_identity": "SINGLE_WINDOW_PRIMITIVE_OBSERVATION",
+      "user_preclassification_bucket": "未定",
+      "bucket_note": "Single-window primitive observation ≠ formal Seen train entry.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "是",
+        "b_only_sufficient": "未评",
+        "a_plus_b_supports_user_answer": "未评",
+        "truly_needs_cross_clip_composition": "否",
+        "rationale_and_open_issues": "这单篇就能确定的问题，通过图像字幕可以确定",
+        "filled_by": "USER"
+      },
+      "qa_display": {
+        "observation_accepted": "SIERRA",
+        "decision": "ACCEPT",
+        "status": "USER_ACCEPTED_SEEN_PRIMITIVE_OBSERVATION",
+        "note": "Observation accept ≠ formal train Seen entry"
+      },
+      "clips": {
+        "single": "media/S1_sierra_id_35_45.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_R4_S2",
+      "qa_uid": "P7_R4_S2",
+      "workbench_id": "P7_R4_S2",
+      "video_id": "JTa_Ue2MSwc",
+      "section": "round4_seen_primitive_observations",
+      "data_identity": "SINGLE_WINDOW_PRIMITIVE_OBSERVATION",
+      "user_preclassification_bucket": "未定",
+      "bucket_note": "Single-window primitive observation ≠ formal Seen train entry.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "未评",
+        "b_only_sufficient": "是",
+        "a_plus_b_supports_user_answer": "未评",
+        "truly_needs_cross_clip_composition": "否",
+        "rationale_and_open_issues": "这个片段通过动作识别可以确定",
+        "filled_by": "USER"
+      },
+      "qa_display": {
+        "observation_accepted": "脱下鞋子",
+        "decision": "ACCEPT",
+        "status": "USER_ACCEPTED_SEEN_PRIMITIVE_OBSERVATION",
+        "note": "Observation accept ≠ formal train Seen entry"
+      },
+      "clips": {
+        "single": "media/S2_remove_shoe_125_135.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_R4_S3",
+      "qa_uid": "P7_R4_S3",
+      "workbench_id": "P7_R4_S3",
+      "video_id": "T1yhBv1ytzw",
+      "section": "round4_seen_primitive_observations",
+      "data_identity": "SINGLE_WINDOW_PRIMITIVE_OBSERVATION",
+      "user_preclassification_bucket": "未定",
+      "bucket_note": "Single-window primitive observation ≠ formal Seen train entry.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "是",
+        "b_only_sufficient": "未评",
+        "a_plus_b_supports_user_answer": "未评",
+        "truly_needs_cross_clip_composition": "否",
+        "rationale_and_open_issues": "图像识别和OCV可以识别出图像内容，BRI 0-0 LIV",
+        "filled_by": "USER"
+      },
+      "qa_display": {
+        "observation_accepted": "BRI 0-0 LIV",
+        "decision": "ACCEPT",
+        "status": "USER_ACCEPTED_SEEN_PRIMITIVE_OBSERVATION",
+        "note": "Observation accept ≠ formal train Seen entry"
+      },
+      "clips": {
+        "single": "media/S3_score_00_1785_1805.mp4"
+      }
+    },
+    {
+      "graph_id": "raw::P7_R4_S4",
+      "qa_uid": "P7_R4_S4",
+      "workbench_id": "P7_R4_S4",
+      "video_id": "VTCDQYYKA9o",
+      "section": "round4_seen_primitive_observations",
+      "data_identity": "SINGLE_WINDOW_PRIMITIVE_OBSERVATION",
+      "user_preclassification_bucket": "暂缓",
+      "bucket_note": "Single-window primitive observation ≠ formal Seen train entry.",
+      "formal_unseen": false,
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "evidence_status": {
+        "user_judgment_present": true,
+        "structured_graph_approved": false,
+        "composition_necessity_formal": false
+      },
+      "source_refs": [
+        "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+        "WORKBENCH_CATALOG.json"
+      ],
+      "raw_directed_program_text": "",
+      "user_confirmation_status": "PENDING_STRUCTURED_CONFIRMATION",
+      "nodes": [],
+      "edges": [],
+      "is_demo": false,
+      "operator_vocab_version": null,
+      "judgment_excerpt": {
+        "a_only_sufficient": "是",
+        "b_only_sufficient": "未评",
+        "a_plus_b_supports_user_answer": "未评",
+        "truly_needs_cross_clip_composition": "否",
+        "rationale_and_open_issues": "通过队服上写着Fan Z.D.",
+        "filled_by": "USER"
+      },
+      "qa_display": {
+        "observation_accepted": "Fan Z.D.",
+        "decision": "ACCEPT",
+        "status": "USER_ACCEPTED_SEEN_PRIMITIVE_OBSERVATION",
+        "note": "Observation accept ≠ formal train Seen entry"
+      },
+      "clips": {
+        "single": "media/S4_fan_text_A_178_190.mp4"
+      }
+    }
+  ]
+}
