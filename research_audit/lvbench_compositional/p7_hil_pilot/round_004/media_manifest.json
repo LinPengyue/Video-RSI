@@ -72,7 +72,24 @@
       "bytes": 1514145,
       "sha256": "d4716a03f0dd628a35239dcc4d21baf31ee7921994836b2f09ea8085c1db7198",
       "extract_status": "ok",
-      "exists": true
+      "exists": true,
+      "status": "SUPERSEDED_KEEP_FOR_HISTORY",
+      "superseded_by": "F4A_bioprint_1055_1065.mp4",
+      "history_copy": "media_history/F4A_bioprint_1055_1070.mp4",
+      "note": "Preserved after user-approved non-overlap crop of A to 1055–1065s"
+    },
+    {
+      "file": "F4A_bioprint_1055_1065.mp4",
+      "video_id": "xi6r3hZe5Tg",
+      "t_start_s": 1055.0,
+      "t_end_s": 1065.0,
+      "bytes": 1253904,
+      "sha256": "ea97c241a9a103d525c945a343eb74217e0fb771bbff88fa33e5d13624bd7664",
+      "extract_status": "ok",
+      "exists": true,
+      "replaces": "F4A_bioprint_1055_1070.mp4",
+      "extract_note": "User-approved engineering crop to eliminate 5s A/B overlap; B remains 1065–1075",
+      "created_utc": "2026-11-02T09:54:09.238841+00:00"
     },
     {
       "file": "F4B_plated_insert_1065_1075.mp4",
@@ -124,5 +141,22 @@
       "extract_status": "ok",
       "exists": true
     }
-  ]
+  ],
+  "f4_interval_update": {
+    "updated_utc": "2026-11-02T09:54:09.238853+00:00",
+    "A_previous_s": [
+      1055.0,
+      1070.0
+    ],
+    "A_current_s": [
+      1055.0,
+      1065.0
+    ],
+    "B_unchanged_s": [
+      1065.0,
+      1075.0
+    ],
+    "overlap_previous_s": 5.0,
+    "overlap_current_s": 0.0
+  }
 }

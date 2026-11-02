@@ -1,0 +1,121 @@
+{
+  "record_kind": "WORKBENCH_DISPLAY_ENGINEERING_REVISIONS",
+  "base_synced_sha": "9839305e06c1c71d64ae184112701afefb10bc11",
+  "created_utc": "2026-11-02T09:54:09.240347+00:00",
+  "cursor_role": "ENGINEERING_ONLY",
+  "s3_note": "S3 truly_needs_cross_clip_composition already 否 at synced SHA; not modified again.",
+  "sierra_v2_003_note": "No slap→推搡 wording change applied; evidence issue retained as user noted.",
+  "f4_answer_note": "Judgment text also suggested answer 参照物; NOT applied this round because task authorized only F4 crop.",
+  "revisions": [
+    {
+      "workbench_id": "P7_TJR_R3",
+      "field": "question_zh",
+      "before_question": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+      "after_question": "后来在舞台上打鼓的人，在更早的场景中乘坐什么前往王宫？",
+      "before_answer": "绿色的龙",
+      "after_answer": "绿色的龙",
+      "answer_changed": false
+    },
+    {
+      "workbench_id": "P7_R4_F1",
+      "field": "question_zh",
+      "before_question": "更早室内片段中穿蓝衣、戴白围巾、佩刀并前来解围的人，在后来的雪地中发生了什么？",
+      "after_question": "更早室内片段中帮头戴毛巾的厨师解围的人，在后来的雪地中发生了什么？",
+      "before_answer": "被打倒在雪地上，并用雪擦脸。",
+      "after_answer": "被打倒在雪地上，并用雪擦脸。",
+      "answer_changed": false
+    },
+    {
+      "workbench_id": "P7_R4_F2",
+      "field": "question_zh",
+      "before_question": "更早雾林空地中出现的那只狗，在后来落叶林中做了什么？",
+      "after_question": "更早雾林空地中出现的动物，在后来落叶林中做了什么？",
+      "before_answer": "与提着桶的女人打闹。",
+      "after_answer": "与提着桶的女人打闹。",
+      "answer_changed": false
+    },
+    {
+      "workbench_id": "P7_R4_F3",
+      "field": "answer_zh",
+      "before_question": "更早片段中的几名运动，在后来的片段中哪个取得第一名？",
+      "after_question": "更早片段中的几名运动，在后来的片段中哪个取得第一名？",
+      "before_answer": "美国运动员 Tyson Gay，深红色。背部号码可见 217。",
+      "after_answer": "美国运动员Tyson Gay",
+      "answer_changed": true,
+      "note": "Question wording left literal as previously user-confirmed; only answer revised per judgment text."
+    },
+    {
+      "workbench_id": "P7_R4_F4",
+      "field": "media_intervals_A",
+      "before_intervals": {
+        "A_source_s": [
+          1055,
+          1070
+        ],
+        "B_source_s": [
+          1065,
+          1075
+        ],
+        "overlap_note": "A and B intervals overlap 1065–1070s"
+      },
+      "after_intervals": {
+        "A_source_s": [
+          1055,
+          1065
+        ],
+        "B_source_s": [
+          1065,
+          1075
+        ],
+        "overlap_note": "Overlap removed by user-approved A crop; intervals now abut at 1065s",
+        "A_previous_source_s": [
+          1055,
+          1070
+        ],
+        "previous_overlap_seconds": 5
+      },
+      "before_clip_A": "media/F4A_bioprint_1055_1070.mp4",
+      "after_clip_A": "media/F4A_bioprint_1055_1065.mp4",
+      "answer_changed": false
+    }
+  ],
+  "f4_media": {
+    "new_A": {
+      "file": "round_004/media/F4A_bioprint_1055_1065.mp4",
+      "t_start_s": 1055.0,
+      "t_end_s": 1065.0,
+      "bytes": 1253904,
+      "sha256": "ea97c241a9a103d525c945a343eb74217e0fb771bbff88fa33e5d13624bd7664",
+      "duration_s_ffprobe": 10.0
+    },
+    "historical_A": {
+      "file": "round_004/media/F4A_bioprint_1055_1070.mp4",
+      "history_copy": "round_004/media_history/F4A_bioprint_1055_1070.mp4",
+      "t_start_s": 1055.0,
+      "t_end_s": 1070.0,
+      "bytes": 1514145,
+      "sha256": "d4716a03f0dd628a35239dcc4d21baf31ee7921994836b2f09ea8085c1db7198"
+    },
+    "B_unchanged": {
+      "file": "round_004/media/F4B_plated_insert_1065_1075.mp4",
+      "t_start_s": 1065.0,
+      "t_end_s": 1075.0,
+      "sha256": "eb85166d49fd79d34b838b013750088009466d168d0ed5720d4b0620549c85a1"
+    },
+    "overlap_seconds_after": 0.0
+  },
+  "ambiguities_for_user_if_any": [
+    {
+      "item": "P7_TJR_R3",
+      "note": "Applied explicit 问题改成 wording using 打鼓的人. Rationale later still narrates 打鼓的王子; question text follows 问题改成 clause."
+    },
+    {
+      "item": "P7_R4_F3",
+      "note": "Applied answer 美国运动员Tyson Gay exactly as quoted in 回答改为. Directed-program field elsewhere uses spaced Tyson Gay; display answer uses unspaced form from revision quote."
+    },
+    {
+      "item": "P7_R4_F4",
+      "note": "Answer suggestion 参照物 in judgment not applied; only A interval crop authorized this round."
+    }
+  ]
+}

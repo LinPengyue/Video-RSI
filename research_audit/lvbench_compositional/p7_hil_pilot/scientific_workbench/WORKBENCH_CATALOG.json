@@ -121,7 +121,9 @@
       "bytes": 1514145,
       "exists": true,
       "sha256": "d4716a03f0dd628a35239dcc4d21baf31ee7921994836b2f09ea8085c1db7198",
-      "is_mp4_ftyp": true
+      "is_mp4_ftyp": true,
+      "status": "HISTORICAL_SUPERSEDED",
+      "history_copy": "round_004/media_history/F4A_bioprint_1055_1070.mp4"
     },
     "F4B_plated_insert_1065_1075.mp4": {
       "served_as": "media/F4B_plated_insert_1065_1075.mp4",
@@ -185,6 +187,14 @@
       "bytes": 1879045,
       "exists": true,
       "sha256": "79a503fda0d0ebb2d20c6b0e299f24424a0cf917b9f1bdc676cbc2dd73bb2f9b",
+      "is_mp4_ftyp": true
+    },
+    "F4A_bioprint_1055_1065.mp4": {
+      "served_as": "media/F4A_bioprint_1055_1065.mp4",
+      "source_path": "round_004/media/F4A_bioprint_1055_1065.mp4",
+      "bytes": 1253904,
+      "exists": true,
+      "sha256": "ea97c241a9a103d525c945a343eb74217e0fb771bbff88fa33e5d13624bd7664",
       "is_mp4_ftyp": true
     }
   },
@@ -636,13 +646,17 @@
         "B": "media/tjr_B_1200_1220.mp4"
       },
       "user_final_qa": {
-        "question_zh": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+        "question_zh": "后来在舞台上打鼓的人，在更早的场景中乘坐什么前往王宫？",
         "answer_zh": "绿色的龙",
         "status": "USER_APPROVED_REVISED_QA_CANDIDATE",
         "composition_necessity_status": "NOT_TESTED",
         "prior_accepted_question_zh": "后来在舞台上打鼓的孩子，在更早的场景中做了什么？",
         "prior_answer_field_zh": "拥抱了国王。",
-        "prior_qa_decision": "ACCEPT"
+        "prior_qa_decision": "ACCEPT",
+        "pre_display_revision_question_zh": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+        "pre_display_revision_answer_zh": "绿色的龙",
+        "display_revision_status": "USER_APPROVED_ENGINEERING_DISPLAY_UPDATE",
+        "display_revision_source": "scientific_workbench/SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json"
       },
       "identity_and_events": {
         "identity": "SAME_PERSON",
@@ -779,7 +793,7 @@
         "B": "media/F1B_snow_2995_3015.mp4"
       },
       "user_final_qa": {
-        "question_zh": "更早室内片段中穿蓝衣、戴白围巾、佩刀并前来解围的人，在后来的雪地中发生了什么？",
+        "question_zh": "更早室内片段中帮头戴毛巾的厨师解围的人，在后来的雪地中发生了什么？",
         "answer_zh": "被打倒在雪地上，并用雪擦脸。",
         "status": "USER_CONFIRMED_REVISED_QA_CANDIDATE",
         "source_qa_decision": "ACCEPT",
@@ -788,7 +802,11 @@
         "user_literal_wording_preserved": null,
         "wording_caveat": null,
         "evidence_caveat": null,
-        "composition_necessity_status": "NOT_TESTED"
+        "composition_necessity_status": "NOT_TESTED",
+        "pre_display_revision_question_zh": "更早室内片段中穿蓝衣、戴白围巾、佩刀并前来解围的人，在后来的雪地中发生了什么？",
+        "pre_display_revision_answer_zh": "被打倒在雪地上，并用雪擦脸。",
+        "display_revision_status": "USER_APPROVED_ENGINEERING_DISPLAY_UPDATE",
+        "display_revision_source": "scientific_workbench/SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json"
       },
       "identity_and_events": {
         "obs_A": "有一个持枪的坏人在威胁厨子，一个坐在旁边吃饭的穿着蓝色衣服，带着帽子，脖子上缠着白色围巾，腰上戴着佩刀的人过来解围。",
@@ -860,7 +878,7 @@
         "B": "media/F2B_later_play_123_165.mp4"
       },
       "user_final_qa": {
-        "question_zh": "更早雾林空地中出现的那只狗，在后来落叶林中做了什么？",
+        "question_zh": "更早雾林空地中出现的动物，在后来落叶林中做了什么？",
         "answer_zh": "与提着桶的女人打闹。",
         "status": "USER_CONFIRMED_REVISED_QA_CANDIDATE",
         "source_qa_decision": "REVISE",
@@ -869,7 +887,11 @@
         "user_literal_wording_preserved": null,
         "wording_caveat": null,
         "evidence_caveat": null,
-        "composition_necessity_status": "NOT_TESTED"
+        "composition_necessity_status": "NOT_TESTED",
+        "pre_display_revision_question_zh": "更早雾林空地中出现的那只狗，在后来落叶林中做了什么？",
+        "pre_display_revision_answer_zh": "与提着桶的女人打闹。",
+        "display_revision_status": "USER_APPROVED_ENGINEERING_DISPLAY_UPDATE",
+        "display_revision_source": "scientific_workbench/SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json"
       },
       "identity_and_events": {
         "obs_A": "首先是远处有一条狗，传来了狗叫的声音，后来切到狗在单独和一个木头在玩，之后又在挖洞",
@@ -942,7 +964,7 @@
       },
       "user_final_qa": {
         "question_zh": "更早片段中的几名运动，在后来的片段中哪个取得第一名？",
-        "answer_zh": "美国运动员 Tyson Gay，深红色。背部号码可见 217。",
+        "answer_zh": "美国运动员Tyson Gay",
         "status": "USER_CONFIRMED_REVISED_QA_CANDIDATE",
         "source_qa_decision": "REVISE",
         "source_original_question": "在更早片段姓名条出现的那名运动员，在后来片段中穿的是什么颜色的比赛服/号码衣？（无法确认同一人请证据不足）",
@@ -950,7 +972,11 @@
         "user_literal_wording_preserved": true,
         "wording_caveat": "The literal '几名运动' appears incomplete; do not silently rewrite as '几名运动员'. A polished suggestion requires user approval before becoming the frozen final question.",
         "evidence_caveat": "Only 217 reported visible in later clip; leading digit not claimed. Need check B-only shortcut: later result may directly give winner; no composition necessity claim.",
-        "composition_necessity_status": "NOT_TESTED"
+        "composition_necessity_status": "NOT_TESTED",
+        "pre_display_revision_question_zh": "更早片段中的几名运动，在后来的片段中哪个取得第一名？",
+        "pre_display_revision_answer_zh": "美国运动员 Tyson Gay，深红色。背部号码可见 217。",
+        "display_revision_status": "USER_APPROVED_ENGINEERING_DISPLAY_UPDATE",
+        "display_revision_source": "scientific_workbench/SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json"
       },
       "identity_and_events": {
         "obs_A": "第四道，Jaysuma Saidy Ndure（蓝色红色相间队服，有着挪威国旗），第六道Richard Thompson（浅红色，阿迪达斯队服），第七道 Tyson Gay（深红色，耐克队服，USA，美国国旗，后背有3217号），",
@@ -1012,17 +1038,23 @@
       "intervals": {
         "A_source_s": [
           1055,
-          1070
+          1065
         ],
         "B_source_s": [
           1065,
           1075
         ],
-        "overlap_note": "A and B intervals overlap 1065–1070s"
+        "overlap_note": "Overlap removed by user-approved A crop; intervals now abut at 1065s",
+        "A_previous_source_s": [
+          1055,
+          1070
+        ],
+        "previous_overlap_seconds": 5
       },
       "clips": {
-        "A": "media/F4A_bioprint_1055_1070.mp4",
-        "B": "media/F4B_plated_insert_1065_1075.mp4"
+        "A": "media/F4A_bioprint_1055_1065.mp4",
+        "B": "media/F4B_plated_insert_1065_1075.mp4",
+        "A_historical_superseded": "media/F4A_bioprint_1055_1070.mp4"
       },
       "user_final_qa": {
         "question_zh": "打印紫色网格的设备，与紧随其后的摆盘画面是什么关系？",
@@ -1031,7 +1063,8 @@
         "raw_relation": "EDIT_JUXTAPOSITION",
         "user_instruction": "F4 维持原始人工意见，不升级 Gold 或 Seen/Unseen。",
         "interpretation_note": "Preserve the original relation label and separate user causal/reference interpretation. Clip overlap/editing and physical causality are not certified.",
-        "composition_necessity_status": "NOT_TESTED"
+        "composition_necessity_status": "NOT_TESTED",
+        "media_engineering_note": "A clip updated 1055–1065s; B unchanged 1065–1075s. Answer not altered in this engineering pass."
       },
       "identity_and_events": {
         "obs_A": "机器在用紫色材料模仿实物在3D打印成网格",
@@ -1372,5 +1405,8 @@
         "filled_utc": ""
       }
     }
-  ]
+  ],
+  "display_revisions_applied_utc": "2026-11-02T09:54:09.239388+00:00",
+  "display_revisions_note": "Engineering-only display updates from USER/GPT judgment suggestions; scientific judgment JSON not rewritten except prior synced S3 correction.",
+  "synced_from_git_sha": "9839305e06c1c71d64ae184112701afefb10bc11"
 }

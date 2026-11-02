@@ -144,7 +144,8 @@ def main() -> None:
         ("F2B_later_play_123_165.mp4", ROOT / "round_004/media/F2B_later_play_123_165.mp4"),
         ("F3A_race_intro_125_190.mp4", ROOT / "round_004/media/F3A_race_intro_125_190.mp4"),
         ("F3B_result_board_290_340.mp4", ROOT / "round_004/media/F3B_result_board_290_340.mp4"),
-        ("F4A_bioprint_1055_1070.mp4", ROOT / "round_004/media/F4A_bioprint_1055_1070.mp4"),
+        ("F4A_bioprint_1055_1065.mp4", ROOT / "round_004/media/F4A_bioprint_1055_1065.mp4"),
+        ("F4A_bioprint_1055_1070.mp4", ROOT / "round_004/media/F4A_bioprint_1055_1070.mp4"),  # historical superseded
         ("F4B_plated_insert_1065_1075.mp4", ROOT / "round_004/media/F4B_plated_insert_1065_1075.mp4"),
         ("S1_sierra_id_35_45.mp4", ROOT / "round_004/media/S1_sierra_id_35_45.mp4"),
         ("S2_remove_shoe_125_135.mp4", ROOT / "round_004/media/S2_remove_shoe_125_135.mp4"),
@@ -341,11 +342,17 @@ def main() -> None:
             "qa_uid": "P7_R4_F4",
             "video_id": f4u["video_id"],
             "intervals": {
-                "A_source_s": [1055, 1070],
+                "A_source_s": [1055, 1065],
                 "B_source_s": [1065, 1075],
-                "overlap_note": "A and B intervals overlap 1065–1070s",
+                "overlap_note": "Overlap removed by user-approved A crop; intervals abut at 1065s",
+                "A_previous_source_s": [1055, 1070],
+                "previous_overlap_seconds": 5,
             },
-            "clips": {"A": "media/F4A_bioprint_1055_1070.mp4", "B": "media/F4B_plated_insert_1065_1075.mp4"},
+            "clips": {
+                "A": "media/F4A_bioprint_1055_1065.mp4",
+                "B": "media/F4B_plated_insert_1065_1075.mp4",
+                "A_historical_superseded": "media/F4A_bioprint_1055_1070.mp4",
+            },
             "user_final_qa": {
                 "question_zh": f4u["original_question"],
                 "answer_zh": f4u["original_answer"],
