@@ -1,0 +1,30 @@
+{
+  "round": "004",
+  "status": "REVIEW_PACKAGE_READY",
+  "user_review": "PENDING",
+  "flow": "Human-First Flow v1",
+  "skill": "GPT_REVIEW_SKILL_v1",
+  "data_partition_status": "UNASSIGNED",
+  "composition_necessity_status": "NOT_TESTED",
+  "necessity_policy": "BATCHABLE_AFTER_CANDIDATE_ACCUMULATION_BUT_REQUIRED_BEFORE_GOLD",
+  "gold_qa_minted": false,
+  "seen_unseen_status": "UNASSIGNED",
+  "run_004": "NOT_STARTED",
+  "track_a": "FROZEN",
+  "sealed_access": "NONE",
+  "p0_untouched": true,
+  "counts": {
+    "track_a_historical_composition_qa": 2,
+    "p7_user_accepted_candidates": 3,
+    "p7_formal_qualified_families": 0,
+    "p7_gold": 0,
+    "round4_seen_primitive_candidates": 4,
+    "round4_unseen_structure_candidates": 4
+  },
+  "serve": {
+    "bind": "127.0.0.1",
+    "port": 8767,
+    "root": "round_004/",
+    "url_path": "/HUMAN_FIRST_ROUND4_REVIEW.html"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "round": "004",
+  "created_utc": "2026-11-02T01:08:26.152089+00:00",
+  "pool": "DEV_EXPOSED_ONLY",
+  "sealed_access": "NONE",
+  "clips": [
+    {
+      "file": "F1A_restaurant_259_295.mp4",
+      "video_id": "Cm73ma6Ibcs",
+      "t_start_s": 259.0,
+      "t_end_s": 295.0,
+      "bytes": 1882395,
+      "sha256": "ace3e8251e5422d4d9327e0af543773c45f898020d9a17bfdbeeec95768c2c5e",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "F1B_snow_2995_3015.mp4",
+      "video_id": "Cm73ma6Ibcs",
+      "t_start_s": 2995.0,
+      "t_end_s": 3015.0,
+      "bytes": 2112269,
+      "sha256": "f4889db8ed2e221374d29ac35a5ad2cbece77ca8c646301327ea0011653ed6f5",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "F2A_dog_wood_20_45.mp4",
+      "video_id": "LLSJrEgOOtw",
+      "t_start_s": 20.0,
+      "t_end_s": 45.0,
+      "bytes": 3259478,
+      "sha256": "97ebd44af999645a33b7956e11ff17cd7a6dfe408bf85b64c795a9b13aab4edf",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "F2B_later_play_123_165.mp4",
+      "video_id": "LLSJrEgOOtw",
+      "t_start_s": 123.0,
+      "t_end_s": 165.0,
+      "bytes": 10076995,
+      "sha256": "6c6255b900bfa2d171d2733192c6fc66dce91a858cd520ef16442b2bd0599de9",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "F3A_race_intro_125_190.mp4",
+      "video_id": "Z86xysw5Ncc",
+      "t_start_s": 125.0,
+      "t_end_s": 190.0,
+      "bytes": 27190213,
+      "sha256": "ba268131177a3b1d2501261d91e37ebfc878597f859c13b4fa0f654bfe14484b",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "F3B_result_board_290_340.mp4",
+      "video_id": "Z86xysw5Ncc",
+      "t_start_s": 290.0,
+      "t_end_s": 340.0,
+      "bytes": 32628522,
+      "sha256": "66ee82a96cffef24e271e92ebae815a682ef500f0f0b14f727c6c44a5b23c336",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "F4A_bioprint_1055_1070.mp4",
+      "video_id": "xi6r3hZe5Tg",
+      "t_start_s": 1055.0,
+      "t_end_s": 1070.0,
+      "bytes": 1514145,
+      "sha256": "d4716a03f0dd628a35239dcc4d21baf31ee7921994836b2f09ea8085c1db7198",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "F4B_plated_insert_1065_1075.mp4",
+      "video_id": "xi6r3hZe5Tg",
+      "t_start_s": 1065.0,
+      "t_end_s": 1075.0,
+      "bytes": 933945,
+      "sha256": "eb85166d49fd79d34b838b013750088009466d168d0ed5720d4b0620549c85a1",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "S1_sierra_id_35_45.mp4",
+      "video_id": "JTa_Ue2MSwc",
+      "t_start_s": 35.0,
+      "t_end_s": 45.0,
+      "bytes": 943397,
+      "sha256": "6d649146f35ec444bcc3623bce9c7393c32bab84c298038b0810102d1def69f7",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "S2_remove_shoe_125_135.mp4",
+      "video_id": "JTa_Ue2MSwc",
+      "t_start_s": 125.0,
+      "t_end_s": 135.0,
+      "bytes": 1865166,
+      "sha256": "13f2b698467d9d505a0a8d145ff9183c0c5eee26bb76da53258d2f9310d8e049",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "S3_score_00_1785_1805.mp4",
+      "video_id": "T1yhBv1ytzw",
+      "t_start_s": 1785.0,
+      "t_end_s": 1805.0,
+      "bytes": 11660429,
+      "sha256": "daa4d6b629b15eeb455c455f92d6d03ad87d2dbb5ec78f3f5741b90683b416e3",
+      "extract_status": "ok",
+      "exists": true
+    },
+    {
+      "file": "S4_fan_text_A_178_190.mp4",
+      "video_id": "VTCDQYYKA9o",
+      "t_start_s": 178.0,
+      "t_end_s": 190.0,
+      "bytes": 1968130,
+      "sha256": "633949e2ef665af668214e9be46b737a421dcba31ec4883e26c9fa7e4c54f6af",
+      "extract_status": "ok",
+      "exists": true
+    }
+  ]
+}

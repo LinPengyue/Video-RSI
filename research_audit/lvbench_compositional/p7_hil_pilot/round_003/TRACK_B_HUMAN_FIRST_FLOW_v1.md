@@ -20,11 +20,12 @@ Do not require uploading the local JSON to the remote machine each time.
 3. **Record with provenance** — keep original Q/A history; tag `USER_*` vs GPT suggestion; necessity/`Gold`/`Seen·Unseen` stay off until separately tested.  
 4. **Skill update** — append case + assistant errors to `GPT_REVIEW_SKILL_v1.md`; reuse verified events; no re-watch.
 
-## After a candidate is accepted (optional later)
+## After candidates are accepted (batchable, but not optional before Gold)
 
-- Only if pursuing formal quality: same frozen question × A-only / B-only / A+B with real isolation.  
-- Pass ⇒ consider Gold path; fail ⇒ keep as negative/control.  
-- Never auto-pass necessity from identity alone.
+- Accepted items enter the **human-accepted candidate pool** only.  
+- Composition-necessity checks (same frozen question × A-only / B-only / A+B, real isolation) **may be batched** after several candidates accumulate.  
+- **Before formal Gold ingest**, necessity + Seen/Unseen structural split + related evidence checks are **mandatory** — not skippable.  
+- Never auto-pass necessity from identity alone; never assign Seen/Unseen labels on the review page by default.
 
 ## Guardrails
 

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>P7 Round 4｜Human-First 批量审核</title>
+<style>
+:root{font-family:system-ui,"Microsoft YaHei",sans-serif;color:#182230;background:#f4f7fb}
+body{max-width:960px;margin:20px auto;padding:0 14px;line-height:1.55}
+h1{font-size:1.45rem}h2{font-size:1.12rem;margin:0 0 .5rem}
+.muted{color:#5b6b7c;font-size:.92rem}
+.block{background:#fff;border:1px solid #d5dee8;border-radius:12px;padding:16px;margin:14px 0}
+.banner{background:#fff8e6;border:1px solid #e8d4a8;border-radius:10px;padding:12px 14px;margin:12px 0}
+video{width:100%;max-height:420px;background:#000;border-radius:8px;display:block}
+label{display:block;font-weight:600;margin:10px 0 4px}
+textarea,input[type=text]{width:100%;box-sizing:border-box;padding:9px;border:1px solid #b7c4d3;border-radius:6px;font:inherit}
+textarea{min-height:64px}
+.choices label{display:inline-block;font-weight:400;margin-right:14px}
+button{border:0;border-radius:7px;background:#175cd3;color:#fff;padding:9px 12px;font:inherit;cursor:pointer;margin:6px 6px 0 0}
+button.secondary{background:#445468}
+.hidden{display:none}
+pre{white-space:pre-wrap;background:#eef2f6;border:1px solid #d0d8e2;padding:12px;border-radius:8px;font-size:.78rem}
+.tag{display:inline-block;font-size:.75rem;padding:2px 8px;border-radius:999px;background:#e8eef8;color:#1d4f91;margin-left:6px}
+.tag.warn{background:#fdecc8;color:#7a4b00}
+.tag.ok{background:#ddf6e8;color:#0b6b3a}
+</style>
+</head>
+<body>
+<h1>P7 Round 4｜Human-First 审核包</h1>
+<p class="muted">先看连续视频并独立判断，再展开 GPT 候选题。GPT <strong>不</strong>独立认证。接受的题进入候选库；必要性可稍后集中测，但 <strong>Gold 前必须</strong>完成必要性 + Seen/Unseen 结构划分。本页不直接标注 Unseen。</p>
+<div class="banner">
+<strong>计数目标（本包）：</strong> Seen 原语候选 <strong>4</strong> · Unseen 结构候选 <strong>4</strong>（角色=训练设计用途，非正式标签）。
+已有：Track A 组合 2 · P7 用户接受候选 3 · 正式合格家族 0 · Gold 0。
+</div>
+
+<!-- ========== SEEN ========== -->
+<div class="block"><h2>A. Seen 原语候选 <span class="tag ok">SEEN_PRIMITIVE</span></h2>
+<p class="muted">单窗能力：读姓名条 / 认动作 / 读比分。不是跨时组合。</p>
+
+<section id="S1">
+<h3>S1 · JTa 姓名条 <span class="tag">IdentifyPersonViaGraphic</span></h3>
+<p class="muted">源 35–45s · 需要原语：读屏幕姓名</p>
+<video controls playsinline preload="metadata" src="media/S1_sierra_id_35_45.mp4"></video>
+<label>你看到的姓名/身份文字？</label><textarea id="s1_obs"></textarea>
+<label>判定</label>
+<div class="choices" id="s1_dec">
+<label><input type="radio" name="s1d" value="ACCEPT">接受可见事实</label>
+<label><input type="radio" name="s1d" value="REJECT">拒绝/看不清</label>
+<label><input type="radio" name="s1d" value="UNCERTAIN">不确定</label>
+</div>
+<button type="button" class="secondary" onclick="reveal('s1_gpt')">查看 GPT 候选题</button>
+<div id="s1_gpt" class="hidden muted"><p>Q：这段画面里下部字幕/姓名条给出的名字是什么？<br>A（GPT 建议，待你确认）：历史为 Sierra</p></div>
+</section>
+
+<section id="S2">
+<h3>S2 · JTa 动作 <span class="tag">IdentifyAction</span></h3>
+<p class="muted">源 125–135s · 需要原语：识别短时动作</p>
+<video controls playsinline preload="metadata" src="media/S2_remove_shoe_125_135.mp4"></video>
+<label>人物做了什么？</label><textarea id="s2_obs"></textarea>
+<label>判定</label>
+<div class="choices">
+<label><input type="radio" name="s2d" value="ACCEPT">接受</label>
+<label><input type="radio" name="s2d" value="REJECT">拒绝</label>
+<label><input type="radio" name="s2d" value="UNCERTAIN">不确定</label>
+</div>
+<button type="button" class="secondary" onclick="reveal('s2_gpt')">查看 GPT 候选题</button>
+<div id="s2_gpt" class="hidden muted"><p>Q：片段中人物对鞋子做了什么？ A（GPT）：脱鞋</p></div>
+</section>
+
+<section id="S3">
+<h3>S3 · T1yh 比分 <span class="tag">ReadScoreboardState</span></h3>
+<p class="muted">源 1785–1805s · 需要原语：读比分条</p>
+<video controls playsinline preload="metadata" src="media/S3_score_00_1785_1805.mp4"></video>
+<label>比分条显示什么？</label><textarea id="s3_obs"></textarea>
+<label>判定</label>
+<div class="choices">
+<label><input type="radio" name="s3d" value="ACCEPT">接受</label>
+<label><input type="radio" name="s3d" value="REJECT">拒绝</label>
+<label><input type="radio" name="s3d" value="UNCERTAIN">不确定</label>
+</div>
+<button type="button" class="secondary" onclick="reveal('s3_gpt')">查看 GPT 候选题</button>
+<div id="s3_gpt" class="hidden muted"><p>Q：比分条显示的比分是多少？ A（GPT 样帧）：BRI 0-0 LIV</p></div>
+</section>
+
+<section id="S4">
+<h3>S4 · VTCD 姓名文字（复用） <span class="tag">IdentifyPersonViaGraphic</span></h3>
+<p class="muted">源 178–190s · Round2 已确认 Fan；本项仅作单窗 Seen 原语，不重新开组合</p>
+<video controls playsinline preload="metadata" src="media/S4_fan_text_A_178_190.mp4"></video>
+<label>可见姓名文字？</label><textarea id="s4_obs" placeholder="可写：与 Round2 一致 / 本窗看不清"></textarea>
+<label>判定</label>
+<div class="choices">
+<label><input type="radio" name="s4d" value="ACCEPT">接受</label>
+<label><input type="radio" name="s4d" value="REJECT">拒绝</label>
+<label><input type="radio" name="s4d" value="UNCERTAIN">不确定</label>
+</div>
+</section>
+</div>
+
+<!-- ========== UNSEEN STRUCTURE ========== -->
+<div class="block"><h2>B. Unseen 结构候选 <span class="tag warn">STRUCTURE_CANDIDATE · 勿直接标 Unseen</span></h2>
+<p class="muted">跨时身份绑定 → 查询动作/属性。每项：先写 A/B 事实与身份，再看 GPT 题。</p>
+
+<section id="F1">
+<h3>F1 · Cm73ma6Ibcs <span class="tag">Identify→Bind→QueryLater</span></h3>
+<p class="muted">程序：IdentifyPerson → BindSameActor → QueryLaterAction<br>
+Seen 原语需求：外貌识别（A）、动作/状态（B）、跨时绑定<br>
+A 源 259–295s · B 源 2995–3015s</p>
+<p><strong>A</strong></p>
+<video controls playsinline preload="metadata" src="media/F1A_restaurant_259_295.mp4"></video>
+<label>A 观察</label><textarea id="f1a"></textarea>
+<p><strong>B</strong></p>
+<video controls playsinline preload="metadata" src="media/F1B_snow_2995_3015.mp4"></video>
+<label>B 观察</label><textarea id="f1b"></textarea>
+<label>同一人？</label>
+<div class="choices">
+<label><input type="radio" name="f1id" value="SAME_PERSON">是</label>
+<label><input type="radio" name="f1id" value="DIFFERENT_PERSON">否</label>
+<label><input type="radio" name="f1id" value="INSUFFICIENT_EVIDENCE">证据不足</label>
+</div>
+<label>身份依据</label><textarea id="f1id_r"></textarea>
+<button type="button" onclick="reveal('f1_gpt')">完成事实后查看 GPT 候选 QA</button>
+<div id="f1_gpt" class="hidden">
+<label>候选题（可改）</label>
+<textarea id="f1q">在更早室内片段中对峙/持械的那个人，在后来的雪地片段中与地面发生了什么可见互动？</textarea>
+<label>你的答案或修订 / REJECT</label><textarea id="f1a_ans"></textarea>
+<label>题目标定</label>
+<div class="choices">
+<label><input type="radio" name="f1qa" value="ACCEPT">接受</label>
+<label><input type="radio" name="f1qa" value="REVISE">修订后接受</label>
+<label><input type="radio" name="f1qa" value="REJECT">拒绝</label>
+<label><input type="radio" name="f1qa" value="NOT_APPLICABLE">身份失败不适用</label>
+</div>
+<p class="muted">GPT 提示：B 可能只有手部特写，身份风险高。</p>
+</div>
+</section>
+
+<section id="F2">
+<h3>F2 · LLSJrEgOOtw <span class="tag">Identify→Bind→QueryLater</span></h3>
+<p class="muted">程序：IdentifyActorEarly → Bind → QueryLaterAction<br>
+Seen 原语：雾林人物/动物识别、后期动作、跨时绑定<br>
+A 20–45s · B 123–165s</p>
+<p><strong>A</strong></p>
+<video controls playsinline preload="metadata" src="media/F2A_dog_wood_20_45.mp4"></video>
+<label>A 观察</label><textarea id="f2a"></textarea>
+<p><strong>B</strong></p>
+<video controls playsinline preload="metadata" src="media/F2B_later_play_123_165.mp4"></video>
+<label>B 观察</label><textarea id="f2b"></textarea>
+<label>同一行动者？</label>
+<div class="choices">
+<label><input type="radio" name="f2id" value="SAME_PERSON">是</label>
+<label><input type="radio" name="f2id" value="DIFFERENT_PERSON">否</label>
+<label><input type="radio" name="f2id" value="INSUFFICIENT_EVIDENCE">证据不足</label>
+</div>
+<label>依据</label><textarea id="f2id_r"></textarea>
+<button type="button" onclick="reveal('f2_gpt')">查看 GPT 候选 QA</button>
+<div id="f2_gpt" class="hidden">
+<label>候选题</label>
+<textarea id="f2q">更早雾林空地中穿蓝色外套走动的人，在后来落叶林中在做什么？</textarea>
+<label>答案 / 修订 / REJECT</label><textarea id="f2a_ans"></textarea>
+<label>题目标定</label>
+<div class="choices">
+<label><input type="radio" name="f2qa" value="ACCEPT">接受</label>
+<label><input type="radio" name="f2qa" value="REVISE">修订后接受</label>
+<label><input type="radio" name="f2qa" value="REJECT">拒绝</label>
+<label><input type="radio" name="f2qa" value="NOT_APPLICABLE">不适用</label>
+</div>
+<p class="muted">GPT 提示：历史“狗”标签未核验；请以你所见人物为准。</p>
+</div>
+</section>
+
+<section id="F3">
+<h3>F3 · Z86xysw5Ncc <span class="tag">NameGraphic→Bind→QueryAttribute</span></h3>
+<p class="muted">程序：IdentifyViaNameGraphic → Bind → QueryLaterAttribute<br>
+Seen 原语：读姓名条、后期外观/号码衣、跨时绑定<br>
+A 125–190s · B 290–340s</p>
+<p><strong>A</strong></p>
+<video controls playsinline preload="metadata" src="media/F3A_race_intro_125_190.mp4"></video>
+<label>A 观察（姓名条？）</label><textarea id="f3a"></textarea>
+<p><strong>B</strong></p>
+<video controls playsinline preload="metadata" src="media/F3B_result_board_290_340.mp4"></video>
+<label>B 观察</label><textarea id="f3b"></textarea>
+<label>与 A 姓名条为同一运动员？</label>
+<div class="choices">
+<label><input type="radio" name="f3id" value="SAME_PERSON">是</label>
+<label><input type="radio" name="f3id" value="DIFFERENT_PERSON">否</label>
+<label><input type="radio" name="f3id" value="INSUFFICIENT_EVIDENCE">证据不足</label>
+</div>
+<label>依据</label><textarea id="f3id_r"></textarea>
+<button type="button" onclick="reveal('f3_gpt')">查看 GPT 候选 QA</button>
+<div id="f3_gpt" class="hidden">
+<label>候选题</label>
+<textarea id="f3q">在更早片段姓名条出现的那名运动员，在后来片段中穿的是什么颜色的比赛服/号码衣？（无法确认同一人请证据不足）</textarea>
+<label>答案 / 修订 / REJECT</label><textarea id="f3a_ans"></textarea>
+<label>题目标定</label>
+<div class="choices">
+<label><input type="radio" name="f3qa" value="ACCEPT">接受</label>
+<label><input type="radio" name="f3qa" value="REVISE">修订后接受</label>
+<label><input type="radio" name="f3qa" value="REJECT">拒绝</label>
+<label><input type="radio" name="f3qa" value="NOT_APPLICABLE">不适用</label>
+</div>
+</div>
+</section>
+
+<section id="F4">
+<h3>F4 · xi6r3hZe5Tg <span class="tag warn">负例压力测试</span></h3>
+<p class="muted">程序：IdentifyObjectProcess → RelateLaterScene（因果风险高）<br>
+Seen 原语：识别打印过程/颜色；区分剪辑 vs 因果<br>
+A 1055–1070s · B 1065–1075s（近邻窗）</p>
+<p><strong>A</strong></p>
+<video controls playsinline preload="metadata" src="media/F4A_bioprint_1055_1070.mp4"></video>
+<label>A 观察</label><textarea id="f4a"></textarea>
+<p><strong>B</strong></p>
+<video controls playsinline preload="metadata" src="media/F4B_plated_insert_1065_1075.mp4"></video>
+<label>B 观察</label><textarea id="f4b"></textarea>
+<label>A/B 关系</label>
+<div class="choices">
+<label><input type="radio" name="f4id" value="CAUSAL_LINK">有因果关系</label>
+<label><input type="radio" name="f4id" value="EDIT_JUXTAPOSITION">剪辑并列</label>
+<label><input type="radio" name="f4id" value="INSUFFICIENT_EVIDENCE">证据不足</label>
+</div>
+<label>说明</label><textarea id="f4id_r"></textarea>
+<button type="button" onclick="reveal('f4_gpt')">查看 GPT 候选 QA</button>
+<div id="f4_gpt" class="hidden">
+<label>候选题</label>
+<textarea id="f4q">打印紫色网格的设备，与紧随其后的摆盘画面是什么关系？</textarea>
+<label>答案 / 修订 / REJECT</label><textarea id="f4a_ans"></textarea>
+<label>题目标定</label>
+<div class="choices">
+<label><input type="radio" name="f4qa" value="ACCEPT">接受为组合题</label>
+<label><input type="radio" name="f4qa" value="REJECT">拒绝（预期）</label>
+<label><input type="radio" name="f4qa" value="NOT_APPLICABLE">不适用</label>
+</div>
+<p class="muted">GPT：倾向剪辑并列负例，勿当合格因果家族。</p>
+</div>
+</section>
+</div>
+
+<div class="block">
+<label>实际审核分钟（可选，勿编造）</label>
+<input type="text" id="mins" placeholder="未知可留空"/>
+<label>确认已观看相关连续视频（非仅静帧）</label>
+<input type="text" id="watched" placeholder="true / false"/>
+<button type="button" onclick="exportJson()">导出审核 JSON</button>
+<button type="button" class="secondary" onclick="copyOut()">复制</button>
+<pre id="out">填写后导出。请交 ChatGPT 整理推 GitHub，Cursor 再同步。</pre>
+</div>
+
+<script>
+function reveal(id){document.getElementById(id).classList.remove('hidden');}
+function radio(name){const e=document.querySelector(`input[name="${name}"]:checked`);return e?e.value:null;}
+function exportJson(){
+  const payload={
+    round:"004",
+    reviewer:"USER",
+    flow:"Human-First Flow v1",
+    confirmed_watched_continuous_video:document.getElementById('watched').value||null,
+    actual_review_minutes:document.getElementById('mins').value||null,
+    data_partition_status:"UNASSIGNED",
+    composition_necessity_status:"NOT_TESTED",
+    gold_qa_minted:false,
+    seen_unseen_status:"UNASSIGNED",
+    note:"Accepted items → human-accepted candidate pool only; necessity+Seen/Unseen structure required before Gold.",
+    seen_primitives:[
+      {id:"R4_S1",obs:s1_obs.value,decision:radio('s1d')},
+      {id:"R4_S2",obs:s2_obs.value,decision:radio('s2d')},
+      {id:"R4_S3",obs:s3_obs.value,decision:radio('s3d')},
+      {id:"R4_S4",obs:s4_obs.value,decision:radio('s4d')}
+    ],
+    structure_candidates:[
+      {id:"R4_F1",obs_A:f1a.value,obs_B:f1b.value,identity:radio('f1id'),identity_reason:f1id_r.value,question:f1q.value,answer:f1a_ans.value,qa_decision:radio('f1qa')},
+      {id:"R4_F2",obs_A:f2a.value,obs_B:f2b.value,identity:radio('f2id'),identity_reason:f2id_r.value,question:f2q.value,answer:f2a_ans.value,qa_decision:radio('f2qa')},
+      {id:"R4_F3",obs_A:f3a.value,obs_B:f3b.value,identity:radio('f3id'),identity_reason:f3id_r.value,question:f3q.value,answer:f3a_ans.value,qa_decision:radio('f3qa')},
+      {id:"R4_F4",obs_A:f4a.value,obs_B:f4b.value,relation:radio('f4id'),relation_reason:f4id_r.value,question:f4q.value,answer:f4a_ans.value,qa_decision:radio('f4qa')}
+    ]
+  };
+  out.textContent=JSON.stringify(payload,null,2);
+}
+function copyOut(){navigator.clipboard.writeText(out.textContent).catch(()=>{});}
+</script>
+</body>
+</html>

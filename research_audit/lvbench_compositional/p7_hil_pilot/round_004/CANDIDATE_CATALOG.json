@@ -1,0 +1,170 @@
+{
+  "round": "004",
+  "flow": "Human-First Flow v1",
+  "skill": "round_003/GPT_REVIEW_SKILL_v1.md",
+  "data_partition_status": "UNASSIGNED",
+  "composition_necessity_status": "NOT_TESTED_BATCHABLE_BEFORE_GOLD",
+  "gold_qa_minted": false,
+  "seen_unseen_status": "UNASSIGNED_DO_NOT_LABEL_ITEMS_AS_UNSEEN",
+  "inventory_counts_for_report": {
+    "track_a_historical_verified_composition_qa": 2,
+    "p7_user_accepted_candidates_before_round4": 3,
+    "p7_formal_qualified_families": 0,
+    "p7_gold": 0,
+    "round4_seen_primitive_candidates": 4,
+    "round4_unseen_structure_candidates": 4,
+    "note": "Seen/Unseen here means intended program role for training split design — not assigned labels on items."
+  },
+  "seen_primitive_candidates": [
+    {
+      "item_id": "R4_S1",
+      "role": "SEEN_PRIMITIVE_CANDIDATE",
+      "video_id": "JTa_Ue2MSwc",
+      "clips": ["media/S1_sierra_id_35_45.mp4"],
+      "source_window_s": [35, 45],
+      "target_program": "IdentifyPersonViaGraphic",
+      "seen_primitive_need": "Read on-screen person name / lower-third identity text",
+      "gpt_suggested_qa": {
+        "q_zh": "这段画面里下部字幕/姓名条给出的名字是什么？",
+        "a_zh": "GPT_SUGGESTION_PENDING_USER — 历史为 Sierra（勿视为已核验）",
+        "class": "GPT_SUGGESTION"
+      },
+      "not_unseen_structure": true
+    },
+    {
+      "item_id": "R4_S2",
+      "role": "SEEN_PRIMITIVE_CANDIDATE",
+      "video_id": "JTa_Ue2MSwc",
+      "clips": ["media/S2_remove_shoe_125_135.mp4"],
+      "source_window_s": [125, 135],
+      "target_program": "IdentifyAction",
+      "seen_primitive_need": "Recognize a short continuous action (shoe remove)",
+      "gpt_suggested_qa": {
+        "q_zh": "片段中人物对鞋子做了什么？",
+        "a_zh": "GPT_SUGGESTION_PENDING_USER — 历史为脱鞋",
+        "class": "GPT_SUGGESTION"
+      },
+      "not_unseen_structure": true
+    },
+    {
+      "item_id": "R4_S3",
+      "role": "SEEN_PRIMITIVE_CANDIDATE",
+      "video_id": "T1yhBv1ytzw",
+      "clips": ["media/S3_score_00_1785_1805.mp4"],
+      "source_window_s": [1785, 1805],
+      "target_program": "ReadScoreboardState",
+      "seen_primitive_need": "Read match score overlay digits/teams",
+      "gpt_suggested_qa": {
+        "q_zh": "比分条显示的比分是多少？",
+        "a_zh": "GPT_SUGGESTION_PENDING_USER — 样帧曾见 BRI 0-0 LIV",
+        "class": "GPT_SUGGESTION"
+      },
+      "not_unseen_structure": true
+    },
+    {
+      "item_id": "R4_S4",
+      "role": "SEEN_PRIMITIVE_CANDIDATE",
+      "video_id": "VTCDQYYKA9o",
+      "clips": ["media/S4_fan_text_A_178_190.mp4"],
+      "source_window_s": [178, 190],
+      "target_program": "IdentifyPersonViaGraphic",
+      "seen_primitive_need": "Read athlete name text (reuse VTCD confirmed name region; not a new composition ask)",
+      "gpt_suggested_qa": {
+        "q_zh": "画面中出现的运动员姓名文字是什么？",
+        "a_zh": "Fan Zhendong（用户 Round2 已在更大窗确认；本项仅作 Seen 原语单窗复用）",
+        "class": "USER_CASE_REUSE_PLUS_GPT_FRAMING"
+      },
+      "not_unseen_structure": true
+    }
+  ],
+  "unseen_structure_candidates": [
+    {
+      "item_id": "R4_F1",
+      "role": "UNSEEN_STRUCTURE_CANDIDATE",
+      "family": "PersonIdentityBind_ThenQueryLaterActionOrAttribute",
+      "video_id": "Cm73ma6Ibcs",
+      "evidence_A": {"file": "media/F1A_restaurant_259_295.mp4", "source_s": [259, 295]},
+      "evidence_B": {"file": "media/F1B_snow_2995_3015.mp4", "source_s": [2995, 3015]},
+      "target_composition_program": "IdentifyPerson → BindSameActorAcrossTime → QueryLaterActionOrState",
+      "seen_primitives_required": [
+        "IdentifyPerson (appearance/clothing in A)",
+        "IdentifyActionOrState in B",
+        "CrossTimeIdentityBind"
+      ],
+      "gpt_relation_hypothesis": "Same character across indoor confrontation window and later snow close-up — HIGH REJECT RISK (B may show only hand/garment).",
+      "gpt_suggested_qa": {
+        "q_zh": "在更早室内片段中持枪/对峙的那个人，在后来的雪地片段中与地面发生了什么可见互动？",
+        "a_zh": "GPT_SUGGESTION_PENDING_USER — 勿预填为已核验；身份可能不足",
+        "class": "GPT_SUGGESTION"
+      },
+      "do_not_label_as_unseen": true,
+      "composition_necessity": "NOT_TESTED"
+    },
+    {
+      "item_id": "R4_F2",
+      "role": "UNSEEN_STRUCTURE_CANDIDATE",
+      "family": "PersonOrAnimalIdentityBind_ThenQueryLaterAction",
+      "video_id": "LLSJrEgOOtw",
+      "evidence_A": {"file": "media/F2A_dog_wood_20_45.mp4", "source_s": [20, 45]},
+      "evidence_B": {"file": "media/F2B_later_play_123_165.mp4", "source_s": [123, 165]},
+      "target_composition_program": "IdentifyActorInEarlySetting → BindSameActor → QueryLaterAction",
+      "seen_primitives_required": [
+        "IdentifyPersonOrAnimal in foggy woods",
+        "IdentifyLaterForestAction",
+        "CrossTimeIdentityBind"
+      ],
+      "gpt_relation_hypothesis": "Person (and/or dog) in early misty clearing vs later leaf-picking person — identity may be person-not-dog; historical 'dog' label unverified.",
+      "gpt_suggested_qa": {
+        "q_zh": "更早雾林空地中穿蓝色外套走动的人，在后来落叶林中在做什么？",
+        "a_zh": "GPT_SUGGESTION_PENDING_USER — 样帧提示弯腰拾取/装入容器，待你确认身份是否同一人",
+        "class": "GPT_SUGGESTION"
+      },
+      "do_not_label_as_unseen": true,
+      "composition_necessity": "NOT_TESTED"
+    },
+    {
+      "item_id": "R4_F3",
+      "role": "UNSEEN_STRUCTURE_CANDIDATE",
+      "family": "NamedAthleteBind_ThenQueryLaterAttributeOrState",
+      "video_id": "Z86xysw5Ncc",
+      "evidence_A": {"file": "media/F3A_race_intro_125_190.mp4", "source_s": [125, 190]},
+      "evidence_B": {"file": "media/F3B_result_board_290_340.mp4", "source_s": [290, 340]},
+      "target_composition_program": "IdentifyPersonViaNameGraphic → BindSameAthlete → QueryLaterVisibleAttribute",
+      "seen_primitives_required": [
+        "ReadNameGraphic (e.g. athlete name / NOR)",
+        "IdentifyAthleteAppearanceOrBibLater",
+        "CrossTimeIdentityBind"
+      ],
+      "gpt_relation_hypothesis": "A shows named NOR athlete graphic; B shows post-race athletes/bibs — SAME_PERSON may FAIL if B subject ≠ named A athlete.",
+      "gpt_suggested_qa": {
+        "q_zh": "在更早片段姓名条出现的那名运动员，在后来片段中穿的是什么颜色的比赛服/号码衣？（若无法确认同一人请选证据不足）",
+        "a_zh": "GPT_SUGGESTION_PENDING_USER",
+        "class": "GPT_SUGGESTION"
+      },
+      "do_not_label_as_unseen": true,
+      "composition_necessity": "NOT_TESTED"
+    },
+    {
+      "item_id": "R4_F4",
+      "role": "UNSEEN_STRUCTURE_CANDIDATE",
+      "family": "ObjectProcess_ThenQueryRelatedStateOrScene",
+      "video_id": "xi6r3hZe5Tg",
+      "evidence_A": {"file": "media/F4A_bioprint_1055_1070.mp4", "source_s": [1055, 1070]},
+      "evidence_B": {"file": "media/F4B_plated_insert_1065_1075.mp4", "source_s": [1065, 1075]},
+      "target_composition_program": "IdentifyObjectProcess → (optional) RelateToLaterScene — HIGH CAUSAL RISK",
+      "seen_primitives_required": [
+        "IdentifyPrinterOrNozzleProcess",
+        "IdentifyMaterialColor/Pattern",
+        "DistinguishEditCutVsCausalLink"
+      ],
+      "gpt_relation_hypothesis": "Purple lattice printing vs nearby plated-food insert — likely NOT valid causal composition (prior Track B lesson). Included as stress-test / likely REJECT.",
+      "gpt_suggested_qa": {
+        "q_zh": "打印紫色网格的设备，与紧随其后的摆盘画面是什么关系？",
+        "a_zh": "GPT_SUGGESTION — 预期用户可能判为剪辑并列/证据不足，而非因果产物",
+        "class": "GPT_SUGGESTION_NEGATIVE_CONTROL"
+      },
+      "do_not_label_as_unseen": true,
+      "composition_necessity": "NOT_TESTED"
+    }
+  ]
+}
