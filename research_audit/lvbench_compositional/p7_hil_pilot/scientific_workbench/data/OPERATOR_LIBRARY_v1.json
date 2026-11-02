@@ -28,5 +28,7 @@
     "counted_in_certified_coverage": false
   },
   "frozen_train_pool": null,
-  "coverage_computable": false
+  "coverage_computable": false,
+  "approved_structured_graphs_v0_2_count": 4,
+  "note_on_approved_graphs": "Four USER_APPROVED_STRUCTURED_GRAPH v0.2 items exist but do NOT freeze Seen train pool and are NOT formal Unseen; coverage remains 尚不可计算."
 }

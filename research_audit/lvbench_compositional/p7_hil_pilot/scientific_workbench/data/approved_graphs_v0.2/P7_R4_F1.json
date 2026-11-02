@@ -1,0 +1,196 @@
+{
+  "graph_id": "approved::P7_R4_F1::v0.2",
+  "structure_version": "v0.2",
+  "qa_uid": "P7_R4_F1",
+  "workbench_id": "P7_R4_F1",
+  "video_id": "Cm73ma6Ibcs",
+  "source_refs": [
+    "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json#P7_R4_F1",
+    "USER_GPT_SCIENTIFIC_APPROVAL_CHAT_2026-11-02_structured_graphs_v0.2"
+  ],
+  "raw_directed_program_text": "A: DetectScene(厨师被威胁) → IdentifyRescuerByRole(前来解围者；区别于持枪威胁者) + ExtractAppearance(蓝衣/白围巾/佩刀) → B: DetectSnowScene + IdentifyPersonByAppearance(蓝衣/围巾/佩刀) + DetectAction(被打倒、用雪擦脸) → CrossIntervalSamePersonBind(A解围者, B雪地人物) → QueryLaterAction(B, A所指解围者) → 被打倒在雪地并用雪擦脸。",
+  "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+  "is_demo": false,
+  "formal_unseen": false,
+  "formal_seen_train": false,
+  "formal_gold": false,
+  "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+  "operator_vocab_status": "PENDING_SCIENTIFIC_APPROVAL",
+  "precise_timing_status": "PENDING_SCIENTIFIC_APPROVAL",
+  "human_judgments_preserved": {
+    "a_only_sufficient": "否",
+    "b_only_sufficient": "否",
+    "a_plus_b_supports_user_answer": "是",
+    "truly_needs_cross_clip_composition": "是",
+    "bucket_seen_unseen_control_or_hold": "Unseen",
+    "note": "User preclassification Unseen only; not formal Unseen. Two B action events kept distinct."
+  },
+  "nodes": [
+    {
+      "node_id": "f1_n1",
+      "operator_type": "IdentifyRescuerByRole",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": [],
+      "outputs": ["rescuer_ref_A"],
+      "clip_role": "A",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {
+        "role": "救援者/前来解围者",
+        "exclude": "威胁者"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "f1_n2",
+      "operator_type": "ExtractAppearance",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["rescuer_ref_A"],
+      "outputs": ["appearance_cues"],
+      "clip_role": "A",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"cues": ["蓝衣", "白围巾", "佩刀"]},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "f1_n3",
+      "operator_type": "IdentifyPersonByAppearance",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["appearance_cues"],
+      "outputs": ["person_ref_B"],
+      "clip_role": "B",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"cues": ["蓝衣", "白围巾", "佩刀"]},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "f1_n4",
+      "operator_type": "CrossIntervalSamePersonBind",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["rescuer_ref_A", "person_ref_B", "appearance_cues"],
+      "outputs": ["bound_rescuer"],
+      "clip_role": "AB",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"bind_cues": ["蓝衣", "白围巾", "佩刀"]},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "f1_n5",
+      "operator_type": "DetectActionEvent",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["bound_rescuer"],
+      "outputs": ["event_knocked_down_B"],
+      "clip_role": "B",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"action_event": "被打倒"},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "event_order_vs_sibling": "PENDING_SCIENTIFIC_APPROVAL_RELATIVE_ORDER"
+    },
+    {
+      "node_id": "f1_n6",
+      "operator_type": "DetectActionEvent",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["bound_rescuer"],
+      "outputs": ["event_wipe_face_with_snow_B"],
+      "clip_role": "B",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"action_event": "用雪擦脸"},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "event_order_vs_sibling": "PENDING_SCIENTIFIC_APPROVAL_RELATIVE_ORDER"
+    },
+    {
+      "node_id": "f1_n7",
+      "operator_type": "QueryLaterActions",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["event_knocked_down_B", "event_wipe_face_with_snow_B"],
+      "outputs": ["answer"],
+      "clip_role": "B",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {
+        "answer_text_from_user_qa": "被打倒在雪地上，并用雪擦脸。",
+        "note": "Two B action events retained as distinct nodes; relative order not newly asserted."
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "f1_e1",
+      "from_node": "f1_n1",
+      "to_node": "f1_n2",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "f1_e2",
+      "from_node": "f1_n2",
+      "to_node": "f1_n3",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "f1_e3",
+      "from_node": "f1_n1",
+      "to_node": "f1_n4",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "f1_e4",
+      "from_node": "f1_n3",
+      "to_node": "f1_n4",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "f1_e5",
+      "from_node": "f1_n2",
+      "to_node": "f1_n4",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "f1_e6",
+      "from_node": "f1_n4",
+      "to_node": "f1_n5",
+      "dependency_kind": "bind",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "f1_e7",
+      "from_node": "f1_n4",
+      "to_node": "f1_n6",
+      "dependency_kind": "bind",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "f1_e8",
+      "from_node": "f1_n5",
+      "to_node": "f1_n7",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "f1_e9",
+      "from_node": "f1_n6",
+      "to_node": "f1_n7",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    }
+  ]
+}

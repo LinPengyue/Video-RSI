@@ -1,0 +1,39 @@
+{
+  "index_id": "approved_graphs_v0.2",
+  "created_utc": "2026-11-02T13:23:52.039800+00:00",
+  "structure_version": "v0.2",
+  "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+  "operator_vocab_status": "PENDING_SCIENTIFIC_APPROVAL",
+  "formal_unseen_promoted": false,
+  "formal_gold_promoted": false,
+  "graphs": [
+    {
+      "workbench_id": "P7_R4_F1",
+      "graph_id": "approved::P7_R4_F1::v0.2",
+      "path": "data/approved_graphs_v0.2/P7_R4_F1.json",
+      "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+      "formal_unseen": false
+    },
+    {
+      "workbench_id": "P7_R4_F2",
+      "graph_id": "approved::P7_R4_F2::v0.2",
+      "path": "data/approved_graphs_v0.2/P7_R4_F2.json",
+      "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+      "formal_unseen": false
+    },
+    {
+      "workbench_id": "P7_TJR_R3",
+      "graph_id": "approved::P7_TJR_R3::v0.2",
+      "path": "data/approved_graphs_v0.2/P7_TJR_R3.json",
+      "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+      "formal_unseen": false
+    },
+    {
+      "workbench_id": "P7_VTCD_C2",
+      "graph_id": "approved::P7_VTCD_C2::v0.2",
+      "path": "data/approved_graphs_v0.2/P7_VTCD_C2.json",
+      "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+      "formal_unseen": false
+    }
+  ]
+}

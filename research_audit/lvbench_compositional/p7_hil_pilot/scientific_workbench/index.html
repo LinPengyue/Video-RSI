@@ -13,7 +13,7 @@
 </header>
 <div class="banner">
   用户预分类 Unseen ≠ 正式 Unseen；S1–S4 ≠ 正式 Seen；Sierra = 历史校准；旧 39 训练划分题 = 历史候选不计入认证覆盖。
-  DEMO 图仅供界面演示。结构比较在无批准规范化图时显示「待结构化确认 / 尚不可计算」。
+  DEMO 图仅供界面演示。已批准结构化图（v0.2）≠ 正式 Unseen。Seen 训练池未冻结时覆盖率保持「尚不可计算」。
 </div>
 <nav class="tabs" aria-label="Workbench tabs">
   <button type="button" data-tab="review" class="active">审核表单</button>
@@ -30,6 +30,7 @@
 </main>
 <div class="toast" id="toast"></div>
 <script src="v2/templates.js"></script>
+<script src="v2/judgment_io.js"></script>
 <script src="v2/app.js"></script>
 </body>
 </html>

@@ -25,6 +25,7 @@
   const state = {
     catalog: null,
     judgmentsFile: null,
+    importedJudgments: null, // full imported/archive snapshot for unknown-field fidelity
     graphLib: null,
     opLib: null,
     demoLib: null,
@@ -32,6 +33,8 @@
     compareLeft: null,
     compareRight: null,
   };
+
+  const IO = window.P7_JUDGMENT_IO;
 
   function esc(s) {
     return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -188,23 +191,36 @@
     </section>`;
   }
 
-  function collectJudgments() {
-    const out = {
-      exported_utc: new Date().toISOString(),
-      disclaimer: "USER/GPT filled; Cursor did not adjudicate",
-      workbench_version: "v2",
-      items: {},
-    };
+  function collectFormItemsOnly() {
+    const formItems = {};
     document.querySelectorAll("#pane-review [data-item][data-field]").forEach((el) => {
       if (el.closest("[data-reference-template]")) return; // never export reference UI
       const id = el.dataset.item;
       const field = el.dataset.field;
-      out.items[id] = out.items[id] || {};
-      out.items[id][field] = el.value;
+      formItems[id] = formItems[id] || {};
+      formItems[id][field] = el.value;
     });
-    for (const id of Object.keys(out.items)) {
-      out.items[id].filled_utc = out.items[id].filled_by ? new Date().toISOString() : out.items[id].filled_utc || "";
-      // Ensure core keys always present for compatibility
+    for (const id of Object.keys(formItems)) {
+      if (formItems[id].filled_by) formItems[id].filled_utc = new Date().toISOString();
+    }
+    return formItems;
+  }
+
+  function collectJudgments() {
+    const formItems = collectFormItemsOnly();
+    const base = state.importedJudgments || state.judgmentsFile || { items: {} };
+    // Preserve unknown keys from imported/archive snapshot; overlay only form fields.
+    const out = IO
+      ? IO.buildExportPayload({
+          imported: base,
+          formItems,
+          nowIso: new Date().toISOString(),
+          disclaimer: "USER/GPT filled; Cursor did not adjudicate",
+        })
+      : { exported_utc: new Date().toISOString(), disclaimer: "USER/GPT filled; Cursor did not adjudicate", workbench_version: "v2", items: formItems };
+    out.workbench_version = "v2";
+    // Keep core keys present for blank-compatible rows without wiping unknowns
+    for (const id of Object.keys(out.items || {})) {
       for (const k of CORE_EXPORT_FIELDS) {
         if (!(k in out.items[id])) out.items[id][k] = "";
       }
@@ -212,8 +228,12 @@
     return out;
   }
 
-  function applyJudgmentsObject(data) {
-    const items = data.items || {};
+  function applyJudgmentsObject(data, { setImportedSnapshot } = { setImportedSnapshot: true }) {
+    if (setImportedSnapshot) {
+      // Deep snapshot so later export can restore unknown fields
+      state.importedJudgments = JSON.parse(JSON.stringify(data || { items: {} }));
+    }
+    const items = (data && data.items) || {};
     for (const [id, fields] of Object.entries(items)) {
       for (const [k, v] of Object.entries(fields)) {
         const el = document.getElementById(`${id}__${k}`);
@@ -391,6 +411,14 @@
   }
 
   // Client-side mirrors of eng checks for approved/demo-sandbox display (scientific path refuses demo)
+  function _canon(x) {
+    return JSON.stringify(x, Object.keys(x || {}).sort());
+  }
+  function _nodeSig(n) {
+    const inputs = [...(n.inputs || [])].map(String).sort();
+    const outputs = [...(n.outputs || [])].map(String).sort();
+    return JSON.stringify([n.operator_type, inputs, outputs, n.clip_role, n.time_conditions || null]);
+  }
   function clientFullEq(g1, g2) {
     if (!g1 || !g2) return { status: "NOT_COMPUTABLE", equivalent: false };
     if (g1.is_demo || g2.is_demo || g1.user_confirmation_status === "DEMO_NOT_SCIENTIFIC" || g2.user_confirmation_status === "DEMO_NOT_SCIENTIFIC") {
@@ -399,13 +427,54 @@
     if (g1.user_confirmation_status !== "USER_APPROVED_STRUCTURED_GRAPH" || g2.user_confirmation_status !== "USER_APPROVED_STRUCTURED_GRAPH") {
       return { status: "NOT_COMPUTABLE_PENDING_STRUCTURED_CONFIRMATION", equivalent: false };
     }
-    const m1 = Object.fromEntries((g1.nodes || []).map((n) => [n.node_id, n.operator_type]));
-    const m2 = Object.fromEntries((g2.nodes || []).map((n) => [n.node_id, n.operator_type]));
-    if (JSON.stringify(m1) !== JSON.stringify(m2)) return { status: "NOT_EQUIVALENT_NODE_MAP", equivalent: false };
-    const e1 = (g1.edges || []).map((e) => [e.from_node, e.to_node, e.dependency_kind]).sort().join("|");
-    const e2 = (g2.edges || []).map((e) => [e.from_node, e.to_node, e.dependency_kind]).sort().join("|");
-    if (e1 !== e2) return { status: "NOT_EQUIVALENT_EDGES", equivalent: false };
-    return { status: "EQUIVALENT", equivalent: true };
+    if (!g1.nodes?.length || !g2.nodes?.length) return { status: "NOT_COMPUTABLE_PENDING_STRUCTURED_CONFIRMATION", equivalent: false };
+    if ((g1.operator_vocab_version || null) !== (g2.operator_vocab_version || null)) {
+      return { status: "NOT_EQUIVALENT_VOCAB_MISMATCH", equivalent: false };
+    }
+    // Node-id-independent typed matching (no operator alias merging)
+    const groups1 = {};
+    const groups2 = {};
+    for (const n of g1.nodes) (groups1[_nodeSig(n)] ||= []).push(n.node_id);
+    for (const n of g2.nodes) (groups2[_nodeSig(n)] ||= []).push(n.node_id);
+    const sigs = Object.keys(groups1);
+    if (sigs.length !== Object.keys(groups2).length || sigs.some((s) => !groups2[s] || groups2[s].length !== groups1[s].length)) {
+      return { status: "NOT_EQUIVALENT_NODE_SIGNATURES", equivalent: false, matching_mode: "typed_digraph_isomorphism_node_id_independent" };
+    }
+    function permutations(arr) {
+      if (arr.length <= 1) return [arr.slice()];
+      const out = [];
+      for (let i = 0; i < arr.length; i++) {
+        const rest = arr.slice(0, i).concat(arr.slice(i + 1));
+        for (const p of permutations(rest)) out.push([arr[i]].concat(p));
+      }
+      return out;
+    }
+    // Build bijections within signature classes
+    const perSig = sigs.map((s) => {
+      const left = groups1[s];
+      const rights = permutations(groups2[s]);
+      return rights.map((right) => Object.fromEntries(left.map((id, i) => [id, right[i]])));
+    });
+    function product(arrays, i = 0, acc = {}) {
+      if (i >= arrays.length) return [Object.assign({}, acc)];
+      const out = [];
+      for (const part of arrays[i]) out.push(...product(arrays, i + 1, Object.assign({}, acc, part)));
+      return out;
+    }
+    const bijections = product(perSig);
+    const edgeKey = (e, remap) => {
+      const f = remap ? remap[e.from_node] : e.from_node;
+      const t = remap ? remap[e.to_node] : e.to_node;
+      return JSON.stringify([f, t, e.dependency_kind, e.required_time_condition || null]);
+    };
+    for (const bij of bijections) {
+      const c1 = (g1.edges || []).map((e) => edgeKey(e, bij)).sort().join("|");
+      const c2 = (g2.edges || []).map((e) => edgeKey(e, null)).sort().join("|");
+      if (c1 === c2) {
+        return { status: "EQUIVALENT", equivalent: true, matching_mode: "typed_digraph_isomorphism_node_id_independent", example_bijection: bij };
+      }
+    }
+    return { status: "NOT_EQUIVALENT_EDGES", equivalent: false, matching_mode: "typed_digraph_isomorphism_node_id_independent" };
   }
 
   function clientOpOverlap(g1, g2) {
@@ -502,14 +571,24 @@
         const blob = `${r.graph_id} ${r.qa_uid} ${r.video_id} ${r.raw_directed_program_text} ${r.user_preclassification_bucket || ""}`.toLowerCase();
         if (q && !blob.includes(q)) continue;
         const demo = r.is_demo || r.user_confirmation_status === "DEMO_NOT_SCIENTIFIC";
+        const approved = r.user_confirmation_status === "USER_APPROVED_STRUCTURED_GRAPH" && !demo;
+        const pending = r.user_confirmation_status === "PENDING_STRUCTURED_CONFIRMATION";
+        const statusTag = demo
+          ? '<span class="tag demo">DEMO</span><span class="tag demo">DEMO_NOT_SCIENTIFIC</span>'
+          : approved
+          ? '<span class="tag seen">USER_APPROVED_STRUCTURED_GRAPH</span>'
+          : pending
+          ? '<span class="tag pending">PENDING_STRUCTURED_CONFIRMATION</span>'
+          : `<span class="tag pending">${esc(r.user_confirmation_status)}</span>`;
         const div = document.createElement("div");
         div.className = "list-item";
         div.innerHTML = `<strong>${esc(r.graph_id)}</strong>
-          ${demo ? '<span class="tag demo">DEMO</span>' : ""}
-          <span class="tag pending">${esc(r.user_confirmation_status)}</span>
-          ${r.user_preclassification_bucket ? `<span class="tag pre">预分类:${esc(r.user_preclassification_bucket)}</span>` : ""}
+          ${statusTag}
+          ${r.structure_version ? `<span class="tag">${esc(r.structure_version)}</span>` : ""}
+          ${r.user_preclassification_bucket ? `<span class="tag pre">预分类:${esc(r.user_preclassification_bucket)}≠正式</span>` : ""}
           <div class="meta">${esc(r.qa_uid)} · ${esc(r.video_id)} · ${esc(r.data_identity || "")}</div>
-          <div class="meta">正式Unseen=${r.formal_unseen === true ? "是" : "否"} · 结构批准=${r.evidence_status?.structured_graph_approved ? "是" : "否"}</div>`;
+          <div class="meta">正式Unseen=${r.formal_unseen === true ? "是" : "否"} · 正式Gold=${r.formal_gold === true ? "是" : "否"} · 结构批准=${approved ? "是" : "否"}
+            ${r.approved_graph_path ? ` · <code>${esc(r.approved_graph_path)}</code>` : ""}</div>`;
         div.onclick = () => {
           state.selectedGraphId = r.graph_id;
           document.getElementById("graph-detail").innerHTML =
@@ -570,11 +649,18 @@
   function renderWindowB() {
     const pane = document.getElementById("pane-b");
     const op = state.opLib;
+    const approvedN = state.graphLib?.approved_structured_graph_count || 0;
     pane.innerHTML = `<div class="card">
       <h2>窗口 B · 算子库及训练覆盖</h2>
       <p class="meta">覆盖必须区分：用户确认存在 / 批准作为训练样本 / 实际受控训练暴露。缺少规范图、冻结训练池或有效训练证据时显示「尚不可计算」。</p>
+      <div class="qa"><strong>当前工程状态</strong>
+        <div>已批准结构化图：<strong>${approvedN}</strong>（≠ 正式 Unseen / ≠ 训练暴露）</div>
+        <div>Seen 训练池冻结：<strong>否</strong></div>
+        <div>受控训练暴露证据：<strong>不足/未提供</strong></div>
+        <div><span class="tag pending">覆盖率：尚不可计算</span></div>
+      </div>
       <p><span class="tag pending">vocab_status=${esc(op.vocab_status)}</span>
-         <span class="tag">coverage_computable=${op.coverage_computable ? "true" : "false"}</span></p>
+         <span class="tag pending">coverage_computable=false</span></p>
       <p class="meta">${esc(op.disclaimer)}</p>
       <div class="qa"><strong>历史 39 道训练划分题</strong>
         <div class="meta">${esc(op.historical_39_train_split_items.status)} — ${esc(op.historical_39_train_split_items.note)}</div>
@@ -603,34 +689,43 @@
   function renderChecksPane() {
     const pane = document.getElementById("pane-checks");
     const records = state.graphLib.records;
+    const approved = records.filter((r) => r.user_confirmation_status === "USER_APPROVED_STRUCTURED_GRAPH" && !r.is_demo);
     const byVideo = {};
     for (const r of records) {
       byVideo[r.video_id] = byVideo[r.video_id] || [];
       byVideo[r.video_id].push(r.graph_id);
     }
     const multi = Object.fromEntries(Object.entries(byVideo).filter(([, v]) => v.length > 1));
+    let eqPairs = [];
+    for (let i = 0; i < approved.length; i++) {
+      for (let j = i + 1; j < approved.length; j++) {
+        eqPairs.push({
+          left: approved[i].graph_id,
+          right: approved[j].graph_id,
+          result: clientFullEq(approved[i], approved[j]),
+        });
+      }
+    }
     pane.innerHTML = `<div class="card">
       <h2>结构与隔离检查（工程）</h2>
-      <p class="meta">仅在经用户批准的规范化图上给出完整图等价。当前批准结构图数：<strong>${state.graphLib.approved_structured_graph_count}</strong>。</p>
+      <p class="meta">完整有向图等价现为<strong>节点 ID 无关</strong>的有类型有向图匹配（算子类型/IO/片段角色/时间条件/依赖边）。不自动合并未批准算子别名。当前批准结构图数：<strong>${state.graphLib.approved_structured_graph_count}</strong>。</p>
       <div class="qa">
-        <strong>完整有向图等价</strong>
-        <pre>status = NOT_COMPUTABLE_PENDING_STRUCTURED_CONFIRMATION
-basis = no USER_APPROVED_STRUCTURED_GRAPH pairs available
-vocab_version = null</pre>
+        <strong>已批准图两两完整等价（工程预览）</strong>
+        <pre>${esc(JSON.stringify(eqPairs, null, 2))}</pre>
       </div>
       <div class="qa">
         <strong>子图及依赖边重合 / 原子算子覆盖</strong>
-        <pre>status = NOT_COMPUTABLE_PENDING_STRUCTURED_CONFIRMATION
-warning = operator-set coincidence ≠ full digraph equivalence</pre>
+        <pre>warning = operator-set coincidence ≠ full digraph equivalence; no alias merging
+use Window A compare for pairwise detail</pre>
       </div>
       <div class="qa">
         <strong>视频 ID / UID 交叉（工作台记录事实）</strong>
-        <pre>${esc(JSON.stringify({ videos_with_multiple_records: multi, sources: "data/PROGRAM_GRAPH_LIBRARY_v1.json" }, null, 2))}</pre>
+        <pre>${esc(JSON.stringify({ videos_with_multiple_records: multi, sources: ["data/PROGRAM_GRAPH_LIBRARY_v1.json", "data/approved_graphs_v0.2/"] }, null, 2))}</pre>
       </div>
       <div class="qa">
         <strong>已批准 Seen 训练图 vs 目标 Unseen 图冲突</strong>
         <pre>status = NOT_COMPUTABLE_MISSING_APPROVED_POOLS
-note = candidate bucket labels do not alter frozen training set</pre>
+note = four approved graphs are NOT auto-treated as formal Unseen; Seen train pool not frozen</pre>
       </div>
       <p class="meta">确定性实现与单测：<code>eng/structure_checks.py</code> · <code>eng/tests/</code></p>
     </div>`;
@@ -654,6 +749,7 @@ note = candidate bucket labels do not alter frozen training set</pre>
     ]);
     state.catalog = catalog;
     state.judgmentsFile = judgments;
+    state.importedJudgments = JSON.parse(JSON.stringify(judgments));
     state.graphLib = graphLib;
     state.opLib = opLib;
     state.demoLib = demoLib;

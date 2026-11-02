@@ -1,0 +1,132 @@
+{
+  "graph_id": "approved::P7_TJR_R3::v0.2",
+  "structure_version": "v0.2",
+  "qa_uid": "P7_TJR_R3",
+  "workbench_id": "P7_TJR_R3",
+  "video_id": "TJR1oYDDTwg",
+  "source_refs": [
+    "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json#P7_TJR_R3",
+    "USER_GPT_SCIENTIFIC_APPROVAL_CHAT_2026-11-02_structured_graphs_v0.2"
+  ],
+  "raw_directed_program_text": "B: DetectAction(舞台打鼓) → IdentifyActorByAppearance(短发/红帽/蓝衣) → A: DetectTransportToPalace(乘坐绿色龙) + IdentifyPassengerAppearance → CrossIntervalSamePersonBind(B打鼓者, A乘龙者) → QueryEarlierTransport(A, B所指人物) → 绿色的龙。依赖方向：后期动作角色 B → 早期交通工具 A。",
+  "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+  "is_demo": false,
+  "formal_unseen": false,
+  "formal_seen_train": false,
+  "formal_gold": false,
+  "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+  "operator_vocab_status": "PENDING_SCIENTIFIC_APPROVAL",
+  "precise_timing_status": "PENDING_SCIENTIFIC_APPROVAL",
+  "human_judgments_preserved": {
+    "a_only_sufficient": "否",
+    "b_only_sufficient": "否",
+    "a_plus_b_supports_user_answer": "是",
+    "truly_needs_cross_clip_composition": "是",
+    "bucket_seen_unseen_control_or_hold": "Unseen",
+    "note": "User preclassification Unseen only; not formal Unseen."
+  },
+  "nodes": [
+    {
+      "node_id": "tjr_n1",
+      "operator_type": "DetectAction",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": [],
+      "outputs": ["drumming_event_B"],
+      "clip_role": "B",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"action": "打鼓"},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "tjr_n2",
+      "operator_type": "IdentifyActorByAppearance",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["drumming_event_B"],
+      "outputs": ["drummer_ref_B"],
+      "clip_role": "B",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"appearance": ["短头发", "红帽", "蓝色上衣"]},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "tjr_n3",
+      "operator_type": "DetectTransportRide",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": [],
+      "outputs": ["green_dragon_ride_A", "passenger_ref_A"],
+      "clip_role": "A",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"transport": "乘坐绿色龙", "passenger": "乘绿色龙的人"},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "tjr_n4",
+      "operator_type": "CrossIntervalSamePersonBind",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["drummer_ref_B", "passenger_ref_A"],
+      "outputs": ["bound_person"],
+      "clip_role": "AB",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"bind_cues": ["短头发", "红帽", "蓝色上衣"]},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "tjr_n5",
+      "operator_type": "QueryEarlierTransport",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["bound_person", "green_dragon_ride_A"],
+      "outputs": ["answer"],
+      "clip_role": "A",
+      "time_conditions": [{"status": "PENDING_SCIENTIFIC_APPROVAL"}],
+      "evidence": {"answer_text_from_user_qa": "绿色的龙", "queried_relation": "A中的乘坐关系"},
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "tjr_e1",
+      "from_node": "tjr_n1",
+      "to_node": "tjr_n2",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "tjr_e2",
+      "from_node": "tjr_n2",
+      "to_node": "tjr_n4",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "tjr_e3",
+      "from_node": "tjr_n3",
+      "to_node": "tjr_n4",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "tjr_e4",
+      "from_node": "tjr_n4",
+      "to_node": "tjr_n5",
+      "dependency_kind": "bind",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "tjr_e5",
+      "from_node": "tjr_n3",
+      "to_node": "tjr_n5",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    }
+  ]
+}

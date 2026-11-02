@@ -59,14 +59,20 @@ class AcceptanceTest(unittest.TestCase):
         self.assertIn("data-form-mode", app)
         self.assertIn("composition", app)
 
-    def test_no_fake_equivalence_without_approved_graphs(self):
+    def test_approved_graphs_do_not_auto_promote_formal_labels(self):
         lib = json.loads((WB / "data" / "PROGRAM_GRAPH_LIBRARY_v1.json").read_text(encoding="utf-8"))
-        self.assertEqual(lib["approved_structured_graph_count"], 0)
-        for r in lib["records"]:
-            if r.get("raw_directed_program_text"):
-                self.assertEqual(r["user_confirmation_status"], "PENDING_STRUCTURED_CONFIRMATION")
-                self.assertEqual(r["nodes"], [])
-                self.assertEqual(r["edges"], [])
+        self.assertEqual(lib["approved_structured_graph_count"], 4)
+        approved = [r for r in lib["records"] if r.get("user_confirmation_status") == "USER_APPROVED_STRUCTURED_GRAPH"]
+        self.assertEqual(len(approved), 4)
+        for r in approved:
+            self.assertTrue(r.get("nodes"))
+            self.assertFalse(r.get("formal_unseen"))
+            self.assertFalse(r.get("formal_gold"))
+            self.assertFalse(r.get("formal_seen_train"))
+        pending = [r for r in lib["records"] if r.get("user_confirmation_status") == "PENDING_STRUCTURED_CONFIRMATION"]
+        for r in pending:
+            self.assertEqual(r.get("nodes"), [])
+            self.assertEqual(r.get("edges"), [])
             self.assertFalse(r.get("formal_unseen"))
             self.assertFalse(r.get("formal_gold"))
 

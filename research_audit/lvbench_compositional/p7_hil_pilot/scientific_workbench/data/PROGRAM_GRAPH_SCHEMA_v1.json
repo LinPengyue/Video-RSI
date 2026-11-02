@@ -38,5 +38,5 @@
     "required_time_condition": "optional string",
     "user_confirmed": "boolean"
   },
-  "equivalence_rule": "Full directed-graph equivalence requires USER_APPROVED_STRUCTURED_GRAPH on both sides, identical operator_vocab_version, and exact node-type multiset along with directed edge multiset under a certified node bijection. Operator-set equality alone is NEVER full-graph equivalence."
+  "equivalence_rule": "Full directed-graph equivalence requires USER_APPROVED_STRUCTURED_GRAPH on both sides, identical operator_vocab_version, and a node-id-independent typed digraph isomorphism: matching operator_type, inputs, outputs, clip_role, node time_conditions, and directed dependency edges (kind + required_time_condition) under a signature-consistent bijection. Unapproved operator aliases are NEVER auto-merged. Operator-set equality alone is NEVER full-graph equivalence."
 }
