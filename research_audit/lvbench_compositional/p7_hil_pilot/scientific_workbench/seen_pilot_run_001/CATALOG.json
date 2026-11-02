@@ -1,0 +1,323 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "created_utc": "2026-11-02T15:02:57.246233+00:00",
+  "user_confirmation_status_uniform": "PENDING_HUMAN_VIDEO_REVIEW",
+  "formal_seen_train": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "does_not_overwrite_approved_unseen_graphs": true,
+  "items": [
+    {
+      "workbench_id": "SEEN_PILOT_SP001",
+      "pack_id": "SP001",
+      "section": "seen_pilot_run_001",
+      "qa_uid": "LVCOMP-V2-036",
+      "video_id": "aJI8XTa_DII",
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "clips": {
+        "A": "seen_pilot_run_001/media/SP001/A_aJI8XTa_DII_53_86.mp4",
+        "B": "seen_pilot_run_001/media/SP001/B_aJI8XTa_DII_2965_2968.mp4"
+      },
+      "intervals": {
+        "A": {
+          "start_s": 53.0,
+          "end_s": 86.0,
+          "basis": {
+            "source_time_reference": "00:53-01:26",
+            "parsed_start_s": 53.0,
+            "parsed_end_s": 86.0,
+            "padding_applied": false,
+            "video_duration_s": 3167.201814
+          }
+        },
+        "B": {
+          "start_s": 2965.0,
+          "end_s": 2968.0,
+          "basis": {
+            "source_time_reference": "49:25-49:28",
+            "parsed_start_s": 2965.0,
+            "parsed_end_s": 2968.0,
+            "padding_applied": false,
+            "video_duration_s": 3167.201814
+          }
+        },
+        "official_time_references": [
+          "00:53-01:26",
+          "49:25-49:28"
+        ],
+        "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+      },
+      "qa_clue_unverified": {
+        "question": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+        "answer": "5",
+        "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+        "source_questions": [
+          "How many flags of the Russian Federation are there on the stage when Putin delivers the first speech?\n(A) 5\n(B) 1\n(C) 9\n(D) 4",
+          "Which country's flag is on the flagpole on the top of the building with gold clock?\n(A) Russian Federation\n(B) The Republic of Belarus\n(C) Ukraine\n(D) France"
+        ],
+        "source_answers": [
+          "A: 5",
+          "A: Russian Federation"
+        ]
+      },
+      "pack_path": "seen_pilot_run_001/review_packs/SP001_aJI8XTa_DII.json",
+      "construction_exposed": false,
+      "selection_reason": "Remaining historical train video; identify_person+query_location; dual windows; not Unseen/test/approved-graph; not construction-exposed."
+    },
+    {
+      "workbench_id": "SEEN_PILOT_SP002",
+      "pack_id": "SP002",
+      "section": "seen_pilot_run_001",
+      "qa_uid": "LVCOMP-V2-045",
+      "video_id": "vHlSoxg8WHo",
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "clips": {
+        "A": "seen_pilot_run_001/media/SP002/A_vHlSoxg8WHo_2_78.mp4",
+        "B": "seen_pilot_run_001/media/SP002/B_vHlSoxg8WHo_96_172.mp4"
+      },
+      "intervals": {
+        "A": {
+          "start_s": 2.0,
+          "end_s": 78.0,
+          "basis": {
+            "source_time_reference": "00:02-01:18",
+            "parsed_start_s": 2.0,
+            "parsed_end_s": 78.0,
+            "padding_applied": false,
+            "video_duration_s": 3292.636009
+          }
+        },
+        "B": {
+          "start_s": 96.0,
+          "end_s": 172.0,
+          "basis": {
+            "source_time_reference": "01:36-02:52",
+            "parsed_start_s": 96.0,
+            "parsed_end_s": 172.0,
+            "padding_applied": false,
+            "video_duration_s": 3292.636009
+          }
+        },
+        "official_time_references": [
+          "00:02-01:18",
+          "01:36-02:52"
+        ],
+        "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+      },
+      "qa_clue_unverified": {
+        "question": "What is Brittany's relationship to the person shown at 00:02?",
+        "answer": "sister",
+        "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+        "source_questions": [
+          "Who is the person at 00:02?\n(A) Raymond\n(B) Jason\n(C) Mario\n(D) Tacara",
+          "What can we know about Brittany?\n(A) She has an Irresponsible husband\n(B) She's Jason's girlfriend\n(C) She's Tacara's sister\n(D) She's close to her sister"
+        ],
+        "source_answers": [
+          "D: Tacara",
+          "C: She's Tacara's sister"
+        ]
+      },
+      "pack_path": "seen_pilot_run_001/review_packs/SP002_vHlSoxg8WHo.json",
+      "construction_exposed": false,
+      "selection_reason": "Remaining historical train video; identify_person+query_relation; dual windows; not Unseen/test/approved-graph; not construction-exposed."
+    },
+    {
+      "workbench_id": "SEEN_PILOT_SP003",
+      "pack_id": "SP003",
+      "section": "seen_pilot_run_001",
+      "qa_uid": "LVCOMP-V2-100",
+      "video_id": "2LH3JCGkEBU",
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "clips": {
+        "A": "seen_pilot_run_001/media/SP003/A_2LH3JCGkEBU_515_540.mp4",
+        "B": "seen_pilot_run_001/media/SP003/B_2LH3JCGkEBU_544_553.mp4"
+      },
+      "intervals": {
+        "A": {
+          "start_s": 515.0,
+          "end_s": 540.0,
+          "basis": {
+            "source_time_reference": "08:35-09:00",
+            "parsed_start_s": 515.0,
+            "parsed_end_s": 540.0,
+            "padding_applied": false,
+            "video_duration_s": 4381.280363
+          }
+        },
+        "B": {
+          "start_s": 544.0,
+          "end_s": 553.0,
+          "basis": {
+            "source_time_reference": "09:04-09:13",
+            "parsed_start_s": 544.0,
+            "parsed_end_s": 553.0,
+            "padding_applied": false,
+            "video_duration_s": 4381.280363
+          }
+        },
+        "official_time_references": [
+          "08:35-09:00",
+          "09:04-09:13"
+        ],
+        "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+      },
+      "qa_clue_unverified": {
+        "question": "What did the man do after kissing the woman's hands during the Vancouver 2010 performance that was done while wearing a white dress?",
+        "answer": "He got down on one knee",
+        "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+        "source_questions": [
+          "In Vancouver 2010, what was performed while wearing a white dress?\n(A) Original dance\n(B) Single skating\n(C) Compulsory dance\n(D) Free dance",
+          "What did the man do after kissing the woman's hands during the 2010 Free Dance performance in Vancouver?\n(A) He pulled the woman in circles\n(B) He got down on one knee\n(C) He fell to his knees\n(D) He picked up the woman"
+        ],
+        "source_answers": [
+          "D: Free dance",
+          "B: He got down on one knee"
+        ]
+      },
+      "pack_path": "seen_pilot_run_001/review_packs/SP003_2LH3JCGkEBU.json",
+      "construction_exposed": false,
+      "selection_reason": "Remaining historical train video; identify_event_result+query_action; dual windows; not Unseen/test/approved-graph; not construction-exposed."
+    },
+    {
+      "workbench_id": "SEEN_PILOT_SP004",
+      "pack_id": "SP004",
+      "section": "seen_pilot_run_001",
+      "qa_uid": "LVCOMP-V2-037",
+      "video_id": "f8DKD78BrQA",
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "clips": {
+        "A": "seen_pilot_run_001/media/SP004/A_f8DKD78BrQA_5167_5182.mp4",
+        "B": "seen_pilot_run_001/media/SP004/B_f8DKD78BrQA_5179_5194.mp4"
+      },
+      "intervals": {
+        "A": {
+          "start_s": 5167.0,
+          "end_s": 5182.0,
+          "basis": {
+            "source_time_reference": "86:12-86:12",
+            "parsed_start_s": 5172.0,
+            "parsed_end_s": 5172.0,
+            "padding_applied": true,
+            "pad_before_s": 5.0,
+            "pad_after_s": 10.0,
+            "note": "Point-like official time reference; engineering pad only — not a scientific timing approval.",
+            "video_duration_s": 7207.218503
+          }
+        },
+        "B": {
+          "start_s": 5179.0,
+          "end_s": 5194.0,
+          "basis": {
+            "source_time_reference": "86:24-86:24",
+            "parsed_start_s": 5184.0,
+            "parsed_end_s": 5184.0,
+            "padding_applied": true,
+            "pad_before_s": 5.0,
+            "pad_after_s": 10.0,
+            "note": "Point-like official time reference; engineering pad only — not a scientific timing approval.",
+            "video_duration_s": 7207.218503
+          }
+        },
+        "official_time_references": [
+          "86:12-86:12",
+          "86:24-86:24"
+        ],
+        "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+      },
+      "qa_clue_unverified": {
+        "question": "Which company does the presenter mention before the company that claims to first to provide AI-powered business insights from secondary data?",
+        "answer": "Servicenow",
+        "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+        "source_questions": [
+          "Which company does the presenter mentions before Cohesity?\n(A) Nvidia\n(B) Servicenow\n(C) Sap\n(D) Dell Technologies",
+          "Which company claims to first to provide AI-powered business insights from secondary data?\n(A) Snowflakes\n(B) Cohesity\n(C) Nvidia\n(D) Servicenow"
+        ],
+        "source_answers": [
+          "B: Servicenow",
+          "B: Cohesity"
+        ]
+      },
+      "pack_path": "seen_pilot_run_001/review_packs/SP004_f8DKD78BrQA.json",
+      "construction_exposed": false,
+      "selection_reason": "Remaining historical train video; identify_event_result+query_action; point-like dual refs with padded extract; not Unseen/test/approved-graph; not construction-exposed."
+    },
+    {
+      "workbench_id": "SEEN_PILOT_SP005",
+      "pack_id": "SP005",
+      "section": "seen_pilot_run_001",
+      "qa_uid": "LVCOMP-V2-026",
+      "video_id": "KLIa2UaE2KE",
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "clips": {
+        "A": "seen_pilot_run_001/media/SP005/A_KLIa2UaE2KE_1_4.mp4",
+        "B": "seen_pilot_run_001/media/SP005/B_KLIa2UaE2KE_673_680.mp4"
+      },
+      "intervals": {
+        "A": {
+          "start_s": 1.0,
+          "end_s": 4.0,
+          "basis": {
+            "source_time_reference": "00:01-00:03",
+            "parsed_start_s": 1.0,
+            "parsed_end_s": 3.0,
+            "padding_applied": false,
+            "min_duration_enforced_s": 3.0,
+            "video_duration_s": 7108.88
+          }
+        },
+        "B": {
+          "start_s": 673.0,
+          "end_s": 680.0,
+          "basis": {
+            "source_time_reference": "11:13-11:20",
+            "parsed_start_s": 673.0,
+            "parsed_end_s": 680.0,
+            "padding_applied": false,
+            "video_duration_s": 7108.88
+          }
+        },
+        "official_time_references": [
+          "00:01-00:03",
+          "11:13-11:20"
+        ],
+        "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+      },
+      "qa_clue_unverified": {
+        "question": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+        "answer": "5",
+        "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+        "source_questions": [
+          "Which country's flag is being waved at the beginning of the video?\n(A) Italy\n(B) China\n(C) Brazil\n(D) Japan",
+          "Which player scored the tenth point for Italy in the first set of the video?\n(A) 13\n(B) 20\n(C) 5\n(D) 15"
+        ],
+        "source_answers": [
+          "A: Italy",
+          "C: 5"
+        ]
+      },
+      "pack_path": "seen_pilot_run_001/review_packs/SP005_KLIa2UaE2KE.json",
+      "construction_exposed": false,
+      "selection_reason": "Remaining historical train video; identify_person+query_location; short dual windows; not Unseen/test/approved-graph; not construction-exposed."
+    }
+  ]
+}

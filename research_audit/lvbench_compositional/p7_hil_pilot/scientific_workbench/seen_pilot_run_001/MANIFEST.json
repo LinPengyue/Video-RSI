@@ -1,0 +1,73 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "created_utc": "2026-11-02T15:02:57.246235+00:00",
+  "files": [
+    {
+      "role": "SP001_A",
+      "relpath": "seen_pilot_run_001/media/SP001/A_aJI8XTa_DII_53_86.mp4",
+      "sha256": "d613e6644eea2f29d6b19bab50fb9e663354fc5db20a15843679c30b97140509",
+      "bytes": 2405066
+    },
+    {
+      "role": "SP001_B",
+      "relpath": "seen_pilot_run_001/media/SP001/B_aJI8XTa_DII_2965_2968.mp4",
+      "sha256": "011f641b9001a515b278e21502d12d1a3406ebf2799b5a6a61bf39ecf5dd2b43",
+      "bytes": 248402
+    },
+    {
+      "role": "SP002_A",
+      "relpath": "seen_pilot_run_001/media/SP002/A_vHlSoxg8WHo_2_78.mp4",
+      "sha256": "6d23e7cf4c6410865f43bc7c0f59fd9fd31d166f7d5aa5a87f5df9b45be42339",
+      "bytes": 6548584
+    },
+    {
+      "role": "SP002_B",
+      "relpath": "seen_pilot_run_001/media/SP002/B_vHlSoxg8WHo_96_172.mp4",
+      "sha256": "cd0fda6a766cf6a538fa63667c1cf1b09a5563c23369f7728f52d3453576ffb1",
+      "bytes": 3889314
+    },
+    {
+      "role": "SP003_A",
+      "relpath": "seen_pilot_run_001/media/SP003/A_2LH3JCGkEBU_515_540.mp4",
+      "sha256": "d0516fb49f30e5fbe5e32fcf582f9b8ccc3ebc11d9397152ae4afe5a1fa7ea94",
+      "bytes": 3978398
+    },
+    {
+      "role": "SP003_B",
+      "relpath": "seen_pilot_run_001/media/SP003/B_2LH3JCGkEBU_544_553.mp4",
+      "sha256": "0b9b3d2601e4f7c30247d9e0491d9b855ae6f49c1e45b473bb9e59cb8ff7c297",
+      "bytes": 1342843
+    },
+    {
+      "role": "SP004_A",
+      "relpath": "seen_pilot_run_001/media/SP004/A_f8DKD78BrQA_5167_5182.mp4",
+      "sha256": "30690e5e54adc820f6d1f78974e9bbbc956273a7eed4028496f7b60081140286",
+      "bytes": 715146
+    },
+    {
+      "role": "SP004_B",
+      "relpath": "seen_pilot_run_001/media/SP004/B_f8DKD78BrQA_5179_5194.mp4",
+      "sha256": "995afe07b73610448e9b1fb6a5ae6ace41cfeac9255e1b6ca4d2b9fb3f72cc7c",
+      "bytes": 747949
+    },
+    {
+      "role": "SP005_A",
+      "relpath": "seen_pilot_run_001/media/SP005/A_KLIa2UaE2KE_1_4.mp4",
+      "sha256": "72d92576e9f84980f15b7c2c0bbd87b0f701a89101cf9efa6361063b980a3749",
+      "bytes": 1603811
+    },
+    {
+      "role": "SP005_B",
+      "relpath": "seen_pilot_run_001/media/SP005/B_KLIa2UaE2KE_673_680.mp4",
+      "sha256": "616267a1691239041a740c26fb2b02ce9a889a601cdbee9cd6fad64b795d1946",
+      "bytes": 3058649
+    }
+  ],
+  "pack_json_sha256": {
+    "SP001_aJI8XTa_DII.json": "5c327b9f3c946c73dc0b8361a861b40c8347bec837abdfd927a9f0b1f5d92bc9",
+    "SP002_vHlSoxg8WHo.json": "9f3ec079f73303fc11ba72cc7c97ccc6579bbe507eff517e5bdc11a4e1c95964",
+    "SP003_2LH3JCGkEBU.json": "dea3e9102c92480a1518889c584acd67a3cb6104ad3fd3145d8d675611c3b6ed",
+    "SP004_f8DKD78BrQA.json": "6eb5db6f3c8f4613c0b03d37a956b307a12a90f7272101334e1f2026a6252313",
+    "SP005_KLIa2UaE2KE.json": "b5e9c2ad8058d53cb4bc9f6a0d7c0187e3a47089ea610d5361fde9a5b9fe447f"
+  }
+}

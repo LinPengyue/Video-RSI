@@ -1,0 +1,132 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP002",
+  "workbench_id": "SEEN_PILOT_SP002",
+  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "historical_train_label_present": true,
+  "historical_train_label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "construction_exposed": false,
+  "video_id": "vHlSoxg8WHo",
+  "qa_uid": "LVCOMP-V2-045",
+  "source": {
+    "candidates_jsonl": "research_audit/lvbench_compositional/v2/candidates.jsonl",
+    "pilot_split": "research_audit/lvbench_compositional/v2_1/pilot_split.json",
+    "source_uids": [
+      "5064",
+      "5068"
+    ],
+    "composition_schema_historical": "identify_person + query_relation",
+    "origin": "v1_clean",
+    "phase": "lvbench-compositional-qa-v2",
+    "video_verified_field_in_source": false
+  },
+  "selection_reason": "Remaining historical train video; identify_person+query_relation; dual windows; not Unseen/test/approved-graph; not construction-exposed.",
+  "qa_clue_unverified": {
+    "question": "What is Brittany's relationship to the person shown at 00:02?",
+    "answer": "sister",
+    "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+    "source_questions": [
+      "Who is the person at 00:02?\n(A) Raymond\n(B) Jason\n(C) Mario\n(D) Tacara",
+      "What can we know about Brittany?\n(A) She has an Irresponsible husband\n(B) She's Jason's girlfriend\n(C) She's Tacara's sister\n(D) She's close to her sister"
+    ],
+    "source_answers": [
+      "D: Tacara",
+      "C: She's Tacara's sister"
+    ]
+  },
+  "intervals": {
+    "A": {
+      "start_s": 2.0,
+      "end_s": 78.0,
+      "basis": {
+        "source_time_reference": "00:02-01:18",
+        "parsed_start_s": 2.0,
+        "parsed_end_s": 78.0,
+        "padding_applied": false,
+        "video_duration_s": 3292.636009
+      }
+    },
+    "B": {
+      "start_s": 96.0,
+      "end_s": 172.0,
+      "basis": {
+        "source_time_reference": "01:36-02:52",
+        "parsed_start_s": 96.0,
+        "parsed_end_s": 172.0,
+        "padding_applied": false,
+        "video_duration_s": 3292.636009
+      }
+    },
+    "official_time_references": [
+      "00:02-01:18",
+      "01:36-02:52"
+    ],
+    "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+  },
+  "media": {
+    "status": "OK",
+    "source_full_video": "/home/descfly/lpy/dataset/LVBench/videos/vHlSoxg8WHo.mp4",
+    "source_full_sha256": "c7c8a15cec5edca3605b082ab9282e55d66a6cac3754115fae72d3cd07331641",
+    "A": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP002/A_vHlSoxg8WHo_2_78.mp4",
+      "bytes": 6548584,
+      "sha256": "6d23e7cf4c6410865f43bc7c0f59fd9fd31d166f7d5aa5a87f5df9b45be42339",
+      "t_start_s": 2.0,
+      "t_end_s": 78.0,
+      "duration_s": 76.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP002/A_vHlSoxg8WHo_2_78.mp4",
+      "window_basis": {
+        "source_time_reference": "00:02-01:18",
+        "parsed_start_s": 2.0,
+        "parsed_end_s": 78.0,
+        "padding_applied": false,
+        "video_duration_s": 3292.636009
+      }
+    },
+    "B": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP002/B_vHlSoxg8WHo_96_172.mp4",
+      "bytes": 3889314,
+      "sha256": "cd0fda6a766cf6a538fa63667c1cf1b09a5563c23369f7728f52d3453576ffb1",
+      "t_start_s": 96.0,
+      "t_end_s": 172.0,
+      "duration_s": 76.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP002/B_vHlSoxg8WHo_96_172.mp4",
+      "window_basis": {
+        "source_time_reference": "01:36-02:52",
+        "parsed_start_s": 96.0,
+        "parsed_end_s": 172.0,
+        "padding_applied": false,
+        "video_duration_s": 3292.636009
+      }
+    }
+  },
+  "human_review_form_fields": {
+    "events": "",
+    "persons": "",
+    "objects": "",
+    "actions": "",
+    "temporal_relations": "",
+    "identity_binding": "",
+    "a_only_sufficient": "",
+    "b_only_sufficient": "",
+    "a_plus_b_supports_user_answer": "",
+    "directed_program_draft": "",
+    "rationale_and_open_issues": "",
+    "reviewer": "",
+    "reviewed_utc": ""
+  },
+  "forbidden_auto_labels": [
+    "USER_APPROVED_STRUCTURED_GRAPH",
+    "FORMAL_SEEN_TRAIN",
+    "TRAIN_EXPOSED",
+    "GOLD"
+  ]
+}

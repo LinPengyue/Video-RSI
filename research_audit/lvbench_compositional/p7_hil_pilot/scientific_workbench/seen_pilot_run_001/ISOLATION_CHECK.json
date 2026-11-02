@@ -1,0 +1,76 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "created_utc": "2026-11-02T15:02:57.246217+00:00",
+  "status": "PASS",
+  "selected_count": 5,
+  "selected_video_ids": [
+    "2LH3JCGkEBU",
+    "KLIa2UaE2KE",
+    "aJI8XTa_DII",
+    "f8DKD78BrQA",
+    "vHlSoxg8WHo"
+  ],
+  "selected_qa_uids": [
+    "LVCOMP-V2-026",
+    "LVCOMP-V2-036",
+    "LVCOMP-V2-037",
+    "LVCOMP-V2-045",
+    "LVCOMP-V2-100"
+  ],
+  "hard_exclude_video_leakage": [],
+  "hard_exclude_uid_leakage": [],
+  "block_if_any_unseen_or_test_video_in_seen_candidates": false,
+  "historical_train_label_does_not_certify_formal_seen": true,
+  "packs": [
+    {
+      "pack_id": "SP001",
+      "video_id": "aJI8XTa_DII",
+      "qa_uid": "LVCOMP-V2-036",
+      "blocked": false,
+      "hard_exclude_hit": false,
+      "construction_exposed": false,
+      "media_status": "OK"
+    },
+    {
+      "pack_id": "SP002",
+      "video_id": "vHlSoxg8WHo",
+      "qa_uid": "LVCOMP-V2-045",
+      "blocked": false,
+      "hard_exclude_hit": false,
+      "construction_exposed": false,
+      "media_status": "OK"
+    },
+    {
+      "pack_id": "SP003",
+      "video_id": "2LH3JCGkEBU",
+      "qa_uid": "LVCOMP-V2-100",
+      "blocked": false,
+      "hard_exclude_hit": false,
+      "construction_exposed": false,
+      "media_status": "OK"
+    },
+    {
+      "pack_id": "SP004",
+      "video_id": "f8DKD78BrQA",
+      "qa_uid": "LVCOMP-V2-037",
+      "blocked": false,
+      "hard_exclude_hit": false,
+      "construction_exposed": false,
+      "media_status": "OK"
+    },
+    {
+      "pack_id": "SP005",
+      "video_id": "KLIa2UaE2KE",
+      "qa_uid": "LVCOMP-V2-026",
+      "blocked": false,
+      "hard_exclude_hit": false,
+      "construction_exposed": false,
+      "media_status": "OK"
+    }
+  ],
+  "notes": [
+    "Old train labels remain HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN.",
+    "No pack is auto-marked USER_APPROVED_STRUCTURED_GRAPH / FORMAL_SEEN_TRAIN / TRAIN_EXPOSED / GOLD.",
+    "MEDIA_UNAVAILABLE packs must not display as human-reviewed."
+  ]
+}

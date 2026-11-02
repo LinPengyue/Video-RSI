@@ -1,0 +1,41 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "selected": [
+    {
+      "pack_id": "SP001",
+      "qa_uid": "LVCOMP-V2-036",
+      "video_id": "aJI8XTa_DII",
+      "reason": "Remaining historical train video; identify_person+query_location; dual windows; not Unseen/test/approved-graph; not construction-exposed."
+    },
+    {
+      "pack_id": "SP002",
+      "qa_uid": "LVCOMP-V2-045",
+      "video_id": "vHlSoxg8WHo",
+      "reason": "Remaining historical train video; identify_person+query_relation; dual windows; not Unseen/test/approved-graph; not construction-exposed."
+    },
+    {
+      "pack_id": "SP003",
+      "qa_uid": "LVCOMP-V2-100",
+      "video_id": "2LH3JCGkEBU",
+      "reason": "Remaining historical train video; identify_event_result+query_action; dual windows; not Unseen/test/approved-graph; not construction-exposed."
+    },
+    {
+      "pack_id": "SP004",
+      "qa_uid": "LVCOMP-V2-037",
+      "video_id": "f8DKD78BrQA",
+      "reason": "Remaining historical train video; identify_event_result+query_action; point-like dual refs with padded extract; not Unseen/test/approved-graph; not construction-exposed."
+    },
+    {
+      "pack_id": "SP005",
+      "qa_uid": "LVCOMP-V2-026",
+      "video_id": "KLIa2UaE2KE",
+      "reason": "Remaining historical train video; identify_person+query_location; short dual windows; not Unseen/test/approved-graph; not construction-exposed."
+    }
+  ],
+  "count": 5,
+  "target_range": [
+    4,
+    6
+  ],
+  "note": "Do not pad with isolation-failing videos. Historical train label ≠ formal Seen."
+}

@@ -17,6 +17,12 @@
 - No sealed / Track A / new QA.
 - Precise timing and operator vocabulary remain `PENDING_SCIENTIFIC_APPROVAL`.
 
+## Seen Pilot run_001 (engineering prep)
+- Path: `seen_pilot_run_001/` (catalog, exclusion, isolation, packs, media, blank judgments).
+- Workbench tab: **Seen Pilot run_001** — status `PENDING_HUMAN_VIDEO_REVIEW` only.
+- Separate localStorage key; does not overwrite scientific judgments or approved graphs.
+- Hard isolation blocks Unseen/approved-graph/test video IDs; historical train label ≠ formal Seen.
+
 ## Still needed from USER/GPT
 1. Freeze approved operator vocabulary version + definitions (replace provisional labels).
 2. Approve precise timing / time_condition fields currently marked pending.
@@ -25,3 +31,4 @@
 5. Controlled train-exposure evidence if coverage should become computable.
 6. Confirm whether DEMO sandbox comparisons should remain visible in production UI.
 7. Whether any of the four approved graphs should later be independently reviewed for formal Unseen/Gold (engineering will not auto-promote).
+8. Human review of Seen Pilot run_001 packs (events/bind/program draft) — engineering will not auto-certify.

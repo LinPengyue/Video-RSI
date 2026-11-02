@@ -1,0 +1,134 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP005",
+  "workbench_id": "SEEN_PILOT_SP005",
+  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "historical_train_label_present": true,
+  "historical_train_label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "construction_exposed": false,
+  "video_id": "KLIa2UaE2KE",
+  "qa_uid": "LVCOMP-V2-026",
+  "source": {
+    "candidates_jsonl": "research_audit/lvbench_compositional/v2/candidates.jsonl",
+    "pilot_split": "research_audit/lvbench_compositional/v2_1/pilot_split.json",
+    "source_uids": [
+      "4169",
+      "4172"
+    ],
+    "composition_schema_historical": "identify_person + query_location",
+    "origin": "v1_clean",
+    "phase": "lvbench-compositional-qa-v2",
+    "video_verified_field_in_source": false
+  },
+  "selection_reason": "Remaining historical train video; identify_person+query_location; short dual windows; not Unseen/test/approved-graph; not construction-exposed.",
+  "qa_clue_unverified": {
+    "question": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+    "answer": "5",
+    "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+    "source_questions": [
+      "Which country's flag is being waved at the beginning of the video?\n(A) Italy\n(B) China\n(C) Brazil\n(D) Japan",
+      "Which player scored the tenth point for Italy in the first set of the video?\n(A) 13\n(B) 20\n(C) 5\n(D) 15"
+    ],
+    "source_answers": [
+      "A: Italy",
+      "C: 5"
+    ]
+  },
+  "intervals": {
+    "A": {
+      "start_s": 1.0,
+      "end_s": 4.0,
+      "basis": {
+        "source_time_reference": "00:01-00:03",
+        "parsed_start_s": 1.0,
+        "parsed_end_s": 3.0,
+        "padding_applied": false,
+        "min_duration_enforced_s": 3.0,
+        "video_duration_s": 7108.88
+      }
+    },
+    "B": {
+      "start_s": 673.0,
+      "end_s": 680.0,
+      "basis": {
+        "source_time_reference": "11:13-11:20",
+        "parsed_start_s": 673.0,
+        "parsed_end_s": 680.0,
+        "padding_applied": false,
+        "video_duration_s": 7108.88
+      }
+    },
+    "official_time_references": [
+      "00:01-00:03",
+      "11:13-11:20"
+    ],
+    "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+  },
+  "media": {
+    "status": "OK",
+    "source_full_video": "/home/descfly/lpy/dataset/LVBench/videos/KLIa2UaE2KE.mp4",
+    "source_full_sha256": "55889f806bfd660411949d0d61c6596106f05a01fae4a0516340e291f8a468d0",
+    "A": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP005/A_KLIa2UaE2KE_1_4.mp4",
+      "bytes": 1603811,
+      "sha256": "72d92576e9f84980f15b7c2c0bbd87b0f701a89101cf9efa6361063b980a3749",
+      "t_start_s": 1.0,
+      "t_end_s": 4.0,
+      "duration_s": 3.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP005/A_KLIa2UaE2KE_1_4.mp4",
+      "window_basis": {
+        "source_time_reference": "00:01-00:03",
+        "parsed_start_s": 1.0,
+        "parsed_end_s": 3.0,
+        "padding_applied": false,
+        "min_duration_enforced_s": 3.0,
+        "video_duration_s": 7108.88
+      }
+    },
+    "B": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP005/B_KLIa2UaE2KE_673_680.mp4",
+      "bytes": 3058649,
+      "sha256": "616267a1691239041a740c26fb2b02ce9a889a601cdbee9cd6fad64b795d1946",
+      "t_start_s": 673.0,
+      "t_end_s": 680.0,
+      "duration_s": 7.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP005/B_KLIa2UaE2KE_673_680.mp4",
+      "window_basis": {
+        "source_time_reference": "11:13-11:20",
+        "parsed_start_s": 673.0,
+        "parsed_end_s": 680.0,
+        "padding_applied": false,
+        "video_duration_s": 7108.88
+      }
+    }
+  },
+  "human_review_form_fields": {
+    "events": "",
+    "persons": "",
+    "objects": "",
+    "actions": "",
+    "temporal_relations": "",
+    "identity_binding": "",
+    "a_only_sufficient": "",
+    "b_only_sufficient": "",
+    "a_plus_b_supports_user_answer": "",
+    "directed_program_draft": "",
+    "rationale_and_open_issues": "",
+    "reviewer": "",
+    "reviewed_utc": ""
+  },
+  "forbidden_auto_labels": [
+    "USER_APPROVED_STRUCTURED_GRAPH",
+    "FORMAL_SEEN_TRAIN",
+    "TRAIN_EXPOSED",
+    "GOLD"
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP003",
+  "workbench_id": "SEEN_PILOT_SP003",
+  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "historical_train_label_present": true,
+  "historical_train_label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "construction_exposed": false,
+  "video_id": "2LH3JCGkEBU",
+  "qa_uid": "LVCOMP-V2-100",
+  "source": {
+    "candidates_jsonl": "research_audit/lvbench_compositional/v2/candidates.jsonl",
+    "pilot_split": "research_audit/lvbench_compositional/v2_1/pilot_split.json",
+    "source_uids": [
+      "4304",
+      "4305"
+    ],
+    "composition_schema_historical": "identify_event_result + query_action",
+    "origin": "v1_pending_completed",
+    "phase": "lvbench-compositional-qa-v2",
+    "video_verified_field_in_source": false
+  },
+  "selection_reason": "Remaining historical train video; identify_event_result+query_action; dual windows; not Unseen/test/approved-graph; not construction-exposed.",
+  "qa_clue_unverified": {
+    "question": "What did the man do after kissing the woman's hands during the Vancouver 2010 performance that was done while wearing a white dress?",
+    "answer": "He got down on one knee",
+    "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+    "source_questions": [
+      "In Vancouver 2010, what was performed while wearing a white dress?\n(A) Original dance\n(B) Single skating\n(C) Compulsory dance\n(D) Free dance",
+      "What did the man do after kissing the woman's hands during the 2010 Free Dance performance in Vancouver?\n(A) He pulled the woman in circles\n(B) He got down on one knee\n(C) He fell to his knees\n(D) He picked up the woman"
+    ],
+    "source_answers": [
+      "D: Free dance",
+      "B: He got down on one knee"
+    ]
+  },
+  "intervals": {
+    "A": {
+      "start_s": 515.0,
+      "end_s": 540.0,
+      "basis": {
+        "source_time_reference": "08:35-09:00",
+        "parsed_start_s": 515.0,
+        "parsed_end_s": 540.0,
+        "padding_applied": false,
+        "video_duration_s": 4381.280363
+      }
+    },
+    "B": {
+      "start_s": 544.0,
+      "end_s": 553.0,
+      "basis": {
+        "source_time_reference": "09:04-09:13",
+        "parsed_start_s": 544.0,
+        "parsed_end_s": 553.0,
+        "padding_applied": false,
+        "video_duration_s": 4381.280363
+      }
+    },
+    "official_time_references": [
+      "08:35-09:00",
+      "09:04-09:13"
+    ],
+    "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+  },
+  "media": {
+    "status": "OK",
+    "source_full_video": "/home/descfly/lpy/dataset/LVBench/videos/2LH3JCGkEBU.mp4",
+    "source_full_sha256": "b6c0fc175b05400dd80c13e3a09286ab3dd51b8d1dec1fcb8a2a9487ff4569f6",
+    "A": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP003/A_2LH3JCGkEBU_515_540.mp4",
+      "bytes": 3978398,
+      "sha256": "d0516fb49f30e5fbe5e32fcf582f9b8ccc3ebc11d9397152ae4afe5a1fa7ea94",
+      "t_start_s": 515.0,
+      "t_end_s": 540.0,
+      "duration_s": 25.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP003/A_2LH3JCGkEBU_515_540.mp4",
+      "window_basis": {
+        "source_time_reference": "08:35-09:00",
+        "parsed_start_s": 515.0,
+        "parsed_end_s": 540.0,
+        "padding_applied": false,
+        "video_duration_s": 4381.280363
+      }
+    },
+    "B": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP003/B_2LH3JCGkEBU_544_553.mp4",
+      "bytes": 1342843,
+      "sha256": "0b9b3d2601e4f7c30247d9e0491d9b855ae6f49c1e45b473bb9e59cb8ff7c297",
+      "t_start_s": 544.0,
+      "t_end_s": 553.0,
+      "duration_s": 9.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP003/B_2LH3JCGkEBU_544_553.mp4",
+      "window_basis": {
+        "source_time_reference": "09:04-09:13",
+        "parsed_start_s": 544.0,
+        "parsed_end_s": 553.0,
+        "padding_applied": false,
+        "video_duration_s": 4381.280363
+      }
+    }
+  },
+  "human_review_form_fields": {
+    "events": "",
+    "persons": "",
+    "objects": "",
+    "actions": "",
+    "temporal_relations": "",
+    "identity_binding": "",
+    "a_only_sufficient": "",
+    "b_only_sufficient": "",
+    "a_plus_b_supports_user_answer": "",
+    "directed_program_draft": "",
+    "rationale_and_open_issues": "",
+    "reviewer": "",
+    "reviewed_utc": ""
+  },
+  "forbidden_auto_labels": [
+    "USER_APPROVED_STRUCTURED_GRAPH",
+    "FORMAL_SEEN_TRAIN",
+    "TRAIN_EXPOSED",
+    "GOLD"
+  ]
+}

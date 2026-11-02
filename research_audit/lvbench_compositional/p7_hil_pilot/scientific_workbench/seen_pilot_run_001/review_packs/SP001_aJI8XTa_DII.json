@@ -1,0 +1,132 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP001",
+  "workbench_id": "SEEN_PILOT_SP001",
+  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "historical_train_label_present": true,
+  "historical_train_label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "construction_exposed": false,
+  "video_id": "aJI8XTa_DII",
+  "qa_uid": "LVCOMP-V2-036",
+  "source": {
+    "candidates_jsonl": "research_audit/lvbench_compositional/v2/candidates.jsonl",
+    "pilot_split": "research_audit/lvbench_compositional/v2_1/pilot_split.json",
+    "source_uids": [
+      "1227",
+      "1249"
+    ],
+    "composition_schema_historical": "identify_person + query_location",
+    "origin": "v1_clean",
+    "phase": "lvbench-compositional-qa-v2",
+    "video_verified_field_in_source": false
+  },
+  "selection_reason": "Remaining historical train video; identify_person+query_location; dual windows; not Unseen/test/approved-graph; not construction-exposed.",
+  "qa_clue_unverified": {
+    "question": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+    "answer": "5",
+    "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+    "source_questions": [
+      "How many flags of the Russian Federation are there on the stage when Putin delivers the first speech?\n(A) 5\n(B) 1\n(C) 9\n(D) 4",
+      "Which country's flag is on the flagpole on the top of the building with gold clock?\n(A) Russian Federation\n(B) The Republic of Belarus\n(C) Ukraine\n(D) France"
+    ],
+    "source_answers": [
+      "A: 5",
+      "A: Russian Federation"
+    ]
+  },
+  "intervals": {
+    "A": {
+      "start_s": 53.0,
+      "end_s": 86.0,
+      "basis": {
+        "source_time_reference": "00:53-01:26",
+        "parsed_start_s": 53.0,
+        "parsed_end_s": 86.0,
+        "padding_applied": false,
+        "video_duration_s": 3167.201814
+      }
+    },
+    "B": {
+      "start_s": 2965.0,
+      "end_s": 2968.0,
+      "basis": {
+        "source_time_reference": "49:25-49:28",
+        "parsed_start_s": 2965.0,
+        "parsed_end_s": 2968.0,
+        "padding_applied": false,
+        "video_duration_s": 3167.201814
+      }
+    },
+    "official_time_references": [
+      "00:53-01:26",
+      "49:25-49:28"
+    ],
+    "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+  },
+  "media": {
+    "status": "OK",
+    "source_full_video": "/home/descfly/lpy/dataset/LVBench/videos/aJI8XTa_DII.mp4",
+    "source_full_sha256": "94c3f4aeb4adf5122d3b9919ad2584e3b56c06e7c656fb418623bd5eabd2d163",
+    "A": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP001/A_aJI8XTa_DII_53_86.mp4",
+      "bytes": 2405066,
+      "sha256": "d613e6644eea2f29d6b19bab50fb9e663354fc5db20a15843679c30b97140509",
+      "t_start_s": 53.0,
+      "t_end_s": 86.0,
+      "duration_s": 33.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP001/A_aJI8XTa_DII_53_86.mp4",
+      "window_basis": {
+        "source_time_reference": "00:53-01:26",
+        "parsed_start_s": 53.0,
+        "parsed_end_s": 86.0,
+        "padding_applied": false,
+        "video_duration_s": 3167.201814
+      }
+    },
+    "B": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP001/B_aJI8XTa_DII_2965_2968.mp4",
+      "bytes": 248402,
+      "sha256": "011f641b9001a515b278e21502d12d1a3406ebf2799b5a6a61bf39ecf5dd2b43",
+      "t_start_s": 2965.0,
+      "t_end_s": 2968.0,
+      "duration_s": 3.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP001/B_aJI8XTa_DII_2965_2968.mp4",
+      "window_basis": {
+        "source_time_reference": "49:25-49:28",
+        "parsed_start_s": 2965.0,
+        "parsed_end_s": 2968.0,
+        "padding_applied": false,
+        "video_duration_s": 3167.201814
+      }
+    }
+  },
+  "human_review_form_fields": {
+    "events": "",
+    "persons": "",
+    "objects": "",
+    "actions": "",
+    "temporal_relations": "",
+    "identity_binding": "",
+    "a_only_sufficient": "",
+    "b_only_sufficient": "",
+    "a_plus_b_supports_user_answer": "",
+    "directed_program_draft": "",
+    "rationale_and_open_issues": "",
+    "reviewer": "",
+    "reviewed_utc": ""
+  },
+  "forbidden_auto_labels": [
+    "USER_APPROVED_STRUCTURED_GRAPH",
+    "FORMAL_SEEN_TRAIN",
+    "TRAIN_EXPOSED",
+    "GOLD"
+  ]
+}

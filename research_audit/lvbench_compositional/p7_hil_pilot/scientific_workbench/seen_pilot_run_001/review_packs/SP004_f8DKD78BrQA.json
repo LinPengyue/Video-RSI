@@ -1,0 +1,144 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP004",
+  "workbench_id": "SEEN_PILOT_SP004",
+  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "historical_train_label_present": true,
+  "historical_train_label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "construction_exposed": false,
+  "video_id": "f8DKD78BrQA",
+  "qa_uid": "LVCOMP-V2-037",
+  "source": {
+    "candidates_jsonl": "research_audit/lvbench_compositional/v2/candidates.jsonl",
+    "pilot_split": "research_audit/lvbench_compositional/v2_1/pilot_split.json",
+    "source_uids": [
+      "2082",
+      "2083"
+    ],
+    "composition_schema_historical": "identify_event_result + query_action",
+    "origin": "v1_clean",
+    "phase": "lvbench-compositional-qa-v2",
+    "video_verified_field_in_source": false
+  },
+  "selection_reason": "Remaining historical train video; identify_event_result+query_action; point-like dual refs with padded extract; not Unseen/test/approved-graph; not construction-exposed.",
+  "qa_clue_unverified": {
+    "question": "Which company does the presenter mention before the company that claims to first to provide AI-powered business insights from secondary data?",
+    "answer": "Servicenow",
+    "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+    "source_questions": [
+      "Which company does the presenter mentions before Cohesity?\n(A) Nvidia\n(B) Servicenow\n(C) Sap\n(D) Dell Technologies",
+      "Which company claims to first to provide AI-powered business insights from secondary data?\n(A) Snowflakes\n(B) Cohesity\n(C) Nvidia\n(D) Servicenow"
+    ],
+    "source_answers": [
+      "B: Servicenow",
+      "B: Cohesity"
+    ]
+  },
+  "intervals": {
+    "A": {
+      "start_s": 5167.0,
+      "end_s": 5182.0,
+      "basis": {
+        "source_time_reference": "86:12-86:12",
+        "parsed_start_s": 5172.0,
+        "parsed_end_s": 5172.0,
+        "padding_applied": true,
+        "pad_before_s": 5.0,
+        "pad_after_s": 10.0,
+        "note": "Point-like official time reference; engineering pad only — not a scientific timing approval.",
+        "video_duration_s": 7207.218503
+      }
+    },
+    "B": {
+      "start_s": 5179.0,
+      "end_s": 5194.0,
+      "basis": {
+        "source_time_reference": "86:24-86:24",
+        "parsed_start_s": 5184.0,
+        "parsed_end_s": 5184.0,
+        "padding_applied": true,
+        "pad_before_s": 5.0,
+        "pad_after_s": 10.0,
+        "note": "Point-like official time reference; engineering pad only — not a scientific timing approval.",
+        "video_duration_s": 7207.218503
+      }
+    },
+    "official_time_references": [
+      "86:12-86:12",
+      "86:24-86:24"
+    ],
+    "timestamp_precision": "FROM_OFFICIAL_CANDIDATE_TIME_REFERENCES_PLUS_ENGINEERING_PAD_IF_POINTLIKE"
+  },
+  "media": {
+    "status": "OK",
+    "source_full_video": "/home/descfly/lpy/dataset/LVBench/videos/f8DKD78BrQA.mp4",
+    "source_full_sha256": "bc3f68b9a1b79ea2e00f750ea30509f83cd8f8913e62e1ae746d4009b5f7333e",
+    "A": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP004/A_f8DKD78BrQA_5167_5182.mp4",
+      "bytes": 715146,
+      "sha256": "30690e5e54adc820f6d1f78974e9bbbc956273a7eed4028496f7b60081140286",
+      "t_start_s": 5167.0,
+      "t_end_s": 5182.0,
+      "duration_s": 15.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP004/A_f8DKD78BrQA_5167_5182.mp4",
+      "window_basis": {
+        "source_time_reference": "86:12-86:12",
+        "parsed_start_s": 5172.0,
+        "parsed_end_s": 5172.0,
+        "padding_applied": true,
+        "pad_before_s": 5.0,
+        "pad_after_s": 10.0,
+        "note": "Point-like official time reference; engineering pad only — not a scientific timing approval.",
+        "video_duration_s": 7207.218503
+      }
+    },
+    "B": {
+      "extract_status": "OK",
+      "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/SP004/B_f8DKD78BrQA_5179_5194.mp4",
+      "bytes": 747949,
+      "sha256": "995afe07b73610448e9b1fb6a5ae6ace41cfeac9255e1b6ca4d2b9fb3f72cc7c",
+      "t_start_s": 5179.0,
+      "t_end_s": 5194.0,
+      "duration_s": 15.0,
+      "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+      "relpath": "seen_pilot_run_001/media/SP004/B_f8DKD78BrQA_5179_5194.mp4",
+      "window_basis": {
+        "source_time_reference": "86:24-86:24",
+        "parsed_start_s": 5184.0,
+        "parsed_end_s": 5184.0,
+        "padding_applied": true,
+        "pad_before_s": 5.0,
+        "pad_after_s": 10.0,
+        "note": "Point-like official time reference; engineering pad only — not a scientific timing approval.",
+        "video_duration_s": 7207.218503
+      }
+    }
+  },
+  "human_review_form_fields": {
+    "events": "",
+    "persons": "",
+    "objects": "",
+    "actions": "",
+    "temporal_relations": "",
+    "identity_binding": "",
+    "a_only_sufficient": "",
+    "b_only_sufficient": "",
+    "a_plus_b_supports_user_answer": "",
+    "directed_program_draft": "",
+    "rationale_and_open_issues": "",
+    "reviewer": "",
+    "reviewed_utc": ""
+  },
+  "forbidden_auto_labels": [
+    "USER_APPROVED_STRUCTURED_GRAPH",
+    "FORMAL_SEEN_TRAIN",
+    "TRAIN_EXPOSED",
+    "GOLD"
+  ]
+}

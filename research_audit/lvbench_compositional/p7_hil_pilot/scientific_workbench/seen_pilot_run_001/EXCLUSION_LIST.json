@@ -1,0 +1,139 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "created_utc": "2026-11-02T15:02:49.684118+00:00",
+  "hard_exclude_videos": [
+    "Cm73ma6Ibcs",
+    "HfEVEGf1A8Q",
+    "JTa_Ue2MSwc",
+    "JlrzSvCsIjE",
+    "LLSJrEgOOtw",
+    "RjDrZkBwzho",
+    "TJR1oYDDTwg",
+    "VTCDQYYKA9o",
+    "XNtNNplAwiI",
+    "Z86xysw5Ncc",
+    "cWEnogdsW78",
+    "sk00epALZps",
+    "t-RtDI2RWQs",
+    "xi6r3hZe5Tg"
+  ],
+  "hard_exclude_qa_uids": [
+    "LVCOMP-V2-002",
+    "LVCOMP-V2-003",
+    "LVCOMP-V2-015",
+    "LVCOMP-V2-024",
+    "LVCOMP-V2-025",
+    "LVCOMP-V2-031",
+    "LVCOMP-V3-SEED-002",
+    "LVCOMP-V3-SEED-003",
+    "LVCOMP-V3-SEED-015",
+    "LVCOMP-V3-SEED-024",
+    "LVCOMP-V3-SEED-025",
+    "LVCOMP-V3-SEED-031",
+    "LVCOMP-V3-U-001",
+    "LVCOMP-V3-U-002",
+    "LVCOMP-V3-U-003",
+    "LVCOMP-V3-U-004",
+    "LVCOMP-V3-U-005",
+    "LVCOMP-V3-U-006",
+    "LVCOMP-V3-U-007",
+    "P7_R4_F1",
+    "P7_R4_F2",
+    "P7_R4_F3",
+    "P7_R4_F4",
+    "P7_TJR_R3",
+    "P7_VTCD_C2",
+    "P7_VTCD_C4",
+    "TA_LVCOMP-V2-002",
+    "TA_LVCOMP-V2-003"
+  ],
+  "sources": {
+    "approved_structured_graphs_v0.2": [
+      "Cm73ma6Ibcs",
+      "LLSJrEgOOtw",
+      "TJR1oYDDTwg",
+      "VTCDQYYKA9o"
+    ],
+    "approved_qa_uids": [
+      "P7_R4_F1",
+      "P7_R4_F2",
+      "P7_TJR_R3",
+      "P7_VTCD_C2"
+    ],
+    "round4_unseen_structure_candidates": [
+      "Cm73ma6Ibcs",
+      "LLSJrEgOOtw",
+      "Z86xysw5Ncc",
+      "xi6r3hZe5Tg"
+    ],
+    "workbench_user_preclass_unseen": [
+      "Cm73ma6Ibcs",
+      "JTa_Ue2MSwc",
+      "LLSJrEgOOtw",
+      "TJR1oYDDTwg",
+      "VTCDQYYKA9o",
+      "Z86xysw5Ncc",
+      "xi6r3hZe5Tg"
+    ],
+    "v2_1_test_videos": [
+      "JTa_Ue2MSwc",
+      "XNtNNplAwiI",
+      "cWEnogdsW78"
+    ],
+    "v3_test_videos": [
+      "HfEVEGf1A8Q",
+      "JTa_Ue2MSwc",
+      "JlrzSvCsIjE",
+      "RjDrZkBwzho",
+      "XNtNNplAwiI",
+      "cWEnogdsW78",
+      "sk00epALZps",
+      "t-RtDI2RWQs"
+    ],
+    "composition_protect_extra": [
+      "Cm73ma6Ibcs",
+      "LLSJrEgOOtw",
+      "TJR1oYDDTwg",
+      "VTCDQYYKA9o",
+      "Z86xysw5Ncc",
+      "xi6r3hZe5Tg"
+    ]
+  },
+  "informational_not_hard_block": {
+    "construction_exposed_or_assistant_discovery": [
+      "Cm73ma6Ibcs",
+      "HfEVEGf1A8Q",
+      "JPPMz8fEml0",
+      "JTa_Ue2MSwc",
+      "JlrzSvCsIjE",
+      "LLSJrEgOOtw",
+      "Mcggugol2ts",
+      "QWXlvx1GoTY",
+      "RjDrZkBwzho",
+      "S8vPx-u9p_A",
+      "T1yhBv1ytzw",
+      "TJR1oYDDTwg",
+      "VTCDQYYKA9o",
+      "XNtNNplAwiI",
+      "Z86xysw5Ncc",
+      "_T2Avd3tFHc",
+      "cWEnogdsW78",
+      "evYm0cELO3I",
+      "hROKtPqktO8",
+      "iA_69g87Ilw",
+      "oZEVgDXJwCc",
+      "q01CUy_gwdU",
+      "sk00epALZps",
+      "t-RtDI2RWQs",
+      "vaL_vSdZKZo",
+      "xi6r3hZe5Tg"
+    ],
+    "note": "Exposed/construction videos are ineligible for sealed blind final reservoir, but are NOT automatically formal Seen. For this Seen pilot, hard isolation is Unseen/approved-graph/test only; construction_exposed is recorded per pack.",
+    "sealed_reservoir_current_ids": []
+  },
+  "historical_train_pool_note": {
+    "source": "v2_1/pilot_split.json train_ids",
+    "historical_train_n": 39,
+    "label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN"
+  }
+}

@@ -2,6 +2,8 @@
 (function () {
   const LS_KEY = "p7_scientific_judgments_v1"; // keep compatible
   const LS_DRAFT_HIST = "p7_scientific_judgments_draft_history_v2";
+  const LS_SEEN_PILOT = "p7_seen_pilot_run_001_judgments_v1";
+  const LS_SEEN_PILOT_HIST = "p7_seen_pilot_run_001_draft_history_v1";
   const CORE_EXPORT_FIELDS = [
     "a_only_sufficient",
     "b_only_sufficient",
@@ -21,6 +23,21 @@
     "shortcut_risk",
     "single_window_observation",
   ];
+  const SEEN_PILOT_FIELDS = [
+    "events",
+    "persons",
+    "objects",
+    "actions",
+    "temporal_relations",
+    "identity_binding",
+    "a_only_sufficient",
+    "b_only_sufficient",
+    "a_plus_b_supports_user_answer",
+    "directed_program_draft",
+    "rationale_and_open_issues",
+    "reviewer",
+    "reviewed_utc",
+  ];
 
   const state = {
     catalog: null,
@@ -29,6 +46,10 @@
     graphLib: null,
     opLib: null,
     demoLib: null,
+    seenPilotCatalog: null,
+    seenPilotBlank: null,
+    seenPilotImported: null,
+    seenPilotIsolation: null,
     selectedGraphId: null,
     compareLeft: null,
     compareRight: null,
@@ -727,8 +748,197 @@ use Window A compare for pairwise detail</pre>
         <pre>status = NOT_COMPUTABLE_MISSING_APPROVED_POOLS
 note = four approved graphs are NOT auto-treated as formal Unseen; Seen train pool not frozen</pre>
       </div>
-      <p class="meta">确定性实现与单测：<code>eng/structure_checks.py</code> · <code>eng/tests/</code></p>
+      <div class="qa">
+        <strong>Seen Pilot run_001 隔离</strong>
+        <pre>${esc(JSON.stringify({
+          status: state.seenPilotIsolation?.status,
+          selected_video_ids: state.seenPilotIsolation?.selected_video_ids,
+          hard_exclude_video_leakage: state.seenPilotIsolation?.hard_exclude_video_leakage,
+          hard_exclude_uid_leakage: state.seenPilotIsolation?.hard_exclude_uid_leakage,
+          historical_train_label_does_not_certify_formal_seen: true,
+          uniform_status: "PENDING_HUMAN_VIDEO_REVIEW",
+        }, null, 2))}</pre>
+      </div>
+      <p class="meta">确定性实现与单测：<code>eng/structure_checks.py</code> · <code>eng/seen_pilot_isolation.py</code> · <code>eng/tests/</code></p>
     </div>`;
+  }
+
+  function collectSeenPilotFormItems() {
+    const formItems = {};
+    document.querySelectorAll("#pane-seen-pilot [data-seen-item][data-seen-field]").forEach((el) => {
+      const id = el.dataset.seenItem;
+      const field = el.dataset.seenField;
+      if (!formItems[id]) formItems[id] = {};
+      formItems[id][field] = el.value;
+    });
+    return formItems;
+  }
+
+  function applySeenPilotValues(items) {
+    Object.entries(items || {}).forEach(([id, fields]) => {
+      Object.entries(fields || {}).forEach(([field, val]) => {
+        const el = document.getElementById(`${id}__sp__${field}`);
+        if (el) el.value = val == null ? "" : String(val);
+      });
+    });
+  }
+
+  function seenPilotField(id, field, label, type) {
+    const fid = `${id}__sp__${field}`;
+    if (type === "select") {
+      const opts = ["", "是", "否", "不确定", "未评"];
+      return `<label for="${fid}">${esc(label)}</label>
+        <select id="${fid}" data-seen-item="${esc(id)}" data-seen-field="${esc(field)}">
+          ${opts.map((o) => `<option value="${esc(o)}">${esc(o || "（空）")}</option>`).join("")}
+        </select>`;
+    }
+    return `<label for="${fid}">${esc(label)}</label>
+      <textarea id="${fid}" data-seen-item="${esc(id)}" data-seen-field="${esc(field)}" placeholder="由用户填写；工程不裁决"></textarea>`;
+  }
+
+  function renderSeenPilotCard(it) {
+    const id = it.workbench_id;
+    const mediaBad = it.media_status === "MEDIA_UNAVAILABLE";
+    const mediaTag = mediaBad
+      ? '<span class="tag demo">MEDIA_UNAVAILABLE · 不得视为已审核</span>'
+      : '<span class="tag pending">PENDING_HUMAN_VIDEO_REVIEW</span>';
+    const clue = it.qa_clue_unverified || {};
+    let players = "";
+    if (mediaBad || !it.clips?.A || !it.clips?.B) {
+      players = `<div class="qa"><strong>MEDIA_UNAVAILABLE</strong><p class="meta">片段缺失或提取失败；禁止当作已人工审核通过。</p></div>`;
+    } else {
+      players = `<div class="players ab">
+        ${videoBlock("A-only（待验证）", it.clips.A)}
+        ${videoBlock("B-only（待验证）", it.clips.B)}
+      </div>`;
+    }
+    return `<section class="card" id="${esc(id)}">
+      <h2>${esc(id)} ${mediaTag}</h2>
+      <p class="meta">pack=<code>${esc(it.pack_id)}</code> · video_id=<code>${esc(it.video_id)}</code> · qa_uid=<code>${esc(it.qa_uid)}</code>
+        · formal_seen_train=<code>false</code> · train_exposed=<code>false</code> · gold=<code>false</code></p>
+      <p class="meta">筛选理由：${esc(it.selection_reason || "")}</p>
+      <p class="meta">construction_exposed（信息项，非正式认证）=<code>${esc(String(!!it.construction_exposed))}</code></p>
+      <div class="qa">
+        <strong>原始 Q/A 线索（UNVERIFIED_HISTORICAL_CLUE_ONLY）</strong>
+        <div>Q：${esc(clue.question || "")}</div>
+        <div>A：${esc(clue.answer || "")}</div>
+        <p class="meta">不得自动当作已验证科学判断。</p>
+      </div>
+      <p class="meta">区间 / 提取依据：<code>${esc(JSON.stringify(it.intervals || {}))}</code></p>
+      ${players}
+      <p class="meta">审核包：<code>${esc(it.pack_path || "")}</code></p>
+      <div class="fields">
+        <h3>视频证据填写区 <span class="tag pending">人工</span></h3>
+        ${seenPilotField(id, "events", "事件", "textarea")}
+        ${seenPilotField(id, "persons", "人物", "textarea")}
+        ${seenPilotField(id, "objects", "物体", "textarea")}
+        ${seenPilotField(id, "actions", "动作", "textarea")}
+        ${seenPilotField(id, "temporal_relations", "时间关系", "textarea")}
+        ${seenPilotField(id, "identity_binding", "身份绑定", "textarea")}
+        ${seenPilotField(id, "a_only_sufficient", "A-only 是否充分？", "select")}
+        ${seenPilotField(id, "b_only_sufficient", "B-only 是否充分？", "select")}
+        ${seenPilotField(id, "a_plus_b_supports_user_answer", "A+B 是否支持答案线索？", "select")}
+        ${seenPilotField(id, "directed_program_draft", "有向程序图草案（用户可编辑）", "textarea")}
+        ${seenPilotField(id, "rationale_and_open_issues", "依据与未决问题", "textarea")}
+        <label for="${id}__sp__reviewer">填写人</label>
+        <input type="text" id="${id}__sp__reviewer" data-seen-item="${esc(id)}" data-seen-field="reviewer" placeholder="USER / GPT+USER"/>
+      </div>
+    </section>`;
+  }
+
+  function renderSeenPilotPane() {
+    const pane = document.getElementById("pane-seen-pilot");
+    const cat = state.seenPilotCatalog;
+    const iso = state.seenPilotIsolation;
+    if (!cat) {
+      pane.innerHTML = `<div class="card"><p>Seen Pilot 目录未加载。</p></div>`;
+      return;
+    }
+    const toc = (cat.items || [])
+      .map((it) => `<a href="#${esc(it.workbench_id)}">${esc(it.pack_id)}</a>`)
+      .join("");
+    pane.innerHTML = `<div class="card">
+      <h2>Seen Human Annotation Pilot · run_001</h2>
+      <p class="meta">状态统一：<span class="tag pending">PENDING_HUMAN_VIDEO_REVIEW</span>。
+        禁止自动标记 USER_APPROVED_STRUCTURED_GRAPH / FORMAL_SEEN_TRAIN / TRAIN_EXPOSED / GOLD。
+        本页存储键独立（<code>${LS_SEEN_PILOT}</code>），不覆盖已有科学判断与四张已批准 Unseen 候选图。</p>
+      <p class="meta">隔离检查：<code>${esc(iso?.status || "N/A")}</code> · 候选数 ${esc(String(cat.items?.length || 0))} ·
+        video 泄漏 ${esc(JSON.stringify(iso?.hard_exclude_video_leakage || []))}</p>
+      <div class="toolbar">
+        <button type="button" data-seen-action="export">导出 Seen Pilot 判断 JSON</button>
+        <button type="button" class="secondary" data-seen-action="save">暂存 localStorage</button>
+        <button type="button" class="secondary" data-seen-action="history">恢复历史草稿</button>
+        <label class="meta" style="font-weight:400">导入 JSON <input type="file" accept="application/json,.json" data-seen-action="import"/></label>
+      </div>
+      <div id="seen-pilot-toc" class="toolbar">${toc}</div>
+    </div>
+    ${(cat.items || []).map(renderSeenPilotCard).join("")}`;
+
+    // seed from blank / localStorage without marking reviewed
+    const saved = localStorage.getItem(LS_SEEN_PILOT);
+    const base = state.seenPilotImported || state.seenPilotBlank || { items: {} };
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        applySeenPilotValues(parsed.items || {});
+      } catch (_) {
+        applySeenPilotValues(base.items || {});
+      }
+    } else {
+      applySeenPilotValues(base.items || {});
+    }
+
+    pane.querySelector('[data-seen-action="save"]')?.addEventListener("click", () => {
+      const formItems = collectSeenPilotFormItems();
+      const payload = IO.buildExportPayload({
+        imported: state.seenPilotImported || state.seenPilotBlank,
+        formItems,
+        nowIso: new Date().toISOString(),
+        disclaimer: "Seen pilot draft; not formal Seen certification",
+      });
+      localStorage.setItem(LS_SEEN_PILOT, JSON.stringify(payload));
+      const hist = JSON.parse(localStorage.getItem(LS_SEEN_PILOT_HIST) || "[]");
+      hist.unshift({ utc: payload.exported_utc, payload });
+      localStorage.setItem(LS_SEEN_PILOT_HIST, JSON.stringify(hist.slice(0, 20)));
+      toast("Seen Pilot 已暂存（非正式认证）");
+    });
+    pane.querySelector('[data-seen-action="export"]')?.addEventListener("click", () => {
+      const formItems = collectSeenPilotFormItems();
+      const payload = IO.buildExportPayload({
+        imported: state.seenPilotImported || state.seenPilotBlank,
+        formItems,
+        nowIso: new Date().toISOString(),
+        disclaimer: "Seen pilot human review export; Cursor did not adjudicate formal Seen/Unseen/Gold",
+      });
+      // never allow formal flags through export defaults
+      Object.values(payload.items || {}).forEach((it) => {
+        it.user_confirmation_status = "PENDING_HUMAN_VIDEO_REVIEW";
+        it.formal_seen_train = false;
+        it.formal_gold = false;
+        it.train_exposed = false;
+      });
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "SEEN_PILOT_RUN_001_JUDGMENTS.json";
+      a.click();
+      toast("已导出 Seen Pilot JSON");
+    });
+    pane.querySelector('[data-seen-action="history"]')?.addEventListener("click", () => {
+      const hist = JSON.parse(localStorage.getItem(LS_SEEN_PILOT_HIST) || "[]");
+      if (!hist.length) return toast("无 Seen Pilot 历史草稿");
+      applySeenPilotValues(hist[0].payload.items || {});
+      toast("已恢复最近 Seen Pilot 草稿");
+    });
+    pane.querySelector('[data-seen-action="import"]')?.addEventListener("change", async (ev) => {
+      const f = ev.target.files?.[0];
+      if (!f) return;
+      const text = await f.text();
+      const parsed = JSON.parse(text);
+      state.seenPilotImported = parsed;
+      applySeenPilotValues(parsed.items || {});
+      toast("已导入 Seen Pilot JSON（保留未知字段）");
+    });
   }
 
   function showTab(name) {
@@ -740,12 +950,15 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
   }
 
   async function main() {
-    const [catalog, judgments, graphLib, opLib, demoLib] = await Promise.all([
+    const [catalog, judgments, graphLib, opLib, demoLib, seenPilotCatalog, seenPilotBlank, seenPilotIsolation] = await Promise.all([
       fetch("WORKBENCH_CATALOG.json", { cache: "no-store" }).then((r) => r.json()),
       fetch("SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json", { cache: "no-store" }).then((r) => r.json()),
       fetch("data/PROGRAM_GRAPH_LIBRARY_v1.json", { cache: "no-store" }).then((r) => r.json()),
       fetch("data/OPERATOR_LIBRARY_v1.json", { cache: "no-store" }).then((r) => r.json()),
       fetch("data/DEMO_STRUCTURED_GRAPHS.json", { cache: "no-store" }).then((r) => r.json()),
+      fetch("seen_pilot_run_001/CATALOG.json", { cache: "no-store" }).then((r) => r.json()),
+      fetch("seen_pilot_run_001/JUDGMENTS_BLANK.json", { cache: "no-store" }).then((r) => r.json()),
+      fetch("seen_pilot_run_001/ISOLATION_CHECK.json", { cache: "no-store" }).then((r) => r.json()),
     ]);
     state.catalog = catalog;
     state.judgmentsFile = judgments;
@@ -753,7 +966,12 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
     state.graphLib = graphLib;
     state.opLib = opLib;
     state.demoLib = demoLib;
+    state.seenPilotCatalog = seenPilotCatalog;
+    state.seenPilotBlank = seenPilotBlank;
+    state.seenPilotImported = JSON.parse(JSON.stringify(seenPilotBlank));
+    state.seenPilotIsolation = seenPilotIsolation;
     renderReviewPane();
+    renderSeenPilotPane();
     renderWindowA();
     renderWindowB();
     renderChecksPane();
