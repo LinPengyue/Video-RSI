@@ -64,10 +64,12 @@
     }
   ],
   "pack_json_sha256": {
-    "SP001_aJI8XTa_DII.json": "5c327b9f3c946c73dc0b8361a861b40c8347bec837abdfd927a9f0b1f5d92bc9",
-    "SP002_vHlSoxg8WHo.json": "9f3ec079f73303fc11ba72cc7c97ccc6579bbe507eff517e5bdc11a4e1c95964",
-    "SP003_2LH3JCGkEBU.json": "dea3e9102c92480a1518889c584acd67a3cb6104ad3fd3145d8d675611c3b6ed",
-    "SP004_f8DKD78BrQA.json": "6eb5db6f3c8f4613c0b03d37a956b307a12a90f7272101334e1f2026a6252313",
-    "SP005_KLIa2UaE2KE.json": "b5e9c2ad8058d53cb4bc9f6a0d7c0187e3a47089ea610d5361fde9a5b9fe447f"
-  }
+    "SP001_aJI8XTa_DII.json": "a042c86928c2dbf110ef5738c752bed36282698fa0674093434f85c2430584de",
+    "SP002_vHlSoxg8WHo.json": "6aa081a76783a8b92ac93aa772274e5034e47d0b9f2dab211b14e29ac7e969f0",
+    "SP003_2LH3JCGkEBU.json": "7a7663465136b1468d4a9b16e59b07c2bfb1b2c86e9a57afc2f4c2de87b3a39e",
+    "SP004_f8DKD78BrQA.json": "6135ea838756f21af3444c4168ec88d00d737eeca95daad93c1129dea967ef38",
+    "SP005_KLIa2UaE2KE.json": "5324084ad0bf1a8d2e9e2856be89a66a9b4b7fa02d7fb7f12239e9264943da33"
+  },
+  "scientific_review_source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+  "scientific_review_ingested_utc": "2026-11-03T00:37:24+00:00"
 }

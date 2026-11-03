@@ -1,0 +1,99 @@
+{
+  "schema": "seen_pilot_scientific_review_record_v1",
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP005",
+  "workbench_id": "SEEN_PILOT_SP005",
+  "video_id": "KLIa2UaE2KE",
+  "qa_uid": "LVCOMP-V2-026",
+  "windows_seconds": {
+    "A": [
+      1,
+      4
+    ],
+    "B": [
+      673,
+      680
+    ]
+  },
+  "original_question": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+  "historical_answer": "5",
+  "raw_scientific_judgment": {
+    "pack_id": "SP005",
+    "video_id": "KLIa2UaE2KE",
+    "qa_uid": "LVCOMP-V2-026",
+    "windows_seconds": {
+      "A": [
+        1,
+        4
+      ],
+      "B": [
+        673,
+        680
+      ]
+    },
+    "original_question": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+    "historical_answer": "5",
+    "user_observations": [
+      "A shows female supporters waving an Italian flag.",
+      "B shows Italy playing Brazil, with Italian player number 5 scoring.",
+      "User confirms B depicts Italy's tenth point in the first set.",
+      "B can identify Italy, but cannot determine which country's flag was waved at the beginning; that referent requires A.",
+      "Either team could reach ten points, so recognizing Italy in B is not enough to select the target country without A."
+    ],
+    "approved_graph_version": "v0.2",
+    "graph": {
+      "A": [
+        "DetectWavedFlag",
+        "IdentifyFlagCountry→Italy"
+      ],
+      "B": [
+        "IdentifyTeams(Italy,Brazil)",
+        "SelectTeam(target_country)",
+        "LocateSet(first)",
+        "LocateTeamPoint(team=Italy,point=10)",
+        "IdentifyScoringPlayer"
+      ],
+      "cross_window": "CrossClipCountryBind(A.target_country, B.team)",
+      "answer": "5"
+    },
+    "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+    "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+    "composition_necessity": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+    "correction_history": [
+      "Initial B-only shortcut classification was based on incorrectly equating B's ability to identify Italy with B's ability to resolve the question's flag-defined target country.",
+      "User corrected that the flag in A selects the queried country; both teams can potentially score a tenth point.",
+      "PREVIOUS_B_ONLY_SHORTCUT_CLASSIFICATION_RETRACTED",
+      "User explicitly approved corrected v0.2 directed graph."
+    ],
+    "caveats": [
+      "Semantic referent necessity is user-supported; no model ablation or shortcut-resistance experiment has yet been run."
+    ]
+  },
+  "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+  "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+  "composition_necessity": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+  "approved_graph_version": "v0.2",
+  "compositional_candidate_graph_approved": true,
+  "counted_in_approved_compositional_candidate_set": true,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingest": {
+    "source_artifact": "scientific_reviews/RAW_seen_pilot_run_001_scientific_review.json",
+    "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+    "ingested_utc": "2026-11-03T00:37:24+00:00",
+    "idempotency_key": "SP005::7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722"
+  },
+  "engineering_validation": {
+    "status": "N_A"
+  },
+  "must_preserve_labels": [
+    "PREVIOUS_B_ONLY_SHORTCUT_CLASSIFICATION_RETRACTED"
+  ],
+  "forbidden_labels": [
+    "B_ONLY_SHORTCUT_CONFIRMED"
+  ]
+}

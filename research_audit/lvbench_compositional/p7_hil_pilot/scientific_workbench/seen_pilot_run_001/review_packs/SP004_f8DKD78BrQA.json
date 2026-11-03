@@ -2,7 +2,7 @@
   "run_id": "seen_pilot_run_001",
   "pack_id": "SP004",
   "workbench_id": "SEEN_PILOT_SP004",
-  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "user_confirmation_status": "SCIENTIFIC_REVIEW_INGESTED",
   "formal_seen_train": false,
   "formal_unseen": false,
   "formal_gold": false,
@@ -140,5 +140,17 @@
     "FORMAL_SEEN_TRAIN",
     "TRAIN_EXPOSED",
     "GOLD"
-  ]
+  ],
+  "scientific_review_pointer": {
+    "ingested": true,
+    "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+    "graph_decision": "COMPOSITION_GRAPH_NOT_APPROVED",
+    "classification": "A_ONLY_ORDER_SHORTCUT_RISK_WITH_UNRESOLVED_DESCRIPTION_REFERENT",
+    "composition_necessity": "NOT_ESTABLISHED",
+    "approved_graph_version": null,
+    "compositional_candidate_graph_approved": false,
+    "record_path": "scientific_reviews/RECORDS_BY_PACK/SP004.json"
+  },
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
 }

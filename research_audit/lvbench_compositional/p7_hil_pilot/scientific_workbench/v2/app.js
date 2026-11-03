@@ -799,9 +799,19 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
   function renderSeenPilotCard(it) {
     const id = it.workbench_id;
     const mediaBad = it.media_status === "MEDIA_UNAVAILABLE";
-    const mediaTag = mediaBad
-      ? '<span class="tag demo">MEDIA_UNAVAILABLE · 不得视为已审核</span>'
-      : '<span class="tag pending">PENDING_HUMAN_VIDEO_REVIEW</span>';
+    const sr = it.scientific_review || null;
+    let mediaTag;
+    if (mediaBad) {
+      mediaTag = '<span class="tag demo">MEDIA_UNAVAILABLE · 不得视为已审核</span>';
+    } else if (sr?.compositional_candidate_graph_approved) {
+      mediaTag = `<span class="tag seen">COMPOSITIONAL_CANDIDATE_APPROVED ${esc(sr.approved_graph_version || "")}</span><span class="tag pending">≠正式Seen/Gold</span>`;
+    } else if (sr?.graph_decision === "COMPOSITION_GRAPH_NOT_APPROVED") {
+      mediaTag = `<span class="tag demo">NOT_APPROVED</span><span class="tag pending">${esc(sr.classification || "")}</span>`;
+    } else if (sr?.ingested) {
+      mediaTag = '<span class="tag pending">SCIENTIFIC_REVIEW_INGESTED</span>';
+    } else {
+      mediaTag = '<span class="tag pending">PENDING_HUMAN_VIDEO_REVIEW</span>';
+    }
     const clue = it.qa_clue_unverified || {};
     let players = "";
     if (mediaBad || !it.clips?.A || !it.clips?.B) {
@@ -818,6 +828,13 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
         · formal_seen_train=<code>false</code> · train_exposed=<code>false</code> · gold=<code>false</code></p>
       <p class="meta">筛选理由：${esc(it.selection_reason || "")}</p>
       <p class="meta">construction_exposed（信息项，非正式认证）=<code>${esc(String(!!it.construction_exposed))}</code></p>
+      ${sr ? `<div class="qa"><strong>科学审核落盘（只读摘要）</strong>
+        <div>graph_decision：<code>${esc(sr.graph_decision || "")}</code></div>
+        <div>classification：<code>${esc(sr.classification || "")}</code></div>
+        <div>composition_necessity：<code>${esc(sr.composition_necessity || "")}</code></div>
+        <div>record：<code>${esc(sr.record_path || "")}</code></div>
+        <p class="meta">原始观察与纠错历史见 scientific_reviews/；工程校验≠科学升级。</p>
+      </div>` : ""}
       <div class="qa">
         <strong>原始 Q/A 线索（UNVERIFIED_HISTORICAL_CLUE_ONLY）</strong>
         <div>Q：${esc(clue.question || "")}</div>

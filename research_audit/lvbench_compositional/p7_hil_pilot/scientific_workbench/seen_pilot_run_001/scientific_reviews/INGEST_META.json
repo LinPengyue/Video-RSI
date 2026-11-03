@@ -1,0 +1,8 @@
+{
+  "source_path": "seen_pilot_run_001/scientific_reviews/RAW_seen_pilot_run_001_scientific_review.json",
+  "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+  "ingested_utc": "2026-11-03T00:37:24+00:00",
+  "engineering_baseline_commit": "e904adac101be299c21159c8dc949f61baccf205",
+  "idempotent_replay": true,
+  "raw_bytes": 9181
+}

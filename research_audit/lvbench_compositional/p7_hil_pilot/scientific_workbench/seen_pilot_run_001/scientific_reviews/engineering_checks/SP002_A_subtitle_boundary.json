@@ -1,0 +1,26 @@
+{
+  "check_id": "SP002_A_SUBTITLE_BOUNDARY_COVERAGE",
+  "layer": "ENGINEERING_VALIDATION_ONLY",
+  "not_scientific_adjudication": true,
+  "claimed_subtitle_source_time_approx_s": 78,
+  "a_window_source_s": [
+    2,
+    78
+  ],
+  "relative_time_in_clip_approx_s": 76,
+  "clip_relpath": "seen_pilot_run_001/media/SP002/A_vHlSoxg8WHo_2_78.mp4",
+  "clip_duration_s_measured": 76.009267,
+  "coverage_status": "COVERED_IN_EXISTING_A_CLIP",
+  "evidence": {
+    "method": "ffmpeg end-of-clip stills + human visual inspection of lower-third graphics",
+    "frames": {
+      "t74.jpg": "Topic lower-third present; TACARA name graphic NOT yet visible in this sample frame.",
+      "t75.jpg": "TACARA name graphic VISIBLE in lower-third.",
+      "t755.jpg": "TACARA name graphic VISIBLE.",
+      "t759.jpg": "TACARA name graphic VISIBLE near clip end."
+    },
+    "finding": "TACARA on-screen name graphic is visible by ~75s relative (~source 77s) within the existing A clip ending ~76.01s; not a silent rewrite of scientific judgment."
+  },
+  "minimal_repair_if_missing": "NOT_NEEDED — if future re-encode truncates end, extend A end by +2–3s and re-verify; do not auto-reapprove.",
+  "conflicts_with_scientific_review": false
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "seen_pilot_scientific_review_record_v1",
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP003",
+  "workbench_id": "SEEN_PILOT_SP003",
+  "video_id": "2LH3JCGkEBU",
+  "qa_uid": "LVCOMP-V2-100",
+  "windows_seconds": {
+    "A": [
+      515,
+      540
+    ],
+    "B": [
+      544,
+      553
+    ]
+  },
+  "original_question": "What did the man do after kissing the woman's hands during the Vancouver 2010 performance that was done while wearing a white dress?",
+  "historical_answer": "He got down on one knee",
+  "raw_scientific_judgment": {
+    "pack_id": "SP003",
+    "video_id": "2LH3JCGkEBU",
+    "qa_uid": "LVCOMP-V2-100",
+    "windows_seconds": {
+      "A": [
+        515,
+        540
+      ],
+      "B": [
+        544,
+        553
+      ]
+    },
+    "original_question": "What did the man do after kissing the woman's hands during the Vancouver 2010 performance that was done while wearing a white dress?",
+    "historical_answer": "He got down on one knee",
+    "user_observations": [
+      "Both A and B identify the performance.",
+      "B shows hand kissing and the subsequent action.",
+      "User explicitly confirms B alone is sufficient to answer the original question."
+    ],
+    "graph_decision": "COMPOSITION_GRAPH_NOT_APPROVED",
+    "classification": "USER_VERIFIED_B_ONLY_SHORTCUT",
+    "composition_necessity": "FAIL_B_ONLY_SUFFICIENT",
+    "observed_execution_path": [
+      "B.IdentifyPerformance",
+      "B.DetectHandKiss",
+      "B.DetectFollowingAction",
+      "Answer"
+    ],
+    "caveats": [
+      "Historical action wording 'got down on one knee' was not separately transcribed from the user observation.",
+      "Retain as shortcut diagnostic, not approved compositional candidate."
+    ]
+  },
+  "graph_decision": "COMPOSITION_GRAPH_NOT_APPROVED",
+  "classification": "USER_VERIFIED_B_ONLY_SHORTCUT",
+  "composition_necessity": "FAIL_B_ONLY_SUFFICIENT",
+  "approved_graph_version": null,
+  "compositional_candidate_graph_approved": false,
+  "counted_in_approved_compositional_candidate_set": false,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingest": {
+    "source_artifact": "scientific_reviews/RAW_seen_pilot_run_001_scientific_review.json",
+    "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+    "ingested_utc": "2026-11-03T00:37:24+00:00",
+    "idempotency_key": "SP003::7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722"
+  },
+  "engineering_validation": {
+    "status": "N_A"
+  }
+}

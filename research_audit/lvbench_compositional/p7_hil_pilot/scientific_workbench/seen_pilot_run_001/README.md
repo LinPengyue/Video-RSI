@@ -4,9 +4,13 @@ Engineering preparation only. **Not** formal Seen certification, train-pool free
 
 ## Status
 
-All packs: `PENDING_HUMAN_VIDEO_REVIEW`
+After scientific review ingest: packs are `SCIENTIFIC_REVIEW_INGESTED`.
 
-Forbidden auto-labels: `USER_APPROVED_STRUCTURED_GRAPH`, `FORMAL_SEEN_TRAIN`, `TRAIN_EXPOSED`, `GOLD`
+- 3 compositional **candidate** graphs approved (SP001/SP002/SP005) — **not** formal Seen/Gold
+- 2 not approved (SP003/SP004)
+- Forbidden formal gates remain false: `formal_seen_train`, `train_exposed`, `formal_gold`, pool freeze, expensive Track A RSI
+
+See `SCIENTIFIC_REVIEW_INGEST_REPORT.md` and `scientific_reviews/`.
 
 ## Workbench
 

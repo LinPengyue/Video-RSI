@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "run_id": "seen_pilot_run_001",
+  "review_scope": "human-reported video observations and scientific decisions; not independent frame-level verification",
+  "repository": "LinPengyue/Video-RSI",
+  "branch": "research/lvbench-comp-p7-hil-pilot",
+  "engineering_source_commit": "e904adac101be299c21159c8dc949f61baccf205",
+  "decision_policy": {
+    "candidate_only": true,
+    "formal_seen_train": false,
+    "formal_unseen": false,
+    "formal_gold": false,
+    "train_exposed": false,
+    "seen_pool_frozen": false,
+    "approve_expensive_track_a_rsi": false,
+    "do_not_override_protected_splits": true,
+    "no_automatic_promotion": true
+  },
+  "summary": {
+    "reviewed": 5,
+    "user_approved_compositional_candidate_graphs": 3,
+    "not_approved_compositional_graphs": 2,
+    "approved_ids": ["SP001", "SP002", "SP005"],
+    "not_approved_ids": ["SP003", "SP004"],
+    "interpretation": "Small selected human-reviewed pilot; not a population yield estimate. Graph approval does not imply formal Seen/Gold or experimental generalization evidence."
+  },
+  "reviews": [
+    {
+      "pack_id": "SP001",
+      "video_id": "aJI8XTa_DII",
+      "qa_uid": "LVCOMP-V2-036",
+      "windows_seconds": {"A": [53,86], "B": [2965,2968]},
+      "original_question": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+      "historical_answer": "5",
+      "user_observations": [
+        "A shows Putin's first-speech stage and five Russian flags among flags of multiple countries.",
+        "B shows the gold-clock building and a Russian tricolor.",
+        "A alone cannot resolve which national flags are referenced by the building in B; B alone cannot count stage flags."
+      ],
+      "approved_graph_version": "v0.3",
+      "graph": {
+        "A": ["LocateFirstSpeechStage", "DetectMultipleNationalFlags", "MatchFlagsByCountry", "CountMatchedFlags"],
+        "B": ["LocateClockBuilding", "IdentifyFlagOnFlagpole", "IdentifyCountry(Russia)"],
+        "cross_window": "CrossClipCountryBind(B.country, A.flag_country)",
+        "answer": "5"
+      },
+      "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+      "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+      "composition_necessity": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+      "caveats": ["Exact flagpole-top spatial relation was not separately frame-verified.", "Window times are source references, not precise certified event boundaries."]
+    },
+    {
+      "pack_id": "SP002",
+      "video_id": "vHlSoxg8WHo",
+      "qa_uid": "LVCOMP-V2-045",
+      "windows_seconds": {"A": [2,78], "B": [96,172]},
+      "original_question": "What is Brittany's relationship to the person shown at 00:02?",
+      "historical_answer": "sister",
+      "user_observations": [
+        "A at 00:02 shows a Black woman with short hair and a red shirt.",
+        "A subtitle at approximately 01:18 identifies Tacara; user confirms identity binding through consistent appearance and context.",
+        "B at approximately 14 seconds relative to B displays subtitle 'Brittany (Tacara's sister)'.",
+        "B alone cannot identify the person referred to at 00:02."
+      ],
+      "approved_graph_version": "v0.2",
+      "graph": {
+        "A": ["ObservePerson(t≈00:02)→P", "ReadNameSubtitle(t≈01:18)→Tacara", "TemporalPersonBind(P,Tacara)"],
+        "B": ["ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)"],
+        "cross_window": "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))",
+        "answer": "sister"
+      },
+      "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+      "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+      "composition_necessity": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+      "caveats": ["A subtitle is near the A-window end boundary (78s); inspect actual clip inclusion before any downstream use.", "Appearance match is user-reported, not independent frame-level identity certification."]
+    },
+    {
+      "pack_id": "SP003",
+      "video_id": "2LH3JCGkEBU",
+      "qa_uid": "LVCOMP-V2-100",
+      "windows_seconds": {"A": [515,540], "B": [544,553]},
+      "original_question": "What did the man do after kissing the woman's hands during the Vancouver 2010 performance that was done while wearing a white dress?",
+      "historical_answer": "He got down on one knee",
+      "user_observations": ["Both A and B identify the performance.", "B shows hand kissing and the subsequent action.", "User explicitly confirms B alone is sufficient to answer the original question."],
+      "graph_decision": "COMPOSITION_GRAPH_NOT_APPROVED",
+      "classification": "USER_VERIFIED_B_ONLY_SHORTCUT",
+      "composition_necessity": "FAIL_B_ONLY_SUFFICIENT",
+      "observed_execution_path": ["B.IdentifyPerformance", "B.DetectHandKiss", "B.DetectFollowingAction", "Answer"],
+      "caveats": ["Historical action wording 'got down on one knee' was not separately transcribed from the user observation.", "Retain as shortcut diagnostic, not approved compositional candidate."]
+    },
+    {
+      "pack_id": "SP004",
+      "video_id": "f8DKD78BrQA",
+      "qa_uid": "LVCOMP-V2-037",
+      "windows_seconds": {"A": [5167,5182], "B": [5179,5194]},
+      "original_question": "Which company does the presenter mention before the company that claims to first to provide AI-powered business insights from secondary data?",
+      "historical_answer": "Servicenow",
+      "user_observations": ["A mentions ServiceNow and Cohesity in that order.", "B mentions Cohesity and Snowflake.", "A alone establishes ServiceNow-before-Cohesity mention order."],
+      "graph_decision": "COMPOSITION_GRAPH_NOT_APPROVED",
+      "classification": "A_ONLY_ORDER_SHORTCUT_RISK_WITH_UNRESOLVED_DESCRIPTION_REFERENT",
+      "composition_necessity": "NOT_ESTABLISHED",
+      "observed_execution_path": ["A.DetectMention(ServiceNow)", "A.DetectMention(Cohesity)", "A.DetermineMentionOrder", "Answer(ServiceNow)"],
+      "caveats": ["Not independently confirmed whether A alone contains the descriptive clue identifying Cohesity as the company claiming AI-powered insights from secondary data.", "A/B windows overlap approximately three seconds.", "Do not overstate full-question A-only sufficiency as proven."]
+    },
+    {
+      "pack_id": "SP005",
+      "video_id": "KLIa2UaE2KE",
+      "qa_uid": "LVCOMP-V2-026",
+      "windows_seconds": {"A": [1,4], "B": [673,680]},
+      "original_question": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+      "historical_answer": "5",
+      "user_observations": ["A shows female supporters waving an Italian flag.", "B shows Italy playing Brazil, with Italian player number 5 scoring.", "User confirms B depicts Italy's tenth point in the first set.", "B can identify Italy, but cannot determine which country's flag was waved at the beginning; that referent requires A.", "Either team could reach ten points, so recognizing Italy in B is not enough to select the target country without A."],
+      "approved_graph_version": "v0.2",
+      "graph": {
+        "A": ["DetectWavedFlag", "IdentifyFlagCountry→Italy"],
+        "B": ["IdentifyTeams(Italy,Brazil)", "SelectTeam(target_country)", "LocateSet(first)", "LocateTeamPoint(team=Italy,point=10)", "IdentifyScoringPlayer"],
+        "cross_window": "CrossClipCountryBind(A.target_country, B.team)",
+        "answer": "5"
+      },
+      "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+      "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+      "composition_necessity": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+      "correction_history": [
+        "Initial B-only shortcut classification was based on incorrectly equating B's ability to identify Italy with B's ability to resolve the question's flag-defined target country.",
+        "User corrected that the flag in A selects the queried country; both teams can potentially score a tenth point.",
+        "PREVIOUS_B_ONLY_SHORTCUT_CLASSIFICATION_RETRACTED",
+        "User explicitly approved corrected v0.2 directed graph."
+      ],
+      "caveats": ["Semantic referent necessity is user-supported; no model ablation or shortcut-resistance experiment has yet been run."]
+    }
+  ],
+  "cursor_handoff": {
+    "action": "Ingest as an auditable scientific review artifact only; retain raw user observations and correction history; validate against source packs and manifest before writing repository records.",
+    "do_not": ["Do not silently rewrite source evidence.", "Do not promote candidates to formal Seen, Gold, or Unseen.", "Do not freeze pool or mark train_exposed.", "Do not start expensive Track A RSI.", "Do not treat SP003/SP004 as approved compositional graphs.", "Do not reinstate SP005's retracted B-only shortcut label."],
+    "suggested_checks": ["Pack/video/QA UID and interval consistency", "Protected split isolation", "Graph approval gate", "SP002 A-end subtitle visibility", "SP004 descriptive referent uncertainty preserved", "SP005 correction provenance preserved"]
+  }
+}

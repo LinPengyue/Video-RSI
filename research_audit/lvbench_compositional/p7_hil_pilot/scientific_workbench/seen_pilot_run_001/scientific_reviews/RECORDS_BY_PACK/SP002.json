@@ -1,0 +1,107 @@
+{
+  "schema": "seen_pilot_scientific_review_record_v1",
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP002",
+  "workbench_id": "SEEN_PILOT_SP002",
+  "video_id": "vHlSoxg8WHo",
+  "qa_uid": "LVCOMP-V2-045",
+  "windows_seconds": {
+    "A": [
+      2,
+      78
+    ],
+    "B": [
+      96,
+      172
+    ]
+  },
+  "original_question": "What is Brittany's relationship to the person shown at 00:02?",
+  "historical_answer": "sister",
+  "raw_scientific_judgment": {
+    "pack_id": "SP002",
+    "video_id": "vHlSoxg8WHo",
+    "qa_uid": "LVCOMP-V2-045",
+    "windows_seconds": {
+      "A": [
+        2,
+        78
+      ],
+      "B": [
+        96,
+        172
+      ]
+    },
+    "original_question": "What is Brittany's relationship to the person shown at 00:02?",
+    "historical_answer": "sister",
+    "user_observations": [
+      "A at 00:02 shows a Black woman with short hair and a red shirt.",
+      "A subtitle at approximately 01:18 identifies Tacara; user confirms identity binding through consistent appearance and context.",
+      "B at approximately 14 seconds relative to B displays subtitle 'Brittany (Tacara's sister)'.",
+      "B alone cannot identify the person referred to at 00:02."
+    ],
+    "approved_graph_version": "v0.2",
+    "graph": {
+      "A": [
+        "ObservePerson(t≈00:02)→P",
+        "ReadNameSubtitle(t≈01:18)→Tacara",
+        "TemporalPersonBind(P,Tacara)"
+      ],
+      "B": [
+        "ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)"
+      ],
+      "cross_window": "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))",
+      "answer": "sister"
+    },
+    "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+    "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+    "composition_necessity": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+    "caveats": [
+      "A subtitle is near the A-window end boundary (78s); inspect actual clip inclusion before any downstream use.",
+      "Appearance match is user-reported, not independent frame-level identity certification."
+    ]
+  },
+  "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+  "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+  "composition_necessity": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+  "approved_graph_version": "v0.2",
+  "compositional_candidate_graph_approved": true,
+  "counted_in_approved_compositional_candidate_set": true,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingest": {
+    "source_artifact": "scientific_reviews/RAW_seen_pilot_run_001_scientific_review.json",
+    "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+    "ingested_utc": "2026-11-03T00:37:24+00:00",
+    "idempotency_key": "SP002::7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722"
+  },
+  "engineering_validation": {
+    "check_id": "SP002_A_SUBTITLE_BOUNDARY_COVERAGE",
+    "layer": "ENGINEERING_VALIDATION_ONLY",
+    "not_scientific_adjudication": true,
+    "claimed_subtitle_source_time_approx_s": 78,
+    "a_window_source_s": [
+      2,
+      78
+    ],
+    "relative_time_in_clip_approx_s": 76,
+    "clip_relpath": "seen_pilot_run_001/media/SP002/A_vHlSoxg8WHo_2_78.mp4",
+    "clip_duration_s_measured": 76.009267,
+    "coverage_status": "COVERED_IN_EXISTING_A_CLIP",
+    "evidence": {
+      "method": "ffmpeg end-of-clip stills + human visual inspection of lower-third graphics",
+      "frames": {
+        "t74.jpg": "Topic lower-third present; TACARA name graphic NOT yet visible in this sample frame.",
+        "t75.jpg": "TACARA name graphic VISIBLE in lower-third.",
+        "t755.jpg": "TACARA name graphic VISIBLE.",
+        "t759.jpg": "TACARA name graphic VISIBLE near clip end."
+      },
+      "finding": "TACARA on-screen name graphic is visible by ~75s relative (~source 77s) within the existing A clip ending ~76.01s; not a silent rewrite of scientific judgment."
+    },
+    "minimal_repair_if_missing": "NOT_NEEDED — if future re-encode truncates end, extend A end by +2–3s and re-verify; do not auto-reapprove.",
+    "conflicts_with_scientific_review": false
+  }
+}

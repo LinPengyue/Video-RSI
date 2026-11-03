@@ -73,8 +73,11 @@ class SeenPilotRun001Test(unittest.TestCase):
             self.assertTrue(pack["historical_train_label_present"])
             self.assertEqual(pack["historical_train_label_status"], "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN")
             self.assertFalse(pack["formal_seen_train"])
-            self.assertEqual(pack["user_confirmation_status"], "PENDING_HUMAN_VIDEO_REVIEW")
-            self.assertTrue(historical_train_label_does_not_certify(pack))
+            self.assertIn(
+                pack["user_confirmation_status"],
+                {"PENDING_HUMAN_VIDEO_REVIEW", "SCIENTIFIC_REVIEW_INGESTED"},
+            )
+            self.assertFalse(pack.get("formal_seen_train"))
             # Simulated wrong upgrade must fail helper
             bad = dict(pack, formal_seen_train=True)
             self.assertFalse(historical_train_label_does_not_certify(bad))

@@ -1,0 +1,109 @@
+{
+  "run_id": "seen_pilot_run_001",
+  "schema_version": "1.0",
+  "source_artifact": "scientific_reviews/RAW_seen_pilot_run_001_scientific_review.json",
+  "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+  "ingested_utc": "2026-11-03T00:37:24+00:00",
+  "idempotent_replay": true,
+  "decision_policy_gates": {
+    "formal_seen_train": false,
+    "formal_unseen": false,
+    "formal_gold": false,
+    "train_exposed": false,
+    "seen_pool_frozen": false,
+    "approve_expensive_track_a_rsi": false
+  },
+  "isolation_status_at_ingest": "PASS",
+  "summary": {
+    "reviewed": 5,
+    "user_approved_compositional_candidate_graphs": 3,
+    "not_approved_compositional_graphs": 2,
+    "approved_ids": [
+      "SP001",
+      "SP002",
+      "SP005"
+    ],
+    "not_approved_ids": [
+      "SP003",
+      "SP004"
+    ],
+    "interpretation": "Small selected human-reviewed pilot; not a population yield estimate. Graph approval does not imply formal Seen/Gold or experimental generalization evidence."
+  },
+  "records": [
+    {
+      "pack_id": "SP001",
+      "video_id": "aJI8XTa_DII",
+      "qa_uid": "LVCOMP-V2-036",
+      "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+      "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+      "compositional_candidate_graph_approved": true,
+      "record_path": "scientific_reviews/RECORDS_BY_PACK/SP001.json"
+    },
+    {
+      "pack_id": "SP002",
+      "video_id": "vHlSoxg8WHo",
+      "qa_uid": "LVCOMP-V2-045",
+      "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+      "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+      "compositional_candidate_graph_approved": true,
+      "record_path": "scientific_reviews/RECORDS_BY_PACK/SP002.json"
+    },
+    {
+      "pack_id": "SP003",
+      "video_id": "2LH3JCGkEBU",
+      "qa_uid": "LVCOMP-V2-100",
+      "graph_decision": "COMPOSITION_GRAPH_NOT_APPROVED",
+      "classification": "USER_VERIFIED_B_ONLY_SHORTCUT",
+      "compositional_candidate_graph_approved": false,
+      "record_path": "scientific_reviews/RECORDS_BY_PACK/SP003.json"
+    },
+    {
+      "pack_id": "SP004",
+      "video_id": "f8DKD78BrQA",
+      "qa_uid": "LVCOMP-V2-037",
+      "graph_decision": "COMPOSITION_GRAPH_NOT_APPROVED",
+      "classification": "A_ONLY_ORDER_SHORTCUT_RISK_WITH_UNRESOLVED_DESCRIPTION_REFERENT",
+      "compositional_candidate_graph_approved": false,
+      "record_path": "scientific_reviews/RECORDS_BY_PACK/SP004.json"
+    },
+    {
+      "pack_id": "SP005",
+      "video_id": "KLIa2UaE2KE",
+      "qa_uid": "LVCOMP-V2-026",
+      "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+      "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+      "compositional_candidate_graph_approved": true,
+      "record_path": "scientific_reviews/RECORDS_BY_PACK/SP005.json"
+    }
+  ],
+  "approved_compositional_candidate_graphs": [
+    {
+      "pack_id": "SP001",
+      "path": "scientific_reviews/APPROVED_COMPOSITIONAL_CANDIDATE_GRAPHS/SP001_v0.3.json",
+      "version": "v0.3"
+    },
+    {
+      "pack_id": "SP002",
+      "path": "scientific_reviews/APPROVED_COMPOSITIONAL_CANDIDATE_GRAPHS/SP002_v0.2.json",
+      "version": "v0.2"
+    },
+    {
+      "pack_id": "SP005",
+      "path": "scientific_reviews/APPROVED_COMPOSITIONAL_CANDIDATE_GRAPHS/SP005_v0.2.json",
+      "version": "v0.2"
+    }
+  ],
+  "not_approved_ids": [
+    "SP003",
+    "SP004"
+  ],
+  "engineering_checks": {
+    "SP002_A_subtitle_boundary": "scientific_reviews/engineering_checks/SP002_A_subtitle_boundary.json"
+  },
+  "protected_assets_untouched": [
+    "data/approved_graphs_v0.2/",
+    "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json",
+    "data/PROGRAM_GRAPH_LIBRARY_v1.json"
+  ],
+  "headline": "3 USER_APPROVED compositional candidate graphs; 2 NOT APPROVED; 0 formal Seen; 0 formal Gold; 0 train exposure; expensive Track A RSI remains gated."
+}

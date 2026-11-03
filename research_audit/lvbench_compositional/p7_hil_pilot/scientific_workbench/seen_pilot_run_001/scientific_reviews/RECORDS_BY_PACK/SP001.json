@@ -1,0 +1,86 @@
+{
+  "schema": "seen_pilot_scientific_review_record_v1",
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP001",
+  "workbench_id": "SEEN_PILOT_SP001",
+  "video_id": "aJI8XTa_DII",
+  "qa_uid": "LVCOMP-V2-036",
+  "windows_seconds": {
+    "A": [
+      53,
+      86
+    ],
+    "B": [
+      2965,
+      2968
+    ]
+  },
+  "original_question": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+  "historical_answer": "5",
+  "raw_scientific_judgment": {
+    "pack_id": "SP001",
+    "video_id": "aJI8XTa_DII",
+    "qa_uid": "LVCOMP-V2-036",
+    "windows_seconds": {
+      "A": [
+        53,
+        86
+      ],
+      "B": [
+        2965,
+        2968
+      ]
+    },
+    "original_question": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+    "historical_answer": "5",
+    "user_observations": [
+      "A shows Putin's first-speech stage and five Russian flags among flags of multiple countries.",
+      "B shows the gold-clock building and a Russian tricolor.",
+      "A alone cannot resolve which national flags are referenced by the building in B; B alone cannot count stage flags."
+    ],
+    "approved_graph_version": "v0.3",
+    "graph": {
+      "A": [
+        "LocateFirstSpeechStage",
+        "DetectMultipleNationalFlags",
+        "MatchFlagsByCountry",
+        "CountMatchedFlags"
+      ],
+      "B": [
+        "LocateClockBuilding",
+        "IdentifyFlagOnFlagpole",
+        "IdentifyCountry(Russia)"
+      ],
+      "cross_window": "CrossClipCountryBind(B.country, A.flag_country)",
+      "answer": "5"
+    },
+    "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+    "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+    "composition_necessity": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+    "caveats": [
+      "Exact flagpole-top spatial relation was not separately frame-verified.",
+      "Window times are source references, not precise certified event boundaries."
+    ]
+  },
+  "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+  "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+  "composition_necessity": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+  "approved_graph_version": "v0.3",
+  "compositional_candidate_graph_approved": true,
+  "counted_in_approved_compositional_candidate_set": true,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingest": {
+    "source_artifact": "scientific_reviews/RAW_seen_pilot_run_001_scientific_review.json",
+    "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+    "ingested_utc": "2026-11-03T00:37:24+00:00",
+    "idempotency_key": "SP001::7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722"
+  },
+  "engineering_validation": {
+    "status": "N_A"
+  }
+}

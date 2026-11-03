@@ -2,7 +2,7 @@
   "run_id": "seen_pilot_run_001",
   "pack_id": "SP005",
   "workbench_id": "SEEN_PILOT_SP005",
-  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "user_confirmation_status": "SCIENTIFIC_REVIEW_INGESTED",
   "formal_seen_train": false,
   "formal_unseen": false,
   "formal_gold": false,
@@ -130,5 +130,17 @@
     "FORMAL_SEEN_TRAIN",
     "TRAIN_EXPOSED",
     "GOLD"
-  ]
+  ],
+  "scientific_review_pointer": {
+    "ingested": true,
+    "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+    "graph_decision": "USER_APPROVED_STRUCTURED_GRAPH",
+    "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+    "composition_necessity": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+    "approved_graph_version": "v0.2",
+    "compositional_candidate_graph_approved": true,
+    "record_path": "scientific_reviews/RECORDS_BY_PACK/SP005.json"
+  },
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
 }

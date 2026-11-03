@@ -1,0 +1,81 @@
+{
+  "schema": "seen_pilot_scientific_review_record_v1",
+  "run_id": "seen_pilot_run_001",
+  "pack_id": "SP004",
+  "workbench_id": "SEEN_PILOT_SP004",
+  "video_id": "f8DKD78BrQA",
+  "qa_uid": "LVCOMP-V2-037",
+  "windows_seconds": {
+    "A": [
+      5167,
+      5182
+    ],
+    "B": [
+      5179,
+      5194
+    ]
+  },
+  "original_question": "Which company does the presenter mention before the company that claims to first to provide AI-powered business insights from secondary data?",
+  "historical_answer": "Servicenow",
+  "raw_scientific_judgment": {
+    "pack_id": "SP004",
+    "video_id": "f8DKD78BrQA",
+    "qa_uid": "LVCOMP-V2-037",
+    "windows_seconds": {
+      "A": [
+        5167,
+        5182
+      ],
+      "B": [
+        5179,
+        5194
+      ]
+    },
+    "original_question": "Which company does the presenter mention before the company that claims to first to provide AI-powered business insights from secondary data?",
+    "historical_answer": "Servicenow",
+    "user_observations": [
+      "A mentions ServiceNow and Cohesity in that order.",
+      "B mentions Cohesity and Snowflake.",
+      "A alone establishes ServiceNow-before-Cohesity mention order."
+    ],
+    "graph_decision": "COMPOSITION_GRAPH_NOT_APPROVED",
+    "classification": "A_ONLY_ORDER_SHORTCUT_RISK_WITH_UNRESOLVED_DESCRIPTION_REFERENT",
+    "composition_necessity": "NOT_ESTABLISHED",
+    "observed_execution_path": [
+      "A.DetectMention(ServiceNow)",
+      "A.DetectMention(Cohesity)",
+      "A.DetermineMentionOrder",
+      "Answer(ServiceNow)"
+    ],
+    "caveats": [
+      "Not independently confirmed whether A alone contains the descriptive clue identifying Cohesity as the company claiming AI-powered insights from secondary data.",
+      "A/B windows overlap approximately three seconds.",
+      "Do not overstate full-question A-only sufficiency as proven."
+    ]
+  },
+  "graph_decision": "COMPOSITION_GRAPH_NOT_APPROVED",
+  "classification": "A_ONLY_ORDER_SHORTCUT_RISK_WITH_UNRESOLVED_DESCRIPTION_REFERENT",
+  "composition_necessity": "NOT_ESTABLISHED",
+  "approved_graph_version": null,
+  "compositional_candidate_graph_approved": false,
+  "counted_in_approved_compositional_candidate_set": false,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingest": {
+    "source_artifact": "scientific_reviews/RAW_seen_pilot_run_001_scientific_review.json",
+    "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+    "ingested_utc": "2026-11-03T00:37:24+00:00",
+    "idempotency_key": "SP004::7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722"
+  },
+  "engineering_validation": {
+    "status": "N_A"
+  },
+  "must_preserve_labels": [
+    "A_ONLY_ORDER_SHORTCUT_RISK_WITH_UNRESOLVED_DESCRIPTION_REFERENT",
+    "composition_necessity=NOT_ESTABLISHED"
+  ]
+}
