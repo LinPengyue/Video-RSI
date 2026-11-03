@@ -1,0 +1,231 @@
+{
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP204",
+  "workbench_id": "SEEN_PILOT_SP204",
+  "pack_role": "PRIORITY_HUMAN_REVIEW",
+  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "historical_train_label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "construction_exposed": false,
+  "video_id": "9-gOCOu_KGU",
+  "qa_uid": "LVCOMP-V2-101",
+  "selection_reason": "Non-exposed; place identification then person-at-place query — cross-window place/person bind candidate.",
+  "qa_clue_unverified": {
+    "question": "Who is the little girl that comes to the place where the scene shown in the video is?",
+    "answer": "Mo Farah's daughter",
+    "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+    "source_questions": [
+      "Where is the scene shown in the video?\n(A) Swimming Pool\n(B) Basketball court\n(C) Sports Field\n(D) Tennis Court",
+      "Who is the little girl that comes to the sports field?\n(A) Mo Farah's daughter\n(B) Mo Fara's sister\n(C) Not Mentiened\n(D) Mo Fara's nephew"
+    ],
+    "source_answers": [
+      "C: Sports Field",
+      "A: Mo Farah's daughter"
+    ]
+  },
+  "intervals": {
+    "A": {
+      "start_s": 0.0,
+      "end_s": 85.0,
+      "basis": {
+        "source_time_reference": "00:00-01:25",
+        "parsed_start_s": 0.0,
+        "parsed_end_s": 85.0,
+        "padding_applied": false,
+        "video_duration_s": 2396.76
+      }
+    },
+    "B": {
+      "start_s": 2134.0,
+      "end_s": 2153.0,
+      "basis": {
+        "source_time_reference": "35:34-35:53",
+        "parsed_start_s": 2134.0,
+        "parsed_end_s": 2153.0,
+        "padding_applied": false,
+        "video_duration_s": 2396.76
+      }
+    },
+    "official_time_references": [
+      "00:00-01:25",
+      "35:34-35:53"
+    ]
+  },
+  "media": {
+    "status": "OK",
+    "A": {
+      "extract_status": "OK",
+      "bytes": 28050091,
+      "sha256": "1b8359d7294cb4ef2f8be4f72ae9f8d44cb51a3626bac6762e3af5915f336118",
+      "t_start_s": 0.0,
+      "t_end_s": 85.0,
+      "duration_s": 85.0,
+      "relpath": "seen_pilot_run_002/media/SP204/A_9-gOCOu_KGU_0_85.mp4",
+      "window_basis": {
+        "source_time_reference": "00:00-01:25",
+        "parsed_start_s": 0.0,
+        "parsed_end_s": 85.0,
+        "padding_applied": false,
+        "video_duration_s": 2396.76
+      }
+    },
+    "B": {
+      "extract_status": "OK",
+      "bytes": 12973739,
+      "sha256": "35e121e015d802b944cb43451095844761cb1e1aeffddc953e273b2c480db133",
+      "t_start_s": 2134.0,
+      "t_end_s": 2153.0,
+      "duration_s": 19.0,
+      "relpath": "seen_pilot_run_002/media/SP204/B_9-gOCOu_KGU_2134_2153.mp4",
+      "window_basis": {
+        "source_time_reference": "35:34-35:53",
+        "parsed_start_s": 2134.0,
+        "parsed_end_s": 2153.0,
+        "padding_applied": false,
+        "video_duration_s": 2396.76
+      }
+    }
+  },
+  "auto_screen": {
+    "qa_uid": "LVCOMP-V2-101",
+    "video_id": "9-gOCOu_KGU",
+    "composition_schema": "identify_place + query_person",
+    "question_unverified": "Who is the little girl that comes to the place where the scene shown in the video is?",
+    "answer_unverified": "Mo Farah's daughter",
+    "time_references": [
+      "00:00-01:25",
+      "35:34-35:53"
+    ],
+    "source_uids": [
+      "4330",
+      "4351"
+    ],
+    "diagnosis": {
+      "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+      "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+      "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+      "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+      "bind": {
+        "bind_variable": "target_entity_selected_in_one_window",
+        "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+        "target_referent_ambiguous_if_B_names_entity": true,
+        "notes": [
+          "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+        ]
+      },
+      "counterfactual": {
+        "applicable": true,
+        "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+        "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+        "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+        "not_video_proof": true
+      },
+      "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+      "auto_certified": false,
+      "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+    },
+    "program_draft": {
+      "draft_only": true,
+      "nodes": [
+        {
+          "clip_role": "A_or_B_identify",
+          "op": "identify_place",
+          "out": "target_entity_selected_in_one_window"
+        },
+        {
+          "clip_role": "cross",
+          "op": "CrossWindowBind",
+          "in": [
+            "target_entity_selected_in_one_window"
+          ],
+          "out": "bound_target"
+        },
+        {
+          "clip_role": "A_or_B_query",
+          "op": "query_person",
+          "in": [
+            "bound_target"
+          ],
+          "out": "answer"
+        }
+      ],
+      "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+      "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+      "not_approved": true
+    },
+    "meta": {
+      "construction_exposed": false,
+      "media_exists": true
+    },
+    "status": "PENDING_HUMAN_VIDEO_REVIEW",
+    "formal_seen_train": false,
+    "formal_gold": false,
+    "train_exposed": false
+  },
+  "program_draft": {
+    "draft_only": true,
+    "nodes": [
+      {
+        "clip_role": "A_or_B_identify",
+        "op": "identify_place",
+        "out": "target_entity_selected_in_one_window"
+      },
+      {
+        "clip_role": "cross",
+        "op": "CrossWindowBind",
+        "in": [
+          "target_entity_selected_in_one_window"
+        ],
+        "out": "bound_target"
+      },
+      {
+        "clip_role": "A_or_B_query",
+        "op": "query_person",
+        "in": [
+          "bound_target"
+        ],
+        "out": "answer"
+      }
+    ],
+    "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+    "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+    "not_approved": true
+  },
+  "human_review_questions": [
+    "Is A-only sufficient for the COMPLETE original question (target not pre-resolved)?",
+    "Is B-only sufficient for the COMPLETE original question?",
+    "If A selected a different plausible target, would B's query target change? (counterfactual aid)",
+    "What is the bind variable and which window provides selection vs query evidence?",
+    "Any boundary/subtitle/coverage gaps in the served clips?",
+    "Approve / not approve compositional candidate graph? (human only)"
+  ],
+  "human_review_form_fields": {
+    "events": "",
+    "persons": "",
+    "objects": "",
+    "actions": "",
+    "temporal_relations": "",
+    "identity_binding": "",
+    "within_window_temporal_bind": "",
+    "cross_window_bind": "",
+    "a_only_sufficient_full_question": "",
+    "b_only_sufficient_full_question": "",
+    "a_plus_b_necessary": "",
+    "counterfactual_target_swap": "",
+    "directed_program_draft": "",
+    "decision": "",
+    "rationale_and_open_issues": ""
+  },
+  "forbidden_auto_labels": [
+    "USER_APPROVED_STRUCTURED_GRAPH",
+    "FORMAL_SEEN_TRAIN",
+    "TRAIN_EXPOSED",
+    "GOLD"
+  ],
+  "does_not_overwrite_run_001": true
+}

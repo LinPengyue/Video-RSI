@@ -1,0 +1,237 @@
+{
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP205",
+  "workbench_id": "SEEN_PILOT_SP205",
+  "pack_role": "PRIORITY_HUMAN_REVIEW",
+  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "historical_train_label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "construction_exposed": false,
+  "video_id": "wgBlACG927Y",
+  "qa_uid": "LVCOMP-V2-116",
+  "selection_reason": "Non-exposed; sequential transport bind with explicit B-only shortcut risk to check on FULL question; useful necessity diagnostic + potential true bind.",
+  "qa_clue_unverified": {
+    "question": "What means of transportation do the vloggers take after getting off the first means of transportation they take when they come to China?",
+    "answer": "Subway",
+    "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+    "source_questions": [
+      "What is the first means of transportation the vloggers take when they come to China?\n(A) High-speed train\n(B) Train\n(C) Plane\n(D) Subway",
+      "What means of transportation do the vloggers take after getting off the high-speed train?\n(A) Taxi\n(B) Subway\n(C) Train\n(D) Bus"
+    ],
+    "source_answers": [
+      "A: High-speed train",
+      "B: Subway"
+    ]
+  },
+  "intervals": {
+    "A": {
+      "start_s": 202.0,
+      "end_s": 322.0,
+      "basis": {
+        "source_time_reference": "03:22-06:10",
+        "parsed_start_s": 202.0,
+        "parsed_end_s": 370.0,
+        "padding_applied": false,
+        "truncated_for_review_cost": true,
+        "original_span_s": 168.0,
+        "note": "Official window longer than 120.0s; engineering truncated for review cost — human must know coverage may be incomplete.",
+        "video_duration_s": 2331.283447
+      }
+    },
+    "B": {
+      "start_s": 838.0,
+      "end_s": 852.0,
+      "basis": {
+        "source_time_reference": "13:58-14:12",
+        "parsed_start_s": 838.0,
+        "parsed_end_s": 852.0,
+        "padding_applied": false,
+        "video_duration_s": 2331.283447
+      }
+    },
+    "official_time_references": [
+      "03:22-06:10",
+      "13:58-14:12"
+    ]
+  },
+  "media": {
+    "status": "OK",
+    "A": {
+      "extract_status": "OK",
+      "bytes": 59545311,
+      "sha256": "65ad893c395f4b8233b49ec4db005f568c0644f5bc8b9ea7e5c4e787eddf36e3",
+      "t_start_s": 202.0,
+      "t_end_s": 322.0,
+      "duration_s": 120.0,
+      "relpath": "seen_pilot_run_002/media/SP205/A_wgBlACG927Y_202_322.mp4",
+      "window_basis": {
+        "source_time_reference": "03:22-06:10",
+        "parsed_start_s": 202.0,
+        "parsed_end_s": 370.0,
+        "padding_applied": false,
+        "truncated_for_review_cost": true,
+        "original_span_s": 168.0,
+        "note": "Official window longer than 120.0s; engineering truncated for review cost — human must know coverage may be incomplete.",
+        "video_duration_s": 2331.283447
+      }
+    },
+    "B": {
+      "extract_status": "OK",
+      "bytes": 4914186,
+      "sha256": "c4175f6957d11dda484938bdf33c5ee6f762ac2ab3a3cacccdf3c04459769e87",
+      "t_start_s": 838.0,
+      "t_end_s": 852.0,
+      "duration_s": 14.0,
+      "relpath": "seen_pilot_run_002/media/SP205/B_wgBlACG927Y_838_852.mp4",
+      "window_basis": {
+        "source_time_reference": "13:58-14:12",
+        "parsed_start_s": 838.0,
+        "parsed_end_s": 852.0,
+        "padding_applied": false,
+        "video_duration_s": 2331.283447
+      }
+    }
+  },
+  "auto_screen": {
+    "qa_uid": "LVCOMP-V2-116",
+    "video_id": "wgBlACG927Y",
+    "composition_schema": "identify_event_result + query_action",
+    "question_unverified": "What means of transportation do the vloggers take after getting off the first means of transportation they take when they come to China?",
+    "answer_unverified": "Subway",
+    "time_references": [
+      "03:22-06:10",
+      "13:58-14:12"
+    ],
+    "source_uids": [
+      "3080",
+      "3084"
+    ],
+    "diagnosis": {
+      "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+      "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+      "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+      "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+      "bind": {
+        "bind_variable": "target_entity_selected_in_one_window",
+        "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+        "target_referent_ambiguous_if_B_names_entity": true,
+        "notes": [
+          "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+        ]
+      },
+      "counterfactual": {
+        "applicable": true,
+        "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+        "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+        "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+        "not_video_proof": true
+      },
+      "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+      "auto_certified": false,
+      "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+    },
+    "program_draft": {
+      "draft_only": true,
+      "nodes": [
+        {
+          "clip_role": "A_or_B_identify",
+          "op": "identify_event_result",
+          "out": "target_entity_selected_in_one_window"
+        },
+        {
+          "clip_role": "cross",
+          "op": "CrossWindowBind",
+          "in": [
+            "target_entity_selected_in_one_window"
+          ],
+          "out": "bound_target"
+        },
+        {
+          "clip_role": "A_or_B_query",
+          "op": "query_action",
+          "in": [
+            "bound_target"
+          ],
+          "out": "answer"
+        }
+      ],
+      "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+      "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+      "not_approved": true
+    },
+    "meta": {
+      "construction_exposed": false,
+      "media_exists": true
+    },
+    "status": "PENDING_HUMAN_VIDEO_REVIEW",
+    "formal_seen_train": false,
+    "formal_gold": false,
+    "train_exposed": false
+  },
+  "program_draft": {
+    "draft_only": true,
+    "nodes": [
+      {
+        "clip_role": "A_or_B_identify",
+        "op": "identify_event_result",
+        "out": "target_entity_selected_in_one_window"
+      },
+      {
+        "clip_role": "cross",
+        "op": "CrossWindowBind",
+        "in": [
+          "target_entity_selected_in_one_window"
+        ],
+        "out": "bound_target"
+      },
+      {
+        "clip_role": "A_or_B_query",
+        "op": "query_action",
+        "in": [
+          "bound_target"
+        ],
+        "out": "answer"
+      }
+    ],
+    "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+    "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+    "not_approved": true
+  },
+  "human_review_questions": [
+    "Is A-only sufficient for the COMPLETE original question (target not pre-resolved)?",
+    "Is B-only sufficient for the COMPLETE original question?",
+    "If A selected a different plausible target, would B's query target change? (counterfactual aid)",
+    "What is the bind variable and which window provides selection vs query evidence?",
+    "Any boundary/subtitle/coverage gaps in the served clips?",
+    "Approve / not approve compositional candidate graph? (human only)"
+  ],
+  "human_review_form_fields": {
+    "events": "",
+    "persons": "",
+    "objects": "",
+    "actions": "",
+    "temporal_relations": "",
+    "identity_binding": "",
+    "within_window_temporal_bind": "",
+    "cross_window_bind": "",
+    "a_only_sufficient_full_question": "",
+    "b_only_sufficient_full_question": "",
+    "a_plus_b_necessary": "",
+    "counterfactual_target_swap": "",
+    "directed_program_draft": "",
+    "decision": "",
+    "rationale_and_open_issues": ""
+  },
+  "forbidden_auto_labels": [
+    "USER_APPROVED_STRUCTURED_GRAPH",
+    "FORMAL_SEEN_TRAIN",
+    "TRAIN_EXPOSED",
+    "GOLD"
+  ],
+  "does_not_overwrite_run_001": true
+}

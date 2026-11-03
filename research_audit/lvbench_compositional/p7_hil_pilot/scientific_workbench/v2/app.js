@@ -4,6 +4,8 @@
   const LS_DRAFT_HIST = "p7_scientific_judgments_draft_history_v2";
   const LS_SEEN_PILOT = "p7_seen_pilot_run_001_judgments_v1";
   const LS_SEEN_PILOT_HIST = "p7_seen_pilot_run_001_draft_history_v1";
+  const LS_SEEN_PILOT_2 = "p7_seen_pilot_run_002_judgments_v1";
+  const LS_SEEN_PILOT_2_HIST = "p7_seen_pilot_run_002_draft_history_v1";
   const CORE_EXPORT_FIELDS = [
     "a_only_sufficient",
     "b_only_sufficient",
@@ -50,6 +52,10 @@
     seenPilotBlank: null,
     seenPilotImported: null,
     seenPilotIsolation: null,
+    seenPilot2Catalog: null,
+    seenPilot2Blank: null,
+    seenPilot2Imported: null,
+    seenPilot2Isolation: null,
     selectedGraphId: null,
     compareLeft: null,
     compareRight: null,
@@ -958,6 +964,116 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
     });
   }
 
+  function renderSeenPilot2Card(it) {
+    const id = it.workbench_id;
+    const mediaBad = it.media_status === "MEDIA_UNAVAILABLE";
+    const tag = mediaBad
+      ? '<span class="tag demo">MEDIA_UNAVAILABLE</span>'
+      : '<span class="tag pending">PENDING_HUMAN_VIDEO_REVIEW</span><span class="tag">pre-screen ≠ approved</span>';
+    const clue = it.qa_clue_unverified || {};
+    const players =
+      mediaBad || !it.clips?.A || !it.clips?.B
+        ? `<div class="qa"><strong>MEDIA_UNAVAILABLE</strong></div>`
+        : `<div class="players ab">${videoBlock("A", it.clips.A)}${videoBlock("B", it.clips.B)}</div>`;
+    return `<section class="card" id="${esc(id)}">
+      <h2>${esc(id)} ${tag}</h2>
+      <p class="meta">pack=<code>${esc(it.pack_id)}</code> · video=<code>${esc(it.video_id)}</code> · qa=<code>${esc(it.qa_uid)}</code>
+        · screen=<code>${esc(it.auto_screen_bucket || "")}</code> · formal_seen=<code>false</code></p>
+      <p class="meta">${esc(it.selection_reason || "")}</p>
+      <div class="qa"><strong>Q/A clue (unverified)</strong><div>Q：${esc(clue.question || "")}</div><div>A：${esc(clue.answer || "")}</div></div>
+      ${players}
+      <p class="meta">pack：<code>${esc(it.pack_path || "")}</code></p>
+      <div class="fields">
+        <h3>人工审核（run_002）</h3>
+        ${seenPilotField(id, "a_only_sufficient", "A-only 对完整原题是否充分？", "select")}
+        ${seenPilotField(id, "b_only_sufficient", "B-only 对完整原题是否充分？", "select")}
+        ${seenPilotField(id, "a_plus_b_supports_user_answer", "是否 A+B 必要？", "select")}
+        ${seenPilotField(id, "identity_binding", "跨窗口绑定变量与证据", "textarea")}
+        ${seenPilotField(id, "directed_program_draft", "有向程序草案", "textarea")}
+        ${seenPilotField(id, "rationale_and_open_issues", "依据与未决", "textarea")}
+        <label for="${id}__sp__reviewer">填写人</label>
+        <input type="text" id="${id}__sp__reviewer" data-seen-item="${esc(id)}" data-seen-field="reviewer"/>
+      </div>
+    </section>`;
+  }
+
+  function renderSeenPilot2Pane() {
+    const pane = document.getElementById("pane-seen-pilot-2");
+    const cat = state.seenPilot2Catalog;
+    const iso = state.seenPilot2Isolation;
+    if (!cat) {
+      pane.innerHTML = `<div class="card"><p>Seen Pilot run_002 未加载。</p></div>`;
+      return;
+    }
+    pane.innerHTML = `<div class="card">
+      <h2>Seen Pilot run_002 · necessity-aware pre-screen</h2>
+      <p class="meta">独立于 run_001。状态 <span class="tag pending">PENDING_HUMAN_VIDEO_REVIEW</span>。
+        自动批准结构图 = 0。不覆盖 run_001 科学审核。formal Seen/Gold/train_exposed/RSI = false。</p>
+      <p class="meta">隔离：<code>${esc(iso?.status || "N/A")}</code> · 优先包 ${esc(String(cat.items?.length || 0))} ·
+        诊断负例 ${esc(String(cat.diagnostic_negatives?.length || 0))}</p>
+      <p class="meta">${esc(cat.supply_note || "")}</p>
+      <div class="toolbar">
+        <button type="button" data-seen2-action="export">导出 run_002 JSON</button>
+        <button type="button" class="secondary" data-seen2-action="save">暂存</button>
+      </div>
+    </div>
+    ${(cat.items || []).map(renderSeenPilot2Card).join("")}
+    <div class="card"><h3>诊断负例（不计批准）</h3>
+      <pre>${esc(JSON.stringify(cat.diagnostic_negatives || [], null, 2))}</pre>
+    </div>`;
+
+    const base = state.seenPilot2Imported || state.seenPilot2Blank || { items: {} };
+    const saved = localStorage.getItem(LS_SEEN_PILOT_2);
+    try {
+      applySeenPilotValues(saved ? JSON.parse(saved).items || {} : base.items || {});
+    } catch (_) {
+      applySeenPilotValues(base.items || {});
+    }
+
+    pane.querySelector('[data-seen2-action="save"]')?.addEventListener("click", () => {
+      const formItems = {};
+      document.querySelectorAll("#pane-seen-pilot-2 [data-seen-item][data-seen-field]").forEach((el) => {
+        const id = el.dataset.seenItem;
+        if (!formItems[id]) formItems[id] = {};
+        formItems[id][el.dataset.seenField] = el.value;
+      });
+      const payload = IO.buildExportPayload({
+        imported: state.seenPilot2Imported || state.seenPilot2Blank,
+        formItems,
+        nowIso: new Date().toISOString(),
+        disclaimer: "Seen pilot run_002 draft; not formal Seen",
+      });
+      localStorage.setItem(LS_SEEN_PILOT_2, JSON.stringify(payload));
+      toast("run_002 已暂存（非正式）");
+    });
+    pane.querySelector('[data-seen2-action="export"]')?.addEventListener("click", () => {
+      const formItems = {};
+      document.querySelectorAll("#pane-seen-pilot-2 [data-seen-item][data-seen-field]").forEach((el) => {
+        const id = el.dataset.seenItem;
+        if (!formItems[id]) formItems[id] = {};
+        formItems[id][el.dataset.seenField] = el.value;
+      });
+      const payload = IO.buildExportPayload({
+        imported: state.seenPilot2Imported || state.seenPilot2Blank,
+        formItems,
+        nowIso: new Date().toISOString(),
+        disclaimer: "Seen pilot run_002 export; Cursor did not adjudicate",
+      });
+      Object.values(payload.items || {}).forEach((it) => {
+        it.user_confirmation_status = "PENDING_HUMAN_VIDEO_REVIEW";
+        it.formal_seen_train = false;
+        it.formal_gold = false;
+        it.train_exposed = false;
+      });
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "SEEN_PILOT_RUN_002_JUDGMENTS.json";
+      a.click();
+      toast("已导出 run_002");
+    });
+  }
+
   function showTab(name) {
     document.querySelectorAll(".tab-pane").forEach((p) => p.classList.add("hidden"));
     document.querySelectorAll(".tabs button").forEach((b) => b.classList.remove("active"));
@@ -967,7 +1083,7 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
   }
 
   async function main() {
-    const [catalog, judgments, graphLib, opLib, demoLib, seenPilotCatalog, seenPilotBlank, seenPilotIsolation] = await Promise.all([
+    const [catalog, judgments, graphLib, opLib, demoLib, seenPilotCatalog, seenPilotBlank, seenPilotIsolation, seenPilot2Catalog, seenPilot2Blank, seenPilot2Isolation] = await Promise.all([
       fetch("WORKBENCH_CATALOG.json", { cache: "no-store" }).then((r) => r.json()),
       fetch("SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json", { cache: "no-store" }).then((r) => r.json()),
       fetch("data/PROGRAM_GRAPH_LIBRARY_v1.json", { cache: "no-store" }).then((r) => r.json()),
@@ -976,6 +1092,9 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
       fetch("seen_pilot_run_001/CATALOG.json", { cache: "no-store" }).then((r) => r.json()),
       fetch("seen_pilot_run_001/JUDGMENTS_BLANK.json", { cache: "no-store" }).then((r) => r.json()),
       fetch("seen_pilot_run_001/ISOLATION_CHECK.json", { cache: "no-store" }).then((r) => r.json()),
+      fetch("seen_pilot_run_002/CATALOG.json", { cache: "no-store" }).then((r) => r.json()),
+      fetch("seen_pilot_run_002/JUDGMENTS_BLANK.json", { cache: "no-store" }).then((r) => r.json()),
+      fetch("seen_pilot_run_002/ISOLATION_CHECK.json", { cache: "no-store" }).then((r) => r.json()),
     ]);
     state.catalog = catalog;
     state.judgmentsFile = judgments;
@@ -987,8 +1106,13 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
     state.seenPilotBlank = seenPilotBlank;
     state.seenPilotImported = JSON.parse(JSON.stringify(seenPilotBlank));
     state.seenPilotIsolation = seenPilotIsolation;
+    state.seenPilot2Catalog = seenPilot2Catalog;
+    state.seenPilot2Blank = seenPilot2Blank;
+    state.seenPilot2Imported = JSON.parse(JSON.stringify(seenPilot2Blank));
+    state.seenPilot2Isolation = seenPilot2Isolation;
     renderReviewPane();
     renderSeenPilotPane();
+    renderSeenPilot2Pane();
     renderWindowA();
     renderWindowB();
     renderChecksPane();

@@ -1,0 +1,117 @@
+{
+  "run_id": "seen_pilot_run_002",
+  "created_utc": "2026-11-03T01:04:39+00:00",
+  "baseline_commit_expected": "1e0405674015e31104177de715022ee3822af9b4",
+  "sources": {
+    "v2_candidates_jsonl": {
+      "path": "research_audit/lvbench_compositional/v2/candidates.jsonl",
+      "n_qa": 56,
+      "n_videos": 23,
+      "schema_families": {
+        "identify_person + query_attribute": 14,
+        "identify_person + query_action": 9,
+        "identify_person + query_relation": 4,
+        "identify_event_result + query_action": 10,
+        "identify_person + query_location": 7,
+        "identify_event_result + query_cause": 4,
+        "identify_object + query_holder": 1,
+        "identify_place + query_person": 2,
+        "identify_object + query_action": 4,
+        "identify_object + query_cause": 1
+      }
+    },
+    "v2_1_pilot_split": {
+      "path": "research_audit/lvbench_compositional/v2_1/pilot_split.json",
+      "train_n": 39,
+      "test_n": 6,
+      "label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN"
+    },
+    "targeted_v3": {
+      "seen_n": 29,
+      "unseen_n": 13
+    },
+    "batch_factory_roi_dev": {
+      "path": "research_audit/lvbench_compositional/track_b/batch_factory/",
+      "human_confirmed_compositional_events_on_remaining_videos": 0,
+      "note": "ChatGPT/frame/ROI pilots are NOT human-confirmed Seen supply."
+    }
+  },
+  "hard_exclude_videos_n": 14,
+  "run_001_videos": [
+    "2LH3JCGkEBU",
+    "KLIa2UaE2KE",
+    "aJI8XTa_DII",
+    "f8DKD78BrQA",
+    "vHlSoxg8WHo"
+  ],
+  "dropped_n": 25,
+  "remaining_after_hard_and_run001": {
+    "n_qa": 31,
+    "n_videos": 12,
+    "videos": [
+      "9-gOCOu_KGU",
+      "Hf-n1yfd8II",
+      "JPPMz8fEml0",
+      "QWXlvx1GoTY",
+      "T1yhBv1ytzw",
+      "_T2Avd3tFHc",
+      "evYm0cELO3I",
+      "oZEVgDXJwCc",
+      "pXD3txG2bVQ",
+      "q01CUy_gwdU",
+      "vZV2WCKMsKs",
+      "wgBlACG927Y"
+    ],
+    "media_present_n": 12,
+    "media_missing": [],
+    "schema_families": {
+      "identify_person + query_attribute": 8,
+      "identify_person + query_location": 5,
+      "identify_event_result + query_cause": 4,
+      "identify_object + query_holder": 1,
+      "identify_event_result + query_action": 5,
+      "identify_person + query_relation": 1,
+      "identify_place + query_person": 2,
+      "identify_object + query_action": 2,
+      "identify_object + query_cause": 1,
+      "identify_person + query_action": 2
+    }
+  },
+  "remaining_also_non_construction_exposed": {
+    "n_qa": 13,
+    "n_videos": 5,
+    "videos": [
+      "9-gOCOu_KGU",
+      "Hf-n1yfd8II",
+      "pXD3txG2bVQ",
+      "vZV2WCKMsKs",
+      "wgBlACG927Y"
+    ],
+    "qa_uids": [
+      "LVCOMP-V2-001",
+      "LVCOMP-V2-016",
+      "LVCOMP-V2-021",
+      "LVCOMP-V2-040",
+      "LVCOMP-V2-041",
+      "LVCOMP-V2-042",
+      "LVCOMP-V2-101",
+      "LVCOMP-V2-102",
+      "LVCOMP-V2-103",
+      "LVCOMP-V2-113",
+      "LVCOMP-V2-114",
+      "LVCOMP-V2-115",
+      "LVCOMP-V2-116"
+    ]
+  },
+  "mechanism_supply": {
+    "cross_window_target_bind": "Expandable as HYPOTHESIS on leftover identify_* + query_* QAs; 0 new human-confirmed graphs on unused videos.",
+    "temporal_person_then_relation": "Best residual video Hf-n1yfd8II / 9-gOCOu_KGU; no EVENT_VERIFIED cards on these videos.",
+    "single_window_shortcut_diagnostics": "Plenty of event_result+query_action items for SP003/SP004-class checks.",
+    "lacking_evidence": [
+      "No human-confirmed events on remaining clean videos",
+      "Batch-factory/ROI blocked for certified composition",
+      "Operator vocab still provisional"
+    ]
+  },
+  "honest_supply_verdict": "Isolation-safe residual supply exists (31 QA / 12 videos; 13 QA / 5 non-exposed). However NEW human-confirmed compositional graph supply is 0. run_002 packs are necessity-aware PRE-SCREEN packets for human review — not approved graphs."
+}

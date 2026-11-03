@@ -1,0 +1,75 @@
+{
+  "document_id": "TRACK_A_MIN_EXPERIMENT_READINESS",
+  "created_utc": "2026-11-03T00:00:00+00:00",
+  "updated_utc": "2026-11-03T01:00:00+00:00",
+  "branch": "research/lvbench-comp-p7-hil-pilot",
+  "seen_pilot_context": {
+    "run_001_scientific_ingest": "1e0405674015e31104177de715022ee3822af9b4",
+    "run_002_prep": "this_document_companion",
+    "formal_seen": 0,
+    "formal_gold": 0,
+    "train_exposed": 0,
+    "seen_pool_frozen": false,
+    "approve_expensive_track_a_rsi": false
+  },
+  "overall_status": "NOT_READY",
+  "overall_note": "Candidate QA counts, factory success, and program-selection accuracy alone do NOT constitute Track A readiness. Expensive RSI remains gated even if status later becomes READY.",
+  "checklist": [
+    {
+      "item": "frozen_base_model_and_modifiable_harness_evolver_boundary",
+      "status": "NOT_READY",
+      "evidence": "No version-pinned experiment contract checked in for Track A min run under this branch for Seen-pilot-certified pools.",
+      "blocker": "Need explicit frozen model id + harness/evolver mutation surface documented and reviewed."
+    },
+    {
+      "item": "versioned_seen_unseen_min_eval_slices_with_isolation",
+      "status": "NOT_READY",
+      "evidence": "Seen pilot has 3 compositional candidate graphs (run_001) but formal_seen_train=false and pool unfrozen; Unseen approved graphs exist as candidates only (formal_unseen=false).",
+      "blocker": "Freeze versioned Seen/Unseen eval UID lists with dual video_id+qa_uid isolation attestation."
+    },
+    {
+      "item": "independent_metrics_for_program_selection_vs_execution_answer",
+      "status": "NOT_VERIFIED",
+      "evidence": "No checked-in Track A min eval harness report separating program-selection accuracy from final answer correctness on these slices.",
+      "blocker": "Instrument and freeze metric definitions before any RSI loop."
+    },
+    {
+      "item": "comparable_baselines_direct_qa_fixed_harness_non_self_evolving",
+      "status": "NOT_READY",
+      "evidence": "Baselines not declared for the Seen-pilot candidate set; historical experiments elsewhere are NOT automatically transferable.",
+      "blocker": "Define Direct QA / Fixed Harness / non-self-evolving controls on the same frozen slices."
+    },
+    {
+      "item": "execution_logs_cost_repeatability_stop_conditions",
+      "status": "NOT_READY",
+      "evidence": "No min-experiment run card with cost ceiling, seed/repeat policy, and stop rules tied to this readiness doc.",
+      "blocker": "Add run card template and enforce stop conditions before launch."
+    },
+    {
+      "item": "low_cost_min_experiment_feasibility",
+      "status": "NOT_VERIFIED",
+      "evidence": "Feasibility depends on frozen slice size and model routing; not measured for current pilot candidates in this ingest.",
+      "blocker": "Produce a costed dry-run estimate after slices freeze."
+    },
+    {
+      "item": "scientific_gates_for_expensive_rsi",
+      "status": "NOT_READY",
+      "evidence": "decision_policy.approve_expensive_track_a_rsi remains false in Seen pilot artifacts.",
+      "blocker": "Requires USER/GPT explicit unlock after READY checklist; engineering must not auto-unlock."
+    }
+  ],
+  "explicit_non_evidence": [
+    "Number of candidate QAs in v2/v2.1/targeted_v3",
+    "Batch factory / ROI pipeline success",
+    "Program-selection accuracy without frozen eval contract",
+    "run_001 3/5 compositional candidate approvals (not formal Seen; not yield)",
+    "Workbench UI availability"
+  ],
+  "remaining_blockers_summary": [
+    "Formal Seen/Unseen pools not frozen",
+    "No versioned min eval slices with isolation attestation",
+    "No comparable baseline suite bound to those slices",
+    "No costed repeatable min-experiment card",
+    "Expensive RSI gate locked"
+  ]
+}

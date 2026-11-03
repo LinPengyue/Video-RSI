@@ -46,6 +46,8 @@ evolution/
 !research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/media/**
 !research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/**
 !research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_001/media/**/*.mp4
+!research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/media/**
+!research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/media/**/*.mp4
 *.onnx
 *.pt
 *.pth

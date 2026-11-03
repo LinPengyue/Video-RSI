@@ -1,0 +1,47 @@
+{
+  "schema": "p7_seen_pilot_judgments_v1",
+  "run_id": "seen_pilot_run_002",
+  "disclaimer": "run_002 pre-screen packets; Cursor did not adjudicate.",
+  "items": {
+    "SEEN_PILOT_SP201": {
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "pilot_unknown_keep": "PRESERVE_ON_ROUNDTRIP"
+    },
+    "SEEN_PILOT_SP202": {
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "pilot_unknown_keep": "PRESERVE_ON_ROUNDTRIP"
+    },
+    "SEEN_PILOT_SP203": {
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "pilot_unknown_keep": "PRESERVE_ON_ROUNDTRIP"
+    },
+    "SEEN_PILOT_SP204": {
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "pilot_unknown_keep": "PRESERVE_ON_ROUNDTRIP"
+    },
+    "SEEN_PILOT_SP205": {
+      "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "media_status": "OK",
+      "pilot_unknown_keep": "PRESERVE_ON_ROUNDTRIP"
+    }
+  }
+}

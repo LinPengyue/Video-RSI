@@ -1,0 +1,231 @@
+{
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP201",
+  "workbench_id": "SEEN_PILOT_SP201",
+  "pack_role": "PRIORITY_HUMAN_REVIEW",
+  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "historical_train_label_status": "HISTORICAL_CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "construction_exposed": false,
+  "video_id": "Hf-n1yfd8II",
+  "qa_uid": "LVCOMP-V2-001",
+  "selection_reason": "Non-exposed remaining; SP005-class target bind hypothesis (final winner → attribute at 48:16); counterfactual: alternate winner changes A query target.",
+  "qa_clue_unverified": {
+    "question": "How to describe the feeling of the final winner at 48:16?",
+    "answer": "He feels frustrated because he does not catch the shuttlecock from the opponent",
+    "status": "UNVERIFIED_HISTORICAL_CLUE_ONLY",
+    "source_questions": [
+      "How to describe the feeling of Lee Chong Wei at 48:16?\n(A) He feels frustrated because he does not catch the shuttlecock from the opponent\n(B) He feels excited because he gets one point\n(C) He feels frustrated because he beats the buttlecock out of bounds\n(D) He feels frustrated because he does not beat the shuttlecock cross the net",
+      "Who is the final winner?\n(A) Chen Long\n(B) Lin Dan\n(C) Tan Boon Heong\n(D) Lee Chong Wei"
+    ],
+    "source_answers": [
+      "A: He feels frustrated because he does not catch the shuttlecock from the opponent",
+      "D: Lee Chong Wei"
+    ]
+  },
+  "intervals": {
+    "A": {
+      "start_s": 2880.0,
+      "end_s": 2897.0,
+      "basis": {
+        "source_time_reference": "48:00-48:17",
+        "parsed_start_s": 2880.0,
+        "parsed_end_s": 2897.0,
+        "padding_applied": false,
+        "video_duration_s": 5752.52
+      }
+    },
+    "B": {
+      "start_s": 5413.0,
+      "end_s": 5440.0,
+      "basis": {
+        "source_time_reference": "90:13-90:40",
+        "parsed_start_s": 5413.0,
+        "parsed_end_s": 5440.0,
+        "padding_applied": false,
+        "video_duration_s": 5752.52
+      }
+    },
+    "official_time_references": [
+      "48:00-48:17",
+      "90:13-90:40"
+    ]
+  },
+  "media": {
+    "status": "OK",
+    "A": {
+      "extract_status": "OK",
+      "bytes": 6771767,
+      "sha256": "5517f5df4d5f7cea2d1c4fbdb4151af2f85d31d577e5c80e2a6dc07e6d95e7f7",
+      "t_start_s": 2880.0,
+      "t_end_s": 2897.0,
+      "duration_s": 17.0,
+      "relpath": "seen_pilot_run_002/media/SP201/A_Hf-n1yfd8II_2880_2897.mp4",
+      "window_basis": {
+        "source_time_reference": "48:00-48:17",
+        "parsed_start_s": 2880.0,
+        "parsed_end_s": 2897.0,
+        "padding_applied": false,
+        "video_duration_s": 5752.52
+      }
+    },
+    "B": {
+      "extract_status": "OK",
+      "bytes": 14186483,
+      "sha256": "fd5965f9520f22eb5ca324b0d28e0eb406efd5b193e337d42e617f7d75b974ab",
+      "t_start_s": 5413.0,
+      "t_end_s": 5440.0,
+      "duration_s": 27.0,
+      "relpath": "seen_pilot_run_002/media/SP201/B_Hf-n1yfd8II_5413_5440.mp4",
+      "window_basis": {
+        "source_time_reference": "90:13-90:40",
+        "parsed_start_s": 5413.0,
+        "parsed_end_s": 5440.0,
+        "padding_applied": false,
+        "video_duration_s": 5752.52
+      }
+    }
+  },
+  "auto_screen": {
+    "qa_uid": "LVCOMP-V2-001",
+    "video_id": "Hf-n1yfd8II",
+    "composition_schema": "identify_person + query_attribute",
+    "question_unverified": "How to describe the feeling of the final winner at 48:16?",
+    "answer_unverified": "He feels frustrated because he does not catch the shuttlecock from the opponent",
+    "time_references": [
+      "48:00-48:17",
+      "90:13-90:40"
+    ],
+    "source_uids": [
+      "3934",
+      "3944"
+    ],
+    "diagnosis": {
+      "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+      "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+      "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+      "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+      "bind": {
+        "bind_variable": "target_entity_selected_in_one_window",
+        "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+        "target_referent_ambiguous_if_B_names_entity": true,
+        "notes": [
+          "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+        ]
+      },
+      "counterfactual": {
+        "applicable": true,
+        "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+        "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+        "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+        "not_video_proof": true
+      },
+      "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+      "auto_certified": false,
+      "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+    },
+    "program_draft": {
+      "draft_only": true,
+      "nodes": [
+        {
+          "clip_role": "A_or_B_identify",
+          "op": "identify_person",
+          "out": "target_entity_selected_in_one_window"
+        },
+        {
+          "clip_role": "cross",
+          "op": "CrossWindowBind",
+          "in": [
+            "target_entity_selected_in_one_window"
+          ],
+          "out": "bound_target"
+        },
+        {
+          "clip_role": "A_or_B_query",
+          "op": "query_attribute",
+          "in": [
+            "bound_target"
+          ],
+          "out": "answer"
+        }
+      ],
+      "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+      "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+      "not_approved": true
+    },
+    "meta": {
+      "construction_exposed": false,
+      "media_exists": true
+    },
+    "status": "PENDING_HUMAN_VIDEO_REVIEW",
+    "formal_seen_train": false,
+    "formal_gold": false,
+    "train_exposed": false
+  },
+  "program_draft": {
+    "draft_only": true,
+    "nodes": [
+      {
+        "clip_role": "A_or_B_identify",
+        "op": "identify_person",
+        "out": "target_entity_selected_in_one_window"
+      },
+      {
+        "clip_role": "cross",
+        "op": "CrossWindowBind",
+        "in": [
+          "target_entity_selected_in_one_window"
+        ],
+        "out": "bound_target"
+      },
+      {
+        "clip_role": "A_or_B_query",
+        "op": "query_attribute",
+        "in": [
+          "bound_target"
+        ],
+        "out": "answer"
+      }
+    ],
+    "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+    "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+    "not_approved": true
+  },
+  "human_review_questions": [
+    "Is A-only sufficient for the COMPLETE original question (target not pre-resolved)?",
+    "Is B-only sufficient for the COMPLETE original question?",
+    "If A selected a different plausible target, would B's query target change? (counterfactual aid)",
+    "What is the bind variable and which window provides selection vs query evidence?",
+    "Any boundary/subtitle/coverage gaps in the served clips?",
+    "Approve / not approve compositional candidate graph? (human only)"
+  ],
+  "human_review_form_fields": {
+    "events": "",
+    "persons": "",
+    "objects": "",
+    "actions": "",
+    "temporal_relations": "",
+    "identity_binding": "",
+    "within_window_temporal_bind": "",
+    "cross_window_bind": "",
+    "a_only_sufficient_full_question": "",
+    "b_only_sufficient_full_question": "",
+    "a_plus_b_necessary": "",
+    "counterfactual_target_swap": "",
+    "directed_program_draft": "",
+    "decision": "",
+    "rationale_and_open_issues": ""
+  },
+  "forbidden_auto_labels": [
+    "USER_APPROVED_STRUCTURED_GRAPH",
+    "FORMAL_SEEN_TRAIN",
+    "TRAIN_EXPOSED",
+    "GOLD"
+  ],
+  "does_not_overwrite_run_001": true
+}

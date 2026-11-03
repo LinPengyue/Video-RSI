@@ -1,0 +1,2351 @@
+{
+  "run_id": "seen_pilot_run_002",
+  "created_utc": "2026-11-03T01:04:39+00:00",
+  "n": 31,
+  "priority_n": 22,
+  "diagnostic_n": 1,
+  "items": [
+    {
+      "qa_uid": "LVCOMP-V2-001",
+      "video_id": "Hf-n1yfd8II",
+      "composition_schema": "identify_person + query_attribute",
+      "question_unverified": "How to describe the feeling of the final winner at 48:16?",
+      "answer_unverified": "He feels frustrated because he does not catch the shuttlecock from the opponent",
+      "time_references": [
+        "48:00-48:17",
+        "90:13-90:40"
+      ],
+      "source_uids": [
+        "3934",
+        "3944"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_attribute",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-008",
+      "video_id": "QWXlvx1GoTY",
+      "composition_schema": "identify_person + query_attribute",
+      "question_unverified": "What brand does the second person to speak on stage show a video about during his talk?",
+      "answer_unverified": "L'Oreal",
+      "time_references": [
+        "42:12-42:35",
+        "51:15-53:23"
+      ],
+      "source_uids": [
+        "2463",
+        "2465"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "b_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "composition_necessity_hypothesis": "REFERENCE_UNRESOLVED",
+        "screen_bucket": "DEFER_INSUFFICIENT_STRUCTURE",
+        "bind": {
+          "bind_variable": "schema_identify_then_query",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": false,
+          "notes": []
+        },
+        "counterfactual": {
+          "applicable": false,
+          "prompt": "NOT_APPLICABLE_LOW_STRUCTURE",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "schema_identify_then_query"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "schema_identify_then_query"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_attribute",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-011",
+      "video_id": "_T2Avd3tFHc",
+      "composition_schema": "identify_person + query_attribute",
+      "question_unverified": "How many kinds of desserts do the vlogger team and the elder who joins the vlogger on their travel have on the third day?",
+      "answer_unverified": "2",
+      "time_references": [
+        "04:44-04:44",
+        "08:17-08:26"
+      ],
+      "source_uids": [
+        "2873",
+        "2888"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_attribute",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-012",
+      "video_id": "_T2Avd3tFHc",
+      "composition_schema": "identify_person + query_location",
+      "question_unverified": "Where do the vlogger team members invite the elder who joins the vlogger on their travel on the first night?",
+      "answer_unverified": "They invite the elder who joins the vlogger on their travel to the hotel",
+      "time_references": [
+        "04:44-04:44",
+        "15:58-16:07"
+      ],
+      "source_uids": [
+        "2873",
+        "2890"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_location",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-013",
+      "video_id": "_T2Avd3tFHc",
+      "composition_schema": "identify_person + query_attribute",
+      "question_unverified": "What color of clothes does the elder who joins the vlogger on their travel wear on the first day?",
+      "answer_unverified": "Green",
+      "time_references": [
+        "04:05-04:25",
+        "04:44-04:44"
+      ],
+      "source_uids": [
+        "2877",
+        "2873"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_attribute",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-016",
+      "video_id": "vZV2WCKMsKs",
+      "composition_schema": "identify_event_result + query_cause",
+      "question_unverified": "Why do the four judges stand up for the third group?",
+      "answer_unverified": "Because they are so excited about Nymeria's performance",
+      "time_references": [
+        "00:01-07:58",
+        "11:15-11:30"
+      ],
+      "source_uids": [
+        "4682",
+        "4684"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "b_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "composition_necessity_hypothesis": "REFERENCE_UNRESOLVED",
+        "screen_bucket": "DEFER_INSUFFICIENT_STRUCTURE",
+        "bind": {
+          "bind_variable": "schema_identify_then_query",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": false,
+          "notes": []
+        },
+        "counterfactual": {
+          "applicable": false,
+          "prompt": "NOT_APPLICABLE_LOW_STRUCTURE",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_event_result",
+            "out": "schema_identify_then_query"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "schema_identify_then_query"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_cause",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-017",
+      "video_id": "q01CUy_gwdU",
+      "composition_schema": "identify_object + query_holder",
+      "question_unverified": "After they meet for the third time, who has the item the man searched for after the second collision?",
+      "answer_unverified": "the woman in red",
+      "time_references": [
+        "04:42-05:00",
+        "05:15-05:31"
+      ],
+      "source_uids": [
+        "120",
+        "121"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "b_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "composition_necessity_hypothesis": "REFERENCE_UNRESOLVED",
+        "screen_bucket": "DEFER_INSUFFICIENT_STRUCTURE",
+        "bind": {
+          "bind_variable": "schema_identify_then_query",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": false,
+          "notes": []
+        },
+        "counterfactual": {
+          "applicable": false,
+          "prompt": "NOT_APPLICABLE_LOW_STRUCTURE",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_object",
+            "out": "schema_identify_then_query"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "schema_identify_then_query"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_holder",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-021",
+      "video_id": "Hf-n1yfd8II",
+      "composition_schema": "identify_event_result + query_action",
+      "question_unverified": "How to describe the feeling of the person who serves first at 48:16?",
+      "answer_unverified": "He feels frustrated because he does not catch the shuttlecock from the opponent",
+      "time_references": [
+        "08:30-08:35",
+        "48:00-48:17"
+      ],
+      "source_uids": [
+        "3919",
+        "3934"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_event_result",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_action",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-022",
+      "video_id": "JPPMz8fEml0",
+      "composition_schema": "identify_person + query_location",
+      "question_unverified": "What are the attitudes of people living in the country the travelers choose towards life?",
+      "answer_unverified": "They are happy about their life",
+      "time_references": [
+        "01:18-01:21",
+        "08:37-08:50"
+      ],
+      "source_uids": [
+        "2963",
+        "2975"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "b_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "composition_necessity_hypothesis": "REFERENCE_UNRESOLVED",
+        "screen_bucket": "DEFER_INSUFFICIENT_STRUCTURE",
+        "bind": {
+          "bind_variable": "schema_identify_then_query",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": false,
+          "notes": []
+        },
+        "counterfactual": {
+          "applicable": false,
+          "prompt": "NOT_APPLICABLE_LOW_STRUCTURE",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "schema_identify_then_query"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "schema_identify_then_query"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_location",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-023",
+      "video_id": "JPPMz8fEml0",
+      "composition_schema": "identify_person + query_location",
+      "question_unverified": "Whose house does the person who goes to a party at night sleep in?",
+      "answer_unverified": "A stranger's friend's",
+      "time_references": [
+        "09:38-09:47",
+        "16:03-16:07"
+      ],
+      "source_uids": [
+        "2977",
+        "2981"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects.",
+            "May involve within-A temporal person bind and/or cross-window relation join (SP002-like)."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_location",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-029",
+      "video_id": "T1yhBv1ytzw",
+      "composition_schema": "identify_event_result + query_cause",
+      "question_unverified": "Why does the person who scores the first goal fall at 42:37?",
+      "answer_unverified": "His head hurts",
+      "time_references": [
+        "30:04-31:20",
+        "42:37-43:20"
+      ],
+      "source_uids": [
+        "3785",
+        "3789"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_event_result",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_cause",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-035",
+      "video_id": "_T2Avd3tFHc",
+      "composition_schema": "identify_person + query_location",
+      "question_unverified": "Where do the vlogger team members invite the person wearing green on the first day, on the first night?",
+      "answer_unverified": "They invite the person wearing Green on the first day to the hotel",
+      "time_references": [
+        "04:05-04:25",
+        "15:58-16:07"
+      ],
+      "source_uids": [
+        "2877",
+        "2890"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "b_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "composition_necessity_hypothesis": "REFERENCE_UNRESOLVED",
+        "screen_bucket": "DEFER_INSUFFICIENT_STRUCTURE",
+        "bind": {
+          "bind_variable": "schema_identify_then_query",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": false,
+          "notes": []
+        },
+        "counterfactual": {
+          "applicable": false,
+          "prompt": "NOT_APPLICABLE_LOW_STRUCTURE",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "schema_identify_then_query"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "schema_identify_then_query"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_location",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-038",
+      "video_id": "oZEVgDXJwCc",
+      "composition_schema": "identify_event_result + query_cause",
+      "question_unverified": "Why is the person who scores the first goal so sad at 15:06?",
+      "answer_unverified": "His header doesn't result in a goal",
+      "time_references": [
+        "15:00-15:30",
+        "76:00-78:00"
+      ],
+      "source_uids": [
+        "3529",
+        "3543"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_event_result",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_cause",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-040",
+      "video_id": "Hf-n1yfd8II",
+      "composition_schema": "identify_person + query_attribute",
+      "question_unverified": "What competition result does the person who serves first have?",
+      "answer_unverified": "the final winner",
+      "time_references": [
+        "08:30-08:35",
+        "90:13-90:40"
+      ],
+      "source_uids": [
+        "3919",
+        "3944"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_attribute",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-041",
+      "video_id": "Hf-n1yfd8II",
+      "composition_schema": "identify_person + query_attribute",
+      "question_unverified": "What competition result does the person who gets the first point for the second game have?",
+      "answer_unverified": "the final winner",
+      "time_references": [
+        "34:35-35:05",
+        "90:13-90:40"
+      ],
+      "source_uids": [
+        "3931",
+        "3944"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_attribute",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-042",
+      "video_id": "Hf-n1yfd8II",
+      "composition_schema": "identify_person + query_relation",
+      "question_unverified": "Whose coach is the guy in orange who is always coughing?",
+      "answer_unverified": "the final winner",
+      "time_references": [
+        "57:55-57:55",
+        "90:13-90:40"
+      ],
+      "source_uids": [
+        "3937",
+        "3944"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "b_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "composition_necessity_hypothesis": "REFERENCE_UNRESOLVED",
+        "screen_bucket": "DEFER_INSUFFICIENT_STRUCTURE",
+        "bind": {
+          "bind_variable": "person_or_relation_referent",
+          "mechanism_hypothesis": "TEMPORAL_PERSON_BIND_THEN_CROSS_WINDOW_RELATION",
+          "target_referent_ambiguous_if_B_names_entity": false,
+          "notes": [
+            "May involve within-A temporal person bind and/or cross-window relation join (SP002-like)."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "person_or_relation_referent"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "person_or_relation_referent"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_relation",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-101",
+      "video_id": "9-gOCOu_KGU",
+      "composition_schema": "identify_place + query_person",
+      "question_unverified": "Who is the little girl that comes to the place where the scene shown in the video is?",
+      "answer_unverified": "Mo Farah's daughter",
+      "time_references": [
+        "00:00-01:25",
+        "35:34-35:53"
+      ],
+      "source_uids": [
+        "4330",
+        "4351"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_place",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_person",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-102",
+      "video_id": "9-gOCOu_KGU",
+      "composition_schema": "identify_place + query_person",
+      "question_unverified": "Who is the woman that comes to the place where the scene shown in the video is?",
+      "answer_unverified": "Mo Fara's wife",
+      "time_references": [
+        "00:00-01:25",
+        "36:05-36:40"
+      ],
+      "source_uids": [
+        "4330",
+        "4352"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_place",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_person",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-103",
+      "video_id": "Hf-n1yfd8II",
+      "composition_schema": "identify_event_result + query_cause",
+      "question_unverified": "How to describe the feeling of the person who gets the first point for the second game at 48:16?",
+      "answer_unverified": "He feels frustrated because he does not catch the shuttlecock from the opponent",
+      "time_references": [
+        "34:35-35:05",
+        "48:00-48:17"
+      ],
+      "source_uids": [
+        "3931",
+        "3934"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_event_result",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_cause",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-107",
+      "video_id": "_T2Avd3tFHc",
+      "composition_schema": "identify_person + query_attribute",
+      "question_unverified": "How many kinds of desserts do the vlogger team and the person who have quarrel with a grey T-shirt elder in the Monastery have on the third day?",
+      "answer_unverified": "2",
+      "time_references": [
+        "07:41-08:02",
+        "08:17-08:26"
+      ],
+      "source_uids": [
+        "2883",
+        "2888"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_attribute",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-108",
+      "video_id": "_T2Avd3tFHc",
+      "composition_schema": "identify_person + query_location",
+      "question_unverified": "Where do the vlogger team members invite the person who have quarrel with a grey T-shirt elder in the Monastery on the first night?",
+      "answer_unverified": "They invite Mikhail to the hotel",
+      "time_references": [
+        "07:41-08:02",
+        "15:58-16:07"
+      ],
+      "source_uids": [
+        "2883",
+        "2890"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_location",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-109",
+      "video_id": "evYm0cELO3I",
+      "composition_schema": "identify_object + query_action",
+      "question_unverified": "What happens from 04:19-04:45 involving the animal that appears at 00:07?",
+      "answer_unverified": "The chef cooks Lobster Quesadilla",
+      "time_references": [
+        "00:07-00:07",
+        "04:19-04:45"
+      ],
+      "source_uids": [
+        "2754",
+        "2763"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_object",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_action",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-110",
+      "video_id": "evYm0cELO3I",
+      "composition_schema": "identify_object + query_action",
+      "question_unverified": "What happens from 04:50-05:20 involving the animal that appears at 00:07?",
+      "answer_unverified": "Sonny tastes Lobster Quesadilla",
+      "time_references": [
+        "00:07-00:07",
+        "04:50-05:20"
+      ],
+      "source_uids": [
+        "2754",
+        "2764"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_object",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_action",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-111",
+      "video_id": "evYm0cELO3I",
+      "composition_schema": "identify_object + query_cause",
+      "question_unverified": "Why does Sonny look so expected at 07:27 involving the animal that appears at 00:07?",
+      "answer_unverified": "He wants to eat the Bohemian Lobster",
+      "time_references": [
+        "00:07-00:07",
+        "07:27-07:27"
+      ],
+      "source_uids": [
+        "2754",
+        "2768"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_object",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_cause",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-112",
+      "video_id": "oZEVgDXJwCc",
+      "composition_schema": "identify_event_result + query_action",
+      "question_unverified": "Who does Kroos substitute at 65:13?",
+      "answer_unverified": "the German player who attempts the first shot",
+      "time_references": [
+        "33:00-34:00",
+        "65:00-66:00"
+      ],
+      "source_uids": [
+        "3534",
+        "3542"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "REFERENCE_UNRESOLVED",
+        "screen_bucket": "DIAGNOSTIC_NEGATIVE_OR_UNRESOLVED",
+        "bind": {
+          "bind_variable": "schema_identify_then_query",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": false,
+          "notes": []
+        },
+        "counterfactual": {
+          "applicable": false,
+          "prompt": "NOT_APPLICABLE_LOW_STRUCTURE",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_event_result",
+            "out": "schema_identify_then_query"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "schema_identify_then_query"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_action",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-113",
+      "video_id": "pXD3txG2bVQ",
+      "composition_schema": "identify_person + query_action",
+      "question_unverified": "What happens after the boy and the cat meet the one they meet on the way they first leave home?",
+      "answer_unverified": "They clean the house",
+      "time_references": [
+        "04:21-04:32",
+        "05:02-05:50"
+      ],
+      "source_uids": [
+        "728",
+        "729"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "b_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "composition_necessity_hypothesis": "REFERENCE_UNRESOLVED",
+        "screen_bucket": "DEFER_INSUFFICIENT_STRUCTURE",
+        "bind": {
+          "bind_variable": "schema_identify_then_query",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": false,
+          "notes": []
+        },
+        "counterfactual": {
+          "applicable": false,
+          "prompt": "NOT_APPLICABLE_LOW_STRUCTURE",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "schema_identify_then_query"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "schema_identify_then_query"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_action",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-114",
+      "video_id": "pXD3txG2bVQ",
+      "composition_schema": "identify_person + query_action",
+      "question_unverified": "What happens after the yellow box is replaced by the cat, involving the one the boy and the cat meet on the way they first leave home?",
+      "answer_unverified": "The dog chases the rabbit",
+      "time_references": [
+        "04:21-04:32",
+        "32:55-33:51"
+      ],
+      "source_uids": [
+        "728",
+        "751"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "b_only_hypothesis": "EVIDENCE_INSUFFICIENT_FOR_AUTO_CALL",
+        "composition_necessity_hypothesis": "REFERENCE_UNRESOLVED",
+        "screen_bucket": "DEFER_INSUFFICIENT_STRUCTURE",
+        "bind": {
+          "bind_variable": "schema_identify_then_query",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": false,
+          "notes": []
+        },
+        "counterfactual": {
+          "applicable": false,
+          "prompt": "NOT_APPLICABLE_LOW_STRUCTURE",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "schema_identify_then_query"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "schema_identify_then_query"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_action",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-115",
+      "video_id": "wgBlACG927Y",
+      "composition_schema": "identify_event_result + query_action",
+      "question_unverified": "How do the vloggers leave the platform and go upstairs after the first means of transportation they take when they come to China?",
+      "answer_unverified": "After they get off the high-speed train, they go upstairs and go pass the ticket gate, exiting the train station",
+      "time_references": [
+        "03:22-06:10",
+        "11:03-11:40"
+      ],
+      "source_uids": [
+        "3080",
+        "3082"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_event_result",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_action",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-116",
+      "video_id": "wgBlACG927Y",
+      "composition_schema": "identify_event_result + query_action",
+      "question_unverified": "What means of transportation do the vloggers take after getting off the first means of transportation they take when they come to China?",
+      "answer_unverified": "Subway",
+      "time_references": [
+        "03:22-06:10",
+        "13:58-14:12"
+      ],
+      "source_uids": [
+        "3080",
+        "3084"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_event_result",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_action",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": false,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-201",
+      "video_id": "_T2Avd3tFHc",
+      "composition_schema": "identify_person + query_attribute",
+      "question_unverified": "What color of clothes does the person who have quarrel with a grey T-shirt elder in the Monastery wear on the first day?",
+      "answer_unverified": "Green",
+      "time_references": [
+        "07:41-08:02",
+        "04:05-04:25"
+      ],
+      "source_uids": [
+        "2883",
+        "2877"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_person",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_attribute",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    },
+    {
+      "qa_uid": "LVCOMP-V2-203",
+      "video_id": "evYm0cELO3I",
+      "composition_schema": "identify_event_result + query_action",
+      "question_unverified": "How does Maxine Smith prepare the animal that appears at 00:07?",
+      "answer_unverified": "She splits the lobster in half and grills it",
+      "time_references": [
+        "00:07-00:07",
+        "06:51-06:55"
+      ],
+      "source_uids": [
+        "2754",
+        "2766"
+      ],
+      "diagnosis": {
+        "a_only_hypothesis": "A_ONLY_SUFFICIENT_SUSPECTED",
+        "b_only_hypothesis": "B_ONLY_SUFFICIENT_SUSPECTED",
+        "composition_necessity_hypothesis": "A_PLUS_B_NECESSARY_SUSPECTED",
+        "screen_bucket": "PRIORITY_FOR_HUMAN_REVIEW",
+        "bind": {
+          "bind_variable": "target_entity_selected_in_one_window",
+          "mechanism_hypothesis": "CROSS_WINDOW_TARGET_BIND",
+          "target_referent_ambiguous_if_B_names_entity": true,
+          "notes": [
+            "SP005 lesson: B recognizing an entity ≠ B resolving which entity the question selects."
+          ]
+        },
+        "counterfactual": {
+          "applicable": true,
+          "prompt": "If window A selected a different plausible target entity, would the query executed in B change?",
+          "interpretation_if_yes": "Supports A-required target selection hypothesis (SP005-class); still needs human video review.",
+          "interpretation_if_no": "Weakens composition necessity; check A-only/B-only shortcut on FULL original question.",
+          "not_video_proof": true
+        },
+        "full_question_sufficiency_rule": "Judge A-only/B-only against the COMPLETE original question; do not assume the target entity is pre-resolved (SP004/SP005).",
+        "auto_certified": false,
+        "disclaimer": "Heuristic pre-screen only; human video review required. Not formal Seen/Gold."
+      },
+      "program_draft": {
+        "draft_only": true,
+        "nodes": [
+          {
+            "clip_role": "A_or_B_identify",
+            "op": "identify_event_result",
+            "out": "target_entity_selected_in_one_window"
+          },
+          {
+            "clip_role": "cross",
+            "op": "CrossWindowBind",
+            "in": [
+              "target_entity_selected_in_one_window"
+            ],
+            "out": "bound_target"
+          },
+          {
+            "clip_role": "A_or_B_query",
+            "op": "query_action",
+            "in": [
+              "bound_target"
+            ],
+            "out": "answer"
+          }
+        ],
+        "sp005_guard": "Do not treat B entity recognition alone as resolving question target selection.",
+        "sp002_note": "If person identity needs within-window temporal bind, label TemporalPersonBind separately from cross-window join.",
+        "not_approved": true
+      },
+      "meta": {
+        "construction_exposed": true,
+        "media_exists": true
+      },
+      "status": "PENDING_HUMAN_VIDEO_REVIEW",
+      "formal_seen_train": false,
+      "formal_gold": false,
+      "train_exposed": false
+    }
+  ],
+  "disclaimer": "Pre-screen heuristics from run_001 lessons; not scientific certification."
+}

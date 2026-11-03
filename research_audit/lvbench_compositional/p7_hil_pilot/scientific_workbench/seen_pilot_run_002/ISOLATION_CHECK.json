@@ -1,0 +1,22 @@
+{
+  "run_id": "seen_pilot_run_002",
+  "created_utc": "2026-11-03T01:05:00+00:00",
+  "status": "PASS",
+  "issues": [],
+  "selected_video_ids": [
+    "9-gOCOu_KGU",
+    "Hf-n1yfd8II",
+    "wgBlACG927Y"
+  ],
+  "selected_qa_uids": [
+    "LVCOMP-V2-001",
+    "LVCOMP-V2-040",
+    "LVCOMP-V2-042",
+    "LVCOMP-V2-101",
+    "LVCOMP-V2-116"
+  ],
+  "overlap_hard_exclude": [],
+  "overlap_run_001": [],
+  "run_001_records_preserved": true,
+  "unseen_approved_graphs_untouched": true
+}
