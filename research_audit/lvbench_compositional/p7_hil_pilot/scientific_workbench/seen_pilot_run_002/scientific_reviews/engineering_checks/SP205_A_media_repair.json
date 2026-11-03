@@ -64,5 +64,9 @@
     },
     "promoted": false,
     "reason_not_promoted": "Clip-only protocol cannot access 06:10-13:58 continuity evidence required for TemporalSuccessor/no-other-transport necessity as reviewed by human."
-  }
+  },
+  "historical_status": "V04_AUDIT_RETAINED",
+  "applicability_to_v05": "SUPERSEDED_NOT_REQUIRED_FOR_COMPARE_TEMPORAL_ORDER",
+  "current_scientific_pointer": "scientific_reviews/RECORDS_BY_PACK/SP205.json",
+  "current_graph_version": "v0.5"
 }

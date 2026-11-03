@@ -227,23 +227,113 @@
   ],
   "does_not_overwrite_run_001": true,
   "scientific_review_pointer": {
-    "ingested": true,
-    "user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+    "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+    "graph_version": "v0.5",
+    "user_split_assignment": "UNSEEN",
+    "user_split_decision": "USER_ASSIGNED_UNSEEN",
     "record_path": "scientific_reviews/RECORDS_BY_PACK/SP205.json",
-    "compositional_candidate_graph_approved": false,
-    "graph_version": "v0.4",
-    "conditional_promotion": {
-      "requested_status_if_all_gates_pass": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
-      "current_user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
-      "gates": {
-        "A_media_restored_03_22_to_06_10": true,
-        "first_transport_scope_supported_in_A": true,
-        "critical_temporal_relation_model_accessible": false,
-        "manifest_sha_isolation_ok": true,
-        "no_new_fact_conflict_forcing_retract": true
+    "handoff": "scientific_reviews/handoff/run_002_scientific_adjudications_all6_v1.json",
+    "compositional_candidate_graph_approved": true,
+    "formal_unseen": false
+  },
+  "graph_version": "v0.5",
+  "user_split_assignment": "UNSEEN",
+  "user_split_decision": "USER_ASSIGNED_UNSEEN",
+  "directed_program_graph": {
+    "operator_semantics": "TEMPORAL_ORDER_NOT_IMMEDIATE_SUCCESSOR",
+    "nodes": [
+      {
+        "id": "n1",
+        "op": "IdentifyFirstTransport",
+        "clip": "A",
+        "output": "first_transport"
       },
-      "promoted": false,
-      "reason_not_promoted": "Clip-only protocol cannot access 06:10-13:58 continuity evidence required for TemporalSuccessor/no-other-transport necessity as reviewed by human."
-    }
+      {
+        "id": "n2",
+        "op": "DetectDisembark",
+        "clip": "A",
+        "output": "disembark_event"
+      },
+      {
+        "id": "n3",
+        "op": "TimeAnchor",
+        "clip": "A",
+        "output": "disembark_time"
+      },
+      {
+        "id": "n4",
+        "op": "IdentifyTransport",
+        "clip": "B",
+        "output": "later_transport"
+      },
+      {
+        "id": "n5",
+        "op": "TimeAnchor",
+        "clip": "B",
+        "output": "later_ride_time"
+      },
+      {
+        "id": "n6",
+        "op": "CompareTemporalOrder",
+        "clip": "AB",
+        "predicate": "disembark_time < later_ride_time"
+      },
+      {
+        "id": "n7",
+        "op": "QueryLaterTransport",
+        "clip": "B",
+        "output": "Subway"
+      }
+    ],
+    "edges": [
+      {
+        "from": "n1",
+        "to": "n2",
+        "kind": "bind"
+      },
+      {
+        "from": "n2",
+        "to": "n3",
+        "kind": "data"
+      },
+      {
+        "from": "n4",
+        "to": "n5",
+        "kind": "data"
+      },
+      {
+        "from": "n3",
+        "to": "n6",
+        "kind": "temporal"
+      },
+      {
+        "from": "n5",
+        "to": "n6",
+        "kind": "temporal"
+      },
+      {
+        "from": "n4",
+        "to": "n7",
+        "kind": "data"
+      },
+      {
+        "from": "n6",
+        "to": "n7",
+        "kind": "control"
+      }
+    ],
+    "removed_required_operator": "TemporalSuccessor",
+    "new_required_operator": "CompareTemporalOrder",
+    "status": "USER_APPROVED_TEMPORAL_SEMANTICS_GPT_TYPED_GRAPH_PROPOSAL",
+    "program": "IdentifyFirstTransport(A) → DetectDisembark(A) + TimeAnchor(A); IdentifyTransport(B) + TimeAnchor(B) → CompareTemporalOrder(A,B) → QueryLaterTransport(B)",
+    "version": "v0.5",
+    "answer_candidate": "Subway"
+  },
+  "question_en_v05": "After getting off the first means of transportation they took when coming to China, what means of transportation do the vloggers take in a later part of the video?",
+  "question_zh_v05": "博主来到中国后，从他们最先乘坐的交通工具下车之后，在视频后面的片段中又乘坐了什么交通工具？",
+  "v04_history_ref": "scientific_reviews/HISTORY/SP205_v0.4_conditional.json",
+  "video_group_isolation": {
+    "video_id": "wgBlACG927Y",
+    "forbid_derived_samples_in_seen_train": true
   }
 }

@@ -1,0 +1,54 @@
+{
+  "schema": "seen_pilot_run_002_scientific_record_v1",
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP201",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingested_utc": "2026-11-03T04:20:32+00:00",
+  "branch_note": "Artifacts live on research/lvbench-comp-p7-hil-pilot (run_002 baseline fa98aae); not video-grounded-evidence branch.",
+  "video_id": "Hf-n1yfd8II",
+  "qa_uid": "LVCOMP-V2-001",
+  "windows_seconds": {
+    "A": [
+      2880,
+      2897
+    ],
+    "B": [
+      5413,
+      5440
+    ]
+  },
+  "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+  "graph_version": "v0.2",
+  "human_observations": [
+    "A (48:00-48:17): blue-jersey player loses a point and shows frustration.",
+    "B (90:13-90:40): blue-jersey Malaysian player ultimately wins the whole match.",
+    "Deciding game 22:20; prior games 1:1; match result 2:1.",
+    "Human confirms A and B are the same player.",
+    "A-only cannot confirm final winner; B-only cannot confirm earlier emotion."
+  ],
+  "scientific_inferences": [
+    "Cross-window person bind required between winner identity (B) and emotion query (A)."
+  ],
+  "directed_program_graph": {
+    "program": "DetermineMatchWinner(B) → CrossWindowPersonBind → QueryEmotion(A)",
+    "answer_candidate": "frustrated (lose the rally/point)"
+  },
+  "evidence_limitations": [
+    "Must not concretize 'lost the point in that rally' into 'failed to receive opponent's shuttlecock' without separate visual proof."
+  ],
+  "single_window_necessity_audit": {
+    "a_only_sufficient_full_question": "否",
+    "b_only_sufficient_full_question": "否",
+    "a_plus_b_necessary": "是"
+  },
+  "engineering_status": "RECORDED",
+  "promotion_gate": "CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "shared_video_with": [
+    "SP202"
+  ]
+}

@@ -2,14 +2,6 @@
   "schema": "seen_pilot_run_002_scientific_record_v1",
   "run_id": "seen_pilot_run_002",
   "pack_id": "SP204",
-  "formal_seen_train": false,
-  "formal_unseen": false,
-  "formal_gold": false,
-  "train_exposed": false,
-  "seen_pool_frozen": false,
-  "approve_expensive_track_a_rsi": false,
-  "ingested_utc": "2026-11-03T04:20:32+00:00",
-  "branch_note": "Artifacts live on research/lvbench-comp-p7-hil-pilot (run_002 baseline fa98aae); not video-grounded-evidence branch.",
   "video_id": "9-gOCOu_KGU",
   "qa_uid": "LVCOMP-V2-101",
   "windows_seconds": {
@@ -23,27 +15,51 @@
     ]
   },
   "user_decision": "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE",
-  "rejection_reason": "RELATION_UNVERIFIED + COMPOSITION_NECESSITY_NOT_ESTABLISHED",
+  "graph_version": null,
+  "user_split_assignment": "UNASSIGNED",
+  "user_split_decision": "NOT_YET_ASSIGNED",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "engineering_must_not_auto_approve": true,
+  "ingested_utc": "2026-11-03T05:14:20+00:00",
+  "handoff_schema": "cvpr2027_trackb_run002_scientific_adjudications_complete_v1",
+  "baseline_commit": "9afc5e95156041833421ff3e034d76deb8aac7c3",
+  "branch_note": "Artifacts on research/lvbench-comp-p7-hil-pilot; USER_ASSIGNED_UNSEEN ≠ formal Unseen freeze.",
+  "question_original_en": "Who is the little girl that comes to the place where the scene shown in the video is?",
+  "answer_candidate": null,
   "human_observations": [
-    "A: men's 10k final stadium, overhead view and event captions.",
-    "B: little girl appears; hug interaction with adult athlete.",
-    "Adult athlete kit shows UK flag and Farah name.",
-    "B shows track and green grass.",
-    "Father-daughter relation not directly verified.",
-    "Irreplaceable contribution of A not established."
+    "A (00:00–01:25): stadium aerial view and men’s 10,000m final caption.",
+    "B (35:34–35:53): little girl hugs adult athlete wearing Farah and UK flag.",
+    "B also shows track and green field.",
+    "Father–daughter relation is not directly verified.",
+    "A has no established indispensable contribution."
   ],
   "scientific_inferences": [],
   "directed_program_graph": {
     "status": "NOT_APPROVED"
   },
   "evidence_limitations": [
-    "Diagnostic case only; must not claim B-only strictly completes the full original question."
+    "Do not assert the adult is her father.",
+    "Do not assert B alone strictly answers the full historical question.",
+    "Keep diagnostic only."
   ],
   "single_window_necessity_audit": {
-    "a_only_sufficient_full_question": "未建立不可替代贡献",
-    "b_only_sufficient_full_question": "未严格证明可独立完成完整原题",
-    "a_plus_b_necessary": "未建立"
+    "a_only_sufficient_full_question": "IRREPLACEABLE_CONTRIBUTION_UNESTABLISHED",
+    "b_only_sufficient_full_question": "NOT_STRICTLY_PROVEN",
+    "a_plus_b_necessary": "UNESTABLISHED"
   },
   "engineering_status": "RECORDED_REJECTED",
-  "promotion_gate": "REJECTED_NOT_OVERRIDABLE_BY_AUTOSCREEN"
+  "promotion_gate": "REJECTED_NOT_OVERRIDABLE_BY_AUTOSCREEN",
+  "video_group_id": "VIDEO_9-gOCOu_KGU",
+  "shared_video_with": [],
+  "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP204.json",
+  "rejection_reason": "RELATION_UNVERIFIED + COMPOSITION_NECESSITY_NOT_ESTABLISHED",
+  "rejection_reason_codes": [
+    "RELATION_UNVERIFIED",
+    "COMPOSITION_NECESSITY_NOT_ESTABLISHED"
+  ]
 }

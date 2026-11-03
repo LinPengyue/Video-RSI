@@ -1,0 +1,49 @@
+{
+  "schema": "seen_pilot_run_002_scientific_record_v1",
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP204",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingested_utc": "2026-11-03T04:20:32+00:00",
+  "branch_note": "Artifacts live on research/lvbench-comp-p7-hil-pilot (run_002 baseline fa98aae); not video-grounded-evidence branch.",
+  "video_id": "9-gOCOu_KGU",
+  "qa_uid": "LVCOMP-V2-101",
+  "windows_seconds": {
+    "A": [
+      0,
+      85
+    ],
+    "B": [
+      2134,
+      2153
+    ]
+  },
+  "user_decision": "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE",
+  "rejection_reason": "RELATION_UNVERIFIED + COMPOSITION_NECESSITY_NOT_ESTABLISHED",
+  "human_observations": [
+    "A: men's 10k final stadium, overhead view and event captions.",
+    "B: little girl appears; hug interaction with adult athlete.",
+    "Adult athlete kit shows UK flag and Farah name.",
+    "B shows track and green grass.",
+    "Father-daughter relation not directly verified.",
+    "Irreplaceable contribution of A not established."
+  ],
+  "scientific_inferences": [],
+  "directed_program_graph": {
+    "status": "NOT_APPROVED"
+  },
+  "evidence_limitations": [
+    "Diagnostic case only; must not claim B-only strictly completes the full original question."
+  ],
+  "single_window_necessity_audit": {
+    "a_only_sufficient_full_question": "未建立不可替代贡献",
+    "b_only_sufficient_full_question": "未严格证明可独立完成完整原题",
+    "a_plus_b_necessary": "未建立"
+  },
+  "engineering_status": "RECORDED_REJECTED",
+  "promotion_gate": "REJECTED_NOT_OVERRIDABLE_BY_AUTOSCREEN"
+}

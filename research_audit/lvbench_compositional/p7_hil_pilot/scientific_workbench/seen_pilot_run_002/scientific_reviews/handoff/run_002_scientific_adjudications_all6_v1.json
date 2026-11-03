@@ -1,0 +1,610 @@
+{
+  "schema": "cvpr2027_trackb_run002_scientific_adjudications_complete_v1",
+  "project": "CVPR2027_TrackB",
+  "target_run": "seen_pilot_run_002",
+  "branch": "research/lvbench-comp-p7-hil-pilot",
+  "baseline_commit": "9afc5e95156041833421ff3e034d76deb8aac7c3",
+  "baseline_run002_commit": "fa98aae25f7a5c73259e4dd33c4cb70a46cd0592",
+  "authority": "USER_SCIENTIFIC_DECISIONS_WITH_GPT_GRAPH_FORMALIZATION",
+  "apply_mode": "FULL_SIX_RECORDS_VERSIONED_NON_DESTRUCTIVE_SYNC",
+  "note": "Complete 6-pack run_002 adjudication handoff. Five prior decisions retained; SP205 v0.5 approved and user-assigned UNSEEN. Do not interpret pilot name as formal Seen.",
+  "records": [
+    {
+      "pack_id": "SP201",
+      "video_id": "Hf-n1yfd8II",
+      "qa_uid": "LVCOMP-V2-001",
+      "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP201.json",
+      "evidence_windows_seconds": {
+        "A": [
+          2880,
+          2897
+        ],
+        "B": [
+          5413,
+          5440
+        ]
+      },
+      "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+      "graph_version": "v0.2",
+      "user_split_assignment": "UNASSIGNED",
+      "user_split_decision": "NOT_YET_ASSIGNED",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "engineering_must_not_auto_approve": true,
+      "question_original_en": "How to describe the feeling of the final winner at 48:16?",
+      "answer_candidate": "frustrated (after losing rally/point)",
+      "human_observations": [
+        "A (48:00–48:17): blue-jersey player loses a point and shows frustration.",
+        "B (90:13–90:40): blue-jersey Malaysian player ultimately wins the whole match.",
+        "Deciding game 22:20; prior games 1:1; match result 2:1.",
+        "Human confirms A and B refer to the same player.",
+        "A alone cannot establish final winner; B alone cannot establish earlier emotion."
+      ],
+      "scientific_inferences": [
+        "Requires binding match winner from B to the same person whose earlier emotion is queried in A."
+      ],
+      "directed_program_graph": {
+        "status": "USER_APPROVED_MACRO_GRAPH",
+        "program": "DetermineMatchWinner(B) → CrossWindowPersonBind(B,A) → QueryEmotion(A)",
+        "dependency_direction": "B_TO_A",
+        "answer_candidate": "frustrated"
+      },
+      "evidence_limitations": [
+        "Do not replace losing a point/rally with the unsupported claim of failing to receive a particular shuttlecock."
+      ],
+      "single_window_necessity_audit": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED"
+      },
+      "engineering_status": "RECORDED",
+      "promotion_gate": "CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+      "video_group_id": "VIDEO_Hf-n1yfd8II",
+      "shared_video_with": [
+        "SP202",
+        "SP203"
+      ],
+      "shared_B_window_with": [
+        "SP202",
+        "SP203"
+      ],
+      "original_source_graph_version": "v0.2"
+    },
+    {
+      "pack_id": "SP202",
+      "video_id": "Hf-n1yfd8II",
+      "qa_uid": "LVCOMP-V2-040",
+      "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP202.json",
+      "evidence_windows_seconds": {
+        "A": [
+          510,
+          515
+        ],
+        "B": [
+          5413,
+          5440
+        ]
+      },
+      "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+      "graph_version": "v0.3",
+      "user_split_assignment": "UNASSIGNED",
+      "user_split_decision": "NOT_YET_ASSIGNED",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "engineering_must_not_auto_approve": true,
+      "question_original_en": "What competition result does the person who serves first have?",
+      "answer_candidate": "wins the match (final winner)",
+      "human_observations": [
+        "A (08:30–08:35): blue-jersey Lee Chong Wei serves at score 0:0.",
+        "Flag and English name support player identity.",
+        "Human checked wider timeline: first game opening, not a later game opening.",
+        "B (90:13–90:40) confirms Lee Chong Wei wins the match.",
+        "A-only and B-only cannot establish the complete question relation."
+      ],
+      "scientific_inferences": [
+        "Identify first server at match opening in A, bind that person to match result in B."
+      ],
+      "directed_program_graph": {
+        "status": "USER_APPROVED_MACRO_GRAPH",
+        "program": "IdentifyFirstServer(A) → CrossWindowPersonBind(A,B) → QueryMatchResult(B)",
+        "dependency_direction": "A_TO_B",
+        "answer_candidate": "wins the match"
+      },
+      "evidence_limitations": [
+        "Shares video and B window with SP201; do not count as two independent videos."
+      ],
+      "single_window_necessity_audit": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED"
+      },
+      "engineering_status": "RECORDED",
+      "promotion_gate": "CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+      "video_group_id": "VIDEO_Hf-n1yfd8II",
+      "shared_video_with": [
+        "SP201",
+        "SP203"
+      ],
+      "shared_B_window_with": [
+        "SP201",
+        "SP203"
+      ],
+      "original_source_graph_version": "v0.3"
+    },
+    {
+      "pack_id": "SP203",
+      "video_id": "Hf-n1yfd8II",
+      "qa_uid": "LVCOMP-V2-042",
+      "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP203.json",
+      "evidence_windows_seconds": {
+        "A": [
+          3470,
+          3485
+        ],
+        "B": [
+          5413,
+          5440
+        ]
+      },
+      "user_decision": "DEFER_NEEDS_EVIDENCE_RELOCALIZATION",
+      "graph_version": null,
+      "user_split_assignment": "UNASSIGNED",
+      "user_split_decision": "NOT_YET_ASSIGNED",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "engineering_must_not_auto_approve": true,
+      "question_original_en": "Whose coach is the guy in orange who is always coughing?",
+      "answer_candidate": null,
+      "human_observations": [
+        "A (57:50–58:05): orange-clad coughing person was not found.",
+        "Coughing behavior not confirmed.",
+        "Coach-player relation not confirmed.",
+        "B match result cannot repair missing A person/relation evidence."
+      ],
+      "scientific_inferences": [],
+      "directed_program_graph": {
+        "status": "NOT_APPROVED",
+        "forbidden_nodes_without_new_evidence": [
+          "CoachOf"
+        ]
+      },
+      "evidence_limitations": [
+        "Do not infer coach-player relationship from historical answer.",
+        "Bounded relocalization failed to find target; absence is not proven."
+      ],
+      "single_window_necessity_audit": {
+        "a_only_sufficient_full_question": "UNESTABLISHED",
+        "b_only_sufficient_full_question": "INSUFFICIENT",
+        "a_plus_b_necessary": "UNESTABLISHED"
+      },
+      "engineering_status": "RELOCALIZATION_PACKS_PREPARED_NO_AUTO_APPROVAL",
+      "promotion_gate": "NO_AUTO_UPGRADE",
+      "video_group_id": "VIDEO_Hf-n1yfd8II",
+      "shared_video_with": [
+        "SP201",
+        "SP202"
+      ],
+      "shared_B_window_with": [
+        "SP201",
+        "SP202"
+      ],
+      "relocalization": {
+        "search_ranges_clock": [
+          "57:20-57:50",
+          "57:40-58:20",
+          "58:05-58:40"
+        ],
+        "media": [
+          "seen_pilot_run_002/relocalization/SP203/search_5720_5750.mp4",
+          "seen_pilot_run_002/relocalization/SP203/search_5740_5820.mp4",
+          "seen_pilot_run_002/relocalization/SP203/search_5805_5840.mp4"
+        ],
+        "candidate_event_found": false,
+        "auto_approved": false,
+        "requires_human_re_review": true
+      }
+    },
+    {
+      "pack_id": "SP204",
+      "video_id": "9-gOCOu_KGU",
+      "qa_uid": "LVCOMP-V2-101",
+      "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP204.json",
+      "evidence_windows_seconds": {
+        "A": [
+          0,
+          85
+        ],
+        "B": [
+          2134,
+          2153
+        ]
+      },
+      "user_decision": "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE",
+      "graph_version": null,
+      "user_split_assignment": "UNASSIGNED",
+      "user_split_decision": "NOT_YET_ASSIGNED",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "engineering_must_not_auto_approve": true,
+      "question_original_en": "Who is the little girl that comes to the place where the scene shown in the video is?",
+      "answer_candidate": null,
+      "rejection_reason": [
+        "RELATION_UNVERIFIED",
+        "COMPOSITION_NECESSITY_NOT_ESTABLISHED"
+      ],
+      "human_observations": [
+        "A (00:00–01:25): stadium aerial view and men’s 10,000m final caption.",
+        "B (35:34–35:53): little girl hugs adult athlete wearing Farah and UK flag.",
+        "B also shows track and green field.",
+        "Father–daughter relation is not directly verified.",
+        "A has no established indispensable contribution."
+      ],
+      "scientific_inferences": [],
+      "directed_program_graph": {
+        "status": "NOT_APPROVED"
+      },
+      "evidence_limitations": [
+        "Do not assert the adult is her father.",
+        "Do not assert B alone strictly answers the full historical question.",
+        "Keep diagnostic only."
+      ],
+      "single_window_necessity_audit": {
+        "a_only_sufficient_full_question": "IRREPLACEABLE_CONTRIBUTION_UNESTABLISHED",
+        "b_only_sufficient_full_question": "NOT_STRICTLY_PROVEN",
+        "a_plus_b_necessary": "UNESTABLISHED"
+      },
+      "engineering_status": "RECORDED_REJECTED",
+      "promotion_gate": "REJECTED_NOT_OVERRIDABLE_BY_AUTOSCREEN",
+      "video_group_id": "VIDEO_9-gOCOu_KGU"
+    },
+    {
+      "pack_id": "SP205",
+      "video_id": "wgBlACG927Y",
+      "qa_uid": "LVCOMP-V2-116",
+      "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP205.json",
+      "evidence_windows_seconds": {
+        "A": [
+          202,
+          370
+        ],
+        "B": [
+          838,
+          852
+        ]
+      },
+      "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+      "graph_version": "v0.5",
+      "user_split_assignment": "UNSEEN",
+      "user_split_decision": "USER_ASSIGNED_UNSEEN",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "engineering_must_not_auto_approve": true,
+      "question_original_en": "What means of transportation do the vloggers take after getting off the first means of transportation they take when they come to China?",
+      "question_zh": "博主来到中国后，从他们最先乘坐的交通工具下车之后，在视频后面的片段中又乘坐了什么交通工具？",
+      "question_en": "After getting off the first means of transportation they took when coming to China, what means of transportation do the vloggers take in a later part of the video?",
+      "answer_candidate": "Subway",
+      "answer_zh": "地铁",
+      "previous_graph_version": "v0.4",
+      "human_observations": [
+        "03:22–05:22: vlogger boards high-speed train.",
+        "05:22–06:10: vlogger disembarks from high-speed train.",
+        "06:10–13:58: human checked middle footage and did not observe other transport; this is historical observation, NOT a v0.5 necessity condition.",
+        "13:58–14:12: vlogger rides subway; Line 3 signage and interior visible."
+      ],
+      "scientific_inferences": [
+        "User explicitly approves SP205 for Unseen and revises the temporal semantics from immediate successor to later-than/after.",
+        "A identifies the first transport and disembark; B identifies subway in a later clip.",
+        "The v0.5 question does not require proof of no intervening transport.",
+        "B-only answer-string guessing is possible but is not by itself proof of full relational reasoning or its absence."
+      ],
+      "directed_program_graph": {
+        "operator_semantics": "TEMPORAL_ORDER_NOT_IMMEDIATE_SUCCESSOR",
+        "nodes": [
+          {
+            "id": "n1",
+            "op": "IdentifyFirstTransport",
+            "clip": "A",
+            "output": "first_transport"
+          },
+          {
+            "id": "n2",
+            "op": "DetectDisembark",
+            "clip": "A",
+            "output": "disembark_event"
+          },
+          {
+            "id": "n3",
+            "op": "TimeAnchor",
+            "clip": "A",
+            "output": "disembark_time"
+          },
+          {
+            "id": "n4",
+            "op": "IdentifyTransport",
+            "clip": "B",
+            "output": "later_transport"
+          },
+          {
+            "id": "n5",
+            "op": "TimeAnchor",
+            "clip": "B",
+            "output": "later_ride_time"
+          },
+          {
+            "id": "n6",
+            "op": "CompareTemporalOrder",
+            "clip": "AB",
+            "predicate": "disembark_time < later_ride_time"
+          },
+          {
+            "id": "n7",
+            "op": "QueryLaterTransport",
+            "clip": "B",
+            "output": "Subway"
+          }
+        ],
+        "edges": [
+          {
+            "from": "n1",
+            "to": "n2",
+            "kind": "bind"
+          },
+          {
+            "from": "n2",
+            "to": "n3",
+            "kind": "data"
+          },
+          {
+            "from": "n4",
+            "to": "n5",
+            "kind": "data"
+          },
+          {
+            "from": "n3",
+            "to": "n6",
+            "kind": "temporal"
+          },
+          {
+            "from": "n5",
+            "to": "n6",
+            "kind": "temporal"
+          },
+          {
+            "from": "n4",
+            "to": "n7",
+            "kind": "data"
+          },
+          {
+            "from": "n6",
+            "to": "n7",
+            "kind": "control"
+          }
+        ],
+        "removed_required_operator": "TemporalSuccessor",
+        "new_required_operator": "CompareTemporalOrder",
+        "status": "USER_APPROVED_TEMPORAL_SEMANTICS_GPT_TYPED_GRAPH_PROPOSAL",
+        "program": "IdentifyFirstTransport(A) → DetectDisembark(A) + TimeAnchor(A); IdentifyTransport(B) + TimeAnchor(B) → CompareTemporalOrder(A,B) → QueryLaterTransport(B)",
+        "version": "v0.5",
+        "answer_candidate": "Subway"
+      },
+      "evidence": {
+        "A": {
+          "source_seconds": [
+            202,
+            370
+          ],
+          "observation": "Board and disembark from high-speed train",
+          "model_accessible_clip": "media/SP205/A_wgBlACG927Y_202_370.mp4"
+        },
+        "B": {
+          "source_seconds": [
+            838,
+            852
+          ],
+          "observation": "Ride subway, Line 3 signage and subway interior",
+          "model_accessible_clip": "media/SP205/B_wgBlACG927Y_838_852.mp4"
+        },
+        "human_reviewed_middle_seconds": [
+          370,
+          838
+        ],
+        "middle_interval_required_for_v05": false,
+        "first_transport_scope_provenance": "PENDING_EXPLICIT_EARLIER_TIMELINE_EVIDENCE_POINTER",
+        "source_time_order": "A_END_BEFORE_B_START",
+        "model_time_order_accessibility": "PENDING_INPUT_PROTOCOL_CHECK"
+      },
+      "evidence_limitations": [
+        "First-transport scope before 03:22 needs explicit provenance; do not fabricate earlier footage.",
+        "Actual model input protocol must preserve access to A and B and their source timestamps.",
+        "The 06:10–13:58 gap is NOT a blocker for the v0.5 later-than question; retain it only in v0.4 audit history.",
+        "Human non-observation in edited footage does not prove no transport occurred off-camera."
+      ],
+      "single_window_necessity_audit": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": "NO_FOR_FULL_RELATIONAL_EVIDENCE_BUT_ANSWER_STRING_SHORTCUT_RISK",
+        "a_plus_b_necessary": "USER_SUPPORTED_PENDING_MODEL_ABLATION"
+      },
+      "engineering_status": "V05_SCIENTIFIC_APPROVED_USER_ASSIGNED_UNSEEN_PENDING_ENGINEERING_SYNC",
+      "promotion_gate": "USER_SCIENTIFIC_DECISION_NOT_CONDITIONAL_ON_V04_SUCCESSOR_GAP",
+      "engineering_repair_ref": "scientific_reviews/engineering_checks/SP205_A_media_repair.json",
+      "prior_v04_history": {
+        "user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+        "directed_program_graph": "IdentifyFirstTransport → DetectDisembark → TemporalSuccessor → IdentifyNextTransport",
+        "old_blocker": "MODEL_ACCESSIBLE_TEMPORAL_GAP_06:10-13:58",
+        "old_blocker_applicability_to_v05": "SUPERSEDED_NOT_REQUIRED",
+        "preserve_v04_record_and_media_sha": true
+      },
+      "video_group_id": "VIDEO_wgBlACG927Y",
+      "shared_video_with": [
+        "DN201"
+      ],
+      "media_sha256": {
+        "A": "af84566d1ee87bfbcad92ae9f6f53c78f3174529c43c1154045c982ad68e8c08",
+        "B": "c4175f6957d11dda484938bdf33c5ee6f762ac2ab3a3cacccdf3c04459769e87"
+      },
+      "user_approved_split_not_equivalent_to_formal_freeze": true
+    },
+    {
+      "pack_id": "DN201",
+      "video_id": "wgBlACG927Y",
+      "qa_uid": "LVCOMP-V2-115",
+      "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/DN201.json",
+      "evidence_windows_seconds": {
+        "A": [
+          202,
+          322
+        ],
+        "B": [
+          663,
+          700
+        ]
+      },
+      "user_decision": "DEFER_TARGET_EVENT_RELOCALIZATION",
+      "graph_version": null,
+      "user_split_assignment": "UNASSIGNED",
+      "user_split_decision": "NOT_YET_ASSIGNED",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "engineering_must_not_auto_approve": true,
+      "question_original_en": "How do the vloggers leave the platform and go upstairs after the first means of transportation they take when they come to China?",
+      "answer_candidate": null,
+      "human_observations": [
+        "B (11:03–11:40) does not show leaving the platform or going upstairs.",
+        "Current A+B does not support the original question.",
+        "Not a certified B-only shortcut negative."
+      ],
+      "scientific_inferences": [],
+      "directed_program_graph": {
+        "status": "NOT_APPROVED"
+      },
+      "evidence_limitations": [
+        "Target platform exit/upstairs event not found in current served windows.",
+        "Do not automatically classify as verified negative or infer absence."
+      ],
+      "single_window_necessity_audit": {
+        "b_only_shortcut_confirmed": false,
+        "a_plus_b_sufficient": "UNESTABLISHED"
+      },
+      "engineering_status": "RELOCALIZATION_PACKS_PREPARED_NO_AUTO_APPROVAL",
+      "promotion_gate": "NO_AUTO_UPGRADE",
+      "video_group_id": "VIDEO_wgBlACG927Y",
+      "shared_video_with": [
+        "SP205"
+      ],
+      "relocalization": {
+        "search_ranges_clock": [
+          "06:10-07:40",
+          "07:40-09:10",
+          "09:10-11:03"
+        ],
+        "media": [
+          "seen_pilot_run_002/relocalization/DN201/search_0610_0740.mp4",
+          "seen_pilot_run_002/relocalization/DN201/search_0740_0910.mp4",
+          "seen_pilot_run_002/relocalization/DN201/search_0910_1103.mp4"
+        ],
+        "candidate_event_found": false,
+        "auto_approved": false,
+        "requires_human_re_review": true
+      },
+      "split_group_isolation_note": "Same source video as user-assigned Unseen SP205: do not expose DN201 or any derived footage in training while this video is held out."
+    }
+  ],
+  "summary": {
+    "record_count": 6,
+    "scientifically_approved_compositional_candidates": [
+      "SP201",
+      "SP202",
+      "SP205"
+    ],
+    "user_assigned_unseen": [
+      "SP205"
+    ],
+    "approved_but_split_unassigned": [
+      "SP201",
+      "SP202"
+    ],
+    "deferred": [
+      "SP203",
+      "DN201"
+    ],
+    "rejected": [
+      "SP204"
+    ],
+    "distinct_source_videos": 3,
+    "source_video_groups": {
+      "Hf-n1yfd8II": [
+        "SP201",
+        "SP202",
+        "SP203"
+      ],
+      "9-gOCOu_KGU": [
+        "SP204"
+      ],
+      "wgBlACG927Y": [
+        "SP205",
+        "DN201"
+      ]
+    },
+    "formal_seen_train": false,
+    "formal_unseen": false,
+    "formal_gold": false,
+    "train_exposed": false,
+    "seen_pool_frozen": false,
+    "approve_expensive_track_a_rsi": false
+  },
+  "ingestion_rules": {
+    "source_of_truth": "This file records current human scientific decisions. Preserve baseline source records and provenance.",
+    "write_new_version_not_overwrite_history": true,
+    "do_not_reapply_v04_successor_gate_to_sp205_v05": true,
+    "preserve_v04_history_and_media_sha": true,
+    "update_generator_source_to_avoid_overwriting_v05": true,
+    "synchronize_record_index_catalog_review_pack_workbench": true,
+    "keep_sp201_sp202_approved_not_auto_seen": true,
+    "keep_sp203_dn201_deferred_and_sp204_rejected": true,
+    "do_not_mint_gold_or_freeze_or_expose_training": true,
+    "no_other_seen_unseen_decisions": true,
+    "isolate_entire_video_group_if_sp205_unseen": true,
+    "verify_sp205_first_transport_scope_provenance": true,
+    "verify_model_can_access_A_B_and_source_time_order": true,
+    "do_not_change_run001_or_sealed": true,
+    "do_not_start_track_a_rsi": true,
+    "report_sha_tests_diff_and_remaining_blockers": true
+  },
+  "validation": {
+    "counts_expected": {
+      "records": 6,
+      "approved": 3,
+      "user_assigned_unseen": 1,
+      "deferred": 2,
+      "rejected": 1
+    },
+    "sp205_v05_graph_nodes_expected": 7,
+    "sp205_v05_graph_edges_expected": 7,
+    "all_formal_gates_remain_false": true,
+    "note": "All scientific labels sourced from user adjudications. Typed SP205 graph is GPT formalization and should not be auto-claimed as a frozen operator vocabulary."
+  }
+}

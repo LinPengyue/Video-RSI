@@ -230,6 +230,10 @@
   "does_not_overwrite_run_001": true,
   "scientific_review_pointer": {
     "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
-    "record_path": "scientific_reviews/RECORDS_BY_PACK/SP201.json"
+    "graph_version": "v0.2",
+    "user_split_assignment": "UNASSIGNED",
+    "user_split_decision": "NOT_YET_ASSIGNED",
+    "record_path": "scientific_reviews/RECORDS_BY_PACK/SP201.json",
+    "handoff": "scientific_reviews/handoff/run_002_scientific_adjudications_all6_v1.json"
   }
 }

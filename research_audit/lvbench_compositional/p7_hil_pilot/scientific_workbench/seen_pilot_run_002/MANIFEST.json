@@ -1,6 +1,6 @@
 {
   "run_id": "seen_pilot_run_002",
-  "updated_utc": "2026-11-03T04:20:32+00:00",
+  "updated_utc": "2026-11-03T05:14:20+00:00",
   "files": [
     {
       "role": "seen_pilot_run_002/media/DN201/A_wgBlACG927Y_202_322.mp4",
@@ -118,33 +118,17 @@
     }
   ],
   "pack_json_sha256": {
-    "SP201_Hf-n1yfd8II.json": "4b2790a464d26b2b976ba34c724b44a3bc5e6017b6cc4e27f15f5196240b2365",
-    "SP202_Hf-n1yfd8II.json": "41e73d595af960195ae56d72193865888e144a83358346206c2aaf985f170998",
-    "SP203_Hf-n1yfd8II.json": "9f88bcb6d4eccbf086943bd41bfa4b716181a3df242ee132aed9e6195134c43f",
-    "SP205_wgBlACG927Y.json": "e6bb47819ca55d5af2491476d3906abe519e20ff135e391982f3ab2914916a76",
-    "SP204_9-gOCOu_KGU.json": "35a1a91c2cb68f51a401e8e7831a6ed93fdd69a3a890d2a6084c1e1c99fd3a05",
-    "DN201_wgBlACG927Y.json": "ee22d07c729df1768509f2903d34f002b032eecfae88674d903866f5056561f1"
+    "SP201_Hf-n1yfd8II.json": "e7d193f41c5c4107e3c578c0dca6fc6f14a0dc1f102e59c874a25e50b01c63c4",
+    "SP202_Hf-n1yfd8II.json": "ffb8f3c3db641e215bba5e5cf4c1ffafc35aa62aa0cb3b20a4839178a926f8e0",
+    "SP203_Hf-n1yfd8II.json": "83d1e221ed276dcf49599fd3a6774d5665415182cb020fd0aae15f9a683bd4c3",
+    "SP205_wgBlACG927Y.json": "ac1a0e86d966778a15e59a448d8d61f4a7354b99078cb5836a4687b997af1ea4",
+    "SP204_9-gOCOu_KGU.json": "74b04b9c0e2c61495b833ae894ccb9bde2ca98858f6fb48ae5d801bef0991b87",
+    "DN201_wgBlACG927Y.json": "9baeff6d5ce45f3402025fa4567d598989f43babb5cd1e768d67bcdacf218446"
   },
-  "sp205_repair": {
+  "sp205_A_restored": {
     "relpath": "seen_pilot_run_002/media/SP205/A_wgBlACG927Y_202_370.mp4",
-    "coverage_source_s": [
-      202,
-      370
-    ],
-    "coverage_clock": "03:22-06:10",
     "sha256": "af84566d1ee87bfbcad92ae9f6f53c78f3174529c43c1154045c982ad68e8c08",
-    "bytes": 76263830,
-    "duration_s": 168.0
+    "coverage_clock": "03:22-06:10"
   },
-  "sp205_truncated_retained_for_diff": {
-    "relpath": "seen_pilot_run_002/media/SP205/A_wgBlACG927Y_202_322.mp4",
-    "coverage_source_s": [
-      202,
-      322
-    ],
-    "coverage_clock": "03:22-05:22",
-    "sha256": "65ad893c395f4b8233b49ec4db005f568c0644f5bc8b9ea7e5c4e787eddf36e3",
-    "bytes": 59545311,
-    "issue": "truncated_for_review_cost; missing human-confirmed disembark span 05:22-06:10"
-  }
+  "note": "SP205 v0.5 approved; v0.4 repair audit retained under engineering_checks/HISTORY."
 }

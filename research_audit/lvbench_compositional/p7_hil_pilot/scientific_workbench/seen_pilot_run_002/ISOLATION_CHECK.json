@@ -18,5 +18,33 @@
   "overlap_hard_exclude": [],
   "overlap_run_001": [],
   "run_001_records_preserved": true,
-  "unseen_approved_graphs_untouched": true
+  "unseen_approved_graphs_untouched": true,
+  "updated_utc": "2026-11-03T05:14:20+00:00",
+  "user_assigned_unseen_video_groups": {
+    "wgBlACG927Y": {
+      "packs": [
+        "SP205",
+        "DN201"
+      ],
+      "forbid_in_seen_train": true,
+      "reason": "SP205 USER_ASSIGNED_UNSEEN holds out entire source video group",
+      "formal_unseen": false
+    }
+  },
+  "all6_sync": {
+    "approved": [
+      "SP201",
+      "SP202",
+      "SP205"
+    ],
+    "user_assigned_unseen": [
+      "SP205"
+    ],
+    "formal_seen_train": false,
+    "formal_unseen": false,
+    "formal_gold": false,
+    "train_exposed": false,
+    "seen_pool_frozen": false,
+    "approve_expensive_track_a_rsi": false
+  }
 }

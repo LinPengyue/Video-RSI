@@ -2,14 +2,6 @@
   "schema": "seen_pilot_run_002_scientific_record_v1",
   "run_id": "seen_pilot_run_002",
   "pack_id": "SP203",
-  "formal_seen_train": false,
-  "formal_unseen": false,
-  "formal_gold": false,
-  "train_exposed": false,
-  "seen_pool_frozen": false,
-  "approve_expensive_track_a_rsi": false,
-  "ingested_utc": "2026-11-03T04:20:32+00:00",
-  "branch_note": "Artifacts live on research/lvbench-comp-p7-hil-pilot (run_002 baseline fa98aae); not video-grounded-evidence branch.",
   "video_id": "Hf-n1yfd8II",
   "qa_uid": "LVCOMP-V2-042",
   "windows_seconds": {
@@ -23,8 +15,24 @@
     ]
   },
   "user_decision": "DEFER_NEEDS_EVIDENCE_RELOCALIZATION",
+  "graph_version": null,
+  "user_split_assignment": "UNASSIGNED",
+  "user_split_decision": "NOT_YET_ASSIGNED",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "engineering_must_not_auto_approve": true,
+  "ingested_utc": "2026-11-03T05:14:20+00:00",
+  "handoff_schema": "cvpr2027_trackb_run002_scientific_adjudications_complete_v1",
+  "baseline_commit": "9afc5e95156041833421ff3e034d76deb8aac7c3",
+  "branch_note": "Artifacts on research/lvbench-comp-p7-hil-pilot; USER_ASSIGNED_UNSEEN ≠ formal Unseen freeze.",
+  "question_original_en": "Whose coach is the guy in orange who is always coughing?",
+  "answer_candidate": null,
   "human_observations": [
-    "A (57:50-58:05) did not find the described orange-clad coughing person.",
+    "A (57:50–58:05): orange-clad coughing person was not found.",
     "Coughing behavior not confirmed.",
     "Coach-player relation not confirmed.",
     "B match result cannot repair missing A person/relation evidence."
@@ -32,20 +40,31 @@
   "scientific_inferences": [],
   "directed_program_graph": {
     "status": "NOT_APPROVED",
-    "forbidden_nodes": [
+    "forbidden_nodes_without_new_evidence": [
       "CoachOf"
     ]
   },
   "evidence_limitations": [
-    "Do not invent coach-player relation from historical answer."
+    "Do not infer coach-player relationship from historical answer.",
+    "Bounded relocalization failed to find target; absence is not proven."
   ],
   "single_window_necessity_audit": {
-    "a_only_sufficient_full_question": "未建立",
-    "b_only_sufficient_full_question": "不足以弥补 A 缺失",
-    "a_plus_b_necessary": "未建立（证据不足）"
+    "a_only_sufficient_full_question": "UNESTABLISHED",
+    "b_only_sufficient_full_question": "INSUFFICIENT",
+    "a_plus_b_necessary": "UNESTABLISHED"
   },
   "engineering_status": "RELOCALIZATION_PACKS_PREPARED_NO_AUTO_APPROVAL",
   "promotion_gate": "NO_AUTO_UPGRADE",
+  "video_group_id": "VIDEO_Hf-n1yfd8II",
+  "shared_video_with": [
+    "SP201",
+    "SP202"
+  ],
+  "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP203.json",
+  "shared_B_window_with": [
+    "SP201",
+    "SP202"
+  ],
   "relocalization": {
     "search_ranges_clock": [
       "57:20-57:50",
@@ -57,8 +76,8 @@
       "seen_pilot_run_002/relocalization/SP203/search_5740_5820.mp4",
       "seen_pilot_run_002/relocalization/SP203/search_5805_5840.mp4"
     ],
-    "engineering_sparse_observation": "Primary search window stills show match play (Rio 2016 court); orange coughing coach NOT identified by engineering. Awaiting human re-watch.",
     "candidate_event_found": false,
-    "auto_approved": false
+    "auto_approved": false,
+    "requires_human_re_review": true
   }
 }

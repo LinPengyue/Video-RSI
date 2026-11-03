@@ -230,6 +230,10 @@
   "does_not_overwrite_run_001": true,
   "scientific_review_pointer": {
     "user_decision": "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE",
-    "record_path": "scientific_reviews/RECORDS_BY_PACK/SP204.json"
+    "graph_version": null,
+    "user_split_assignment": "UNASSIGNED",
+    "user_split_decision": "NOT_YET_ASSIGNED",
+    "record_path": "scientific_reviews/RECORDS_BY_PACK/SP204.json",
+    "handoff": "scientific_reviews/handoff/run_002_scientific_adjudications_all6_v1.json"
   }
 }

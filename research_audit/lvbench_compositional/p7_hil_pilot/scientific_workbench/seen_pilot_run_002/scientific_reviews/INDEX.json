@@ -1,22 +1,47 @@
 {
   "run_id": "seen_pilot_run_002",
-  "ingested_utc": "2026-11-03T04:20:32+00:00",
-  "baseline_engineering_commit": "fa98aae25f7a5c73259e4dd33c4cb70a46cd0592",
-  "headline": "2 USER_APPROVED compositional candidates (SP201/SP202); 1 CONDITIONAL pending eng (SP205); 1 REJECTED (SP204); 2 DEFER relocalization (SP203/DN201); 0 formal Seen/Gold; Track A RSI gated.",
+  "ingested_utc": "2026-11-03T05:14:20+00:00",
+  "baseline_engineering_commit": "9afc5e95156041833421ff3e034d76deb8aac7c3",
+  "handoff": "scientific_reviews/handoff/run_002_scientific_adjudications_all6_v1.json",
+  "headline": "3 USER_APPROVED compositional candidates (SP201/SP202/SP205 v0.5); SP205 USER_ASSIGNED_UNSEEN (formal_unseen=false); 1 REJECTED (SP204); 2 DEFER (SP203/DN201); 0 formal Seen/Gold; Track A RSI gated; wgBlACG927Y held out of Seen train.",
   "decisions": {
     "SP201": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
     "SP202": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
     "SP203": "DEFER_NEEDS_EVIDENCE_RELOCALIZATION",
     "SP204": "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE",
-    "SP205": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+    "SP205": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
     "DN201": "DEFER_TARGET_EVENT_RELOCALIZATION"
   },
   "approved_compositional_candidates": [
     "SP201",
+    "SP202",
+    "SP205"
+  ],
+  "user_assigned_unseen": [
+    "SP205"
+  ],
+  "approved_but_split_unassigned": [
+    "SP201",
     "SP202"
   ],
-  "sp205_promoted": false,
-  "sp205_blocker": "MODEL_ACCESSIBLE_TEMPORAL_GAP_06:10-13:58",
+  "deferred": [
+    "SP203",
+    "DN201"
+  ],
+  "rejected": [
+    "SP204"
+  ],
+  "sp205_graph_version": "v0.5",
+  "sp205_promoted_scientific": true,
+  "sp205_formal_unseen": false,
+  "sp205_v04_blocker_superseded": true,
+  "video_group_isolation": {
+    "wgBlACG927Y": [
+      "SP205",
+      "DN201"
+    ],
+    "forbid_derived_in_seen_train": true
+  },
   "records": [
     "scientific_reviews/RECORDS_BY_PACK/SP201.json",
     "scientific_reviews/RECORDS_BY_PACK/SP202.json",
@@ -25,6 +50,7 @@
     "scientific_reviews/RECORDS_BY_PACK/SP205.json",
     "scientific_reviews/RECORDS_BY_PACK/DN201.json"
   ],
+  "history_dir": "scientific_reviews/HISTORY/",
   "formal_seen_train": false,
   "formal_unseen": false,
   "formal_gold": false,

@@ -2,14 +2,19 @@
   "graph_id": "seen_pilot_run_002::SP201::v0.2",
   "user_confirmation_status": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
   "program": {
-    "program": "DetermineMatchWinner(B) → CrossWindowPersonBind → QueryEmotion(A)",
-    "answer_candidate": "frustrated (lose the rally/point)"
+    "status": "USER_APPROVED_MACRO_GRAPH",
+    "program": "DetermineMatchWinner(B) → CrossWindowPersonBind(B,A) → QueryEmotion(A)",
+    "dependency_direction": "B_TO_A",
+    "answer_candidate": "frustrated"
   },
+  "graph_version": "v0.2",
+  "user_split_assignment": "UNASSIGNED",
+  "user_split_decision": "NOT_YET_ASSIGNED",
   "formal_seen_train": false,
   "formal_unseen": false,
   "formal_gold": false,
   "train_exposed": false,
   "seen_pool_frozen": false,
   "approve_expensive_track_a_rsi": false,
-  "note": "Candidate only; not formal Seen/Gold."
+  "note": "Compositional candidate only; USER_ASSIGNED_UNSEEN ≠ formal Unseen freeze; not formal Seen/Gold."
 }

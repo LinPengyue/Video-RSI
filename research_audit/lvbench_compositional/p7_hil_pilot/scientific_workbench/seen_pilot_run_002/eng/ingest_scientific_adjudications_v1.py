@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
-"""Ingest run_002 human scientific adjudications + SP205 media repair bookkeeping.
+"""LEGACY ingest for run_002 (v0.4-era SP205 conditional + media repair bookkeeping).
 
-Does NOT auto-promote formal Seen/Gold or unlock Track A RSI.
-SP205 remains conditional unless MODEL_ACCESSIBLE temporal-gap gate is satisfied.
+Superseded for scientific decisions by:
+  eng/sync_scientific_adjudications_all6_v1.py
+  (handoff: scientific_reviews/handoff/run_002_scientific_adjudications_all6_v1.json)
+
+This script REFUSES to overwrite SP205 once graph_version >= v0.5 so a re-run
+cannot roll USER_APPROVED v0.5 / USER_ASSIGNED_UNSEEN back to CONDITIONAL v0.4.
 """
 from __future__ import annotations
 
 import hashlib
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -22,6 +27,36 @@ GATES = {
     "seen_pool_frozen": False,
     "approve_expensive_track_a_rsi": False,
 }
+
+
+def _refuse_if_v05_present() -> None:
+    """Hard guard: never rewrite current SP205 pointer if all6 v0.5 already synced."""
+    cur = REV / "RECORDS_BY_PACK/SP205.json"
+    if not cur.exists():
+        return
+    d = json.loads(cur.read_text(encoding="utf-8"))
+    ver = str(d.get("graph_version") or "")
+    decision = d.get("user_decision") or ""
+    split = d.get("user_split_decision") or ""
+    if ver.startswith("v0.5") or split == "USER_ASSIGNED_UNSEEN":
+        print(
+            "REFUSING legacy ingest_scientific_adjudications_v1.py: "
+            f"SP205 already at {ver} ({decision}; {split}). "
+            "Use sync_scientific_adjudications_all6_v1.py instead. "
+            "Will not roll back to CONDITIONAL v0.4.",
+            file=sys.stderr,
+        )
+        raise SystemExit(2)
+    idx = REV / "INDEX.json"
+    if idx.exists():
+        ix = json.loads(idx.read_text(encoding="utf-8"))
+        if ix.get("sp205_graph_version") == "v0.5" or "SP205" in (ix.get("user_assigned_unseen") or []):
+            print(
+                "REFUSING legacy ingest: INDEX marks SP205 v0.5 / USER_ASSIGNED_UNSEEN. "
+                "Use sync_scientific_adjudications_all6_v1.py.",
+                file=sys.stderr,
+            )
+            raise SystemExit(2)
 
 
 def utc_now() -> str:
@@ -54,6 +89,7 @@ def base_rec(pack_id: str, **kwargs) -> dict:
 
 
 def main() -> None:
+    _refuse_if_v05_present()
     # --- SP205 media repair ---
     a_full = PILOT / "media/SP205/A_wgBlACG927Y_202_370.mp4"
     a_trunc = PILOT / "media/SP205/A_wgBlACG927Y_202_322.mp4"

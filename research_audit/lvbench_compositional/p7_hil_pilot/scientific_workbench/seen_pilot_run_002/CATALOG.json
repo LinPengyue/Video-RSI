@@ -78,7 +78,9 @@
         "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
         "record_path": "scientific_reviews/RECORDS_BY_PACK/SP201.json",
         "compositional_candidate_graph_approved": true,
-        "graph_version": "v0.2"
+        "graph_version": "v0.2",
+        "user_split_assignment": "UNASSIGNED",
+        "user_split_decision": "NOT_YET_ASSIGNED"
       },
       "seen_pool_frozen": false,
       "approve_expensive_track_a_rsi": false
@@ -150,7 +152,9 @@
         "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
         "record_path": "scientific_reviews/RECORDS_BY_PACK/SP202.json",
         "compositional_candidate_graph_approved": true,
-        "graph_version": "v0.3"
+        "graph_version": "v0.3",
+        "user_split_assignment": "UNASSIGNED",
+        "user_split_decision": "NOT_YET_ASSIGNED"
       },
       "seen_pool_frozen": false,
       "approve_expensive_track_a_rsi": false
@@ -224,7 +228,9 @@
         "user_decision": "DEFER_NEEDS_EVIDENCE_RELOCALIZATION",
         "record_path": "scientific_reviews/RECORDS_BY_PACK/SP203.json",
         "compositional_candidate_graph_approved": false,
-        "graph_version": null
+        "graph_version": null,
+        "user_split_assignment": "UNASSIGNED",
+        "user_split_decision": "NOT_YET_ASSIGNED"
       },
       "seen_pool_frozen": false,
       "approve_expensive_track_a_rsi": false
@@ -296,7 +302,9 @@
         "user_decision": "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE",
         "record_path": "scientific_reviews/RECORDS_BY_PACK/SP204.json",
         "compositional_candidate_graph_approved": false,
-        "graph_version": null
+        "graph_version": null,
+        "user_split_assignment": "UNASSIGNED",
+        "user_split_decision": "NOT_YET_ASSIGNED"
       },
       "seen_pool_frozen": false,
       "approve_expensive_track_a_rsi": false
@@ -324,8 +332,8 @@
           "basis": {
             "source_time_reference": "03:22-06:10",
             "truncated_for_review_cost": false,
-            "restored_utc": "2026-11-03T04:20:32+00:00",
-            "note": "Restored full official A window after scientific conditional approval requirements."
+            "restored_full_A": true,
+            "note": "Restored A retained for SP205 v0.5; TemporalSuccessor gap not a v0.5 blocker."
           }
         },
         "B": {
@@ -355,7 +363,10 @@
         "source_answers": [
           "A: High-speed train",
           "B: Subway"
-        ]
+        ],
+        "question_en_v05": "After getting off the first means of transportation they took when coming to China, what means of transportation do the vloggers take in a later part of the video?",
+        "question_zh_v05": "博主来到中国后，从他们最先乘坐的交通工具下车之后，在视频后面的片段中又乘坐了什么交通工具？",
+        "operator_semantics": "TEMPORAL_ORDER_NOT_IMMEDIATE_SUCCESSOR"
       },
       "pack_path": "seen_pilot_run_002/review_packs/SP205_wgBlACG927Y.json",
       "construction_exposed": false,
@@ -364,23 +375,13 @@
       "pack_role": "PRIORITY_HUMAN_REVIEW",
       "scientific_review": {
         "ingested": true,
-        "user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+        "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
         "record_path": "scientific_reviews/RECORDS_BY_PACK/SP205.json",
-        "compositional_candidate_graph_approved": false,
-        "graph_version": "v0.4",
-        "conditional_promotion": {
-          "requested_status_if_all_gates_pass": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
-          "current_user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
-          "gates": {
-            "A_media_restored_03_22_to_06_10": true,
-            "first_transport_scope_supported_in_A": true,
-            "critical_temporal_relation_model_accessible": false,
-            "manifest_sha_isolation_ok": true,
-            "no_new_fact_conflict_forcing_retract": true
-          },
-          "promoted": false,
-          "reason_not_promoted": "Clip-only protocol cannot access 06:10-13:58 continuity evidence required for TemporalSuccessor/no-other-transport necessity as reviewed by human."
-        }
+        "compositional_candidate_graph_approved": true,
+        "graph_version": "v0.5",
+        "user_split_assignment": "UNSEEN",
+        "user_split_decision": "USER_ASSIGNED_UNSEEN",
+        "user_assigned_unseen": true
       },
       "seen_pool_frozen": false,
       "approve_expensive_track_a_rsi": false
@@ -395,18 +396,34 @@
       "note": "Diagnostic only; not counted toward approved compositional graphs.",
       "media_status": "OK",
       "user_decision": "DEFER_TARGET_EVENT_RELOCALIZATION",
-      "record_path": "scientific_reviews/RECORDS_BY_PACK/DN201.json"
+      "record_path": "scientific_reviews/RECORDS_BY_PACK/DN201.json",
+      "split_group_isolation_note": "Same source video as user-assigned Unseen SP205: do not expose DN201 or any derived footage in training while this video is held out.",
+      "shared_video_with": [
+        "SP205"
+      ],
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false
     }
   ],
   "supply_note": "Isolation-safe residual supply exists (31 QA / 12 videos; 13 QA / 5 non-exposed). However NEW human-confirmed compositional graph supply is 0. run_002 packs are necessity-aware PRE-SCREEN packets for human review — not approved graphs.",
   "scientific_adjudication_ingest": {
-    "ingested_utc": "2026-11-03T04:20:32+00:00",
+    "ingested_utc": "2026-11-03T05:14:20+00:00",
+    "handoff": "scientific_reviews/handoff/run_002_scientific_adjudications_all6_v1.json",
     "approved_compositional_candidates": [
       "SP201",
-      "SP202"
-    ],
-    "conditional_pending": [
+      "SP202",
       "SP205"
+    ],
+    "user_assigned_unseen": [
+      "SP205"
+    ],
+    "approved_but_split_unassigned": [
+      "SP201",
+      "SP202"
     ],
     "rejected": [
       "SP204"
@@ -416,6 +433,16 @@
       "DN201"
     ],
     "auto_promoted_to_formal_seen": 0,
+    "auto_promoted_to_formal_unseen": 0,
+    "video_group_isolation": {
+      "wgBlACG927Y": {
+        "reason": "SP205 USER_ASSIGNED_UNSEEN",
+        "forbid_derived_in_seen_train": [
+          "SP205",
+          "DN201"
+        ]
+      }
+    },
     "formal_seen_train": false,
     "formal_unseen": false,
     "formal_gold": false,

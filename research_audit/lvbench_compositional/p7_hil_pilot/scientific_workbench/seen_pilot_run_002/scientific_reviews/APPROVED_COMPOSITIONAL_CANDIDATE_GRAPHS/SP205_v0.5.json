@@ -1,0 +1,114 @@
+{
+  "graph_id": "seen_pilot_run_002::SP205::v0.5",
+  "user_confirmation_status": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+  "program": {
+    "operator_semantics": "TEMPORAL_ORDER_NOT_IMMEDIATE_SUCCESSOR",
+    "nodes": [
+      {
+        "id": "n1",
+        "op": "IdentifyFirstTransport",
+        "clip": "A",
+        "output": "first_transport"
+      },
+      {
+        "id": "n2",
+        "op": "DetectDisembark",
+        "clip": "A",
+        "output": "disembark_event"
+      },
+      {
+        "id": "n3",
+        "op": "TimeAnchor",
+        "clip": "A",
+        "output": "disembark_time"
+      },
+      {
+        "id": "n4",
+        "op": "IdentifyTransport",
+        "clip": "B",
+        "output": "later_transport"
+      },
+      {
+        "id": "n5",
+        "op": "TimeAnchor",
+        "clip": "B",
+        "output": "later_ride_time"
+      },
+      {
+        "id": "n6",
+        "op": "CompareTemporalOrder",
+        "clip": "AB",
+        "predicate": "disembark_time < later_ride_time"
+      },
+      {
+        "id": "n7",
+        "op": "QueryLaterTransport",
+        "clip": "B",
+        "output": "Subway"
+      }
+    ],
+    "edges": [
+      {
+        "from": "n1",
+        "to": "n2",
+        "kind": "bind"
+      },
+      {
+        "from": "n2",
+        "to": "n3",
+        "kind": "data"
+      },
+      {
+        "from": "n4",
+        "to": "n5",
+        "kind": "data"
+      },
+      {
+        "from": "n3",
+        "to": "n6",
+        "kind": "temporal"
+      },
+      {
+        "from": "n5",
+        "to": "n6",
+        "kind": "temporal"
+      },
+      {
+        "from": "n4",
+        "to": "n7",
+        "kind": "data"
+      },
+      {
+        "from": "n6",
+        "to": "n7",
+        "kind": "control"
+      }
+    ],
+    "removed_required_operator": "TemporalSuccessor",
+    "new_required_operator": "CompareTemporalOrder",
+    "status": "USER_APPROVED_TEMPORAL_SEMANTICS_GPT_TYPED_GRAPH_PROPOSAL",
+    "program": "IdentifyFirstTransport(A) → DetectDisembark(A) + TimeAnchor(A); IdentifyTransport(B) + TimeAnchor(B) → CompareTemporalOrder(A,B) → QueryLaterTransport(B)",
+    "version": "v0.5",
+    "answer_candidate": "Subway"
+  },
+  "graph_version": "v0.5",
+  "user_split_assignment": "UNSEEN",
+  "user_split_decision": "USER_ASSIGNED_UNSEEN",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "note": "Compositional candidate only; USER_ASSIGNED_UNSEEN ≠ formal Unseen freeze; not formal Seen/Gold.",
+  "operator_semantics": "TEMPORAL_ORDER_NOT_IMMEDIATE_SUCCESSOR",
+  "removed_required_operator": "TemporalSuccessor",
+  "new_required_operator": "CompareTemporalOrder",
+  "video_group_isolation": {
+    "video_id": "wgBlACG927Y",
+    "forbid_derived_samples_in_seen_train": true,
+    "shared_with": [
+      "DN201"
+    ]
+  }
+}

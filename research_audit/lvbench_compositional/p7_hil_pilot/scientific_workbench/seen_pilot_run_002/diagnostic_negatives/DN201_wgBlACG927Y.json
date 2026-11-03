@@ -236,6 +236,14 @@
   "does_not_overwrite_run_001": true,
   "scientific_review_pointer": {
     "user_decision": "DEFER_TARGET_EVENT_RELOCALIZATION",
-    "record_path": "scientific_reviews/RECORDS_BY_PACK/DN201.json"
-  }
+    "graph_version": null,
+    "user_split_assignment": "UNASSIGNED",
+    "user_split_decision": "NOT_YET_ASSIGNED",
+    "record_path": "scientific_reviews/RECORDS_BY_PACK/DN201.json",
+    "handoff": "scientific_reviews/handoff/run_002_scientific_adjudications_all6_v1.json"
+  },
+  "split_group_isolation_note": "Same source video as user-assigned Unseen SP205: do not expose DN201 or any derived footage in training while this video is held out.",
+  "shared_video_with": [
+    "SP205"
+  ]
 }

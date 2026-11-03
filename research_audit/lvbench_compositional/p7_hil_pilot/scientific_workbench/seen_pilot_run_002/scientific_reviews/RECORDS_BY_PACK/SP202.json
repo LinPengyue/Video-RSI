@@ -2,14 +2,6 @@
   "schema": "seen_pilot_run_002_scientific_record_v1",
   "run_id": "seen_pilot_run_002",
   "pack_id": "SP202",
-  "formal_seen_train": false,
-  "formal_unseen": false,
-  "formal_gold": false,
-  "train_exposed": false,
-  "seen_pool_frozen": false,
-  "approve_expensive_track_a_rsi": false,
-  "ingested_utc": "2026-11-03T04:20:32+00:00",
-  "branch_note": "Artifacts live on research/lvbench-comp-p7-hil-pilot (run_002 baseline fa98aae); not video-grounded-evidence branch.",
   "video_id": "Hf-n1yfd8II",
   "qa_uid": "LVCOMP-V2-040",
   "windows_seconds": {
@@ -24,34 +16,56 @@
   },
   "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
   "graph_version": "v0.3",
+  "user_split_assignment": "UNASSIGNED",
+  "user_split_decision": "NOT_YET_ASSIGNED",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "engineering_must_not_auto_approve": true,
+  "ingested_utc": "2026-11-03T05:14:20+00:00",
+  "handoff_schema": "cvpr2027_trackb_run002_scientific_adjudications_complete_v1",
+  "baseline_commit": "9afc5e95156041833421ff3e034d76deb8aac7c3",
+  "branch_note": "Artifacts on research/lvbench-comp-p7-hil-pilot; USER_ASSIGNED_UNSEEN ≠ formal Unseen freeze.",
+  "question_original_en": "What competition result does the person who serves first have?",
+  "answer_candidate": "wins the match (final winner)",
   "human_observations": [
-    "A (08:30-08:35): blue-jersey Lee Chong Wei serves first.",
-    "Flag and English name support person ID; score 0:0.",
-    "User checked full timeline: this is game-1 opening, not a later-game opening.",
-    "B confirms Lee Chong Wei ultimately wins the match.",
-    "A-only and B-only cannot establish the full relation alone."
+    "A (08:30–08:35): blue-jersey Lee Chong Wei serves at score 0:0.",
+    "Flag and English name support player identity.",
+    "Human checked wider timeline: first game opening, not a later game opening.",
+    "B (90:13–90:40) confirms Lee Chong Wei wins the match.",
+    "A-only and B-only cannot establish the complete question relation."
   ],
   "scientific_inferences": [
-    "Identify first server in A, bind to match-result query in B."
+    "Identify first server at match opening in A, bind that person to match result in B."
   ],
   "directed_program_graph": {
-    "program": "IdentifyFirstServer(A) → CrossWindowPersonBind → QueryMatchResult(B)",
-    "answer_candidate": "final winner / wins the match"
+    "status": "USER_APPROVED_MACRO_GRAPH",
+    "program": "IdentifyFirstServer(A) → CrossWindowPersonBind(A,B) → QueryMatchResult(B)",
+    "dependency_direction": "A_TO_B",
+    "answer_candidate": "wins the match"
   },
   "evidence_limitations": [
-    "Shares video Hf-n1yfd8II and B window with SP201 — must not count as two independent videos."
+    "Shares video and B window with SP201; do not count as two independent videos."
   ],
   "single_window_necessity_audit": {
-    "a_only_sufficient_full_question": "否",
-    "b_only_sufficient_full_question": "否",
-    "a_plus_b_necessary": "是"
+    "a_only_sufficient_full_question": false,
+    "b_only_sufficient_full_question": false,
+    "a_plus_b_necessary": "USER_SUPPORTED"
   },
   "engineering_status": "RECORDED",
   "promotion_gate": "CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "video_group_id": "VIDEO_Hf-n1yfd8II",
   "shared_video_with": [
-    "SP201"
+    "SP201",
+    "SP203"
   ],
+  "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP202.json",
   "shared_B_window_with": [
-    "SP201"
-  ]
+    "SP201",
+    "SP203"
+  ],
+  "original_source_graph_version": "v0.3"
 }

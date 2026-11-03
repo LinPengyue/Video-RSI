@@ -971,9 +971,11 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
     const dec = sr.user_decision || "";
     let tag;
     if (mediaBad) tag = '<span class="tag demo">MEDIA_UNAVAILABLE</span>';
-    else if (dec === "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH")
+    else if (dec === "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH") {
       tag = `<span class="tag seen">APPROVED_CANDIDATE ${esc(sr.graph_version || "")}</span><span class="tag pending">≠正式Seen</span>`;
-    else if (dec === "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE") tag = '<span class="tag demo">REJECTED</span>';
+      if (sr.user_split_decision === "USER_ASSIGNED_UNSEEN" || sr.user_split_assignment === "UNSEEN")
+        tag += '<span class="tag pending">USER_ASSIGNED_UNSEEN≠formal</span>';
+    } else if (dec === "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE") tag = '<span class="tag demo">REJECTED</span>';
     else if (dec && dec.includes("CONDITIONAL")) tag = '<span class="tag pending">CONDITIONAL_PENDING_ENG</span>';
     else if (dec && dec.includes("DEFER")) tag = `<span class="tag pending">${esc(dec)}</span>`;
     else tag = '<span class="tag pending">PENDING_HUMAN_VIDEO_REVIEW</span><span class="tag">pre-screen ≠ approved</span>';
@@ -985,7 +987,7 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
     return `<section class="card" id="${esc(id)}">
       <h2>${esc(id)} ${tag}</h2>
       <p class="meta">pack=<code>${esc(it.pack_id)}</code> · video=<code>${esc(it.video_id)}</code> · qa=<code>${esc(it.qa_uid)}</code>
-        · screen=<code>${esc(it.auto_screen_bucket || "")}</code> · formal_seen=<code>false</code></p>
+        · screen=<code>${esc(it.auto_screen_bucket || "")}</code> · formal_seen=<code>false</code> · formal_unseen=<code>false</code></p>
       <p class="meta">${esc(it.selection_reason || "")}</p>
       <div class="qa"><strong>Q/A clue (unverified)</strong><div>Q：${esc(clue.question || "")}</div><div>A：${esc(clue.answer || "")}</div></div>
       ${players}

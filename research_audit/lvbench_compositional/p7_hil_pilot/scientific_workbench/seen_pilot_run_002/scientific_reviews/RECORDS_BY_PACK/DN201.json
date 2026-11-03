@@ -2,14 +2,6 @@
   "schema": "seen_pilot_run_002_scientific_record_v1",
   "run_id": "seen_pilot_run_002",
   "pack_id": "DN201",
-  "formal_seen_train": false,
-  "formal_unseen": false,
-  "formal_gold": false,
-  "train_exposed": false,
-  "seen_pool_frozen": false,
-  "approve_expensive_track_a_rsi": false,
-  "ingested_utc": "2026-11-03T04:20:32+00:00",
-  "branch_note": "Artifacts live on research/lvbench-comp-p7-hil-pilot (run_002 baseline fa98aae); not video-grounded-evidence branch.",
   "video_id": "wgBlACG927Y",
   "qa_uid": "LVCOMP-V2-115",
   "windows_seconds": {
@@ -23,24 +15,46 @@
     ]
   },
   "user_decision": "DEFER_TARGET_EVENT_RELOCALIZATION",
+  "graph_version": null,
+  "user_split_assignment": "UNASSIGNED",
+  "user_split_decision": "NOT_YET_ASSIGNED",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "engineering_must_not_auto_approve": true,
+  "ingested_utc": "2026-11-03T05:14:20+00:00",
+  "handoff_schema": "cvpr2027_trackb_run002_scientific_adjudications_complete_v1",
+  "baseline_commit": "9afc5e95156041833421ff3e034d76deb8aac7c3",
+  "branch_note": "Artifacts on research/lvbench-comp-p7-hil-pilot; USER_ASSIGNED_UNSEEN ≠ formal Unseen freeze.",
+  "question_original_en": "How do the vloggers leave the platform and go upstairs after the first means of transportation they take when they come to China?",
+  "answer_candidate": null,
   "human_observations": [
-    "B (11:03-11:40) does not show leaving the platform / going upstairs.",
-    "Current A+B cannot answer the original question.",
-    "Must not auto-label as verified B-only shortcut negative."
+    "B (11:03–11:40) does not show leaving the platform or going upstairs.",
+    "Current A+B does not support the original question.",
+    "Not a certified B-only shortcut negative."
   ],
   "scientific_inferences": [],
   "directed_program_graph": {
     "status": "NOT_APPROVED"
   },
   "evidence_limitations": [
-    "Target exit/upstairs event not located in current served windows."
+    "Target platform exit/upstairs event not found in current served windows.",
+    "Do not automatically classify as verified negative or infer absence."
   ],
   "single_window_necessity_audit": {
     "b_only_shortcut_confirmed": false,
-    "note": "Deferred; not a certified negative shortcut exemplar yet."
+    "a_plus_b_sufficient": "UNESTABLISHED"
   },
   "engineering_status": "RELOCALIZATION_PACKS_PREPARED_NO_AUTO_APPROVAL",
   "promotion_gate": "NO_AUTO_UPGRADE",
+  "video_group_id": "VIDEO_wgBlACG927Y",
+  "shared_video_with": [
+    "SP205"
+  ],
+  "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/DN201.json",
   "relocalization": {
     "search_ranges_clock": [
       "06:10-07:40",
@@ -52,8 +66,9 @@
       "seen_pilot_run_002/relocalization/DN201/search_0740_0910.mp4",
       "seen_pilot_run_002/relocalization/DN201/search_0910_1103.mp4"
     ],
-    "engineering_sparse_observation": "Sparse stills in 06:10-11:03 primarily show onboard HSR cabin; leave-platform/upstairs action NOT identified by engineering. Awaiting human re-watch of search clips.",
     "candidate_event_found": false,
-    "auto_approved": false
-  }
+    "auto_approved": false,
+    "requires_human_re_review": true
+  },
+  "split_group_isolation_note": "Same source video as user-assigned Unseen SP205: do not expose DN201 or any derived footage in training while this video is held out."
 }

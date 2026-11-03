@@ -1,0 +1,34 @@
+{
+  "title": "run_002 all6 scientific adjudication sync",
+  "ingested_utc": "2026-11-03T05:14:20+00:00",
+  "baseline": "9afc5e95156041833421ff3e034d76deb8aac7c3",
+  "handoff_sha256": "f6fcc19b3d930ce73a36cf895c857acb9098dcff5c8c477f305b7e0dce84b583",
+  "decisions": {
+    "SP201": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+    "SP202": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+    "SP203": "DEFER_NEEDS_EVIDENCE_RELOCALIZATION",
+    "SP204": "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE",
+    "SP205": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+    "DN201": "DEFER_TARGET_EVENT_RELOCALIZATION"
+  },
+  "approved": [
+    "SP201",
+    "SP202",
+    "SP205"
+  ],
+  "user_assigned_unseen": [
+    "SP205"
+  ],
+  "remaining_evidence_issues": [
+    "SP205 first_transport_scope_provenance still PENDING_EXPLICIT_EARLIER_TIMELINE_EVIDENCE_POINTER",
+    "SP205 model_time_order_accessibility PENDING_INPUT_PROTOCOL_CHECK",
+    "SP203 / DN201 still DEFER pending human re-review of relocalization packs",
+    "USER_ASSIGNED_UNSEEN does not freeze formal Unseen test set"
+  ],
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}
