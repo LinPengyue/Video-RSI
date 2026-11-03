@@ -1,7 +1,7 @@
 # FAMILY_LEVEL_MINIMAL_VALIDATION_PILOT_v0.1 — Delivery
 
 Branch: `research/lvbench-comp-video-grounded-evidence`  
-Commit: `fdf9b1eebe9603b466aa1d513fb8778d36c7afe5`  
+Commit: `cce7499c5c94e6f7fe3e2b930164f841dce52474`  
 Build HEAD: `6b98d1de16b8ac7bfa2e40ea1b07e02a447cfb4f`
 
 ## Roles
