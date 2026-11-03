@@ -1,0 +1,18 @@
+{
+  "context_id": "ROI4_CONTEXT",
+  "video_id": "iA_69g87Ilw",
+  "source_mp4": "/home/descfly/lpy/dataset/LVBench/videos/iA_69g87Ilw.mp4",
+  "source_sha256": "c9dba9a6ebc8f15932a5d519d9c729c134f0204f67a26643a34f7f64b93d0e25",
+  "t_start_s": 890.0,
+  "t_end_s": 920.0,
+  "requested_duration_s": 30.0,
+  "ffmpeg": "/home/descfly/.cache/lvbench-comp/ffmpeg-7.0.2-amd64-static/ffmpeg",
+  "proxy_encode": "libx264 crf28 aac128k copy-time-order",
+  "audio_encode": "aac128k aligned to same ss/t window",
+  "original_fps_approx": "30000/1001",
+  "audio_present_in_source": true,
+  "subtitle_streams_in_source": false,
+  "asr_run": false,
+  "asr_status": "NOT_RUN_NO_LOCAL_OFFLINE_ASR_AUTHORIZED",
+  "extracted_utc": "2026-11-03T12:51:55+00:00"
+}

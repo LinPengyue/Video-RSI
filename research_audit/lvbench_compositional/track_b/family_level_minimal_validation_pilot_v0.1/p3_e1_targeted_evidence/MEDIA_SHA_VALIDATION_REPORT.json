@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-11-03T12:51:47+00:00",
+  "base_commit": "7daa51985b9b816e3277d862f745ac10d3349508",
+  "prior_48_frames": {
+    "n_ok": 48,
+    "n_expected": 48,
+    "issues": [],
+    "status": "PASS"
+  },
+  "contexts": [
+    {
+      "context_id": "ROI1_CONTEXT",
+      "proxy_sha256": "eefdf7f44709deac59a690394d56121c5f07afa771808f7dd7c26860f53ea43f",
+      "proxy_bytes": 6191798,
+      "proxy_duration_s": 50.016633,
+      "audio_sha256": "af310742e981783b7e7899824b44ff83121d9e09d66c46effb47397dcb36daa8",
+      "audio_bytes": 818331,
+      "audio_duration_s": 50.0,
+      "av_aligned_ok": true,
+      "source_sha256_ok": true,
+      "time_in_bounds": true
+    },
+    {
+      "context_id": "ROI2_CONTEXT",
+      "proxy_sha256": "3d157298cacb0e49efa6e8bcf420ffc2ed9a43078a5ade801ea17aff7d500054",
+      "proxy_bytes": 9442109,
+      "proxy_duration_s": 50.016633,
+      "audio_sha256": "43236b9143c7aaddedc41ded07a66dd0efdbcd883e5eb73dd41d6836be9d5c30",
+      "audio_bytes": 820439,
+      "audio_duration_s": 50.0,
+      "av_aligned_ok": true,
+      "source_sha256_ok": true,
+      "time_in_bounds": true
+    },
+    {
+      "context_id": "ROI3_CONTEXT",
+      "proxy_sha256": "9c3243c14e05e6febb95629ad32f17ce5cdd36a69f366f5bd5b9b1aabf49550e",
+      "proxy_bytes": 3529661,
+      "proxy_duration_s": 25.025,
+      "audio_sha256": "4d15bf403c44094fe7e80c59b48c7d6e754d56b6284ff8b787974f2023d27b46",
+      "audio_bytes": 403477,
+      "audio_duration_s": 25.0,
+      "av_aligned_ok": true,
+      "source_sha256_ok": true,
+      "time_in_bounds": true
+    },
+    {
+      "context_id": "ROI4_CONTEXT",
+      "proxy_sha256": "a58d068d575d98652aa7a5286e947d1813196fe24a4b32ac7934ba7f0a923e44",
+      "proxy_bytes": 3239271,
+      "proxy_duration_s": 30.03,
+      "audio_sha256": "8c276ce6510fa255c84fb0f217370f1ac85b48fd26e07aac4b3f8bd7afec1f89",
+      "audio_bytes": 483087,
+      "audio_duration_s": 30.0,
+      "av_aligned_ok": true,
+      "source_sha256_ok": true,
+      "time_in_bounds": true
+    }
+  ],
+  "unauthorized_videos": [],
+  "overall": "PASS"
+}

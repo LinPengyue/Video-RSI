@@ -1,0 +1,118 @@
+{
+  "context_id": "ROI3_CONTEXT",
+  "roi_id": "iA_69g87Ilw_ROI_358_368",
+  "video_id": "iA_69g87Ilw",
+  "t_start_s": 350.0,
+  "t_end_s": 375.0,
+  "purpose": "Fruit display then lounge display order around ROI-3",
+  "source": {
+    "path": "/home/descfly/lpy/dataset/LVBench/videos/iA_69g87Ilw.mp4",
+    "sha256": "c9dba9a6ebc8f15932a5d519d9c729c134f0204f67a26643a34f7f64b93d0e25",
+    "pool": "DEV_CONSTRUCTION",
+    "register": "p3_new_video_discovery/iA_69g87Ilw_SOURCE_REGISTER.json"
+  },
+  "continuous_proxy": {
+    "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI3_CONTEXT/ROI3_CONTEXT_continuous_proxy.mp4",
+    "git_committed": false,
+    "reason_not_committed": "Repository policy ignores *.mp4 and track_b/local_media/",
+    "sha256": "9c3243c14e05e6febb95629ad32f17ce5cdd36a69f366f5bd5b9b1aabf49550e",
+    "bytes": 3529661,
+    "duration_s": 25.025,
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "avg_frame_rate": "30000/1001"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "25.025000",
+        "size": "3529661"
+      }
+    },
+    "gpt_github_accessible": false,
+    "gpt_local_accessible_if_workspace_present": true
+  },
+  "aligned_audio": {
+    "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI3_CONTEXT/ROI3_CONTEXT_audio_aligned.m4a",
+    "git_committed": false,
+    "sha256": "4d15bf403c44094fe7e80c59b48c7d6e754d56b6284ff8b787974f2023d27b46",
+    "bytes": 403477,
+    "duration_s": 25.0,
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "25.000000",
+        "size": "403477"
+      }
+    },
+    "gpt_github_accessible": false,
+    "gpt_local_accessible_if_workspace_present": true
+  },
+  "av_alignment": {
+    "proxy_vs_audio_abs_diff_s": 0.02499999999999858,
+    "aligned_ok": true,
+    "window_duration_s": 25.0
+  },
+  "subtitles_transcripts": {
+    "embedded_subtitle_streams": false,
+    "existing_external_vtt_srt": false,
+    "asr": {
+      "status": "NOT_RUN",
+      "reason": "No local offline ASR tool found; paid/external ASR not authorized this round",
+      "label_if_produced": "ASR_UNVERIFIED"
+    },
+    "human_verified_transcript": false
+  },
+  "review_stills_github": [
+    {
+      "still_id": "ROI3_CONTEXT_still_00",
+      "source_t_s": 350.0,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/iA_69g87Ilw/ROI3_CONTEXT/still_00_t350.0.jpg",
+      "sha256": "4f98cd9247403ca1bcac113e31ab3955ddf347b0bbe8bc0a01ae65c14067a9ec",
+      "bytes": 55799,
+      "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+    },
+    {
+      "still_id": "ROI3_CONTEXT_still_01",
+      "source_t_s": 362.5,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/iA_69g87Ilw/ROI3_CONTEXT/still_01_t362.5.jpg",
+      "sha256": "d776d4c0c36591a6707fef57e9f5490a4433ce9867b61c289c5b925ac13035db",
+      "bytes": 96734,
+      "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+    },
+    {
+      "still_id": "ROI3_CONTEXT_still_02",
+      "source_t_s": 374.95,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/iA_69g87Ilw/ROI3_CONTEXT/still_02_t374.9.jpg",
+      "sha256": "6c554185732d1ea0067703b43ec52a8da80de4f82961430218453ac3d5d5812c",
+      "bytes": 64831,
+      "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+    }
+  ],
+  "extract_params_git": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/media/iA_69g87Ilw/ROI3_CONTEXT/EXTRACT_PARAMS.json",
+  "extract_params_local": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI3_CONTEXT/EXTRACT_PARAMS.json"
+}

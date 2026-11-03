@@ -1,0 +1,495 @@
+{
+  "schema": "p3_e1_evidence_manifest_v1",
+  "created_utc": "2026-11-03T12:51:47+00:00",
+  "base_commit": "7daa51985b9b816e3277d862f745ac10d3349508",
+  "authorized_videos_only": [
+    "hROKtPqktO8",
+    "iA_69g87Ilw"
+  ],
+  "contexts": [
+    {
+      "context_id": "ROI1_CONTEXT",
+      "roi_id": "hROKtPqktO8_ROI_500_510",
+      "video_id": "hROKtPqktO8",
+      "t_start_s": 480.0,
+      "t_end_s": 530.0,
+      "purpose": "Travel/street/selfie context around ROI-1 for continuity and identity cues",
+      "source": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/hROKtPqktO8.mp4",
+        "sha256": "02f09f97eac4ea556cde80ab05a3ecee06bfe66c1264fd48f31c8f8f34de6dd7",
+        "pool": "DEV_CONSTRUCTION",
+        "register": "p3_new_video_discovery/hROKtPqktO8_SOURCE_REGISTER.json"
+      },
+      "continuous_proxy": {
+        "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI1_CONTEXT/ROI1_CONTEXT_continuous_proxy.mp4",
+        "git_committed": false,
+        "reason_not_committed": "Repository policy ignores *.mp4 and track_b/local_media/",
+        "sha256": "eefdf7f44709deac59a690394d56121c5f07afa771808f7dd7c26860f53ea43f",
+        "bytes": 6191798,
+        "duration_s": 50.016633,
+        "ffprobe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "avg_frame_rate": "30000/1001"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "avg_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "50.016633",
+            "size": "6191798"
+          }
+        },
+        "gpt_github_accessible": false,
+        "gpt_local_accessible_if_workspace_present": true
+      },
+      "aligned_audio": {
+        "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI1_CONTEXT/ROI1_CONTEXT_audio_aligned.m4a",
+        "git_committed": false,
+        "sha256": "af310742e981783b7e7899824b44ff83121d9e09d66c46effb47397dcb36daa8",
+        "bytes": 818331,
+        "duration_s": 50.0,
+        "ffprobe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "avg_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "50.000000",
+            "size": "818331"
+          }
+        },
+        "gpt_github_accessible": false,
+        "gpt_local_accessible_if_workspace_present": true
+      },
+      "av_alignment": {
+        "proxy_vs_audio_abs_diff_s": 0.016632999999998788,
+        "aligned_ok": true,
+        "window_duration_s": 50.0
+      },
+      "subtitles_transcripts": {
+        "embedded_subtitle_streams": false,
+        "existing_external_vtt_srt": false,
+        "asr": {
+          "status": "NOT_RUN",
+          "reason": "No local offline ASR tool found; paid/external ASR not authorized this round",
+          "label_if_produced": "ASR_UNVERIFIED"
+        },
+        "human_verified_transcript": false
+      },
+      "review_stills_github": [
+        {
+          "still_id": "ROI1_CONTEXT_still_00",
+          "source_t_s": 480.0,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/hROKtPqktO8/ROI1_CONTEXT/still_00_t480.0.jpg",
+          "sha256": "85fa190f2f5dc0fdc417ddd4beb94784ecc07446f722b4caaf18b24581f4f8ff",
+          "bytes": 57569,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        },
+        {
+          "still_id": "ROI1_CONTEXT_still_01",
+          "source_t_s": 505.0,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/hROKtPqktO8/ROI1_CONTEXT/still_01_t505.0.jpg",
+          "sha256": "b53b6e6fc9994fbc5ae22d5a01f6bf1cdb4ed7bdda67ca7b068f51bd2b9d9b76",
+          "bytes": 103802,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        },
+        {
+          "still_id": "ROI1_CONTEXT_still_02",
+          "source_t_s": 529.95,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/hROKtPqktO8/ROI1_CONTEXT/still_02_t530.0.jpg",
+          "sha256": "758209f316969b18b4c470f2e1f95392c74da19b233986a9426a19ca5ed91599",
+          "bytes": 71211,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        }
+      ],
+      "extract_params_git": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/media/hROKtPqktO8/ROI1_CONTEXT/EXTRACT_PARAMS.json",
+      "extract_params_local": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI1_CONTEXT/EXTRACT_PARAMS.json"
+    },
+    {
+      "context_id": "ROI2_CONTEXT",
+      "roi_id": "hROKtPqktO8_ROI_1255_1265",
+      "video_id": "hROKtPqktO8",
+      "t_start_s": 1235.0,
+      "t_end_s": 1285.0,
+      "purpose": "Hillside/selfie context around ROI-2; do NOT treat ~12min gap alone as cross-event proof",
+      "source": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/hROKtPqktO8.mp4",
+        "sha256": "02f09f97eac4ea556cde80ab05a3ecee06bfe66c1264fd48f31c8f8f34de6dd7",
+        "pool": "DEV_CONSTRUCTION",
+        "register": "p3_new_video_discovery/hROKtPqktO8_SOURCE_REGISTER.json"
+      },
+      "continuous_proxy": {
+        "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI2_CONTEXT/ROI2_CONTEXT_continuous_proxy.mp4",
+        "git_committed": false,
+        "reason_not_committed": "Repository policy ignores *.mp4 and track_b/local_media/",
+        "sha256": "3d157298cacb0e49efa6e8bcf420ffc2ed9a43078a5ade801ea17aff7d500054",
+        "bytes": 9442109,
+        "duration_s": 50.016633,
+        "ffprobe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "avg_frame_rate": "30000/1001"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "avg_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "50.016633",
+            "size": "9442109"
+          }
+        },
+        "gpt_github_accessible": false,
+        "gpt_local_accessible_if_workspace_present": true
+      },
+      "aligned_audio": {
+        "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI2_CONTEXT/ROI2_CONTEXT_audio_aligned.m4a",
+        "git_committed": false,
+        "sha256": "43236b9143c7aaddedc41ded07a66dd0efdbcd883e5eb73dd41d6836be9d5c30",
+        "bytes": 820439,
+        "duration_s": 50.0,
+        "ffprobe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "avg_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "50.000000",
+            "size": "820439"
+          }
+        },
+        "gpt_github_accessible": false,
+        "gpt_local_accessible_if_workspace_present": true
+      },
+      "av_alignment": {
+        "proxy_vs_audio_abs_diff_s": 0.016632999999998788,
+        "aligned_ok": true,
+        "window_duration_s": 50.0
+      },
+      "subtitles_transcripts": {
+        "embedded_subtitle_streams": false,
+        "existing_external_vtt_srt": false,
+        "asr": {
+          "status": "NOT_RUN",
+          "reason": "No local offline ASR tool found; paid/external ASR not authorized this round",
+          "label_if_produced": "ASR_UNVERIFIED"
+        },
+        "human_verified_transcript": false
+      },
+      "review_stills_github": [
+        {
+          "still_id": "ROI2_CONTEXT_still_00",
+          "source_t_s": 1235.0,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/hROKtPqktO8/ROI2_CONTEXT/still_00_t1235.0.jpg",
+          "sha256": "2bc440bb3dee0d36b7f0a12b80fddcd7cd5c84bcb53ae9291b26e7ce1f8366f5",
+          "bytes": 65156,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        },
+        {
+          "still_id": "ROI2_CONTEXT_still_01",
+          "source_t_s": 1260.0,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/hROKtPqktO8/ROI2_CONTEXT/still_01_t1260.0.jpg",
+          "sha256": "3d341bf05994a2678fba71f54178f6928c108e0070c97ef41708e6d1a850c632",
+          "bytes": 88334,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        },
+        {
+          "still_id": "ROI2_CONTEXT_still_02",
+          "source_t_s": 1284.95,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/hROKtPqktO8/ROI2_CONTEXT/still_02_t1285.0.jpg",
+          "sha256": "764328a2d740bc8c5cfd138a0fc3cb3b3befee5bed410082ce5b61976eb60a8f",
+          "bytes": 214019,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        }
+      ],
+      "extract_params_git": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/media/hROKtPqktO8/ROI2_CONTEXT/EXTRACT_PARAMS.json",
+      "extract_params_local": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI2_CONTEXT/EXTRACT_PARAMS.json"
+    },
+    {
+      "context_id": "ROI3_CONTEXT",
+      "roi_id": "iA_69g87Ilw_ROI_358_368",
+      "video_id": "iA_69g87Ilw",
+      "t_start_s": 350.0,
+      "t_end_s": 375.0,
+      "purpose": "Fruit display then lounge display order around ROI-3",
+      "source": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/iA_69g87Ilw.mp4",
+        "sha256": "c9dba9a6ebc8f15932a5d519d9c729c134f0204f67a26643a34f7f64b93d0e25",
+        "pool": "DEV_CONSTRUCTION",
+        "register": "p3_new_video_discovery/iA_69g87Ilw_SOURCE_REGISTER.json"
+      },
+      "continuous_proxy": {
+        "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI3_CONTEXT/ROI3_CONTEXT_continuous_proxy.mp4",
+        "git_committed": false,
+        "reason_not_committed": "Repository policy ignores *.mp4 and track_b/local_media/",
+        "sha256": "9c3243c14e05e6febb95629ad32f17ce5cdd36a69f366f5bd5b9b1aabf49550e",
+        "bytes": 3529661,
+        "duration_s": 25.025,
+        "ffprobe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "avg_frame_rate": "30000/1001"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "avg_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "25.025000",
+            "size": "3529661"
+          }
+        },
+        "gpt_github_accessible": false,
+        "gpt_local_accessible_if_workspace_present": true
+      },
+      "aligned_audio": {
+        "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI3_CONTEXT/ROI3_CONTEXT_audio_aligned.m4a",
+        "git_committed": false,
+        "sha256": "4d15bf403c44094fe7e80c59b48c7d6e754d56b6284ff8b787974f2023d27b46",
+        "bytes": 403477,
+        "duration_s": 25.0,
+        "ffprobe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "avg_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "25.000000",
+            "size": "403477"
+          }
+        },
+        "gpt_github_accessible": false,
+        "gpt_local_accessible_if_workspace_present": true
+      },
+      "av_alignment": {
+        "proxy_vs_audio_abs_diff_s": 0.02499999999999858,
+        "aligned_ok": true,
+        "window_duration_s": 25.0
+      },
+      "subtitles_transcripts": {
+        "embedded_subtitle_streams": false,
+        "existing_external_vtt_srt": false,
+        "asr": {
+          "status": "NOT_RUN",
+          "reason": "No local offline ASR tool found; paid/external ASR not authorized this round",
+          "label_if_produced": "ASR_UNVERIFIED"
+        },
+        "human_verified_transcript": false
+      },
+      "review_stills_github": [
+        {
+          "still_id": "ROI3_CONTEXT_still_00",
+          "source_t_s": 350.0,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/iA_69g87Ilw/ROI3_CONTEXT/still_00_t350.0.jpg",
+          "sha256": "4f98cd9247403ca1bcac113e31ab3955ddf347b0bbe8bc0a01ae65c14067a9ec",
+          "bytes": 55799,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        },
+        {
+          "still_id": "ROI3_CONTEXT_still_01",
+          "source_t_s": 362.5,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/iA_69g87Ilw/ROI3_CONTEXT/still_01_t362.5.jpg",
+          "sha256": "d776d4c0c36591a6707fef57e9f5490a4433ce9867b61c289c5b925ac13035db",
+          "bytes": 96734,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        },
+        {
+          "still_id": "ROI3_CONTEXT_still_02",
+          "source_t_s": 374.95,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/iA_69g87Ilw/ROI3_CONTEXT/still_02_t374.9.jpg",
+          "sha256": "6c554185732d1ea0067703b43ec52a8da80de4f82961430218453ac3d5d5812c",
+          "bytes": 64831,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        }
+      ],
+      "extract_params_git": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/media/iA_69g87Ilw/ROI3_CONTEXT/EXTRACT_PARAMS.json",
+      "extract_params_local": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI3_CONTEXT/EXTRACT_PARAMS.json"
+    },
+    {
+      "context_id": "ROI4_CONTEXT",
+      "roi_id": "iA_69g87Ilw_ROI_900_910",
+      "video_id": "iA_69g87Ilw",
+      "t_start_s": 890.0,
+      "t_end_s": 920.0,
+      "purpose": "Speaking person then door-sign display around ROI-4",
+      "source": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/iA_69g87Ilw.mp4",
+        "sha256": "c9dba9a6ebc8f15932a5d519d9c729c134f0204f67a26643a34f7f64b93d0e25",
+        "pool": "DEV_CONSTRUCTION",
+        "register": "p3_new_video_discovery/iA_69g87Ilw_SOURCE_REGISTER.json"
+      },
+      "continuous_proxy": {
+        "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI4_CONTEXT/ROI4_CONTEXT_continuous_proxy.mp4",
+        "git_committed": false,
+        "reason_not_committed": "Repository policy ignores *.mp4 and track_b/local_media/",
+        "sha256": "a58d068d575d98652aa7a5286e947d1813196fe24a4b32ac7934ba7f0a923e44",
+        "bytes": 3239271,
+        "duration_s": 30.03,
+        "ffprobe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "avg_frame_rate": "30000/1001"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "avg_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "30.030000",
+            "size": "3239271"
+          }
+        },
+        "gpt_github_accessible": false,
+        "gpt_local_accessible_if_workspace_present": true
+      },
+      "aligned_audio": {
+        "local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI4_CONTEXT/ROI4_CONTEXT_audio_aligned.m4a",
+        "git_committed": false,
+        "sha256": "8c276ce6510fa255c84fb0f217370f1ac85b48fd26e07aac4b3f8bd7afec1f89",
+        "bytes": 483087,
+        "duration_s": 30.0,
+        "ffprobe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "44100",
+              "channels": 2,
+              "avg_frame_rate": "0/0"
+            }
+          ],
+          "format": {
+            "duration": "30.000000",
+            "size": "483087"
+          }
+        },
+        "gpt_github_accessible": false,
+        "gpt_local_accessible_if_workspace_present": true
+      },
+      "av_alignment": {
+        "proxy_vs_audio_abs_diff_s": 0.030000000000001137,
+        "aligned_ok": true,
+        "window_duration_s": 30.0
+      },
+      "subtitles_transcripts": {
+        "embedded_subtitle_streams": false,
+        "existing_external_vtt_srt": false,
+        "asr": {
+          "status": "NOT_RUN",
+          "reason": "No local offline ASR tool found; paid/external ASR not authorized this round",
+          "label_if_produced": "ASR_UNVERIFIED"
+        },
+        "human_verified_transcript": false
+      },
+      "review_stills_github": [
+        {
+          "still_id": "ROI4_CONTEXT_still_00",
+          "source_t_s": 890.0,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/iA_69g87Ilw/ROI4_CONTEXT/still_00_t890.0.jpg",
+          "sha256": "0fed0dd5e3d621799dfa009d7468591ff1bf22f7b6f3eb508398296ba10f6169",
+          "bytes": 92424,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        },
+        {
+          "still_id": "ROI4_CONTEXT_still_01",
+          "source_t_s": 905.0,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/iA_69g87Ilw/ROI4_CONTEXT/still_01_t905.0.jpg",
+          "sha256": "0259118128474f430c90e22f7ed29f5bb3bc76ee0d77b9cd7629d602af618800",
+          "bytes": 93807,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        },
+        {
+          "still_id": "ROI4_CONTEXT_still_02",
+          "source_t_s": 919.95,
+          "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/review_stills/iA_69g87Ilw/ROI4_CONTEXT/still_02_t920.0.jpg",
+          "sha256": "3f8d91e661ce26fd863c294dc6340a8bbcdc89b333ff823eb1bb32340bf5ba1d",
+          "bytes": 46594,
+          "note": "Still sampled from continuous source for GitHub GPT review; NOT continuous video proof."
+        }
+      ],
+      "extract_params_git": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/media/iA_69g87Ilw/ROI4_CONTEXT/EXTRACT_PARAMS.json",
+      "extract_params_local": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI4_CONTEXT/EXTRACT_PARAMS.json"
+    }
+  ],
+  "human_adjudications": "HUMAN_ADJUDICATIONS.json",
+  "local_media_root": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence",
+  "git_policy": "Continuous mp4/audio stored under gitignored track_b/local_media/; review stills committed",
+  "qa_drafts_generated": 0,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ok_for_expensive_rsi": false,
+  "run_004_status": "NOT_STARTED"
+}

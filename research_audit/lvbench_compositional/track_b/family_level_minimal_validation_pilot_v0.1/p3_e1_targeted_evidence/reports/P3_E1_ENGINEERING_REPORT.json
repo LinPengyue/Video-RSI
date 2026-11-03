@@ -1,0 +1,90 @@
+{
+  "title": "P3-E1 engineering report",
+  "created_utc": "2026-11-03T12:51:47+00:00",
+  "base_commit": "7daa51985b9b816e3277d862f745ac10d3349508",
+  "head_at_build": "7daa51985b9b816e3277d862f745ac10d3349508",
+  "human_adjudications": {
+    "hROKtPqktO8_ROI_500_510": "OBSERVATION_REQUIRES_MODIFICATION_OR_ADDITION",
+    "hROKtPqktO8_ROI_1255_1265": "OBSERVATION_REQUIRES_MODIFICATION_OR_ADDITION",
+    "iA_69g87Ilw_ROI_358_368": "ACCEPT_GPT_OBSERVATION",
+    "iA_69g87Ilw_ROI_900_910": "ACCEPT_GPT_OBSERVATION"
+  },
+  "contexts_extracted": [
+    {
+      "context_id": "ROI1_CONTEXT",
+      "window": [
+        480.0,
+        530.0
+      ],
+      "proxy_duration_s": 50.016633,
+      "proxy_bytes": 6191798,
+      "audio_duration_s": 50.0,
+      "audio_bytes": 818331,
+      "av_aligned_ok": true,
+      "asr": "NOT_RUN",
+      "github_stills": 3,
+      "continuous_gpt_github_accessible": false,
+      "continuous_local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI1_CONTEXT/ROI1_CONTEXT_continuous_proxy.mp4"
+    },
+    {
+      "context_id": "ROI2_CONTEXT",
+      "window": [
+        1235.0,
+        1285.0
+      ],
+      "proxy_duration_s": 50.016633,
+      "proxy_bytes": 9442109,
+      "audio_duration_s": 50.0,
+      "audio_bytes": 820439,
+      "av_aligned_ok": true,
+      "asr": "NOT_RUN",
+      "github_stills": 3,
+      "continuous_gpt_github_accessible": false,
+      "continuous_local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI2_CONTEXT/ROI2_CONTEXT_continuous_proxy.mp4"
+    },
+    {
+      "context_id": "ROI3_CONTEXT",
+      "window": [
+        350.0,
+        375.0
+      ],
+      "proxy_duration_s": 25.025,
+      "proxy_bytes": 3529661,
+      "audio_duration_s": 25.0,
+      "audio_bytes": 403477,
+      "av_aligned_ok": true,
+      "asr": "NOT_RUN",
+      "github_stills": 3,
+      "continuous_gpt_github_accessible": false,
+      "continuous_local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI3_CONTEXT/ROI3_CONTEXT_continuous_proxy.mp4"
+    },
+    {
+      "context_id": "ROI4_CONTEXT",
+      "window": [
+        890.0,
+        920.0
+      ],
+      "proxy_duration_s": 30.03,
+      "proxy_bytes": 3239271,
+      "audio_duration_s": 30.0,
+      "audio_bytes": 483087,
+      "av_aligned_ok": true,
+      "asr": "NOT_RUN",
+      "github_stills": 3,
+      "continuous_gpt_github_accessible": false,
+      "continuous_local_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI4_CONTEXT/ROI4_CONTEXT_continuous_proxy.mp4"
+    }
+  ],
+  "prior_48_frame_sha": "PASS",
+  "media_sha_overall": "PASS",
+  "p3_gpt_obs_untouched": true,
+  "run_004_status": "NOT_STARTED",
+  "ok_for_expensive_rsi": false,
+  "qa_drafts_generated": 0,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

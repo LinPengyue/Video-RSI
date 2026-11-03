@@ -3,9 +3,9 @@
   "status": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE",
   "blockers": [
     "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE from prior multiframe feasibility (0 qualifying)",
-    "P3 GPT observations ingested but PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
-    "0 P3 ROIs with NO_QUALIFYING / hypothesis-only — none admitted as directed composition",
-    "No USER scientific upgrade of GPT observations to certified events or QA"
+    "P3 GPT observations + P3-E1 human adjudications exist but no certified directed composition admitted",
+    "HUMAN_ACCEPTED_CANDIDATE_NOT_CERTIFIED relations are not run_004 unlock criteria",
+    "Continuous evidence prepared for GPT/human review; Cursor did not auto-certify"
   ],
   "n_qualified_new_candidates": 0,
   "p3_gpt_observation_index": "p3_new_video_discovery/gpt_observations/INDEX.json",
@@ -14,5 +14,6 @@
   "formal_gold": false,
   "train_exposed": false,
   "seen_pool_frozen": false,
-  "approve_expensive_track_a_rsi": false
+  "approve_expensive_track_a_rsi": false,
+  "p3_e1_targeted_evidence": "p3_e1_targeted_evidence/"
 }

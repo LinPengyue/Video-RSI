@@ -1,0 +1,38 @@
+{
+  "created_utc": "2026-11-03T12:51:47+00:00",
+  "seen": [
+    "SP001",
+    "SP002",
+    "SP005",
+    "SP201",
+    "SP202"
+  ],
+  "unseen": [
+    "P7_VTCD_C2",
+    "P7_TJR_R3"
+  ],
+  "hold": [
+    "P7_R4_F1",
+    "P7_R4_F2",
+    "SP205"
+  ],
+  "run_003_untouched": true,
+  "run_004_status": "NOT_STARTED",
+  "run_004_gate_status": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE",
+  "ok_for_expensive_rsi": false,
+  "sealed_reservoir_status": "UNTOUCHED_PLACEHOLDER",
+  "qa_drafts_generated": 0,
+  "p3_e1_does_not_unlock_run_004": true,
+  "blockers_retained": [
+    "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE from prior multiframe feasibility (0 qualifying)",
+    "P3 GPT observations ingested but PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+    "0 P3 ROIs with NO_QUALIFYING / hypothesis-only — none admitted as directed composition",
+    "No USER scientific upgrade of GPT observations to certified events or QA"
+  ],
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}
