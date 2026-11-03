@@ -34,7 +34,10 @@ class SeenPilotRun002Test(unittest.TestCase):
         self.assertLessEqual(n, 6)
         self.assertEqual(self.catalog.get("auto_approved_structured_graphs"), 0)
         for it in self.catalog["items"]:
-            self.assertEqual(it["user_confirmation_status"], "PENDING_HUMAN_VIDEO_REVIEW")
+            self.assertIn(
+                it["user_confirmation_status"],
+                {"PENDING_HUMAN_VIDEO_REVIEW", "SCIENTIFIC_REVIEW_INGESTED"},
+            )
             self.assertFalse(it["formal_seen_train"])
             self.assertFalse(it["formal_gold"])
             self.assertFalse(it["train_exposed"])

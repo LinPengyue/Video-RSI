@@ -3,7 +3,7 @@
   "pack_id": "SP201",
   "workbench_id": "SEEN_PILOT_SP201",
   "pack_role": "PRIORITY_HUMAN_REVIEW",
-  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "user_confirmation_status": "SCIENTIFIC_REVIEW_INGESTED",
   "formal_seen_train": false,
   "formal_unseen": false,
   "formal_gold": false,
@@ -227,5 +227,9 @@
     "TRAIN_EXPOSED",
     "GOLD"
   ],
-  "does_not_overwrite_run_001": true
+  "does_not_overwrite_run_001": true,
+  "scientific_review_pointer": {
+    "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+    "record_path": "scientific_reviews/RECORDS_BY_PACK/SP201.json"
+  }
 }

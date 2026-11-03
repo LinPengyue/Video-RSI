@@ -3,7 +3,7 @@
   "pack_id": "SP205",
   "workbench_id": "SEEN_PILOT_SP205",
   "pack_role": "PRIORITY_HUMAN_REVIEW",
-  "user_confirmation_status": "PENDING_HUMAN_VIDEO_REVIEW",
+  "user_confirmation_status": "SCIENTIFIC_REVIEW_INGESTED",
   "formal_seen_train": false,
   "formal_unseen": false,
   "formal_gold": false,
@@ -31,16 +31,12 @@
   "intervals": {
     "A": {
       "start_s": 202.0,
-      "end_s": 322.0,
+      "end_s": 370.0,
       "basis": {
         "source_time_reference": "03:22-06:10",
-        "parsed_start_s": 202.0,
-        "parsed_end_s": 370.0,
-        "padding_applied": false,
-        "truncated_for_review_cost": true,
-        "original_span_s": 168.0,
-        "note": "Official window longer than 120.0s; engineering truncated for review cost — human must know coverage may be incomplete.",
-        "video_duration_s": 2331.283447
+        "truncated_for_review_cost": false,
+        "restored_utc": "2026-11-03T04:20:32+00:00",
+        "note": "Restored full official A window after scientific conditional approval requirements."
       }
     },
     "B": {
@@ -63,21 +59,17 @@
     "status": "OK",
     "A": {
       "extract_status": "OK",
-      "bytes": 59545311,
-      "sha256": "65ad893c395f4b8233b49ec4db005f568c0644f5bc8b9ea7e5c4e787eddf36e3",
+      "relpath": "seen_pilot_run_002/media/SP205/A_wgBlACG927Y_202_370.mp4",
+      "sha256": "af84566d1ee87bfbcad92ae9f6f53c78f3174529c43c1154045c982ad68e8c08",
+      "bytes": 76263830,
       "t_start_s": 202.0,
-      "t_end_s": 322.0,
-      "duration_s": 120.0,
-      "relpath": "seen_pilot_run_002/media/SP205/A_wgBlACG927Y_202_322.mp4",
+      "t_end_s": 370.0,
+      "duration_s": 168.0,
       "window_basis": {
         "source_time_reference": "03:22-06:10",
-        "parsed_start_s": 202.0,
-        "parsed_end_s": 370.0,
-        "padding_applied": false,
-        "truncated_for_review_cost": true,
-        "original_span_s": 168.0,
-        "note": "Official window longer than 120.0s; engineering truncated for review cost — human must know coverage may be incomplete.",
-        "video_duration_s": 2331.283447
+        "truncated_for_review_cost": false,
+        "restored_utc": "2026-11-03T04:20:32+00:00",
+        "note": "Restored full official A window after scientific conditional approval requirements."
       }
     },
     "B": {
@@ -233,5 +225,25 @@
     "TRAIN_EXPOSED",
     "GOLD"
   ],
-  "does_not_overwrite_run_001": true
+  "does_not_overwrite_run_001": true,
+  "scientific_review_pointer": {
+    "ingested": true,
+    "user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+    "record_path": "scientific_reviews/RECORDS_BY_PACK/SP205.json",
+    "compositional_candidate_graph_approved": false,
+    "graph_version": "v0.4",
+    "conditional_promotion": {
+      "requested_status_if_all_gates_pass": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+      "current_user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+      "gates": {
+        "A_media_restored_03_22_to_06_10": true,
+        "first_transport_scope_supported_in_A": true,
+        "critical_temporal_relation_model_accessible": false,
+        "manifest_sha_isolation_ok": true,
+        "no_new_fact_conflict_forcing_retract": true
+      },
+      "promoted": false,
+      "reason_not_promoted": "Clip-only protocol cannot access 06:10-13:58 continuity evidence required for TemporalSuccessor/no-other-transport necessity as reviewed by human."
+    }
+  }
 }

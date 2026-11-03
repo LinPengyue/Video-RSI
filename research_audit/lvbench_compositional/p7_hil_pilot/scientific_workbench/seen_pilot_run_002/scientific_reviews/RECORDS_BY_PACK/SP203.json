@@ -1,0 +1,64 @@
+{
+  "schema": "seen_pilot_run_002_scientific_record_v1",
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP203",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingested_utc": "2026-11-03T04:20:32+00:00",
+  "branch_note": "Artifacts live on research/lvbench-comp-p7-hil-pilot (run_002 baseline fa98aae); not video-grounded-evidence branch.",
+  "video_id": "Hf-n1yfd8II",
+  "qa_uid": "LVCOMP-V2-042",
+  "windows_seconds": {
+    "A": [
+      3470,
+      3485
+    ],
+    "B": [
+      5413,
+      5440
+    ]
+  },
+  "user_decision": "DEFER_NEEDS_EVIDENCE_RELOCALIZATION",
+  "human_observations": [
+    "A (57:50-58:05) did not find the described orange-clad coughing person.",
+    "Coughing behavior not confirmed.",
+    "Coach-player relation not confirmed.",
+    "B match result cannot repair missing A person/relation evidence."
+  ],
+  "scientific_inferences": [],
+  "directed_program_graph": {
+    "status": "NOT_APPROVED",
+    "forbidden_nodes": [
+      "CoachOf"
+    ]
+  },
+  "evidence_limitations": [
+    "Do not invent coach-player relation from historical answer."
+  ],
+  "single_window_necessity_audit": {
+    "a_only_sufficient_full_question": "未建立",
+    "b_only_sufficient_full_question": "不足以弥补 A 缺失",
+    "a_plus_b_necessary": "未建立（证据不足）"
+  },
+  "engineering_status": "RELOCALIZATION_PACKS_PREPARED_NO_AUTO_APPROVAL",
+  "promotion_gate": "NO_AUTO_UPGRADE",
+  "relocalization": {
+    "search_ranges_clock": [
+      "57:20-57:50",
+      "57:40-58:20",
+      "58:05-58:40"
+    ],
+    "media": [
+      "seen_pilot_run_002/relocalization/SP203/search_5720_5750.mp4",
+      "seen_pilot_run_002/relocalization/SP203/search_5740_5820.mp4",
+      "seen_pilot_run_002/relocalization/SP203/search_5805_5840.mp4"
+    ],
+    "engineering_sparse_observation": "Primary search window stills show match play (Rio 2016 court); orange coughing coach NOT identified by engineering. Awaiting human re-watch.",
+    "candidate_event_found": false,
+    "auto_approved": false
+  }
+}

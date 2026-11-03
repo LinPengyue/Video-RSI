@@ -1,0 +1,57 @@
+{
+  "schema": "seen_pilot_run_002_scientific_record_v1",
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP202",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingested_utc": "2026-11-03T04:20:32+00:00",
+  "branch_note": "Artifacts live on research/lvbench-comp-p7-hil-pilot (run_002 baseline fa98aae); not video-grounded-evidence branch.",
+  "video_id": "Hf-n1yfd8II",
+  "qa_uid": "LVCOMP-V2-040",
+  "windows_seconds": {
+    "A": [
+      510,
+      515
+    ],
+    "B": [
+      5413,
+      5440
+    ]
+  },
+  "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+  "graph_version": "v0.3",
+  "human_observations": [
+    "A (08:30-08:35): blue-jersey Lee Chong Wei serves first.",
+    "Flag and English name support person ID; score 0:0.",
+    "User checked full timeline: this is game-1 opening, not a later-game opening.",
+    "B confirms Lee Chong Wei ultimately wins the match.",
+    "A-only and B-only cannot establish the full relation alone."
+  ],
+  "scientific_inferences": [
+    "Identify first server in A, bind to match-result query in B."
+  ],
+  "directed_program_graph": {
+    "program": "IdentifyFirstServer(A) → CrossWindowPersonBind → QueryMatchResult(B)",
+    "answer_candidate": "final winner / wins the match"
+  },
+  "evidence_limitations": [
+    "Shares video Hf-n1yfd8II and B window with SP201 — must not count as two independent videos."
+  ],
+  "single_window_necessity_audit": {
+    "a_only_sufficient_full_question": "否",
+    "b_only_sufficient_full_question": "否",
+    "a_plus_b_necessary": "是"
+  },
+  "engineering_status": "RECORDED",
+  "promotion_gate": "CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "shared_video_with": [
+    "SP201"
+  ],
+  "shared_B_window_with": [
+    "SP201"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "run_id": "seen_pilot_run_002",
+  "ingested_utc": "2026-11-03T04:20:32+00:00",
+  "baseline_engineering_commit": "fa98aae25f7a5c73259e4dd33c4cb70a46cd0592",
+  "headline": "2 USER_APPROVED compositional candidates (SP201/SP202); 1 CONDITIONAL pending eng (SP205); 1 REJECTED (SP204); 2 DEFER relocalization (SP203/DN201); 0 formal Seen/Gold; Track A RSI gated.",
+  "decisions": {
+    "SP201": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+    "SP202": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+    "SP203": "DEFER_NEEDS_EVIDENCE_RELOCALIZATION",
+    "SP204": "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE",
+    "SP205": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+    "DN201": "DEFER_TARGET_EVENT_RELOCALIZATION"
+  },
+  "approved_compositional_candidates": [
+    "SP201",
+    "SP202"
+  ],
+  "sp205_promoted": false,
+  "sp205_blocker": "MODEL_ACCESSIBLE_TEMPORAL_GAP_06:10-13:58",
+  "records": [
+    "scientific_reviews/RECORDS_BY_PACK/SP201.json",
+    "scientific_reviews/RECORDS_BY_PACK/SP202.json",
+    "scientific_reviews/RECORDS_BY_PACK/SP203.json",
+    "scientific_reviews/RECORDS_BY_PACK/SP204.json",
+    "scientific_reviews/RECORDS_BY_PACK/SP205.json",
+    "scientific_reviews/RECORDS_BY_PACK/DN201.json"
+  ],
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "run_001_untouched": true
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "seen_pilot_run_002_scientific_record_v1",
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP205",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "ingested_utc": "2026-11-03T04:20:32+00:00",
+  "branch_note": "Artifacts live on research/lvbench-comp-p7-hil-pilot (run_002 baseline fa98aae); not video-grounded-evidence branch.",
+  "video_id": "wgBlACG927Y",
+  "qa_uid": "LVCOMP-V2-116",
+  "windows_seconds": {
+    "A": [
+      202,
+      370
+    ],
+    "B": [
+      838,
+      852
+    ]
+  },
+  "user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+  "graph_version": "v0.4",
+  "human_observations": [
+    "03:22-05:22: vlogger boards high-speed train.",
+    "05:22-06:10: vlogger disembarks high-speed train.",
+    "06:10-13:58: human check observes no other transport.",
+    "13:58-14:12: vlogger rides subway; Line 3 signage, handrails, seats."
+  ],
+  "scientific_inferences": [
+    "B-only can recognize subway but cannot alone prove it is the next transport after the first means specified by the question.",
+    "Must not mark 'possible answer-string guess' as proven B-only compositional shortcut.",
+    "Absence of other transport in reviewed footage ≠ proof none existed in real journey off-camera."
+  ],
+  "directed_program_graph": {
+    "program": "IdentifyFirstTransport → DetectDisembark → TemporalSuccessor → IdentifyNextTransport",
+    "answer_candidate": "Subway",
+    "version": "v0.4"
+  },
+  "evidence_limitations": [
+    "Precision: unobserved other transport in footage is not absolute real-world absence.",
+    "MODEL_ACCESSIBLE_TEMPORAL_GAP_06:10-13:58 under clip-only protocol."
+  ],
+  "single_window_necessity_audit": {
+    "a_only_sufficient_full_question": "否（缺下一交通工具）",
+    "b_only_sufficient_full_question": "否（缺第一交通工具及后继关系）",
+    "a_plus_b_necessary": "用户支持，但工程侧时间连续性证据对 clip-only 模型访问未闭环"
+  },
+  "engineering_status": "A_MEDIA_RESTORED_PROMOTION_BLOCKED_MODEL_ACCESS_GAP",
+  "promotion_gate": "CONDITIONAL_PENDING",
+  "engineering_repair_ref": "scientific_reviews/engineering_checks/SP205_A_media_repair.json",
+  "conditional_promotion": {
+    "requested_status_if_all_gates_pass": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+    "current_user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+    "gates": {
+      "A_media_restored_03_22_to_06_10": true,
+      "first_transport_scope_supported_in_A": true,
+      "critical_temporal_relation_model_accessible": false,
+      "manifest_sha_isolation_ok": true,
+      "no_new_fact_conflict_forcing_retract": true
+    },
+    "promoted": false,
+    "reason_not_promoted": "Clip-only protocol cannot access 06:10-13:58 continuity evidence required for TemporalSuccessor/no-other-transport necessity as reviewed by human."
+  }
+}

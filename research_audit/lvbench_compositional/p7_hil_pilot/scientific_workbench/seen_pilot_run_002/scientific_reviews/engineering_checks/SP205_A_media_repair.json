@@ -1,0 +1,68 @@
+{
+  "pack_id": "SP205",
+  "before": {
+    "relpath": "seen_pilot_run_002/media/SP205/A_wgBlACG927Y_202_322.mp4",
+    "coverage_source_s": [
+      202,
+      322
+    ],
+    "coverage_clock": "03:22-05:22",
+    "sha256": "65ad893c395f4b8233b49ec4db005f568c0644f5bc8b9ea7e5c4e787eddf36e3",
+    "bytes": 59545311,
+    "issue": "truncated_for_review_cost; missing human-confirmed disembark span 05:22-06:10"
+  },
+  "after": {
+    "relpath": "seen_pilot_run_002/media/SP205/A_wgBlACG927Y_202_370.mp4",
+    "coverage_source_s": [
+      202,
+      370
+    ],
+    "coverage_clock": "03:22-06:10",
+    "sha256": "af84566d1ee87bfbcad92ae9f6f53c78f3174529c43c1154045c982ad68e8c08",
+    "bytes": 76263830,
+    "duration_s": 168.0
+  },
+  "B_unchanged": {
+    "relpath": "seen_pilot_run_002/media/SP205/B_wgBlACG927Y_838_852.mp4",
+    "coverage_clock": "13:58-14:12",
+    "sha256": "c4175f6957d11dda484938bdf33c5ee6f762ac2ab3a3cacccdf3c04459769e87"
+  },
+  "human_vs_model_evidence": {
+    "HUMAN_REVIEWED_EVIDENCE": [
+      "03:22-05:22 board HSR",
+      "05:22-06:10 disembark HSR",
+      "06:10-13:58 human continuity check: no other transport observed",
+      "13:58-14:12 subway"
+    ],
+    "MODEL_ACCESSIBLE_EVIDENCE_CLIP_ONLY": [
+      "A clip 03:22-06:10 (restored)",
+      "B clip 13:58-14:12"
+    ],
+    "MODEL_NOT_ACCESSIBLE_UNDER_CLIP_ONLY": [
+      "06:10-13:58 continuous segment used for no-other-transport temporal claim"
+    ],
+    "blocker": "MODEL_ACCESSIBLE_TEMPORAL_GAP_06:10-13:58",
+    "note": "Human-reviewed middle span must not be silently treated as model-seen under clip-only protocol."
+  },
+  "engineering_sparse_frame_note": {
+    "sampled_relative_s_near_A_end": [
+      150,
+      166
+    ],
+    "observation": "Sparse stills near A end still show train interior/vestibule; does not independently confirm or refute brief disembark—full restored A is the review medium.",
+    "does_not_override_human_observations": true
+  },
+  "conditional_promotion": {
+    "requested_status_if_all_gates_pass": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+    "current_user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+    "gates": {
+      "A_media_restored_03_22_to_06_10": true,
+      "first_transport_scope_supported_in_A": true,
+      "critical_temporal_relation_model_accessible": false,
+      "manifest_sha_isolation_ok": true,
+      "no_new_fact_conflict_forcing_retract": true
+    },
+    "promoted": false,
+    "reason_not_promoted": "Clip-only protocol cannot access 06:10-13:58 continuity evidence required for TemporalSuccessor/no-other-transport necessity as reviewed by human."
+  }
+}

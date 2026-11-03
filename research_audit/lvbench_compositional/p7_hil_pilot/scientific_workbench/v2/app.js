@@ -967,9 +967,16 @@ note = four approved graphs are NOT auto-treated as formal Unseen; Seen train po
   function renderSeenPilot2Card(it) {
     const id = it.workbench_id;
     const mediaBad = it.media_status === "MEDIA_UNAVAILABLE";
-    const tag = mediaBad
-      ? '<span class="tag demo">MEDIA_UNAVAILABLE</span>'
-      : '<span class="tag pending">PENDING_HUMAN_VIDEO_REVIEW</span><span class="tag">pre-screen ≠ approved</span>';
+    const sr = it.scientific_review || {};
+    const dec = sr.user_decision || "";
+    let tag;
+    if (mediaBad) tag = '<span class="tag demo">MEDIA_UNAVAILABLE</span>';
+    else if (dec === "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH")
+      tag = `<span class="tag seen">APPROVED_CANDIDATE ${esc(sr.graph_version || "")}</span><span class="tag pending">≠正式Seen</span>`;
+    else if (dec === "USER_REJECTED_AS_COMPOSITIONAL_CANDIDATE") tag = '<span class="tag demo">REJECTED</span>';
+    else if (dec && dec.includes("CONDITIONAL")) tag = '<span class="tag pending">CONDITIONAL_PENDING_ENG</span>';
+    else if (dec && dec.includes("DEFER")) tag = `<span class="tag pending">${esc(dec)}</span>`;
+    else tag = '<span class="tag pending">PENDING_HUMAN_VIDEO_REVIEW</span><span class="tag">pre-screen ≠ approved</span>';
     const clue = it.qa_clue_unverified || {};
     const players =
       mediaBad || !it.clips?.A || !it.clips?.B

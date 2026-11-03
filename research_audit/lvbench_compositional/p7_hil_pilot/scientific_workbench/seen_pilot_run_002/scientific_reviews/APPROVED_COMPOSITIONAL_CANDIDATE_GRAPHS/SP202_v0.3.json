@@ -1,0 +1,15 @@
+{
+  "graph_id": "seen_pilot_run_002::SP202::v0.3",
+  "user_confirmation_status": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+  "program": {
+    "program": "IdentifyFirstServer(A) → CrossWindowPersonBind → QueryMatchResult(B)",
+    "answer_candidate": "final winner / wins the match"
+  },
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "shared_video_with_SP201": true
+}

@@ -1,0 +1,34 @@
+{
+  "SP203": {
+    "search_ranges_clock": [
+      "57:20-57:50",
+      "57:40-58:20",
+      "58:05-58:40"
+    ],
+    "media": [
+      "seen_pilot_run_002/relocalization/SP203/search_5720_5750.mp4",
+      "seen_pilot_run_002/relocalization/SP203/search_5740_5820.mp4",
+      "seen_pilot_run_002/relocalization/SP203/search_5805_5840.mp4"
+    ],
+    "engineering_sparse_observation": "Primary search window stills show match play (Rio 2016 court); orange coughing coach NOT identified by engineering. Awaiting human re-watch.",
+    "candidate_event_found": false,
+    "auto_approved": false
+  },
+  "DN201": {
+    "search_ranges_clock": [
+      "06:10-07:40",
+      "07:40-09:10",
+      "09:10-11:03"
+    ],
+    "media": [
+      "seen_pilot_run_002/relocalization/DN201/search_0610_0740.mp4",
+      "seen_pilot_run_002/relocalization/DN201/search_0740_0910.mp4",
+      "seen_pilot_run_002/relocalization/DN201/search_0910_1103.mp4"
+    ],
+    "engineering_sparse_observation": "Sparse stills in 06:10-11:03 primarily show onboard HSR cabin; leave-platform/upstairs action NOT identified by engineering. Awaiting human re-watch of search clips.",
+    "candidate_event_found": false,
+    "auto_approved": false
+  },
+  "human_review_entry": "Workbench Seen Pilot run_002 + relocalization/*.mp4",
+  "auto_approved": false
+}

@@ -1,0 +1,15 @@
+{
+  "graph_id": "seen_pilot_run_002::SP201::v0.2",
+  "user_confirmation_status": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+  "program": {
+    "program": "DetermineMatchWinner(B) → CrossWindowPersonBind → QueryEmotion(A)",
+    "answer_candidate": "frustrated (lose the rally/point)"
+  },
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "note": "Candidate only; not formal Seen/Gold."
+}
