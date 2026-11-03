@@ -2,11 +2,13 @@
   "run_004_status": "NOT_STARTED",
   "status": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE",
   "blockers": [
-    "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE from multiframe feasibility (0 qualifying)",
-    "P3 discovery frames not yet GPT-observed / no nontrivial directed relation admitted",
-    "No USER+GPT scientific admission of a new evidence-grounded candidate this round"
+    "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE from prior multiframe feasibility (0 qualifying)",
+    "P3 GPT observations ingested but PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+    "0 P3 ROIs with NO_QUALIFYING / hypothesis-only — none admitted as directed composition",
+    "No USER scientific upgrade of GPT observations to certified events or QA"
   ],
   "n_qualified_new_candidates": 0,
+  "p3_gpt_observation_index": "p3_new_video_discovery/gpt_observations/INDEX.json",
   "formal_seen_train": false,
   "formal_unseen": false,
   "formal_gold": false,

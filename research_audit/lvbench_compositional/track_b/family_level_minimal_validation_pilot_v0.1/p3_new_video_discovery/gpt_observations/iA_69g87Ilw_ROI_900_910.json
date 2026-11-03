@@ -1,0 +1,147 @@
+{
+  "schema": "family_level_pilot_p3_gpt_observation_v1",
+  "record_status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+  "relation_status": "LOCAL_ACTION_HYPOTHESIS_ONLY",
+  "roi_id": "iA_69g87Ilw_ROI_900_910",
+  "video_id": "iA_69g87Ilw",
+  "t_start_s": 900,
+  "t_end_s": 910,
+  "ingested_utc": "2026-11-03T12:08:45+00:00",
+  "pilot_artifact_sha": "cce7499c5c94e6f7fe3e2b930164f841dce52474",
+  "working_branch": "research/lvbench-comp-video-grounded-evidence",
+  "direct_visual_observations": [
+    "A man seated in a chair speaks toward the camera.",
+    "Later frames show a hand interacting with a Do Not Disturb door hanger / plaque."
+  ],
+  "inferences_and_hypotheses": [
+    {
+      "claim": "Local hanger/plaque pose changes are suggested by ordered stills, but hang / remove / flip completion is not proven.",
+      "tier": "LOCAL_STATE_CHANGE_HYPOTHESIS_NOT_CERTIFIED",
+      "must_not_upgrade_to": [
+        "hang_complete",
+        "remove_complete",
+        "flip_complete"
+      ]
+    },
+    {
+      "claim": "Cannot prove the speaking man and the hand belong to the same agent.",
+      "tier": "UNAUTHENTICATED_IDENTITY_HYPOTHESIS",
+      "must_not_upgrade_to": [
+        "same_person_bind",
+        "CrossIntervalSamePersonBind"
+      ]
+    }
+  ],
+  "forbidden_claims": [
+    "Certify completed hang/remove/flip of Do Not Disturb plaque",
+    "Assume speaker identity equals hand identity"
+  ],
+  "hypothesis_not_certified_event": true,
+  "qa_drafts_generated": 0,
+  "auto_upgraded_to_scientific_label": false,
+  "evidence": {
+    "n_frames": 12,
+    "sha_validation": "PASS",
+    "frames": [
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f00",
+        "t_s": 900.0,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_00_t900.0.jpg",
+        "sha256": "2a4816c563ed4896e030d1b5f09414841c07079fd0112710a806da9181b6562a",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f01",
+        "t_s": 900.909,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_01_t900.9.jpg",
+        "sha256": "8dc6b16f420466d7e747baa59cea84d576ca0bc3ed8a63128ac1d7ac00f931a5",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f02",
+        "t_s": 901.818,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_02_t901.8.jpg",
+        "sha256": "5b126d19d4fbdc5536f114e56b90e74e8b163e5c3235ade062f48cfecb3309c7",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f03",
+        "t_s": 902.727,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_03_t902.7.jpg",
+        "sha256": "81c1f5dbd759c6ddeeadfbb91856b936e47c09805dc96b8c70392e4f4d961b79",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f04",
+        "t_s": 903.636,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_04_t903.6.jpg",
+        "sha256": "fdd51aeeea7972c2f1215e4642b399a5b43871fb687d0b4d83343b75a3f4c21b",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f05",
+        "t_s": 904.545,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_05_t904.5.jpg",
+        "sha256": "a76207e32df24ecbdd58f39093cc7d1e9f18e42a9819e113c1098ef972ce1019",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f06",
+        "t_s": 905.455,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_06_t905.5.jpg",
+        "sha256": "da2f1b8413ac47f8371c3615cab76e4a9086143f923ca7e35e7753232998acc1",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f07",
+        "t_s": 906.364,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_07_t906.4.jpg",
+        "sha256": "1ec3fff82f7947bb8194e0ceb4f9abce456d50e1a01999b31532f9a25d6413ca",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f08",
+        "t_s": 907.273,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_08_t907.3.jpg",
+        "sha256": "3db76a79bf903324c7d4d7531aad35243ca857566a63e8a5d1aaa1d1ae9cbe3c",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f09",
+        "t_s": 908.182,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_09_t908.2.jpg",
+        "sha256": "bf3ecadaec0d9107c160c84c47f9cd7b225a80fa6cc925bb8fe8f9ac011764d7",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f10",
+        "t_s": 909.091,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_10_t909.1.jpg",
+        "sha256": "018b1f3c63096f33d60a5f5ffad377bcd89b216934e00a0b9edd002db96c1961",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "iA_69g87Ilw_ROI_900_910_f11",
+        "t_s": 910.0,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/iA_69g87Ilw/iA_69g87Ilw_ROI_900_910/mf_11_t910.0.jpg",
+        "sha256": "73e6143666614ddd21627deba3851defeb988a0d118cad8ba5e2306f7bbcc4e6",
+        "sha_check": "OK"
+      }
+    ]
+  },
+  "provenance": {
+    "source_register": "p3_new_video_discovery/iA_69g87Ilw_SOURCE_REGISTER.json",
+    "roi_manifest": "p3_new_video_discovery/rois/iA_69g87Ilw_ROI_900_910.json",
+    "batch_manifest": "p3_new_video_discovery/batch_manifest.json",
+    "observer": "GPT_MULTIFRAME_STILL_OBSERVATION",
+    "authority": "USER_APPROVED_FOR_ENGINEERING_INGEST_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+    "not_independent_blind_review": true,
+    "not_continuous_video_verified": true
+  },
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

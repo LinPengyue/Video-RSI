@@ -403,9 +403,15 @@
     ],
     "n_rois": 4,
     "n_frames": 48,
-    "status": "FRAMES_READY_PENDING_GPT_OBSERVATION",
+    "status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
     "candidates_qualified": 0,
-    "note": "No QA drafts minted; Cursor did not prefill unobserved events."
+    "relation_statuses": {
+      "hROKtPqktO8_ROI_500_510": "NO_QUALIFYING_COMPOSITIONAL_RELATION",
+      "hROKtPqktO8_ROI_1255_1265": "IDENTITY_HYPOTHESIS_ONLY",
+      "iA_69g87Ilw_ROI_358_368": "NO_QUALIFYING_COMPOSITIONAL_RELATION",
+      "iA_69g87Ilw_ROI_900_910": "LOCAL_ACTION_HYPOTHESIS_ONLY"
+    },
+    "note": "GPT observations stored for human adjudication; not auto-upgraded; 0 QA drafts."
   },
   "contamination_risks": {
     "SP201_SP202_same_video": true,
@@ -423,9 +429,10 @@
   "run_004": {
     "status": "NOT_STARTED",
     "blockers": [
-      "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE from multiframe feasibility (0 qualifying)",
-      "P3 discovery frames not yet GPT-observed / no nontrivial directed relation admitted",
-      "No USER+GPT scientific admission of a new evidence-grounded candidate this round"
+      "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE from prior multiframe feasibility (0 qualifying)",
+      "P3 GPT observations ingested but PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+      "0 P3 ROIs with NO_QUALIFYING / hypothesis-only — none admitted as directed composition",
+      "No USER scientific upgrade of GPT observations to certified events or QA"
     ]
   },
   "formal_seen_train": false,

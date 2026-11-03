@@ -1,0 +1,141 @@
+{
+  "schema": "family_level_pilot_p3_gpt_observation_v1",
+  "record_status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+  "relation_status": "NO_QUALIFYING_COMPOSITIONAL_RELATION",
+  "roi_id": "hROKtPqktO8_ROI_500_510",
+  "video_id": "hROKtPqktO8",
+  "t_start_s": 500,
+  "t_end_s": 510,
+  "ingested_utc": "2026-11-03T12:08:45+00:00",
+  "pilot_artifact_sha": "cce7499c5c94e6f7fe3e2b930164f841dce52474",
+  "working_branch": "research/lvbench-comp-video-grounded-evidence",
+  "direct_visual_observations": [
+    "Storefront / shop-front scenes visible in sampled frames.",
+    "Street scenes with pedestrians and a dog visible.",
+    "Coast / shoreline scenes visible.",
+    "Woman recording a selfie-style video visible.",
+    "Multiple shot / camera cuts across the 500–510s window."
+  ],
+  "inferences_and_hypotheses": [
+    {
+      "claim": "Shot order does not by itself establish causal event relations across cuts.",
+      "tier": "JUDGMENT_NOT_CERTIFIED_EVENT",
+      "must_not_upgrade_to": [
+        "causal_chain",
+        "directed_compositional_program"
+      ]
+    }
+  ],
+  "forbidden_claims": [
+    "Infer causal event sequence solely from cut order",
+    "Mint compositional QA from this ROI"
+  ],
+  "hypothesis_not_certified_event": true,
+  "qa_drafts_generated": 0,
+  "auto_upgraded_to_scientific_label": false,
+  "evidence": {
+    "n_frames": 12,
+    "sha_validation": "PASS",
+    "frames": [
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f00",
+        "t_s": 500.0,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_00_t500.0.jpg",
+        "sha256": "61ec503a4a186b66860b68c6f976bc99d29594fe3217dd5673af10f8862ecbdf",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f01",
+        "t_s": 500.909,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_01_t500.9.jpg",
+        "sha256": "baa431a33a1cab689fe8de6ef241a2c8c60dfc34b93ea3ee6e2a64385ef50f84",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f02",
+        "t_s": 501.818,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_02_t501.8.jpg",
+        "sha256": "c6dc82b3e47ae1c9835a2cd0139cc4a0c4311438a0e264f18d9ea1e828a9336b",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f03",
+        "t_s": 502.727,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_03_t502.7.jpg",
+        "sha256": "4037e0937fd38b3552a05dc15fdae846bdcb0394584086e9e65a74574fe377e3",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f04",
+        "t_s": 503.636,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_04_t503.6.jpg",
+        "sha256": "f3134e072cdb9df2c82357da6bc8ba003b176127805b1d0b14fda34793f82c41",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f05",
+        "t_s": 504.545,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_05_t504.5.jpg",
+        "sha256": "c85d1249e1f889f82cc7862e6c94870119c8c3842156e700e135a5373ebd0859",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f06",
+        "t_s": 505.455,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_06_t505.5.jpg",
+        "sha256": "21bacba1e45d3de8ee9d2aedf76f980118d8a61c6c2fbe7e675fec2c217295b0",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f07",
+        "t_s": 506.364,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_07_t506.4.jpg",
+        "sha256": "fbdcc622a3c4ea1fbec985555c5c075a40d3a1aa3fbde97b7241c6341aea0eca",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f08",
+        "t_s": 507.273,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_08_t507.3.jpg",
+        "sha256": "0622f563d129ee993f0a25ef969d2e6668b74b915b9a7e23296fb285e9cd454f",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f09",
+        "t_s": 508.182,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_09_t508.2.jpg",
+        "sha256": "d7a9ae5dc6825d832d73e06fb0af7b28a0d1364254a2bfc49ae67a023473f263",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f10",
+        "t_s": 509.091,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_10_t509.1.jpg",
+        "sha256": "af1e49356fba4443a053bc06a24b38920ab4d0e8483c8818b19cd3201527695f",
+        "sha_check": "OK"
+      },
+      {
+        "frame_id": "hROKtPqktO8_ROI_500_510_f11",
+        "t_s": 510.0,
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_500_510/mf_11_t510.0.jpg",
+        "sha256": "8f1bc270e1784c395e806c529956b96876f071a32450c136d145cc9206dcca49",
+        "sha_check": "OK"
+      }
+    ]
+  },
+  "provenance": {
+    "source_register": "p3_new_video_discovery/hROKtPqktO8_SOURCE_REGISTER.json",
+    "roi_manifest": "p3_new_video_discovery/rois/hROKtPqktO8_ROI_500_510.json",
+    "batch_manifest": "p3_new_video_discovery/batch_manifest.json",
+    "observer": "GPT_MULTIFRAME_STILL_OBSERVATION",
+    "authority": "USER_APPROVED_FOR_ENGINEERING_INGEST_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+    "not_independent_blind_review": true,
+    "not_continuous_video_verified": true
+  },
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

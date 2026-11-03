@@ -12,7 +12,7 @@
   "p4_review": "p4_scientific_review_pack/REVIEW_PACK.json",
   "p5_run_004": {
     "status": "NOT_STARTED",
-    "reason": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE + no newly admitted directed relation"
+    "reason": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE; P3 GPT obs pending human adjudication"
   },
   "cost_metrics": {
     "ffmpeg_calls": 48,
@@ -36,5 +36,12 @@
   "approve_expensive_track_a_rsi": false,
   "track_a_ok_for_expensive_rsi": false,
   "run_003_untouched": true,
-  "commit_sha": "cce7499c5c94e6f7fe3e2b930164f841dce52474"
+  "commit_sha": "cce7499c5c94e6f7fe3e2b930164f841dce52474",
+  "p3_gpt_observation_ingest": {
+    "ingested_utc": "2026-11-03T12:08:45+00:00",
+    "record_status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+    "n_rois": 4,
+    "sha_validation": "PASS",
+    "n_qualifying": 0
+  }
 }

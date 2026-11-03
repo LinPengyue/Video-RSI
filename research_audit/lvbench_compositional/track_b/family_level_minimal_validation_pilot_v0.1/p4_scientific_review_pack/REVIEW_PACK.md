@@ -26,15 +26,21 @@ Created: 2026-11-03T11:44:06+00:00
 
 - Videos: hROKtPqktO8, iA_69g87Ilw
 - ROIs/frames: 4 / 48
-- Status: PENDING_GPT_OBSERVATION (no QA drafts)
+- Status: `GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION` (0 QA drafts; not auto-upgraded)
+- ROI-1 `500–510`: `NO_QUALIFYING_COMPOSITIONAL_RELATION`
+- ROI-2 `1255–1265`: `IDENTITY_HYPOTHESIS_ONLY`
+- ROI-3 `358–368`: `NO_QUALIFYING_COMPOSITIONAL_RELATION`
+- ROI-4 `900–910`: `LOCAL_ACTION_HYPOTHESIS_ONLY`
+- Evidence SHA: **PASS** (48/48)
 
 ## run_004
 
 **NOT_STARTED** — blockers:
 
 - BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE from multiframe feasibility (0 qualifying)
-- P3 discovery frames not yet GPT-observed / no nontrivial directed relation admitted
-- No USER+GPT scientific admission of a new evidence-grounded candidate this round
+- P3 GPT observations ingested but PENDING_HUMAN_SCIENTIFIC_ADJUDICATION
+- 0 P3 ROIs admitted as directed composition
+- No USER scientific upgrade of GPT observations to certified events or QA
 
 ## Invariants
 

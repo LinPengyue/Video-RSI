@@ -75,16 +75,52 @@ class FamilyLevelPilotV01Test(unittest.TestCase):
         self.assertEqual(self.mf["recheck_evidence_sha"]["status"], "PASS")
         self.assertTrue(self.mf["run_003_untouched"] if "run_003_untouched" in self.mf else True)
 
-    def test_p3_budget_and_pending(self):
+    def test_p3_budget_and_gpt_obs_ingested(self):
         self.assertLessEqual(self.p3["n_rois"], 4)
         for roi in self.p3["rois"]:
             self.assertLessEqual(roi["n_frames"], 16)
-            self.assertEqual(roi["observation_slot"]["status"], "PENDING_GPT_VISUAL_OBSERVATION")
+            self.assertEqual(
+                roi["observation_slot"]["status"],
+                "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+            )
+            self.assertEqual(roi["observation_slot"]["qa_drafts_generated"], 0)
         self.assertEqual(self.p3["run_004_status"], "NOT_STARTED")
+        self.assertEqual(self.p3["gpt_observation_ingest"]["n_qualifying_compositional_relations"], 0)
+
+    def test_p3_gpt_observation_records(self):
+        idx = json.loads(
+            (PILOT / "p3_new_video_discovery/gpt_observations/INDEX.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(idx["n_rois"], 4)
+        self.assertEqual(idx["n_qualifying_compositional_relations"], 0)
+        self.assertEqual(idx["sha_validation"]["overall"], "PASS")
+        self.assertEqual(idx["run_004_status"], "NOT_STARTED")
+        self.assertTrue(idx["run_003_untouched"])
+        self.assertTrue(idx["pilot_roles_unchanged"])
+        expected = {
+            "hROKtPqktO8_ROI_500_510": "NO_QUALIFYING_COMPOSITIONAL_RELATION",
+            "hROKtPqktO8_ROI_1255_1265": "IDENTITY_HYPOTHESIS_ONLY",
+            "iA_69g87Ilw_ROI_358_368": "NO_QUALIFYING_COMPOSITIONAL_RELATION",
+            "iA_69g87Ilw_ROI_900_910": "LOCAL_ACTION_HYPOTHESIS_ONLY",
+        }
+        for rec in idx["records"]:
+            self.assertEqual(rec["record_status"], "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION")
+            self.assertEqual(rec["relation_status"], expected[rec["roi_id"]])
+            path = PILOT / rec["record_path"]
+            self.assertTrue(path.is_file(), rec["record_path"])
+            body = json.loads(path.read_text(encoding="utf-8"))
+            self.assertTrue(body["direct_visual_observations"])
+            self.assertTrue(body["inferences_and_hypotheses"])
+            self.assertTrue(body["hypothesis_not_certified_event"])
+            self.assertFalse(body["auto_upgraded_to_scientific_label"])
+            self.assertEqual(body["qa_drafts_generated"], 0)
+            self.assertEqual(body["evidence"]["sha_validation"], "PASS")
+            self.assertEqual(len(body["evidence"]["frames"]), 12)
 
     def test_run_004_not_started(self):
         self.assertEqual(self.gate["run_004_status"], "NOT_STARTED")
         self.assertEqual(self.gate["status"], "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE")
+        self.assertEqual(self.gate["n_qualified_new_candidates"], 0)
 
     def test_provenance_snapshots_exist(self):
         for name in (
@@ -95,6 +131,11 @@ class FamilyLevelPilotV01Test(unittest.TestCase):
             "P7_TJR_R3.json",
         ):
             self.assertTrue((PILOT / "provenance_snapshots" / name).is_file(), name)
+
+    def test_pilot_roles_unchanged_after_p3_ingest(self):
+        self.assertEqual(self.cfg["seen"], ["SP001", "SP002", "SP005", "SP201", "SP202"])
+        self.assertEqual(self.cfg["unseen"], ["P7_VTCD_C2", "P7_TJR_R3"])
+        self.assertEqual(set(self.cfg["hold"]), {"P7_R4_F1", "P7_R4_F2", "SP205"})
 
 
 if __name__ == "__main__":

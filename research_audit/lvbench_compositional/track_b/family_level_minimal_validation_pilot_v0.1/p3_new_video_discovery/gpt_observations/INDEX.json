@@ -1,0 +1,89 @@
+{
+  "schema": "p3_gpt_observation_index_v1",
+  "ingested_utc": "2026-11-03T12:08:45+00:00",
+  "pilot_artifact_sha": "cce7499c5c94e6f7fe3e2b930164f841dce52474",
+  "record_status_uniform": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+  "n_rois": 4,
+  "n_qualifying_compositional_relations": 0,
+  "n_identity_hypothesis_only": 1,
+  "n_local_action_hypothesis_only": 1,
+  "n_no_qualifying": 2,
+  "records": [
+    {
+      "roi_id": "hROKtPqktO8_ROI_500_510",
+      "video_id": "hROKtPqktO8",
+      "relation_status": "NO_QUALIFYING_COMPOSITIONAL_RELATION",
+      "record_status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+      "record_path": "p3_new_video_discovery/gpt_observations/hROKtPqktO8_ROI_500_510.json",
+      "sha_validation": "PASS"
+    },
+    {
+      "roi_id": "hROKtPqktO8_ROI_1255_1265",
+      "video_id": "hROKtPqktO8",
+      "relation_status": "IDENTITY_HYPOTHESIS_ONLY",
+      "record_status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+      "record_path": "p3_new_video_discovery/gpt_observations/hROKtPqktO8_ROI_1255_1265.json",
+      "sha_validation": "PASS"
+    },
+    {
+      "roi_id": "iA_69g87Ilw_ROI_358_368",
+      "video_id": "iA_69g87Ilw",
+      "relation_status": "NO_QUALIFYING_COMPOSITIONAL_RELATION",
+      "record_status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+      "record_path": "p3_new_video_discovery/gpt_observations/iA_69g87Ilw_ROI_358_368.json",
+      "sha_validation": "PASS"
+    },
+    {
+      "roi_id": "iA_69g87Ilw_ROI_900_910",
+      "video_id": "iA_69g87Ilw",
+      "relation_status": "LOCAL_ACTION_HYPOTHESIS_ONLY",
+      "record_status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+      "record_path": "p3_new_video_discovery/gpt_observations/iA_69g87Ilw_ROI_900_910.json",
+      "sha_validation": "PASS"
+    }
+  ],
+  "sha_validation": {
+    "rois": {
+      "hROKtPqktO8_ROI_500_510": {
+        "status": "PASS",
+        "n_ok": 12,
+        "n_frames": 12,
+        "missing": [],
+        "mismatches": []
+      },
+      "hROKtPqktO8_ROI_1255_1265": {
+        "status": "PASS",
+        "n_ok": 12,
+        "n_frames": 12,
+        "missing": [],
+        "mismatches": []
+      },
+      "iA_69g87Ilw_ROI_358_368": {
+        "status": "PASS",
+        "n_ok": 12,
+        "n_frames": 12,
+        "missing": [],
+        "mismatches": []
+      },
+      "iA_69g87Ilw_ROI_900_910": {
+        "status": "PASS",
+        "n_ok": 12,
+        "n_frames": 12,
+        "missing": [],
+        "mismatches": []
+      }
+    },
+    "overall": "PASS",
+    "unmatched_observations": []
+  },
+  "qa_drafts_generated": 0,
+  "run_003_untouched": true,
+  "run_004_status": "NOT_STARTED",
+  "pilot_roles_unchanged": true,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

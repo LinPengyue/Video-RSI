@@ -1,0 +1,34 @@
+{
+  "rois": {
+    "hROKtPqktO8_ROI_500_510": {
+      "status": "PASS",
+      "n_ok": 12,
+      "n_frames": 12,
+      "missing": [],
+      "mismatches": []
+    },
+    "hROKtPqktO8_ROI_1255_1265": {
+      "status": "PASS",
+      "n_ok": 12,
+      "n_frames": 12,
+      "missing": [],
+      "mismatches": []
+    },
+    "iA_69g87Ilw_ROI_358_368": {
+      "status": "PASS",
+      "n_ok": 12,
+      "n_frames": 12,
+      "missing": [],
+      "mismatches": []
+    },
+    "iA_69g87Ilw_ROI_900_910": {
+      "status": "PASS",
+      "n_ok": 12,
+      "n_frames": 12,
+      "missing": [],
+      "mismatches": []
+    }
+  },
+  "overall": "PASS",
+  "unmatched_observations": []
+}

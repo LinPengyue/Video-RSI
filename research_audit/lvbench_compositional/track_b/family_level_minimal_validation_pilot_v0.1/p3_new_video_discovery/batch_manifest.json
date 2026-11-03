@@ -108,14 +108,11 @@
         }
       ],
       "observation_slot": {
-        "status": "PENDING_GPT_VISUAL_OBSERVATION",
-        "allowed_labels": [
-          "STATIC_VISIBLE",
-          "ORDERED_MULTIFRAME_SUGGESTS",
-          "CONTINUOUS_VIDEO_VERIFIED",
-          "UNRESOLVED"
-        ],
-        "forbid_prefill_by_cursor": true
+        "status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+        "relation_status": "NO_QUALIFYING_COMPOSITIONAL_RELATION",
+        "gpt_observation_path": "gpt_observations/hROKtPqktO8_ROI_500_510.json",
+        "pending_human_scientific_adjudication": true,
+        "qa_drafts_generated": 0
       }
     },
     {
@@ -213,14 +210,11 @@
         }
       ],
       "observation_slot": {
-        "status": "PENDING_GPT_VISUAL_OBSERVATION",
-        "allowed_labels": [
-          "STATIC_VISIBLE",
-          "ORDERED_MULTIFRAME_SUGGESTS",
-          "CONTINUOUS_VIDEO_VERIFIED",
-          "UNRESOLVED"
-        ],
-        "forbid_prefill_by_cursor": true
+        "status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+        "relation_status": "IDENTITY_HYPOTHESIS_ONLY",
+        "gpt_observation_path": "gpt_observations/hROKtPqktO8_ROI_1255_1265.json",
+        "pending_human_scientific_adjudication": true,
+        "qa_drafts_generated": 0
       }
     },
     {
@@ -318,14 +312,11 @@
         }
       ],
       "observation_slot": {
-        "status": "PENDING_GPT_VISUAL_OBSERVATION",
-        "allowed_labels": [
-          "STATIC_VISIBLE",
-          "ORDERED_MULTIFRAME_SUGGESTS",
-          "CONTINUOUS_VIDEO_VERIFIED",
-          "UNRESOLVED"
-        ],
-        "forbid_prefill_by_cursor": true
+        "status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+        "relation_status": "NO_QUALIFYING_COMPOSITIONAL_RELATION",
+        "gpt_observation_path": "gpt_observations/iA_69g87Ilw_ROI_358_368.json",
+        "pending_human_scientific_adjudication": true,
+        "qa_drafts_generated": 0
       }
     },
     {
@@ -423,14 +414,11 @@
         }
       ],
       "observation_slot": {
-        "status": "PENDING_GPT_VISUAL_OBSERVATION",
-        "allowed_labels": [
-          "STATIC_VISIBLE",
-          "ORDERED_MULTIFRAME_SUGGESTS",
-          "CONTINUOUS_VIDEO_VERIFIED",
-          "UNRESOLVED"
-        ],
-        "forbid_prefill_by_cursor": true
+        "status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+        "relation_status": "LOCAL_ACTION_HYPOTHESIS_ONLY",
+        "gpt_observation_path": "gpt_observations/iA_69g87Ilw_ROI_900_910.json",
+        "pending_human_scientific_adjudication": true,
+        "qa_drafts_generated": 0
       }
     }
   ],
@@ -448,5 +436,14 @@
   "formal_gold": false,
   "train_exposed": false,
   "seen_pool_frozen": false,
-  "approve_expensive_track_a_rsi": false
+  "approve_expensive_track_a_rsi": false,
+  "gpt_observation_ingest": {
+    "ingested_utc": "2026-11-03T12:08:45+00:00",
+    "index": "gpt_observations/INDEX.json",
+    "record_status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION",
+    "n_rois_observed": 4,
+    "n_qualifying_compositional_relations": 0,
+    "sha_validation_overall": "PASS"
+  },
+  "semantics_status": "GPT_OBSERVATION_PENDING_HUMAN_SCIENTIFIC_ADJUDICATION"
 }
