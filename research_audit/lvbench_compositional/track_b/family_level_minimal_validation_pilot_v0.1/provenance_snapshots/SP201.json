@@ -1,0 +1,71 @@
+{
+  "schema": "seen_pilot_run_002_scientific_record_v1",
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP201",
+  "video_id": "Hf-n1yfd8II",
+  "qa_uid": "LVCOMP-V2-001",
+  "windows_seconds": {
+    "A": [
+      2880,
+      2897
+    ],
+    "B": [
+      5413,
+      5440
+    ]
+  },
+  "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+  "graph_version": "v0.2",
+  "user_split_assignment": "UNASSIGNED",
+  "user_split_decision": "NOT_YET_ASSIGNED",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "engineering_must_not_auto_approve": true,
+  "ingested_utc": "2026-11-03T05:14:20+00:00",
+  "handoff_schema": "cvpr2027_trackb_run002_scientific_adjudications_complete_v1",
+  "baseline_commit": "9afc5e95156041833421ff3e034d76deb8aac7c3",
+  "branch_note": "Artifacts on research/lvbench-comp-p7-hil-pilot; USER_ASSIGNED_UNSEEN ≠ formal Unseen freeze.",
+  "question_original_en": "How to describe the feeling of the final winner at 48:16?",
+  "answer_candidate": "frustrated (after losing rally/point)",
+  "human_observations": [
+    "A (48:00–48:17): blue-jersey player loses a point and shows frustration.",
+    "B (90:13–90:40): blue-jersey Malaysian player ultimately wins the whole match.",
+    "Deciding game 22:20; prior games 1:1; match result 2:1.",
+    "Human confirms A and B refer to the same player.",
+    "A alone cannot establish final winner; B alone cannot establish earlier emotion."
+  ],
+  "scientific_inferences": [
+    "Requires binding match winner from B to the same person whose earlier emotion is queried in A."
+  ],
+  "directed_program_graph": {
+    "status": "USER_APPROVED_MACRO_GRAPH",
+    "program": "DetermineMatchWinner(B) → CrossWindowPersonBind(B,A) → QueryEmotion(A)",
+    "dependency_direction": "B_TO_A",
+    "answer_candidate": "frustrated"
+  },
+  "evidence_limitations": [
+    "Do not replace losing a point/rally with the unsupported claim of failing to receive a particular shuttlecock."
+  ],
+  "single_window_necessity_audit": {
+    "a_only_sufficient_full_question": false,
+    "b_only_sufficient_full_question": false,
+    "a_plus_b_necessary": "USER_SUPPORTED"
+  },
+  "engineering_status": "RECORDED",
+  "promotion_gate": "CANDIDATE_ONLY_NOT_FORMAL_SEEN",
+  "video_group_id": "VIDEO_Hf-n1yfd8II",
+  "shared_video_with": [
+    "SP202",
+    "SP203"
+  ],
+  "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP201.json",
+  "shared_B_window_with": [
+    "SP202",
+    "SP203"
+  ],
+  "original_source_graph_version": "v0.2"
+}

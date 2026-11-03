@@ -1,0 +1,16 @@
+{
+  "run_004_status": "NOT_STARTED",
+  "status": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE",
+  "blockers": [
+    "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE from multiframe feasibility (0 qualifying)",
+    "P3 discovery frames not yet GPT-observed / no nontrivial directed relation admitted",
+    "No USER+GPT scientific admission of a new evidence-grounded candidate this round"
+  ],
+  "n_qualified_new_candidates": 0,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

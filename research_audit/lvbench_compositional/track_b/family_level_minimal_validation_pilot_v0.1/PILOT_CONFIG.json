@@ -1,0 +1,30 @@
+{
+  "protocol": "FAMILY_LEVEL_MINIMAL_VALIDATION_PILOT_v0.1",
+  "seen": [
+    "SP001",
+    "SP002",
+    "SP005",
+    "SP201",
+    "SP202"
+  ],
+  "unseen": [
+    "P7_VTCD_C2",
+    "P7_TJR_R3"
+  ],
+  "hold": [
+    "P7_R4_F1",
+    "P7_R4_F2",
+    "SP205"
+  ],
+  "qa_format": "OPEN_ENDED",
+  "sp201_sp202_isolation_group": "VIDEO_Hf-n1yfd8II",
+  "does_not_overwrite_history": true,
+  "run_003_untouched": true,
+  "run_004_status": "NOT_STARTED",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

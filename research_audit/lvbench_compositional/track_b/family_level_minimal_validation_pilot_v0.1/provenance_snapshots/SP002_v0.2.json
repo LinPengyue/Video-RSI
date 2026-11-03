@@ -1,0 +1,38 @@
+{
+  "graph_id": "seen_pilot::SP002::v0.2",
+  "structure_version": "v0.2",
+  "pool": "SEEN_PILOT_COMPOSITIONAL_CANDIDATE_ONLY",
+  "pack_id": "SP002",
+  "qa_uid": "LVCOMP-V2-045",
+  "video_id": "vHlSoxg8WHo",
+  "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+  "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+  "composition_necessity": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+  "graph_as_reviewed": {
+    "A": [
+      "ObservePerson(t≈00:02)→P",
+      "ReadNameSubtitle(t≈01:18)→Tacara",
+      "TemporalPersonBind(P,Tacara)"
+    ],
+    "B": [
+      "ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)"
+    ],
+    "cross_window": "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))",
+    "answer": "sister"
+  },
+  "caveats": [
+    "A subtitle is near the A-window end boundary (78s); inspect actual clip inclusion before any downstream use.",
+    "Appearance match is user-reported, not independent frame-level identity certification."
+  ],
+  "correction_history": null,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "note": "Candidate compositional graph from Seen pilot human review. NOT formal Seen/Gold. NOT merged into Unseen approved_graphs_v0.2.",
+  "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+  "ingested_utc": "2026-11-03T00:37:24+00:00",
+  "workbench_id": "SEEN_PILOT_SP002"
+}

@@ -1,0 +1,156 @@
+{
+  "graph_id": "approved::P7_VTCD_C2::v0.2",
+  "structure_version": "v0.2",
+  "qa_uid": "P7_VTCD_C2",
+  "workbench_id": "P7_VTCD_C2",
+  "video_id": "VTCDQYYKA9o",
+  "source_refs": [
+    "SCIENTIFIC_JUDGMENTS_DIRECTED_PROGRAMS_CORRECTED_F1_F3.json#P7_VTCD_C2",
+    "USER_GPT_SCIENTIFIC_APPROVAL_CHAT_2026-11-02_structured_graphs_v0.2"
+  ],
+  "raw_directed_program_text": "B: 定位 PREVIOUS RESULTS 姓名画面中的运动员 + 提取身份线索（姓名/蓝色 T-shirt） → A: 检索更早人物并提取外观与脱外套事件 → CrossIntervalSamePersonBind(B运动员, A脱外套者；双侧身份/服装线索) → QueryEarlierAction(A, 同一人) → 脱掉夹克。依赖方向：后期身份指代 B → 早期动作 A。",
+  "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+  "is_demo": false,
+  "formal_unseen": false,
+  "formal_seen_train": false,
+  "formal_gold": false,
+  "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+  "operator_vocab_status": "PENDING_SCIENTIFIC_APPROVAL",
+  "precise_timing_status": "PARTIAL_USER_PLAYBACK_OFFSETS_ONLY",
+  "human_judgments_preserved": {
+    "a_only_sufficient": "否",
+    "b_only_sufficient": "否",
+    "a_plus_b_supports_user_answer": "是",
+    "truly_needs_cross_clip_composition": "是",
+    "bucket_seen_unseen_control_or_hold": "Unseen",
+    "note": "Preserve explicit human judgment that A-only and B-only are insufficient for the current question."
+  },
+  "nodes": [
+    {
+      "node_id": "c2_n1",
+      "operator_type": "ReadNameGraphic",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": [],
+      "outputs": ["name_B_Fan_Zhendong"],
+      "clip_role": "B",
+      "time_conditions": [
+        {
+          "kind": "playback_offset_approx",
+          "clip_local_s_approx": 10,
+          "precision": "USER_STATED_APPROXIMATE_NOT_FRAME_ACCURATE",
+          "status": "RECORDED_AS_STATED_PENDING_FRAME_ACCURATE_SOURCE_MAPPING"
+        }
+      ],
+      "evidence": {
+        "on_screen_text": "Fan Zhendong"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "c2_n2",
+      "operator_type": "ReadNameAbbreviationGraphic",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": [],
+      "outputs": ["name_A_Fan_ZD"],
+      "clip_role": "A",
+      "time_conditions": [
+        {
+          "kind": "playback_offset_approx",
+          "clip_local_s_approx": 25,
+          "location": "背部",
+          "precision": "USER_STATED_APPROXIMATE_NOT_FRAME_ACCURATE",
+          "status": "RECORDED_AS_STATED_PENDING_FRAME_ACCURATE_SOURCE_MAPPING"
+        }
+      ],
+      "evidence": {
+        "on_screen_text": "Fan Z.D."
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "c2_n3",
+      "operator_type": "CrossIntervalSamePersonBind",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["name_B_Fan_Zhendong", "name_A_Fan_ZD"],
+      "outputs": ["bound_athlete"],
+      "clip_role": "AB",
+      "time_conditions": [
+        {"status": "PENDING_SCIENTIFIC_APPROVAL"}
+      ],
+      "evidence": {
+        "inference": "基于姓名与缩写的有证据支持的身份推断",
+        "certainty_note": "未额外声称绝对确定性；保留证据支持推断表述"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "c2_n4",
+      "operator_type": "DetectJacketRemoval",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["bound_athlete"],
+      "outputs": ["jacket_action_A"],
+      "clip_role": "A",
+      "time_conditions": [
+        {"status": "PENDING_SCIENTIFIC_APPROVAL", "note": "Exact remove-jacket source seconds not newly authorized in v0.2 beyond prior approximate user observation archive."}
+      ],
+      "evidence": {
+        "action": "脱夹克"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    },
+    {
+      "node_id": "c2_n5",
+      "operator_type": "QueryEarlierAction",
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "inputs": ["jacket_action_A"],
+      "outputs": ["answer"],
+      "clip_role": "A",
+      "time_conditions": [
+        {"status": "PENDING_SCIENTIFIC_APPROVAL"}
+      ],
+      "evidence": {
+        "answer_text_from_user_qa": "脱掉夹克"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "c2_e1",
+      "from_node": "c2_n1",
+      "to_node": "c2_n3",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "c2_e2",
+      "from_node": "c2_n2",
+      "to_node": "c2_n3",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "c2_e3",
+      "from_node": "c2_n3",
+      "to_node": "c2_n4",
+      "dependency_kind": "bind",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    },
+    {
+      "edge_id": "c2_e4",
+      "from_node": "c2_n4",
+      "to_node": "c2_n5",
+      "dependency_kind": "data",
+      "required_time_condition": {"status": "PENDING_SCIENTIFIC_APPROVAL"},
+      "user_confirmed": true
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "graph_id": "seen_pilot::SP005::v0.2",
+  "structure_version": "v0.2",
+  "pool": "SEEN_PILOT_COMPOSITIONAL_CANDIDATE_ONLY",
+  "pack_id": "SP005",
+  "qa_uid": "LVCOMP-V2-026",
+  "video_id": "KLIa2UaE2KE",
+  "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+  "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+  "composition_necessity": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+  "graph_as_reviewed": {
+    "A": [
+      "DetectWavedFlag",
+      "IdentifyFlagCountry→Italy"
+    ],
+    "B": [
+      "IdentifyTeams(Italy,Brazil)",
+      "SelectTeam(target_country)",
+      "LocateSet(first)",
+      "LocateTeamPoint(team=Italy,point=10)",
+      "IdentifyScoringPlayer"
+    ],
+    "cross_window": "CrossClipCountryBind(A.target_country, B.team)",
+    "answer": "5"
+  },
+  "caveats": [
+    "Semantic referent necessity is user-supported; no model ablation or shortcut-resistance experiment has yet been run."
+  ],
+  "correction_history": [
+    "Initial B-only shortcut classification was based on incorrectly equating B's ability to identify Italy with B's ability to resolve the question's flag-defined target country.",
+    "User corrected that the flag in A selects the queried country; both teams can potentially score a tenth point.",
+    "PREVIOUS_B_ONLY_SHORTCUT_CLASSIFICATION_RETRACTED",
+    "User explicitly approved corrected v0.2 directed graph."
+  ],
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "note": "Candidate compositional graph from Seen pilot human review. NOT formal Seen/Gold. NOT merged into Unseen approved_graphs_v0.2.",
+  "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+  "ingested_utc": "2026-11-03T00:37:24+00:00",
+  "workbench_id": "SEEN_PILOT_SP005"
+}

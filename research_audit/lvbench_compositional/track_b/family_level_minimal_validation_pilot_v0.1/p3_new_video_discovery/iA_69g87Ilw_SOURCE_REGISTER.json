@@ -1,0 +1,11 @@
+{
+  "construction_video_id": "iA_69g87Ilw",
+  "pool": "DEV_CONSTRUCTION",
+  "registered_utc": "2026-11-03T11:44:05+00:00",
+  "source_mp4": "/home/descfly/lpy/dataset/LVBench/videos/iA_69g87Ilw.mp4",
+  "source_sha256": "c9dba9a6ebc8f15932a5d519d9c729c134f0204f67a26643a34f7f64b93d0e25",
+  "bytes": 220971469,
+  "not_sealed_final": true,
+  "semantics_status": "FRAMES_EXTRACTED_PENDING_GPT_OBSERVATION",
+  "cursor_does_not_prefill_unobserved_events": true
+}

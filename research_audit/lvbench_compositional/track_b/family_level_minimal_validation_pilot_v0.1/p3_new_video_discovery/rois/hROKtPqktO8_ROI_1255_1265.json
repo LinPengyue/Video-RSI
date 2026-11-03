@@ -1,0 +1,105 @@
+{
+  "roi_id": "hROKtPqktO8_ROI_1255_1265",
+  "video_id": "hROKtPqktO8",
+  "t_start_s": 1255,
+  "t_end_s": 1265,
+  "n_frames": 12,
+  "max_frames_budget": 16,
+  "rationale": "Anchored near prior construction seed timestamps; action/state hypotheses PENDING GPT observation of these frames only.",
+  "frames": [
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f00",
+      "t_s": 1255.0,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_00_t1255.0.jpg",
+      "sha256": "0fa001ef494d8b07d58f1c2416c248b53ed83737fa9458508d6ef87e5a8d0048",
+      "bytes": 80669
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f01",
+      "t_s": 1255.909,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_01_t1255.9.jpg",
+      "sha256": "c3aa6962a8f79b21bf014acaa6440e5d2cbbd30d81708cad7f8ea95defd0ee39",
+      "bytes": 109297
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f02",
+      "t_s": 1256.818,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_02_t1256.8.jpg",
+      "sha256": "185a08b611d653618e0155ce025ffd91887ddd00e03c9292043b4ed95a77909a",
+      "bytes": 85974
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f03",
+      "t_s": 1257.727,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_03_t1257.7.jpg",
+      "sha256": "c4cd50f36ff04b143a3319a7be27f594da35e4a0603cd8375dc838de250786e7",
+      "bytes": 149013
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f04",
+      "t_s": 1258.636,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_04_t1258.6.jpg",
+      "sha256": "5d4bcb42221fc60ff0641e80ff6a3e40d38fbb6b5e896b0849c8722d3b2f8a72",
+      "bytes": 139408
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f05",
+      "t_s": 1259.545,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_05_t1259.5.jpg",
+      "sha256": "daacea30843959bfd2165018dc6da7fb5cbf15674c59c6cf5ff043ddb795cb0e",
+      "bytes": 102764
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f06",
+      "t_s": 1260.455,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_06_t1260.5.jpg",
+      "sha256": "bfe5e23d5992c7c97e4327a8e7c371fbc0815f1cd76dddef7f1cb87b9a5be57b",
+      "bytes": 105142
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f07",
+      "t_s": 1261.364,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_07_t1261.4.jpg",
+      "sha256": "c7c176feb7578612d6698561fcc601d39c82aff20b72c1c79401cfee7ff5f64b",
+      "bytes": 93201
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f08",
+      "t_s": 1262.273,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_08_t1262.3.jpg",
+      "sha256": "17a1fa240a7972b3a69271417c14f1aad28cde95a2a858003dc9f51ddca598ee",
+      "bytes": 83399
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f09",
+      "t_s": 1263.182,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_09_t1263.2.jpg",
+      "sha256": "fcf39fe0836a610a58570669732a87c01a3518e92250fec5714d0bd77a1879af",
+      "bytes": 60602
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f10",
+      "t_s": 1264.091,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_10_t1264.1.jpg",
+      "sha256": "c8860e052b84882a9c94178ba1a23e92a4ea90dad69423f5d5e34d0b23b2ea67",
+      "bytes": 102922
+    },
+    {
+      "frame_id": "hROKtPqktO8_ROI_1255_1265_f11",
+      "t_s": 1265.0,
+      "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_new_video_discovery/frames/hROKtPqktO8/hROKtPqktO8_ROI_1255_1265/mf_11_t1265.0.jpg",
+      "sha256": "995d5f6b7e264afbfcf6361ac8743baf656c1931ab62954b1e691720e3924ad6",
+      "bytes": 84158
+    }
+  ],
+  "observation_slot": {
+    "status": "PENDING_GPT_VISUAL_OBSERVATION",
+    "allowed_labels": [
+      "STATIC_VISIBLE",
+      "ORDERED_MULTIFRAME_SUGGESTS",
+      "CONTINUOUS_VIDEO_VERIFIED",
+      "UNRESOLVED"
+    ],
+    "forbid_prefill_by_cursor": true
+  }
+}

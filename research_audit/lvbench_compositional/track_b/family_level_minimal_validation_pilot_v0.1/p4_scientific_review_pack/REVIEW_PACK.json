@@ -1,0 +1,437 @@
+{
+  "title": "FAMILY_LEVEL_MINIMAL_VALIDATION_PILOT_v0.1 scientific review pack",
+  "created_utc": "2026-11-03T11:44:06+00:00",
+  "audience": "USER + GPT joint review",
+  "disclaimer": "GPT-produced evidence in the same pass must not be treated as independent blind adjudication.",
+  "pilot_items_for_review": [
+    {
+      "item_id": "SP001",
+      "pilot_role": "SEEN",
+      "video_id": "aJI8XTa_DII",
+      "question_open": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": {
+        "A": [
+          53,
+          86
+        ],
+        "B": [
+          2965,
+          2968
+        ]
+      },
+      "capability_families_upper": [
+        "APPEARANCE_OR_ROLE_ID",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND",
+        "TEXT_OR_GRAPHIC_READ"
+      ],
+      "atomic_operator_labels": [
+        "LocateFirstSpeechStage",
+        "DetectMultipleNationalFlags",
+        "MatchFlagsByCountry",
+        "CountMatchedFlags",
+        "LocateClockBuilding",
+        "IdentifyFlagOnFlagpole",
+        "IdentifyCountry(Russia)",
+        "CrossClipCountryBind(B.country, A.flag_country)"
+      ],
+      "directed_program_summary": "B_country_then_A_count",
+      "a_only_b_only": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "source": "seen_pilot_run_001 human judgment",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "Exact flagpole-top spatial relation was not separately frame-verified.",
+        "Window times are source references, not precise certified event boundaries."
+      ]
+    },
+    {
+      "item_id": "SP002",
+      "pilot_role": "SEEN",
+      "video_id": "vHlSoxg8WHo",
+      "question_open": "What is Brittany's relationship to the person shown at 00:02?",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": {
+        "A": [
+          2,
+          78
+        ],
+        "B": [
+          96,
+          172
+        ]
+      },
+      "capability_families_upper": [
+        "APPEARANCE_OR_ROLE_ID",
+        "CROSS_CLIP_IDENTITY_BIND",
+        "TEXT_OR_GRAPHIC_READ"
+      ],
+      "atomic_operator_labels": [
+        "ObservePerson(t≈00:02)→P",
+        "ReadNameSubtitle(t≈01:18)→Tacara",
+        "TemporalPersonBind(P,Tacara)",
+        "ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)",
+        "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))"
+      ],
+      "directed_program_summary": "A_identity_then_B_relation",
+      "a_only_b_only": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "source": "seen_pilot_run_001 human judgment",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "A subtitle is near the A-window end boundary (78s); inspect actual clip inclusion before any downstream use.",
+        "Appearance match is user-reported, not independent frame-level identity certification."
+      ]
+    },
+    {
+      "item_id": "SP005",
+      "pilot_role": "SEEN",
+      "video_id": "KLIa2UaE2KE",
+      "question_open": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": {
+        "A": [
+          1,
+          4
+        ],
+        "B": [
+          673,
+          680
+        ]
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "APPEARANCE_OR_ROLE_ID",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND",
+        "TEXT_OR_GRAPHIC_READ"
+      ],
+      "atomic_operator_labels": [
+        "DetectWavedFlag",
+        "IdentifyFlagCountry→Italy",
+        "IdentifyTeams(Italy,Brazil)",
+        "SelectTeam(target_country)",
+        "LocateSet(first)",
+        "LocateTeamPoint(team=Italy,point=10)",
+        "IdentifyScoringPlayer",
+        "CrossClipCountryBind(A.target_country, B.team)"
+      ],
+      "directed_program_summary": "A_target_then_B_score",
+      "a_only_b_only": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+        "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+        "source": "seen_pilot_run_001 human judgment (B-only shortcut retracted)",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "Semantic referent necessity is user-supported; no model ablation or shortcut-resistance experiment has yet been run."
+      ]
+    },
+    {
+      "item_id": "SP201",
+      "pilot_role": "SEEN",
+      "video_id": "Hf-n1yfd8II",
+      "question_open": "How to describe the feeling of the final winner at 48:16?",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": {
+        "A": [
+          2880,
+          2897
+        ],
+        "B": [
+          5413,
+          5440
+        ]
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND"
+      ],
+      "atomic_operator_labels": [
+        "DetermineMatchWinner",
+        "CrossWindowPersonBind",
+        "QueryEmotion"
+      ],
+      "directed_program_summary": "B_TO_A",
+      "a_only_b_only": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "Do not replace losing a point/rally with the unsupported claim of failing to receive a particular shuttlecock."
+      ]
+    },
+    {
+      "item_id": "SP202",
+      "pilot_role": "SEEN",
+      "video_id": "Hf-n1yfd8II",
+      "question_open": "What competition result does the person who serves first have?",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": {
+        "A": [
+          510,
+          515
+        ],
+        "B": [
+          5413,
+          5440
+        ]
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND"
+      ],
+      "atomic_operator_labels": [
+        "IdentifyFirstServer",
+        "CrossWindowPersonBind",
+        "QueryMatchResult"
+      ],
+      "directed_program_summary": "A_TO_B",
+      "a_only_b_only": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "Shares video and B window with SP201; do not count as two independent videos."
+      ]
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "pilot_role": "UNSEEN",
+      "video_id": "VTCDQYYKA9o",
+      "question_open": "在 PREVIOUS RESULTS（过往成绩）姓名画面中出现的那名运动员，更早时对夹克做了什么？",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": null,
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND",
+        "TEXT_OR_GRAPHIC_READ"
+      ],
+      "atomic_operator_labels": [
+        "ReadNameGraphic",
+        "ReadNameAbbreviationGraphic",
+        "CrossIntervalSamePersonBind",
+        "DetectJacketRemoval",
+        "QueryEarlierAction"
+      ],
+      "directed_program_summary": "B: 定位 PREVIOUS RESULTS 姓名画面中的运动员 + 提取身份线索（姓名/蓝色 T-shirt） → A: 检索更早人物并提取外观与脱外套事件 → CrossIntervalSamePersonBind(B运动员, A脱外套者；双侧身份/服装线索) → QueryEarlierAction(A, 同一人",
+      "a_only_b_only": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "operator_vocab_status=PENDING_SCIENTIFIC_APPROVAL",
+        "PARTIAL_USER_PLAYBACK_OFFSETS_ONLY",
+        "pilot_role is not formal_unseen/formal_seen_train"
+      ]
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "pilot_role": "UNSEEN",
+      "video_id": "TJR1oYDDTwg",
+      "question_open": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": null,
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "APPEARANCE_OR_ROLE_ID",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND"
+      ],
+      "atomic_operator_labels": [
+        "DetectAction",
+        "IdentifyActorByAppearance",
+        "DetectTransportRide",
+        "CrossIntervalSamePersonBind",
+        "QueryEarlierTransport"
+      ],
+      "directed_program_summary": "B: DetectAction(舞台打鼓) → IdentifyActorByAppearance(短发/红帽/蓝衣) → A: DetectTransportToPalace(乘坐绿色龙) + IdentifyPassengerAppearance → CrossIntervalSamePersonBind(B打鼓者",
+      "a_only_b_only": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "operator_vocab_status=PENDING_SCIENTIFIC_APPROVAL",
+        "PENDING_SCIENTIFIC_APPROVAL",
+        "pilot_role is not formal_unseen/formal_seen_train"
+      ]
+    },
+    {
+      "item_id": "P7_R4_F1",
+      "pilot_role": "HOLD",
+      "video_id": "Cm73ma6Ibcs",
+      "question_open": "更早室内片段中穿蓝衣、戴白围巾、佩刀并前来解围的人，在后来的雪地中发生了什么？",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": null,
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "APPEARANCE_OR_ROLE_ID",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND"
+      ],
+      "atomic_operator_labels": [
+        "IdentifyRescuerByRole",
+        "ExtractAppearance",
+        "IdentifyPersonByAppearance",
+        "CrossIntervalSamePersonBind",
+        "DetectActionEvent",
+        "DetectActionEvent",
+        "QueryLaterActions"
+      ],
+      "directed_program_summary": "A: DetectScene(厨师被威胁) → IdentifyRescuerByRole(前来解围者；区别于持枪威胁者) + ExtractAppearance(蓝衣/白围巾/佩刀) → B: DetectSnowScene + IdentifyPersonByAppearance(蓝衣/围巾/佩刀) + Detec",
+      "a_only_b_only": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "operator_vocab_status=PENDING_SCIENTIFIC_APPROVAL",
+        "PENDING_SCIENTIFIC_APPROVAL",
+        "pilot_role is not formal_unseen/formal_seen_train"
+      ]
+    },
+    {
+      "item_id": "P7_R4_F2",
+      "pilot_role": "HOLD",
+      "video_id": "LLSJrEgOOtw",
+      "question_open": "更早雾林空地中出现的那只狗，在后来落叶林中做了什么？",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": null,
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "APPEARANCE_OR_ROLE_ID",
+        "OTHER_OR_UNMAPPED"
+      ],
+      "atomic_operator_labels": [
+        "IdentifyAnimalVisual",
+        "IdentifyAnimalVisual",
+        "CrossIntervalSameAnimalBind",
+        "DetectAnimalHumanInteraction",
+        "QueryLaterInteraction"
+      ],
+      "directed_program_summary": "A: DetectAnimalCue(雾林中的狗叫声及狗的可见活动) → IdentifyAnimal(A中的狗，结合声音/外观) → B: DetectAnimalAndInteraction(落叶林中的狗与提桶女人打闹) → CrossIntervalSameAnimalBind(A狗, B狗；黑白毛色等身份线索)",
+      "a_only_b_only": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "operator_vocab_status=PENDING_SCIENTIFIC_APPROVAL",
+        "PENDING_SCIENTIFIC_APPROVAL",
+        "pilot_role is not formal_unseen/formal_seen_train"
+      ]
+    },
+    {
+      "item_id": "SP205",
+      "pilot_role": "HOLD",
+      "video_id": "wgBlACG927Y",
+      "question_open": "After getting off the first means of transportation they took when coming to China, what means of transportation do the vloggers take in a later part of the video?",
+      "answer_reference_held_out_from_blind": true,
+      "windows_seconds": {
+        "A": [
+          202,
+          370
+        ],
+        "B": [
+          838,
+          852
+        ]
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "TEMPORAL_ORDER_COMPARE"
+      ],
+      "atomic_operator_labels": [
+        "IdentifyFirstTransport",
+        "DetectDisembark",
+        "TimeAnchor",
+        "IdentifyTransport",
+        "TimeAnchor",
+        "CompareTemporalOrder",
+        "QueryLaterTransport"
+      ],
+      "directed_program_summary": "A_then_B_later_than",
+      "a_only_b_only": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": "NO_FOR_FULL_RELATIONAL_EVIDENCE_BUT_ANSWER_STRING_SHORTCUT_RISK",
+        "a_plus_b_necessary": "USER_SUPPORTED_PENDING_MODEL_ABLATION",
+        "not_model_ablation": true
+      },
+      "open_scientific_questions": [
+        "First-transport scope before 03:22 needs explicit provenance; do not fabricate earlier footage.",
+        "Actual model input protocol must preserve access to A and B and their source timestamps.",
+        "The 06:10–13:58 gap is NOT a blocker for the v0.5 later-than question; retain it only in v0.4 audit history.",
+        "Human non-observation in edited footage does not prove no transport occurred off-camera."
+      ]
+    }
+  ],
+  "multiframe_zero_yield": {
+    "n_qualifying_relations": 0,
+    "status": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE",
+    "note": "Zero qualified compositional candidates from prior multiframe ROI pilot is a valid outcome."
+  },
+  "p3_new_discovery": {
+    "videos": [
+      "hROKtPqktO8",
+      "iA_69g87Ilw"
+    ],
+    "n_rois": 4,
+    "n_frames": 48,
+    "status": "FRAMES_READY_PENDING_GPT_OBSERVATION",
+    "candidates_qualified": 0,
+    "note": "No QA drafts minted; Cursor did not prefill unobserved events."
+  },
+  "contamination_risks": {
+    "SP201_SP202_same_video": true,
+    "seen_unseen_video_overlap": false,
+    "gpt_same_pass_as_blind": "FORBIDDEN",
+    "approved_ten_graph_overlap_with_p3": "P3 videos chosen outside the 10-item video set"
+  },
+  "unresolved_human_science_questions": [
+    "Whether SP205 HOLD should later migrate into a formal Unseen arm without freezing the test set",
+    "P7 Unseen timing frame-accurate mapping still PENDING",
+    "Operator vocabulary still provisional / pending scientific approval",
+    "Independent continuous review still required for bioprint lattice hypothesis",
+    "P3 frames await GPT observation — zero candidates until then"
+  ],
+  "run_004": {
+    "status": "NOT_STARTED",
+    "blockers": [
+      "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE from multiframe feasibility (0 qualifying)",
+      "P3 discovery frames not yet GPT-observed / no nontrivial directed relation admitted",
+      "No USER+GPT scientific admission of a new evidence-grounded candidate this round"
+    ]
+  },
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

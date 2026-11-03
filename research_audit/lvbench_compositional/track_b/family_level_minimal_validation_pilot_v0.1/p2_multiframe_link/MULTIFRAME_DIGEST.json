@@ -1,0 +1,162 @@
+{
+  "created_utc": "2026-11-03T11:44:03+00:00",
+  "run_003_untouched": true,
+  "source_pilot": "research_audit/lvbench_compositional/track_b/batch_factory/chatgpt_multiframe_roi_pilot_2026-10-31",
+  "n_events": 10,
+  "validation_report_ref": "research_audit/lvbench_compositional/track_b/batch_factory/multiframe_relation_feasibility_2026-10-31/validation_report.json",
+  "relation_feasibility_ref": "research_audit/lvbench_compositional/track_b/batch_factory/multiframe_relation_feasibility_2026-10-31/relation_feasibility.json",
+  "prior_validation_summary": {
+    "n_raw": 10,
+    "n_accepted": 10,
+    "n_rejected": 0,
+    "rejected": [],
+    "modality_counts": {
+      "STATIC_VISIBLE": 3,
+      "ORDERED_MULTIFRAME_SUGGESTS": 6,
+      "UNRESOLVED": 1
+    },
+    "candidate_kinds": {
+      "display_anchor": 1,
+      "gesture_appearance_and_retraction": 1,
+      "camera_view_approach": 1,
+      "pointing_at_card": 1,
+      "view_shift_to_aisle": 1,
+      "aerial_built_environment": 1,
+      "shot_cut_to_interview_style": 1,
+      "local_lattice_extension": 1,
+      "editing_cut_unrelated_causality": 1,
+      "later_nozzle_static_view": 1
+    }
+  },
+  "prior_feasibility_summary": {
+    "status": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE",
+    "run_004_status": "NOT_STARTED",
+    "n_events_accepted": 10,
+    "n_events_rejected_validation": 0,
+    "n_relation_candidates_assessed": 10,
+    "n_run004_qualifying_relations": 0,
+    "n_control_only": 2,
+    "n_rejected_as_composition": 7,
+    "n_dev_hypothesis_not_qualifying": 1,
+    "best_nonqualifying_hypothesis": "REL_FEAS_008_bioprint_local_lattice_extension",
+    "blockers": [
+      "No CONTINUOUS_VIDEO_VERIFIED events (ChatGPT still-sheet only)",
+      "No independently verified two-witness necessity",
+      "No nontrivial held-out directed composition structure beyond basic temporal state-change",
+      "Producer ChatGPT cannot serve as independent A/B blind adjudicator",
+      "Local gitignored ROI clips exist but lack independent continuous review provenance"
+    ],
+    "resource_needed_for_progress": [
+      "Independent continuous reviewer (non-ChatGPT) of gitignored local ROI clips, especially xi6 bioprint 1060-1070",
+      "Or approved low-cost continuous VLM with distinct provenance tier",
+      "Separate blinded adjudicator pathway if any QA is later drafted"
+    ],
+    "qa_drafts_generated": 0,
+    "data_partition_status": "UNASSIGNED",
+    "formal_supported": false,
+    "ok_for_expensive_rsi": false,
+    "sealed_accessed": false,
+    "track_a_frozen": true
+  },
+  "recheck_evidence_sha": {
+    "n_issues": 0,
+    "issues_sample": [],
+    "status": "PASS"
+  },
+  "roi_relation_decisions": [
+    {
+      "relation_id": "REL_FEAS_001_vending_display_anchor",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "decision": "CONTROL_ONLY",
+      "run_004_qualifying": false,
+      "a_only_shortcut": "Single still of shelves answers price/display Q",
+      "b_only_shortcut": "n/a (single event)"
+    },
+    {
+      "relation_id": "REL_FEAS_002_vending_pointing_gesture",
+      "roi_id": "Mcgg_ROI_vending_hand_1060_1070",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "a_only_shortcut": "Middle pointing frames alone show PICNIC WATER + hand",
+      "b_only_shortcut": "Display-only still answers prices without gesture"
+    },
+    {
+      "relation_id": "REL_FEAS_003_cardshop_camera_approach",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "a_only_shortcut": "Late close-up alone shows cards",
+      "b_only_shortcut": null
+    },
+    {
+      "relation_id": "REL_FEAS_004_card_pointing_gesture",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "a_only_shortcut": "Single pointing still may suffice",
+      "b_only_shortcut": null
+    },
+    {
+      "relation_id": "REL_FEAS_005_cardshop_view_shift",
+      "roi_id": "Mcgg_ROI_cardshop_approach_2128_2138",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "a_only_shortcut": null,
+      "b_only_shortcut": null
+    },
+    {
+      "relation_id": "REL_FEAS_006_aerial_static",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "decision": "CONTROL_ONLY",
+      "run_004_qualifying": false,
+      "a_only_shortcut": null,
+      "b_only_shortcut": null
+    },
+    {
+      "relation_id": "REL_FEAS_007_aerial_cut_to_speaker",
+      "roi_id": "xi6_ROI_aerial_to_speaker_528_538",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "a_only_shortcut": "Speaker still alone",
+      "b_only_shortcut": "Aerial still alone"
+    },
+    {
+      "relation_id": "REL_FEAS_008_bioprint_local_lattice_extension",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "decision": "DEV_HYPOTHESIS_NOT_QUALIFYING",
+      "run_004_qualifying": false,
+      "a_only_shortcut": "Late frame alone shows purple lattice + nozzle (answers 'what is printed')",
+      "b_only_shortcut": "Early frame alone shows partial lattice"
+    },
+    {
+      "relation_id": "REL_FEAS_009_print_to_plated_food_cut",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "a_only_shortcut": null,
+      "b_only_shortcut": null
+    },
+    {
+      "relation_id": "REL_FEAS_010_later_nozzle_view_bind_to_008",
+      "roi_id": "xi6_ROI_bioprint_deposit_1060_1070",
+      "decision": "REJECT_AS_COMPOSITION",
+      "run_004_qualifying": false,
+      "a_only_shortcut": null,
+      "b_only_shortcut": null
+    }
+  ],
+  "bioprint_priority_note": "REL_FEAS_008 remains DEV_HYPOTHESIS_NOT_QUALIFYING; not auto-upgraded",
+  "forbidden_auto_upgrades": [
+    "vending_pointing→purchase",
+    "card_pointing→buy",
+    "aerial→speaker causality",
+    "print→plated_food bind"
+  ],
+  "qa_drafts_from_multiframe": 0,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

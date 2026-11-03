@@ -1,0 +1,40 @@
+{
+  "title": "Track B family-level minimal validation pilot v0.1 — engineering delivery",
+  "created_utc": "2026-11-03T11:44:06+00:00",
+  "commit_pending": false,
+  "working_branch": "research/lvbench-comp-video-grounded-evidence",
+  "head_at_build": "6b98d1de16b8ac7bfa2e40ea1b07e02a447cfb4f",
+  "protocol": "FAMILY_LEVEL_MINIMAL_VALIDATION_PILOT_v0.1",
+  "p0_inventory": "PILOT_INVENTORY.json",
+  "p1_integrity": "reports/ENGINEERING_INTEGRITY_REPORT.json",
+  "p2_multiframe": "p2_multiframe_link/MULTIFRAME_DIGEST.json",
+  "p3_discovery": "p3_new_video_discovery/batch_manifest.json",
+  "p4_review": "p4_scientific_review_pack/REVIEW_PACK.json",
+  "p5_run_004": {
+    "status": "NOT_STARTED",
+    "reason": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE + no newly admitted directed relation"
+  },
+  "cost_metrics": {
+    "ffmpeg_calls": 48,
+    "frames": 48,
+    "videos": 2
+  },
+  "counts": {
+    "SEEN": 5,
+    "UNSEEN": 2,
+    "HOLD": 3,
+    "total": 10
+  },
+  "isolation_status": "PASS",
+  "multiframe_qualifying": 0,
+  "p3_qualified_candidates": 0,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "track_a_ok_for_expensive_rsi": false,
+  "run_003_untouched": true,
+  "commit_sha": "fdf9b1eebe9603b466aa1d513fb8778d36c7afe5"
+}

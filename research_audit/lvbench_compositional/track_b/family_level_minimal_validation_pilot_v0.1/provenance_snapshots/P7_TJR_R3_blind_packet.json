@@ -1,0 +1,33 @@
+{
+  "qa_id": "P7_TJR_R3",
+  "video_id": "TJR1oYDDTwg",
+  "frozen_question": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+  "WARNING": "Do not include frozen_answer in reviewer-facing materials. This packet is for a future INDEPENDENT reviewer. Cursor/GPT must not self-adjudicate.",
+  "conditions": {
+    "A_only": {
+      "visible_clip": "round_002/tjr_relocate/media/early_candidate_dragon_ride_1100_1125.mp4",
+      "forbidden": [
+        "clip B",
+        "answer key"
+      ]
+    },
+    "B_only": {
+      "visible_clip": "round_002/tjr_relocate/media/late_dual_performers_1200_1220.mp4",
+      "forbidden": [
+        "clip A",
+        "answer key"
+      ]
+    },
+    "A_plus_B": {
+      "visible_clips": [
+        "round_002/tjr_relocate/media/early_candidate_dragon_ride_1100_1125.mp4",
+        "round_002/tjr_relocate/media/late_dual_performers_1200_1220.mp4"
+      ],
+      "forbidden": [
+        "answer key"
+      ]
+    }
+  },
+  "answer_key_path": "ANSWER_KEYS_DO_NOT_SERVE_TO_REVIEWER.json",
+  "status": "PACKET_READY_PENDING_INDEPENDENT_REVIEWER"
+}

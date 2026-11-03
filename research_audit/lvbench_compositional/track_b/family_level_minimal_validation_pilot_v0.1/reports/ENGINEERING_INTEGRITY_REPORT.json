@@ -1,0 +1,902 @@
+{
+  "protocol": "FAMILY_LEVEL_MINIMAL_VALIDATION_PILOT_v0.1",
+  "created_utc": "2026-11-03T11:44:03+00:00",
+  "counts": {
+    "SEEN": 5,
+    "UNSEEN": 2,
+    "HOLD": 3
+  },
+  "video_dedup": {
+    "seen_videos": [
+      "Hf-n1yfd8II",
+      "KLIa2UaE2KE",
+      "aJI8XTa_DII",
+      "vHlSoxg8WHo"
+    ],
+    "unseen_videos": [
+      "TJR1oYDDTwg",
+      "VTCDQYYKA9o"
+    ],
+    "hold_videos": [
+      "Cm73ma6Ibcs",
+      "LLSJrEgOOtw",
+      "wgBlACG927Y"
+    ],
+    "n_distinct_seen": 4,
+    "n_distinct_unseen": 2,
+    "n_distinct_hold": 3,
+    "seen_counts_two_items_same_video": "Hf-n1yfd8II hosts SP201+SP202 (required isolation group)"
+  },
+  "isolation": {
+    "status": "PASS",
+    "issues": [],
+    "sp201_sp202_same_group": true,
+    "seen_unseen_video_disjoint": true,
+    "sealed_reservoir_untouched": true,
+    "sealed_current_ids_empty_or_disjoint": true,
+    "note_on_exposed_pool": "Pilot videos may already be DEV_CONSTRUCTION/exposed; that ≠ sealed touch.",
+    "exposed_membership": {
+      "Cm73ma6Ibcs": true,
+      "Hf-n1yfd8II": false,
+      "KLIa2UaE2KE": false,
+      "LLSJrEgOOtw": true,
+      "TJR1oYDDTwg": true,
+      "VTCDQYYKA9o": true,
+      "aJI8XTa_DII": false,
+      "vHlSoxg8WHo": false,
+      "wgBlACG927Y": false
+    }
+  },
+  "capability_family_coverage_matrix": {
+    "ACTION_OR_EVENT_DETECT": {
+      "status": "CANDIDATE_SUPPORTED",
+      "items": [
+        "SP005",
+        "SP201",
+        "SP202",
+        "P7_VTCD_C2",
+        "P7_TJR_R3",
+        "P7_R4_F1",
+        "P7_R4_F2",
+        "SP205"
+      ]
+    },
+    "APPEARANCE_OR_ROLE_ID": {
+      "status": "CANDIDATE_SUPPORTED",
+      "items": [
+        "SP001",
+        "SP002",
+        "SP005",
+        "P7_TJR_R3",
+        "P7_R4_F1",
+        "P7_R4_F2"
+      ]
+    },
+    "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND": {
+      "status": "CANDIDATE_SUPPORTED",
+      "items": [
+        "SP001",
+        "SP005",
+        "SP201",
+        "SP202",
+        "P7_VTCD_C2",
+        "P7_TJR_R3",
+        "P7_R4_F1",
+        "SP205"
+      ]
+    },
+    "CROSS_CLIP_IDENTITY_BIND": {
+      "status": "CANDIDATE_SUPPORTED",
+      "items": [
+        "SP001",
+        "SP002",
+        "SP005",
+        "SP201",
+        "SP202",
+        "P7_VTCD_C2",
+        "P7_TJR_R3",
+        "P7_R4_F1"
+      ]
+    },
+    "TEMPORAL_ORDER_COMPARE": {
+      "status": "PARTIAL_SINGLE_ITEM",
+      "items": [
+        "SP205"
+      ]
+    },
+    "TEXT_OR_GRAPHIC_READ": {
+      "status": "CANDIDATE_SUPPORTED",
+      "items": [
+        "SP001",
+        "SP002",
+        "SP005",
+        "P7_VTCD_C2"
+      ]
+    },
+    "OTHER_OR_UNMAPPED": {
+      "status": "PARTIAL_SINGLE_ITEM",
+      "items": [
+        "P7_R4_F2"
+      ]
+    }
+  },
+  "structural_consistency": {
+    "all_ok": true,
+    "checks": [
+      {
+        "item_id": "SP001",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "item_id": "SP002",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "item_id": "SP005",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "item_id": "SP201",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "item_id": "SP202",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "item_id": "P7_VTCD_C2",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "item_id": "P7_TJR_R3",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "item_id": "P7_R4_F1",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "item_id": "P7_R4_F2",
+        "ok": true,
+        "issues": []
+      },
+      {
+        "item_id": "SP205",
+        "ok": true,
+        "issues": []
+      }
+    ]
+  },
+  "computable_structure_comparison": {
+    "rule": "Mechanical fingerprint/family overlap only; semantic graph isomorphism UNAUTHENTICATED",
+    "fingerprints": [
+      {
+        "item_id": "SP001",
+        "families": [
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "n_atomic": 8,
+        "edge_kinds": [
+          "bind",
+          "data"
+        ],
+        "dependency_direction": "B_country_then_A_count",
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "item_id": "SP002",
+        "families": [
+          "APPEARANCE_OR_ROLE_ID",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "n_atomic": 5,
+        "edge_kinds": [
+          "bind",
+          "data",
+          "temporal"
+        ],
+        "dependency_direction": "A_identity_then_B_relation",
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "item_id": "SP005",
+        "families": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "n_atomic": 8,
+        "edge_kinds": [
+          "bind",
+          "data"
+        ],
+        "dependency_direction": "A_target_then_B_score",
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "item_id": "SP201",
+        "families": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "n_atomic": 3,
+        "edge_kinds": [
+          "bind",
+          "data"
+        ],
+        "dependency_direction": "B_TO_A",
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "item_id": "SP202",
+        "families": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "n_atomic": 3,
+        "edge_kinds": [
+          "bind",
+          "data"
+        ],
+        "dependency_direction": "A_TO_B",
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "item_id": "P7_VTCD_C2",
+        "families": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "n_atomic": 5,
+        "edge_kinds": [
+          "bind",
+          "data"
+        ],
+        "dependency_direction": null,
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "item_id": "P7_TJR_R3",
+        "families": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "n_atomic": 5,
+        "edge_kinds": [
+          "bind",
+          "data"
+        ],
+        "dependency_direction": null,
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "item_id": "P7_R4_F1",
+        "families": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "n_atomic": 7,
+        "edge_kinds": [
+          "bind",
+          "data"
+        ],
+        "dependency_direction": null,
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "item_id": "P7_R4_F2",
+        "families": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID",
+          "OTHER_OR_UNMAPPED"
+        ],
+        "n_atomic": 5,
+        "edge_kinds": [
+          "bind",
+          "data"
+        ],
+        "dependency_direction": null,
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "item_id": "SP205",
+        "families": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "TEMPORAL_ORDER_COMPARE"
+        ],
+        "n_atomic": 7,
+        "edge_kinds": [
+          "bind",
+          "control",
+          "data",
+          "data",
+          "data",
+          "temporal",
+          "temporal"
+        ],
+        "dependency_direction": "A_then_B_later_than",
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      }
+    ],
+    "pairwise": [
+      {
+        "a": "SP001",
+        "b": "SP002",
+        "family_overlap": [
+          "APPEARANCE_OR_ROLE_ID",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP001",
+        "b": "SP005",
+        "family_overlap": [
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP001",
+        "b": "SP201",
+        "family_overlap": [
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP001",
+        "b": "SP202",
+        "family_overlap": [
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP001",
+        "b": "P7_VTCD_C2",
+        "family_overlap": [
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP001",
+        "b": "P7_TJR_R3",
+        "family_overlap": [
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP001",
+        "b": "P7_R4_F1",
+        "family_overlap": [
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP001",
+        "b": "P7_R4_F2",
+        "family_overlap": [
+          "APPEARANCE_OR_ROLE_ID"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP001",
+        "b": "SP205",
+        "family_overlap": [
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP002",
+        "b": "SP005",
+        "family_overlap": [
+          "APPEARANCE_OR_ROLE_ID",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP002",
+        "b": "SP201",
+        "family_overlap": [
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP002",
+        "b": "SP202",
+        "family_overlap": [
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP002",
+        "b": "P7_VTCD_C2",
+        "family_overlap": [
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP002",
+        "b": "P7_TJR_R3",
+        "family_overlap": [
+          "APPEARANCE_OR_ROLE_ID",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP002",
+        "b": "P7_R4_F1",
+        "family_overlap": [
+          "APPEARANCE_OR_ROLE_ID",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP002",
+        "b": "P7_R4_F2",
+        "family_overlap": [
+          "APPEARANCE_OR_ROLE_ID"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP002",
+        "b": "SP205",
+        "family_overlap": [],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP005",
+        "b": "SP201",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP005",
+        "b": "SP202",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP005",
+        "b": "P7_VTCD_C2",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP005",
+        "b": "P7_TJR_R3",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP005",
+        "b": "P7_R4_F1",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP005",
+        "b": "P7_R4_F2",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP005",
+        "b": "SP205",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP201",
+        "b": "SP202",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP201",
+        "b": "P7_VTCD_C2",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP201",
+        "b": "P7_TJR_R3",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP201",
+        "b": "P7_R4_F1",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP201",
+        "b": "P7_R4_F2",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP201",
+        "b": "SP205",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP202",
+        "b": "P7_VTCD_C2",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP202",
+        "b": "P7_TJR_R3",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP202",
+        "b": "P7_R4_F1",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP202",
+        "b": "P7_R4_F2",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "SP202",
+        "b": "SP205",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_VTCD_C2",
+        "b": "P7_TJR_R3",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_VTCD_C2",
+        "b": "P7_R4_F1",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_VTCD_C2",
+        "b": "P7_R4_F2",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_VTCD_C2",
+        "b": "SP205",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_TJR_R3",
+        "b": "P7_R4_F1",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_TJR_R3",
+        "b": "P7_R4_F2",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_TJR_R3",
+        "b": "SP205",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_R4_F1",
+        "b": "P7_R4_F2",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_R4_F1",
+        "b": "SP205",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      },
+      {
+        "a": "P7_R4_F2",
+        "b": "SP205",
+        "family_overlap": [
+          "ACTION_OR_EVENT_DETECT"
+        ],
+        "semantic_equivalence": "UNAUTHENTICATED_NO_APPROVED_RULE"
+      }
+    ]
+  },
+  "a_only_b_only_human_audit": [
+    {
+      "item_id": "SP001",
+      "pilot_role": "SEEN",
+      "single_window_necessity": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "source": "seen_pilot_run_001 human judgment",
+        "not_model_ablation": true
+      },
+      "provenance": "seen_pilot_run_001 human judgment",
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    },
+    {
+      "item_id": "SP002",
+      "pilot_role": "SEEN",
+      "single_window_necessity": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "source": "seen_pilot_run_001 human judgment",
+        "not_model_ablation": true
+      },
+      "provenance": "seen_pilot_run_001 human judgment",
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    },
+    {
+      "item_id": "SP005",
+      "pilot_role": "SEEN",
+      "single_window_necessity": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+        "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+        "source": "seen_pilot_run_001 human judgment (B-only shortcut retracted)",
+        "not_model_ablation": true
+      },
+      "provenance": "seen_pilot_run_001 human judgment (B-only shortcut retracted)",
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    },
+    {
+      "item_id": "SP201",
+      "pilot_role": "SEEN",
+      "single_window_necessity": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED",
+        "not_model_ablation": true
+      },
+      "provenance": null,
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    },
+    {
+      "item_id": "SP202",
+      "pilot_role": "SEEN",
+      "single_window_necessity": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED",
+        "not_model_ablation": true
+      },
+      "provenance": null,
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "pilot_role": "UNSEEN",
+      "single_window_necessity": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "provenance": "human_judgments_preserved",
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "pilot_role": "UNSEEN",
+      "single_window_necessity": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "provenance": "human_judgments_preserved",
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    },
+    {
+      "item_id": "P7_R4_F1",
+      "pilot_role": "HOLD",
+      "single_window_necessity": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "provenance": "human_judgments_preserved",
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    },
+    {
+      "item_id": "P7_R4_F2",
+      "pilot_role": "HOLD",
+      "single_window_necessity": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "provenance": "human_judgments_preserved",
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    },
+    {
+      "item_id": "SP205",
+      "pilot_role": "HOLD",
+      "single_window_necessity": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": "NO_FOR_FULL_RELATIONAL_EVIDENCE_BUT_ANSWER_STRING_SHORTCUT_RISK",
+        "a_plus_b_necessary": "USER_SUPPORTED_PENDING_MODEL_ABLATION",
+        "not_model_ablation": true
+      },
+      "provenance": null,
+      "disclaimer": "HUMAN_JUDGMENT_NOT_INDEPENDENT_MODEL_ABLATION"
+    }
+  ],
+  "scientific_classification_unchanged": true,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

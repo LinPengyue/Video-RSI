@@ -1,0 +1,207 @@
+{
+  "schema": "seen_pilot_run_002_scientific_record_v1",
+  "run_id": "seen_pilot_run_002",
+  "pack_id": "SP205",
+  "video_id": "wgBlACG927Y",
+  "qa_uid": "LVCOMP-V2-116",
+  "windows_seconds": {
+    "A": [
+      202,
+      370
+    ],
+    "B": [
+      838,
+      852
+    ]
+  },
+  "user_decision": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+  "graph_version": "v0.5",
+  "user_split_assignment": "UNSEEN",
+  "user_split_decision": "USER_ASSIGNED_UNSEEN",
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "engineering_must_not_auto_approve": true,
+  "ingested_utc": "2026-11-03T05:14:20+00:00",
+  "handoff_schema": "cvpr2027_trackb_run002_scientific_adjudications_complete_v1",
+  "baseline_commit": "9afc5e95156041833421ff3e034d76deb8aac7c3",
+  "branch_note": "Artifacts on research/lvbench-comp-p7-hil-pilot; USER_ASSIGNED_UNSEEN ≠ formal Unseen freeze.",
+  "question_original_en": "What means of transportation do the vloggers take after getting off the first means of transportation they take when they come to China?",
+  "answer_candidate": "Subway",
+  "human_observations": [
+    "03:22–05:22: vlogger boards high-speed train.",
+    "05:22–06:10: vlogger disembarks from high-speed train.",
+    "06:10–13:58: human checked middle footage and did not observe other transport; this is historical observation, NOT a v0.5 necessity condition.",
+    "13:58–14:12: vlogger rides subway; Line 3 signage and interior visible."
+  ],
+  "scientific_inferences": [
+    "User explicitly approves SP205 for Unseen and revises the temporal semantics from immediate successor to later-than/after.",
+    "A identifies the first transport and disembark; B identifies subway in a later clip.",
+    "The v0.5 question does not require proof of no intervening transport.",
+    "B-only answer-string guessing is possible but is not by itself proof of full relational reasoning or its absence."
+  ],
+  "directed_program_graph": {
+    "operator_semantics": "TEMPORAL_ORDER_NOT_IMMEDIATE_SUCCESSOR",
+    "nodes": [
+      {
+        "id": "n1",
+        "op": "IdentifyFirstTransport",
+        "clip": "A",
+        "output": "first_transport"
+      },
+      {
+        "id": "n2",
+        "op": "DetectDisembark",
+        "clip": "A",
+        "output": "disembark_event"
+      },
+      {
+        "id": "n3",
+        "op": "TimeAnchor",
+        "clip": "A",
+        "output": "disembark_time"
+      },
+      {
+        "id": "n4",
+        "op": "IdentifyTransport",
+        "clip": "B",
+        "output": "later_transport"
+      },
+      {
+        "id": "n5",
+        "op": "TimeAnchor",
+        "clip": "B",
+        "output": "later_ride_time"
+      },
+      {
+        "id": "n6",
+        "op": "CompareTemporalOrder",
+        "clip": "AB",
+        "predicate": "disembark_time < later_ride_time"
+      },
+      {
+        "id": "n7",
+        "op": "QueryLaterTransport",
+        "clip": "B",
+        "output": "Subway"
+      }
+    ],
+    "edges": [
+      {
+        "from": "n1",
+        "to": "n2",
+        "kind": "bind"
+      },
+      {
+        "from": "n2",
+        "to": "n3",
+        "kind": "data"
+      },
+      {
+        "from": "n4",
+        "to": "n5",
+        "kind": "data"
+      },
+      {
+        "from": "n3",
+        "to": "n6",
+        "kind": "temporal"
+      },
+      {
+        "from": "n5",
+        "to": "n6",
+        "kind": "temporal"
+      },
+      {
+        "from": "n4",
+        "to": "n7",
+        "kind": "data"
+      },
+      {
+        "from": "n6",
+        "to": "n7",
+        "kind": "control"
+      }
+    ],
+    "removed_required_operator": "TemporalSuccessor",
+    "new_required_operator": "CompareTemporalOrder",
+    "status": "USER_APPROVED_TEMPORAL_SEMANTICS_GPT_TYPED_GRAPH_PROPOSAL",
+    "program": "IdentifyFirstTransport(A) → DetectDisembark(A) + TimeAnchor(A); IdentifyTransport(B) + TimeAnchor(B) → CompareTemporalOrder(A,B) → QueryLaterTransport(B)",
+    "version": "v0.5",
+    "answer_candidate": "Subway"
+  },
+  "evidence_limitations": [
+    "First-transport scope before 03:22 needs explicit provenance; do not fabricate earlier footage.",
+    "Actual model input protocol must preserve access to A and B and their source timestamps.",
+    "The 06:10–13:58 gap is NOT a blocker for the v0.5 later-than question; retain it only in v0.4 audit history.",
+    "Human non-observation in edited footage does not prove no transport occurred off-camera."
+  ],
+  "single_window_necessity_audit": {
+    "a_only_sufficient_full_question": false,
+    "b_only_sufficient_full_question": "NO_FOR_FULL_RELATIONAL_EVIDENCE_BUT_ANSWER_STRING_SHORTCUT_RISK",
+    "a_plus_b_necessary": "USER_SUPPORTED_PENDING_MODEL_ABLATION"
+  },
+  "engineering_status": "V05_SCIENTIFIC_APPROVED_USER_ASSIGNED_UNSEEN_PENDING_ENGINEERING_SYNC",
+  "promotion_gate": "USER_SCIENTIFIC_DECISION_NOT_CONDITIONAL_ON_V04_SUCCESSOR_GAP",
+  "video_group_id": "VIDEO_wgBlACG927Y",
+  "shared_video_with": [
+    "DN201"
+  ],
+  "source_record_url": "https://github.com/LinPengyue/Video-RSI/blob/9afc5e95156041833421ff3e034d76deb8aac7c3/research_audit/lvbench_compositional/p7_hil_pilot/scientific_workbench/seen_pilot_run_002/scientific_reviews/RECORDS_BY_PACK/SP205.json",
+  "question_zh": "博主来到中国后，从他们最先乘坐的交通工具下车之后，在视频后面的片段中又乘坐了什么交通工具？",
+  "question_en": "After getting off the first means of transportation they took when coming to China, what means of transportation do the vloggers take in a later part of the video?",
+  "answer_zh": "地铁",
+  "previous_graph_version": "v0.4",
+  "evidence": {
+    "A": {
+      "source_seconds": [
+        202,
+        370
+      ],
+      "observation": "Board and disembark from high-speed train",
+      "model_accessible_clip": "media/SP205/A_wgBlACG927Y_202_370.mp4"
+    },
+    "B": {
+      "source_seconds": [
+        838,
+        852
+      ],
+      "observation": "Ride subway, Line 3 signage and subway interior",
+      "model_accessible_clip": "media/SP205/B_wgBlACG927Y_838_852.mp4"
+    },
+    "human_reviewed_middle_seconds": [
+      370,
+      838
+    ],
+    "middle_interval_required_for_v05": false,
+    "first_transport_scope_provenance": "PENDING_EXPLICIT_EARLIER_TIMELINE_EVIDENCE_POINTER",
+    "source_time_order": "A_END_BEFORE_B_START",
+    "model_time_order_accessibility": "PENDING_INPUT_PROTOCOL_CHECK"
+  },
+  "engineering_repair_ref": "scientific_reviews/engineering_checks/SP205_A_media_repair.json",
+  "prior_v04_history": {
+    "user_decision": "CONDITIONAL_USER_APPROVAL_PENDING_ENGINEERING_ACCEPTANCE",
+    "directed_program_graph": "IdentifyFirstTransport → DetectDisembark → TemporalSuccessor → IdentifyNextTransport",
+    "old_blocker": "MODEL_ACCESSIBLE_TEMPORAL_GAP_06:10-13:58",
+    "old_blocker_applicability_to_v05": "SUPERSEDED_NOT_REQUIRED",
+    "preserve_v04_record_and_media_sha": true
+  },
+  "media_sha256": {
+    "A": "af84566d1ee87bfbcad92ae9f6f53c78f3174529c43c1154045c982ad68e8c08",
+    "B": "c4175f6957d11dda484938bdf33c5ee6f762ac2ab3a3cacccdf3c04459769e87"
+  },
+  "user_approved_split_not_equivalent_to_formal_freeze": true,
+  "v04_history_ref": "scientific_reviews/HISTORY/SP205_v0.4_conditional.json",
+  "v04_engineering_repair_ref": "scientific_reviews/engineering_checks/SP205_A_media_repair.json",
+  "sp205_v05_notes": {
+    "TemporalSuccessor_removed": true,
+    "CompareTemporalOrder_required": true,
+    "middle_interval_required_for_v05": false,
+    "old_blocker_MODEL_ACCESSIBLE_TEMPORAL_GAP_superseded": true,
+    "user_split": "USER_ASSIGNED_UNSEEN",
+    "formal_unseen_still_false": true
+  }
+}

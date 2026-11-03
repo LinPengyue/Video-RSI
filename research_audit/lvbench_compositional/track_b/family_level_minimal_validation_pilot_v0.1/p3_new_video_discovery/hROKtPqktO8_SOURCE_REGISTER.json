@@ -1,0 +1,11 @@
+{
+  "construction_video_id": "hROKtPqktO8",
+  "pool": "DEV_CONSTRUCTION",
+  "registered_utc": "2026-11-03T11:44:03+00:00",
+  "source_mp4": "/home/descfly/lpy/dataset/LVBench/videos/hROKtPqktO8.mp4",
+  "source_sha256": "02f09f97eac4ea556cde80ab05a3ecee06bfe66c1264fd48f31c8f8f34de6dd7",
+  "bytes": 370683978,
+  "not_sealed_final": true,
+  "semantics_status": "FRAMES_EXTRACTED_PENDING_GPT_OBSERVATION",
+  "cursor_does_not_prefill_unobserved_events": true
+}

@@ -1,0 +1,1656 @@
+{
+  "protocol": "FAMILY_LEVEL_MINIMAL_VALIDATION_PILOT_v0.1",
+  "created_utc": "2026-11-03T11:44:03+00:00",
+  "working_branch": "research/lvbench-comp-video-grounded-evidence",
+  "provenance_source_branch": "research/lvbench-comp-p7-hil-pilot",
+  "provenance_source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+  "note": "pilot_role is a minimal validation assignment only. formal_seen_train / formal_unseen / formal_gold remain false. Open-ended QA only; no auto multichoice.",
+  "counts": {
+    "SEEN": 5,
+    "UNSEEN": 2,
+    "HOLD": 3,
+    "total": 10
+  },
+  "items": [
+    {
+      "item_id": "SP001",
+      "pilot_role": "SEEN",
+      "qa_uid": "LVCOMP-V2-036",
+      "video_id": "aJI8XTa_DII",
+      "question_open": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+      "answer_reference": "5",
+      "graph_version": "v0.3",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/seen_pilot_run_001/scientific_reviews/APPROVED_COMPOSITIONAL_CANDIDATE_GRAPHS/SP001_v0.3.json",
+        "local_snapshot": "provenance_snapshots/SP001_v0.3.json",
+        "record_snapshot": "provenance_snapshots/SP001.json"
+      },
+      "windows_seconds": {
+        "A": [
+          53,
+          86
+        ],
+        "B": [
+          2965,
+          2968
+        ]
+      },
+      "window_roles": {
+        "A": "speech_stage_flags",
+        "B": "clock_building_flagpole"
+      },
+      "evidence_modality": [
+        "video_clip_windows",
+        "national_flag_visual",
+        "building_landmark"
+      ],
+      "directed_program": {
+        "macro": {
+          "A": [
+            "LocateFirstSpeechStage",
+            "DetectMultipleNationalFlags",
+            "MatchFlagsByCountry",
+            "CountMatchedFlags"
+          ],
+          "B": [
+            "LocateClockBuilding",
+            "IdentifyFlagOnFlagpole",
+            "IdentifyCountry(Russia)"
+          ],
+          "cross_window": "CrossClipCountryBind(B.country, A.flag_country)",
+          "answer": "5"
+        },
+        "nodes_atomic": [
+          "LocateFirstSpeechStage",
+          "DetectMultipleNationalFlags",
+          "MatchFlagsByCountry",
+          "CountMatchedFlags",
+          "LocateClockBuilding",
+          "IdentifyFlagOnFlagpole",
+          "IdentifyCountry(Russia)",
+          "CrossClipCountryBind(B.country, A.flag_country)"
+        ],
+        "edge_kinds": [
+          "data",
+          "bind"
+        ],
+        "dependency_direction": "B_country_then_A_count"
+      },
+      "capability_families_upper": [
+        "APPEARANCE_OR_ROLE_ID",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND",
+        "TEXT_OR_GRAPHIC_READ"
+      ],
+      "atomic_operator_labels": [
+        "LocateFirstSpeechStage",
+        "DetectMultipleNationalFlags",
+        "MatchFlagsByCountry",
+        "CountMatchedFlags",
+        "LocateClockBuilding",
+        "IdentifyFlagOnFlagpole",
+        "IdentifyCountry(Russia)",
+        "CrossClipCountryBind(B.country, A.flag_country)"
+      ],
+      "human_observations": [
+        "A shows Putin's first-speech stage and five Russian flags among flags of multiple countries.",
+        "B shows the gold-clock building and a Russian tricolor.",
+        "A alone cannot resolve which national flags are referenced by the building in B; B alone cannot count stage flags."
+      ],
+      "evidence_limitations": [
+        "Exact flagpole-top spatial relation was not separately frame-verified.",
+        "Window times are source references, not precise certified event boundaries."
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "source": "seen_pilot_run_001 human judgment",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "seen_pilot_run_001 USER_APPROVED_STRUCTURED_GRAPH",
+      "isolation_group": "VIDEO_aJI8XTa_DII",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    },
+    {
+      "item_id": "SP002",
+      "pilot_role": "SEEN",
+      "qa_uid": "LVCOMP-V2-045",
+      "video_id": "vHlSoxg8WHo",
+      "question_open": "What is Brittany's relationship to the person shown at 00:02?",
+      "answer_reference": "sister",
+      "graph_version": "v0.2",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/seen_pilot_run_001/scientific_reviews/APPROVED_COMPOSITIONAL_CANDIDATE_GRAPHS/SP002_v0.2.json",
+        "local_snapshot": "provenance_snapshots/SP002_v0.2.json",
+        "record_snapshot": "provenance_snapshots/SP002.json"
+      },
+      "windows_seconds": {
+        "A": [
+          2,
+          78
+        ],
+        "B": [
+          96,
+          172
+        ]
+      },
+      "window_roles": {
+        "A": "person_and_name_subtitle",
+        "B": "relation_subtitle"
+      },
+      "evidence_modality": [
+        "video_clip_windows",
+        "on_screen_subtitle"
+      ],
+      "directed_program": {
+        "macro": {
+          "A": [
+            "ObservePerson(t≈00:02)→P",
+            "ReadNameSubtitle(t≈01:18)→Tacara",
+            "TemporalPersonBind(P,Tacara)"
+          ],
+          "B": [
+            "ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)"
+          ],
+          "cross_window": "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))",
+          "answer": "sister"
+        },
+        "nodes_atomic": [
+          "ObservePerson(t≈00:02)→P",
+          "ReadNameSubtitle(t≈01:18)→Tacara",
+          "TemporalPersonBind(P,Tacara)",
+          "ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)",
+          "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))"
+        ],
+        "edge_kinds": [
+          "data",
+          "bind",
+          "temporal"
+        ],
+        "dependency_direction": "A_identity_then_B_relation"
+      },
+      "capability_families_upper": [
+        "APPEARANCE_OR_ROLE_ID",
+        "CROSS_CLIP_IDENTITY_BIND",
+        "TEXT_OR_GRAPHIC_READ"
+      ],
+      "atomic_operator_labels": [
+        "ObservePerson(t≈00:02)→P",
+        "ReadNameSubtitle(t≈01:18)→Tacara",
+        "TemporalPersonBind(P,Tacara)",
+        "ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)",
+        "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))"
+      ],
+      "human_observations": [
+        "A at 00:02 shows a Black woman with short hair and a red shirt.",
+        "A subtitle at approximately 01:18 identifies Tacara; user confirms identity binding through consistent appearance and context.",
+        "B at approximately 14 seconds relative to B displays subtitle 'Brittany (Tacara's sister)'.",
+        "B alone cannot identify the person referred to at 00:02."
+      ],
+      "evidence_limitations": [
+        "A subtitle is near the A-window end boundary (78s); inspect actual clip inclusion before any downstream use.",
+        "Appearance match is user-reported, not independent frame-level identity certification."
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "source": "seen_pilot_run_001 human judgment",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "seen_pilot_run_001 USER_APPROVED_STRUCTURED_GRAPH",
+      "isolation_group": "VIDEO_vHlSoxg8WHo",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    },
+    {
+      "item_id": "SP005",
+      "pilot_role": "SEEN",
+      "qa_uid": "LVCOMP-V2-026",
+      "video_id": "KLIa2UaE2KE",
+      "question_open": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+      "answer_reference": "5",
+      "graph_version": "v0.2",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/seen_pilot_run_001/scientific_reviews/APPROVED_COMPOSITIONAL_CANDIDATE_GRAPHS/SP005_v0.2.json",
+        "local_snapshot": "provenance_snapshots/SP005_v0.2.json",
+        "record_snapshot": "provenance_snapshots/SP005.json"
+      },
+      "windows_seconds": {
+        "A": [
+          1,
+          4
+        ],
+        "B": [
+          673,
+          680
+        ]
+      },
+      "window_roles": {
+        "A": "waved_flag_target_country",
+        "B": "match_scoring_event"
+      },
+      "evidence_modality": [
+        "video_clip_windows",
+        "flag_visual",
+        "score_event"
+      ],
+      "directed_program": {
+        "macro": {
+          "A": [
+            "DetectWavedFlag",
+            "IdentifyFlagCountry→Italy"
+          ],
+          "B": [
+            "IdentifyTeams(Italy,Brazil)",
+            "SelectTeam(target_country)",
+            "LocateSet(first)",
+            "LocateTeamPoint(team=Italy,point=10)",
+            "IdentifyScoringPlayer"
+          ],
+          "cross_window": "CrossClipCountryBind(A.target_country, B.team)",
+          "answer": "5"
+        },
+        "nodes_atomic": [
+          "DetectWavedFlag",
+          "IdentifyFlagCountry→Italy",
+          "IdentifyTeams(Italy,Brazil)",
+          "SelectTeam(target_country)",
+          "LocateSet(first)",
+          "LocateTeamPoint(team=Italy,point=10)",
+          "IdentifyScoringPlayer",
+          "CrossClipCountryBind(A.target_country, B.team)"
+        ],
+        "edge_kinds": [
+          "data",
+          "bind"
+        ],
+        "dependency_direction": "A_target_then_B_score"
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "APPEARANCE_OR_ROLE_ID",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND",
+        "TEXT_OR_GRAPHIC_READ"
+      ],
+      "atomic_operator_labels": [
+        "DetectWavedFlag",
+        "IdentifyFlagCountry→Italy",
+        "IdentifyTeams(Italy,Brazil)",
+        "SelectTeam(target_country)",
+        "LocateSet(first)",
+        "LocateTeamPoint(team=Italy,point=10)",
+        "IdentifyScoringPlayer",
+        "CrossClipCountryBind(A.target_country, B.team)"
+      ],
+      "human_observations": [
+        "A shows female supporters waving an Italian flag.",
+        "B shows Italy playing Brazil, with Italian player number 5 scoring.",
+        "User confirms B depicts Italy's tenth point in the first set.",
+        "B can identify Italy, but cannot determine which country's flag was waved at the beginning; that referent requires A.",
+        "Either team could reach ten points, so recognizing Italy in B is not enough to select the target country without A."
+      ],
+      "evidence_limitations": [
+        "Semantic referent necessity is user-supported; no model ablation or shortcut-resistance experiment has yet been run."
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+        "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+        "source": "seen_pilot_run_001 human judgment (B-only shortcut retracted)",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "seen_pilot_run_001 USER_APPROVED_STRUCTURED_GRAPH",
+      "isolation_group": "VIDEO_KLIa2UaE2KE",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    },
+    {
+      "item_id": "SP201",
+      "pilot_role": "SEEN",
+      "qa_uid": "LVCOMP-V2-001",
+      "video_id": "Hf-n1yfd8II",
+      "question_open": "How to describe the feeling of the final winner at 48:16?",
+      "answer_reference": "frustrated (after losing rally/point)",
+      "graph_version": "v0.2",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/seen_pilot_run_002/scientific_reviews/APPROVED_COMPOSITIONAL_CANDIDATE_GRAPHS/SP201_v0.2.json",
+        "local_snapshot": "provenance_snapshots/SP201_v0.2.json",
+        "record_snapshot": "provenance_snapshots/SP201.json"
+      },
+      "windows_seconds": {
+        "A": [
+          2880,
+          2897
+        ],
+        "B": [
+          5413,
+          5440
+        ]
+      },
+      "window_roles": {
+        "A": "emotion_after_lost_point",
+        "B": "match_winner"
+      },
+      "evidence_modality": [
+        "video_clip_windows",
+        "player_appearance",
+        "scoreboard_context"
+      ],
+      "directed_program": {
+        "macro": {
+          "status": "USER_APPROVED_MACRO_GRAPH",
+          "program": "DetermineMatchWinner(B) → CrossWindowPersonBind(B,A) → QueryEmotion(A)",
+          "dependency_direction": "B_TO_A",
+          "answer_candidate": "frustrated"
+        },
+        "nodes_atomic": [
+          "DetermineMatchWinner",
+          "CrossWindowPersonBind",
+          "QueryEmotion"
+        ],
+        "edge_kinds": [
+          "data",
+          "bind"
+        ],
+        "dependency_direction": "B_TO_A"
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND"
+      ],
+      "atomic_operator_labels": [
+        "DetermineMatchWinner",
+        "CrossWindowPersonBind",
+        "QueryEmotion"
+      ],
+      "human_observations": [
+        "A (48:00–48:17): blue-jersey player loses a point and shows frustration.",
+        "B (90:13–90:40): blue-jersey Malaysian player ultimately wins the whole match.",
+        "Deciding game 22:20; prior games 1:1; match result 2:1.",
+        "Human confirms A and B refer to the same player.",
+        "A alone cannot establish final winner; B alone cannot establish earlier emotion."
+      ],
+      "evidence_limitations": [
+        "Do not replace losing a point/rally with the unsupported claim of failing to receive a particular shuttlecock."
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "seen_pilot_run_002 USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+      "isolation_group": "VIDEO_Hf-n1yfd8II",
+      "shared_video_with": [
+        "SP202"
+      ],
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    },
+    {
+      "item_id": "SP202",
+      "pilot_role": "SEEN",
+      "qa_uid": "LVCOMP-V2-040",
+      "video_id": "Hf-n1yfd8II",
+      "question_open": "What competition result does the person who serves first have?",
+      "answer_reference": "wins the match (final winner)",
+      "graph_version": "v0.3",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/seen_pilot_run_002/scientific_reviews/APPROVED_COMPOSITIONAL_CANDIDATE_GRAPHS/SP202_v0.3.json",
+        "local_snapshot": "provenance_snapshots/SP202_v0.3.json",
+        "record_snapshot": "provenance_snapshots/SP202.json"
+      },
+      "windows_seconds": {
+        "A": [
+          510,
+          515
+        ],
+        "B": [
+          5413,
+          5440
+        ]
+      },
+      "window_roles": {
+        "A": "first_serve_opening",
+        "B": "match_result"
+      },
+      "evidence_modality": [
+        "video_clip_windows",
+        "player_name_flag",
+        "scoreboard"
+      ],
+      "directed_program": {
+        "macro": {
+          "status": "USER_APPROVED_MACRO_GRAPH",
+          "program": "IdentifyFirstServer(A) → CrossWindowPersonBind(A,B) → QueryMatchResult(B)",
+          "dependency_direction": "A_TO_B",
+          "answer_candidate": "wins the match"
+        },
+        "nodes_atomic": [
+          "IdentifyFirstServer",
+          "CrossWindowPersonBind",
+          "QueryMatchResult"
+        ],
+        "edge_kinds": [
+          "data",
+          "bind"
+        ],
+        "dependency_direction": "A_TO_B"
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND"
+      ],
+      "atomic_operator_labels": [
+        "IdentifyFirstServer",
+        "CrossWindowPersonBind",
+        "QueryMatchResult"
+      ],
+      "human_observations": [
+        "A (08:30–08:35): blue-jersey Lee Chong Wei serves at score 0:0.",
+        "Flag and English name support player identity.",
+        "Human checked wider timeline: first game opening, not a later game opening.",
+        "B (90:13–90:40) confirms Lee Chong Wei wins the match.",
+        "A-only and B-only cannot establish the complete question relation."
+      ],
+      "evidence_limitations": [
+        "Shares video and B window with SP201; do not count as two independent videos."
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "seen_pilot_run_002 USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH",
+      "isolation_group": "VIDEO_Hf-n1yfd8II",
+      "shared_video_with": [
+        "SP201"
+      ],
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "pilot_role": "UNSEEN",
+      "qa_uid": "P7_VTCD_C2",
+      "video_id": "VTCDQYYKA9o",
+      "question_open": "在 PREVIOUS RESULTS（过往成绩）姓名画面中出现的那名运动员，更早时对夹克做了什么？",
+      "answer_reference": "脱掉夹克",
+      "graph_version": "v0.2",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/data/approved_graphs_v0.2/P7_VTCD_C2.json",
+        "local_snapshot": "provenance_snapshots/P7_VTCD_C2.json",
+        "blind_packet_snapshot": "provenance_snapshots/P7_VTCD_C2_blind_packet.json"
+      },
+      "windows_seconds": null,
+      "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
+      "window_roles": {
+        "A": "earlier_evidence",
+        "B": "later_referent"
+      },
+      "evidence_modality": [
+        "approved_structured_graph",
+        "review_clips_referenced_in_blind_packet"
+      ],
+      "directed_program": {
+        "raw_text": "B: 定位 PREVIOUS RESULTS 姓名画面中的运动员 + 提取身份线索（姓名/蓝色 T-shirt） → A: 检索更早人物并提取外观与脱外套事件 → CrossIntervalSamePersonBind(B运动员, A脱外套者；双侧身份/服装线索) → QueryEarlierAction(A, 同一人) → 脱掉夹克。依赖方向：后期身份指代 B → 早期动作 A。",
+        "nodes": [
+          {
+            "node_id": "c2_n1",
+            "operator_type": "ReadNameGraphic",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [],
+            "outputs": [
+              "name_B_Fan_Zhendong"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "kind": "playback_offset_approx",
+                "clip_local_s_approx": 10,
+                "precision": "USER_STATED_APPROXIMATE_NOT_FRAME_ACCURATE",
+                "status": "RECORDED_AS_STATED_PENDING_FRAME_ACCURATE_SOURCE_MAPPING"
+              }
+            ],
+            "evidence": {
+              "on_screen_text": "Fan Zhendong"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "c2_n2",
+            "operator_type": "ReadNameAbbreviationGraphic",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [],
+            "outputs": [
+              "name_A_Fan_ZD"
+            ],
+            "clip_role": "A",
+            "time_conditions": [
+              {
+                "kind": "playback_offset_approx",
+                "clip_local_s_approx": 25,
+                "location": "背部",
+                "precision": "USER_STATED_APPROXIMATE_NOT_FRAME_ACCURATE",
+                "status": "RECORDED_AS_STATED_PENDING_FRAME_ACCURATE_SOURCE_MAPPING"
+              }
+            ],
+            "evidence": {
+              "on_screen_text": "Fan Z.D."
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "c2_n3",
+            "operator_type": "CrossIntervalSamePersonBind",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "name_B_Fan_Zhendong",
+              "name_A_Fan_ZD"
+            ],
+            "outputs": [
+              "bound_athlete"
+            ],
+            "clip_role": "AB",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "inference": "基于姓名与缩写的有证据支持的身份推断",
+              "certainty_note": "未额外声称绝对确定性；保留证据支持推断表述"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "c2_n4",
+            "operator_type": "DetectJacketRemoval",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "bound_athlete"
+            ],
+            "outputs": [
+              "jacket_action_A"
+            ],
+            "clip_role": "A",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL",
+                "note": "Exact remove-jacket source seconds not newly authorized in v0.2 beyond prior approximate user observation archive."
+              }
+            ],
+            "evidence": {
+              "action": "脱夹克"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "c2_n5",
+            "operator_type": "QueryEarlierAction",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "jacket_action_A"
+            ],
+            "outputs": [
+              "answer"
+            ],
+            "clip_role": "A",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "answer_text_from_user_qa": "脱掉夹克"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          }
+        ],
+        "edges": [
+          {
+            "from": "c2_n1",
+            "to": "c2_n3",
+            "kind": "data"
+          },
+          {
+            "from": "c2_n2",
+            "to": "c2_n3",
+            "kind": "data"
+          },
+          {
+            "from": "c2_n3",
+            "to": "c2_n4",
+            "kind": "bind"
+          },
+          {
+            "from": "c2_n4",
+            "to": "c2_n5",
+            "kind": "data"
+          }
+        ],
+        "edge_kinds": [
+          "bind",
+          "data"
+        ]
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND",
+        "TEXT_OR_GRAPHIC_READ"
+      ],
+      "atomic_operator_labels": [
+        "ReadNameGraphic",
+        "ReadNameAbbreviationGraphic",
+        "CrossIntervalSamePersonBind",
+        "DetectJacketRemoval",
+        "QueryEarlierAction"
+      ],
+      "human_observations": [
+        "a_only=否; b_only=否; a+b=是"
+      ],
+      "evidence_limitations": [
+        "operator_vocab_status=PENDING_SCIENTIFIC_APPROVAL",
+        "PARTIAL_USER_PLAYBACK_OFFSETS_ONLY",
+        "pilot_role is not formal_unseen/formal_seen_train"
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "USER_GPT_SCIENTIFIC_APPROVAL_CHAT_2026-11-02_structured_graphs_v0.2",
+      "isolation_group": "VIDEO_VTCDQYYKA9o",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "pilot_role": "UNSEEN",
+      "qa_uid": "P7_TJR_R3",
+      "video_id": "TJR1oYDDTwg",
+      "question_open": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+      "answer_reference": "绿色的龙",
+      "graph_version": "v0.2",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/data/approved_graphs_v0.2/P7_TJR_R3.json",
+        "local_snapshot": "provenance_snapshots/P7_TJR_R3.json",
+        "blind_packet_snapshot": "provenance_snapshots/P7_TJR_R3_blind_packet.json"
+      },
+      "windows_seconds": null,
+      "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
+      "window_roles": {
+        "A": "earlier_evidence",
+        "B": "later_referent"
+      },
+      "evidence_modality": [
+        "approved_structured_graph",
+        "review_clips_referenced_in_blind_packet"
+      ],
+      "directed_program": {
+        "raw_text": "B: DetectAction(舞台打鼓) → IdentifyActorByAppearance(短发/红帽/蓝衣) → A: DetectTransportToPalace(乘坐绿色龙) + IdentifyPassengerAppearance → CrossIntervalSamePersonBind(B打鼓者, A乘龙者) → QueryEarlierTransport(A, B所指人物) → 绿色的龙。依赖方向：后期动作角色 B → 早期交通工具 A。",
+        "nodes": [
+          {
+            "node_id": "tjr_n1",
+            "operator_type": "DetectAction",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [],
+            "outputs": [
+              "drumming_event_B"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "action": "打鼓"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "tjr_n2",
+            "operator_type": "IdentifyActorByAppearance",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "drumming_event_B"
+            ],
+            "outputs": [
+              "drummer_ref_B"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "appearance": [
+                "短头发",
+                "红帽",
+                "蓝色上衣"
+              ]
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "tjr_n3",
+            "operator_type": "DetectTransportRide",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [],
+            "outputs": [
+              "green_dragon_ride_A",
+              "passenger_ref_A"
+            ],
+            "clip_role": "A",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "transport": "乘坐绿色龙",
+              "passenger": "乘绿色龙的人"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "tjr_n4",
+            "operator_type": "CrossIntervalSamePersonBind",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "drummer_ref_B",
+              "passenger_ref_A"
+            ],
+            "outputs": [
+              "bound_person"
+            ],
+            "clip_role": "AB",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "bind_cues": [
+                "短头发",
+                "红帽",
+                "蓝色上衣"
+              ]
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "tjr_n5",
+            "operator_type": "QueryEarlierTransport",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "bound_person",
+              "green_dragon_ride_A"
+            ],
+            "outputs": [
+              "answer"
+            ],
+            "clip_role": "A",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "answer_text_from_user_qa": "绿色的龙",
+              "queried_relation": "A中的乘坐关系"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          }
+        ],
+        "edges": [
+          {
+            "from": "tjr_n1",
+            "to": "tjr_n2",
+            "kind": "data"
+          },
+          {
+            "from": "tjr_n2",
+            "to": "tjr_n4",
+            "kind": "data"
+          },
+          {
+            "from": "tjr_n3",
+            "to": "tjr_n4",
+            "kind": "data"
+          },
+          {
+            "from": "tjr_n4",
+            "to": "tjr_n5",
+            "kind": "bind"
+          },
+          {
+            "from": "tjr_n3",
+            "to": "tjr_n5",
+            "kind": "data"
+          }
+        ],
+        "edge_kinds": [
+          "bind",
+          "data"
+        ]
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "APPEARANCE_OR_ROLE_ID",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND"
+      ],
+      "atomic_operator_labels": [
+        "DetectAction",
+        "IdentifyActorByAppearance",
+        "DetectTransportRide",
+        "CrossIntervalSamePersonBind",
+        "QueryEarlierTransport"
+      ],
+      "human_observations": [
+        "a_only=否; b_only=否; a+b=是"
+      ],
+      "evidence_limitations": [
+        "operator_vocab_status=PENDING_SCIENTIFIC_APPROVAL",
+        "PENDING_SCIENTIFIC_APPROVAL",
+        "pilot_role is not formal_unseen/formal_seen_train"
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "USER_GPT_SCIENTIFIC_APPROVAL_CHAT_2026-11-02_structured_graphs_v0.2",
+      "isolation_group": "VIDEO_TJR1oYDDTwg",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    },
+    {
+      "item_id": "P7_R4_F1",
+      "pilot_role": "HOLD",
+      "qa_uid": "P7_R4_F1",
+      "video_id": "Cm73ma6Ibcs",
+      "question_open": "更早室内片段中穿蓝衣、戴白围巾、佩刀并前来解围的人，在后来的雪地中发生了什么？",
+      "answer_reference": "被打倒在雪地上，并用雪擦脸。",
+      "graph_version": "v0.2",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/data/approved_graphs_v0.2/P7_R4_F1.json",
+        "local_snapshot": "provenance_snapshots/P7_R4_F1.json",
+        "blind_packet_snapshot": "provenance_snapshots/P7_R4_F1_blind_packet.json"
+      },
+      "windows_seconds": null,
+      "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
+      "window_roles": {
+        "A": "earlier_evidence",
+        "B": "later_referent"
+      },
+      "evidence_modality": [
+        "approved_structured_graph",
+        "review_clips_referenced_in_blind_packet"
+      ],
+      "directed_program": {
+        "raw_text": "A: DetectScene(厨师被威胁) → IdentifyRescuerByRole(前来解围者；区别于持枪威胁者) + ExtractAppearance(蓝衣/白围巾/佩刀) → B: DetectSnowScene + IdentifyPersonByAppearance(蓝衣/围巾/佩刀) + DetectAction(被打倒、用雪擦脸) → CrossIntervalSamePersonBind(A解围者, B雪地人物) → QueryLaterAction(B, A所指解围者) → 被打倒在雪地并用雪擦脸。",
+        "nodes": [
+          {
+            "node_id": "f1_n1",
+            "operator_type": "IdentifyRescuerByRole",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [],
+            "outputs": [
+              "rescuer_ref_A"
+            ],
+            "clip_role": "A",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "role": "救援者/前来解围者",
+              "exclude": "威胁者"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "f1_n2",
+            "operator_type": "ExtractAppearance",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "rescuer_ref_A"
+            ],
+            "outputs": [
+              "appearance_cues"
+            ],
+            "clip_role": "A",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "cues": [
+                "蓝衣",
+                "白围巾",
+                "佩刀"
+              ]
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "f1_n3",
+            "operator_type": "IdentifyPersonByAppearance",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "appearance_cues"
+            ],
+            "outputs": [
+              "person_ref_B"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "cues": [
+                "蓝衣",
+                "白围巾",
+                "佩刀"
+              ]
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "f1_n4",
+            "operator_type": "CrossIntervalSamePersonBind",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "rescuer_ref_A",
+              "person_ref_B",
+              "appearance_cues"
+            ],
+            "outputs": [
+              "bound_rescuer"
+            ],
+            "clip_role": "AB",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "bind_cues": [
+                "蓝衣",
+                "白围巾",
+                "佩刀"
+              ]
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "f1_n5",
+            "operator_type": "DetectActionEvent",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "bound_rescuer"
+            ],
+            "outputs": [
+              "event_knocked_down_B"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "action_event": "被打倒"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true,
+            "event_order_vs_sibling": "PENDING_SCIENTIFIC_APPROVAL_RELATIVE_ORDER"
+          },
+          {
+            "node_id": "f1_n6",
+            "operator_type": "DetectActionEvent",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "bound_rescuer"
+            ],
+            "outputs": [
+              "event_wipe_face_with_snow_B"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "action_event": "用雪擦脸"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true,
+            "event_order_vs_sibling": "PENDING_SCIENTIFIC_APPROVAL_RELATIVE_ORDER"
+          },
+          {
+            "node_id": "f1_n7",
+            "operator_type": "QueryLaterActions",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "event_knocked_down_B",
+              "event_wipe_face_with_snow_B"
+            ],
+            "outputs": [
+              "answer"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "answer_text_from_user_qa": "被打倒在雪地上，并用雪擦脸。",
+              "note": "Two B action events retained as distinct nodes; relative order not newly asserted."
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          }
+        ],
+        "edges": [
+          {
+            "from": "f1_n1",
+            "to": "f1_n2",
+            "kind": "data"
+          },
+          {
+            "from": "f1_n2",
+            "to": "f1_n3",
+            "kind": "data"
+          },
+          {
+            "from": "f1_n1",
+            "to": "f1_n4",
+            "kind": "data"
+          },
+          {
+            "from": "f1_n3",
+            "to": "f1_n4",
+            "kind": "data"
+          },
+          {
+            "from": "f1_n2",
+            "to": "f1_n4",
+            "kind": "data"
+          },
+          {
+            "from": "f1_n4",
+            "to": "f1_n5",
+            "kind": "bind"
+          },
+          {
+            "from": "f1_n4",
+            "to": "f1_n6",
+            "kind": "bind"
+          },
+          {
+            "from": "f1_n5",
+            "to": "f1_n7",
+            "kind": "data"
+          },
+          {
+            "from": "f1_n6",
+            "to": "f1_n7",
+            "kind": "data"
+          }
+        ],
+        "edge_kinds": [
+          "bind",
+          "data"
+        ]
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "APPEARANCE_OR_ROLE_ID",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "CROSS_CLIP_IDENTITY_BIND"
+      ],
+      "atomic_operator_labels": [
+        "IdentifyRescuerByRole",
+        "ExtractAppearance",
+        "IdentifyPersonByAppearance",
+        "CrossIntervalSamePersonBind",
+        "DetectActionEvent",
+        "DetectActionEvent",
+        "QueryLaterActions"
+      ],
+      "human_observations": [
+        "a_only=否; b_only=否; a+b=是"
+      ],
+      "evidence_limitations": [
+        "operator_vocab_status=PENDING_SCIENTIFIC_APPROVAL",
+        "PENDING_SCIENTIFIC_APPROVAL",
+        "pilot_role is not formal_unseen/formal_seen_train"
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "USER_GPT_SCIENTIFIC_APPROVAL_CHAT_2026-11-02_structured_graphs_v0.2",
+      "isolation_group": "VIDEO_Cm73ma6Ibcs",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    },
+    {
+      "item_id": "P7_R4_F2",
+      "pilot_role": "HOLD",
+      "qa_uid": "P7_R4_F2",
+      "video_id": "LLSJrEgOOtw",
+      "question_open": "更早雾林空地中出现的那只狗，在后来落叶林中做了什么？",
+      "answer_reference": "与提着桶的女人打闹。",
+      "graph_version": "v0.2",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/data/approved_graphs_v0.2/P7_R4_F2.json",
+        "local_snapshot": "provenance_snapshots/P7_R4_F2.json",
+        "blind_packet_snapshot": "provenance_snapshots/P7_R4_F2_blind_packet.json"
+      },
+      "windows_seconds": null,
+      "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
+      "window_roles": {
+        "A": "earlier_evidence",
+        "B": "later_referent"
+      },
+      "evidence_modality": [
+        "approved_structured_graph",
+        "review_clips_referenced_in_blind_packet"
+      ],
+      "directed_program": {
+        "raw_text": "A: DetectAnimalCue(雾林中的狗叫声及狗的可见活动) → IdentifyAnimal(A中的狗，结合声音/外观) → B: DetectAnimalAndInteraction(落叶林中的狗与提桶女人打闹) → CrossIntervalSameAnimalBind(A狗, B狗；黑白毛色等身份线索) → QueryLaterInteraction(B, A所指动物) → 与提着桶的女人打闹。",
+        "nodes": [
+          {
+            "node_id": "f2_n1",
+            "operator_type": "IdentifyAnimalVisual",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [],
+            "outputs": [
+              "animal_ref_A"
+            ],
+            "clip_role": "A",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL",
+                "note": "No frame-accurate source timestamp approved beyond existing clip window."
+              }
+            ],
+            "evidence": {
+              "visual": "黑白狗可静音识别",
+              "audio": "辅助证据 only；身份不依赖音频"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "f2_n2",
+            "operator_type": "IdentifyAnimalVisual",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [],
+            "outputs": [
+              "animal_ref_B"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "appearance_cues_for_bind": [
+                "黑脑袋",
+                "白鼻子",
+                "黑尾巴"
+              ]
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "f2_n3",
+            "operator_type": "CrossIntervalSameAnimalBind",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "animal_ref_A",
+              "animal_ref_B"
+            ],
+            "outputs": [
+              "bound_animal"
+            ],
+            "clip_role": "AB",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "bind_cues": [
+                "黑脑袋",
+                "白鼻子",
+                "黑尾巴"
+              ],
+              "audio_role": "辅助，非绑定必要条件"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "f2_n4",
+            "operator_type": "DetectAnimalHumanInteraction",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "bound_animal"
+            ],
+            "outputs": [
+              "interaction_B"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "interaction": "与提桶女人打闹"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          },
+          {
+            "node_id": "f2_n5",
+            "operator_type": "QueryLaterInteraction",
+            "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+            "inputs": [
+              "interaction_B"
+            ],
+            "outputs": [
+              "answer"
+            ],
+            "clip_role": "B",
+            "time_conditions": [
+              {
+                "status": "PENDING_SCIENTIFIC_APPROVAL"
+              }
+            ],
+            "evidence": {
+              "answer_text_from_user_qa": "与提着桶的女人打闹。"
+            },
+            "source": "USER_GPT_APPROVAL_v0.2",
+            "user_confirmed": true
+          }
+        ],
+        "edges": [
+          {
+            "from": "f2_n1",
+            "to": "f2_n3",
+            "kind": "data"
+          },
+          {
+            "from": "f2_n2",
+            "to": "f2_n3",
+            "kind": "data"
+          },
+          {
+            "from": "f2_n3",
+            "to": "f2_n4",
+            "kind": "bind"
+          },
+          {
+            "from": "f2_n4",
+            "to": "f2_n5",
+            "kind": "data"
+          }
+        ],
+        "edge_kinds": [
+          "bind",
+          "data"
+        ]
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "APPEARANCE_OR_ROLE_ID",
+        "OTHER_OR_UNMAPPED"
+      ],
+      "atomic_operator_labels": [
+        "IdentifyAnimalVisual",
+        "IdentifyAnimalVisual",
+        "CrossIntervalSameAnimalBind",
+        "DetectAnimalHumanInteraction",
+        "QueryLaterInteraction"
+      ],
+      "human_observations": [
+        "a_only=否; b_only=否; a+b=是"
+      ],
+      "evidence_limitations": [
+        "operator_vocab_status=PENDING_SCIENTIFIC_APPROVAL",
+        "PENDING_SCIENTIFIC_APPROVAL",
+        "pilot_role is not formal_unseen/formal_seen_train"
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "USER_GPT_SCIENTIFIC_APPROVAL_CHAT_2026-11-02_structured_graphs_v0.2",
+      "isolation_group": "VIDEO_LLSJrEgOOtw",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    },
+    {
+      "item_id": "SP205",
+      "pilot_role": "HOLD",
+      "qa_uid": "LVCOMP-V2-116",
+      "video_id": "wgBlACG927Y",
+      "question_open": "After getting off the first means of transportation they took when coming to China, what means of transportation do the vloggers take in a later part of the video?",
+      "answer_reference": "Subway",
+      "graph_version": "v0.5",
+      "graph_provenance": {
+        "source_branch": "research/lvbench-comp-p7-hil-pilot",
+        "source_commit": "b913697e71410839218d4b6e038d321d2c1796d8",
+        "source_path": "scientific_workbench/seen_pilot_run_002/scientific_reviews/APPROVED_COMPOSITIONAL_CANDIDATE_GRAPHS/SP205_v0.5.json",
+        "local_snapshot": "provenance_snapshots/SP205_v0.5.json",
+        "record_snapshot": "provenance_snapshots/SP205.json"
+      },
+      "windows_seconds": {
+        "A": [
+          202,
+          370
+        ],
+        "B": [
+          838,
+          852
+        ]
+      },
+      "window_roles": {
+        "A": "first_transport_and_disembark",
+        "B": "later_subway"
+      },
+      "evidence_modality": [
+        "video_clip_windows",
+        "transport_signage"
+      ],
+      "directed_program": {
+        "macro": {
+          "operator_semantics": "TEMPORAL_ORDER_NOT_IMMEDIATE_SUCCESSOR",
+          "nodes": [
+            {
+              "id": "n1",
+              "op": "IdentifyFirstTransport",
+              "clip": "A",
+              "output": "first_transport"
+            },
+            {
+              "id": "n2",
+              "op": "DetectDisembark",
+              "clip": "A",
+              "output": "disembark_event"
+            },
+            {
+              "id": "n3",
+              "op": "TimeAnchor",
+              "clip": "A",
+              "output": "disembark_time"
+            },
+            {
+              "id": "n4",
+              "op": "IdentifyTransport",
+              "clip": "B",
+              "output": "later_transport"
+            },
+            {
+              "id": "n5",
+              "op": "TimeAnchor",
+              "clip": "B",
+              "output": "later_ride_time"
+            },
+            {
+              "id": "n6",
+              "op": "CompareTemporalOrder",
+              "clip": "AB",
+              "predicate": "disembark_time < later_ride_time"
+            },
+            {
+              "id": "n7",
+              "op": "QueryLaterTransport",
+              "clip": "B",
+              "output": "Subway"
+            }
+          ],
+          "edges": [
+            {
+              "from": "n1",
+              "to": "n2",
+              "kind": "bind"
+            },
+            {
+              "from": "n2",
+              "to": "n3",
+              "kind": "data"
+            },
+            {
+              "from": "n4",
+              "to": "n5",
+              "kind": "data"
+            },
+            {
+              "from": "n3",
+              "to": "n6",
+              "kind": "temporal"
+            },
+            {
+              "from": "n5",
+              "to": "n6",
+              "kind": "temporal"
+            },
+            {
+              "from": "n4",
+              "to": "n7",
+              "kind": "data"
+            },
+            {
+              "from": "n6",
+              "to": "n7",
+              "kind": "control"
+            }
+          ],
+          "removed_required_operator": "TemporalSuccessor",
+          "new_required_operator": "CompareTemporalOrder",
+          "status": "USER_APPROVED_TEMPORAL_SEMANTICS_GPT_TYPED_GRAPH_PROPOSAL",
+          "program": "IdentifyFirstTransport(A) → DetectDisembark(A) + TimeAnchor(A); IdentifyTransport(B) + TimeAnchor(B) → CompareTemporalOrder(A,B) → QueryLaterTransport(B)",
+          "version": "v0.5",
+          "answer_candidate": "Subway"
+        },
+        "nodes_atomic": [
+          "IdentifyFirstTransport",
+          "DetectDisembark",
+          "TimeAnchor",
+          "IdentifyTransport",
+          "TimeAnchor",
+          "CompareTemporalOrder",
+          "QueryLaterTransport"
+        ],
+        "edge_kinds": [
+          "bind",
+          "data",
+          "data",
+          "temporal",
+          "temporal",
+          "data",
+          "control"
+        ],
+        "dependency_direction": "A_then_B_later_than",
+        "removed_operator": "TemporalSuccessor",
+        "required_operator": "CompareTemporalOrder"
+      },
+      "capability_families_upper": [
+        "ACTION_OR_EVENT_DETECT",
+        "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+        "TEMPORAL_ORDER_COMPARE"
+      ],
+      "atomic_operator_labels": [
+        "IdentifyFirstTransport",
+        "DetectDisembark",
+        "TimeAnchor",
+        "IdentifyTransport",
+        "TimeAnchor",
+        "CompareTemporalOrder",
+        "QueryLaterTransport"
+      ],
+      "human_observations": [
+        "03:22–05:22: vlogger boards high-speed train.",
+        "05:22–06:10: vlogger disembarks from high-speed train.",
+        "06:10–13:58: human checked middle footage and did not observe other transport; this is historical observation, NOT a v0.5 necessity condition.",
+        "13:58–14:12: vlogger rides subway; Line 3 signage and interior visible."
+      ],
+      "evidence_limitations": [
+        "First-transport scope before 03:22 needs explicit provenance; do not fabricate earlier footage.",
+        "Actual model input protocol must preserve access to A and B and their source timestamps.",
+        "The 06:10–13:58 gap is NOT a blocker for the v0.5 later-than question; retain it only in v0.4 audit history.",
+        "Human non-observation in edited footage does not prove no transport occurred off-camera."
+      ],
+      "single_window_necessity": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": "NO_FOR_FULL_RELATIONAL_EVIDENCE_BUT_ANSWER_STRING_SHORTCUT_RISK",
+        "a_plus_b_necessary": "USER_SUPPORTED_PENDING_MODEL_ABLATION",
+        "not_model_ablation": true
+      },
+      "scientific_approval_source": "seen_pilot_run_002 USER_APPROVED v0.5; USER_ASSIGNED_UNSEEN",
+      "user_split_assignment": "UNSEEN",
+      "user_split_decision": "USER_ASSIGNED_UNSEEN",
+      "hold_reason": "Included as HOLD in FAMILY_LEVEL_MINIMAL_VALIDATION_PILOT_v0.1 Unseen-arm capacity control; USER_ASSIGNED_UNSEEN ≠ formal_unseen freeze",
+      "isolation_group": "VIDEO_wgBlACG927Y",
+      "shared_video_with": [
+        "DN201"
+      ],
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "seen_pool_frozen": false,
+      "approve_expensive_track_a_rsi": false,
+      "qa_format": "OPEN_ENDED",
+      "multichoice_auto_generated": false
+    }
+  ],
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false
+}

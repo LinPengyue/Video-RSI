@@ -1,0 +1,33 @@
+{
+  "qa_id": "P7_R4_F2",
+  "video_id": "LLSJrEgOOtw",
+  "frozen_question": "更早雾林空地中出现的那只狗，在后来落叶林中做了什么？",
+  "WARNING": "Do not include frozen_answer in reviewer-facing materials. This packet is for a future INDEPENDENT reviewer. Cursor/GPT must not self-adjudicate.",
+  "conditions": {
+    "A_only": {
+      "visible_clip": "round_004/media/F2A_dog_wood_20_45.mp4",
+      "forbidden": [
+        "clip B",
+        "answer key"
+      ]
+    },
+    "B_only": {
+      "visible_clip": "round_004/media/F2B_later_play_123_165.mp4",
+      "forbidden": [
+        "clip A",
+        "answer key"
+      ]
+    },
+    "A_plus_B": {
+      "visible_clips": [
+        "round_004/media/F2A_dog_wood_20_45.mp4",
+        "round_004/media/F2B_later_play_123_165.mp4"
+      ],
+      "forbidden": [
+        "answer key"
+      ]
+    }
+  },
+  "answer_key_path": "ANSWER_KEYS_DO_NOT_SERVE_TO_REVIEWER.json",
+  "status": "PACKET_READY_PENDING_INDEPENDENT_REVIEWER"
+}

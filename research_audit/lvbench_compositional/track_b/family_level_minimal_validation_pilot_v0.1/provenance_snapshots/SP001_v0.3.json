@@ -1,0 +1,41 @@
+{
+  "graph_id": "seen_pilot::SP001::v0.3",
+  "structure_version": "v0.3",
+  "pool": "SEEN_PILOT_COMPOSITIONAL_CANDIDATE_ONLY",
+  "pack_id": "SP001",
+  "qa_uid": "LVCOMP-V2-036",
+  "video_id": "aJI8XTa_DII",
+  "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+  "classification": "USER_VIDEO_VERIFIED_COMPOSITION_CANDIDATE",
+  "composition_necessity": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+  "graph_as_reviewed": {
+    "A": [
+      "LocateFirstSpeechStage",
+      "DetectMultipleNationalFlags",
+      "MatchFlagsByCountry",
+      "CountMatchedFlags"
+    ],
+    "B": [
+      "LocateClockBuilding",
+      "IdentifyFlagOnFlagpole",
+      "IdentifyCountry(Russia)"
+    ],
+    "cross_window": "CrossClipCountryBind(B.country, A.flag_country)",
+    "answer": "5"
+  },
+  "caveats": [
+    "Exact flagpole-top spatial relation was not separately frame-verified.",
+    "Window times are source references, not precise certified event boundaries."
+  ],
+  "correction_history": null,
+  "formal_seen_train": false,
+  "formal_unseen": false,
+  "formal_gold": false,
+  "train_exposed": false,
+  "seen_pool_frozen": false,
+  "approve_expensive_track_a_rsi": false,
+  "note": "Candidate compositional graph from Seen pilot human review. NOT formal Seen/Gold. NOT merged into Unseen approved_graphs_v0.2.",
+  "source_sha256": "7d1e9a00782eb3899f1b1f8a9470b57a8c66322adf2809d716c358ca18b8e722",
+  "ingested_utc": "2026-11-03T00:37:24+00:00",
+  "workbench_id": "SEEN_PILOT_SP001"
+}
