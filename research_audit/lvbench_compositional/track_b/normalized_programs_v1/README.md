@@ -22,3 +22,13 @@ python3 tests/test_normalized_programs_v1.py -v
 
 - Formal analysis: 5 Seen / 2 Unseen
 - Candidate sensitivity only: A, B, P7_R4_F1, P7_R4_F2
+
+## Stage 4 (split validity)
+
+```bash
+python3 eng/build_stage4_split_validity_audit.py
+python3 tests/test_stage4_split_validity.py -v
+```
+
+Outputs: `stage4_split_validity_audit.json`, `stage4_split_validity_audit.md`.  
+Stage-3 metrics preserved under `reports/stage3_historical/`.

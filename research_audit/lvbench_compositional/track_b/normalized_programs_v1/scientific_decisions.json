@@ -1,6 +1,6 @@
 {
   "schema": "normalized_programs_scientific_decisions_v1",
-  "recorded_utc": "2026-11-04T09:50:30+00:00",
+  "recorded_utc": "2026-11-04T11:26:28+00:00",
   "source": "chat_approved_handoff",
   "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
   "fixed_seen": [

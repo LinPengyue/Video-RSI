@@ -1,0 +1,2228 @@
+{
+  "schema": "stage4_split_validity_audit_v1",
+  "algo_version": "stage4_split_validity_audit_v1.0.0",
+  "built_utc": "2026-11-04T11:26:28+00:00",
+  "baseline_commit": "08b5483f7761ee42a4a0a008988d4d37f484d0a0",
+  "fixed_split": {
+    "seen": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202"
+    ],
+    "unseen": [
+      "P7_VTCD_C2",
+      "P7_TJR_R3"
+    ],
+    "candidate_only": [
+      "A",
+      "B",
+      "P7_R4_F1",
+      "P7_R4_F2"
+    ]
+  },
+  "stage3_historical_paths": [
+    "reports/stage3_historical/overlap_metrics_08b5483.json",
+    "reports/stage3_historical/overlap_report_08b5483.md"
+  ],
+  "m3_corrected": {
+    "definition": "Directed weakly-connected induced subgraphs; canonical signature via label-preserving isomorphism (lex-min encoding). Modes: ops, ops_role (no dependency_kind), ops_role_edge, ops_role_edge_io (I/O alpha-renamed).",
+    "layer1": {
+      "ops": {
+        "2_node": {
+          "layer": "layer1",
+          "mode": "ops",
+          "size": 2,
+          "seen_unique": 24,
+          "unseen_unique": 7,
+          "intersection_unique": 3,
+          "unique_coverage_ratio": 0.42857142857142855,
+          "unique_fraction": "3/7",
+          "unseen_occurrences": 9,
+          "matched_occurrences": 4,
+          "occurrence_coverage_ratio": 0.4444444444444444,
+          "occurrence_fraction": "4/9",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": true,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP002"
+                ],
+                "signature_digest": "d308a3843a166f9e"
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP002"
+                ],
+                "signature_digest": "d308a3843a166f9e"
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP201",
+                  "SP202"
+                ],
+                "signature_digest": "6b530d57439a69ab"
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP201",
+                  "SP202"
+                ],
+                "signature_digest": "98c12b1f3e26ca8a"
+              }
+            ]
+          }
+        },
+        "3_node": {
+          "layer": "layer1",
+          "mode": "ops",
+          "size": 3,
+          "seen_unique": 28,
+          "unseen_unique": 7,
+          "intersection_unique": 1,
+          "unique_coverage_ratio": 0.14285714285714285,
+          "unique_fraction": "1/7",
+          "unseen_occurrences": 8,
+          "matched_occurrences": 1,
+          "occurrence_coverage_ratio": 0.125,
+          "occurrence_fraction": "1/8",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": true,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP201",
+                  "SP202"
+                ],
+                "signature_digest": "17e19764d5836694"
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        }
+      },
+      "ops_role": {
+        "2_node": {
+          "layer": "layer1",
+          "mode": "ops_role",
+          "size": 2,
+          "seen_unique": 26,
+          "unseen_unique": 8,
+          "intersection_unique": 3,
+          "unique_coverage_ratio": 0.375,
+          "unique_fraction": "3/8",
+          "unseen_occurrences": 9,
+          "matched_occurrences": 3,
+          "occurrence_coverage_ratio": 0.3333333333333333,
+          "occurrence_fraction": "3/9",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": true,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP002"
+                ],
+                "signature_digest": "e25e66ab8efae38d"
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP202"
+                ],
+                "signature_digest": "c124b7bdebcc56a5"
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP201"
+                ],
+                "signature_digest": "d1aa8363bcedffe6"
+              }
+            ]
+          }
+        },
+        "3_node": {
+          "layer": "layer1",
+          "mode": "ops_role",
+          "size": 3,
+          "seen_unique": 29,
+          "unseen_unique": 8,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/8",
+          "unseen_occurrences": 8,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/8",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": true,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        }
+      },
+      "ops_role_edge": {
+        "2_node": {
+          "layer": "layer1",
+          "mode": "ops_role_edge",
+          "size": 2,
+          "seen_unique": 26,
+          "unseen_unique": 8,
+          "intersection_unique": 3,
+          "unique_coverage_ratio": 0.375,
+          "unique_fraction": "3/8",
+          "unseen_occurrences": 9,
+          "matched_occurrences": 3,
+          "occurrence_coverage_ratio": 0.3333333333333333,
+          "occurrence_fraction": "3/9",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": false,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP002"
+                ],
+                "signature_digest": "408a1e8ae8e4c1dc"
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP202"
+                ],
+                "signature_digest": "5e2fb73771a2adc5"
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": true,
+                "matched_seen_graphs": [
+                  "SP201"
+                ],
+                "signature_digest": "6628a8f138859223"
+              }
+            ]
+          }
+        },
+        "3_node": {
+          "layer": "layer1",
+          "mode": "ops_role_edge",
+          "size": 3,
+          "seen_unique": 29,
+          "unseen_unique": 8,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/8",
+          "unseen_occurrences": 8,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/8",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": false,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        }
+      },
+      "ops_role_edge_io": {
+        "2_node": {
+          "layer": "layer1",
+          "mode": "ops_role_edge_io",
+          "size": 2,
+          "seen_unique": 26,
+          "unseen_unique": 9,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/9",
+          "unseen_occurrences": 9,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/9",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "alpha_renaming_by_first_appearance_under_canonical_node_order",
+          "ops_role_excludes_dependency_kind": false,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        },
+        "3_node": {
+          "layer": "layer1",
+          "mode": "ops_role_edge_io",
+          "size": 3,
+          "seen_unique": 29,
+          "unseen_unique": 8,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/8",
+          "unseen_occurrences": 8,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/8",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "alpha_renaming_by_first_appearance_under_canonical_node_order",
+          "ops_role_excludes_dependency_kind": false,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    "layer2": {
+      "ops": {
+        "2_node": {
+          "layer": "layer2",
+          "mode": "ops",
+          "size": 2,
+          "seen_unique": 25,
+          "unseen_unique": 8,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/8",
+          "unseen_occurrences": 9,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/9",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": true,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        },
+        "3_node": {
+          "layer": "layer2",
+          "mode": "ops",
+          "size": 3,
+          "seen_unique": 29,
+          "unseen_unique": 7,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/7",
+          "unseen_occurrences": 8,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/8",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": true,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        }
+      },
+      "ops_role": {
+        "2_node": {
+          "layer": "layer2",
+          "mode": "ops_role",
+          "size": 2,
+          "seen_unique": 26,
+          "unseen_unique": 9,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/9",
+          "unseen_occurrences": 9,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/9",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": true,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        },
+        "3_node": {
+          "layer": "layer2",
+          "mode": "ops_role",
+          "size": 3,
+          "seen_unique": 29,
+          "unseen_unique": 8,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/8",
+          "unseen_occurrences": 8,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/8",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": true,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        }
+      },
+      "ops_role_edge": {
+        "2_node": {
+          "layer": "layer2",
+          "mode": "ops_role_edge",
+          "size": 2,
+          "seen_unique": 26,
+          "unseen_unique": 9,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/9",
+          "unseen_occurrences": 9,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/9",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": false,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        },
+        "3_node": {
+          "layer": "layer2",
+          "mode": "ops_role_edge",
+          "size": 3,
+          "seen_unique": 29,
+          "unseen_unique": 8,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/8",
+          "unseen_occurrences": 8,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/8",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "io_not_in_signature",
+          "ops_role_excludes_dependency_kind": false,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        }
+      },
+      "ops_role_edge_io": {
+        "2_node": {
+          "layer": "layer2",
+          "mode": "ops_role_edge_io",
+          "size": 2,
+          "seen_unique": 26,
+          "unseen_unique": 9,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/9",
+          "unseen_occurrences": 9,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/9",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "alpha_renaming_by_first_appearance_under_canonical_node_order",
+          "ops_role_excludes_dependency_kind": false,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        },
+        "3_node": {
+          "layer": "layer2",
+          "mode": "ops_role_edge_io",
+          "size": 3,
+          "seen_unique": 29,
+          "unseen_unique": 8,
+          "intersection_unique": 0,
+          "unique_coverage_ratio": 0.0,
+          "unique_fraction": "0/8",
+          "unseen_occurrences": 8,
+          "matched_occurrences": 0,
+          "occurrence_coverage_ratio": 0.0,
+          "occurrence_fraction": "0/8",
+          "denominator_unique": "unique_unseen_subgraph_signatures",
+          "denominator_occurrence": "unseen_subgraph_occurrences",
+          "io_policy": "alpha_renaming_by_first_appearance_under_canonical_node_order",
+          "ops_role_excludes_dependency_kind": false,
+          "witnesses_per_unseen": {
+            "P7_VTCD_C2": [
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n2",
+                  "c2_n3"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n1",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n2",
+                  "c2_n3",
+                  "c2_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "c2_n3",
+                  "c2_n4",
+                  "c2_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ],
+            "P7_TJR_R3": [
+              {
+                "nodes": [
+                  "tjr_n1",
+                  "tjr_n2",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n3",
+                  "tjr_n4"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n2",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              },
+              {
+                "nodes": [
+                  "tjr_n3",
+                  "tjr_n4",
+                  "tjr_n5"
+                ],
+                "matched": false,
+                "matched_seen_graphs": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    "independent_reference_check_layer1": [
+      {
+        "cell": "layer1/ops/2_node",
+        "expected_unique_fraction": "3/7",
+        "got_unique_fraction": "3/7",
+        "match": true
+      },
+      {
+        "cell": "layer1/ops/3_node",
+        "expected_unique_fraction": "1/7",
+        "got_unique_fraction": "1/7",
+        "match": true
+      },
+      {
+        "cell": "layer1/ops_role/2_node",
+        "expected_unique_fraction": "3/8",
+        "got_unique_fraction": "3/8",
+        "match": true
+      },
+      {
+        "cell": "layer1/ops_role/3_node",
+        "expected_unique_fraction": "0/8",
+        "got_unique_fraction": "0/8",
+        "match": true
+      }
+    ],
+    "reference_check_all_match": true,
+    "duplicate_label_self_check": {
+      "ops_equal_under_id_permutation": true,
+      "ops_role_equal_for_isomorphic_role_edge": true,
+      "sig_ops": [
+        [
+          [
+            "Op"
+          ],
+          [
+            "Op"
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "sig_ops_role": [
+        [
+          [
+            "Op",
+            "A"
+          ],
+          [
+            "Op",
+            "B"
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    }
+  },
+  "novelty_decomposition": {
+    "P7_VTCD_C2": {
+      "graph_id": "P7_VTCD_C2",
+      "layer1_operator_coverage": {
+        "n_nodes": 5,
+        "covered_nodes": 5,
+        "coverage_ratio": 1.0,
+        "unseen_only_labels_on_nodes": [],
+        "distinct_labels": [
+          "BOUND_ATTRIBUTE_QUERY",
+          "CROSS_WINDOW_ENTITY_BIND",
+          "EVENT_DETECTION",
+          "TEXT_EVIDENCE_READING"
+        ],
+        "distinct_unseen_only": []
+      },
+      "layer2_operator_coverage": {
+        "n_nodes": 5,
+        "covered_nodes": 1,
+        "coverage_ratio": 0.2,
+        "unseen_only_labels_on_nodes": [
+          "ReadPersonNameFromGraphic",
+          "ReadPersonNameFromGraphic",
+          "DetectActionEvent",
+          "QueryBoundAction"
+        ],
+        "distinct_labels": [
+          "BindSamePerson",
+          "DetectActionEvent",
+          "QueryBoundAction",
+          "ReadPersonNameFromGraphic"
+        ],
+        "distinct_unseen_only": [
+          "DetectActionEvent",
+          "QueryBoundAction",
+          "ReadPersonNameFromGraphic"
+        ]
+      },
+      "subgraph_2_layer2_ops": {
+        "n_subgraphs": 4,
+        "with_unseen_only_layer2_operator": {
+          "count": 4,
+          "ratio": 1.0,
+          "fraction": "4/4"
+        },
+        "seen_atom_only_structural_overlap_layer2_ops": {
+          "value": "N/A",
+          "ratio": null,
+          "note": "No subgraph composed solely of Seen-covered Layer2 atoms; not scored as zero."
+        },
+        "enumeration_mode_for_with_uol2": "layer2/ops"
+      },
+      "subgraph_3_layer2_ops": {
+        "n_subgraphs": 4,
+        "with_unseen_only_layer2_operator": {
+          "count": 4,
+          "ratio": 1.0,
+          "fraction": "4/4"
+        },
+        "seen_atom_only_structural_overlap_layer2_ops": {
+          "value": "N/A",
+          "ratio": null,
+          "note": "No subgraph composed solely of Seen-covered Layer2 atoms; not scored as zero."
+        },
+        "enumeration_mode_for_with_uol2": "layer2/ops"
+      },
+      "contributions": {
+        "unseen_operators_layer2": [
+          "DetectActionEvent",
+          "QueryBoundAction",
+          "ReadPersonNameFromGraphic"
+        ],
+        "unseen_operator_node_fraction": 0.8,
+        "unseen_connections_2node_ops_role_edge": {
+          "novel_count": 4,
+          "total": 4,
+          "ratio": 1.0
+        },
+        "unseen_window_role_combinations": {
+          "novel_node_instances": 4,
+          "total_nodes": 5,
+          "novel_pairs": [
+            {
+              "layer2": "DetectActionEvent",
+              "role": "A"
+            },
+            {
+              "layer2": "QueryBoundAction",
+              "role": "A"
+            },
+            {
+              "layer2": "ReadPersonNameFromGraphic",
+              "role": "A"
+            },
+            {
+              "layer2": "ReadPersonNameFromGraphic",
+              "role": "B"
+            }
+          ]
+        }
+      }
+    },
+    "P7_TJR_R3": {
+      "graph_id": "P7_TJR_R3",
+      "layer1_operator_coverage": {
+        "n_nodes": 5,
+        "covered_nodes": 5,
+        "coverage_ratio": 1.0,
+        "unseen_only_labels_on_nodes": [],
+        "distinct_labels": [
+          "BOUND_ATTRIBUTE_QUERY",
+          "CROSS_WINDOW_ENTITY_BIND",
+          "ENTITY_IDENTIFICATION",
+          "EVENT_DETECTION"
+        ],
+        "distinct_unseen_only": []
+      },
+      "layer2_operator_coverage": {
+        "n_nodes": 5,
+        "covered_nodes": 1,
+        "coverage_ratio": 0.2,
+        "unseen_only_labels_on_nodes": [
+          "DetectActionEvent",
+          "IdentifyPersonByAppearance",
+          "DetectTransportEvent",
+          "QueryBoundTransport"
+        ],
+        "distinct_labels": [
+          "BindSamePerson",
+          "DetectActionEvent",
+          "DetectTransportEvent",
+          "IdentifyPersonByAppearance",
+          "QueryBoundTransport"
+        ],
+        "distinct_unseen_only": [
+          "DetectActionEvent",
+          "DetectTransportEvent",
+          "IdentifyPersonByAppearance",
+          "QueryBoundTransport"
+        ]
+      },
+      "subgraph_2_layer2_ops": {
+        "n_subgraphs": 5,
+        "with_unseen_only_layer2_operator": {
+          "count": 5,
+          "ratio": 1.0,
+          "fraction": "5/5"
+        },
+        "seen_atom_only_structural_overlap_layer2_ops": {
+          "value": "N/A",
+          "ratio": null,
+          "note": "No subgraph composed solely of Seen-covered Layer2 atoms; not scored as zero."
+        },
+        "enumeration_mode_for_with_uol2": "layer2/ops"
+      },
+      "subgraph_3_layer2_ops": {
+        "n_subgraphs": 4,
+        "with_unseen_only_layer2_operator": {
+          "count": 4,
+          "ratio": 1.0,
+          "fraction": "4/4"
+        },
+        "seen_atom_only_structural_overlap_layer2_ops": {
+          "value": "N/A",
+          "ratio": null,
+          "note": "No subgraph composed solely of Seen-covered Layer2 atoms; not scored as zero."
+        },
+        "enumeration_mode_for_with_uol2": "layer2/ops"
+      },
+      "contributions": {
+        "unseen_operators_layer2": [
+          "DetectActionEvent",
+          "DetectTransportEvent",
+          "IdentifyPersonByAppearance",
+          "QueryBoundTransport"
+        ],
+        "unseen_operator_node_fraction": 0.8,
+        "unseen_connections_2node_ops_role_edge": {
+          "novel_count": 5,
+          "total": 5,
+          "ratio": 1.0
+        },
+        "unseen_window_role_combinations": {
+          "novel_node_instances": 4,
+          "total_nodes": 5,
+          "novel_pairs": [
+            {
+              "layer2": "DetectActionEvent",
+              "role": "B"
+            },
+            {
+              "layer2": "DetectTransportEvent",
+              "role": "A"
+            },
+            {
+              "layer2": "IdentifyPersonByAppearance",
+              "role": "B"
+            },
+            {
+              "layer2": "QueryBoundTransport",
+              "role": "A"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "m4_reinterpretation": {
+    "pairs": [
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP001",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 4
+        },
+        "seen_size": {
+          "nodes": 8,
+          "edges": 8
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      },
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP002",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 4
+        },
+        "seen_size": {
+          "nodes": 6,
+          "edges": 5
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      },
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP005",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 4
+        },
+        "seen_size": {
+          "nodes": 8,
+          "edges": 7
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      },
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP201",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 4
+        },
+        "seen_size": {
+          "nodes": 4,
+          "edges": 3
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      },
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP202",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 4
+        },
+        "seen_size": {
+          "nodes": 4,
+          "edges": 3
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP001",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 5
+        },
+        "seen_size": {
+          "nodes": 8,
+          "edges": 8
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP002",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 5
+        },
+        "seen_size": {
+          "nodes": 6,
+          "edges": 5
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP005",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 5
+        },
+        "seen_size": {
+          "nodes": 8,
+          "edges": 7
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP201",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 5
+        },
+        "seen_size": {
+          "nodes": 4,
+          "edges": 3
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP202",
+        "status": "TRIVIAL_SIZE_MISMATCH",
+        "unseen_size": {
+          "nodes": 5,
+          "edges": 5
+        },
+        "seen_size": {
+          "nodes": 4,
+          "edges": 3
+        },
+        "interpretation": "Not strong evidence of novel composition; sizes differ so full digraph equivalence is vacuously impossible."
+      }
+    ],
+    "size_notes": {
+      "P7_VTCD_C2": {
+        "unseen_nodes": 5,
+        "seen_with_same_n_nodes": []
+      },
+      "P7_TJR_R3": {
+        "unseen_nodes": 5,
+        "seen_with_same_n_nodes": []
+      }
+    },
+    "scientific_caution": "M4 inequivalence driven by TRIVIAL_SIZE_MISMATCH must not be cited as primary evidence of unseen compositional structure."
+  },
+  "scientific_validity": {
+    "A": {
+      "question": "Can this split support Layer-1 family-level compositional novelty?",
+      "judgment": "PARTIAL_YES_PILOT_SCALE",
+      "basis": {
+        "m1_layer1_label_coverage": "complete on current Unseen (from Stage3/4 operator sets)",
+        "m3_layer1_ops_2node": "3/7",
+        "m3_layer1_ops_3node": "1/7",
+        "m3_layer1_ops_role_2node": "3/8",
+        "m3_layer1_ops_role_3node": "0/8"
+      },
+      "reading": "Unseen Layer1 families are covered by Seen, but many Layer1 directed subgraphs are not; this is consistent with family-level recombination novelty at pilot scale. ops_role 3-node unique coverage is 0/8, strengthening role-sensitive structure novelty."
+    },
+    "B": {
+      "question": "Can this split support Layer-2 atomic-level pure compositional novelty?",
+      "judgment": "NO_NOT_PURE",
+      "basis": {
+        "unseen_only_layer2_operators": [
+          "DetectActionEvent",
+          "DetectTransportEvent",
+          "IdentifyPersonByAppearance",
+          "QueryBoundAction",
+          "QueryBoundTransport",
+          "ReadPersonNameFromGraphic"
+        ],
+        "implication": "Several Unseen Layer2 atoms never appear in Seen; novelty mixes new atoms with possible new wiring — not a pure composition test."
+      }
+    },
+    "C": {
+      "question": "Is atomic operator distribution shift mixed into the split?",
+      "judgment": "YES",
+      "evidence": {
+        "unseen_only_layer2": [
+          "DetectActionEvent",
+          "DetectTransportEvent",
+          "IdentifyPersonByAppearance",
+          "QueryBoundAction",
+          "QueryBoundTransport",
+          "ReadPersonNameFromGraphic"
+        ],
+        "per_unseen": {
+          "P7_VTCD_C2": [
+            "DetectActionEvent",
+            "QueryBoundAction",
+            "ReadPersonNameFromGraphic"
+          ],
+          "P7_TJR_R3": [
+            "DetectActionEvent",
+            "DetectTransportEvent",
+            "IdentifyPersonByAppearance",
+            "QueryBoundTransport"
+          ]
+        }
+      }
+    },
+    "D": {
+      "question": "Which conclusions apply only to the current 2-Unseen pilot?",
+      "judgment": "MOST_QUANTITATIVE_CLAIMS",
+      "pilot_only": [
+        "Exact M3 fractions (e.g., Layer1 ops 3/7, 1/7)",
+        "M4 all-pairs TRIVIAL_SIZE_MISMATCH pattern (both Unseen are 5-node; Seen are 8/6/8/4/4)",
+        "Complete Layer1 label coverage of Unseen",
+        "Candidate A/B/F1/F2 sensitivity outcomes"
+      ],
+      "more_durable_method_claims": [
+        "Need Layer1 and Layer2 subgraph modes separately",
+        "Need unique and occurrence-weighted denominators",
+        "Need TRIVIAL_SIZE_MISMATCH handling for M4",
+        "Pure atomic composition requires Seen coverage of Unseen atoms"
+      ]
+    },
+    "E": {
+      "question": "Without re-splitting, what minimal controls/experiments are needed for CVPR claims?",
+      "judgment": "CONTROLS_REQUIRED",
+      "minimal_next": [
+        {
+          "id": "CTRL_SEEN_ATOM_COVERED_UNSEEN_SUBSET",
+          "action": "Identify or construct evaluation items whose Layer2 atoms are all Seen-covered (hold-out wiring only); report M3 on that subset separately.",
+          "purpose": "Isolate pure compositional novelty from atom inventory shift"
+        },
+        {
+          "id": "CTRL_SIZE_MATCHED_SEEN_PROBE",
+          "action": "Add analysis probes or synthetic controls with 5-node Seen programs matching Unseen sizes for non-trivial M4 — without promoting them into formal Unseen.",
+          "purpose": "Avoid TRIVIAL_SIZE_MISMATCH dominating full-graph inequivalence narrative"
+        },
+        {
+          "id": "REPORT_LAYER_SEPARATION",
+          "action": "In paper, claim family-level (Layer1) recombination separately from atomic (Layer2) composition; never merge M1=1.0 with M2≪1 into one 'compositional' headline.",
+          "purpose": "Prevent overclaim"
+        },
+        {
+          "id": "EXPAND_N_UNSEEN_LATER",
+          "action": "Treat current 2 Unseen as pilot; defer CVPR-strength generalization claims until N_unseen grows under same frozen vocab.",
+          "purpose": "Statistical / external validity"
+        }
+      ],
+      "forbidden_here": [
+        "Auto-expand Seen",
+        "Move Unseen",
+        "Promote A/B/F1/F2",
+        "Certify Gold"
+      ]
+    }
+  },
+  "remaining_limits": [
+    "Only 2 formal Unseen graphs — quantitative fractions are pilot-scale",
+    "Chat-approved sidecars are not frame-certified video evidence",
+    "I/O alpha-renaming is structural; does not recover semantic variable identity across graphs",
+    "No Seen graph shares 5-node size with C2/R3 — M4 full-graph tests are dominated by TRIVIAL_SIZE_MISMATCH",
+    "Pure Layer2 compositional evaluation requires Seen-atom-covered controls (see validity.E)"
+  ],
+  "algorithm_self_checks": {
+    "duplicate_label_id_independence": {
+      "ops_equal_under_id_permutation": true,
+      "ops_role_equal_for_isomorphic_role_edge": true,
+      "sig_ops": [
+        [
+          [
+            "Op"
+          ],
+          [
+            "Op"
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "sig_ops_role": [
+        [
+          [
+            "Op",
+            "A"
+          ],
+          [
+            "Op",
+            "B"
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    },
+    "layer1_reference_fractions": [
+      {
+        "cell": "layer1/ops/2_node",
+        "expected_unique_fraction": "3/7",
+        "got_unique_fraction": "3/7",
+        "match": true
+      },
+      {
+        "cell": "layer1/ops/3_node",
+        "expected_unique_fraction": "1/7",
+        "got_unique_fraction": "1/7",
+        "match": true
+      },
+      {
+        "cell": "layer1/ops_role/2_node",
+        "expected_unique_fraction": "3/8",
+        "got_unique_fraction": "3/8",
+        "match": true
+      },
+      {
+        "cell": "layer1/ops_role/3_node",
+        "expected_unique_fraction": "0/8",
+        "got_unique_fraction": "0/8",
+        "match": true
+      }
+    ]
+  }
+}
