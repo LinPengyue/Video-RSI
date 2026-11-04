@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "longvideocompbenc/review.schema.json",
+  "title": "LongVideoCompBench Review / Necessity",
+  "type": "object",
+  "required": [
+    "review_id",
+    "qa_id",
+    "review_kind",
+    "a_only",
+    "b_only",
+    "a_plus_b",
+    "single_window_shortcut",
+    "answer_certification",
+    "cross_window_bind",
+    "human_adjudication",
+    "decision_basis",
+    "decision_version",
+    "necessity_test_passed"
+  ],
+  "properties": {
+    "review_id": { "type": "string" },
+    "qa_id": { "type": "string" },
+    "review_kind": { "type": "string" },
+    "a_only": { "type": ["boolean", "string", "null"] },
+    "b_only": { "type": ["boolean", "string", "null"] },
+    "a_plus_b": { "type": ["boolean", "string", "null"] },
+    "single_window_shortcut": { "type": ["boolean", "string", "null"] },
+    "answer_certification": { "type": "string" },
+    "cross_window_bind": { "type": ["object", "null"] },
+    "human_adjudication": { "type": ["object", "null"] },
+    "decision_basis": { "type": ["string", "null"] },
+    "decision_version": { "type": "string" },
+    "necessity_test_passed": {
+      "type": "string",
+      "enum": ["TRUE", "FALSE", "UNKNOWN", "NOT_AUTO_INFERRED_FROM_GRAPH"]
+    },
+    "provenance": { "type": "object" }
+  }
+}

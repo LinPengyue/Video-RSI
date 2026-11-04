@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "longvideocompbenc/qa_item.schema.json",
+  "title": "LongVideoCompBench QA Item",
+  "type": "object",
+  "required": [
+    "qa_id",
+    "source_qa_id",
+    "video_id",
+    "question",
+    "answer",
+    "answer_status",
+    "program_graph_id",
+    "evidence_ids",
+    "necessity_test_id",
+    "review_status",
+    "split_assignment",
+    "split_version",
+    "composition_attributes",
+    "provenance",
+    "record_completeness"
+  ],
+  "properties": {
+    "qa_id": { "type": "string", "minLength": 1 },
+    "source_qa_id": { "type": "string", "minLength": 1 },
+    "video_id": { "type": ["string", "null"] },
+    "question": { "type": ["string", "null"] },
+    "answer": { "type": ["string", "null"] },
+    "answer_status": {
+      "type": "string",
+      "enum": [
+        "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+        "UNKNOWN_MISSING_SOURCE",
+        "WITHHELD",
+        "REJECTED"
+      ]
+    },
+    "program_graph_id": { "type": ["string", "null"] },
+    "evidence_ids": { "type": "array", "items": { "type": "string" } },
+    "necessity_test_id": { "type": ["string", "null"] },
+    "review_status": { "type": "string" },
+    "split_assignment": { "type": "string" },
+    "split_version": { "type": "string" },
+    "composition_attributes": { "type": "object" },
+    "provenance": { "type": "object" },
+    "record_completeness": {
+      "type": "string",
+      "enum": ["COMPLETE", "PARTIAL", "GRAPH_ONLY"]
+    },
+    "formal_gold": { "const": false }
+  }
+}

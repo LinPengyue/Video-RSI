@@ -1,0 +1,72 @@
+{
+  "batch_id": "example_batch_dryrun_only",
+  "note": "Illustrative staging batch for import_annotation_batch.py dry-run. Not a real scientific item. Do not --apply unless intentionally testing append.",
+  "items": [
+    {
+      "source_item_id": "EXAMPLE_STAGING_001",
+      "source_qa_id": "EXAMPLE_STAGING_001",
+      "video_id": "example_video_placeholder",
+      "video_record": {
+        "video_id": "example_video_placeholder",
+        "source_dataset": "PLACEHOLDER",
+        "source_video_id": "example_video_placeholder",
+        "source_uri": null,
+        "duration_seconds": null,
+        "media_sha256": "UNKNOWN",
+        "access_status": "PATH_UNKNOWN",
+        "license_status": "UNKNOWN_NOT_DECLARED_OPEN",
+        "pool": "DEV",
+        "provenance": { "staging_example": true }
+      },
+      "question": "Staging example question (not a benchmark seed).",
+      "answer": null,
+      "answer_status": "UNKNOWN_MISSING_SOURCE",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "program_graph": {
+        "nodes": [
+          {
+            "node_id": "n1",
+            "raw_operator": "ExampleOp",
+            "layer1": null,
+            "layer2": null,
+            "raw_inputs": [],
+            "raw_outputs": ["x"],
+            "normalized_inputs": [],
+            "normalized_outputs": ["x"],
+            "clip_role": "A",
+            "time_conditions": null,
+            "evidence_ref": null,
+            "uncertainty_status": "UNKNOWN",
+            "evidence_certification": "NOT_FRAME_CERTIFIED"
+          },
+          {
+            "node_id": "n2",
+            "raw_operator": "ExampleOp2",
+            "layer1": null,
+            "layer2": null,
+            "raw_inputs": ["x"],
+            "raw_outputs": ["y"],
+            "normalized_inputs": ["x"],
+            "normalized_outputs": ["y"],
+            "clip_role": "B",
+            "time_conditions": null,
+            "evidence_ref": null,
+            "uncertainty_status": "UNKNOWN",
+            "evidence_certification": "NOT_FRAME_CERTIFIED"
+          }
+        ],
+        "edges": [
+          {
+            "edge_id": "e1",
+            "source": "n1",
+            "target": "n2",
+            "dependency_kind": "data",
+            "raw_dependency_kind": "data",
+            "provenance": null
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "longvideocompbenc/split.schema.json",
+  "title": "LongVideoCompBench Split Manifest",
+  "type": "object",
+  "required": [
+    "schema",
+    "frozen_5_2",
+    "proposed_7_4_dev",
+    "policy"
+  ],
+  "properties": {
+    "schema": { "const": "longvideocompbenc_splits_v0_1" },
+    "frozen_5_2": {
+      "type": "object",
+      "required": ["status", "seen", "unseen", "immutable"],
+      "properties": {
+        "status": { "const": "FROZEN_FOR_TRACK_A_MINIMAL_VALIDATION" },
+        "seen": { "type": "array", "items": { "type": "string" } },
+        "unseen": { "type": "array", "items": { "type": "string" } },
+        "immutable": { "const": true }
+      }
+    },
+    "proposed_7_4_dev": {
+      "type": "object",
+      "required": ["status", "seen", "unseen"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["PROPOSED", "HUMAN_APPROVED_FROZEN"]
+        },
+        "seen": { "type": "array", "items": { "type": "string" } },
+        "unseen": { "type": "array", "items": { "type": "string" } },
+        "approval_record": { "type": ["string", "null"] }
+      }
+    },
+    "policy": { "type": "object" }
+  }
+}

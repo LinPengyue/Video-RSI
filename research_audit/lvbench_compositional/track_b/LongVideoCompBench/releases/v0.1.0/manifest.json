@@ -1,0 +1,81 @@
+{
+  "schema": "longvideocompbenc_release_manifest_v0_1",
+  "version": "v0.1.0",
+  "built_utc": "2026-11-04T13:12:22+00:00",
+  "immutable": true,
+  "public_release": false,
+  "includes_video_binaries": false,
+  "includes_public_test_answers": false,
+  "files": [
+    {
+      "path": "data/videos.jsonl",
+      "sha256": "0d10f350a1e64b51745a91b78af2148372584a7915aafb97c5fd9b1061bc239e",
+      "bytes": 4858
+    },
+    {
+      "path": "data/qa_items.jsonl",
+      "sha256": "6c3be3b40f15bf817a440877a35ee3fed029e06ea6a5064d8298d5ffd570fc00",
+      "bytes": 11575
+    },
+    {
+      "path": "data/program_graphs.jsonl",
+      "sha256": "b07a350ded690dc35c4593ce06bad49a1a5ba38aeac4602a2d7789b7badcd6fe",
+      "bytes": 63448
+    },
+    {
+      "path": "data/evidence.jsonl",
+      "sha256": "216d0364b73fb3ab232cb45326dc2a1f3406b5903e73fba8512228e94d1b5ac5",
+      "bytes": 6515
+    },
+    {
+      "path": "data/splits.json",
+      "sha256": "285f33d3dbbb8f7913282343fe90460f62195339284562460e76e1bd372fefc9",
+      "bytes": 1789
+    },
+    {
+      "path": "annotations/human_reviews.jsonl",
+      "sha256": "8836c6621937d35d52e6dd9104b1476dbd74dea28929dcc1a78e7c0a42f2eeea",
+      "bytes": 9065
+    },
+    {
+      "path": "annotations/necessity_tests.jsonl",
+      "sha256": "af2938e0db13d5b61df77068a82e74f8623e90309c4e6cb89a746376315e2321",
+      "bytes": 2498
+    },
+    {
+      "path": "annotations/adjudication_log.jsonl",
+      "sha256": "608fdad771f4b42c8646dd80863ef69d7e2b6b351734c5cf6f8e764851d7ef6f",
+      "bytes": 3024
+    },
+    {
+      "path": "reports/bootstrap_report.json",
+      "sha256": "c3e2d71458383c933bc223dd5bbacbc92c7ef92b36ce1bba5610faebe6a3491c",
+      "bytes": 3570
+    },
+    {
+      "path": "reports/coverage_report.json",
+      "sha256": "ccd344c1753f6c9c313af474f91e27d5481eeb6046180affee443a9c0f0c16df",
+      "bytes": 4846
+    },
+    {
+      "path": "reports/split_integrity_report.json",
+      "sha256": "330fd73a780323cc682d5e02fef80d0244e225fbaee821d08508c99a9ebacfa8",
+      "bytes": 514
+    },
+    {
+      "path": "reports/validation_report.json",
+      "sha256": "d9360d73fdae083e63018a6ebd99f1475f70c7291e954e59a1d5d00ac9b1d32d",
+      "bytes": 641
+    },
+    {
+      "path": "VERSION",
+      "sha256": "c2ef39e09593cca70be98a0fb0ab435b53e2eb3c3d4e812cd7d43794eafa7728",
+      "bytes": 10
+    }
+  ],
+  "warnings": [
+    "Internal DEV snapshot only.",
+    "Do not publish scorer-private Track A packs from this tree without isolation review.",
+    "License not declared open."
+  ]
+}

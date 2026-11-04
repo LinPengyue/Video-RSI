@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "longvideocompbenc/evidence.schema.json",
+  "title": "LongVideoCompBench Evidence",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "video_id",
+    "window_start",
+    "window_end",
+    "modality",
+    "source_frame_refs",
+    "source_hashes",
+    "claim",
+    "certification_status",
+    "reviewer_provenance"
+  ],
+  "properties": {
+    "evidence_id": { "type": "string", "minLength": 1 },
+    "video_id": { "type": ["string", "null"] },
+    "window_start": { "type": ["number", "null"] },
+    "window_end": { "type": ["number", "null"] },
+    "modality": { "type": "string" },
+    "source_frame_refs": { "type": ["array", "null"] },
+    "source_hashes": { "type": "object" },
+    "claim": { "type": ["string", "null"] },
+    "certification_status": {
+      "type": "string",
+      "enum": [
+        "SOURCE_WINDOW_ONLY",
+        "FRAME_CERTIFIED",
+        "NOT_FRAME_CERTIFIED",
+        "UNKNOWN",
+        "PENDING"
+      ]
+    },
+    "reviewer_provenance": { "type": "object" }
+  }
+}

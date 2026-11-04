@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "longvideocompbenc/video.schema.json",
+  "title": "LongVideoCompBench Video",
+  "type": "object",
+  "required": [
+    "video_id",
+    "source_dataset",
+    "source_video_id",
+    "source_uri",
+    "duration_seconds",
+    "media_sha256",
+    "access_status",
+    "license_status",
+    "pool",
+    "provenance"
+  ],
+  "properties": {
+    "video_id": { "type": "string", "minLength": 1 },
+    "source_dataset": { "type": "string" },
+    "source_video_id": { "type": ["string", "null"] },
+    "source_uri": { "type": ["string", "null"] },
+    "duration_seconds": { "type": ["number", "null"] },
+    "media_sha256": { "type": "string" },
+    "access_status": { "type": "string" },
+    "license_status": { "type": "string" },
+    "pool": { "type": "string" },
+    "provenance": { "type": "object" }
+  }
+}

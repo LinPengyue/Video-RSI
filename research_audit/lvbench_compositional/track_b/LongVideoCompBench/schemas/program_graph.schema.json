@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "longvideocompbenc/program_graph.schema.json",
+  "title": "LongVideoCompBench Program Graph",
+  "type": "object",
+  "required": [
+    "program_graph_id",
+    "qa_id",
+    "nodes",
+    "edges",
+    "graph_approval_status",
+    "source_provenance"
+  ],
+  "properties": {
+    "program_graph_id": { "type": "string", "minLength": 1 },
+    "qa_id": { "type": "string", "minLength": 1 },
+    "source_item_id": { "type": "string" },
+    "n_nodes": { "type": "integer", "minimum": 0 },
+    "n_edges": { "type": "integer", "minimum": 0 },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["node_id", "raw_operator"],
+        "properties": {
+          "node_id": { "type": "string" },
+          "raw_operator": { "type": ["string", "null"] },
+          "layer1": { "type": ["string", "null"] },
+          "layer2": { "type": ["string", "null"] },
+          "raw_inputs": { "type": "array" },
+          "raw_outputs": { "type": "array" },
+          "normalized_inputs": { "type": "array" },
+          "normalized_outputs": { "type": "array" },
+          "clip_role": { "type": ["string", "null"] },
+          "time_conditions": { "type": ["array", "object", "null"] },
+          "evidence_ref": { "type": ["object", "string", "null"] },
+          "uncertainty_status": { "type": ["string", "null"] },
+          "evidence_certification": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "target"],
+        "properties": {
+          "edge_id": { "type": ["string", "null"] },
+          "source": { "type": "string" },
+          "target": { "type": "string" },
+          "dependency_kind": { "type": ["string", "null"] },
+          "raw_dependency_kind": { "type": ["string", "null"] },
+          "provenance": { "type": ["object", "null"] }
+        }
+      }
+    },
+    "graph_approval_status": { "type": "string" },
+    "source_provenance": { "type": "object" }
+  }
+}

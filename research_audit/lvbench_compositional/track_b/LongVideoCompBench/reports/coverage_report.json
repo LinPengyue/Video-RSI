@@ -1,0 +1,181 @@
+{
+  "schema": "longvideocompbenc_coverage_stats_v0_1",
+  "built_utc": "2026-11-04T13:12:22+00:00",
+  "videos": {
+    "unique_video_rows": 8,
+    "qa_video_frequency": {
+      "aJI8XTa_DII": 1,
+      "vHlSoxg8WHo": 1,
+      "KLIa2UaE2KE": 1,
+      "Hf-n1yfd8II": 2,
+      "VTCDQYYKA9o": 1,
+      "TJR1oYDDTwg": 1,
+      "__UNKNOWN_VIDEO__": 2,
+      "Cm73ma6Ibcs": 1,
+      "LLSJrEgOOtw": 1
+    },
+    "dedup_note": "Multiple QAs may share one video (e.g., SP201/SP202).",
+    "duration_seconds": {
+      "confirmed": 0,
+      "unknown": 8,
+      "note": "unknown_not_treated_as_zero"
+    }
+  },
+  "qa": {
+    "n_records": 11,
+    "n_complete": 9,
+    "n_partial": 0,
+    "n_graph_only": 2,
+    "independent_source_item_ids": [
+      "A",
+      "B",
+      "P7_R4_F1",
+      "P7_R4_F2",
+      "P7_TJR_R3",
+      "P7_VTCD_C2",
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202"
+    ],
+    "split_assignment_counts": {
+      "SEEN": 5,
+      "UNSEEN": 2,
+      "SEEN_PROPOSED": 2,
+      "UNSEEN_PROPOSED": 2
+    },
+    "gold_pending_rejected": {
+      "Pending": 11
+    }
+  },
+  "splits_declared": {
+    "frozen_5_2": {
+      "status": "FROZEN_FOR_TRACK_A_MINIMAL_VALIDATION",
+      "seen": [
+        "SP001",
+        "SP002",
+        "SP005",
+        "SP201",
+        "SP202"
+      ],
+      "unseen": [
+        "P7_VTCD_C2",
+        "P7_TJR_R3"
+      ],
+      "immutable": true,
+      "wp1_export_path": "research_audit/lvbench_compositional/track_b/minimal_validation_export_v1",
+      "wp1_validation_status": "PASS",
+      "note": "Do not mutate; Track A minimal validation continues to use WP1 pack."
+    },
+    "proposed_7_4_dev": {
+      "status": "PROPOSED",
+      "n_seen": 7,
+      "n_unseen": 4
+    }
+  },
+  "layer_coverage": {
+    "layer1": {
+      "SCENE_LOCALIZATION": 2,
+      "OBJECT_DETECTION": 1,
+      "CONSTRAINT_BASED_ENTITY_SELECTION": 2,
+      "AGGREGATION_QUERY": 1,
+      "OBJECT_IDENTIFICATION": 1,
+      "SYMBOLIC_ATTRIBUTE_RECOGNITION": 2,
+      "CROSS_WINDOW_ENTITY_BIND": 10,
+      "ENTITY_IDENTIFICATION": 11,
+      "TEXT_EVIDENCE_READING": 4,
+      "ENTITY_BINDING": 1,
+      "RELATION_QUERY": 1,
+      "EVENT_DETECTION": 7,
+      "TARGET_CONSTRAINT_SETUP": 1,
+      "TEMPORAL_EVENT_LOCALIZATION": 3,
+      "EVENT_PARTICIPANT_QUERY": 1,
+      "EVENT_OUTCOME_INFERENCE": 1,
+      "BOUND_ATTRIBUTE_QUERY": 8,
+      "SCENE_REPRESENTATION": 2,
+      "VISUAL_FEATURE_EXTRACTION": 1
+    },
+    "layer1_missing_node_fields": 0,
+    "layer2": {
+      "LocateSceneByEvent": 2,
+      "DetectObjectInstances": 1,
+      "FilterFlagsByCountry": 1,
+      "CountFilteredEntities": 1,
+      "LocateSceneByLandmark": 1,
+      "IdentifyFlag": 1,
+      "IdentifyCountryFromFlag": 2,
+      "BindCountryConstraint": 1,
+      "ObservePerson": 1,
+      "ReadPersonNameFromSubtitle": 1,
+      "BindPersonToName": 1,
+      "ReadRelationFromSubtitle": 1,
+      "JoinPersonRelationAcrossWindows": 1,
+      "QueryRelation": 1,
+      "DetectObjectActionEvent": 1,
+      "SetTargetCountry": 1,
+      "IdentifyTeams": 1,
+      "SelectTeamByCountry": 1,
+      "LocateOrderedSegment": 1,
+      "LocateConstrainedScoreEvent": 1,
+      "QueryEventParticipant": 1,
+      "DetermineEventWinner": 1,
+      "IdentifyPerson": 2,
+      "BindSamePerson": 6,
+      "QueryBoundEmotion": 1,
+      "IdentifyFirstActorByAction": 1,
+      "QueryBoundMatchResult": 1,
+      "ReadPersonNameFromGraphic": 2,
+      "DetectActionEvent": 4,
+      "QueryBoundAction": 1,
+      "IdentifyPersonByAppearance": 3,
+      "DetectTransportEvent": 1,
+      "QueryBoundTransport": 1,
+      "DetectPersonAndAppearance": 1,
+      "QueryBoundLocation": 1,
+      "ExtractRoomLayout": 1,
+      "BindSameScene": 1,
+      "QueryBoundObject": 1,
+      "IdentifyPersonByRole": 1,
+      "ExtractPersonAppearance": 1,
+      "QueryBoundActions": 1,
+      "IdentifyAnimalVisual": 2,
+      "BindSameAnimal": 1,
+      "DetectInteractionEvent": 1,
+      "QueryBoundInteraction": 1
+    },
+    "layer2_missing_node_fields": 0
+  },
+  "directed_subgraph_coverage": {
+    "unique_2node_signatures": 53,
+    "unique_3node_signatures": 61
+  },
+  "novelty_distribution": {
+    "atomic_covered": {
+      "confirmed": null,
+      "unknown": true,
+      "source": "not_recomputed_here"
+    },
+    "atomic_novel": {
+      "confirmed": null,
+      "unknown": true,
+      "source": "not_recomputed_here"
+    },
+    "mixed_ood": {
+      "confirmed": null,
+      "unknown": true,
+      "source": "not_recomputed_here"
+    },
+    "note": "Use normalized_programs_v1 Stage4 for novelty; missing ≠ 0."
+  },
+  "necessity_audit": {
+    "records_with_explicit_pass_fail": 0,
+    "passed": 0,
+    "unknown_or_not_auto_inferred": 11,
+    "pass_rate_among_known": null
+  },
+  "human_review_workload": {
+    "n_review_records": 11,
+    "note": "Count of imported review rows only; not hours."
+  }
+}
