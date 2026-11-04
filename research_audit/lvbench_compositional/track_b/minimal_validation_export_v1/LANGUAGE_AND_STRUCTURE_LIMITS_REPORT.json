@@ -1,6 +1,6 @@
 {
   "schema": "language_and_structure_limits_report_v1",
-  "algo_version": "minimal_validation_export_v1.1.0",
+  "algo_version": "minimal_validation_export_v1.2.0",
   "language_distribution": {
     "seen_item_languages": {
       "SP001": "en",

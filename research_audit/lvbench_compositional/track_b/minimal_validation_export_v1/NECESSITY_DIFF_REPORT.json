@@ -1,6 +1,6 @@
 {
   "schema": "necessity_diff_report_v1",
-  "algo_version": "minimal_validation_export_v1.1.0",
+  "algo_version": "minimal_validation_export_v1.2.0",
   "policy": "Track A must consume necessity_authoritative only. Inventory and other records are provenance. Conflicts resolve to human_judgments_preserved.",
   "items": [
     {

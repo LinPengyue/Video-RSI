@@ -1,0 +1,22 @@
+{
+  "schema": "minimal_validation_inference_access_whitelist_v1",
+  "algo_version": "minimal_validation_export_v1.2.0",
+  "root_role": "projections/inference_safe",
+  "enforcement": "eng/inference_access.py::resolve_allowed_path",
+  "allowed_relative_paths": [
+    "qa_items.json",
+    "program_graphs_seen_redacted.json",
+    "video_manifest.json",
+    "split_manifest.json",
+    "ACCESS.md",
+    "INFERENCE_ACCESS_WHITELIST.json"
+  ],
+  "denied_examples": [
+    "../scorer_private/answers.json",
+    "../../qa_items.json",
+    "../../program_graphs.json",
+    "../../split_manifest.json",
+    "../scorer_private/eval_private_metadata.json"
+  ],
+  "policy": "Ordinary Track A inference may open only allowed_relative_paths under this directory via resolve_allowed_path. Do not rely on ACCESS.md alone."
+}

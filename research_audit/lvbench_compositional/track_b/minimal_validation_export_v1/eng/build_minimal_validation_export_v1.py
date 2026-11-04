@@ -15,6 +15,10 @@ from pathlib import Path
 
 ENG = Path(__file__).resolve().parent
 sys.path.insert(0, str(ENG))
+from inference_access import (  # noqa: E402
+    WHITELIST_FILENAME,
+    build_whitelist_document,
+)
 from strict_schema import SchemaError, validate_or_raise  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[5]
@@ -32,7 +36,7 @@ VIDEO_ROOTS = [
 SEEN = ["SP001", "SP002", "SP005", "SP201", "SP202"]
 UNSEEN = ["P7_VTCD_C2", "P7_TJR_R3"]
 EXPORT_IDS = SEEN + UNSEEN
-ALGO = "minimal_validation_export_v1.1.0"
+ALGO = "minimal_validation_export_v1.2.0"
 
 ANSWER_OUTPUT_MARKERS = re.compile(
     r"(^answer$|^answer[_-]|_answer$|final_answer|user_answer)", re.IGNORECASE
@@ -642,9 +646,51 @@ def redact_graph_for_inference(graph: dict) -> dict:
     }
 
 
+def redact_split_for_inference(split: dict) -> dict:
+    """Keep Seen structure labels; strip Unseen operator sets / node-edge counts."""
+    items = []
+    for row in split["items"]:
+        out = {
+            "item_id": row["item_id"],
+            "pilot_role": row["pilot_role"],
+            "formal_seen_train": row["formal_seen_train"],
+            "formal_unseen": row["formal_unseen"],
+            "formal_gold": row["formal_gold"],
+            "train_exposed": row["train_exposed"],
+            "approve_expensive_track_a_rsi": row.get("approve_expensive_track_a_rsi"),
+            "training_exposure_limits": row["training_exposure_limits"],
+        }
+        if row["item_id"] in UNSEEN or row.get("pilot_role") == "UNSEEN":
+            out["structure_labels"] = {
+                "status": "WITHHELD_FROM_INFERENCE",
+                "reason": (
+                    "Unseen Layer1/Layer2 operator sets, node counts, and edge counts "
+                    "are scorer/scientific-audit only; not visible to ordinary inference."
+                ),
+            }
+        else:
+            out["structure_labels"] = row.get("structure_labels")
+        items.append(out)
+    return {
+        "schema": "minimal_validation_inference_safe_split_manifest_v1",
+        "algo_version": ALGO,
+        "fixed_seen": list(split["fixed_seen"]),
+        "fixed_unseen": list(split["fixed_unseen"]),
+        "candidate_excluded_from_this_export": list(
+            split.get("candidate_excluded_from_this_export") or []
+        ),
+        "items": items,
+        "structure_policy": {
+            "seen_structure_labels": "VISIBLE",
+            "unseen_structure_labels": "WITHHELD",
+        },
+    }
+
+
 def build_projections(qa, graphs, videos, split) -> dict:
     """Full scientific pack stays at package root; projections are isolated."""
     answers = []
+    eval_private = []
     inf_qa = []
     for q in qa:
         answers.append(
@@ -660,6 +706,16 @@ def build_projections(qa, graphs, videos, split) -> dict:
                 "windows": q["windows"],
                 "necessity_authoritative": q["necessity"]["necessity_authoritative"],
                 "access": "SCORER_PRIVATE_ONLY",
+            }
+        )
+        eval_private.append(
+            {
+                "item_id": q["item_id"],
+                "qa_uid": q["qa_uid"],
+                "necessity_authoritative": q["necessity"]["necessity_authoritative"],
+                "necessity_provenance_conflict": q["necessity"].get("conflict"),
+                "windows_evaluation_gates": q["windows"].get("evaluation_gates"),
+                "access": "SCORER_PRIVATE_EVAL_METADATA_ONLY",
             }
         )
         inf_qa.append(
@@ -681,17 +737,10 @@ def build_projections(qa, graphs, videos, split) -> dict:
                         "do_not_infer_from_program_graph"
                     ),
                 },
-                "necessity_authoritative": {
-                    "a_only_sufficient": q["necessity"]["necessity_authoritative"][
-                        "a_only_sufficient"
-                    ],
-                    "b_only_sufficient": q["necessity"]["necessity_authoritative"][
-                        "b_only_sufficient"
-                    ],
-                    "cross_clip_necessary": q["necessity"]["necessity_authoritative"].get(
-                        "cross_clip_necessary"
-                    ),
-                    "authority": q["necessity"]["necessity_authoritative"]["authority"],
+                # Human A-only/B-only necessity is scorer-private (WP1.2).
+                "necessity": {
+                    "status": "WITHHELD_SCORER_PRIVATE",
+                    "note": "necessity_authoritative lives in projections/scorer_private/",
                 },
                 "gates": q["gates"],
                 "answer": {
@@ -705,6 +754,8 @@ def build_projections(qa, graphs, videos, split) -> dict:
     seen_graphs = [
         redact_graph_for_inference(g) for g in graphs if g["item_id"] in SEEN
     ]
+    inf_split = redact_split_for_inference(split)
+    whitelist = build_whitelist_document(ALGO)
     return {
         "inference_safe": {
             "qa_items": {
@@ -717,6 +768,8 @@ def build_projections(qa, graphs, videos, split) -> dict:
                     "answer_bearing_graph_outputs",
                     "human_gold_like_evidence_payloads",
                     "unseen_original_program_graphs",
+                    "unseen_structure_labels_operator_sets",
+                    "necessity_authoritative_human_labels",
                 ],
             },
             "program_graphs_seen_redacted": {
@@ -733,12 +786,16 @@ def build_projections(qa, graphs, videos, split) -> dict:
                 "algo_version": ALGO,
                 "videos": videos,
             },
-            "split_manifest": split,
+            "split_manifest": inf_split,
+            "whitelist": whitelist,
             "ACCESS.md": (
                 "# Inference-safe projection\n\n"
-                "Ordinary Track A inference may read this directory only.\n\n"
+                "Ordinary Track A inference may read **only** paths listed in "
+                f"`{WHITELIST_FILENAME}`, opened via `eng/inference_access.py`.\n\n"
                 "Must NOT contain: reference answers, answer-bearing graph outputs, "
-                "human Gold-like evidence payloads, or Unseen original program graphs.\n"
+                "human Gold-like evidence payloads, Unseen original program graphs, "
+                "Unseen structure/operator/size labels, or human necessity_authoritative.\n"
+                "Do not rely on this markdown alone — enforce the whitelist.\n"
                 "Oracle-program experiment scope is NOT decided by this export.\n"
             ),
         },
@@ -750,9 +807,19 @@ def build_projections(qa, graphs, videos, split) -> dict:
                 "formal_gold": False,
                 "items": answers,
             },
+            "eval_private_metadata": {
+                "schema": "minimal_validation_scorer_private_eval_metadata_v1",
+                "algo_version": ALGO,
+                "access": "SCORER_PRIVATE_ONLY_NOT_FOR_INFERENCE",
+                "items": eval_private,
+                "note": (
+                    "Human necessity_authoritative (A-only/B-only/cross-clip) is "
+                    "evaluation-private; ordinary inference must not preload it."
+                ),
+            },
             "ACCESS.md": (
                 "# Scorer-private projection\n\n"
-                "Reference answers and scoring-side necessity/windows. "
+                "Reference answers, necessity_authoritative, and eval metadata. "
                 "Must not be mounted into ordinary Track A inference.\n"
                 "Answers remain HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD.\n"
             ),
@@ -1206,6 +1273,17 @@ def leak_scan_inference_safe(proj_root: Path, answers: list[dict]) -> list[dict]
                     issues.append(
                         {"code": "UNSEEN_GRAPH_LEAK", "file": rel, "item_id": uid}
                     )
+        if path.suffix == ".json":
+            if '"necessity_authoritative"' in text or '"a_only_sufficient"' in text:
+                issues.append(
+                    {
+                        "code": "NECESSITY_LABEL_LEAK",
+                        "file": rel,
+                        "note": "Human necessity labels must stay scorer-private",
+                    }
+                )
+            if '"b_only_sufficient"' in text:
+                issues.append({"code": "NECESSITY_LABEL_LEAK", "file": rel})
         if "__REDACTED" not in text:
             if re.search(r'"raw_outputs"\s*:\s*\[[^\]]*"answer"', text):
                 issues.append({"code": "ANSWER_OUTPUT_LEAK", "file": rel})
@@ -1221,7 +1299,56 @@ def leak_scan_inference_safe(proj_root: Path, answers: list[dict]) -> list[dict]
                 issues.append({"code": "UNSEEN_GRAPH_PRESENT", "item_id": uid})
         for gid in SEEN:
             if gid not in present:
-                issues.append({"code": "SEEN_GRAPH_MISSING_IN_INFERENCE_SAFE", "item_id": gid})
+                issues.append(
+                    {"code": "SEEN_GRAPH_MISSING_IN_INFERENCE_SAFE", "item_id": gid}
+                )
+    # Unseen structure labels must be withheld in inference split
+    spath = proj_root / "split_manifest.json"
+    if spath.is_file():
+        sdoc = json.loads(spath.read_text())
+        for row in sdoc.get("items") or []:
+            if row.get("item_id") not in UNSEEN and row.get("pilot_role") != "UNSEEN":
+                continue
+            labels = row.get("structure_labels") or {}
+            if labels.get("status") != "WITHHELD_FROM_INFERENCE":
+                issues.append(
+                    {
+                        "code": "UNSEEN_STRUCTURE_LABEL_LEAK",
+                        "item_id": row.get("item_id"),
+                        "structure_labels": labels,
+                    }
+                )
+            leak_keys = (
+                "layer1_families_normalized",
+                "layer2_atoms_normalized",
+                "n_nodes",
+                "n_edges",
+                "capability_families_upper_inventory",
+            )
+            if any(k in labels for k in leak_keys):
+                issues.append(
+                    {
+                        "code": "UNSEEN_STRUCTURE_OPERATOR_OR_SIZE_LEAK",
+                        "item_id": row.get("item_id"),
+                        "keys": [k for k in leak_keys if k in labels],
+                    }
+                )
+    # Whitelist must exist and deny parent escapes conceptually
+    wpath = proj_root / WHITELIST_FILENAME
+    if not wpath.is_file():
+        issues.append({"code": "MISSING_INFERENCE_WHITELIST"})
+    else:
+        wl = json.loads(wpath.read_text())
+        allowed = set(wl.get("allowed_relative_paths") or [])
+        for denied in (
+            "../scorer_private/answers.json",
+            "../../qa_items.json",
+            "../../program_graphs.json",
+        ):
+            if denied in allowed:
+                issues.append(
+                    {"code": "WHITELIST_ALLOWS_DENIED_PATH", "path": denied}
+                )
     return issues
 
 
@@ -1452,7 +1579,8 @@ Read-only packaging of the fixed **5 Seen + 2 Unseen** pilot for Track A *loadin
 | `NECESSITY_DIFF_REPORT.json` | Inventory vs authoritative necessity |
 | `WINDOW_AVAILABILITY_REPORT.json` | Fixed A/B window eval availability |
 | `LANGUAGE_AND_STRUCTURE_LIMITS_REPORT.json` | en/zh split + C2 abbreviation constraint |
-| `CHANGE_LIST_WP1_1.md` | Patch change list |
+| `CHANGE_LIST_WP1_2.md` | Isolation patch change list |
+| `projections/inference_safe/INFERENCE_ACCESS_WHITELIST.json` | Machine-enforced inference file whitelist |
 | `schemas/*.json` | Strict JSON Schemas |
 | `VALIDATION_REPORT.json` | Schema + join + uniqueness + leak scan |
 
@@ -1463,12 +1591,22 @@ Read-only packaging of the fixed **5 Seen + 2 Unseen** pilot for Track A *loadin
 
 ## Necessity authority
 
-Track A must use `necessity.necessity_authoritative` only. Provenance records are retained under `necessity.provenance_records`.
+Scientific audit / scorer-private: use `necessity.necessity_authoritative`.  
+Ordinary inference projection: necessity labels are **withheld** (`WITHHELD_SCORER_PRIVATE`).
+
+## Inference access
+
+```python
+from eng.inference_access import resolve_allowed_path, open_text
+root = Path('.../projections/inference_safe')
+text = open_text(root, 'qa_items.json')  # parent escapes raise InferenceAccessError
+```
 
 ## Limits
 
 - Answers: `HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD`
-- Unseen graphs omitted from inference-safe projection
+- Unseen graphs omitted; Unseen structure labels withheld from inference split
+- Human A-only/B-only necessity is scorer-private only
 - P7 windows UNKNOWN ⇒ `fixed_ab_window_eval=BLOCKED`
 - C2 abbreviation-matching constraint reported; annotations not rewritten
 - Local video SHA is engineering-only
@@ -1485,17 +1623,15 @@ Built by `{ALGO}`.
 
 
 def write_change_list() -> str:
-    return """# WP1.1 Change List
+    return """# WP1.2 Change List (inference-side isolation)
 
-Engineering-only patch on top of `adac071`. No scientific re-adjudication. No Track A launch.
+Engineering-only patch on top of `b1e57d6`. No scientific re-adjudication. No Track A launch.
 
-1. **Schema validation** — Strict Draft-2020-12 subset validator (`eng/strict_schema.py`) always runs; optional `jsonschema` library if installed. Overall `PASS` requires schema validation PASS (SKIPPED no longer allowed).
-2. **Uniqueness + joins** — item_id / qa_uid / video_id / node_id uniqueness; QA↔video and edge↔node joins; SP201/SP202 necessity non-null; P7 human-judgment authority; P7 window eval blocked.
-3. **Necessity** — New `necessity_authoritative` field; provenance retained; `a_only_sufficient_full_question` / `b_only_sufficient_full_question` mapped for SP201/SP202; P7 conflicts resolve to `human_judgments_preserved`. See `NECESSITY_DIFF_REPORT.json`.
-4. **Projections** — `projections/inference_safe/` and `projections/scorer_private/` with automatic leak regression tests. Oracle-program scope not decided here.
-5. **Windows** — Approved-source search only; C2/TJR remain UNKNOWN with `fixed_ab_window_eval=BLOCKED`; blind-packet clip filenames not promoted.
-6. **Language / structure** — Report 5 Seen en / 2 Unseen zh; report C2 `ReadNameAbbreviationGraphic` vs generic Layer2 collapse; annotations unchanged.
-7. **Unchanged** — Fixed 5+2 IDs; QA answer texts; program graph semantics; formal_* / train_exposed protection fields.
+1. **Unseen structure withheld** — `projections/inference_safe/split_manifest.json` keeps Seen structure labels; Unseen Layer1/Layer2/operator sets and n_nodes/n_edges are `WITHHELD_FROM_INFERENCE`. Full split remains in the scientific audit pack at package root.
+2. **Necessity private** — `necessity_authoritative` removed from inference QA projection; moved to `projections/scorer_private/eval_private_metadata.json` (+ still on scorer answers).
+3. **File access whitelist** — `INFERENCE_ACCESS_WHITELIST.json` + `eng/inference_access.py::resolve_allowed_path` reject parent escapes to answers / Unseen graphs. Not ACCESS.md-only.
+4. **Negative leak tests** — Injecting Unseen operators/structure or reference answers into the inference projection must fail validation.
+5. **Preserved** — Root scientific audit, schema/join/necessity/window/language/evidence checks; formal_* and train_exposed unchanged.
 """
 
 
@@ -1568,9 +1704,21 @@ def main() -> None:
         )
         + "\n"
     )
+    (proj_inf / WHITELIST_FILENAME).write_text(
+        json.dumps(projections["inference_safe"]["whitelist"], indent=2, ensure_ascii=False)
+        + "\n"
+    )
     (proj_inf / "ACCESS.md").write_text(projections["inference_safe"]["ACCESS.md"])
     (proj_scorer / "answers.json").write_text(
         json.dumps(projections["scorer_private"]["answers"], indent=2, ensure_ascii=False)
+        + "\n"
+    )
+    (proj_scorer / "eval_private_metadata.json").write_text(
+        json.dumps(
+            projections["scorer_private"]["eval_private_metadata"],
+            indent=2,
+            ensure_ascii=False,
+        )
         + "\n"
     )
     (proj_scorer / "ACCESS.md").write_text(projections["scorer_private"]["ACCESS.md"])
@@ -1616,7 +1764,7 @@ def main() -> None:
     (OUT / "VALIDATION_REPORT.json").write_text(
         json.dumps(report, indent=2, ensure_ascii=False) + "\n"
     )
-    (OUT / "CHANGE_LIST_WP1_1.md").write_text(write_change_list())
+    (OUT / "CHANGE_LIST_WP1_2.md").write_text(write_change_list())
     (OUT / "README.md").write_text(write_readme())
 
     print(

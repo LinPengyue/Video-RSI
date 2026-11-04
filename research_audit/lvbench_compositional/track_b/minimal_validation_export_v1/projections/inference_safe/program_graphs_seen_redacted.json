@@ -1,6 +1,6 @@
 {
   "schema": "minimal_validation_inference_safe_graphs_v1",
-  "algo_version": "minimal_validation_export_v1.1.0",
+  "algo_version": "minimal_validation_export_v1.2.0",
   "access": "TRACK_A_INFERENCE_ALLOWED_SEEN_ONLY",
   "unseen_graphs_policy": "OMITTED_NOT_FOR_INFERENCE",
   "omitted_unseen_item_ids": [

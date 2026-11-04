@@ -1,7 +1,7 @@
 {
   "schema": "minimal_validation_video_manifest_v1",
-  "algo_version": "minimal_validation_export_v1.1.0",
-  "built_utc": "2026-11-04T12:39:02+00:00",
+  "algo_version": "minimal_validation_export_v1.2.0",
+  "built_utc": "2026-11-04T12:45:29+00:00",
   "videos": [
     {
       "video_id": "Hf-n1yfd8II",

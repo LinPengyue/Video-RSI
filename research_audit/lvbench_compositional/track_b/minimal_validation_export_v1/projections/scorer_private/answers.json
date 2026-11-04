@@ -1,6 +1,6 @@
 {
   "schema": "minimal_validation_scorer_private_answers_v1",
-  "algo_version": "minimal_validation_export_v1.1.0",
+  "algo_version": "minimal_validation_export_v1.2.0",
   "access": "SCORER_PRIVATE_ONLY_NOT_FOR_INFERENCE",
   "formal_gold": false,
   "items": [

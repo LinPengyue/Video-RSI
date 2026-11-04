@@ -1,6 +1,6 @@
 {
   "schema": "minimal_validation_inference_safe_qa_v1",
-  "algo_version": "minimal_validation_export_v1.1.0",
+  "algo_version": "minimal_validation_export_v1.2.0",
   "access": "TRACK_A_INFERENCE_ALLOWED",
   "items": [
     {
@@ -28,11 +28,9 @@
         },
         "do_not_infer_from_program_graph": null
       },
-      "necessity_authoritative": {
-        "a_only_sufficient": false,
-        "b_only_sufficient": false,
-        "cross_clip_necessary": true,
-        "authority": "PILOT_INVENTORY.single_window_necessity"
+      "necessity": {
+        "status": "WITHHELD_SCORER_PRIVATE",
+        "note": "necessity_authoritative lives in projections/scorer_private/"
       },
       "gates": {
         "formal_seen_train": false,
@@ -71,11 +69,9 @@
         },
         "do_not_infer_from_program_graph": null
       },
-      "necessity_authoritative": {
-        "a_only_sufficient": false,
-        "b_only_sufficient": false,
-        "cross_clip_necessary": true,
-        "authority": "PILOT_INVENTORY.single_window_necessity"
+      "necessity": {
+        "status": "WITHHELD_SCORER_PRIVATE",
+        "note": "necessity_authoritative lives in projections/scorer_private/"
       },
       "gates": {
         "formal_seen_train": false,
@@ -114,11 +110,9 @@
         },
         "do_not_infer_from_program_graph": null
       },
-      "necessity_authoritative": {
-        "a_only_sufficient": false,
-        "b_only_sufficient": false,
-        "cross_clip_necessary": true,
-        "authority": "PILOT_INVENTORY.single_window_necessity"
+      "necessity": {
+        "status": "WITHHELD_SCORER_PRIVATE",
+        "note": "necessity_authoritative lives in projections/scorer_private/"
       },
       "gates": {
         "formal_seen_train": false,
@@ -157,11 +151,9 @@
         },
         "do_not_infer_from_program_graph": null
       },
-      "necessity_authoritative": {
-        "a_only_sufficient": false,
-        "b_only_sufficient": false,
-        "cross_clip_necessary": true,
-        "authority": "provenance_record.single_window_necessity_audit"
+      "necessity": {
+        "status": "WITHHELD_SCORER_PRIVATE",
+        "note": "necessity_authoritative lives in projections/scorer_private/"
       },
       "gates": {
         "formal_seen_train": false,
@@ -200,11 +192,9 @@
         },
         "do_not_infer_from_program_graph": null
       },
-      "necessity_authoritative": {
-        "a_only_sufficient": false,
-        "b_only_sufficient": false,
-        "cross_clip_necessary": true,
-        "authority": "provenance_record.single_window_necessity_audit"
+      "necessity": {
+        "status": "WITHHELD_SCORER_PRIVATE",
+        "note": "necessity_authoritative lives in projections/scorer_private/"
       },
       "gates": {
         "formal_seen_train": false,
@@ -237,11 +227,9 @@
         },
         "do_not_infer_from_program_graph": true
       },
-      "necessity_authoritative": {
-        "a_only_sufficient": false,
-        "b_only_sufficient": false,
-        "cross_clip_necessary": true,
-        "authority": "human_judgments_preserved"
+      "necessity": {
+        "status": "WITHHELD_SCORER_PRIVATE",
+        "note": "necessity_authoritative lives in projections/scorer_private/"
       },
       "gates": {
         "formal_seen_train": false,
@@ -274,11 +262,9 @@
         },
         "do_not_infer_from_program_graph": true
       },
-      "necessity_authoritative": {
-        "a_only_sufficient": false,
-        "b_only_sufficient": false,
-        "cross_clip_necessary": true,
-        "authority": "human_judgments_preserved"
+      "necessity": {
+        "status": "WITHHELD_SCORER_PRIVATE",
+        "note": "necessity_authoritative lives in projections/scorer_private/"
       },
       "gates": {
         "formal_seen_train": false,
@@ -297,6 +283,8 @@
     "reference_answers",
     "answer_bearing_graph_outputs",
     "human_gold_like_evidence_payloads",
-    "unseen_original_program_graphs"
+    "unseen_original_program_graphs",
+    "unseen_structure_labels_operator_sets",
+    "necessity_authoritative_human_labels"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schema": "window_availability_report_v1",
-  "algo_version": "minimal_validation_export_v1.1.0",
+  "algo_version": "minimal_validation_export_v1.2.0",
   "blocked_fixed_ab_window_eval": [
     "P7_VTCD_C2",
     "P7_TJR_R3"

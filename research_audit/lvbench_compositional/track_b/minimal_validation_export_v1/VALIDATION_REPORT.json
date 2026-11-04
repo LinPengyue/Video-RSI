@@ -20,8 +20,8 @@
     "engine": "builtin_draft2020_12_subset",
     "errors": []
   },
-  "validated_utc": "2026-11-04T12:39:02+00:00",
-  "algo_version": "minimal_validation_export_v1.1.0",
+  "validated_utc": "2026-11-04T12:45:29+00:00",
+  "algo_version": "minimal_validation_export_v1.2.0",
   "policy_notes": [
     "Schema validation SKIPPED/FAIL ⇒ overall status cannot be PASS.",
     "Answers are not formal Gold.",

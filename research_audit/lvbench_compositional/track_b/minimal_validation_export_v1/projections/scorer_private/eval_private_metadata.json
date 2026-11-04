@@ -1,0 +1,195 @@
+{
+  "schema": "minimal_validation_scorer_private_eval_metadata_v1",
+  "algo_version": "minimal_validation_export_v1.2.0",
+  "access": "SCORER_PRIVATE_ONLY_NOT_FOR_INFERENCE",
+  "items": [
+    {
+      "item_id": "SP001",
+      "qa_uid": "LVCOMP-V2-036",
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": []
+      },
+      "necessity_provenance_conflict": null,
+      "windows_evaluation_gates": {
+        "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+        "block_reason": null
+      },
+      "access": "SCORER_PRIVATE_EVAL_METADATA_ONLY"
+    },
+    {
+      "item_id": "SP002",
+      "qa_uid": "LVCOMP-V2-045",
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": []
+      },
+      "necessity_provenance_conflict": null,
+      "windows_evaluation_gates": {
+        "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+        "block_reason": null
+      },
+      "access": "SCORER_PRIVATE_EVAL_METADATA_ONLY"
+    },
+    {
+      "item_id": "SP005",
+      "qa_uid": "LVCOMP-V2-026",
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": []
+      },
+      "necessity_provenance_conflict": null,
+      "windows_evaluation_gates": {
+        "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+        "block_reason": null
+      },
+      "access": "SCORER_PRIVATE_EVAL_METADATA_ONLY"
+    },
+    {
+      "item_id": "SP201",
+      "qa_uid": "LVCOMP-V2-001",
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "provenance_record.single_window_necessity_audit",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": [
+          {
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          }
+        ]
+      },
+      "necessity_provenance_conflict": null,
+      "windows_evaluation_gates": {
+        "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+        "block_reason": null
+      },
+      "access": "SCORER_PRIVATE_EVAL_METADATA_ONLY"
+    },
+    {
+      "item_id": "SP202",
+      "qa_uid": "LVCOMP-V2-040",
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "provenance_record.single_window_necessity_audit",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": [
+          {
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          }
+        ]
+      },
+      "necessity_provenance_conflict": null,
+      "windows_evaluation_gates": {
+        "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+        "block_reason": null
+      },
+      "access": "SCORER_PRIVATE_EVAL_METADATA_ONLY"
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "qa_uid": "P7_VTCD_C2",
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": true,
+        "cross_clip_necessary": true,
+        "authority": "human_judgments_preserved",
+        "authority_note": "Original human scientific judgment is the sole Track A necessity authority when present; inventory booleans are provenance only."
+      },
+      "necessity_provenance_conflict": {
+        "inventory_vs_preserved_conflict": true,
+        "inventory_mapped": {
+          "a_only_sufficient": true,
+          "b_only_sufficient": true,
+          "a_plus_b": "是"
+        },
+        "preserved": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false
+        },
+        "resolution": "USE_human_judgments_preserved_AS_AUTHORITATIVE"
+      },
+      "windows_evaluation_gates": {
+        "fixed_ab_window_eval": "BLOCKED",
+        "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item."
+      },
+      "access": "SCORER_PRIVATE_EVAL_METADATA_ONLY"
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "qa_uid": "P7_TJR_R3",
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": true,
+        "cross_clip_necessary": true,
+        "authority": "human_judgments_preserved",
+        "authority_note": "Original human scientific judgment is the sole Track A necessity authority when present; inventory booleans are provenance only."
+      },
+      "necessity_provenance_conflict": {
+        "inventory_vs_preserved_conflict": true,
+        "inventory_mapped": {
+          "a_only_sufficient": true,
+          "b_only_sufficient": true,
+          "a_plus_b": "是"
+        },
+        "preserved": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false
+        },
+        "resolution": "USE_human_judgments_preserved_AS_AUTHORITATIVE"
+      },
+      "windows_evaluation_gates": {
+        "fixed_ab_window_eval": "BLOCKED",
+        "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item."
+      },
+      "access": "SCORER_PRIVATE_EVAL_METADATA_ONLY"
+    }
+  ],
+  "note": "Human necessity_authoritative (A-only/B-only/cross-clip) is evaluation-private; ordinary inference must not preload it."
+}

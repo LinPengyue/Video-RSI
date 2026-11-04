@@ -1,6 +1,6 @@
 {
-  "schema": "minimal_validation_split_manifest_v1",
-  "algo_version": "minimal_validation_export_v1.1.0",
+  "schema": "minimal_validation_inference_safe_split_manifest_v1",
+  "algo_version": "minimal_validation_export_v1.2.0",
   "fixed_seen": [
     "SP001",
     "SP002",
@@ -28,6 +28,13 @@
       "formal_gold": false,
       "train_exposed": false,
       "approve_expensive_track_a_rsi": false,
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      },
       "structure_labels": {
         "capability_families_upper_inventory": [
           "APPEARANCE_OR_ROLE_ID",
@@ -56,13 +63,6 @@
         ],
         "n_nodes": 8,
         "n_edges": 8
-      },
-      "training_exposure_limits": {
-        "may_use_as_formal_train": false,
-        "may_claim_formal_unseen": false,
-        "may_claim_formal_gold": false,
-        "track_a_use": "MINIMAL_VALIDATION_ONLY",
-        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
       }
     },
     {
@@ -73,6 +73,13 @@
       "formal_gold": false,
       "train_exposed": false,
       "approve_expensive_track_a_rsi": false,
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      },
       "structure_labels": {
         "capability_families_upper_inventory": [
           "APPEARANCE_OR_ROLE_ID",
@@ -96,13 +103,6 @@
         ],
         "n_nodes": 6,
         "n_edges": 5
-      },
-      "training_exposure_limits": {
-        "may_use_as_formal_train": false,
-        "may_claim_formal_unseen": false,
-        "may_claim_formal_gold": false,
-        "track_a_use": "MINIMAL_VALIDATION_ONLY",
-        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
       }
     },
     {
@@ -113,6 +113,13 @@
       "formal_gold": false,
       "train_exposed": false,
       "approve_expensive_track_a_rsi": false,
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      },
       "structure_labels": {
         "capability_families_upper_inventory": [
           "ACTION_OR_EVENT_DETECT",
@@ -142,13 +149,6 @@
         ],
         "n_nodes": 8,
         "n_edges": 7
-      },
-      "training_exposure_limits": {
-        "may_use_as_formal_train": false,
-        "may_claim_formal_unseen": false,
-        "may_claim_formal_gold": false,
-        "track_a_use": "MINIMAL_VALIDATION_ONLY",
-        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
       }
     },
     {
@@ -159,6 +159,13 @@
       "formal_gold": false,
       "train_exposed": false,
       "approve_expensive_track_a_rsi": false,
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      },
       "structure_labels": {
         "capability_families_upper_inventory": [
           "ACTION_OR_EVENT_DETECT",
@@ -179,13 +186,6 @@
         ],
         "n_nodes": 4,
         "n_edges": 3
-      },
-      "training_exposure_limits": {
-        "may_use_as_formal_train": false,
-        "may_claim_formal_unseen": false,
-        "may_claim_formal_gold": false,
-        "track_a_use": "MINIMAL_VALIDATION_ONLY",
-        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
       }
     },
     {
@@ -196,6 +196,13 @@
       "formal_gold": false,
       "train_exposed": false,
       "approve_expensive_track_a_rsi": false,
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      },
       "structure_labels": {
         "capability_families_upper_inventory": [
           "ACTION_OR_EVENT_DETECT",
@@ -216,13 +223,6 @@
         ],
         "n_nodes": 4,
         "n_edges": 3
-      },
-      "training_exposure_limits": {
-        "may_use_as_formal_train": false,
-        "may_claim_formal_unseen": false,
-        "may_claim_formal_gold": false,
-        "track_a_use": "MINIMAL_VALIDATION_ONLY",
-        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
       }
     },
     {
@@ -233,34 +233,16 @@
       "formal_gold": false,
       "train_exposed": false,
       "approve_expensive_track_a_rsi": false,
-      "structure_labels": {
-        "capability_families_upper_inventory": [
-          "ACTION_OR_EVENT_DETECT",
-          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
-          "CROSS_CLIP_IDENTITY_BIND",
-          "TEXT_OR_GRAPHIC_READ"
-        ],
-        "layer1_families_normalized": [
-          "BOUND_ATTRIBUTE_QUERY",
-          "CROSS_WINDOW_ENTITY_BIND",
-          "EVENT_DETECTION",
-          "TEXT_EVIDENCE_READING"
-        ],
-        "layer2_atoms_normalized": [
-          "BindSamePerson",
-          "DetectActionEvent",
-          "QueryBoundAction",
-          "ReadPersonNameFromGraphic"
-        ],
-        "n_nodes": 5,
-        "n_edges": 4
-      },
       "training_exposure_limits": {
         "may_use_as_formal_train": false,
         "may_claim_formal_unseen": false,
         "may_claim_formal_gold": false,
         "track_a_use": "MINIMAL_VALIDATION_ONLY",
         "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      },
+      "structure_labels": {
+        "status": "WITHHELD_FROM_INFERENCE",
+        "reason": "Unseen Layer1/Layer2 operator sets, node counts, and edge counts are scorer/scientific-audit only; not visible to ordinary inference."
       }
     },
     {
@@ -271,36 +253,21 @@
       "formal_gold": false,
       "train_exposed": false,
       "approve_expensive_track_a_rsi": false,
-      "structure_labels": {
-        "capability_families_upper_inventory": [
-          "ACTION_OR_EVENT_DETECT",
-          "APPEARANCE_OR_ROLE_ID",
-          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
-          "CROSS_CLIP_IDENTITY_BIND"
-        ],
-        "layer1_families_normalized": [
-          "BOUND_ATTRIBUTE_QUERY",
-          "CROSS_WINDOW_ENTITY_BIND",
-          "ENTITY_IDENTIFICATION",
-          "EVENT_DETECTION"
-        ],
-        "layer2_atoms_normalized": [
-          "BindSamePerson",
-          "DetectActionEvent",
-          "DetectTransportEvent",
-          "IdentifyPersonByAppearance",
-          "QueryBoundTransport"
-        ],
-        "n_nodes": 5,
-        "n_edges": 5
-      },
       "training_exposure_limits": {
         "may_use_as_formal_train": false,
         "may_claim_formal_unseen": false,
         "may_claim_formal_gold": false,
         "track_a_use": "MINIMAL_VALIDATION_ONLY",
         "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      },
+      "structure_labels": {
+        "status": "WITHHELD_FROM_INFERENCE",
+        "reason": "Unseen Layer1/Layer2 operator sets, node counts, and edge counts are scorer/scientific-audit only; not visible to ordinary inference."
       }
     }
-  ]
+  ],
+  "structure_policy": {
+    "seen_structure_labels": "VISIBLE",
+    "unseen_structure_labels": "WITHHELD"
+  }
 }

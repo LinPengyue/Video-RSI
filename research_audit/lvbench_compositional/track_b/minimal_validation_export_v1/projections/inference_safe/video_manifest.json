@@ -1,6 +1,6 @@
 {
   "schema": "minimal_validation_video_manifest_v1",
-  "algo_version": "minimal_validation_export_v1.1.0",
+  "algo_version": "minimal_validation_export_v1.2.0",
   "videos": [
     {
       "video_id": "Hf-n1yfd8II",
