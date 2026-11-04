@@ -1,0 +1,91 @@
+{
+  "schema": "wp2_2_closure_report_v1",
+  "work_package": "WP2.2",
+  "engineering_status": "CLOSED",
+  "human_owner_disposition": "ACCEPTED_AS_IS",
+  "scientific_status": "PARTIAL_WITH_DOCUMENTED_LIMITATIONS",
+  "ab_cross_window_relation": "HUMAN_APPROVED",
+  "formal_gold": false,
+  "wp2_3_required": false,
+  "closure_reason": "HUMAN_OWNER_ACCEPTED_CURRENT_INTERNAL_RELEASE",
+  "closed_utc": "2026-11-04T16:19:33+00:00",
+  "baseline_commit": "1bb34ce53482eee78d1bba62cfee4bba2073b65b",
+  "implementation_commit": "ec30605b4e54dbec0233cdab278da9ee98b7d44e",
+  "closure_commit": null,
+  "target_branch": "research/lvbench-comp-video-grounded-evidence",
+  "remote": "origin",
+  "remote_sync": {
+    "push_mode": "fast_forward_only_no_force",
+    "pre_push_remote_sha": "1bb34ce53482eee78d1bba62cfee4bba2073b65b",
+    "implementation_remote_sha": "ec30605b4e54dbec0233cdab278da9ee98b7d44e",
+    "implementation_local_remote_sha_match": true,
+    "verified_paths": [
+      "annotations/ab_human_adjudications_wp2_2.jsonl",
+      "releases/v0.1.2/manifest.json",
+      "data/qa_items.jsonl",
+      "reports/WP2_2_AB_HUMAN_ADJUDICATION_REPORT.json",
+      "reports/validation_report.json",
+      "tests/test_wp2_2_ab_human_adj.py"
+    ]
+  },
+  "acceptance": {
+    "tests": "27/27 PASS",
+    "gates": "Schema / Integrity / Provenance / Split-Leakage / version immutability PASS",
+    "v0_1_0_immutable": true,
+    "v0_1_1_immutable": true,
+    "v0_1_2_manifest_integrity": true,
+    "proposed_7_4_status": "PROPOSED",
+    "frozen_5_2_unchanged": true,
+    "no_new_video_scan": true,
+    "no_track_a_experiment": true,
+    "no_unseen_structure_leak_to_track_a_inference": true
+  },
+  "frozen_scientific_facts": {
+    "A": {
+      "video_id": "hROKtPqktO8",
+      "rois_seconds": [[500, 510], [1255, 1265]],
+      "relation": "CrossIntervalSamePersonBind",
+      "status": "HUMAN_APPROVED",
+      "human_claim": "Women in the two ROIs are the same person."
+    },
+    "B": {
+      "video_id": "iA_69g87Ilw",
+      "rois_seconds": [[358, 368], [900, 910]],
+      "relation": "CrossViewSameRoomBind",
+      "status": "HUMAN_APPROVED",
+      "human_claim": "The two ROIs belong to the same room."
+    }
+  },
+  "retained_data_state": {
+    "answer_status": "CHAT_RECONSTRUCTED_QA_DRAFT",
+    "record_completeness": "PARTIAL",
+    "formal_gold": false,
+    "windows_seconds": null,
+    "program_graph_status": "CHAT_APPROVED_SIDECAR_NOT_FRAME_CERTIFIED",
+    "qa_completeness_status": "PARTIAL_CHAT_RECONSTRUCTED_DRAFT",
+    "formal_qa_windows_status": "ROI_RELATED_NOT_FULL_QA_WINDOWS"
+  },
+  "documented_limitations_not_blocking_closure": [
+    "QA texts remain CHAT_RECONSTRUCTED_QA_DRAFT, not verbatim original QA",
+    "Answer semantics still require video-observation reconciliation where noted",
+    "ROI fragments are not complete formal QA windows_seconds",
+    "formal_gold remains false for A/B",
+    "Necessity A-only/B-only human passes were not newly recorded this round",
+    "7+4 remains PROPOSED"
+  ],
+  "explicit_non_actions": [
+    "Did not create WP2.3",
+    "Did not re-open same-person / same-room review",
+    "Did not forge A-only/B-only/A+B necessity passes",
+    "Did not regenerate v0.1.0 / v0.1.1 / v0.1.2",
+    "Did not promote draft QA to formal Gold",
+    "Did not start new video scan or Track A experiments"
+  ],
+  "follow_on_policy": "Subsequent Track B work proceeds to new-video batch production and benchmark expansion; remaining A/B Gold gaps are not a blocking prerequisite for current engineering tasks.",
+  "prior_reports_preserved": [
+    "reports/AB_SOURCE_RECOVERY_AUDIT.json",
+    "reports/WP2_2_AB_HUMAN_ADJUDICATION_REPORT.json",
+    "annotations/ab_human_adjudications_wp2_2.jsonl"
+  ],
+  "note": "Closure append-only. Does not rewrite prior human adjudications or release manifests. engineering_status=CLOSED recorded only after remote fast-forward sync and acceptance checks passed."
+}
