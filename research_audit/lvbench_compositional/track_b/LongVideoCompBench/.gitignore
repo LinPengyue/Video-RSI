@@ -1,4 +1,6 @@
 staging/*.import_report.json
 staging/*_local/
-
+__pycache__/
+**/__pycache__/
+*.pyc
 # Force-track dataset JSONL despite repo-root data/ ignore (use git add -f).
