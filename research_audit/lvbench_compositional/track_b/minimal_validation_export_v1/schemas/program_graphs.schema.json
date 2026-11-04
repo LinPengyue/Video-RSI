@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "graphs"
+  ],
+  "properties": {
+    "graphs": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": [
+          "item_id",
+          "nodes",
+          "edges",
+          "n_nodes",
+          "n_edges"
+        ]
+      }
+    }
+  }
+}

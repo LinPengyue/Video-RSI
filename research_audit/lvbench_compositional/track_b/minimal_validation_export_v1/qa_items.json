@@ -1,0 +1,489 @@
+{
+  "schema": "minimal_validation_qa_items_v1",
+  "algo_version": "minimal_validation_export_v1.0.0",
+  "built_utc": "2026-11-04T12:20:48+00:00",
+  "n_items": 7,
+  "items": [
+    {
+      "item_id": "SP001",
+      "qa_uid": "LVCOMP-V2-036",
+      "video_id": "aJI8XTa_DII",
+      "split_role_pilot": "SEEN",
+      "question_text": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+      "qa_format": "OPEN_ENDED",
+      "answer": {
+        "answer_text": "5",
+        "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+        "formal_gold": false,
+        "formal_gold_note": "Export must not treat this as certified Gold.",
+        "sources": [
+          "provenance_record.historical_answer",
+          "PILOT_INVENTORY.answer_reference"
+        ]
+      },
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 53,
+          "t_end_s": 86
+        },
+        "B": {
+          "t_start_s": 2965,
+          "t_end_s": 2968
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+      },
+      "necessity": {
+        "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
+        "not_model_ablation": true,
+        "sources": [
+          "provenance_record.composition_necessity",
+          "PILOT_INVENTORY.single_window_necessity"
+        ],
+        "composition_necessity_label": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+        "inventory_single_window_necessity": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "a_plus_b": "USER_SUPPORTED",
+          "source": "seen_pilot_run_001 human judgment",
+          "not_model_ablation": true
+        },
+        "primary": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "a_plus_b": "USER_SUPPORTED",
+          "authority": "PILOT_INVENTORY.single_window_necessity"
+        }
+      },
+      "provenance": {
+        "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
+        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001.json",
+        "graph_version": "v0.3",
+        "scientific_approval_source": "seen_pilot_run_001 USER_APPROVED_STRUCTURED_GRAPH"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      }
+    },
+    {
+      "item_id": "SP002",
+      "qa_uid": "LVCOMP-V2-045",
+      "video_id": "vHlSoxg8WHo",
+      "split_role_pilot": "SEEN",
+      "question_text": "What is Brittany's relationship to the person shown at 00:02?",
+      "qa_format": "OPEN_ENDED",
+      "answer": {
+        "answer_text": "sister",
+        "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+        "formal_gold": false,
+        "formal_gold_note": "Export must not treat this as certified Gold.",
+        "sources": [
+          "provenance_record.historical_answer",
+          "PILOT_INVENTORY.answer_reference"
+        ]
+      },
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 2,
+          "t_end_s": 78
+        },
+        "B": {
+          "t_start_s": 96,
+          "t_end_s": 172
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+      },
+      "necessity": {
+        "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
+        "not_model_ablation": true,
+        "sources": [
+          "provenance_record.composition_necessity",
+          "PILOT_INVENTORY.single_window_necessity"
+        ],
+        "composition_necessity_label": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
+        "inventory_single_window_necessity": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "a_plus_b": "USER_SUPPORTED",
+          "source": "seen_pilot_run_001 human judgment",
+          "not_model_ablation": true
+        },
+        "primary": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "a_plus_b": "USER_SUPPORTED",
+          "authority": "PILOT_INVENTORY.single_window_necessity"
+        }
+      },
+      "provenance": {
+        "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
+        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002.json",
+        "graph_version": "v0.2",
+        "scientific_approval_source": "seen_pilot_run_001 USER_APPROVED_STRUCTURED_GRAPH"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      }
+    },
+    {
+      "item_id": "SP005",
+      "qa_uid": "LVCOMP-V2-026",
+      "video_id": "KLIa2UaE2KE",
+      "split_role_pilot": "SEEN",
+      "question_text": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+      "qa_format": "OPEN_ENDED",
+      "answer": {
+        "answer_text": "5",
+        "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+        "formal_gold": false,
+        "formal_gold_note": "Export must not treat this as certified Gold.",
+        "sources": [
+          "provenance_record.historical_answer",
+          "PILOT_INVENTORY.answer_reference"
+        ]
+      },
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 1,
+          "t_end_s": 4
+        },
+        "B": {
+          "t_start_s": 673,
+          "t_end_s": 680
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+      },
+      "necessity": {
+        "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
+        "not_model_ablation": true,
+        "sources": [
+          "provenance_record.composition_necessity",
+          "PILOT_INVENTORY.single_window_necessity"
+        ],
+        "composition_necessity_label": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+        "inventory_single_window_necessity": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+          "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+          "source": "seen_pilot_run_001 human judgment (B-only shortcut retracted)",
+          "not_model_ablation": true
+        },
+        "primary": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+          "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+          "authority": "PILOT_INVENTORY.single_window_necessity"
+        }
+      },
+      "provenance": {
+        "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
+        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005.json",
+        "graph_version": "v0.2",
+        "scientific_approval_source": "seen_pilot_run_001 USER_APPROVED_STRUCTURED_GRAPH"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      }
+    },
+    {
+      "item_id": "SP201",
+      "qa_uid": "LVCOMP-V2-001",
+      "video_id": "Hf-n1yfd8II",
+      "split_role_pilot": "SEEN",
+      "question_text": "How to describe the feeling of the final winner at 48:16?",
+      "qa_format": "OPEN_ENDED",
+      "answer": {
+        "answer_text": "frustrated (after losing rally/point)",
+        "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+        "formal_gold": false,
+        "formal_gold_note": "Export must not treat this as certified Gold.",
+        "sources": [
+          "PILOT_INVENTORY.answer_reference"
+        ]
+      },
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 2880,
+          "t_end_s": 2897
+        },
+        "B": {
+          "t_start_s": 5413,
+          "t_end_s": 5440
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+      },
+      "necessity": {
+        "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
+        "not_model_ablation": true,
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity"
+        ],
+        "inventory_single_window_necessity": {
+          "a_only_sufficient_full_question": false,
+          "b_only_sufficient_full_question": false,
+          "a_plus_b_necessary": "USER_SUPPORTED",
+          "not_model_ablation": true
+        },
+        "primary": {
+          "a_only_sufficient": null,
+          "b_only_sufficient": null,
+          "a_plus_b": "USER_SUPPORTED",
+          "authority": "PILOT_INVENTORY.single_window_necessity"
+        }
+      },
+      "provenance": {
+        "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
+        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP201.json",
+        "graph_version": "v0.2",
+        "scientific_approval_source": "seen_pilot_run_002 USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      }
+    },
+    {
+      "item_id": "SP202",
+      "qa_uid": "LVCOMP-V2-040",
+      "video_id": "Hf-n1yfd8II",
+      "split_role_pilot": "SEEN",
+      "question_text": "What competition result does the person who serves first have?",
+      "qa_format": "OPEN_ENDED",
+      "answer": {
+        "answer_text": "wins the match (final winner)",
+        "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+        "formal_gold": false,
+        "formal_gold_note": "Export must not treat this as certified Gold.",
+        "sources": [
+          "PILOT_INVENTORY.answer_reference"
+        ]
+      },
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 510,
+          "t_end_s": 515
+        },
+        "B": {
+          "t_start_s": 5413,
+          "t_end_s": 5440
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+      },
+      "necessity": {
+        "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
+        "not_model_ablation": true,
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity"
+        ],
+        "inventory_single_window_necessity": {
+          "a_only_sufficient_full_question": false,
+          "b_only_sufficient_full_question": false,
+          "a_plus_b_necessary": "USER_SUPPORTED",
+          "not_model_ablation": true
+        },
+        "primary": {
+          "a_only_sufficient": null,
+          "b_only_sufficient": null,
+          "a_plus_b": "USER_SUPPORTED",
+          "authority": "PILOT_INVENTORY.single_window_necessity"
+        }
+      },
+      "provenance": {
+        "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
+        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202.json",
+        "graph_version": "v0.3",
+        "scientific_approval_source": "seen_pilot_run_002 USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      }
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "qa_uid": "P7_VTCD_C2",
+      "video_id": "VTCDQYYKA9o",
+      "split_role_pilot": "UNSEEN",
+      "question_text": "在 PREVIOUS RESULTS（过往成绩）姓名画面中出现的那名运动员，更早时对夹克做了什么？",
+      "qa_format": "OPEN_ENDED",
+      "answer": {
+        "answer_text": "脱掉夹克",
+        "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+        "formal_gold": false,
+        "formal_gold_note": "Export must not treat this as certified Gold.",
+        "sources": [
+          "PILOT_INVENTORY.answer_reference"
+        ]
+      },
+      "windows": {
+        "status": "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
+        "A": null,
+        "B": null,
+        "window_roles": {
+          "A": "earlier_evidence",
+          "B": "later_referent"
+        },
+        "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
+        "time_base": "UNKNOWN",
+        "do_not_infer_from_program_graph": true
+      },
+      "necessity": {
+        "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
+        "not_model_ablation": true,
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity",
+          "graph_or_record.human_judgments_preserved"
+        ],
+        "inventory_single_window_necessity": {
+          "a_only_sufficient": true,
+          "b_only_sufficient": true,
+          "a_plus_b": "是",
+          "source": "human_judgments_preserved",
+          "not_model_ablation": true
+        },
+        "human_judgments_preserved": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "a_plus_b_supports_user_answer": true,
+          "truly_needs_cross_clip_composition": true,
+          "raw": {
+            "a_only_sufficient": "否",
+            "b_only_sufficient": "否",
+            "a_plus_b_supports_user_answer": "是",
+            "truly_needs_cross_clip_composition": "是",
+            "bucket_seen_unseen_control_or_hold": "Unseen",
+            "note": "Preserve explicit human judgment that A-only and B-only are insufficient for the current question."
+          }
+        },
+        "primary": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "cross_clip_necessary": true,
+          "authority": "human_judgments_preserved"
+        },
+        "inventory_vs_preserved_conflict": true,
+        "conflict_note": "Inventory single_window_necessity booleans disagree with human_judgments_preserved; Track A must use preserved human judgment."
+      },
+      "provenance": {
+        "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
+        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "graph_version": "v0.2",
+        "scientific_approval_source": "USER_GPT_SCIENTIFIC_APPROVAL_CHAT_2026-11-02_structured_graphs_v0.2"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      }
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "qa_uid": "P7_TJR_R3",
+      "video_id": "TJR1oYDDTwg",
+      "split_role_pilot": "UNSEEN",
+      "question_text": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+      "qa_format": "OPEN_ENDED",
+      "answer": {
+        "answer_text": "绿色的龙",
+        "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+        "formal_gold": false,
+        "formal_gold_note": "Export must not treat this as certified Gold.",
+        "sources": [
+          "PILOT_INVENTORY.answer_reference"
+        ]
+      },
+      "windows": {
+        "status": "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
+        "A": null,
+        "B": null,
+        "window_roles": {
+          "A": "earlier_evidence",
+          "B": "later_referent"
+        },
+        "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
+        "time_base": "UNKNOWN",
+        "do_not_infer_from_program_graph": true
+      },
+      "necessity": {
+        "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
+        "not_model_ablation": true,
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity",
+          "graph_or_record.human_judgments_preserved"
+        ],
+        "inventory_single_window_necessity": {
+          "a_only_sufficient": true,
+          "b_only_sufficient": true,
+          "a_plus_b": "是",
+          "source": "human_judgments_preserved",
+          "not_model_ablation": true
+        },
+        "human_judgments_preserved": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "a_plus_b_supports_user_answer": true,
+          "truly_needs_cross_clip_composition": true,
+          "raw": {
+            "a_only_sufficient": "否",
+            "b_only_sufficient": "否",
+            "a_plus_b_supports_user_answer": "是",
+            "truly_needs_cross_clip_composition": "是",
+            "bucket_seen_unseen_control_or_hold": "Unseen",
+            "note": "User preclassification Unseen only; not formal Unseen."
+          }
+        },
+        "primary": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "cross_clip_necessary": true,
+          "authority": "human_judgments_preserved"
+        },
+        "inventory_vs_preserved_conflict": true,
+        "conflict_note": "Inventory single_window_necessity booleans disagree with human_judgments_preserved; Track A must use preserved human judgment."
+      },
+      "provenance": {
+        "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
+        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+        "graph_version": "v0.2",
+        "scientific_approval_source": "USER_GPT_SCIENTIFIC_APPROVAL_CHAT_2026-11-02_structured_graphs_v0.2"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      }
+    }
+  ],
+  "disclaimer": "Answers are not formal Gold. Export is for Track A minimal validation only."
+}

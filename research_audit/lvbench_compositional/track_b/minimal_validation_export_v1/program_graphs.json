@@ -1,0 +1,1926 @@
+{
+  "schema": "minimal_validation_program_graphs_v1",
+  "algo_version": "minimal_validation_export_v1.0.0",
+  "built_utc": "2026-11-04T12:20:48+00:00",
+  "n_graphs": 7,
+  "graphs": [
+    {
+      "item_id": "SP001",
+      "graph_id": "SP001",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 8,
+      "n_edges": 8,
+      "nodes": [
+        {
+          "node_id": "s1",
+          "raw_operator": "LocateFirstSpeechStage",
+          "layer1": "SCENE_LOCALIZATION",
+          "layer2": "LocateSceneByEvent",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "stage_A"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "stage_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source graph A",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s2",
+          "raw_operator": "DetectMultipleNationalFlags",
+          "layer1": "OBJECT_DETECTION",
+          "layer2": "DetectObjectInstances",
+          "raw_inputs": [
+            "stage_A"
+          ],
+          "raw_outputs": [
+            "flags_A"
+          ],
+          "normalized_inputs": [
+            "stage_A"
+          ],
+          "normalized_outputs": [
+            "flags_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source graph A",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s3",
+          "raw_operator": "MatchFlagsByCountry",
+          "layer1": "CONSTRAINT_BASED_ENTITY_SELECTION",
+          "layer2": "FilterFlagsByCountry",
+          "raw_inputs": [
+            "flags_A",
+            "country_B"
+          ],
+          "raw_outputs": [
+            "matched_flags_A"
+          ],
+          "normalized_inputs": [
+            "flags_A",
+            "country_binding"
+          ],
+          "normalized_outputs": [
+            "matched_flags_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "country_B constraint inferred from source cross-window binding",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s4",
+          "raw_operator": "CountMatchedFlags",
+          "layer1": "AGGREGATION_QUERY",
+          "layer2": "CountFilteredEntities",
+          "raw_inputs": [
+            "matched_flags_A"
+          ],
+          "raw_outputs": [
+            "answer_5"
+          ],
+          "normalized_inputs": [
+            "matched_flags_A"
+          ],
+          "normalized_outputs": [
+            "answer_5"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source graph A",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s5",
+          "raw_operator": "LocateClockBuilding",
+          "layer1": "SCENE_LOCALIZATION",
+          "layer2": "LocateSceneByLandmark",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "building_B"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "building_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source graph B",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s6",
+          "raw_operator": "IdentifyFlagOnFlagpole",
+          "layer1": "OBJECT_IDENTIFICATION",
+          "layer2": "IdentifyFlag",
+          "raw_inputs": [
+            "building_B"
+          ],
+          "raw_outputs": [
+            "flag_B"
+          ],
+          "normalized_inputs": [
+            "building_B"
+          ],
+          "normalized_outputs": [
+            "flag_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source graph B",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s7",
+          "raw_operator": "IdentifyCountry",
+          "layer1": "SYMBOLIC_ATTRIBUTE_RECOGNITION",
+          "layer2": "IdentifyCountryFromFlag",
+          "raw_inputs": [
+            "flag_B"
+          ],
+          "raw_outputs": [
+            "country_B"
+          ],
+          "normalized_inputs": [
+            "flag_B"
+          ],
+          "normalized_outputs": [
+            "country_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "Russia, source graph B",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s8",
+          "raw_operator": "CrossClipCountryBind",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "BindCountryConstraint",
+          "raw_inputs": [
+            "country_B",
+            "flags_A"
+          ],
+          "raw_outputs": [
+            "country_binding"
+          ],
+          "normalized_inputs": [
+            "country_B",
+            "flags_A"
+          ],
+          "normalized_outputs": [
+            "country_binding"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source graph cross_window",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp001_chat_e1",
+          "from_node": "s1",
+          "to_node": "s2",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e2",
+          "from_node": "s2",
+          "to_node": "s3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e3",
+          "from_node": "s5",
+          "to_node": "s6",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e4",
+          "from_node": "s6",
+          "to_node": "s7",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e5",
+          "from_node": "s7",
+          "to_node": "s8",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e6",
+          "from_node": "s2",
+          "to_node": "s8",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e7",
+          "from_node": "s8",
+          "to_node": "s3",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e8",
+          "from_node": "s3",
+          "to_node": "s4",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "source": {
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "prior_macro_source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      },
+      "evidence_disclaimer": "Chat-approved sidecars / structured P7 graphs are NOT frame-level video certification. evidence_certification fields must be respected.",
+      "normalized_graph_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/SP001.json"
+    },
+    {
+      "item_id": "SP002",
+      "graph_id": "SP002",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 6,
+      "n_edges": 5,
+      "nodes": [
+        {
+          "node_id": "s1",
+          "raw_operator": "ObservePerson",
+          "layer1": "ENTITY_IDENTIFICATION",
+          "layer2": "ObservePerson",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "person_A"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "person_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "~00:02 source graph",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s2",
+          "raw_operator": "ReadNameSubtitle",
+          "layer1": "TEXT_EVIDENCE_READING",
+          "layer2": "ReadPersonNameFromSubtitle",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "name_Tacara"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "name_Tacara"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "~01:18 source graph",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s3",
+          "raw_operator": "TemporalPersonBind",
+          "layer1": "ENTITY_BINDING",
+          "layer2": "BindPersonToName",
+          "raw_inputs": [
+            "person_A",
+            "name_Tacara"
+          ],
+          "raw_outputs": [
+            "named_person_A"
+          ],
+          "normalized_inputs": [
+            "person_A",
+            "name_Tacara"
+          ],
+          "normalized_outputs": [
+            "named_person_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source graph",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s4",
+          "raw_operator": "ReadRelationSubtitle",
+          "layer1": "TEXT_EVIDENCE_READING",
+          "layer2": "ReadRelationFromSubtitle",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "relation_B"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "relation_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "SisterOf(Brittany,Tacara), B+~00:14",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s5",
+          "raw_operator": "JoinByPersonReference",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "JoinPersonRelationAcrossWindows",
+          "raw_inputs": [
+            "named_person_A",
+            "relation_B"
+          ],
+          "raw_outputs": [
+            "matched_relation"
+          ],
+          "normalized_inputs": [
+            "named_person_A",
+            "relation_B"
+          ],
+          "normalized_outputs": [
+            "matched_relation"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source cross_window",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "s6",
+          "raw_operator": "QueryRelationAnswer",
+          "layer1": "RELATION_QUERY",
+          "layer2": "QueryRelation",
+          "raw_inputs": [
+            "matched_relation"
+          ],
+          "raw_outputs": [
+            "answer_sister"
+          ],
+          "normalized_inputs": [
+            "matched_relation"
+          ],
+          "normalized_outputs": [
+            "answer_sister"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "output answer; explicit query node proposed",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp002_chat_e1",
+          "from_node": "s1",
+          "to_node": "s3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp002_chat_e2",
+          "from_node": "s2",
+          "to_node": "s3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp002_chat_e3",
+          "from_node": "s3",
+          "to_node": "s5",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp002_chat_e4",
+          "from_node": "s4",
+          "to_node": "s5",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp002_chat_e5",
+          "from_node": "s5",
+          "to_node": "s6",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "source": {
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+        "prior_macro_source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      },
+      "evidence_disclaimer": "Chat-approved sidecars / structured P7 graphs are NOT frame-level video certification. evidence_certification fields must be respected.",
+      "normalized_graph_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/SP002.json"
+    },
+    {
+      "item_id": "SP005",
+      "graph_id": "SP005",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 8,
+      "n_edges": 7,
+      "nodes": [
+        {
+          "node_id": "n1",
+          "raw_operator": "DetectWavedFlag",
+          "layer1": "EVENT_DETECTION",
+          "layer2": "DetectObjectActionEvent",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "flag_A"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "flag_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source A",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n2",
+          "raw_operator": "IdentifyFlagCountry",
+          "layer1": "SYMBOLIC_ATTRIBUTE_RECOGNITION",
+          "layer2": "IdentifyCountryFromFlag",
+          "raw_inputs": [
+            "flag_A"
+          ],
+          "raw_outputs": [
+            "Italy_A"
+          ],
+          "normalized_inputs": [
+            "flag_A"
+          ],
+          "normalized_outputs": [
+            "Italy_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source A",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n3",
+          "raw_operator": "CrossClipCountryBind",
+          "layer1": "TARGET_CONSTRAINT_SETUP",
+          "layer2": "SetTargetCountry",
+          "raw_inputs": [
+            "Italy_A",
+            "teams_B"
+          ],
+          "raw_outputs": [
+            "target_team_B"
+          ],
+          "normalized_inputs": [
+            "Italy_A"
+          ],
+          "normalized_outputs": [
+            "target_country"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source cross_window",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n4",
+          "raw_operator": "IdentifyTeams",
+          "layer1": "ENTITY_IDENTIFICATION",
+          "layer2": "IdentifyTeams",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "teams_B"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "teams_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "Italy, Brazil",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n5",
+          "raw_operator": "SelectTeam",
+          "layer1": "CONSTRAINT_BASED_ENTITY_SELECTION",
+          "layer2": "SelectTeamByCountry",
+          "raw_inputs": [
+            "target_team_B"
+          ],
+          "raw_outputs": [
+            "selected_team"
+          ],
+          "normalized_inputs": [
+            "target_country",
+            "teams_B"
+          ],
+          "normalized_outputs": [
+            "selected_team"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source B",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n6",
+          "raw_operator": "LocateSet",
+          "layer1": "TEMPORAL_EVENT_LOCALIZATION",
+          "layer2": "LocateOrderedSegment",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "first_set"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "first_set"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source B",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n7",
+          "raw_operator": "LocateTeamPoint",
+          "layer1": "TEMPORAL_EVENT_LOCALIZATION",
+          "layer2": "LocateConstrainedScoreEvent",
+          "raw_inputs": [
+            "selected_team",
+            "first_set"
+          ],
+          "raw_outputs": [
+            "tenth_point"
+          ],
+          "normalized_inputs": [
+            "selected_team",
+            "first_set"
+          ],
+          "normalized_outputs": [
+            "tenth_point"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source B",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n8",
+          "raw_operator": "IdentifyScoringPlayer",
+          "layer1": "EVENT_PARTICIPANT_QUERY",
+          "layer2": "QueryEventParticipant",
+          "raw_inputs": [
+            "tenth_point"
+          ],
+          "raw_outputs": [
+            "answer_5"
+          ],
+          "normalized_inputs": [
+            "tenth_point"
+          ],
+          "normalized_outputs": [
+            "answer_5"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "source B",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp005_e1",
+          "from_node": "n1",
+          "to_node": "n2",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e2",
+          "from_node": "n2",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e3",
+          "from_node": "n3",
+          "to_node": "n5",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e4",
+          "from_node": "n4",
+          "to_node": "n5",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e5",
+          "from_node": "n5",
+          "to_node": "n7",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e6",
+          "from_node": "n6",
+          "to_node": "n7",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e7",
+          "from_node": "n7",
+          "to_node": "n8",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "source": {
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "prior_macro_source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      },
+      "evidence_disclaimer": "Chat-approved sidecars / structured P7 graphs are NOT frame-level video certification. evidence_certification fields must be respected.",
+      "normalized_graph_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/SP005.json"
+    },
+    {
+      "item_id": "SP201",
+      "graph_id": "SP201",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 4,
+      "n_edges": 3,
+      "nodes": [
+        {
+          "node_id": "n1",
+          "raw_operator": "DetermineMatchWinner",
+          "layer1": "EVENT_OUTCOME_INFERENCE",
+          "layer2": "DetermineEventWinner",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "winner_B"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "winner_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "approved macro",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n2",
+          "raw_operator": "IdentifyAthlete",
+          "layer1": "ENTITY_IDENTIFICATION",
+          "layer2": "IdentifyPerson",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "athlete_ref_A"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "athlete_ref_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "raw_evidence": {
+            "status": "PENDING_SPECIFIC_IDENTIFICATION_CUES"
+          },
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n3",
+          "raw_operator": "CrossWindowPersonBind",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "BindSamePerson",
+          "raw_inputs": [
+            "winner_B"
+          ],
+          "raw_outputs": [
+            "person_A"
+          ],
+          "normalized_inputs": [
+            "winner_B",
+            "athlete_ref_A"
+          ],
+          "normalized_outputs": [
+            "person_A"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "approved macro, internal identification not expanded",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n4",
+          "raw_operator": "QueryEmotion",
+          "layer1": "BOUND_ATTRIBUTE_QUERY",
+          "layer2": "QueryBoundEmotion",
+          "raw_inputs": [
+            "person_A"
+          ],
+          "raw_outputs": [
+            "answer_frustrated"
+          ],
+          "normalized_inputs": [
+            "person_A"
+          ],
+          "normalized_outputs": [
+            "answer_frustrated"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "approved macro",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp201_e1",
+          "from_node": "n1",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp201_e2",
+          "from_node": "n2",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp201_e3",
+          "from_node": "n3",
+          "to_node": "n4",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "source": {
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP201_v0.2.json",
+        "prior_macro_source_sha256": "60a41b7b42f6f97667dddb3b48d78d6371c9abbf137a2ae85beceec4c6dfa468",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      },
+      "evidence_disclaimer": "Chat-approved sidecars / structured P7 graphs are NOT frame-level video certification. evidence_certification fields must be respected.",
+      "normalized_graph_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/SP201.json"
+    },
+    {
+      "item_id": "SP202",
+      "graph_id": "SP202",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 4,
+      "n_edges": 3,
+      "nodes": [
+        {
+          "node_id": "n1",
+          "raw_operator": "IdentifyFirstServer",
+          "layer1": "TEMPORAL_EVENT_LOCALIZATION",
+          "layer2": "IdentifyFirstActorByAction",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "server_A"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "server_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "approved macro",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n2",
+          "raw_operator": "IdentifyAthlete",
+          "layer1": "ENTITY_IDENTIFICATION",
+          "layer2": "IdentifyPerson",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "athlete_ref_B"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "athlete_ref_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "raw_evidence": {
+            "status": "PENDING_SPECIFIC_IDENTIFICATION_CUES"
+          },
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n3",
+          "raw_operator": "CrossWindowPersonBind",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "BindSamePerson",
+          "raw_inputs": [
+            "server_A"
+          ],
+          "raw_outputs": [
+            "person_B"
+          ],
+          "normalized_inputs": [
+            "server_A",
+            "athlete_ref_B"
+          ],
+          "normalized_outputs": [
+            "person_B"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "approved macro, internal identification not expanded",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        },
+        {
+          "node_id": "n4",
+          "raw_operator": "QueryMatchResult",
+          "layer1": "BOUND_ATTRIBUTE_QUERY",
+          "layer2": "QueryBoundMatchResult",
+          "raw_inputs": [
+            "person_B"
+          ],
+          "raw_outputs": [
+            "answer_wins_match"
+          ],
+          "normalized_inputs": [
+            "person_B"
+          ],
+          "normalized_outputs": [
+            "answer_wins_match"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "raw_evidence": "approved macro",
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp202_e1",
+          "from_node": "n1",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp202_e2",
+          "from_node": "n2",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp202_e3",
+          "from_node": "n3",
+          "to_node": "n4",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "source": {
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
+        "prior_macro_source_sha256": "5f795ed9bc4220bcee6b819513c7c69fbdb3f787b4484097838dca33d00b8376",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      },
+      "evidence_disclaimer": "Chat-approved sidecars / structured P7 graphs are NOT frame-level video certification. evidence_certification fields must be respected.",
+      "normalized_graph_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/SP202.json"
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "graph_id": "P7_VTCD_C2",
+      "normalization_status": "STRUCTURED_INGESTED",
+      "split_role_fixed": "UNSEEN",
+      "n_nodes": 5,
+      "n_edges": 4,
+      "nodes": [
+        {
+          "node_id": "c2_n1",
+          "raw_operator": "ReadNameGraphic",
+          "layer1": "TEXT_EVIDENCE_READING",
+          "layer2": "ReadPersonNameFromGraphic",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "name_B_Fan_Zhendong"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "name_B_Fan_Zhendong"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "kind": "playback_offset_approx",
+              "clip_local_s_approx": 10,
+              "precision": "USER_STATED_APPROXIMATE_NOT_FRAME_ACCURATE",
+              "status": "RECORDED_AS_STATED_PENDING_FRAME_ACCURATE_SOURCE_MAPPING"
+            }
+          ],
+          "raw_evidence": {
+            "on_screen_text": "Fan Zhendong"
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+            "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "node_id": "c2_n2",
+          "raw_operator": "ReadNameAbbreviationGraphic",
+          "layer1": "TEXT_EVIDENCE_READING",
+          "layer2": "ReadPersonNameFromGraphic",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "name_A_Fan_ZD"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "name_A_Fan_ZD"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "kind": "playback_offset_approx",
+              "clip_local_s_approx": 25,
+              "location": "背部",
+              "precision": "USER_STATED_APPROXIMATE_NOT_FRAME_ACCURATE",
+              "status": "RECORDED_AS_STATED_PENDING_FRAME_ACCURATE_SOURCE_MAPPING"
+            }
+          ],
+          "raw_evidence": {
+            "on_screen_text": "Fan Z.D."
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+            "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "node_id": "c2_n3",
+          "raw_operator": "CrossIntervalSamePersonBind",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "BindSamePerson",
+          "raw_inputs": [
+            "name_B_Fan_Zhendong",
+            "name_A_Fan_ZD"
+          ],
+          "raw_outputs": [
+            "bound_athlete"
+          ],
+          "normalized_inputs": [
+            "name_B_Fan_Zhendong",
+            "name_A_Fan_ZD"
+          ],
+          "normalized_outputs": [
+            "bound_athlete"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "raw_evidence": {
+            "inference": "基于姓名与缩写的有证据支持的身份推断",
+            "certainty_note": "未额外声称绝对确定性；保留证据支持推断表述"
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+            "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "node_id": "c2_n4",
+          "raw_operator": "DetectJacketRemoval",
+          "layer1": "EVENT_DETECTION",
+          "layer2": "DetectActionEvent",
+          "raw_inputs": [
+            "bound_athlete"
+          ],
+          "raw_outputs": [
+            "jacket_action_A"
+          ],
+          "normalized_inputs": [
+            "bound_athlete"
+          ],
+          "normalized_outputs": [
+            "jacket_action_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL",
+              "note": "Exact remove-jacket source seconds not newly authorized in v0.2 beyond prior approximate user observation archive."
+            }
+          ],
+          "raw_evidence": {
+            "action": "脱夹克"
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+            "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "node_id": "c2_n5",
+          "raw_operator": "QueryEarlierAction",
+          "layer1": "BOUND_ATTRIBUTE_QUERY",
+          "layer2": "QueryBoundAction",
+          "raw_inputs": [
+            "jacket_action_A"
+          ],
+          "raw_outputs": [
+            "answer"
+          ],
+          "normalized_inputs": [
+            "jacket_action_A"
+          ],
+          "normalized_outputs": [
+            "answer"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "raw_evidence": {
+            "answer_text_from_user_qa": "脱掉夹克"
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+            "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "c2_e1",
+          "from_node": "c2_n1",
+          "to_node": "c2_n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+            "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e"
+          }
+        },
+        {
+          "edge_id": "c2_e2",
+          "from_node": "c2_n2",
+          "to_node": "c2_n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+            "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e"
+          }
+        },
+        {
+          "edge_id": "c2_e3",
+          "from_node": "c2_n3",
+          "to_node": "c2_n4",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+            "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e"
+          }
+        },
+        {
+          "edge_id": "c2_e4",
+          "from_node": "c2_n4",
+          "to_node": "c2_n5",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+            "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e"
+          }
+        }
+      ],
+      "source": {
+        "kind": "approved_structured_graph_v0.2",
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e",
+        "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+        "mapping_vocab": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04"
+      },
+      "evidence_disclaimer": "Chat-approved sidecars / structured P7 graphs are NOT frame-level video certification. evidence_certification fields must be respected.",
+      "normalized_graph_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/P7_VTCD_C2.json"
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "graph_id": "P7_TJR_R3",
+      "normalization_status": "STRUCTURED_INGESTED",
+      "split_role_fixed": "UNSEEN",
+      "n_nodes": 5,
+      "n_edges": 5,
+      "nodes": [
+        {
+          "node_id": "tjr_n1",
+          "raw_operator": "DetectAction",
+          "layer1": "EVENT_DETECTION",
+          "layer2": "DetectActionEvent",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "drumming_event_B"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "drumming_event_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "raw_evidence": {
+            "action": "打鼓"
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "node_id": "tjr_n2",
+          "raw_operator": "IdentifyActorByAppearance",
+          "layer1": "ENTITY_IDENTIFICATION",
+          "layer2": "IdentifyPersonByAppearance",
+          "raw_inputs": [
+            "drumming_event_B"
+          ],
+          "raw_outputs": [
+            "drummer_ref_B"
+          ],
+          "normalized_inputs": [
+            "drumming_event_B"
+          ],
+          "normalized_outputs": [
+            "drummer_ref_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "raw_evidence": {
+            "appearance": [
+              "短头发",
+              "红帽",
+              "蓝色上衣"
+            ]
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "node_id": "tjr_n3",
+          "raw_operator": "DetectTransportRide",
+          "layer1": "EVENT_DETECTION",
+          "layer2": "DetectTransportEvent",
+          "raw_inputs": [],
+          "raw_outputs": [
+            "green_dragon_ride_A",
+            "passenger_ref_A"
+          ],
+          "normalized_inputs": [],
+          "normalized_outputs": [
+            "green_dragon_ride_A",
+            "passenger_ref_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "raw_evidence": {
+            "transport": "乘坐绿色龙",
+            "passenger": "乘绿色龙的人"
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "node_id": "tjr_n4",
+          "raw_operator": "CrossIntervalSamePersonBind",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "BindSamePerson",
+          "raw_inputs": [
+            "drummer_ref_B",
+            "passenger_ref_A"
+          ],
+          "raw_outputs": [
+            "bound_person"
+          ],
+          "normalized_inputs": [
+            "drummer_ref_B",
+            "passenger_ref_A"
+          ],
+          "normalized_outputs": [
+            "bound_person"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "raw_evidence": {
+            "bind_cues": [
+              "短头发",
+              "红帽",
+              "蓝色上衣"
+            ]
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "node_id": "tjr_n5",
+          "raw_operator": "QueryEarlierTransport",
+          "layer1": "BOUND_ATTRIBUTE_QUERY",
+          "layer2": "QueryBoundTransport",
+          "raw_inputs": [
+            "bound_person",
+            "green_dragon_ride_A"
+          ],
+          "raw_outputs": [
+            "answer"
+          ],
+          "normalized_inputs": [
+            "bound_person",
+            "green_dragon_ride_A"
+          ],
+          "normalized_outputs": [
+            "answer"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "raw_evidence": {
+            "answer_text_from_user_qa": "绿色的龙",
+            "queried_relation": "A中的乘坐关系"
+          },
+          "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+            "mapping_from_handoff": true,
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "tjr_e1",
+          "from_node": "tjr_n1",
+          "to_node": "tjr_n2",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
+          }
+        },
+        {
+          "edge_id": "tjr_e2",
+          "from_node": "tjr_n2",
+          "to_node": "tjr_n4",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
+          }
+        },
+        {
+          "edge_id": "tjr_e3",
+          "from_node": "tjr_n3",
+          "to_node": "tjr_n4",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
+          }
+        },
+        {
+          "edge_id": "tjr_e4",
+          "from_node": "tjr_n4",
+          "to_node": "tjr_n5",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
+          }
+        },
+        {
+          "edge_id": "tjr_e5",
+          "from_node": "tjr_n3",
+          "to_node": "tjr_n5",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "repo_approved_structured_graph_v0.2",
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+            "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
+          }
+        }
+      ],
+      "source": {
+        "kind": "approved_structured_graph_v0.2",
+        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+        "sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+        "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+        "mapping_vocab": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04"
+      },
+      "evidence_disclaimer": "Chat-approved sidecars / structured P7 graphs are NOT frame-level video certification. evidence_certification fields must be respected.",
+      "normalized_graph_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/P7_TJR_R3.json"
+    }
+  ],
+  "disclaimer": "Sidecar/structured graphs ≠ frame-certified video semantics."
+}

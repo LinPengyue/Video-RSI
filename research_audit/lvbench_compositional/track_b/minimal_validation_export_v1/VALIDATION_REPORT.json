@@ -1,0 +1,15 @@
+{
+  "schema": "minimal_validation_export_validation_v1",
+  "status": "PASS",
+  "n_issues": 0,
+  "issues": [],
+  "checks": {
+    "join_qa_video": "PASS",
+    "join_graph_edges": "PASS",
+    "no_false_gold": "PASS",
+    "id_set_7": "PASS"
+  },
+  "validated_utc": "2026-11-04T12:20:48+00:00",
+  "algo_version": "minimal_validation_export_v1.0.0",
+  "jsonschema": "SKIPPED_LIBRARY_NOT_INSTALLED_USED_STRUCTURAL_CHECKS"
+}

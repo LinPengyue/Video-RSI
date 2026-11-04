@@ -1,0 +1,305 @@
+{
+  "schema": "minimal_validation_split_manifest_v1",
+  "fixed_seen": [
+    "SP001",
+    "SP002",
+    "SP005",
+    "SP201",
+    "SP202"
+  ],
+  "fixed_unseen": [
+    "P7_VTCD_C2",
+    "P7_TJR_R3"
+  ],
+  "candidate_excluded_from_this_export": [
+    "A",
+    "B",
+    "P7_R4_F1",
+    "P7_R4_F2",
+    "SP205"
+  ],
+  "items": [
+    {
+      "item_id": "SP001",
+      "pilot_role": "SEEN",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "approve_expensive_track_a_rsi": false,
+      "structure_labels": {
+        "capability_families_upper_inventory": [
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "layer1_families_normalized": [
+          "AGGREGATION_QUERY",
+          "CONSTRAINT_BASED_ENTITY_SELECTION",
+          "CROSS_WINDOW_ENTITY_BIND",
+          "OBJECT_DETECTION",
+          "OBJECT_IDENTIFICATION",
+          "SCENE_LOCALIZATION",
+          "SYMBOLIC_ATTRIBUTE_RECOGNITION"
+        ],
+        "layer2_atoms_normalized": [
+          "BindCountryConstraint",
+          "CountFilteredEntities",
+          "DetectObjectInstances",
+          "FilterFlagsByCountry",
+          "IdentifyCountryFromFlag",
+          "IdentifyFlag",
+          "LocateSceneByEvent",
+          "LocateSceneByLandmark"
+        ],
+        "n_nodes": 8,
+        "n_edges": 8
+      },
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      }
+    },
+    {
+      "item_id": "SP002",
+      "pilot_role": "SEEN",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "approve_expensive_track_a_rsi": false,
+      "structure_labels": {
+        "capability_families_upper_inventory": [
+          "APPEARANCE_OR_ROLE_ID",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "layer1_families_normalized": [
+          "CROSS_WINDOW_ENTITY_BIND",
+          "ENTITY_BINDING",
+          "ENTITY_IDENTIFICATION",
+          "RELATION_QUERY",
+          "TEXT_EVIDENCE_READING"
+        ],
+        "layer2_atoms_normalized": [
+          "BindPersonToName",
+          "JoinPersonRelationAcrossWindows",
+          "ObservePerson",
+          "QueryRelation",
+          "ReadPersonNameFromSubtitle",
+          "ReadRelationFromSubtitle"
+        ],
+        "n_nodes": 6,
+        "n_edges": 5
+      },
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      }
+    },
+    {
+      "item_id": "SP005",
+      "pilot_role": "SEEN",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "approve_expensive_track_a_rsi": false,
+      "structure_labels": {
+        "capability_families_upper_inventory": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "layer1_families_normalized": [
+          "CONSTRAINT_BASED_ENTITY_SELECTION",
+          "ENTITY_IDENTIFICATION",
+          "EVENT_DETECTION",
+          "EVENT_PARTICIPANT_QUERY",
+          "SYMBOLIC_ATTRIBUTE_RECOGNITION",
+          "TARGET_CONSTRAINT_SETUP",
+          "TEMPORAL_EVENT_LOCALIZATION"
+        ],
+        "layer2_atoms_normalized": [
+          "DetectObjectActionEvent",
+          "IdentifyCountryFromFlag",
+          "IdentifyTeams",
+          "LocateConstrainedScoreEvent",
+          "LocateOrderedSegment",
+          "QueryEventParticipant",
+          "SelectTeamByCountry",
+          "SetTargetCountry"
+        ],
+        "n_nodes": 8,
+        "n_edges": 7
+      },
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      }
+    },
+    {
+      "item_id": "SP201",
+      "pilot_role": "SEEN",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "approve_expensive_track_a_rsi": false,
+      "structure_labels": {
+        "capability_families_upper_inventory": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "layer1_families_normalized": [
+          "BOUND_ATTRIBUTE_QUERY",
+          "CROSS_WINDOW_ENTITY_BIND",
+          "ENTITY_IDENTIFICATION",
+          "EVENT_OUTCOME_INFERENCE"
+        ],
+        "layer2_atoms_normalized": [
+          "BindSamePerson",
+          "DetermineEventWinner",
+          "IdentifyPerson",
+          "QueryBoundEmotion"
+        ],
+        "n_nodes": 4,
+        "n_edges": 3
+      },
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      }
+    },
+    {
+      "item_id": "SP202",
+      "pilot_role": "SEEN",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "approve_expensive_track_a_rsi": false,
+      "structure_labels": {
+        "capability_families_upper_inventory": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "layer1_families_normalized": [
+          "BOUND_ATTRIBUTE_QUERY",
+          "CROSS_WINDOW_ENTITY_BIND",
+          "ENTITY_IDENTIFICATION",
+          "TEMPORAL_EVENT_LOCALIZATION"
+        ],
+        "layer2_atoms_normalized": [
+          "BindSamePerson",
+          "IdentifyFirstActorByAction",
+          "IdentifyPerson",
+          "QueryBoundMatchResult"
+        ],
+        "n_nodes": 4,
+        "n_edges": 3
+      },
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      }
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "pilot_role": "UNSEEN",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "approve_expensive_track_a_rsi": false,
+      "structure_labels": {
+        "capability_families_upper_inventory": [
+          "ACTION_OR_EVENT_DETECT",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND",
+          "TEXT_OR_GRAPHIC_READ"
+        ],
+        "layer1_families_normalized": [
+          "BOUND_ATTRIBUTE_QUERY",
+          "CROSS_WINDOW_ENTITY_BIND",
+          "EVENT_DETECTION",
+          "TEXT_EVIDENCE_READING"
+        ],
+        "layer2_atoms_normalized": [
+          "BindSamePerson",
+          "DetectActionEvent",
+          "QueryBoundAction",
+          "ReadPersonNameFromGraphic"
+        ],
+        "n_nodes": 5,
+        "n_edges": 4
+      },
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      }
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "pilot_role": "UNSEEN",
+      "formal_seen_train": false,
+      "formal_unseen": false,
+      "formal_gold": false,
+      "train_exposed": false,
+      "approve_expensive_track_a_rsi": false,
+      "structure_labels": {
+        "capability_families_upper_inventory": [
+          "ACTION_OR_EVENT_DETECT",
+          "APPEARANCE_OR_ROLE_ID",
+          "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+          "CROSS_CLIP_IDENTITY_BIND"
+        ],
+        "layer1_families_normalized": [
+          "BOUND_ATTRIBUTE_QUERY",
+          "CROSS_WINDOW_ENTITY_BIND",
+          "ENTITY_IDENTIFICATION",
+          "EVENT_DETECTION"
+        ],
+        "layer2_atoms_normalized": [
+          "BindSamePerson",
+          "DetectActionEvent",
+          "DetectTransportEvent",
+          "IdentifyPersonByAppearance",
+          "QueryBoundTransport"
+        ],
+        "n_nodes": 5,
+        "n_edges": 5
+      },
+      "training_exposure_limits": {
+        "may_use_as_formal_train": false,
+        "may_claim_formal_unseen": false,
+        "may_claim_formal_gold": false,
+        "track_a_use": "MINIMAL_VALIDATION_ONLY",
+        "note": "Pilot Seen/Unseen roles are fixed for this export; they are not formal Seen/Unseen promotions."
+      }
+    }
+  ]
+}
