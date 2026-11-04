@@ -1,0 +1,153 @@
+{
+  "schema": "longvideocompbenc_bootstrap_report_v0_1",
+  "algo_version": "longvideocompbenc_bootstrap_v0.1.0",
+  "dataset_version": "0.1.0-dev",
+  "built_utc": "2026-11-04T14:50:55+00:00",
+  "wp1_status": "PASS",
+  "wp1_algo": "minimal_validation_export_v1.2.0",
+  "seeds_requested": [
+    "SP001",
+    "SP002",
+    "SP005",
+    "SP201",
+    "SP202",
+    "P7_VTCD_C2",
+    "P7_TJR_R3",
+    "A",
+    "B",
+    "P7_R4_F1",
+    "P7_R4_F2"
+  ],
+  "n_program_graphs_imported": 11,
+  "n_qa_records": 11,
+  "n_qa_complete": 9,
+  "n_qa_partial": 0,
+  "n_qa_graph_only": 2,
+  "n_videos_unique": 8,
+  "n_evidence_rows": 16,
+  "n_reviews": 11,
+  "proposed_7_4_status": "PROPOSED",
+  "frozen_5_2_immutable": true,
+  "per_item_missing_fields": {
+    "SP001": {
+      "qa_id": "lvcb:qa:SP001",
+      "missing_fields": [],
+      "record_completeness": "COMPLETE"
+    },
+    "SP002": {
+      "qa_id": "lvcb:qa:SP002",
+      "missing_fields": [],
+      "record_completeness": "COMPLETE"
+    },
+    "SP005": {
+      "qa_id": "lvcb:qa:SP005",
+      "missing_fields": [],
+      "record_completeness": "COMPLETE"
+    },
+    "SP201": {
+      "qa_id": "lvcb:qa:SP201",
+      "missing_fields": [],
+      "record_completeness": "COMPLETE"
+    },
+    "SP202": {
+      "qa_id": "lvcb:qa:SP202",
+      "missing_fields": [],
+      "record_completeness": "COMPLETE"
+    },
+    "P7_VTCD_C2": {
+      "qa_id": "lvcb:qa:P7_VTCD_C2",
+      "missing_fields": [
+        "windows_seconds"
+      ],
+      "record_completeness": "COMPLETE"
+    },
+    "P7_TJR_R3": {
+      "qa_id": "lvcb:qa:P7_TJR_R3",
+      "missing_fields": [
+        "windows_seconds"
+      ],
+      "record_completeness": "COMPLETE"
+    },
+    "A": {
+      "qa_id": "lvcb:qa:A",
+      "missing_fields": [
+        "question",
+        "answer",
+        "video_id",
+        "record_completeness=GRAPH_ONLY",
+        "windows_seconds"
+      ],
+      "record_completeness": "GRAPH_ONLY"
+    },
+    "B": {
+      "qa_id": "lvcb:qa:B",
+      "missing_fields": [
+        "question",
+        "answer",
+        "video_id",
+        "record_completeness=GRAPH_ONLY",
+        "windows_seconds"
+      ],
+      "record_completeness": "GRAPH_ONLY"
+    },
+    "P7_R4_F1": {
+      "qa_id": "lvcb:qa:P7_R4_F1",
+      "missing_fields": [
+        "windows_seconds"
+      ],
+      "record_completeness": "COMPLETE"
+    },
+    "P7_R4_F2": {
+      "qa_id": "lvcb:qa:P7_R4_F2",
+      "missing_fields": [
+        "windows_seconds"
+      ],
+      "record_completeness": "COMPLETE"
+    }
+  },
+  "video_field_missing": {
+    "Hf-n1yfd8II": [
+      "duration_seconds",
+      "media_sha256_scientific"
+    ],
+    "KLIa2UaE2KE": [
+      "duration_seconds",
+      "media_sha256_scientific"
+    ],
+    "TJR1oYDDTwg": [
+      "duration_seconds",
+      "media_sha256_scientific"
+    ],
+    "VTCDQYYKA9o": [
+      "duration_seconds",
+      "media_sha256_scientific"
+    ],
+    "aJI8XTa_DII": [
+      "duration_seconds",
+      "media_sha256_scientific"
+    ],
+    "vHlSoxg8WHo": [
+      "duration_seconds",
+      "media_sha256_scientific"
+    ],
+    "Cm73ma6Ibcs": [
+      "duration_seconds",
+      "source_uri",
+      "media_sha256_scientific"
+    ],
+    "LLSJrEgOOtw": [
+      "duration_seconds",
+      "source_uri",
+      "media_sha256_scientific"
+    ]
+  },
+  "status": "PARTIAL",
+  "status_note": "PARTIAL because some seeds lack original question/answer and/or windows; no fields were forged.",
+  "not_done": [
+    "No new video annotation",
+    "No Gold promotion",
+    "No Track A / expensive RSI",
+    "No public license claim",
+    "Videos not copied into git"
+  ]
+}

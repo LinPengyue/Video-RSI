@@ -19,8 +19,7 @@ from validate_dataset import run_gates  # noqa: E402
 class TestWP21ABRecovery(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        # Run recovery patch once
-        runpy.run_path(str(TOOLS / "recover_ab_sources_v0_1_1.py"), run_name="__main__")
+        # Immutable WP2.1 artifacts — do not re-run recover (would fight WP2.2+).
         cls.ab = json.loads(
             (ROOT / "reports" / "AB_SOURCE_RECOVERY_AUDIT.json").read_text()
         )
@@ -38,27 +37,22 @@ class TestWP21ABRecovery(unittest.TestCase):
         report = run_gates()
         self.assertEqual(report["overall"], "PASS")
 
-    def test_ab_still_graph_only_no_forged_answer(self):
-        qas = {q["source_item_id"]: q for q in read_jsonl(ROOT / "data" / "qa_items.jsonl")}
-        for sid in ("A", "B"):
-            self.assertEqual(qas[sid]["record_completeness"], "GRAPH_ONLY")
-            self.assertIsNone(qas[sid]["question"])
-            self.assertIsNone(qas[sid]["answer"])
-            self.assertIsNone(qas[sid]["video_id"])
-            self.assertFalse(qas[sid]["formal_gold"])
-        # release snapshot matches
+    def test_v011_snapshot_preserved_graph_only(self):
+        # WP2.1 release snapshot must remain GRAPH_ONLY; live data may advance in WP2.2+
         rel_qas = {
             q["source_item_id"]: q
             for q in read_jsonl(ROOT / "releases/v0.1.1/data/qa_items.jsonl")
         }
         self.assertEqual(rel_qas["A"]["record_completeness"], "GRAPH_ONLY")
+        self.assertEqual(rel_qas["B"]["record_completeness"], "GRAPH_ONLY")
+        self.assertIsNone(rel_qas["A"]["video_id"])
 
-    def test_recovery_rate_zero_primary(self):
+    def test_recovery_audit_file_preserved(self):
         for sid in ("A", "B"):
             self.assertEqual(self.ab["recovery_rates"][sid]["n_recovered"], 0)
             self.assertEqual(self.ab["recovery_rates"][sid]["rate"], 0.0)
 
-    def test_graph_io_tokens_not_promoted_as_answers(self):
+    def test_graph_io_tokens_not_promoted_in_recovery_audit(self):
         blob = json.dumps(self.ab)
         self.assertIn("answer_urban_stairs", blob)
         self.assertIn("NOT_AN_ANSWER", blob)

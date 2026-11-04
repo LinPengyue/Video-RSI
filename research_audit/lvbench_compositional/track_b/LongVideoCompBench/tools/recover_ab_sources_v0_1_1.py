@@ -552,6 +552,10 @@ def patch_qa_provenance(ab_audit: dict) -> None:
     out = []
     for q in qas:
         if q.get("source_item_id") in ("A", "B"):
+            # WP2.2+ may have advanced A/B; never downgrade or assert GRAPH_ONLY.
+            if q.get("record_completeness") != "GRAPH_ONLY":
+                out.append(q)
+                continue
             q = dict(q)
             q["provenance"] = dict(q.get("provenance") or {})
             q["provenance"]["ab_source_recovery_v0_1_1"] = {
@@ -560,7 +564,6 @@ def patch_qa_provenance(ab_audit: dict) -> None:
                 "recovery_rate": ab_audit["recovery_rates"][q["source_item_id"]],
                 "note": "No primary QA fields promoted.",
             }
-            assert q["record_completeness"] == "GRAPH_ONLY"
             assert q.get("formal_gold") is False
             assert q.get("question") is None
             assert q.get("answer") is None

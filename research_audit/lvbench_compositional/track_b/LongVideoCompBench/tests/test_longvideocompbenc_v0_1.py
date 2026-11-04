@@ -21,7 +21,6 @@ from _common import (  # noqa: E402
     WP1,
     read_jsonl,
 )
-from bootstrap_dataset import bootstrap  # noqa: E402
 from import_annotation_batch import import_batch  # noqa: E402
 from validate_dataset import gate_b_refs, gate_d_split_leakage, load_data, run_gates  # noqa: E402
 
@@ -31,10 +30,11 @@ class TestLongVideoCompBench(unittest.TestCase):
     def setUpClass(cls):
         wp1 = json.loads((WP1 / "VALIDATION_REPORT.json").read_text())
         assert wp1.get("status") == "PASS", "WP1 must PASS before data bootstrap"
-        cls.bootstrap = bootstrap()
-        # stats + validate via run_gates
+        # Do not re-bootstrap over later WP2.x patches; validate current DEV tree.
+        cls.bootstrap = json.loads(
+            (ROOT / "reports" / "bootstrap_report.json").read_text()
+        )
         cls.report = run_gates()
-        # write validation report like CLI
         (ROOT / "reports").mkdir(exist_ok=True)
         (ROOT / "reports" / "validation_report.json").write_text(
             json.dumps(cls.report, indent=2) + "\n"
@@ -53,10 +53,14 @@ class TestLongVideoCompBench(unittest.TestCase):
         ids = {g["source_item_id"] for g in graphs}
         self.assertEqual(ids, set(SEED_11))
         complete = [q for q in qas if q["record_completeness"] == "COMPLETE"]
-        graph_only = [q for q in qas if q["record_completeness"] == "GRAPH_ONLY"]
+        partial = [q for q in qas if q["record_completeness"] == "PARTIAL"]
         self.assertGreaterEqual(len(complete), 9)
-        self.assertEqual({q["source_item_id"] for q in graph_only}, {"A", "B"})
-        self.assertEqual(self.bootstrap["status"], "PARTIAL")
+        # WP2.2: A/B upgraded from GRAPH_ONLY → PARTIAL (video bound + draft QA)
+        self.assertEqual({q["source_item_id"] for q in partial}, {"A", "B"})
+        for q in partial:
+            self.assertIsNotNone(q.get("video_id"))
+            self.assertEqual(q.get("answer_status"), "CHAT_RECONSTRUCTED_QA_DRAFT")
+            self.assertFalse(q.get("formal_gold"))
 
     def test_video_dedup_not_eleven(self):
         videos = read_jsonl(ROOT / "data" / "videos.jsonl")

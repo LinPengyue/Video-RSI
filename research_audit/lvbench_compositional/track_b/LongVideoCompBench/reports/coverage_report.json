@@ -1,8 +1,8 @@
 {
   "schema": "longvideocompbenc_coverage_stats_v0_1",
-  "built_utc": "2026-11-04T14:51:13+00:00",
+  "built_utc": "2026-11-04T15:02:48+00:00",
   "videos": {
-    "unique_video_rows": 8,
+    "unique_video_rows": 10,
     "qa_video_frequency": {
       "aJI8XTa_DII": 1,
       "vHlSoxg8WHo": 1,
@@ -10,22 +10,23 @@
       "Hf-n1yfd8II": 2,
       "VTCDQYYKA9o": 1,
       "TJR1oYDDTwg": 1,
-      "__UNKNOWN_VIDEO__": 2,
+      "hROKtPqktO8": 1,
+      "iA_69g87Ilw": 1,
       "Cm73ma6Ibcs": 1,
       "LLSJrEgOOtw": 1
     },
     "dedup_note": "Multiple QAs may share one video (e.g., SP201/SP202).",
     "duration_seconds": {
       "confirmed": 0,
-      "unknown": 8,
+      "unknown": 10,
       "note": "unknown_not_treated_as_zero"
     }
   },
   "qa": {
     "n_records": 11,
     "n_complete": 9,
-    "n_partial": 0,
-    "n_graph_only": 2,
+    "n_partial": 2,
+    "n_graph_only": 0,
     "independent_source_item_ids": [
       "A",
       "B",

@@ -1,3 +1,11 @@
+## v0.1.2 — WP2.2 A/B human adjudication ingest
+
+- Human Scientific Owner confirmed A↔`hROKtPqktO8` same-person bind and B↔`iA_69g87Ilw` same-room bind.
+- Bound video IDs; recorded related ROI evidence; attached `CHAT_RECONSTRUCTED_QA_DRAFT` questions/answers.
+- A/B → `PARTIAL` (not Gold); formal QA windows not auto-completed from ROI.
+- Preserved `AB_SOURCE_RECOVERY_AUDIT.json`; left `releases/v0.1.0` and `v0.1.1` immutable.
+- 5+2 frozen / 7+4 PROPOSED unchanged.
+
 ## v0.1.1 — WP2.1 A/B recovery audit (no Gold / no invented QA)
 
 - Added `reports/AB_SOURCE_RECOVERY_AUDIT.json` with per-field recovery evidence.

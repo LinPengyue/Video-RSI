@@ -1,0 +1,88 @@
+{
+  "schema": "wp2_2_ab_human_adjudication_report_v1",
+  "algo_version": "longvideocompbenc_ab_human_adj_v0_1_2",
+  "built_utc": "2026-11-04T15:02:48+00:00",
+  "baseline_commit": "1bb34ce53482eee78d1bba62cfee4bba2073b65b",
+  "updated_fields": {
+    "A": {
+      "video_id": "hROKtPqktO8",
+      "question": "后来在山坡自拍的那名女性，之前出现在哪里？",
+      "answer": "城市台阶附近",
+      "answer_status": "CHAT_RECONSTRUCTED_QA_DRAFT",
+      "record_completeness": "PARTIAL",
+      "formal_gold": false,
+      "status_bundle": {
+        "program_graph_status": "CHAT_APPROVED_SIDECAR_NOT_FRAME_CERTIFIED",
+        "human_relation_adjudication_status": "HUMAN_APPROVED",
+        "human_relation_operator": "CrossIntervalSamePersonBind",
+        "qa_completeness_status": "PARTIAL_CHAT_RECONSTRUCTED_DRAFT",
+        "formal_qa_windows_status": "ROI_RELATED_NOT_FULL_QA_WINDOWS",
+        "formal_gold_status": false
+      },
+      "evidence_ids": [
+        "lvcb:ev:A:ROI_A",
+        "lvcb:ev:A:ROI_B"
+      ],
+      "related_rois": {
+        "A": {
+          "start": 500,
+          "end": 510,
+          "label": "early_roi_street_selfie_context"
+        },
+        "B": {
+          "start": 1255,
+          "end": 1265,
+          "label": "late_roi_hillside_selfie"
+        }
+      }
+    },
+    "B": {
+      "video_id": "iA_69g87Ilw",
+      "question": "后来出现的告别房间，在更早的画面中有什么物品？",
+      "answer": "水果拼盘",
+      "answer_status": "CHAT_RECONSTRUCTED_QA_DRAFT",
+      "record_completeness": "PARTIAL",
+      "formal_gold": false,
+      "status_bundle": {
+        "program_graph_status": "CHAT_APPROVED_SIDECAR_NOT_FRAME_CERTIFIED",
+        "human_relation_adjudication_status": "HUMAN_APPROVED",
+        "human_relation_operator": "CrossViewSameRoomBind",
+        "qa_completeness_status": "PARTIAL_CHAT_RECONSTRUCTED_DRAFT",
+        "formal_qa_windows_status": "ROI_RELATED_NOT_FULL_QA_WINDOWS",
+        "formal_gold_status": false
+      },
+      "evidence_ids": [
+        "lvcb:ev:B:ROI_A",
+        "lvcb:ev:B:ROI_B"
+      ],
+      "related_rois": {
+        "A": {
+          "start": 358,
+          "end": 368,
+          "label": "early_roi_fruit_platter"
+        },
+        "B": {
+          "start": 900,
+          "end": 910,
+          "label": "late_roi_speaking_door_context"
+        }
+      }
+    }
+  },
+  "human_adjudication_path": "annotations/ab_human_adjudications_wp2_2.jsonl",
+  "prior_audit_preserved": "reports/AB_SOURCE_RECOVERY_AUDIT.json",
+  "remaining_gaps": [
+    "QA texts are CHAT_RECONSTRUCTED_QA_DRAFT — not verbatim original QA",
+    "Answer semantics (城市台阶附近 / 水果拼盘) need video-observation reconciliation",
+    "ROI fragments ≠ complete formal QA windows_seconds",
+    "formal_gold remains false for A/B",
+    "Necessity A-only/B-only tests not newly human-passed this round",
+    "7+4 remains PROPOSED"
+  ],
+  "not_done": [
+    "No new video scan",
+    "No Track A experiment",
+    "No Gold promotion",
+    "v0.1.0 and v0.1.1 untouched"
+  ]
+}

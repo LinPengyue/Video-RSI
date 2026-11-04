@@ -1,6 +1,6 @@
 {
   "schema": "longvideocompbenc_validation_v0_1",
-  "validated_utc": "2026-11-04T14:51:13+00:00",
+  "validated_utc": "2026-11-04T15:02:48+00:00",
   "gates": {
     "A_schema": {
       "status": "PASS",
@@ -26,7 +26,7 @@
   "seed_counts": {
     "n_qas": 11,
     "n_graphs": 11,
-    "n_videos": 8,
+    "n_videos": 10,
     "expected_graphs": 11
   },
   "overall": "PASS"
