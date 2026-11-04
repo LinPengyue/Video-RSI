@@ -1,0 +1,579 @@
+{
+  "schema": "operator_mapping_v1",
+  "algo_version": "normalized_programs_v1.0.0",
+  "vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
+  "layer1_families": {
+    "CROSS_CLIP_IDENTITY_BIND": [
+      "CrossIntervalSamePersonBind",
+      "CrossWindowPersonBind",
+      "CrossClipCountryBind",
+      "TemporalPersonBind",
+      "JoinByPersonReference",
+      "CrossIntervalSameAnimalBind",
+      "CrossModalReferentBind",
+      "CrossIntervalSameAthleteBind"
+    ],
+    "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND": [
+      "QueryEmotion",
+      "QueryEarlierAction",
+      "QueryEarlierTransport",
+      "QueryLaterAction",
+      "QueryLaterActions",
+      "QueryMatchResult",
+      "QueryLaterTransport",
+      "QueryLaterInteraction",
+      "CountMatchedFlags",
+      "IdentifyScoringPlayer",
+      "SelectTeamByCountry",
+      "SetTargetCountry"
+    ],
+    "TEXT_OR_GRAPHIC_READ": [
+      "ReadNameGraphic",
+      "ReadNameAbbreviationGraphic",
+      "ReadNameSubtitle",
+      "ReadRelationSubtitle",
+      "IdentifyFlagOnFlagpole",
+      "IdentifyFlagCountry",
+      "DetectWavedFlag",
+      "IdentifyCountry"
+    ],
+    "ACTION_OR_EVENT_DETECT": [
+      "DetectJacketRemoval",
+      "DetectAction",
+      "DetectActionEvent",
+      "DetectTransportRide",
+      "DetectDisembark",
+      "DetectSnowScene",
+      "IdentifyFirstServer",
+      "DetermineMatchWinner",
+      "IdentifyFirstTransport",
+      "IdentifyTransport",
+      "LocateSet",
+      "LocateTeamPoint",
+      "DetectAnimalCue",
+      "DetectAnimal",
+      "DetectAnimalAndInteraction"
+    ],
+    "APPEARANCE_OR_ROLE_ID": [
+      "IdentifyActorByAppearance",
+      "IdentifyPersonByAppearance",
+      "IdentifyRescuerByRole",
+      "ExtractAppearance",
+      "ObservePerson",
+      "IdentifyTeams",
+      "SelectTeam",
+      "MatchFlagsByCountry",
+      "LocateClockBuilding",
+      "LocateFirstSpeechStage",
+      "DetectMultipleNationalFlags",
+      "IdentifyAnimal"
+    ],
+    "TEMPORAL_ORDER_COMPARE": [
+      "CompareTemporalOrder",
+      "TimeAnchor",
+      "TemporalSuccessor",
+      "VerifyTemporalRelation"
+    ]
+  },
+  "operators": {
+    "LocateFirstSpeechStage": {
+      "layer2": "LocateFirstSpeechStage",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "LocateFirstSpeechStage"
+      ],
+      "seen_in_graphs": [
+        "SP001"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "DetectMultipleNationalFlags": {
+      "layer2": "DetectMultipleNationalFlags",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "DetectMultipleNationalFlags"
+      ],
+      "seen_in_graphs": [
+        "SP001"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "MatchFlagsByCountry": {
+      "layer2": "MatchFlagsByCountry",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "MatchFlagsByCountry"
+      ],
+      "seen_in_graphs": [
+        "SP001"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "CountMatchedFlags": {
+      "layer2": "CountMatchedFlags",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "example_raw_forms": [
+        "CountMatchedFlags"
+      ],
+      "seen_in_graphs": [
+        "SP001"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "LocateClockBuilding": {
+      "layer2": "LocateClockBuilding",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "LocateClockBuilding"
+      ],
+      "seen_in_graphs": [
+        "SP001"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyFlagOnFlagpole": {
+      "layer2": "IdentifyFlagOnFlagpole",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "example_raw_forms": [
+        "IdentifyFlagOnFlagpole"
+      ],
+      "seen_in_graphs": [
+        "SP001"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyCountry": {
+      "layer2": "IdentifyCountry",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "example_raw_forms": [
+        "IdentifyCountry(Russia)"
+      ],
+      "seen_in_graphs": [
+        "SP001"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "CrossClipCountryBind": {
+      "layer2": "CrossClipCountryBind",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "example_raw_forms": [
+        "CrossClipCountryBind(B.country, A.flag_country)",
+        "CrossClipCountryBind(A.target_country, B.team)"
+      ],
+      "seen_in_graphs": [
+        "SP001",
+        "SP005"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "ObservePerson": {
+      "layer2": "ObservePerson",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "ObservePerson(t≈00:02)→P"
+      ],
+      "seen_in_graphs": [
+        "SP002"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "ReadNameSubtitle": {
+      "layer2": "ReadNameSubtitle",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "example_raw_forms": [
+        "ReadNameSubtitle(t≈01:18)→Tacara"
+      ],
+      "seen_in_graphs": [
+        "SP002"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "TemporalPersonBind": {
+      "layer2": "TemporalPersonBind",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "example_raw_forms": [
+        "TemporalPersonBind(P,Tacara)"
+      ],
+      "seen_in_graphs": [
+        "SP002"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "ReadRelationSubtitle": {
+      "layer2": "ReadRelationSubtitle",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "example_raw_forms": [
+        "ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)"
+      ],
+      "seen_in_graphs": [
+        "SP002"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "JoinByPersonReference": {
+      "layer2": "JoinByPersonReference",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "example_raw_forms": [
+        "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))"
+      ],
+      "seen_in_graphs": [
+        "SP002"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "DetectWavedFlag": {
+      "layer2": "DetectWavedFlag",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "example_raw_forms": [
+        "DetectWavedFlag"
+      ],
+      "seen_in_graphs": [
+        "SP005"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyFlagCountry": {
+      "layer2": "IdentifyFlagCountry",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "example_raw_forms": [
+        "IdentifyFlagCountry→Italy"
+      ],
+      "seen_in_graphs": [
+        "SP005"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyTeams": {
+      "layer2": "IdentifyTeams",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "IdentifyTeams(Italy,Brazil)"
+      ],
+      "seen_in_graphs": [
+        "SP005"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "SelectTeam": {
+      "layer2": "SelectTeam",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "SelectTeam(target_country)"
+      ],
+      "seen_in_graphs": [
+        "SP005"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "LocateSet": {
+      "layer2": "LocateSet",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "example_raw_forms": [
+        "LocateSet(first)"
+      ],
+      "seen_in_graphs": [
+        "SP005"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "LocateTeamPoint": {
+      "layer2": "LocateTeamPoint",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "example_raw_forms": [
+        "LocateTeamPoint(team=Italy,point=10)"
+      ],
+      "seen_in_graphs": [
+        "SP005"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyScoringPlayer": {
+      "layer2": "IdentifyScoringPlayer",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "example_raw_forms": [
+        "IdentifyScoringPlayer"
+      ],
+      "seen_in_graphs": [
+        "SP005"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "DetermineMatchWinner": {
+      "layer2": "DetermineMatchWinner",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "example_raw_forms": [
+        "DetermineMatchWinner(B)"
+      ],
+      "seen_in_graphs": [
+        "SP201"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "CrossWindowPersonBind": {
+      "layer2": "CrossWindowPersonBind",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "example_raw_forms": [
+        "CrossWindowPersonBind(B,A)",
+        "CrossWindowPersonBind(A,B)"
+      ],
+      "seen_in_graphs": [
+        "SP201",
+        "SP202"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "QueryEmotion": {
+      "layer2": "QueryEmotion",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "example_raw_forms": [
+        "QueryEmotion(A)"
+      ],
+      "seen_in_graphs": [
+        "SP201"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyFirstServer": {
+      "layer2": "IdentifyFirstServer",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "example_raw_forms": [
+        "IdentifyFirstServer(A)"
+      ],
+      "seen_in_graphs": [
+        "SP202"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "QueryMatchResult": {
+      "layer2": "QueryMatchResult",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "example_raw_forms": [
+        "QueryMatchResult(B)"
+      ],
+      "seen_in_graphs": [
+        "SP202"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "ReadNameGraphic": {
+      "layer2": "ReadNameGraphic",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "example_raw_forms": [
+        "ReadNameGraphic"
+      ],
+      "seen_in_graphs": [
+        "P7_VTCD_C2"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "ReadNameAbbreviationGraphic": {
+      "layer2": "ReadNameAbbreviationGraphic",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "example_raw_forms": [
+        "ReadNameAbbreviationGraphic"
+      ],
+      "seen_in_graphs": [
+        "P7_VTCD_C2"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "CrossIntervalSamePersonBind": {
+      "layer2": "CrossIntervalSamePersonBind",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "example_raw_forms": [
+        "CrossIntervalSamePersonBind"
+      ],
+      "seen_in_graphs": [
+        "P7_VTCD_C2",
+        "P7_TJR_R3",
+        "P7_R4_F1"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "DetectJacketRemoval": {
+      "layer2": "DetectJacketRemoval",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "example_raw_forms": [
+        "DetectJacketRemoval"
+      ],
+      "seen_in_graphs": [
+        "P7_VTCD_C2"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "QueryEarlierAction": {
+      "layer2": "QueryEarlierAction",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "example_raw_forms": [
+        "QueryEarlierAction"
+      ],
+      "seen_in_graphs": [
+        "P7_VTCD_C2"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "DetectAction": {
+      "layer2": "DetectAction",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "example_raw_forms": [
+        "DetectAction"
+      ],
+      "seen_in_graphs": [
+        "P7_TJR_R3"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyActorByAppearance": {
+      "layer2": "IdentifyActorByAppearance",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "IdentifyActorByAppearance"
+      ],
+      "seen_in_graphs": [
+        "P7_TJR_R3"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "DetectTransportRide": {
+      "layer2": "DetectTransportRide",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "example_raw_forms": [
+        "DetectTransportRide"
+      ],
+      "seen_in_graphs": [
+        "P7_TJR_R3"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "QueryEarlierTransport": {
+      "layer2": "QueryEarlierTransport",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "example_raw_forms": [
+        "QueryEarlierTransport"
+      ],
+      "seen_in_graphs": [
+        "P7_TJR_R3"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyRescuerByRole": {
+      "layer2": "IdentifyRescuerByRole",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "IdentifyRescuerByRole"
+      ],
+      "seen_in_graphs": [
+        "P7_R4_F1"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "ExtractAppearance": {
+      "layer2": "ExtractAppearance",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "ExtractAppearance"
+      ],
+      "seen_in_graphs": [
+        "P7_R4_F1"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyPersonByAppearance": {
+      "layer2": "IdentifyPersonByAppearance",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "example_raw_forms": [
+        "IdentifyPersonByAppearance"
+      ],
+      "seen_in_graphs": [
+        "P7_R4_F1"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "DetectActionEvent": {
+      "layer2": "DetectActionEvent",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "example_raw_forms": [
+        "DetectActionEvent"
+      ],
+      "seen_in_graphs": [
+        "P7_R4_F1"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "QueryLaterActions": {
+      "layer2": "QueryLaterActions",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "example_raw_forms": [
+        "QueryLaterActions"
+      ],
+      "seen_in_graphs": [
+        "P7_R4_F1"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "IdentifyAnimalVisual": {
+      "layer2": "IdentifyAnimalVisual",
+      "layer1": "OTHER_OR_UNMAPPED",
+      "example_raw_forms": [
+        "IdentifyAnimalVisual"
+      ],
+      "seen_in_graphs": [
+        "P7_R4_F2"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "CrossIntervalSameAnimalBind": {
+      "layer2": "CrossIntervalSameAnimalBind",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "example_raw_forms": [
+        "CrossIntervalSameAnimalBind"
+      ],
+      "seen_in_graphs": [
+        "P7_R4_F2"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "DetectAnimalHumanInteraction": {
+      "layer2": "DetectAnimalHumanInteraction",
+      "layer1": "OTHER_OR_UNMAPPED",
+      "example_raw_forms": [
+        "DetectAnimalHumanInteraction"
+      ],
+      "seen_in_graphs": [
+        "P7_R4_F2"
+      ],
+      "distinct_by_graph_context": true
+    },
+    "QueryLaterInteraction": {
+      "layer2": "QueryLaterInteraction",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "example_raw_forms": [
+        "QueryLaterInteraction"
+      ],
+      "seen_in_graphs": [
+        "P7_R4_F2"
+      ],
+      "distinct_by_graph_context": true
+    }
+  },
+  "special_non_unification": {
+    "CrossClipCountryBind": {
+      "layer2_policy": "SAME_STRING_NOT_SAME_OPERATION_ACROSS_GRAPHS",
+      "reason": "Task forbids treating SP001 and SP005 CrossClipCountryBind as one operation by name alone",
+      "instances": [
+        {
+          "graph_id": "SP001",
+          "raw": "CrossClipCountryBind(B.country, A.flag_country)",
+          "instance_id": "SP001::CrossClipCountryBind"
+        },
+        {
+          "graph_id": "SP005",
+          "raw": "CrossClipCountryBind(A.target_country, B.team)",
+          "instance_id": "SP005::CrossClipCountryBind",
+          "approved_rename_overlay": "SetTargetCountry (task brief; not applied — structured graph missing)"
+        }
+      ]
+    }
+  },
+  "built_utc": "2026-11-04T09:11:51+00:00"
+}

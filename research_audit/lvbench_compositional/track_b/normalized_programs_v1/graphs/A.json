@@ -1,0 +1,22 @@
+{
+  "schema": "normalized_program_graph_v1",
+  "graph_id": "A",
+  "split_role_fixed": "CANDIDATE_SENSITIVITY",
+  "normalization_status": "MISSING",
+  "algo_version": "normalized_programs_v1.0.0",
+  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
+  "gaps": [
+    "No approved standalone directed program graph named A in repo or p7 approved_graphs_v0.2",
+    "A appears only as clip_role / graph_as_reviewed window key, not a graph_id"
+  ],
+  "source": {},
+  "nodes": [],
+  "edges": [],
+  "n_nodes": 0,
+  "n_edges": 0,
+  "mapping_coverage": {
+    "layer1": null,
+    "layer2": null
+  },
+  "notes": []
+}

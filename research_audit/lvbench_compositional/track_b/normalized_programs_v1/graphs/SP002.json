@@ -1,0 +1,156 @@
+{
+  "schema": "normalized_program_graph_v1",
+  "graph_id": "SP002",
+  "split_role_fixed": "SEEN",
+  "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
+  "algo_version": "normalized_programs_v1.0.0",
+  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
+  "gaps": [
+    "NO_AUTHORITATIVE_EDGE_LIST: edges not present in graph_as_reviewed; refusing to invent topology",
+    "NO_AUTHORITATIVE_NODE_IO: inputs/outputs not machine-specified in source",
+    "NO_AUTHORITATIVE_TIME_CONDITIONS_PER_NODE"
+  ],
+  "source": {
+    "kind": "graph_as_reviewed_macro",
+    "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+    "sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459",
+    "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002.json",
+    "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH"
+  },
+  "nodes": [
+    {
+      "node_id": "sp002_n1",
+      "raw_operator": "ObservePerson(t≈00:02)→P",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "layer2": "ObservePerson",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.A",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp002_n2",
+      "raw_operator": "ReadNameSubtitle(t≈01:18)→Tacara",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "layer2": "ReadNameSubtitle",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.A",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp002_n3",
+      "raw_operator": "TemporalPersonBind(P,Tacara)",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "layer2": "TemporalPersonBind",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.A",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp002_n4",
+      "raw_operator": "ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "layer2": "ReadRelationSubtitle",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.B",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp002_n5",
+      "raw_operator": "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "layer2": "JoinByPersonReference",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "AB",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.cross_window",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    }
+  ],
+  "edges": [],
+  "n_nodes": 5,
+  "n_edges": 0,
+  "expected_counts_from_task": null,
+  "semantic_correction_overlays": [],
+  "mapping_coverage": {
+    "layer1": 1.0,
+    "layer2": 1.0,
+    "unmapped_layer1_operators": []
+  },
+  "notes": [
+    "Nodes listed from approved macro operators only.",
+    "Edges intentionally empty until authoritative edge list exists."
+  ]
+}

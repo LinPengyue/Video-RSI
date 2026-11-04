@@ -1,0 +1,250 @@
+{
+  "schema": "normalized_program_graph_v1",
+  "graph_id": "SP005",
+  "split_role_fixed": "SEEN",
+  "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
+  "algo_version": "normalized_programs_v1.0.0",
+  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
+  "gaps": [
+    "NO_AUTHORITATIVE_EDGE_LIST: edges not present in graph_as_reviewed; refusing to invent topology",
+    "NO_AUTHORITATIVE_NODE_IO: inputs/outputs not machine-specified in source",
+    "NO_AUTHORITATIVE_TIME_CONDITIONS_PER_NODE"
+  ],
+  "source": {
+    "kind": "graph_as_reviewed_macro",
+    "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+    "sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195",
+    "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005.json",
+    "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH"
+  },
+  "nodes": [
+    {
+      "node_id": "sp005_n1",
+      "raw_operator": "DetectWavedFlag",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "layer2": "DetectWavedFlag",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.A",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp005_n2",
+      "raw_operator": "IdentifyFlagCountry→Italy",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "layer2": "IdentifyFlagCountry",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.A",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp005_n3",
+      "raw_operator": "IdentifyTeams(Italy,Brazil)",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "layer2": "IdentifyTeams",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.B",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp005_n4",
+      "raw_operator": "SelectTeam(target_country)",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "layer2": "SelectTeam",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.B",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp005_n5",
+      "raw_operator": "LocateSet(first)",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "layer2": "LocateSet",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.B",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp005_n6",
+      "raw_operator": "LocateTeamPoint(team=Italy,point=10)",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "layer2": "LocateTeamPoint",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.B",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp005_n7",
+      "raw_operator": "IdentifyScoringPlayer",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "layer2": "IdentifyScoringPlayer",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.B",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp005_n8",
+      "raw_operator": "CrossClipCountryBind(A.target_country, B.team)",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "layer2": "CrossClipCountryBind",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "AB",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.cross_window",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    }
+  ],
+  "edges": [],
+  "n_nodes": 8,
+  "n_edges": 0,
+  "expected_counts_from_task": {
+    "nodes": 8,
+    "edges": 7
+  },
+  "semantic_correction_overlays": [
+    {
+      "kind": "TASK_BRIEF_APPROVED_SEMANTIC_CORRECTION",
+      "text": "n3 CrossClipCountryBind→SetTargetCountry inputs Italy_A outputs target_country",
+      "applied_to_graph": false,
+      "reason": "Structured n3/n5 topology with I/O not fully specified in machine-readable source; recorded for adjudication, not silently applied as fabricated nodes."
+    },
+    {
+      "kind": "TASK_BRIEF_APPROVED_SEMANTIC_CORRECTION",
+      "text": "n5 SelectTeam→SelectTeamByCountry inputs target_country,teams_B outputs selected_team",
+      "applied_to_graph": false,
+      "reason": "Structured n3/n5 topology with I/O not fully specified in machine-readable source; recorded for adjudication, not silently applied as fabricated nodes."
+    },
+    {
+      "kind": "TASK_BRIEF_APPROVED_SEMANTIC_CORRECTION",
+      "text": "n3→n5 normalize bind→data; preserve raw bind in provenance",
+      "applied_to_graph": false,
+      "reason": "Structured n3/n5 topology with I/O not fully specified in machine-readable source; recorded for adjudication, not silently applied as fabricated nodes."
+    }
+  ],
+  "mapping_coverage": {
+    "layer1": 1.0,
+    "layer2": 1.0,
+    "unmapped_layer1_operators": []
+  },
+  "notes": [
+    "Nodes listed from approved macro operators only.",
+    "Edges intentionally empty until authoritative edge list exists."
+  ]
+}

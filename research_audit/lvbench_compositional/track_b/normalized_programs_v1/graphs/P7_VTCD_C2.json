@@ -1,0 +1,248 @@
+{
+  "schema": "normalized_program_graph_v1",
+  "graph_id": "P7_VTCD_C2",
+  "split_role_fixed": "UNSEEN",
+  "normalization_status": "STRUCTURED_INGESTED",
+  "algo_version": "normalized_programs_v1.0.0",
+  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
+  "gaps": [],
+  "source": {
+    "kind": "approved_structured_graph_v0.2",
+    "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+    "sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e",
+    "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+    "graph_id_raw": "approved::P7_VTCD_C2::v0.2"
+  },
+  "nodes": [
+    {
+      "node_id": "c2_n1",
+      "raw_operator": "ReadNameGraphic",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "layer2": "ReadNameGraphic",
+      "inputs": [],
+      "outputs": [
+        "name_B_Fan_Zhendong"
+      ],
+      "clip_role": "B",
+      "time_conditions": [
+        {
+          "kind": "playback_offset_approx",
+          "clip_local_s_approx": 10,
+          "precision": "USER_STATED_APPROXIMATE_NOT_FRAME_ACCURATE",
+          "status": "RECORDED_AS_STATED_PENDING_FRAME_ACCURATE_SOURCE_MAPPING"
+        }
+      ],
+      "evidence": {
+        "on_screen_text": "Fan Zhendong"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e"
+      },
+      "unconfirmed_fields": []
+    },
+    {
+      "node_id": "c2_n2",
+      "raw_operator": "ReadNameAbbreviationGraphic",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "layer2": "ReadNameAbbreviationGraphic",
+      "inputs": [],
+      "outputs": [
+        "name_A_Fan_ZD"
+      ],
+      "clip_role": "A",
+      "time_conditions": [
+        {
+          "kind": "playback_offset_approx",
+          "clip_local_s_approx": 25,
+          "location": "背部",
+          "precision": "USER_STATED_APPROXIMATE_NOT_FRAME_ACCURATE",
+          "status": "RECORDED_AS_STATED_PENDING_FRAME_ACCURATE_SOURCE_MAPPING"
+        }
+      ],
+      "evidence": {
+        "on_screen_text": "Fan Z.D."
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e"
+      },
+      "unconfirmed_fields": []
+    },
+    {
+      "node_id": "c2_n3",
+      "raw_operator": "CrossIntervalSamePersonBind",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "layer2": "CrossIntervalSamePersonBind",
+      "inputs": [
+        "name_B_Fan_Zhendong",
+        "name_A_Fan_ZD"
+      ],
+      "outputs": [
+        "bound_athlete"
+      ],
+      "clip_role": "AB",
+      "time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence": {
+        "inference": "基于姓名与缩写的有证据支持的身份推断",
+        "certainty_note": "未额外声称绝对确定性；保留证据支持推断表述"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e"
+      },
+      "unconfirmed_fields": []
+    },
+    {
+      "node_id": "c2_n4",
+      "raw_operator": "DetectJacketRemoval",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "layer2": "DetectJacketRemoval",
+      "inputs": [
+        "bound_athlete"
+      ],
+      "outputs": [
+        "jacket_action_A"
+      ],
+      "clip_role": "A",
+      "time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL",
+          "note": "Exact remove-jacket source seconds not newly authorized in v0.2 beyond prior approximate user observation archive."
+        }
+      ],
+      "evidence": {
+        "action": "脱夹克"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e"
+      },
+      "unconfirmed_fields": []
+    },
+    {
+      "node_id": "c2_n5",
+      "raw_operator": "QueryEarlierAction",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "layer2": "QueryEarlierAction",
+      "inputs": [
+        "jacket_action_A"
+      ],
+      "outputs": [
+        "answer"
+      ],
+      "clip_role": "A",
+      "time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence": {
+        "answer_text_from_user_qa": "脱掉夹克"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "source_sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e"
+      },
+      "unconfirmed_fields": []
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "c2_e1",
+      "from_node": "c2_n1",
+      "to_node": "c2_n3",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "required_time_condition": {
+        "status": "PENDING_SCIENTIFIC_APPROVAL"
+      },
+      "user_confirmed": true,
+      "provenance": {
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "normalization_change": null
+      }
+    },
+    {
+      "edge_id": "c2_e2",
+      "from_node": "c2_n2",
+      "to_node": "c2_n3",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "required_time_condition": {
+        "status": "PENDING_SCIENTIFIC_APPROVAL"
+      },
+      "user_confirmed": true,
+      "provenance": {
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "normalization_change": null
+      }
+    },
+    {
+      "edge_id": "c2_e3",
+      "from_node": "c2_n3",
+      "to_node": "c2_n4",
+      "raw_dependency_kind": "bind",
+      "normalized_dependency_kind": "bind",
+      "required_time_condition": {
+        "status": "PENDING_SCIENTIFIC_APPROVAL"
+      },
+      "user_confirmed": true,
+      "provenance": {
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "normalization_change": null
+      }
+    },
+    {
+      "edge_id": "c2_e4",
+      "from_node": "c2_n4",
+      "to_node": "c2_n5",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "required_time_condition": {
+        "status": "PENDING_SCIENTIFIC_APPROVAL"
+      },
+      "user_confirmed": true,
+      "provenance": {
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
+        "normalization_change": null
+      }
+    }
+  ],
+  "n_nodes": 5,
+  "n_edges": 4,
+  "raw_directed_program_text": "B: 定位 PREVIOUS RESULTS 姓名画面中的运动员 + 提取身份线索（姓名/蓝色 T-shirt） → A: 检索更早人物并提取外观与脱外套事件 → CrossIntervalSamePersonBind(B运动员, A脱外套者；双侧身份/服装线索) → QueryEarlierAction(A, 同一人) → 脱掉夹克。依赖方向：后期身份指代 B → 早期动作 A。",
+  "mapping_coverage": {
+    "layer1": 1.0,
+    "layer2": 1.0,
+    "unmapped_layer1_operators": []
+  },
+  "notes": [
+    "Lossless copy of nodes/edges/I/O/time/evidence from provenance snapshot.",
+    "Layer1 family map is engineering FAMILY_MAP; vocab not scientifically frozen."
+  ]
+}

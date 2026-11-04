@@ -1,0 +1,91 @@
+{
+  "schema": "normalized_programs_scientific_decisions_v1",
+  "recorded_utc": "2026-11-04T09:11:51+00:00",
+  "recorder_role": "CURSOR_ENGINEERING_ARCHIVE_OF_TASK_CONSTRAINTS",
+  "not_a_new_scientific_adjudication": true,
+  "fixed_seen": [
+    "SP001",
+    "SP002",
+    "SP005",
+    "SP201",
+    "SP202"
+  ],
+  "fixed_unseen": [
+    "P7_VTCD_C2",
+    "P7_TJR_R3"
+  ],
+  "candidate_sensitivity_only": [
+    "A",
+    "B",
+    "P7_R4_F1",
+    "P7_R4_F2"
+  ],
+  "sp005_approved_semantic_corrections": {
+    "keep": "8 Nodes / 7 Edges",
+    "n3": {
+      "raw_to_normalized": "CrossClipCountryBind → SetTargetCountry",
+      "inputs": [
+        "Italy_A"
+      ],
+      "outputs": [
+        "target_country"
+      ]
+    },
+    "n5": {
+      "raw_to_normalized": "SelectTeam → SelectTeamByCountry",
+      "inputs": [
+        "target_country",
+        "teams_B"
+      ],
+      "outputs": [
+        "selected_team"
+      ]
+    },
+    "n3_to_n5_edge": {
+      "normalized_kind": "data",
+      "preserve_raw_kind": "bind",
+      "preserve_endpoints_and_direction": true
+    },
+    "retain": {
+      "team": "Italy",
+      "set": "first",
+      "point_index": 10
+    },
+    "application_status": "RECORDED_NOT_APPLIED_NO_AUTHORITATIVE_STRUCTURED_GRAPH"
+  },
+  "sp001_constraints": {
+    "keep": "8 Nodes / 8 Edges",
+    "s3_receives": "country_binding",
+    "s8_to_s3": "bind",
+    "do_not_change_country_match_count_logic": true,
+    "application_status": "RECORDED_NOT_APPLIED_NO_AUTHORITATIVE_STRUCTURED_EDGE_LIST"
+  },
+  "other_constraints": [
+    "SP201/SP202 keep 4N/3E; macro operators must not be split without approval",
+    "F1 two action nodes independent; no new inter-action temporal edge",
+    "C2 keep full-name vs abbreviation matching constraint",
+    "Do not unify SP001 and SP005 CrossClipCountryBind into one Layer-2 op solely by name"
+  ],
+  "ambiguities": [
+    {
+      "id": "MISSING_GRAPH_A",
+      "detail": "No approved standalone directed program graph with graph_id/item_id A"
+    },
+    {
+      "id": "MISSING_GRAPH_B",
+      "detail": "No approved standalone directed program graph with graph_id/item_id B"
+    },
+    {
+      "id": "SEEN_LACK_STRUCTURED_EDGES",
+      "detail": "SP001/SP002/SP005 only have graph_as_reviewed operator lists; task expects full node I/O + edges"
+    },
+    {
+      "id": "SP201_SP202_MACRO_VS_4N3E",
+      "detail": "Approved sources are 3-operator macros; task expects 4 nodes / 3 edges without authorizing a split"
+    },
+    {
+      "id": "LAYER_VOCAB_UNFROZEN",
+      "detail": "OPERATOR_LIBRARY_v1 on p7 branch is PENDING_SCIENTIFIC_APPROVAL; Layer1/2 map is provisional engineering"
+    }
+  ]
+}

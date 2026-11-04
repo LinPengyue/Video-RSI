@@ -1,0 +1,117 @@
+{
+  "schema": "normalized_program_graph_v1",
+  "graph_id": "SP202",
+  "split_role_fixed": "SEEN",
+  "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
+  "algo_version": "normalized_programs_v1.0.0",
+  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
+  "gaps": [
+    "MACRO_ONLY_GRAPH: task expects 4 nodes / 3 edges; source has 3 macro operators and no edge list",
+    "REFUSING_TO_SPLIT_MACRO_OPERATORS without scientific expansion",
+    "NODE_COUNT_VS_TASK: macro_ops=3 expected_nodes=4"
+  ],
+  "source": {
+    "kind": "user_approved_macro_graph",
+    "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
+    "sha256": "5f795ed9bc4220bcee6b819513c7c69fbdb3f787b4484097838dca33d00b8376",
+    "program": {
+      "status": "USER_APPROVED_MACRO_GRAPH",
+      "program": "IdentifyFirstServer(A) → CrossWindowPersonBind(A,B) → QueryMatchResult(B)",
+      "dependency_direction": "A_TO_B",
+      "answer_candidate": "wins the match"
+    },
+    "user_confirmation_status": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH"
+  },
+  "nodes": [
+    {
+      "node_id": "sp202_n1",
+      "raw_operator": "IdentifyFirstServer(A)",
+      "layer1": "ACTION_OR_EVENT_DETECT",
+      "layer2": "IdentifyFirstServer",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "program.program",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
+        "source_sha256": "5f795ed9bc4220bcee6b819513c7c69fbdb3f787b4484097838dca33d00b8376"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ],
+      "macro_node": true
+    },
+    {
+      "node_id": "sp202_n2",
+      "raw_operator": "CrossWindowPersonBind(A,B)",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "layer2": "CrossWindowPersonBind",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "AB",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "program.program",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
+        "source_sha256": "5f795ed9bc4220bcee6b819513c7c69fbdb3f787b4484097838dca33d00b8376"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ],
+      "macro_node": true
+    },
+    {
+      "node_id": "sp202_n3",
+      "raw_operator": "QueryMatchResult(B)",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "layer2": "QueryMatchResult",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "program.program",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
+        "source_sha256": "5f795ed9bc4220bcee6b819513c7c69fbdb3f787b4484097838dca33d00b8376"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ],
+      "macro_node": true
+    }
+  ],
+  "edges": [],
+  "n_nodes": 3,
+  "n_edges": 0,
+  "expected_counts_from_task": {
+    "nodes": 4,
+    "edges": 3
+  },
+  "mapping_coverage": {
+    "layer1": 1.0,
+    "layer2": 1.0,
+    "unmapped_layer1_operators": []
+  },
+  "notes": [
+    "SP201/SP202 kept as macro; task forbids unauthorized macro splits."
+  ]
+}

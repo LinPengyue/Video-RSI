@@ -1,0 +1,255 @@
+{
+  "schema": "normalized_program_graph_v1",
+  "graph_id": "P7_R4_F2",
+  "split_role_fixed": "CANDIDATE_SENSITIVITY",
+  "normalization_status": "STRUCTURED_INGESTED_WITH_MAPPING_GAPS",
+  "algo_version": "normalized_programs_v1.0.0",
+  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
+  "gaps": [
+    "layer1_unmapped_operators=['DetectAnimalHumanInteraction', 'IdentifyAnimalVisual']"
+  ],
+  "source": {
+    "kind": "approved_structured_graph_v0.2",
+    "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+    "sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b",
+    "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
+    "graph_id_raw": "approved::P7_R4_F2::v0.2"
+  },
+  "nodes": [
+    {
+      "node_id": "f2_n1",
+      "raw_operator": "IdentifyAnimalVisual",
+      "layer1": "OTHER_OR_UNMAPPED",
+      "layer2": "IdentifyAnimalVisual",
+      "inputs": [],
+      "outputs": [
+        "animal_ref_A"
+      ],
+      "clip_role": "A",
+      "time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL",
+          "note": "No frame-accurate source timestamp approved beyond existing clip window."
+        }
+      ],
+      "evidence": {
+        "visual": "黑白狗可静音识别",
+        "audio": "辅助证据 only；身份不依赖音频"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
+      },
+      "unconfirmed_fields": []
+    },
+    {
+      "node_id": "f2_n2",
+      "raw_operator": "IdentifyAnimalVisual",
+      "layer1": "OTHER_OR_UNMAPPED",
+      "layer2": "IdentifyAnimalVisual",
+      "inputs": [],
+      "outputs": [
+        "animal_ref_B"
+      ],
+      "clip_role": "B",
+      "time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence": {
+        "appearance_cues_for_bind": [
+          "黑脑袋",
+          "白鼻子",
+          "黑尾巴"
+        ]
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
+      },
+      "unconfirmed_fields": []
+    },
+    {
+      "node_id": "f2_n3",
+      "raw_operator": "CrossIntervalSameAnimalBind",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "layer2": "CrossIntervalSameAnimalBind",
+      "inputs": [
+        "animal_ref_A",
+        "animal_ref_B"
+      ],
+      "outputs": [
+        "bound_animal"
+      ],
+      "clip_role": "AB",
+      "time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence": {
+        "bind_cues": [
+          "黑脑袋",
+          "白鼻子",
+          "黑尾巴"
+        ],
+        "audio_role": "辅助，非绑定必要条件"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
+      },
+      "unconfirmed_fields": []
+    },
+    {
+      "node_id": "f2_n4",
+      "raw_operator": "DetectAnimalHumanInteraction",
+      "layer1": "OTHER_OR_UNMAPPED",
+      "layer2": "DetectAnimalHumanInteraction",
+      "inputs": [
+        "bound_animal"
+      ],
+      "outputs": [
+        "interaction_B"
+      ],
+      "clip_role": "B",
+      "time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence": {
+        "interaction": "与提桶女人打闹"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
+      },
+      "unconfirmed_fields": []
+    },
+    {
+      "node_id": "f2_n5",
+      "raw_operator": "QueryLaterInteraction",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "layer2": "QueryLaterInteraction",
+      "inputs": [
+        "interaction_B"
+      ],
+      "outputs": [
+        "answer"
+      ],
+      "clip_role": "B",
+      "time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence": {
+        "answer_text_from_user_qa": "与提着桶的女人打闹。"
+      },
+      "source": "USER_GPT_APPROVAL_v0.2",
+      "user_confirmed": true,
+      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "field": "nodes[].operator_type",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
+      },
+      "unconfirmed_fields": []
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "f2_e1",
+      "from_node": "f2_n1",
+      "to_node": "f2_n3",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "required_time_condition": {
+        "status": "PENDING_SCIENTIFIC_APPROVAL"
+      },
+      "user_confirmed": true,
+      "provenance": {
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "normalization_change": null
+      }
+    },
+    {
+      "edge_id": "f2_e2",
+      "from_node": "f2_n2",
+      "to_node": "f2_n3",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "required_time_condition": {
+        "status": "PENDING_SCIENTIFIC_APPROVAL"
+      },
+      "user_confirmed": true,
+      "provenance": {
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "normalization_change": null
+      }
+    },
+    {
+      "edge_id": "f2_e3",
+      "from_node": "f2_n3",
+      "to_node": "f2_n4",
+      "raw_dependency_kind": "bind",
+      "normalized_dependency_kind": "bind",
+      "required_time_condition": {
+        "status": "PENDING_SCIENTIFIC_APPROVAL"
+      },
+      "user_confirmed": true,
+      "provenance": {
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "normalization_change": null
+      }
+    },
+    {
+      "edge_id": "f2_e4",
+      "from_node": "f2_n4",
+      "to_node": "f2_n5",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "required_time_condition": {
+        "status": "PENDING_SCIENTIFIC_APPROVAL"
+      },
+      "user_confirmed": true,
+      "provenance": {
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "normalization_change": null
+      }
+    }
+  ],
+  "n_nodes": 5,
+  "n_edges": 4,
+  "raw_directed_program_text": "A: DetectAnimalCue(雾林中的狗叫声及狗的可见活动) → IdentifyAnimal(A中的狗，结合声音/外观) → B: DetectAnimalAndInteraction(落叶林中的狗与提桶女人打闹) → CrossIntervalSameAnimalBind(A狗, B狗；黑白毛色等身份线索) → QueryLaterInteraction(B, A所指动物) → 与提着桶的女人打闹。",
+  "mapping_coverage": {
+    "layer1": 0.5,
+    "layer2": 1.0,
+    "unmapped_layer1_operators": [
+      "DetectAnimalHumanInteraction",
+      "IdentifyAnimalVisual"
+    ]
+  },
+  "notes": [
+    "Lossless copy of nodes/edges/I/O/time/evidence from provenance snapshot.",
+    "Layer1 family map is engineering FAMILY_MAP; vocab not scientifically frozen."
+  ]
+}

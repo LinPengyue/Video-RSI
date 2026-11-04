@@ -1,0 +1,244 @@
+{
+  "schema": "normalized_program_graph_v1",
+  "graph_id": "SP001",
+  "split_role_fixed": "SEEN",
+  "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
+  "algo_version": "normalized_programs_v1.0.0",
+  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
+  "gaps": [
+    "NO_AUTHORITATIVE_EDGE_LIST: edges not present in graph_as_reviewed; refusing to invent topology",
+    "NO_AUTHORITATIVE_NODE_IO: inputs/outputs not machine-specified in source",
+    "NO_AUTHORITATIVE_TIME_CONDITIONS_PER_NODE"
+  ],
+  "source": {
+    "kind": "graph_as_reviewed_macro",
+    "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+    "sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c",
+    "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001.json",
+    "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH"
+  },
+  "nodes": [
+    {
+      "node_id": "sp001_n1",
+      "raw_operator": "LocateFirstSpeechStage",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "layer2": "LocateFirstSpeechStage",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.A",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp001_n2",
+      "raw_operator": "DetectMultipleNationalFlags",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "layer2": "DetectMultipleNationalFlags",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.A",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp001_n3",
+      "raw_operator": "MatchFlagsByCountry",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "layer2": "MatchFlagsByCountry",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.A",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp001_n4",
+      "raw_operator": "CountMatchedFlags",
+      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
+      "layer2": "CountMatchedFlags",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "A",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.A",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp001_n5",
+      "raw_operator": "LocateClockBuilding",
+      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "layer2": "LocateClockBuilding",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.B",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp001_n6",
+      "raw_operator": "IdentifyFlagOnFlagpole",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "layer2": "IdentifyFlagOnFlagpole",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.B",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp001_n7",
+      "raw_operator": "IdentifyCountry(Russia)",
+      "layer1": "TEXT_OR_GRAPHIC_READ",
+      "layer2": "IdentifyCountry",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "B",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.B",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    },
+    {
+      "node_id": "sp001_n8",
+      "raw_operator": "CrossClipCountryBind(B.country, A.flag_country)",
+      "layer1": "CROSS_CLIP_IDENTITY_BIND",
+      "layer2": "CrossClipCountryBind",
+      "inputs": "UNKNOWN_NOT_IN_SOURCE",
+      "outputs": "UNKNOWN_NOT_IN_SOURCE",
+      "clip_role": "AB",
+      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
+      "evidence": "UNKNOWN_NOT_IN_SOURCE",
+      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+      "user_confirmed": true,
+      "provenance": {
+        "field": "graph_as_reviewed.cross_window",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c"
+      },
+      "unconfirmed_fields": [
+        "inputs",
+        "outputs",
+        "time_conditions",
+        "evidence"
+      ]
+    }
+  ],
+  "edges": [],
+  "n_nodes": 8,
+  "n_edges": 0,
+  "expected_counts_from_task": {
+    "nodes": 8,
+    "edges": 8
+  },
+  "semantic_correction_overlays": [
+    {
+      "kind": "TASK_BRIEF_APPROVED_SEMANTIC_CORRECTION",
+      "text": "s3 receives country_binding; s8→s3 remain bind",
+      "applied_to_graph": false,
+      "reason": "Structured n3/n5 topology with I/O not fully specified in machine-readable source; recorded for adjudication, not silently applied as fabricated nodes."
+    },
+    {
+      "kind": "TASK_BRIEF_APPROVED_SEMANTIC_CORRECTION",
+      "text": "Do not change country match/count logic",
+      "applied_to_graph": false,
+      "reason": "Structured n3/n5 topology with I/O not fully specified in machine-readable source; recorded for adjudication, not silently applied as fabricated nodes."
+    }
+  ],
+  "mapping_coverage": {
+    "layer1": 1.0,
+    "layer2": 1.0,
+    "unmapped_layer1_operators": []
+  },
+  "notes": [
+    "Nodes listed from approved macro operators only.",
+    "Edges intentionally empty until authoritative edge list exists."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "overlap_metrics_gate_v1",
+  "status": "BLOCKED",
+  "reason": "Stage 2 validation BLOCKED; refusing to invent Seen–Unseen overlap numbers",
+  "stage2_status": "BLOCKED",
+  "built_utc": "2026-11-04T09:11:51+00:00",
+  "formal_5_2_metrics": null,
+  "candidate_sensitivity": null,
+  "m1": null,
+  "m2": null,
+  "m3": null,
+  "m4": null
+}
