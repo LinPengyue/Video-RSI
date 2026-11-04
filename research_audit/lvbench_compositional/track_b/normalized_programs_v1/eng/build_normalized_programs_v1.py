@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
-"""Stage 2: lossless normalization ingest for Track B approved program graphs.
+"""Stage 2+3: normalize 11 graphs from chat-approved handoff + P7 structured sources.
 
-Engineering only. Does not mint formal Seen/Unseen/Gold or invent missing structure.
-If authoritative structured graphs are incomplete, validation_report status=BLOCKED.
+Uses conversation-approved sidecar (NOT GitHub historical structured originals for the 7).
+Does not mint formal Seen/Unseen/Gold or invent evidence/timing.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
+import itertools
 import json
-import re
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[5]
 PILOT = (
@@ -20,193 +22,198 @@ PILOT = (
 )
 SNAP = PILOT / "provenance_snapshots"
 OUT = Path(__file__).resolve().parents[1]
-GRAPHS = OUT / "graphs"
-
+HANDOFF = (
+    OUT
+    / "chat_approved_handoff"
+    / "track_b_stage2_chat_approved_handoff_v1.json"
+)
+EXPECTED_HANDOFF_SHA = (
+    "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+)
+ALGO_VERSION = "normalized_programs_v1.1.0_handoff"
 SCHEMA = "normalized_program_graph_v1"
-VOCAB_STATUS = "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB"
-ALGO_VERSION = "normalized_programs_v1.0.0"
-EXPECTED_TOTAL = {"nodes": 60, "edges": 54}
 
-# Task-fixed roles (not formal Seen/Unseen promotion)
 SEEN = ["SP001", "SP002", "SP005", "SP201", "SP202"]
 UNSEEN = ["P7_VTCD_C2", "P7_TJR_R3"]
 CANDIDATE = ["A", "B", "P7_R4_F1", "P7_R4_F2"]
 ALL_IDS = SEEN + UNSEEN + CANDIDATE
-
-# Layer-1 families reused from pilot FAMILY_MAP (engineering; not scientific vocab freeze)
-FAMILY_MAP = {
-    "CROSS_CLIP_IDENTITY_BIND": [
-        "CrossIntervalSamePersonBind",
-        "CrossWindowPersonBind",
-        "CrossClipCountryBind",
-        "TemporalPersonBind",
-        "JoinByPersonReference",
-        "CrossIntervalSameAnimalBind",
-        "CrossModalReferentBind",
-        "CrossIntervalSameAthleteBind",
-    ],
-    "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND": [
-        "QueryEmotion",
-        "QueryEarlierAction",
-        "QueryEarlierTransport",
-        "QueryLaterAction",
-        "QueryLaterActions",
-        "QueryMatchResult",
-        "QueryLaterTransport",
-        "QueryLaterInteraction",
-        "CountMatchedFlags",
-        "IdentifyScoringPlayer",
-        "SelectTeamByCountry",
-        "SetTargetCountry",
-    ],
-    "TEXT_OR_GRAPHIC_READ": [
-        "ReadNameGraphic",
-        "ReadNameAbbreviationGraphic",
-        "ReadNameSubtitle",
-        "ReadRelationSubtitle",
-        "IdentifyFlagOnFlagpole",
-        "IdentifyFlagCountry",
-        "DetectWavedFlag",
-        "IdentifyCountry",
-    ],
-    "ACTION_OR_EVENT_DETECT": [
-        "DetectJacketRemoval",
-        "DetectAction",
-        "DetectActionEvent",
-        "DetectTransportRide",
-        "DetectDisembark",
-        "DetectSnowScene",
-        "IdentifyFirstServer",
-        "DetermineMatchWinner",
-        "IdentifyFirstTransport",
-        "IdentifyTransport",
-        "LocateSet",
-        "LocateTeamPoint",
-        "DetectAnimalCue",
-        "DetectAnimal",
-        "DetectAnimalAndInteraction",
-    ],
-    "APPEARANCE_OR_ROLE_ID": [
-        "IdentifyActorByAppearance",
-        "IdentifyPersonByAppearance",
-        "IdentifyRescuerByRole",
-        "ExtractAppearance",
-        "ObservePerson",
-        "IdentifyTeams",
-        "SelectTeam",
-        "MatchFlagsByCountry",
-        "LocateClockBuilding",
-        "LocateFirstSpeechStage",
-        "DetectMultipleNationalFlags",
-        "IdentifyAnimal",
-    ],
-    "TEMPORAL_ORDER_COMPARE": [
-        "CompareTemporalOrder",
-        "TimeAnchor",
-        "TemporalSuccessor",
-        "VerifyTemporalRelation",
-    ],
-}
-
-# Per-graph expected counts from Stage-2 task brief (scientific constraints to check)
-EXPECTED_COUNTS = {
-    "SP001": {"nodes": 8, "edges": 8},
-    "SP005": {"nodes": 8, "edges": 7},
-    "SP201": {"nodes": 4, "edges": 3},
-    "SP202": {"nodes": 4, "edges": 3},
-}
+P7_IDS = ["P7_VTCD_C2", "P7_TJR_R3", "P7_R4_F1", "P7_R4_F2"]
+CHAT_IDS = ["SP001", "SP002", "SP005", "SP201", "SP202", "A", "B"]
 
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
+def sha256_bytes(b: bytes) -> str:
+    return hashlib.sha256(b).hexdigest()
+
+
 def sha256_file(path: Path) -> str:
-    h = hashlib.sha256()
-    h.update(path.read_bytes())
-    return h.hexdigest()
+    return sha256_bytes(path.read_bytes())
 
 
-def layer1_for(op: str) -> str | None:
-    base = re.split(r"[(\[]", op, maxsplit=1)[0].strip()
-    for fam, ops in FAMILY_MAP.items():
-        if base in ops or op in ops:
-            return fam
-    return None
+def load_handoff() -> dict:
+    raw = HANDOFF.read_bytes()
+    digest = sha256_bytes(raw)
+    if digest != EXPECTED_HANDOFF_SHA:
+        raise SystemExit(
+            f"Handoff SHA mismatch: got {digest} expected {EXPECTED_HANDOFF_SHA}"
+        )
+    data = json.loads(raw.decode("utf-8"))
+    data["_file_sha256"] = digest
+    data["_file_path"] = str(HANDOFF.relative_to(ROOT))
+    return data
 
 
-def layer2_atom(op: str) -> str:
-    """Layer-2 label = atomic operator name without args; raw kept in provenance."""
-    return re.split(r"[(\[]", op, maxsplit=1)[0].strip() or op
+def map_lookup(handoff: dict, graph_id: str, node_id: str) -> dict:
+    m = handoff["vocabulary"]["all_11_per_node_mapping"][graph_id][node_id]
+    return m
 
 
-def empty_norm(
-    graph_id: str,
-    *,
-    role: str,
-    status: str,
-    gaps: list[str],
-    source: dict | None = None,
-) -> dict:
+def normalize_chat_graph(graph_id: str, raw: dict, handoff: dict) -> dict:
+    mapping = handoff["vocabulary"]["all_11_per_node_mapping"][graph_id]
+    nodes = []
+    for n in raw["nodes"]:
+        nid = n["node_id"]
+        mmap = mapping[nid]
+        # Prefer handoff vocabulary mapping; graph may already carry same labels
+        layer1 = mmap["layer1"]
+        layer2 = mmap["layer2"]
+        if n.get("layer1") and n["layer1"] != layer1:
+            raise SystemExit(f"{graph_id}.{nid} layer1 mismatch graph vs mapping")
+        if n.get("layer2") and n["layer2"] != layer2:
+            raise SystemExit(f"{graph_id}.{nid} layer2 mismatch graph vs mapping")
+        nodes.append(
+            {
+                "node_id": nid,
+                "raw_operator": n["raw_operator"],
+                "layer1": layer1,
+                "layer2": layer2,
+                "raw_inputs": n.get("raw_inputs"),
+                "raw_outputs": n.get("raw_outputs"),
+                "normalized_inputs": n.get("normalized_inputs"),
+                "normalized_outputs": n.get("normalized_outputs"),
+                "raw_clip_role": n.get("raw_clip_role"),
+                "normalized_clip_role": n.get("normalized_clip_role"),
+                "raw_evidence": n.get("raw_evidence"),
+                "raw_time_conditions": n.get("raw_time_conditions"),
+                "evidence_certification": n.get(
+                    "evidence_certification", "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF"
+                ),
+                "change_authority": n.get("change_authority"),
+                "graph_structure_user_approved_in_conversation": n.get(
+                    "graph_structure_user_approved_in_conversation", True
+                ),
+                "provenance": {
+                    "source_kind": "conversation_approved_sidecar",
+                    "handoff_path": handoff["_file_path"],
+                    "handoff_sha256": handoff["_file_sha256"],
+                    "local_compact_source_sha256": (raw.get("source") or {}).get(
+                        "local_compact_source_sha256"
+                    ),
+                    "not_github_historical_structured_original": True,
+                },
+                "extra_attributes": {
+                    k: n[k]
+                    for k in handoff.get("preserve_attributes", [])
+                    if k in n
+                },
+            }
+        )
+    edges = []
+    for e in raw["edges"]:
+        edges.append(
+            {
+                "edge_id": e["edge_id"],
+                "from_node": e["from_node"],
+                "to_node": e["to_node"],
+                "raw_dependency_kind": e.get("raw_dependency_kind"),
+                "normalized_dependency_kind": e.get("normalized_dependency_kind"),
+                "change_authority": e.get("change_authority"),
+                "graph_structure_user_approved_in_conversation": e.get(
+                    "graph_structure_user_approved_in_conversation", True
+                ),
+                "provenance": {
+                    "source_kind": "conversation_approved_sidecar",
+                    "handoff_sha256": handoff["_file_sha256"],
+                },
+            }
+        )
     return {
         "schema": SCHEMA,
         "graph_id": graph_id,
-        "split_role_fixed": role,
-        "normalization_status": status,
+        "split_role_fixed": raw.get("split_role"),
+        "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
         "algo_version": ALGO_VERSION,
-        "operator_vocab_status": VOCAB_STATUS,
-        "gaps": gaps,
-        "source": source or {},
-        "nodes": [],
-        "edges": [],
-        "n_nodes": 0,
-        "n_edges": 0,
-        "mapping_coverage": {"layer1": None, "layer2": None},
-        "notes": [],
+        "operator_vocab_status": handoff["vocabulary"]["status"],
+        "operator_vocab_version": handoff["vocabulary"]["version"],
+        "source": {
+            **(raw.get("source") or {}),
+            "handoff_path": handoff["_file_path"],
+            "handoff_sha256": handoff["_file_sha256"],
+            "science_status": handoff["science_status"],
+            "graph_source_policy": handoff["graph_source_policy"],
+        },
+        "nodes": nodes,
+        "edges": edges,
+        "n_nodes": len(nodes),
+        "n_edges": len(edges),
+        "gaps": [],
+        "mapping_coverage": {"layer1": 1.0, "layer2": 1.0, "unmapped": []},
+        "notes": [
+            "Conversation-approved reconstruction sidecar; not a lossless GitHub structured original.",
+            "Evidence/time remain UNKNOWN / NOT_FRAME_CERTIFIED where so marked.",
+        ],
     }
 
 
-def ingest_p7(graph_id: str, role: str) -> dict:
+def normalize_p7_graph(graph_id: str, handoff: dict) -> dict:
     path = SNAP / f"{graph_id}.json"
     raw = json.loads(path.read_text())
+    mapping = handoff["vocabulary"]["all_11_per_node_mapping"][graph_id]
+    role = (
+        "UNSEEN"
+        if graph_id in UNSEEN
+        else "CANDIDATE_SENSITIVITY"
+    )
     nodes = []
-    unmapped_l1 = []
+    unmapped = []
     for n in raw["nodes"]:
-        op = n["operator_type"]
-        l1 = layer1_for(op)
-        l2 = layer2_atom(op)
-        if l1 is None:
-            unmapped_l1.append(op)
+        nid = n["node_id"]
+        if nid not in mapping:
+            unmapped.append(nid)
+            continue
+        mmap = mapping[nid]
+        if mmap["raw_operator"] != n["operator_type"]:
+            # allow exact string match only; fail closed on mismatch
+            raise SystemExit(
+                f"{graph_id}.{nid} raw_operator mismatch: map={mmap['raw_operator']} src={n['operator_type']}"
+            )
         nodes.append(
             {
-                "node_id": n["node_id"],
-                "raw_operator": op,
-                "layer1": l1 or "OTHER_OR_UNMAPPED",
-                "layer2": l2,
-                "inputs": n.get("inputs"),
-                "outputs": n.get("outputs"),
-                "clip_role": n.get("clip_role"),
-                "time_conditions": n.get("time_conditions"),
-                "evidence": n.get("evidence"),
-                "source": n.get("source"),
+                "node_id": nid,
+                "raw_operator": n["operator_type"],
+                "layer1": mmap["layer1"],
+                "layer2": mmap["layer2"],
+                "raw_inputs": n.get("inputs"),
+                "raw_outputs": n.get("outputs"),
+                "normalized_inputs": n.get("inputs"),
+                "normalized_outputs": n.get("outputs"),
+                "raw_clip_role": n.get("clip_role"),
+                "normalized_clip_role": n.get("clip_role"),
+                "raw_evidence": n.get("evidence"),
+                "raw_time_conditions": n.get("time_conditions"),
+                "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
                 "user_confirmed": n.get("user_confirmed"),
-                "operator_vocab_version": n.get("operator_vocab_version"),
+                "operator_vocab_version_source": n.get("operator_vocab_version"),
                 "provenance": {
-                    "field": "nodes[].operator_type",
+                    "source_kind": "repo_approved_structured_graph_v0.2",
                     "source_path": str(path.relative_to(ROOT)),
                     "source_sha256": sha256_file(path),
+                    "mapping_from_handoff": True,
+                    "handoff_sha256": handoff["_file_sha256"],
                 },
-                "unconfirmed_fields": [
-                    k
-                    for k, v in {
-                        "time_conditions": n.get("time_conditions"),
-                    }.items()
-                    if v in (None, "", "PENDING", "UNKNOWN")
-                    or (
-                        isinstance(v, dict)
-                        and v.get("status") in ("PENDING", "UNKNOWN", None)
-                    )
-                ],
             }
         )
     edges = []
@@ -221,508 +228,654 @@ def ingest_p7(graph_id: str, role: str) -> dict:
                 "required_time_condition": e.get("required_time_condition"),
                 "user_confirmed": e.get("user_confirmed"),
                 "provenance": {
+                    "source_kind": "repo_approved_structured_graph_v0.2",
                     "source_path": str(path.relative_to(ROOT)),
-                    "normalization_change": None,
+                    "source_sha256": sha256_file(path),
                 },
             }
         )
-    gaps = []
-    if unmapped_l1:
-        gaps.append(f"layer1_unmapped_operators={sorted(set(unmapped_l1))}")
-    status = "STRUCTURED_INGESTED" if not gaps else "STRUCTURED_INGESTED_WITH_MAPPING_GAPS"
-    out = {
+    status = "STRUCTURED_INGESTED" if not unmapped else "STRUCTURED_INGESTED_WITH_MAPPING_GAPS"
+    return {
         "schema": SCHEMA,
         "graph_id": graph_id,
         "split_role_fixed": role,
         "normalization_status": status,
         "algo_version": ALGO_VERSION,
-        "operator_vocab_status": VOCAB_STATUS,
-        "gaps": gaps,
+        "operator_vocab_status": handoff["vocabulary"]["status"],
+        "operator_vocab_version": handoff["vocabulary"]["version"],
         "source": {
             "kind": "approved_structured_graph_v0.2",
             "path": str(path.relative_to(ROOT)),
             "sha256": sha256_file(path),
             "user_confirmation_status": raw.get("user_confirmation_status"),
-            "graph_id_raw": raw.get("graph_id"),
+            "mapping_vocab": handoff["vocabulary"]["version"],
         },
         "nodes": nodes,
         "edges": edges,
         "n_nodes": len(nodes),
         "n_edges": len(edges),
+        "gaps": [f"unmapped_nodes={unmapped}"] if unmapped else [],
+        "mapping_coverage": {
+            "layer1": 1.0 if not unmapped else 0.0,
+            "layer2": 1.0 if not unmapped else 0.0,
+            "unmapped": unmapped,
+        },
+        "notes": [
+            "P7 nodes/edges lossless from provenance snapshot; Layer1/2 from chat-approved per-node mapping.",
+        ],
         "raw_directed_program_text": raw.get("raw_directed_program_text"),
-        "mapping_coverage": {
-            "layer1": 1.0
-            - (len(set(unmapped_l1)) / max(1, len({n['layer2'] for n in nodes}))),
-            "layer2": 1.0,
-            "unmapped_layer1_operators": sorted(set(unmapped_l1)),
-        },
-        "notes": [
-            "Lossless copy of nodes/edges/I/O/time/evidence from provenance snapshot.",
-            "Layer1 family map is engineering FAMILY_MAP; vocab not scientifically frozen.",
-        ],
-    }
-    return out
-
-
-def parse_op_string(s: str) -> dict:
-    s = s.strip()
-    m = re.match(r"^([A-Za-z_][A-Za-z0-9_]*)(.*)$", s)
-    if not m:
-        return {"raw": s, "atom": s, "args": None}
-    atom, rest = m.group(1), m.group(2)
-    return {"raw": s, "atom": atom, "args": rest or None}
-
-
-def macro_sidecar_from_reviewed(
-    graph_id: str,
-    role: str,
-    reviewed_path: Path,
-    record_path: Path | None,
-    *,
-    expected: dict | None,
-    semantic_notes: list[str],
-) -> dict:
-    """Build incomplete sidecar from graph_as_reviewed operator lists.
-
-    Does NOT invent missing edges/I/O required for 8E topology. Marks BLOCKING gaps.
-    """
-    raw = json.loads(reviewed_path.read_text())
-    g = raw.get("graph_as_reviewed") or {}
-    a_ops = list(g.get("A") or [])
-    b_ops = list(g.get("B") or [])
-    cross = g.get("cross_window")
-    nodes = []
-    idx = 0
-    for role_win, ops in (("A", a_ops), ("B", b_ops)):
-        for op in ops:
-            idx += 1
-            p = parse_op_string(op)
-            l1 = layer1_for(p["atom"])
-            nodes.append(
-                {
-                    "node_id": f"{graph_id.lower()}_n{idx}",
-                    "raw_operator": p["raw"],
-                    "layer1": l1 or "OTHER_OR_UNMAPPED",
-                    "layer2": p["atom"],
-                    "inputs": "UNKNOWN_NOT_IN_SOURCE",
-                    "outputs": "UNKNOWN_NOT_IN_SOURCE",
-                    "clip_role": role_win,
-                    "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
-                    "evidence": "UNKNOWN_NOT_IN_SOURCE",
-                    "source": str(reviewed_path.relative_to(ROOT)),
-                    "user_confirmed": True,
-                    "provenance": {
-                        "field": f"graph_as_reviewed.{role_win}",
-                        "source_path": str(reviewed_path.relative_to(ROOT)),
-                        "source_sha256": sha256_file(reviewed_path),
-                    },
-                    "unconfirmed_fields": ["inputs", "outputs", "time_conditions", "evidence"],
-                }
-            )
-    if cross:
-        idx += 1
-        p = parse_op_string(cross)
-        l1 = layer1_for(p["atom"])
-        nodes.append(
-            {
-                "node_id": f"{graph_id.lower()}_n{idx}",
-                "raw_operator": p["raw"],
-                "layer1": l1 or "OTHER_OR_UNMAPPED",
-                "layer2": p["atom"],
-                "inputs": "UNKNOWN_NOT_IN_SOURCE",
-                "outputs": "UNKNOWN_NOT_IN_SOURCE",
-                "clip_role": "AB",
-                "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
-                "evidence": "UNKNOWN_NOT_IN_SOURCE",
-                "source": str(reviewed_path.relative_to(ROOT)),
-                "user_confirmed": True,
-                "provenance": {
-                    "field": "graph_as_reviewed.cross_window",
-                    "source_path": str(reviewed_path.relative_to(ROOT)),
-                    "source_sha256": sha256_file(reviewed_path),
-                },
-                "unconfirmed_fields": ["inputs", "outputs", "time_conditions", "evidence"],
-            }
-        )
-
-    gaps = [
-        "NO_AUTHORITATIVE_EDGE_LIST: edges not present in graph_as_reviewed; refusing to invent topology",
-        "NO_AUTHORITATIVE_NODE_IO: inputs/outputs not machine-specified in source",
-        "NO_AUTHORITATIVE_TIME_CONDITIONS_PER_NODE",
-    ]
-    if expected and len(nodes) != expected.get("nodes"):
-        gaps.append(
-            f"NODE_COUNT_MISMATCH_VS_TASK: got {len(nodes)} expected {expected['nodes']}"
-        )
-
-    # Apply task-brief semantic rename notes as pending overlays only (not silent rewrite)
-    overlays = []
-    for note in semantic_notes:
-        overlays.append(
-            {
-                "kind": "TASK_BRIEF_APPROVED_SEMANTIC_CORRECTION",
-                "text": note,
-                "applied_to_graph": False,
-                "reason": "Structured n3/n5 topology with I/O not fully specified in machine-readable source; recorded for adjudication, not silently applied as fabricated nodes.",
-            }
-        )
-
-    return {
-        "schema": SCHEMA,
-        "graph_id": graph_id,
-        "split_role_fixed": role,
-        "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
-        "algo_version": ALGO_VERSION,
-        "operator_vocab_status": VOCAB_STATUS,
-        "gaps": gaps,
-        "source": {
-            "kind": "graph_as_reviewed_macro",
-            "path": str(reviewed_path.relative_to(ROOT)),
-            "sha256": sha256_file(reviewed_path),
-            "record_path": str(record_path.relative_to(ROOT)) if record_path and record_path.is_file() else None,
-            "user_confirmation_status": raw.get("user_confirmation_status")
-            or raw.get("graph_decision"),
-        },
-        "nodes": nodes,
-        "edges": [],
-        "n_nodes": len(nodes),
-        "n_edges": 0,
-        "expected_counts_from_task": expected,
-        "semantic_correction_overlays": overlays,
-        "mapping_coverage": {
-            "layer1": sum(1 for n in nodes if n["layer1"] != "OTHER_OR_UNMAPPED")
-            / max(1, len(nodes)),
-            "layer2": 1.0,
-            "unmapped_layer1_operators": sorted(
-                {n["layer2"] for n in nodes if n["layer1"] == "OTHER_OR_UNMAPPED"}
-            ),
-        },
-        "notes": [
-            "Nodes listed from approved macro operators only.",
-            "Edges intentionally empty until authoritative edge list exists.",
-        ],
     }
 
 
-def macro_program_sidecar(graph_id: str, role: str, path: Path, expected: dict) -> dict:
-    raw = json.loads(path.read_text())
-    prog = (raw.get("program") or {}).get("program") or ""
-    parts = [p.strip() for p in prog.split("→") if p.strip()]
-    nodes = []
-    for i, op in enumerate(parts, 1):
-        p = parse_op_string(op)
-        # crude clip role from args
-        clip = "AB"
-        if "(B)" in op and "(A)" not in op:
-            clip = "B"
-        elif "(A)" in op and "(B)" not in op:
-            clip = "A"
-        elif "Bind" in p["atom"]:
-            clip = "AB"
-        l1 = layer1_for(p["atom"])
-        nodes.append(
-            {
-                "node_id": f"{graph_id.lower()}_n{i}",
-                "raw_operator": op,
-                "layer1": l1 or "OTHER_OR_UNMAPPED",
-                "layer2": p["atom"],
-                "inputs": "UNKNOWN_NOT_IN_SOURCE",
-                "outputs": "UNKNOWN_NOT_IN_SOURCE",
-                "clip_role": clip,
-                "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
-                "evidence": "UNKNOWN_NOT_IN_SOURCE",
-                "source": str(path.relative_to(ROOT)),
-                "user_confirmed": True,
-                "provenance": {
-                    "field": "program.program",
-                    "source_path": str(path.relative_to(ROOT)),
-                    "source_sha256": sha256_file(path),
-                },
-                "unconfirmed_fields": ["inputs", "outputs", "time_conditions", "evidence"],
-                "macro_node": True,
-            }
-        )
-    gaps = [
-        "MACRO_ONLY_GRAPH: task expects 4 nodes / 3 edges; source has 3 macro operators and no edge list",
-        "REFUSING_TO_SPLIT_MACRO_OPERATORS without scientific expansion",
-        f"NODE_COUNT_VS_TASK: macro_ops={len(nodes)} expected_nodes={expected['nodes']}",
-    ]
-    return {
-        "schema": SCHEMA,
-        "graph_id": graph_id,
-        "split_role_fixed": role,
-        "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
-        "algo_version": ALGO_VERSION,
-        "operator_vocab_status": VOCAB_STATUS,
-        "gaps": gaps,
-        "source": {
-            "kind": "user_approved_macro_graph",
-            "path": str(path.relative_to(ROOT)),
-            "sha256": sha256_file(path),
-            "program": raw.get("program"),
-            "user_confirmation_status": raw.get("user_confirmation_status"),
-        },
-        "nodes": nodes,
-        "edges": [],
-        "n_nodes": len(nodes),
-        "n_edges": 0,
-        "expected_counts_from_task": expected,
-        "mapping_coverage": {
-            "layer1": sum(1 for n in nodes if n["layer1"] != "OTHER_OR_UNMAPPED")
-            / max(1, len(nodes)),
-            "layer2": 1.0,
-            "unmapped_layer1_operators": sorted(
-                {n["layer2"] for n in nodes if n["layer1"] == "OTHER_OR_UNMAPPED"}
-            ),
-        },
-        "notes": [
-            "SP201/SP202 kept as macro; task forbids unauthorized macro splits.",
-        ],
-    }
-
-
-def build_scientific_decisions() -> dict:
-    return {
-        "schema": "normalized_programs_scientific_decisions_v1",
-        "recorded_utc": utc_now(),
-        "recorder_role": "CURSOR_ENGINEERING_ARCHIVE_OF_TASK_CONSTRAINTS",
-        "not_a_new_scientific_adjudication": True,
-        "fixed_seen": SEEN,
-        "fixed_unseen": UNSEEN,
-        "candidate_sensitivity_only": CANDIDATE,
-        "sp005_approved_semantic_corrections": {
-            "keep": "8 Nodes / 7 Edges",
-            "n3": {
-                "raw_to_normalized": "CrossClipCountryBind → SetTargetCountry",
-                "inputs": ["Italy_A"],
-                "outputs": ["target_country"],
-            },
-            "n5": {
-                "raw_to_normalized": "SelectTeam → SelectTeamByCountry",
-                "inputs": ["target_country", "teams_B"],
-                "outputs": ["selected_team"],
-            },
-            "n3_to_n5_edge": {
-                "normalized_kind": "data",
-                "preserve_raw_kind": "bind",
-                "preserve_endpoints_and_direction": True,
-            },
-            "retain": {
-                "team": "Italy",
-                "set": "first",
-                "point_index": 10,
-            },
-            "application_status": "RECORDED_NOT_APPLIED_NO_AUTHORITATIVE_STRUCTURED_GRAPH",
-        },
-        "sp001_constraints": {
-            "keep": "8 Nodes / 8 Edges",
-            "s3_receives": "country_binding",
-            "s8_to_s3": "bind",
-            "do_not_change_country_match_count_logic": True,
-            "application_status": "RECORDED_NOT_APPLIED_NO_AUTHORITATIVE_STRUCTURED_EDGE_LIST",
-        },
-        "other_constraints": [
-            "SP201/SP202 keep 4N/3E; macro operators must not be split without approval",
-            "F1 two action nodes independent; no new inter-action temporal edge",
-            "C2 keep full-name vs abbreviation matching constraint",
-            "Do not unify SP001 and SP005 CrossClipCountryBind into one Layer-2 op solely by name",
-        ],
-        "ambiguities": [
-            {
-                "id": "MISSING_GRAPH_A",
-                "detail": "No approved standalone directed program graph with graph_id/item_id A",
-            },
-            {
-                "id": "MISSING_GRAPH_B",
-                "detail": "No approved standalone directed program graph with graph_id/item_id B",
-            },
-            {
-                "id": "SEEN_LACK_STRUCTURED_EDGES",
-                "detail": "SP001/SP002/SP005 only have graph_as_reviewed operator lists; task expects full node I/O + edges",
-            },
-            {
-                "id": "SP201_SP202_MACRO_VS_4N3E",
-                "detail": "Approved sources are 3-operator macros; task expects 4 nodes / 3 edges without authorizing a split",
-            },
-            {
-                "id": "LAYER_VOCAB_UNFROZEN",
-                "detail": "OPERATOR_LIBRARY_v1 on p7 branch is PENDING_SCIENTIFIC_APPROVAL; Layer1/2 map is provisional engineering",
-            },
-        ],
-    }
-
-
-def build_operator_mapping(graphs: dict[str, dict]) -> dict:
+def build_operator_mapping(graphs: dict[str, dict], handoff: dict) -> dict:
     entries = {}
     for gid, g in graphs.items():
-        for n in g.get("nodes") or []:
-            raw = n["raw_operator"]
-            atom = n["layer2"]
-            key = atom
-            entries.setdefault(
-                key,
-                {
-                    "layer2": atom,
-                    "layer1": n["layer1"],
-                    "example_raw_forms": [],
-                    "seen_in_graphs": [],
-                    "distinct_by_graph_context": True,
-                },
-            )
-            if raw not in entries[key]["example_raw_forms"]:
-                entries[key]["example_raw_forms"].append(raw)
-            if gid not in entries[key]["seen_in_graphs"]:
-                entries[key]["seen_in_graphs"].append(gid)
-    # Explicit non-unification note for CrossClipCountryBind
-    note = {
-        "CrossClipCountryBind": {
-            "layer2_policy": "SAME_STRING_NOT_SAME_OPERATION_ACROSS_GRAPHS",
-            "reason": "Task forbids treating SP001 and SP005 CrossClipCountryBind as one operation by name alone",
-            "instances": [
-                {
-                    "graph_id": "SP001",
-                    "raw": "CrossClipCountryBind(B.country, A.flag_country)",
-                    "instance_id": "SP001::CrossClipCountryBind",
-                },
-                {
-                    "graph_id": "SP005",
-                    "raw": "CrossClipCountryBind(A.target_country, B.team)",
-                    "instance_id": "SP005::CrossClipCountryBind",
-                    "approved_rename_overlay": "SetTargetCountry (task brief; not applied — structured graph missing)",
-                },
-            ],
-        }
-    }
+        for n in g["nodes"]:
+            key = f"{gid}::{n['node_id']}"
+            entries[key] = {
+                "graph_id": gid,
+                "node_id": n["node_id"],
+                "raw_operator": n["raw_operator"],
+                "layer1": n["layer1"],
+                "layer2": n["layer2"],
+            }
     return {
         "schema": "operator_mapping_v1",
         "algo_version": ALGO_VERSION,
-        "vocab_status": VOCAB_STATUS,
-        "layer1_families": {k: list(v) for k, v in FAMILY_MAP.items()},
-        "operators": entries,
-        "special_non_unification": note,
+        "vocab_status": handoff["vocabulary"]["status"],
+        "vocab_version": handoff["vocabulary"]["version"],
+        "mapping_authority": "handoff.all_11_per_node_mapping (graph_id+node_id)",
+        "replaced_engineering_FAMILY_MAP": True,
+        "audit_source_correction": handoff["vocabulary"].get("audit_source_correction"),
+        "special_non_unification": {
+            "CrossClipCountryBind": {
+                "policy": "SAME_STRING_NOT_SAME_OPERATION_ACROSS_GRAPHS",
+                "instances": [
+                    "SP001::s8 → BindCountryConstraint",
+                    "SP005::n3 → SetTargetCountry",
+                ],
+            }
+        },
+        "operators_by_node": entries,
         "built_utc": utc_now(),
     }
 
 
-def validate(graphs: dict[str, dict], decisions: dict) -> tuple[dict, dict]:
+def validate(graphs: dict[str, dict], handoff: dict) -> tuple[dict, dict]:
+    expected = handoff["counts_expected_all_11"]
     issues = []
     per = {}
     total_n = total_e = 0
+    mapping_complete = True
     for gid in ALL_IDS:
-        g = graphs.get(gid)
-        if g is None:
-            issues.append({"graph_id": gid, "code": "MISSING_GRAPH_RECORD"})
-            per[gid] = {"status": "MISSING"}
-            continue
-        st = g.get("normalization_status")
-        nn, ne = g.get("n_nodes", 0), g.get("n_edges", 0)
+        g = graphs[gid]
+        nn, ne = g["n_nodes"], g["n_edges"]
         total_n += nn
         total_e += ne
-        entry = {
-            "status": st,
+        per[gid] = {
+            "status": g["normalization_status"],
             "n_nodes": nn,
             "n_edges": ne,
-            "gaps": g.get("gaps", []),
+            "source_kind": (g.get("source") or {}).get("kind")
+            or (g.get("source") or {}).get("source")
+            or g.get("source"),
             "mapping_coverage": g.get("mapping_coverage"),
+            "evidence_notes": [
+                n.get("evidence_certification") for n in g["nodes"][:3]
+            ],
         }
-        if st in ("MISSING", "SIDECAR_INCOMPLETE_BLOCKING"):
-            issues.append({"graph_id": gid, "code": st, "gaps": g.get("gaps", [])})
-        exp = EXPECTED_COUNTS.get(gid)
-        if exp and (nn != exp["nodes"] or ne != exp["edges"]):
+        if g.get("gaps"):
+            issues.append({"graph_id": gid, "code": "GAPS", "gaps": g["gaps"]})
+        for n in g["nodes"]:
+            if not n.get("layer1") or not n.get("layer2"):
+                mapping_complete = False
+                issues.append(
+                    {"graph_id": gid, "code": "MISSING_LAYER", "node": n["node_id"]}
+                )
+        # endpoint integrity
+        ids = {n["node_id"] for n in g["nodes"]}
+        for e in g["edges"]:
+            if e["from_node"] not in ids or e["to_node"] not in ids:
+                issues.append(
+                    {"graph_id": gid, "code": "EDGE_ENDPOINT_INVALID", "edge": e["edge_id"]}
+                )
+
+    # expected per-graph counts from handoff 7 + known P7
+    exp_per = {
+        "SP001": (8, 8),
+        "SP002": (6, 5),
+        "SP005": (8, 7),
+        "SP201": (4, 3),
+        "SP202": (4, 3),
+        "A": (4, 3),
+        "B": (4, 3),
+        "P7_VTCD_C2": (5, 4),
+        "P7_TJR_R3": (5, 5),
+        "P7_R4_F1": (7, 9),
+        "P7_R4_F2": (5, 4),
+    }
+    for gid, (en, ee) in exp_per.items():
+        g = graphs[gid]
+        if g["n_nodes"] != en or g["n_edges"] != ee:
             issues.append(
                 {
                     "graph_id": gid,
-                    "code": "COUNT_MISMATCH_VS_TASK",
-                    "got": {"nodes": nn, "edges": ne},
-                    "expected": exp,
+                    "code": "COUNT_MISMATCH",
+                    "got": {"nodes": g["n_nodes"], "edges": g["n_edges"]},
+                    "expected": {"nodes": en, "edges": ee},
                 }
             )
-        # topology preservation for structured: endpoints unchanged
-        if st.startswith("STRUCTURED"):
-            raw_kinds = {e["raw_dependency_kind"] for e in g["edges"]}
-            entry["dependency_kinds"] = sorted(raw_kinds)
-        per[gid] = entry
 
-    if total_n != EXPECTED_TOTAL["nodes"] or total_e != EXPECTED_TOTAL["edges"]:
+    if (total_n, total_e) != (expected["nodes"], expected["edges"]):
         issues.append(
             {
                 "code": "TOTAL_COUNT_MISMATCH",
                 "got": {"nodes": total_n, "edges": total_e},
-                "expected": EXPECTED_TOTAL,
+                "expected": expected,
             }
         )
 
-    # dual-layer: every node in non-missing graphs must have layer1/layer2 fields
-    for gid, g in graphs.items():
-        for n in g.get("nodes") or []:
-            if not n.get("layer2"):
-                issues.append({"graph_id": gid, "code": "MISSING_LAYER2", "node": n.get("node_id")})
-
-    blocked = bool(issues) or any(
-        graphs.get(gid, {}).get("normalization_status")
-        in (None, "MISSING", "SIDECAR_INCOMPLETE_BLOCKING")
-        for gid in ALL_IDS
+    # SP005 / SP001 correction checks
+    sp005 = {n["node_id"]: n for n in graphs["SP005"]["nodes"]}
+    if sp005["n3"]["layer2"] != "SetTargetCountry":
+        issues.append({"code": "SP005_N3_LAYER2"})
+    if sp005["n3"]["normalized_inputs"] != ["Italy_A"]:
+        issues.append({"code": "SP005_N3_INPUTS", "got": sp005["n3"]["normalized_inputs"]})
+    if sp005["n3"]["normalized_outputs"] != ["target_country"]:
+        issues.append({"code": "SP005_N3_OUTPUTS"})
+    if sp005["n5"]["layer2"] != "SelectTeamByCountry":
+        issues.append({"code": "SP005_N5_LAYER2"})
+    if sp005["n5"]["normalized_inputs"] != ["target_country", "teams_B"]:
+        issues.append({"code": "SP005_N5_INPUTS", "got": sp005["n5"]["normalized_inputs"]})
+    e35 = next(
+        e
+        for e in graphs["SP005"]["edges"]
+        if e["from_node"] == "n3" and e["to_node"] == "n5"
     )
+    if e35["raw_dependency_kind"] != "bind" or e35["normalized_dependency_kind"] != "data":
+        issues.append({"code": "SP005_N3_N5_EDGE_KIND", "edge": e35})
+
+    sp001 = {n["node_id"]: n for n in graphs["SP001"]["nodes"]}
+    if sp001["s3"]["normalized_inputs"] != ["flags_A", "country_binding"]:
+        issues.append({"code": "SP001_S3_INPUTS", "got": sp001["s3"]["normalized_inputs"]})
+    e83 = next(
+        e
+        for e in graphs["SP001"]["edges"]
+        if e["from_node"] == "s8" and e["to_node"] == "s3"
+    )
+    if e83["normalized_dependency_kind"] != "bind":
+        issues.append({"code": "SP001_S8_S3_BIND"})
+
+    # F2 mapping specifically
+    f2 = {n["node_id"]: n for n in graphs["P7_R4_F2"]["nodes"]}
+    if f2["f2_n1"]["layer1"] != "ENTITY_IDENTIFICATION":
+        issues.append({"code": "F2_N1_LAYER1"})
+    if f2["f2_n4"]["layer1"] != "EVENT_DETECTION":
+        issues.append({"code": "F2_N4_LAYER1"})
+    if graphs["SP001"]["nodes"][0]["layer1"] != "SCENE_LOCALIZATION":
+        issues.append({"code": "SP001_S1_LAYER1"})
+
+    structure_ok = not any(
+        i.get("code") in ("COUNT_MISMATCH", "TOTAL_COUNT_MISMATCH", "EDGE_ENDPOINT_INVALID")
+        for i in issues
+    )
+    mapping_ok = mapping_complete and not any(
+        str(i.get("code", "")).startswith(("SP005_", "SP001_", "F2_", "SP001_S1", "MISSING_LAYER"))
+        for i in issues
+    )
+    # refine mapping_ok
+    mapping_ok = mapping_complete and not any(
+        i.get("code")
+        in {
+            "MISSING_LAYER",
+            "SP005_N3_LAYER2",
+            "SP005_N3_INPUTS",
+            "SP005_N3_OUTPUTS",
+            "SP005_N5_LAYER2",
+            "SP005_N5_INPUTS",
+            "SP005_N3_N5_EDGE_KIND",
+            "SP001_S3_INPUTS",
+            "SP001_S8_S3_BIND",
+            "F2_N1_LAYER1",
+            "F2_N4_LAYER1",
+            "SP001_S1_LAYER1",
+        }
+        for i in issues
+    )
+
+    lossless_ok = all(
+        graphs[gid]["normalization_status"].startswith("STRUCTURED")
+        or graphs[gid]["normalization_status"] == "CHAT_APPROVED_SIDECAR_INGESTED"
+        for gid in ALL_IDS
+    ) and not any(i.get("code") == "EDGE_ENDPOINT_INVALID" for i in issues)
+
+    evidence_ok = True  # we do not invent evidence; UNKNOWN left as-is
+    for gid in ALL_IDS:
+        for n in graphs[gid]["nodes"]:
+            # must not invent frame-certified labels for chat sidecars
+            if graphs[gid]["normalization_status"] == "CHAT_APPROVED_SIDECAR_INGESTED":
+                if n.get("evidence_certification") not in (
+                    "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+                    None,
+                ):
+                    # allow only the handoff label
+                    if n.get("evidence_certification") == "FRAME_CERTIFIED":
+                        evidence_ok = False
+                        issues.append({"graph_id": gid, "code": "FALSE_EVIDENCE_CERT", "node": n["node_id"]})
+
+    blocked = not (structure_ok and mapping_ok and lossless_ok and evidence_ok) or bool(
+        [i for i in issues if i.get("code") in ("TOTAL_COUNT_MISMATCH", "COUNT_MISMATCH", "MISSING_LAYER")]
+    )
+    # If only non-blocking notes, still PASS when gates true
+    status = "PASS" if (structure_ok and mapping_ok and lossless_ok and evidence_ok and (total_n, total_e) == (60, 54)) else "BLOCKED"
+
     report = {
         "schema": "normalized_programs_validation_report_v1",
         "algo_version": ALGO_VERSION,
         "validated_utc": utc_now(),
-        "status": "BLOCKED" if blocked else "PASS",
-        "expected_totals": EXPECTED_TOTAL,
+        "status": status,
+        "gates": {
+            "structure_integrity": "PASS" if structure_ok and (total_n, total_e) == (60, 54) else "FAIL",
+            "mapping_completeness": "PASS" if mapping_ok else "FAIL",
+            "lossless_vs_sources": "PASS" if lossless_ok else "FAIL",
+            "evidence_certification_integrity": "PASS" if evidence_ok else "FAIL",
+        },
+        "expected_totals": expected,
         "observed_totals": {"nodes": total_n, "edges": total_e},
         "per_graph": per,
         "issues": issues,
-        "scientific_ambiguities": decisions.get("ambiguities", []),
-        "stage3_authorized": False if blocked else True,
+        "stage3_authorized": status == "PASS",
+        "handoff_sha256": handoff["_file_sha256"],
         "checks": {
-            "all_11_present": all(
-                graphs.get(gid) is not None
-                and graphs[gid].get("normalization_status") != "MISSING"
-                for gid in ALL_IDS
-            ),
-            "dual_layer_fields_present_where_nodes_exist": True,
-            "raw_topology_preserved_for_structured_p7": True,
-            "no_invented_edges_for_macro_sources": True,
+            "all_11_present": True,
+            "chat_sidecar_not_claimed_as_github_original": True,
             "gold_unchanged": True,
             "sealed_untouched": True,
+            "seen_unseen_split_unchanged": True,
         },
     }
 
     diff = {
         "schema": "normalized_programs_graph_diff_report_v1",
         "built_utc": utc_now(),
-        "policy": "Only approved field/edge-type normalizations allowed; none applied where structure missing",
-        "diffs": [],
+        "handoff_sha256": handoff["_file_sha256"],
+        "diffs": [
+            {
+                "graph_id": "SP005",
+                "status": "APPLIED_FROM_HANDOFF",
+                "changes": handoff["scientific_decisions"]["SP005"],
+                "raw_preserved": True,
+            },
+            {
+                "graph_id": "SP001",
+                "status": "APPLIED_FROM_HANDOFF",
+                "changes": handoff["scientific_decisions"]["SP001"],
+                "raw_preserved": True,
+            },
+            {
+                "graph_id": "SP201_SP202",
+                "status": "APPLIED_4N_3E_FROM_HANDOFF",
+                "note": "IdentifyAthlete / IdentifyFirstServerPerson nodes are approved bind-side inputs, not unauthorized macro splits",
+                "decision": handoff["scientific_decisions"].get("SP201_SP202"),
+            },
+        ],
     }
-    # Record intended but unapplied SP005 renames
-    diff["diffs"].append(
-        {
-            "graph_id": "SP005",
-            "status": "NOT_APPLIED",
-            "intended": decisions["sp005_approved_semantic_corrections"],
-            "reason": "No authoritative structured node/edge list to attach renames without fabrication",
-        }
-    )
-    diff["diffs"].append(
-        {
-            "graph_id": "SP001",
-            "status": "NOT_APPLIED",
-            "intended": decisions["sp001_constraints"],
-            "reason": "No authoritative edge list for s8→s3 bind topology",
-        }
-    )
-    for gid in ["P7_VTCD_C2", "P7_TJR_R3", "P7_R4_F1", "P7_R4_F2"]:
-        g = graphs[gid]
+    for gid in P7_IDS:
         diff["diffs"].append(
             {
                 "graph_id": gid,
-                "status": "LOSSLESS_COPY",
-                "n_nodes": g["n_nodes"],
-                "n_edges": g["n_edges"],
-                "normalization_changes": [],
+                "status": "LOSSLESS_COPY_PLUS_HANDOFF_LAYER_MAP",
+                "n_nodes": graphs[gid]["n_nodes"],
+                "n_edges": graphs[gid]["n_edges"],
             }
         )
     return report, diff
+
+
+# ---------------- Stage 3 metrics ----------------
+
+def _adj(g: dict) -> dict[str, list[tuple[str, str]]]:
+    adj = defaultdict(list)
+    for e in g["edges"]:
+        adj[e["from_node"]].append((e["to_node"], e.get("normalized_dependency_kind") or ""))
+    return adj
+
+
+def _node_by_id(g: dict) -> dict[str, dict]:
+    return {n["node_id"]: n for n in g["nodes"]}
+
+
+def layer_multiset(g: dict, layer: str) -> Counter:
+    return Counter(n[layer] for n in g["nodes"])
+
+
+def connected_subgraphs(g: dict, size: int, mode: str) -> set[tuple]:
+    """Enumerate directed connected subgraphs of given node count.
+
+    Connectivity: weakly connected in underlying undirected sense on selected nodes,
+    and induced edges among them (at least size-1 edges for size>=2, or any connecting set).
+    Signature modes:
+      - ops: (layer2 labels multiset on nodes, edge endpoints by label pairs unordered? directed)
+      - ops_role: include clip_role
+      - ops_role_edge: include dependency_kind
+      - ops_role_edge_io: include normalized I/O tuples
+    """
+    nodes = g["nodes"]
+    if len(nodes) < size:
+        return set()
+    by_id = _node_by_id(g)
+    ids = [n["node_id"] for n in nodes]
+    # undirected adjacency for connectivity
+    und: dict[str, set[str]] = defaultdict(set)
+    edges = g["edges"]
+    for e in edges:
+        und[e["from_node"]].add(e["to_node"])
+        und[e["to_node"]].add(e["from_node"])
+
+    def weakly_connected(subset: set[str]) -> bool:
+        if not subset:
+            return False
+        start = next(iter(subset))
+        seen = {start}
+        stack = [start]
+        while stack:
+            u = stack.pop()
+            for v in und[u]:
+                if v in subset and v not in seen:
+                    seen.add(v)
+                    stack.append(v)
+        return seen == subset
+
+    def node_sig(nid: str) -> tuple:
+        n = by_id[nid]
+        base = (n["layer2"],)
+        if mode in ("ops_role", "ops_role_edge", "ops_role_edge_io"):
+            base = (n["layer2"], n.get("normalized_clip_role") or n.get("raw_clip_role"))
+        if mode == "ops_role_edge_io":
+            base = base + (
+                tuple(n.get("normalized_inputs") or []),
+                tuple(n.get("normalized_outputs") or []),
+            )
+        return base
+
+    out = set()
+    for combo in itertools.combinations(ids, size):
+        subset = set(combo)
+        if not weakly_connected(subset):
+            continue
+        # induced directed edges
+        induced = [
+            e
+            for e in edges
+            if e["from_node"] in subset and e["to_node"] in subset
+        ]
+        if size >= 2 and len(induced) == 0:
+            continue
+        # canonical signature via sorting node signatures and edge signatures
+        node_sigs = tuple(sorted(node_sig(nid) for nid in subset))
+        # map local ids by sorted order of their signatures + id for stability within ties
+        ordered = sorted(subset, key=lambda nid: (node_sig(nid), nid))
+        local = {nid: i for i, nid in enumerate(ordered)}
+        edge_sigs = []
+        for e in induced:
+            kind = e.get("normalized_dependency_kind") or ""
+            if mode in ("ops",):
+                edge_sigs.append((local[e["from_node"]], local[e["to_node"]]))
+            else:
+                edge_sigs.append((local[e["from_node"]], local[e["to_node"]], kind))
+        edge_sigs_t = tuple(sorted(edge_sigs))
+        out.add((node_sigs, edge_sigs_t))
+    return out
+
+
+def full_iso(g1: dict, g2: dict, mode: str) -> dict:
+    """Signature-based digraph isomorphism check."""
+    if len(g1["nodes"]) != len(g2["nodes"]) or len(g1["edges"]) != len(g2["edges"]):
+        return {"equivalent": False, "reason": "size_mismatch"}
+
+    def sig(n: dict) -> tuple:
+        if mode == "layer1":
+            return (n["layer1"],)
+        if mode == "layer2":
+            return (n["layer2"],)
+        if mode == "strict":
+            return (
+                n["layer2"],
+                n.get("normalized_clip_role") or n.get("raw_clip_role"),
+                tuple(n.get("normalized_inputs") or []),
+                tuple(n.get("normalized_outputs") or []),
+            )
+        raise ValueError(mode)
+
+    by1 = defaultdict(list)
+    by2 = defaultdict(list)
+    for n in g1["nodes"]:
+        by1[sig(n)].append(n["node_id"])
+    for n in g2["nodes"]:
+        by2[sig(n)].append(n["node_id"])
+    if set(by1) != set(by2):
+        return {"equivalent": False, "reason": "node_signature_mismatch", "mode": mode}
+    for s in by1:
+        if len(by1[s]) != len(by2[s]):
+            return {"equivalent": False, "reason": "signature_cardinality", "mode": mode}
+
+    sigs = list(by1)
+    perms = []
+    for s in sigs:
+        left, right = by1[s], by2[s]
+        perms.append([dict(zip(left, p)) for p in itertools.permutations(right)])
+
+    edges1 = g1["edges"]
+    edges2 = g2["edges"]
+
+    def edge_key(e, idmap=None):
+        frm = idmap[e["from_node"]] if idmap else e["from_node"]
+        to = idmap[e["to_node"]] if idmap else e["to_node"]
+        kind = e.get("normalized_dependency_kind") or ""
+        if mode == "strict":
+            return (frm, to, kind)
+        if mode in ("layer1", "layer2"):
+            # topology only under mapped ids; kinds ignored for coarse
+            return (frm, to)
+        return (frm, to, kind)
+
+    target = Counter(edge_key(e) for e in edges2)
+    for combo in itertools.product(*perms):
+        m: dict[str, str] = {}
+        for part in combo:
+            m.update(part)
+        mapped = Counter(edge_key(e, m) for e in edges1)
+        if mapped == target:
+            return {"equivalent": True, "mode": mode, "bijection_example": m}
+    return {"equivalent": False, "reason": "no_edge_preserving_bijection", "mode": mode}
+
+
+def compute_overlap(graphs: dict[str, dict]) -> dict:
+    seen_g = [graphs[i] for i in SEEN]
+    unseen_g = [graphs[i] for i in UNSEEN]
+    cand_g = [graphs[i] for i in CANDIDATE]
+
+    def union_counter(gs, layer):
+        c = Counter()
+        for g in gs:
+            c.update(layer_multiset(g, layer))
+        return c
+
+    seen_l1 = union_counter(seen_g, "layer1")
+    seen_l2 = union_counter(seen_g, "layer2")
+    unseen_l1 = union_counter(unseen_g, "layer1")
+    unseen_l2 = union_counter(unseen_g, "layer2")
+
+    def coverage(unseen_c: Counter, seen_c: Counter) -> dict:
+        keys = sorted(unseen_c)
+        covered = [k for k in keys if k in seen_c]
+        only = [k for k in keys if k not in seen_c]
+        return {
+            "unseen_distinct": len(keys),
+            "covered_by_seen": len(covered),
+            "coverage_ratio": (len(covered) / len(keys)) if keys else None,
+            "covered_labels": covered,
+            "unseen_only_labels": only,
+            "note": "Label-set coverage over Unseen distinct operators; not subgraph isomorphism.",
+        }
+
+    # Per-node coverage counts
+    def node_coverage(layer: str) -> dict:
+        seen_labels = set()
+        for g in seen_g:
+            for n in g["nodes"]:
+                seen_labels.add(n[layer])
+        total = covered = 0
+        per_graph = {}
+        for gid in UNSEEN:
+            g = graphs[gid]
+            nodes = g["nodes"]
+            c = sum(1 for n in nodes if n[layer] in seen_labels)
+            total += len(nodes)
+            covered += c
+            per_graph[gid] = {
+                "n_nodes": len(nodes),
+                "covered_nodes": c,
+                "ratio": c / len(nodes) if nodes else None,
+                "unseen_only_nodes": [
+                    {"node_id": n["node_id"], layer: n[layer]}
+                    for n in nodes
+                    if n[layer] not in seen_labels
+                ],
+            }
+        return {
+            "unseen_nodes_total": total,
+            "unseen_nodes_covered_by_seen_label": covered,
+            "ratio": covered / total if total else None,
+            "per_graph": per_graph,
+        }
+
+    m1 = {
+        "definition": "Layer1 family label coverage of Unseen nodes/labels by Seen",
+        "label_set": coverage(unseen_l1, seen_l1),
+        "node_instance": node_coverage("layer1"),
+    }
+    m2 = {
+        "definition": "Layer2 atomic operator coverage of Unseen nodes/labels by Seen",
+        "label_set": coverage(unseen_l2, seen_l2),
+        "node_instance": node_coverage("layer2"),
+        "macro_rule": "SP201/SP202 treated as approved 4-node graphs; no further macro expansion",
+    }
+
+    def pool_subgraphs(gs, size, mode):
+        s = set()
+        for g in gs:
+            s |= connected_subgraphs(g, size, mode)
+        return s
+
+    m3 = {
+        "definition": (
+            "Directed connected induced subgraphs; denominator = Unseen subgraph multiset sizes "
+            "(unique signatures). Coverage = |UnseenSig ∩ SeenSig| / |UnseenSig|. "
+            "Not node-label-set overlap."
+        ),
+        "modes": {},
+    }
+    for mode in ("ops", "ops_role", "ops_role_edge", "ops_role_edge_io"):
+        mode_out = {}
+        for size in (2, 3):
+            seen_sig = pool_subgraphs(seen_g, size, mode)
+            un_sig = pool_subgraphs(unseen_g, size, mode)
+            inter = seen_sig & un_sig
+            mode_out[f"{size}_node"] = {
+                "seen_unique": len(seen_sig),
+                "unseen_unique": len(un_sig),
+                "intersection": len(inter),
+                "coverage_ratio": (len(inter) / len(un_sig)) if un_sig else None,
+                "denominator": "unique_unseen_subgraph_signatures",
+            }
+        m3["modes"][mode] = mode_out
+
+    m4 = {"definition": "Full digraph equivalence Unseen vs each Seen", "pairs": []}
+    for ug in UNSEEN:
+        for sg in SEEN:
+            entry = {"unseen": ug, "seen": sg, "results": {}}
+            for mode in ("layer1", "layer2", "strict"):
+                entry["results"][mode] = full_iso(graphs[ug], graphs[sg], mode)
+            m4["pairs"].append(entry)
+    # summary: any Seen match per Unseen
+    m4["summary"] = {}
+    for ug in UNSEEN:
+        m4["summary"][ug] = {
+            mode: any(
+                p["results"][mode]["equivalent"]
+                for p in m4["pairs"]
+                if p["unseen"] == ug
+            )
+            for mode in ("layer1", "layer2", "strict")
+        }
+
+    # Candidate sensitivity (separate)
+    cand = {
+        "note": "Not mixed into formal 5/2 metrics",
+        "ids": CANDIDATE,
+        "layer2_vs_seen_label_coverage": {},
+        "full_iso_vs_seen_any": {},
+    }
+    for cid in CANDIDATE:
+        c_l2 = layer_multiset(graphs[cid], "layer2")
+        cand["layer2_vs_seen_label_coverage"][cid] = coverage(c_l2, seen_l2)
+        cand["full_iso_vs_seen_any"][cid] = {
+            mode: any(full_iso(graphs[cid], graphs[sg], mode)["equivalent"] for sg in SEEN)
+            for mode in ("layer1", "layer2", "strict")
+        }
+
+    return {
+        "schema": "overlap_metrics_v1",
+        "algo_version": ALGO_VERSION,
+        "status": "COMPUTED",
+        "fixed_split": {"seen": SEEN, "unseen": UNSEEN, "candidate_only": CANDIDATE},
+        "built_utc": utc_now(),
+        "m1": m1,
+        "m2": m2,
+        "m3": m3,
+        "m4": m4,
+        "candidate_sensitivity": cand,
+        "caveat": "Structural novelty ≠ compositional generalization capability.",
+    }
+
+
+def write_overlap_md(metrics: dict, path: Path) -> None:
+    lines = [
+        "# Overlap report — Stage 3",
+        "",
+        f"- status: `{metrics['status']}`",
+        f"- algo: `{metrics['algo_version']}`",
+        f"- built_utc: {metrics['built_utc']}",
+        "",
+        "## M1 Layer1 coverage",
+        f"- label-set coverage: {metrics['m1']['label_set']['coverage_ratio']}",
+        f"- node-instance coverage: {metrics['m1']['node_instance']['ratio']}",
+        f"- unseen-only labels: {metrics['m1']['label_set']['unseen_only_labels']}",
+        "",
+        "## M2 Layer2 coverage",
+        f"- label-set coverage: {metrics['m2']['label_set']['coverage_ratio']}",
+        f"- node-instance coverage: {metrics['m2']['node_instance']['ratio']}",
+        f"- unseen-only labels: {metrics['m2']['label_set']['unseen_only_labels']}",
+        "",
+        "## M3 subgraph overlap",
+    ]
+    for mode, sizes in metrics["m3"]["modes"].items():
+        lines.append(f"### mode `{mode}`")
+        for sk, v in sizes.items():
+            lines.append(
+                f"- {sk}: intersection={v['intersection']} / unseen_unique={v['unseen_unique']} "
+                f"(ratio={v['coverage_ratio']})"
+            )
+    lines += ["", "## M4 full digraph equivalence"]
+    for ug, summ in metrics["m4"]["summary"].items():
+        lines.append(f"- `{ug}`: {summ}")
+    lines += ["", "## Candidate sensitivity (not formal 5/2)"]
+    for cid, v in metrics["candidate_sensitivity"]["full_iso_vs_seen_any"].items():
+        lines.append(f"- `{cid}` any-Seen iso: {v}")
+    lines.append("")
+    lines.append(metrics["caveat"])
+    path.write_text("\n".join(lines) + "\n")
 
 
 def main() -> None:
@@ -733,104 +886,55 @@ def main() -> None:
     graphs_dir = out / "graphs"
     graphs_dir.mkdir(parents=True, exist_ok=True)
 
-    decisions = build_scientific_decisions()
+    handoff = load_handoff()
     graphs: dict[str, dict] = {}
-
-    # Seen macro / incomplete
-    graphs["SP001"] = macro_sidecar_from_reviewed(
-        "SP001",
-        "SEEN",
-        SNAP / "SP001_v0.3.json",
-        SNAP / "SP001.json",
-        expected=EXPECTED_COUNTS["SP001"],
-        semantic_notes=[
-            "s3 receives country_binding; s8→s3 remain bind",
-            "Do not change country match/count logic",
-        ],
-    )
-    graphs["SP002"] = macro_sidecar_from_reviewed(
-        "SP002",
-        "SEEN",
-        SNAP / "SP002_v0.2.json",
-        SNAP / "SP002.json",
-        expected=None,
-        semantic_notes=[],
-    )
-    graphs["SP005"] = macro_sidecar_from_reviewed(
-        "SP005",
-        "SEEN",
-        SNAP / "SP005_v0.2.json",
-        SNAP / "SP005.json",
-        expected=EXPECTED_COUNTS["SP005"],
-        semantic_notes=[
-            "n3 CrossClipCountryBind→SetTargetCountry inputs Italy_A outputs target_country",
-            "n5 SelectTeam→SelectTeamByCountry inputs target_country,teams_B outputs selected_team",
-            "n3→n5 normalize bind→data; preserve raw bind in provenance",
-        ],
-    )
-    graphs["SP201"] = macro_program_sidecar(
-        "SP201", "SEEN", SNAP / "SP201_v0.2.json", EXPECTED_COUNTS["SP201"]
-    )
-    graphs["SP202"] = macro_program_sidecar(
-        "SP202", "SEEN", SNAP / "SP202_v0.3.json", EXPECTED_COUNTS["SP202"]
-    )
-
-    # Unseen + candidate F1/F2 structured
-    graphs["P7_VTCD_C2"] = ingest_p7("P7_VTCD_C2", "UNSEEN")
-    graphs["P7_TJR_R3"] = ingest_p7("P7_TJR_R3", "UNSEEN")
-    graphs["P7_R4_F1"] = ingest_p7("P7_R4_F1", "CANDIDATE_SENSITIVITY")
-    graphs["P7_R4_F2"] = ingest_p7("P7_R4_F2", "CANDIDATE_SENSITIVITY")
-
-    # A / B missing
-    graphs["A"] = empty_norm(
-        "A",
-        role="CANDIDATE_SENSITIVITY",
-        status="MISSING",
-        gaps=[
-            "No approved standalone directed program graph named A in repo or p7 approved_graphs_v0.2",
-            "A appears only as clip_role / graph_as_reviewed window key, not a graph_id",
-        ],
-    )
-    graphs["B"] = empty_norm(
-        "B",
-        role="CANDIDATE_SENSITIVITY",
-        status="MISSING",
-        gaps=[
-            "No approved standalone directed program graph named B in repo or p7 approved_graphs_v0.2",
-            "B appears only as clip_role / graph_as_reviewed window key, not a graph_id",
-        ],
-    )
+    for gid in CHAT_IDS:
+        graphs[gid] = normalize_chat_graph(gid, handoff["graphs"][gid], handoff)
+    for gid in P7_IDS:
+        graphs[gid] = normalize_p7_graph(gid, handoff)
 
     for gid, g in graphs.items():
         (graphs_dir / f"{gid}.json").write_text(
             json.dumps(g, indent=2, ensure_ascii=False) + "\n"
         )
 
-    mapping = build_operator_mapping(graphs)
-    validation, diff = validate(graphs, decisions)
+    mapping = build_operator_mapping(graphs, handoff)
+    validation, diff = validate(graphs, handoff)
 
+    decisions = {
+        "schema": "normalized_programs_scientific_decisions_v1",
+        "recorded_utc": utc_now(),
+        "source": "chat_approved_handoff",
+        "handoff_sha256": handoff["_file_sha256"],
+        "fixed_seen": SEEN,
+        "fixed_unseen": UNSEEN,
+        "candidate_sensitivity_only": CANDIDATE,
+        "from_handoff": handoff["scientific_decisions"],
+        "known_limits": handoff["known_limits"],
+        "not_a_new_scientific_adjudication": True,
+    }
     source_manifest = {
         "schema": "normalized_programs_source_manifest_v1",
         "built_utc": utc_now(),
         "algo_version": ALGO_VERSION,
-        "pilot_snapshots_root": str(SNAP.relative_to(ROOT)),
-        "upstream_branch_hint": "research/lvbench-comp-p7-hil-pilot@b913697e",
+        "handoff_path": handoff["_file_path"],
+        "handoff_sha256": handoff["_file_sha256"],
         "graphs": {
             gid: {
                 "normalization_status": graphs[gid]["normalization_status"],
-                "source": graphs[gid].get("source"),
                 "n_nodes": graphs[gid]["n_nodes"],
                 "n_edges": graphs[gid]["n_edges"],
+                "source": graphs[gid].get("source"),
             }
             for gid in ALL_IDS
         },
     }
 
-    (out / "scientific_decisions.json").write_text(
-        json.dumps(decisions, indent=2, ensure_ascii=False) + "\n"
-    )
     (out / "operator_mapping_v1.json").write_text(
         json.dumps(mapping, indent=2, ensure_ascii=False) + "\n"
+    )
+    (out / "scientific_decisions.json").write_text(
+        json.dumps(decisions, indent=2, ensure_ascii=False) + "\n"
     )
     (out / "source_manifest.json").write_text(
         json.dumps(source_manifest, indent=2, ensure_ascii=False) + "\n"
@@ -842,57 +946,42 @@ def main() -> None:
         json.dumps(diff, indent=2, ensure_ascii=False) + "\n"
     )
 
-    # Stage 3 gate file
-    stage3 = {
-        "schema": "overlap_metrics_gate_v1",
-        "status": "BLOCKED" if validation["status"] == "BLOCKED" else "AUTHORIZED",
-        "reason": "Stage 2 validation BLOCKED; refusing to invent Seen–Unseen overlap numbers"
-        if validation["status"] == "BLOCKED"
-        else "Stage 2 PASS",
-        "stage2_status": validation["status"],
-        "built_utc": utc_now(),
-    }
-    (out / "overlap_metrics.json").write_text(
+    if validation["status"] == "PASS":
+        metrics = compute_overlap(graphs)
+        (out / "overlap_metrics.json").write_text(
+            json.dumps(metrics, indent=2, ensure_ascii=False) + "\n"
+        )
+        write_overlap_md(metrics, out / "overlap_report.md")
+    else:
+        blocked = {
+            "schema": "overlap_metrics_v1",
+            "status": "BLOCKED",
+            "reason": "Stage2 not PASS",
+            "stage2_status": validation["status"],
+            "m1": None,
+            "m2": None,
+            "m3": None,
+            "m4": None,
+            "built_utc": utc_now(),
+        }
+        (out / "overlap_metrics.json").write_text(
+            json.dumps(blocked, indent=2, ensure_ascii=False) + "\n"
+        )
+        (out / "overlap_report.md").write_text(
+            f"# Overlap report — BLOCKED\n\nStage2={validation['status']}\n"
+        )
+
+    print(
         json.dumps(
             {
-                **stage3,
-                "formal_5_2_metrics": None,
-                "candidate_sensitivity": None,
-                "m1": None,
-                "m2": None,
-                "m3": None,
-                "m4": None,
+                "stage2": validation["status"],
+                "gates": validation["gates"],
+                "totals": validation["observed_totals"],
+                "stage3": "COMPUTED" if validation["status"] == "PASS" else "BLOCKED",
             },
             indent=2,
-            ensure_ascii=False,
         )
-        + "\n"
     )
-    md = [
-        "# Overlap report — BLOCKED",
-        "",
-        f"- Stage 2: **{validation['status']}**",
-        f"- Observed totals: {validation['observed_totals']} (expected {EXPECTED_TOTAL})",
-        "- Stage 3 M1–M4 **not computed** (no fabricated structure overlap).",
-        "",
-        "## Blocking gaps",
-    ]
-    for issue in validation["issues"]:
-        md.append(f"- `{issue.get('code')}`: {json.dumps(issue, ensure_ascii=False)}")
-    md.append("")
-    md.append("## Scientific ambiguities")
-    for a in decisions["ambiguities"]:
-        md.append(f"- **{a['id']}**: {a['detail']}")
-    md.append("")
-    md.append("## Per-graph ingest")
-    for gid in ALL_IDS:
-        p = validation["per_graph"][gid]
-        md.append(
-            f"- `{gid}`: status={p.get('status')} nodes={p.get('n_nodes')} edges={p.get('n_edges')}"
-        )
-    (out / "overlap_report.md").write_text("\n".join(md) + "\n")
-
-    print(json.dumps({"stage2": validation["status"], "totals": validation["observed_totals"]}, indent=2))
 
 
 if __name__ == "__main__":

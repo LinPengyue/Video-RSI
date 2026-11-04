@@ -1,39 +1,41 @@
-# Overlap report — BLOCKED
+# Overlap report — Stage 3
 
-- Stage 2: **BLOCKED**
-- Observed totals: {'nodes': 49, 'edges': 22} (expected {'nodes': 60, 'edges': 54})
-- Stage 3 M1–M4 **not computed** (no fabricated structure overlap).
+- status: `COMPUTED`
+- algo: `normalized_programs_v1.1.0_handoff`
+- built_utc: 2026-11-04T09:50:30+00:00
 
-## Blocking gaps
-- `SIDECAR_INCOMPLETE_BLOCKING`: {"graph_id": "SP001", "code": "SIDECAR_INCOMPLETE_BLOCKING", "gaps": ["NO_AUTHORITATIVE_EDGE_LIST: edges not present in graph_as_reviewed; refusing to invent topology", "NO_AUTHORITATIVE_NODE_IO: inputs/outputs not machine-specified in source", "NO_AUTHORITATIVE_TIME_CONDITIONS_PER_NODE"]}
-- `COUNT_MISMATCH_VS_TASK`: {"graph_id": "SP001", "code": "COUNT_MISMATCH_VS_TASK", "got": {"nodes": 8, "edges": 0}, "expected": {"nodes": 8, "edges": 8}}
-- `SIDECAR_INCOMPLETE_BLOCKING`: {"graph_id": "SP002", "code": "SIDECAR_INCOMPLETE_BLOCKING", "gaps": ["NO_AUTHORITATIVE_EDGE_LIST: edges not present in graph_as_reviewed; refusing to invent topology", "NO_AUTHORITATIVE_NODE_IO: inputs/outputs not machine-specified in source", "NO_AUTHORITATIVE_TIME_CONDITIONS_PER_NODE"]}
-- `SIDECAR_INCOMPLETE_BLOCKING`: {"graph_id": "SP005", "code": "SIDECAR_INCOMPLETE_BLOCKING", "gaps": ["NO_AUTHORITATIVE_EDGE_LIST: edges not present in graph_as_reviewed; refusing to invent topology", "NO_AUTHORITATIVE_NODE_IO: inputs/outputs not machine-specified in source", "NO_AUTHORITATIVE_TIME_CONDITIONS_PER_NODE"]}
-- `COUNT_MISMATCH_VS_TASK`: {"graph_id": "SP005", "code": "COUNT_MISMATCH_VS_TASK", "got": {"nodes": 8, "edges": 0}, "expected": {"nodes": 8, "edges": 7}}
-- `SIDECAR_INCOMPLETE_BLOCKING`: {"graph_id": "SP201", "code": "SIDECAR_INCOMPLETE_BLOCKING", "gaps": ["MACRO_ONLY_GRAPH: task expects 4 nodes / 3 edges; source has 3 macro operators and no edge list", "REFUSING_TO_SPLIT_MACRO_OPERATORS without scientific expansion", "NODE_COUNT_VS_TASK: macro_ops=3 expected_nodes=4"]}
-- `COUNT_MISMATCH_VS_TASK`: {"graph_id": "SP201", "code": "COUNT_MISMATCH_VS_TASK", "got": {"nodes": 3, "edges": 0}, "expected": {"nodes": 4, "edges": 3}}
-- `SIDECAR_INCOMPLETE_BLOCKING`: {"graph_id": "SP202", "code": "SIDECAR_INCOMPLETE_BLOCKING", "gaps": ["MACRO_ONLY_GRAPH: task expects 4 nodes / 3 edges; source has 3 macro operators and no edge list", "REFUSING_TO_SPLIT_MACRO_OPERATORS without scientific expansion", "NODE_COUNT_VS_TASK: macro_ops=3 expected_nodes=4"]}
-- `COUNT_MISMATCH_VS_TASK`: {"graph_id": "SP202", "code": "COUNT_MISMATCH_VS_TASK", "got": {"nodes": 3, "edges": 0}, "expected": {"nodes": 4, "edges": 3}}
-- `MISSING`: {"graph_id": "A", "code": "MISSING", "gaps": ["No approved standalone directed program graph named A in repo or p7 approved_graphs_v0.2", "A appears only as clip_role / graph_as_reviewed window key, not a graph_id"]}
-- `MISSING`: {"graph_id": "B", "code": "MISSING", "gaps": ["No approved standalone directed program graph named B in repo or p7 approved_graphs_v0.2", "B appears only as clip_role / graph_as_reviewed window key, not a graph_id"]}
-- `TOTAL_COUNT_MISMATCH`: {"code": "TOTAL_COUNT_MISMATCH", "got": {"nodes": 49, "edges": 22}, "expected": {"nodes": 60, "edges": 54}}
+## M1 Layer1 coverage
+- label-set coverage: 1.0
+- node-instance coverage: 1.0
+- unseen-only labels: []
 
-## Scientific ambiguities
-- **MISSING_GRAPH_A**: No approved standalone directed program graph with graph_id/item_id A
-- **MISSING_GRAPH_B**: No approved standalone directed program graph with graph_id/item_id B
-- **SEEN_LACK_STRUCTURED_EDGES**: SP001/SP002/SP005 only have graph_as_reviewed operator lists; task expects full node I/O + edges
-- **SP201_SP202_MACRO_VS_4N3E**: Approved sources are 3-operator macros; task expects 4 nodes / 3 edges without authorizing a split
-- **LAYER_VOCAB_UNFROZEN**: OPERATOR_LIBRARY_v1 on p7 branch is PENDING_SCIENTIFIC_APPROVAL; Layer1/2 map is provisional engineering
+## M2 Layer2 coverage
+- label-set coverage: 0.14285714285714285
+- node-instance coverage: 0.2
+- unseen-only labels: ['DetectActionEvent', 'DetectTransportEvent', 'IdentifyPersonByAppearance', 'QueryBoundAction', 'QueryBoundTransport', 'ReadPersonNameFromGraphic']
 
-## Per-graph ingest
-- `SP001`: status=SIDECAR_INCOMPLETE_BLOCKING nodes=8 edges=0
-- `SP002`: status=SIDECAR_INCOMPLETE_BLOCKING nodes=5 edges=0
-- `SP005`: status=SIDECAR_INCOMPLETE_BLOCKING nodes=8 edges=0
-- `SP201`: status=SIDECAR_INCOMPLETE_BLOCKING nodes=3 edges=0
-- `SP202`: status=SIDECAR_INCOMPLETE_BLOCKING nodes=3 edges=0
-- `P7_VTCD_C2`: status=STRUCTURED_INGESTED nodes=5 edges=4
-- `P7_TJR_R3`: status=STRUCTURED_INGESTED nodes=5 edges=5
-- `A`: status=MISSING nodes=0 edges=0
-- `B`: status=MISSING nodes=0 edges=0
-- `P7_R4_F1`: status=STRUCTURED_INGESTED nodes=7 edges=9
-- `P7_R4_F2`: status=STRUCTURED_INGESTED_WITH_MAPPING_GAPS nodes=5 edges=4
+## M3 subgraph overlap
+### mode `ops`
+- 2_node: intersection=0 / unseen_unique=8 (ratio=0.0)
+- 3_node: intersection=0 / unseen_unique=7 (ratio=0.0)
+### mode `ops_role`
+- 2_node: intersection=0 / unseen_unique=9 (ratio=0.0)
+- 3_node: intersection=0 / unseen_unique=8 (ratio=0.0)
+### mode `ops_role_edge`
+- 2_node: intersection=0 / unseen_unique=9 (ratio=0.0)
+- 3_node: intersection=0 / unseen_unique=8 (ratio=0.0)
+### mode `ops_role_edge_io`
+- 2_node: intersection=0 / unseen_unique=9 (ratio=0.0)
+- 3_node: intersection=0 / unseen_unique=8 (ratio=0.0)
+
+## M4 full digraph equivalence
+- `P7_VTCD_C2`: {'layer1': False, 'layer2': False, 'strict': False}
+- `P7_TJR_R3`: {'layer1': False, 'layer2': False, 'strict': False}
+
+## Candidate sensitivity (not formal 5/2)
+- `A` any-Seen iso: {'layer1': False, 'layer2': False, 'strict': False}
+- `B` any-Seen iso: {'layer1': False, 'layer2': False, 'strict': False}
+- `P7_R4_F1` any-Seen iso: {'layer1': False, 'layer2': False, 'strict': False}
+- `P7_R4_F2` any-Seen iso: {'layer1': False, 'layer2': False, 'strict': False}
+
+Structural novelty ≠ compositional generalization capability.

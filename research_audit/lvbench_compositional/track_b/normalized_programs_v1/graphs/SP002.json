@@ -2,155 +2,313 @@
   "schema": "normalized_program_graph_v1",
   "graph_id": "SP002",
   "split_role_fixed": "SEEN",
-  "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
-  "algo_version": "normalized_programs_v1.0.0",
-  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
-  "gaps": [
-    "NO_AUTHORITATIVE_EDGE_LIST: edges not present in graph_as_reviewed; refusing to invent topology",
-    "NO_AUTHORITATIVE_NODE_IO: inputs/outputs not machine-specified in source",
-    "NO_AUTHORITATIVE_TIME_CONDITIONS_PER_NODE"
-  ],
+  "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+  "algo_version": "normalized_programs_v1.1.0_handoff",
+  "operator_vocab_status": "USER_APPROVED_IN_CONVERSATION",
+  "operator_vocab_version": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04",
   "source": {
-    "kind": "graph_as_reviewed_macro",
-    "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-    "sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459",
-    "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002.json",
-    "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH"
+    "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+    "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+    "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+    "prior_macro_source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459",
+    "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+    "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+    "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+    "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
   },
   "nodes": [
     {
-      "node_id": "sp002_n1",
-      "raw_operator": "ObservePerson(t≈00:02)→P",
-      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "node_id": "s1",
+      "raw_operator": "ObservePerson",
+      "layer1": "ENTITY_IDENTIFICATION",
       "layer2": "ObservePerson",
-      "inputs": "UNKNOWN_NOT_IN_SOURCE",
-      "outputs": "UNKNOWN_NOT_IN_SOURCE",
-      "clip_role": "A",
-      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
-      "evidence": "UNKNOWN_NOT_IN_SOURCE",
-      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-      "user_confirmed": true,
+      "raw_inputs": [],
+      "raw_outputs": [
+        "person_A"
+      ],
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "person_A"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": "~00:02 source graph",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
       "provenance": {
-        "field": "graph_as_reviewed.A",
-        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
       },
-      "unconfirmed_fields": [
-        "inputs",
-        "outputs",
-        "time_conditions",
-        "evidence"
-      ]
+      "extra_attributes": {}
     },
     {
-      "node_id": "sp002_n2",
-      "raw_operator": "ReadNameSubtitle(t≈01:18)→Tacara",
-      "layer1": "TEXT_OR_GRAPHIC_READ",
-      "layer2": "ReadNameSubtitle",
-      "inputs": "UNKNOWN_NOT_IN_SOURCE",
-      "outputs": "UNKNOWN_NOT_IN_SOURCE",
-      "clip_role": "A",
-      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
-      "evidence": "UNKNOWN_NOT_IN_SOURCE",
-      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-      "user_confirmed": true,
+      "node_id": "s2",
+      "raw_operator": "ReadNameSubtitle",
+      "layer1": "TEXT_EVIDENCE_READING",
+      "layer2": "ReadPersonNameFromSubtitle",
+      "raw_inputs": [],
+      "raw_outputs": [
+        "name_Tacara"
+      ],
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "name_Tacara"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": "~01:18 source graph",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
       "provenance": {
-        "field": "graph_as_reviewed.A",
-        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
       },
-      "unconfirmed_fields": [
-        "inputs",
-        "outputs",
-        "time_conditions",
-        "evidence"
-      ]
+      "extra_attributes": {}
     },
     {
-      "node_id": "sp002_n3",
-      "raw_operator": "TemporalPersonBind(P,Tacara)",
-      "layer1": "CROSS_CLIP_IDENTITY_BIND",
-      "layer2": "TemporalPersonBind",
-      "inputs": "UNKNOWN_NOT_IN_SOURCE",
-      "outputs": "UNKNOWN_NOT_IN_SOURCE",
-      "clip_role": "A",
-      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
-      "evidence": "UNKNOWN_NOT_IN_SOURCE",
-      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-      "user_confirmed": true,
+      "node_id": "s3",
+      "raw_operator": "TemporalPersonBind",
+      "layer1": "ENTITY_BINDING",
+      "layer2": "BindPersonToName",
+      "raw_inputs": [
+        "person_A",
+        "name_Tacara"
+      ],
+      "raw_outputs": [
+        "named_person_A"
+      ],
+      "normalized_inputs": [
+        "person_A",
+        "name_Tacara"
+      ],
+      "normalized_outputs": [
+        "named_person_A"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": "source graph",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
       "provenance": {
-        "field": "graph_as_reviewed.A",
-        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
       },
-      "unconfirmed_fields": [
-        "inputs",
-        "outputs",
-        "time_conditions",
-        "evidence"
-      ]
+      "extra_attributes": {}
     },
     {
-      "node_id": "sp002_n4",
-      "raw_operator": "ReadRelationSubtitle(B+≈00:14)→SisterOf(Brittany,Tacara)",
-      "layer1": "TEXT_OR_GRAPHIC_READ",
-      "layer2": "ReadRelationSubtitle",
-      "inputs": "UNKNOWN_NOT_IN_SOURCE",
-      "outputs": "UNKNOWN_NOT_IN_SOURCE",
-      "clip_role": "B",
-      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
-      "evidence": "UNKNOWN_NOT_IN_SOURCE",
-      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-      "user_confirmed": true,
+      "node_id": "s4",
+      "raw_operator": "ReadRelationSubtitle",
+      "layer1": "TEXT_EVIDENCE_READING",
+      "layer2": "ReadRelationFromSubtitle",
+      "raw_inputs": [],
+      "raw_outputs": [
+        "relation_B"
+      ],
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "relation_B"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": "SisterOf(Brittany,Tacara), B+~00:14",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
       "provenance": {
-        "field": "graph_as_reviewed.B",
-        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
       },
-      "unconfirmed_fields": [
-        "inputs",
-        "outputs",
-        "time_conditions",
-        "evidence"
-      ]
+      "extra_attributes": {}
     },
     {
-      "node_id": "sp002_n5",
-      "raw_operator": "JoinByPersonReference(A.P=Tacara, B.SisterOf(Brittany,Tacara))",
-      "layer1": "CROSS_CLIP_IDENTITY_BIND",
-      "layer2": "JoinByPersonReference",
-      "inputs": "UNKNOWN_NOT_IN_SOURCE",
-      "outputs": "UNKNOWN_NOT_IN_SOURCE",
-      "clip_role": "AB",
-      "time_conditions": "UNKNOWN_NOT_IN_SOURCE",
-      "evidence": "UNKNOWN_NOT_IN_SOURCE",
-      "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-      "user_confirmed": true,
+      "node_id": "s5",
+      "raw_operator": "JoinByPersonReference",
+      "layer1": "CROSS_WINDOW_ENTITY_BIND",
+      "layer2": "JoinPersonRelationAcrossWindows",
+      "raw_inputs": [
+        "named_person_A",
+        "relation_B"
+      ],
+      "raw_outputs": [
+        "matched_relation"
+      ],
+      "normalized_inputs": [
+        "named_person_A",
+        "relation_B"
+      ],
+      "normalized_outputs": [
+        "matched_relation"
+      ],
+      "raw_clip_role": "AB",
+      "normalized_clip_role": "AB",
+      "raw_evidence": "source cross_window",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
       "provenance": {
-        "field": "graph_as_reviewed.cross_window",
-        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-        "source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459"
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
       },
-      "unconfirmed_fields": [
-        "inputs",
-        "outputs",
-        "time_conditions",
-        "evidence"
-      ]
+      "extra_attributes": {}
+    },
+    {
+      "node_id": "s6",
+      "raw_operator": "QueryRelationAnswer",
+      "layer1": "RELATION_QUERY",
+      "layer2": "QueryRelation",
+      "raw_inputs": [
+        "matched_relation"
+      ],
+      "raw_outputs": [
+        "answer_sister"
+      ],
+      "normalized_inputs": [
+        "matched_relation"
+      ],
+      "normalized_outputs": [
+        "answer_sister"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": "output answer; explicit query node proposed",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
+      },
+      "extra_attributes": {}
     }
   ],
-  "edges": [],
-  "n_nodes": 5,
-  "n_edges": 0,
-  "expected_counts_from_task": null,
-  "semantic_correction_overlays": [],
+  "edges": [
+    {
+      "edge_id": "sp002_chat_e1",
+      "from_node": "s1",
+      "to_node": "s3",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    },
+    {
+      "edge_id": "sp002_chat_e2",
+      "from_node": "s2",
+      "to_node": "s3",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    },
+    {
+      "edge_id": "sp002_chat_e3",
+      "from_node": "s3",
+      "to_node": "s5",
+      "raw_dependency_kind": "bind",
+      "normalized_dependency_kind": "bind",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    },
+    {
+      "edge_id": "sp002_chat_e4",
+      "from_node": "s4",
+      "to_node": "s5",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    },
+    {
+      "edge_id": "sp002_chat_e5",
+      "from_node": "s5",
+      "to_node": "s6",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    }
+  ],
+  "n_nodes": 6,
+  "n_edges": 5,
+  "gaps": [],
   "mapping_coverage": {
     "layer1": 1.0,
     "layer2": 1.0,
-    "unmapped_layer1_operators": []
+    "unmapped": []
   },
   "notes": [
-    "Nodes listed from approved macro operators only.",
-    "Edges intentionally empty until authoritative edge list exists."
+    "Conversation-approved reconstruction sidecar; not a lossless GitHub structured original.",
+    "Evidence/time remain UNKNOWN / NOT_FRAME_CERTIFIED where so marked."
   ]
 }

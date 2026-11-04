@@ -1,22 +1,215 @@
 {
   "schema": "normalized_program_graph_v1",
   "graph_id": "A",
-  "split_role_fixed": "CANDIDATE_SENSITIVITY",
-  "normalization_status": "MISSING",
-  "algo_version": "normalized_programs_v1.0.0",
-  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
-  "gaps": [
-    "No approved standalone directed program graph named A in repo or p7 approved_graphs_v0.2",
-    "A appears only as clip_role / graph_as_reviewed window key, not a graph_id"
-  ],
-  "source": {},
-  "nodes": [],
-  "edges": [],
-  "n_nodes": 0,
-  "n_edges": 0,
-  "mapping_coverage": {
-    "layer1": null,
-    "layer2": null
+  "split_role_fixed": "CANDIDATE_ONLY",
+  "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+  "algo_version": "normalized_programs_v1.1.0_handoff",
+  "operator_vocab_status": "USER_APPROVED_IN_CONVERSATION",
+  "operator_vocab_version": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04",
+  "source": {
+    "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+    "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+    "prior_evidence_source_hint": "family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json; must verify against repository",
+    "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+    "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+    "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+    "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
   },
-  "notes": []
+  "nodes": [
+    {
+      "node_id": "a1",
+      "raw_operator": "LocatePersonByAppearance",
+      "layer1": "ENTITY_IDENTIFICATION",
+      "layer2": "IdentifyPersonByAppearance",
+      "raw_inputs": [],
+      "raw_outputs": [
+        "woman_B"
+      ],
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "woman_B"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": "later hillside selfie",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
+      },
+      "extra_attributes": {}
+    },
+    {
+      "node_id": "a2",
+      "raw_operator": "DetectPersonAndAppearance",
+      "layer1": "ENTITY_IDENTIFICATION",
+      "layer2": "DetectPersonAndAppearance",
+      "raw_inputs": [],
+      "raw_outputs": [
+        "woman_A"
+      ],
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "woman_A"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": "earlier urban stairway",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
+      },
+      "extra_attributes": {}
+    },
+    {
+      "node_id": "a3",
+      "raw_operator": "CrossIntervalSamePersonBind",
+      "layer1": "CROSS_WINDOW_ENTITY_BIND",
+      "layer2": "BindSamePerson",
+      "raw_inputs": [
+        "woman_B",
+        "woman_A"
+      ],
+      "raw_outputs": [
+        "bound_woman"
+      ],
+      "normalized_inputs": [
+        "woman_B",
+        "woman_A"
+      ],
+      "normalized_outputs": [
+        "bound_woman"
+      ],
+      "raw_clip_role": "AB",
+      "normalized_clip_role": "AB",
+      "raw_evidence": "user approved first-version conceptual node",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
+      },
+      "extra_attributes": {}
+    },
+    {
+      "node_id": "a4",
+      "raw_operator": "QueryLocation",
+      "layer1": "BOUND_ATTRIBUTE_QUERY",
+      "layer2": "QueryBoundLocation",
+      "raw_inputs": [
+        "bound_woman"
+      ],
+      "raw_outputs": [
+        "answer_urban_stairs"
+      ],
+      "normalized_inputs": [
+        "bound_woman"
+      ],
+      "normalized_outputs": [
+        "answer_urban_stairs"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": "user approved first-version conceptual node",
+      "raw_time_conditions": [
+        {
+          "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+        }
+      ],
+      "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "not_github_historical_structured_original": true
+      },
+      "extra_attributes": {}
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "a_chat_e1",
+      "from_node": "a1",
+      "to_node": "a3",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    },
+    {
+      "edge_id": "a_chat_e2",
+      "from_node": "a2",
+      "to_node": "a3",
+      "raw_dependency_kind": "data",
+      "normalized_dependency_kind": "data",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    },
+    {
+      "edge_id": "a_chat_e3",
+      "from_node": "a3",
+      "to_node": "a4",
+      "raw_dependency_kind": "bind",
+      "normalized_dependency_kind": "bind",
+      "change_authority": null,
+      "graph_structure_user_approved_in_conversation": true,
+      "provenance": {
+        "source_kind": "conversation_approved_sidecar",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    }
+  ],
+  "n_nodes": 4,
+  "n_edges": 3,
+  "gaps": [],
+  "mapping_coverage": {
+    "layer1": 1.0,
+    "layer2": 1.0,
+    "unmapped": []
+  },
+  "notes": [
+    "Conversation-approved reconstruction sidecar; not a lossless GitHub structured original.",
+    "Evidence/time remain UNKNOWN / NOT_FRAME_CERTIFIED where so marked."
+  ]
 }

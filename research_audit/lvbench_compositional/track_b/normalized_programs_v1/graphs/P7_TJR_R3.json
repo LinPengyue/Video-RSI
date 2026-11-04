@@ -3,175 +3,214 @@
   "graph_id": "P7_TJR_R3",
   "split_role_fixed": "UNSEEN",
   "normalization_status": "STRUCTURED_INGESTED",
-  "algo_version": "normalized_programs_v1.0.0",
-  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
-  "gaps": [],
+  "algo_version": "normalized_programs_v1.1.0_handoff",
+  "operator_vocab_status": "USER_APPROVED_IN_CONVERSATION",
+  "operator_vocab_version": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04",
   "source": {
     "kind": "approved_structured_graph_v0.2",
     "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
     "sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
     "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
-    "graph_id_raw": "approved::P7_TJR_R3::v0.2"
+    "mapping_vocab": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04"
   },
   "nodes": [
     {
       "node_id": "tjr_n1",
       "raw_operator": "DetectAction",
-      "layer1": "ACTION_OR_EVENT_DETECT",
-      "layer2": "DetectAction",
-      "inputs": [],
-      "outputs": [
+      "layer1": "EVENT_DETECTION",
+      "layer2": "DetectActionEvent",
+      "raw_inputs": [],
+      "raw_outputs": [
         "drumming_event_B"
       ],
-      "clip_role": "B",
-      "time_conditions": [
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "drumming_event_B"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": {
+        "action": "打鼓"
+      },
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
-        "action": "打鼓"
-      },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "tjr_n2",
       "raw_operator": "IdentifyActorByAppearance",
-      "layer1": "APPEARANCE_OR_ROLE_ID",
-      "layer2": "IdentifyActorByAppearance",
-      "inputs": [
+      "layer1": "ENTITY_IDENTIFICATION",
+      "layer2": "IdentifyPersonByAppearance",
+      "raw_inputs": [
         "drumming_event_B"
       ],
-      "outputs": [
+      "raw_outputs": [
         "drummer_ref_B"
       ],
-      "clip_role": "B",
-      "time_conditions": [
-        {
-          "status": "PENDING_SCIENTIFIC_APPROVAL"
-        }
+      "normalized_inputs": [
+        "drumming_event_B"
       ],
-      "evidence": {
+      "normalized_outputs": [
+        "drummer_ref_B"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": {
         "appearance": [
           "短头发",
           "红帽",
           "蓝色上衣"
         ]
       },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "raw_time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "tjr_n3",
       "raw_operator": "DetectTransportRide",
-      "layer1": "ACTION_OR_EVENT_DETECT",
-      "layer2": "DetectTransportRide",
-      "inputs": [],
-      "outputs": [
+      "layer1": "EVENT_DETECTION",
+      "layer2": "DetectTransportEvent",
+      "raw_inputs": [],
+      "raw_outputs": [
         "green_dragon_ride_A",
         "passenger_ref_A"
       ],
-      "clip_role": "A",
-      "time_conditions": [
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "green_dragon_ride_A",
+        "passenger_ref_A"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": {
+        "transport": "乘坐绿色龙",
+        "passenger": "乘绿色龙的人"
+      },
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
-        "transport": "乘坐绿色龙",
-        "passenger": "乘绿色龙的人"
-      },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "tjr_n4",
       "raw_operator": "CrossIntervalSamePersonBind",
-      "layer1": "CROSS_CLIP_IDENTITY_BIND",
-      "layer2": "CrossIntervalSamePersonBind",
-      "inputs": [
+      "layer1": "CROSS_WINDOW_ENTITY_BIND",
+      "layer2": "BindSamePerson",
+      "raw_inputs": [
         "drummer_ref_B",
         "passenger_ref_A"
       ],
-      "outputs": [
+      "raw_outputs": [
         "bound_person"
       ],
-      "clip_role": "AB",
-      "time_conditions": [
-        {
-          "status": "PENDING_SCIENTIFIC_APPROVAL"
-        }
+      "normalized_inputs": [
+        "drummer_ref_B",
+        "passenger_ref_A"
       ],
-      "evidence": {
+      "normalized_outputs": [
+        "bound_person"
+      ],
+      "raw_clip_role": "AB",
+      "normalized_clip_role": "AB",
+      "raw_evidence": {
         "bind_cues": [
           "短头发",
           "红帽",
           "蓝色上衣"
         ]
       },
-      "source": "USER_GPT_APPROVAL_v0.2",
-      "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
-      "provenance": {
-        "field": "nodes[].operator_type",
-        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
-      },
-      "unconfirmed_fields": []
-    },
-    {
-      "node_id": "tjr_n5",
-      "raw_operator": "QueryEarlierTransport",
-      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
-      "layer2": "QueryEarlierTransport",
-      "inputs": [
-        "bound_person",
-        "green_dragon_ride_A"
-      ],
-      "outputs": [
-        "answer"
-      ],
-      "clip_role": "A",
-      "time_conditions": [
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+      "user_confirmed": true,
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    },
+    {
+      "node_id": "tjr_n5",
+      "raw_operator": "QueryEarlierTransport",
+      "layer1": "BOUND_ATTRIBUTE_QUERY",
+      "layer2": "QueryBoundTransport",
+      "raw_inputs": [
+        "bound_person",
+        "green_dragon_ride_A"
+      ],
+      "raw_outputs": [
+        "answer"
+      ],
+      "normalized_inputs": [
+        "bound_person",
+        "green_dragon_ride_A"
+      ],
+      "normalized_outputs": [
+        "answer"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": {
         "answer_text_from_user_qa": "绿色的龙",
         "queried_relation": "A中的乘坐关系"
       },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "raw_time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     }
   ],
   "edges": [
@@ -186,8 +225,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "normalization_change": null
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
       }
     },
     {
@@ -201,8 +241,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "normalization_change": null
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
       }
     },
     {
@@ -216,8 +257,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "normalization_change": null
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
       }
     },
     {
@@ -231,8 +273,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "normalization_change": null
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
       }
     },
     {
@@ -246,21 +289,22 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
-        "normalization_change": null
+        "source_sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b"
       }
     }
   ],
   "n_nodes": 5,
   "n_edges": 5,
-  "raw_directed_program_text": "B: DetectAction(舞台打鼓) → IdentifyActorByAppearance(短发/红帽/蓝衣) → A: DetectTransportToPalace(乘坐绿色龙) + IdentifyPassengerAppearance → CrossIntervalSamePersonBind(B打鼓者, A乘龙者) → QueryEarlierTransport(A, B所指人物) → 绿色的龙。依赖方向：后期动作角色 B → 早期交通工具 A。",
+  "gaps": [],
   "mapping_coverage": {
     "layer1": 1.0,
     "layer2": 1.0,
-    "unmapped_layer1_operators": []
+    "unmapped": []
   },
   "notes": [
-    "Lossless copy of nodes/edges/I/O/time/evidence from provenance snapshot.",
-    "Layer1 family map is engineering FAMILY_MAP; vocab not scientifically frozen."
-  ]
+    "P7 nodes/edges lossless from provenance snapshot; Layer1/2 from chat-approved per-node mapping."
+  ],
+  "raw_directed_program_text": "B: DetectAction(舞台打鼓) → IdentifyActorByAppearance(短发/红帽/蓝衣) → A: DetectTransportToPalace(乘坐绿色龙) + IdentifyPassengerAppearance → CrossIntervalSamePersonBind(B打鼓者, A乘龙者) → QueryEarlierTransport(A, B所指人物) → 绿色的龙。依赖方向：后期动作角色 B → 早期交通工具 A。"
 }

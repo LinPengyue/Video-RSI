@@ -1,139 +1,160 @@
 {
   "schema": "normalized_programs_source_manifest_v1",
-  "built_utc": "2026-11-04T09:11:51+00:00",
-  "algo_version": "normalized_programs_v1.0.0",
-  "pilot_snapshots_root": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots",
-  "upstream_branch_hint": "research/lvbench-comp-p7-hil-pilot@b913697e",
+  "built_utc": "2026-11-04T09:50:30+00:00",
+  "algo_version": "normalized_programs_v1.1.0_handoff",
+  "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+  "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
   "graphs": {
     "SP001": {
-      "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
-      "source": {
-        "kind": "graph_as_reviewed_macro",
-        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
-        "sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c",
-        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001.json",
-        "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH"
-      },
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
       "n_nodes": 8,
-      "n_edges": 0
+      "n_edges": 8,
+      "source": {
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP001_v0.3.json",
+        "prior_macro_source_sha256": "30b5c2a7eeea9eff49d6caaa9a733d85a4c0dfd8cf845f7c6790adcf76120f9c",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      }
     },
     "SP002": {
-      "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "n_nodes": 6,
+      "n_edges": 5,
       "source": {
-        "kind": "graph_as_reviewed_macro",
-        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
-        "sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459",
-        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002.json",
-        "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH"
-      },
-      "n_nodes": 5,
-      "n_edges": 0
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP002_v0.2.json",
+        "prior_macro_source_sha256": "8c2a6a35c7dc5e2c316db8950aa132908abb53457208fbd5d27d6fd196a70459",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      }
     },
     "SP005": {
-      "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
-      "source": {
-        "kind": "graph_as_reviewed_macro",
-        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
-        "sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195",
-        "record_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005.json",
-        "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH"
-      },
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
       "n_nodes": 8,
-      "n_edges": 0
+      "n_edges": 7,
+      "source": {
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP005_v0.2.json",
+        "prior_macro_source_sha256": "6a6e0c1c130ac3d138b895a6bcc7bc14d6390ed3879665970f7076a69075f195",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      }
     },
     "SP201": {
-      "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "n_nodes": 4,
+      "n_edges": 3,
       "source": {
-        "kind": "user_approved_macro_graph",
-        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP201_v0.2.json",
-        "sha256": "60a41b7b42f6f97667dddb3b48d78d6371c9abbf137a2ae85beceec4c6dfa468",
-        "program": {
-          "status": "USER_APPROVED_MACRO_GRAPH",
-          "program": "DetermineMatchWinner(B) → CrossWindowPersonBind(B,A) → QueryEmotion(A)",
-          "dependency_direction": "B_TO_A",
-          "answer_candidate": "frustrated"
-        },
-        "user_confirmation_status": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH"
-      },
-      "n_nodes": 3,
-      "n_edges": 0
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP201_v0.2.json",
+        "prior_macro_source_sha256": "60a41b7b42f6f97667dddb3b48d78d6371c9abbf137a2ae85beceec4c6dfa468",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      }
     },
     "SP202": {
-      "normalization_status": "SIDECAR_INCOMPLETE_BLOCKING",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "n_nodes": 4,
+      "n_edges": 3,
       "source": {
-        "kind": "user_approved_macro_graph",
-        "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
-        "sha256": "5f795ed9bc4220bcee6b819513c7c69fbdb3f787b4484097838dca33d00b8376",
-        "program": {
-          "status": "USER_APPROVED_MACRO_GRAPH",
-          "program": "IdentifyFirstServer(A) → CrossWindowPersonBind(A,B) → QueryMatchResult(B)",
-          "dependency_direction": "A_TO_B",
-          "answer_candidate": "wins the match"
-        },
-        "user_confirmation_status": "USER_APPROVED_COMPOSITIONAL_CANDIDATE_GRAPH"
-      },
-      "n_nodes": 3,
-      "n_edges": 0
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_macro_source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/SP202_v0.3.json",
+        "prior_macro_source_sha256": "5f795ed9bc4220bcee6b819513c7c69fbdb3f787b4484097838dca33d00b8376",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      }
     },
     "P7_VTCD_C2": {
       "normalization_status": "STRUCTURED_INGESTED",
+      "n_nodes": 5,
+      "n_edges": 4,
       "source": {
         "kind": "approved_structured_graph_v0.2",
         "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2.json",
         "sha256": "d3b975f177ae8634a67653182197bd61414fe31ab9bc0bcc5f91d4655094148e",
         "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
-        "graph_id_raw": "approved::P7_VTCD_C2::v0.2"
-      },
-      "n_nodes": 5,
-      "n_edges": 4
+        "mapping_vocab": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04"
+      }
     },
     "P7_TJR_R3": {
       "normalization_status": "STRUCTURED_INGESTED",
+      "n_nodes": 5,
+      "n_edges": 5,
       "source": {
         "kind": "approved_structured_graph_v0.2",
         "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3.json",
         "sha256": "631190830f72bc0843544e1c366a1fb6148917333d786a39f5d8a6effd00ba8b",
         "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
-        "graph_id_raw": "approved::P7_TJR_R3::v0.2"
-      },
-      "n_nodes": 5,
-      "n_edges": 5
+        "mapping_vocab": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04"
+      }
     },
     "A": {
-      "normalization_status": "MISSING",
-      "source": {},
-      "n_nodes": 0,
-      "n_edges": 0
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "n_nodes": 4,
+      "n_edges": 3,
+      "source": {
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_evidence_source_hint": "family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json; must verify against repository",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      }
     },
     "B": {
-      "normalization_status": "MISSING",
-      "source": {},
-      "n_nodes": 0,
-      "n_edges": 0
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "n_nodes": 4,
+      "n_edges": 3,
+      "source": {
+        "kind": "conversation_approved_graph_structure_not_repo_structured_original",
+        "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+        "prior_evidence_source_hint": "family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json; must verify against repository",
+        "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+        "science_status": "USER_APPROVED_IN_CONVERSATION_GRAPH_TOPOLOGY_AND_VOCAB",
+        "graph_source_policy": "These 7 structures are chat-approved reconstructions, not lossless copies of preexisting GitHub node/edge files. The 4 P7 structured graphs must be copied from repository originals, not from compact audit extracts."
+      }
     },
     "P7_R4_F1": {
       "normalization_status": "STRUCTURED_INGESTED",
+      "n_nodes": 7,
+      "n_edges": 9,
       "source": {
         "kind": "approved_structured_graph_v0.2",
         "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
         "sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121",
         "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
-        "graph_id_raw": "approved::P7_R4_F1::v0.2"
-      },
-      "n_nodes": 7,
-      "n_edges": 9
+        "mapping_vocab": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04"
+      }
     },
     "P7_R4_F2": {
-      "normalization_status": "STRUCTURED_INGESTED_WITH_MAPPING_GAPS",
+      "normalization_status": "STRUCTURED_INGESTED",
+      "n_nodes": 5,
+      "n_edges": 4,
       "source": {
         "kind": "approved_structured_graph_v0.2",
         "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
         "sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b",
         "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
-        "graph_id_raw": "approved::P7_R4_F2::v0.2"
-      },
-      "n_nodes": 5,
-      "n_edges": 4
+        "mapping_vocab": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04"
+      }
     }
   }
 }

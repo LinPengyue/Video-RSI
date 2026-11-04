@@ -2,101 +2,114 @@
   "schema": "normalized_program_graph_v1",
   "graph_id": "P7_R4_F2",
   "split_role_fixed": "CANDIDATE_SENSITIVITY",
-  "normalization_status": "STRUCTURED_INGESTED_WITH_MAPPING_GAPS",
-  "algo_version": "normalized_programs_v1.0.0",
-  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
-  "gaps": [
-    "layer1_unmapped_operators=['DetectAnimalHumanInteraction', 'IdentifyAnimalVisual']"
-  ],
+  "normalization_status": "STRUCTURED_INGESTED",
+  "algo_version": "normalized_programs_v1.1.0_handoff",
+  "operator_vocab_status": "USER_APPROVED_IN_CONVERSATION",
+  "operator_vocab_version": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04",
   "source": {
     "kind": "approved_structured_graph_v0.2",
     "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
     "sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b",
     "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
-    "graph_id_raw": "approved::P7_R4_F2::v0.2"
+    "mapping_vocab": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04"
   },
   "nodes": [
     {
       "node_id": "f2_n1",
       "raw_operator": "IdentifyAnimalVisual",
-      "layer1": "OTHER_OR_UNMAPPED",
+      "layer1": "ENTITY_IDENTIFICATION",
       "layer2": "IdentifyAnimalVisual",
-      "inputs": [],
-      "outputs": [
+      "raw_inputs": [],
+      "raw_outputs": [
         "animal_ref_A"
       ],
-      "clip_role": "A",
-      "time_conditions": [
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "animal_ref_A"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": {
+        "visual": "黑白狗可静音识别",
+        "audio": "辅助证据 only；身份不依赖音频"
+      },
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL",
           "note": "No frame-accurate source timestamp approved beyond existing clip window."
         }
       ],
-      "evidence": {
-        "visual": "黑白狗可静音识别",
-        "audio": "辅助证据 only；身份不依赖音频"
-      },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
-        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "f2_n2",
       "raw_operator": "IdentifyAnimalVisual",
-      "layer1": "OTHER_OR_UNMAPPED",
+      "layer1": "ENTITY_IDENTIFICATION",
       "layer2": "IdentifyAnimalVisual",
-      "inputs": [],
-      "outputs": [
+      "raw_inputs": [],
+      "raw_outputs": [
         "animal_ref_B"
       ],
-      "clip_role": "B",
-      "time_conditions": [
-        {
-          "status": "PENDING_SCIENTIFIC_APPROVAL"
-        }
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "animal_ref_B"
       ],
-      "evidence": {
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": {
         "appearance_cues_for_bind": [
           "黑脑袋",
           "白鼻子",
           "黑尾巴"
         ]
       },
-      "source": "USER_GPT_APPROVAL_v0.2",
-      "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
-      "provenance": {
-        "field": "nodes[].operator_type",
-        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
-        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
-      },
-      "unconfirmed_fields": []
-    },
-    {
-      "node_id": "f2_n3",
-      "raw_operator": "CrossIntervalSameAnimalBind",
-      "layer1": "CROSS_CLIP_IDENTITY_BIND",
-      "layer2": "CrossIntervalSameAnimalBind",
-      "inputs": [
-        "animal_ref_A",
-        "animal_ref_B"
-      ],
-      "outputs": [
-        "bound_animal"
-      ],
-      "clip_role": "AB",
-      "time_conditions": [
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+      "user_confirmed": true,
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    },
+    {
+      "node_id": "f2_n3",
+      "raw_operator": "CrossIntervalSameAnimalBind",
+      "layer1": "CROSS_WINDOW_ENTITY_BIND",
+      "layer2": "BindSameAnimal",
+      "raw_inputs": [
+        "animal_ref_A",
+        "animal_ref_B"
+      ],
+      "raw_outputs": [
+        "bound_animal"
+      ],
+      "normalized_inputs": [
+        "animal_ref_A",
+        "animal_ref_B"
+      ],
+      "normalized_outputs": [
+        "bound_animal"
+      ],
+      "raw_clip_role": "AB",
+      "normalized_clip_role": "AB",
+      "raw_evidence": {
         "bind_cues": [
           "黑脑袋",
           "白鼻子",
@@ -104,75 +117,97 @@
         ],
         "audio_role": "辅助，非绑定必要条件"
       },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "raw_time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
-        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "f2_n4",
       "raw_operator": "DetectAnimalHumanInteraction",
-      "layer1": "OTHER_OR_UNMAPPED",
-      "layer2": "DetectAnimalHumanInteraction",
-      "inputs": [
+      "layer1": "EVENT_DETECTION",
+      "layer2": "DetectInteractionEvent",
+      "raw_inputs": [
         "bound_animal"
       ],
-      "outputs": [
+      "raw_outputs": [
         "interaction_B"
       ],
-      "clip_role": "B",
-      "time_conditions": [
+      "normalized_inputs": [
+        "bound_animal"
+      ],
+      "normalized_outputs": [
+        "interaction_B"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": {
+        "interaction": "与提桶女人打闹"
+      },
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
-        "interaction": "与提桶女人打闹"
-      },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
-        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "f2_n5",
       "raw_operator": "QueryLaterInteraction",
-      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
-      "layer2": "QueryLaterInteraction",
-      "inputs": [
+      "layer1": "BOUND_ATTRIBUTE_QUERY",
+      "layer2": "QueryBoundInteraction",
+      "raw_inputs": [
         "interaction_B"
       ],
-      "outputs": [
+      "raw_outputs": [
         "answer"
       ],
-      "clip_role": "B",
-      "time_conditions": [
+      "normalized_inputs": [
+        "interaction_B"
+      ],
+      "normalized_outputs": [
+        "answer"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": {
+        "answer_text_from_user_qa": "与提着桶的女人打闹。"
+      },
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
-        "answer_text_from_user_qa": "与提着桶的女人打闹。"
-      },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
-        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     }
   ],
   "edges": [
@@ -187,8 +222,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
-        "normalization_change": null
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
       }
     },
     {
@@ -202,8 +238,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
-        "normalization_change": null
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
       }
     },
     {
@@ -217,8 +254,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
-        "normalization_change": null
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
       }
     },
     {
@@ -232,24 +270,22 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2.json",
-        "normalization_change": null
+        "source_sha256": "68096f7100ccb6c4ba62757bcbf8736c589d8f33d3f44f48b1724aa36ad98c8b"
       }
     }
   ],
   "n_nodes": 5,
   "n_edges": 4,
-  "raw_directed_program_text": "A: DetectAnimalCue(雾林中的狗叫声及狗的可见活动) → IdentifyAnimal(A中的狗，结合声音/外观) → B: DetectAnimalAndInteraction(落叶林中的狗与提桶女人打闹) → CrossIntervalSameAnimalBind(A狗, B狗；黑白毛色等身份线索) → QueryLaterInteraction(B, A所指动物) → 与提着桶的女人打闹。",
+  "gaps": [],
   "mapping_coverage": {
-    "layer1": 0.5,
+    "layer1": 1.0,
     "layer2": 1.0,
-    "unmapped_layer1_operators": [
-      "DetectAnimalHumanInteraction",
-      "IdentifyAnimalVisual"
-    ]
+    "unmapped": []
   },
   "notes": [
-    "Lossless copy of nodes/edges/I/O/time/evidence from provenance snapshot.",
-    "Layer1 family map is engineering FAMILY_MAP; vocab not scientifically frozen."
-  ]
+    "P7 nodes/edges lossless from provenance snapshot; Layer1/2 from chat-approved per-node mapping."
+  ],
+  "raw_directed_program_text": "A: DetectAnimalCue(雾林中的狗叫声及狗的可见活动) → IdentifyAnimal(A中的狗，结合声音/外观) → B: DetectAnimalAndInteraction(落叶林中的狗与提桶女人打闹) → CrossIntervalSameAnimalBind(A狗, B狗；黑白毛色等身份线索) → QueryLaterInteraction(B, A所指动物) → 与提着桶的女人打闹。"
 }

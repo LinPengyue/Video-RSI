@@ -1,85 +1,83 @@
 {
   "schema": "normalized_programs_graph_diff_report_v1",
-  "built_utc": "2026-11-04T09:11:51+00:00",
-  "policy": "Only approved field/edge-type normalizations allowed; none applied where structure missing",
+  "built_utc": "2026-11-04T09:50:30+00:00",
+  "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
   "diffs": [
     {
       "graph_id": "SP005",
-      "status": "NOT_APPLIED",
-      "intended": {
-        "keep": "8 Nodes / 7 Edges",
-        "n3": {
-          "raw_to_normalized": "CrossClipCountryBind → SetTargetCountry",
-          "inputs": [
-            "Italy_A"
-          ],
-          "outputs": [
-            "target_country"
-          ]
-        },
-        "n5": {
-          "raw_to_normalized": "SelectTeam → SelectTeamByCountry",
-          "inputs": [
-            "target_country",
-            "teams_B"
-          ],
-          "outputs": [
-            "selected_team"
-          ]
-        },
-        "n3_to_n5_edge": {
-          "normalized_kind": "data",
-          "preserve_raw_kind": "bind",
-          "preserve_endpoints_and_direction": true
-        },
-        "retain": {
-          "team": "Italy",
-          "set": "first",
-          "point_index": 10
-        },
-        "application_status": "RECORDED_NOT_APPLIED_NO_AUTHORITATIVE_STRUCTURED_GRAPH"
+      "status": "APPLIED_FROM_HANDOFF",
+      "changes": {
+        "n3_raw": "CrossClipCountryBind",
+        "n3_normalized": "SetTargetCountry",
+        "n3_inputs": [
+          "Italy_A"
+        ],
+        "n3_outputs": [
+          "target_country"
+        ],
+        "n5_raw": "SelectTeam",
+        "n5_normalized": "SelectTeamByCountry",
+        "n5_inputs": [
+          "target_country",
+          "teams_B"
+        ],
+        "n5_outputs": [
+          "selected_team"
+        ],
+        "edge_n3_n5_raw_kind": "bind",
+        "edge_n3_n5_normalized_kind": "data",
+        "preserve_8_nodes_7_edges": true,
+        "clip_role_policy": "Preserve original clip_role fields; n5 semantically performs cross-window matching. Do not silently alter clip_role labels."
       },
-      "reason": "No authoritative structured node/edge list to attach renames without fabrication"
+      "raw_preserved": true
     },
     {
       "graph_id": "SP001",
-      "status": "NOT_APPLIED",
-      "intended": {
-        "keep": "8 Nodes / 8 Edges",
-        "s3_receives": "country_binding",
-        "s8_to_s3": "bind",
-        "do_not_change_country_match_count_logic": true,
-        "application_status": "RECORDED_NOT_APPLIED_NO_AUTHORITATIVE_STRUCTURED_EDGE_LIST"
+      "status": "APPLIED_FROM_HANDOFF",
+      "changes": {
+        "s3_normalized_inputs": [
+          "flags_A",
+          "country_binding"
+        ],
+        "s8_to_s3_dependency_kind": "bind",
+        "preserve_8_nodes_8_edges": true
       },
-      "reason": "No authoritative edge list for s8→s3 bind topology"
+      "raw_preserved": true
+    },
+    {
+      "graph_id": "SP201_SP202",
+      "status": "APPLIED_4N_3E_FROM_HANDOFF",
+      "note": "IdentifyAthlete / IdentifyFirstServerPerson nodes are approved bind-side inputs, not unauthorized macro splits",
+      "decision": {
+        "n2_identify_athlete_added_as_separate_user_approved_node": true,
+        "n2_identification_basis": "UNSPECIFIED",
+        "n3_bind_requires_both_n1_and_n2": "USER_APPROVED",
+        "macro_operator_internals": "DO_NOT_DECOMPOSE"
+      }
     },
     {
       "graph_id": "P7_VTCD_C2",
-      "status": "LOSSLESS_COPY",
+      "status": "LOSSLESS_COPY_PLUS_HANDOFF_LAYER_MAP",
       "n_nodes": 5,
-      "n_edges": 4,
-      "normalization_changes": []
+      "n_edges": 4
     },
     {
       "graph_id": "P7_TJR_R3",
-      "status": "LOSSLESS_COPY",
+      "status": "LOSSLESS_COPY_PLUS_HANDOFF_LAYER_MAP",
       "n_nodes": 5,
-      "n_edges": 5,
-      "normalization_changes": []
+      "n_edges": 5
     },
     {
       "graph_id": "P7_R4_F1",
-      "status": "LOSSLESS_COPY",
+      "status": "LOSSLESS_COPY_PLUS_HANDOFF_LAYER_MAP",
       "n_nodes": 7,
-      "n_edges": 9,
-      "normalization_changes": []
+      "n_edges": 9
     },
     {
       "graph_id": "P7_R4_F2",
-      "status": "LOSSLESS_COPY",
+      "status": "LOSSLESS_COPY_PLUS_HANDOFF_LAYER_MAP",
       "n_nodes": 5,
-      "n_edges": 4,
-      "normalization_changes": []
+      "n_edges": 4
     }
   ]
 }

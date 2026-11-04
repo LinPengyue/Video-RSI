@@ -3,241 +3,298 @@
   "graph_id": "P7_R4_F1",
   "split_role_fixed": "CANDIDATE_SENSITIVITY",
   "normalization_status": "STRUCTURED_INGESTED",
-  "algo_version": "normalized_programs_v1.0.0",
-  "operator_vocab_status": "PROVISIONAL_ENGINEERING_MAP_PENDING_SCIENTIFIC_VOCAB",
-  "gaps": [],
+  "algo_version": "normalized_programs_v1.1.0_handoff",
+  "operator_vocab_status": "USER_APPROVED_IN_CONVERSATION",
+  "operator_vocab_version": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04",
   "source": {
     "kind": "approved_structured_graph_v0.2",
     "path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
     "sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121",
     "user_confirmation_status": "USER_APPROVED_STRUCTURED_GRAPH",
-    "graph_id_raw": "approved::P7_R4_F1::v0.2"
+    "mapping_vocab": "CHAT_SCIENCE_APPROVED_STAGE2_FIVE_GROUPS_2026_11_04"
   },
   "nodes": [
     {
       "node_id": "f1_n1",
       "raw_operator": "IdentifyRescuerByRole",
-      "layer1": "APPEARANCE_OR_ROLE_ID",
-      "layer2": "IdentifyRescuerByRole",
-      "inputs": [],
-      "outputs": [
+      "layer1": "ENTITY_IDENTIFICATION",
+      "layer2": "IdentifyPersonByRole",
+      "raw_inputs": [],
+      "raw_outputs": [
         "rescuer_ref_A"
       ],
-      "clip_role": "A",
-      "time_conditions": [
+      "normalized_inputs": [],
+      "normalized_outputs": [
+        "rescuer_ref_A"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": {
+        "role": "救援者/前来解围者",
+        "exclude": "威胁者"
+      },
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
-        "role": "救援者/前来解围者",
-        "exclude": "威胁者"
-      },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "f1_n2",
       "raw_operator": "ExtractAppearance",
-      "layer1": "APPEARANCE_OR_ROLE_ID",
-      "layer2": "ExtractAppearance",
-      "inputs": [
+      "layer1": "VISUAL_FEATURE_EXTRACTION",
+      "layer2": "ExtractPersonAppearance",
+      "raw_inputs": [
         "rescuer_ref_A"
       ],
-      "outputs": [
+      "raw_outputs": [
         "appearance_cues"
       ],
-      "clip_role": "A",
-      "time_conditions": [
-        {
-          "status": "PENDING_SCIENTIFIC_APPROVAL"
-        }
+      "normalized_inputs": [
+        "rescuer_ref_A"
       ],
-      "evidence": {
+      "normalized_outputs": [
+        "appearance_cues"
+      ],
+      "raw_clip_role": "A",
+      "normalized_clip_role": "A",
+      "raw_evidence": {
         "cues": [
           "蓝衣",
           "白围巾",
           "佩刀"
         ]
       },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "raw_time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "f1_n3",
       "raw_operator": "IdentifyPersonByAppearance",
-      "layer1": "APPEARANCE_OR_ROLE_ID",
+      "layer1": "ENTITY_IDENTIFICATION",
       "layer2": "IdentifyPersonByAppearance",
-      "inputs": [
+      "raw_inputs": [
         "appearance_cues"
       ],
-      "outputs": [
+      "raw_outputs": [
         "person_ref_B"
       ],
-      "clip_role": "B",
-      "time_conditions": [
-        {
-          "status": "PENDING_SCIENTIFIC_APPROVAL"
-        }
+      "normalized_inputs": [
+        "appearance_cues"
       ],
-      "evidence": {
+      "normalized_outputs": [
+        "person_ref_B"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": {
         "cues": [
           "蓝衣",
           "白围巾",
           "佩刀"
         ]
       },
-      "source": "USER_GPT_APPROVAL_v0.2",
-      "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
-      "provenance": {
-        "field": "nodes[].operator_type",
-        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
-      },
-      "unconfirmed_fields": []
-    },
-    {
-      "node_id": "f1_n4",
-      "raw_operator": "CrossIntervalSamePersonBind",
-      "layer1": "CROSS_CLIP_IDENTITY_BIND",
-      "layer2": "CrossIntervalSamePersonBind",
-      "inputs": [
-        "rescuer_ref_A",
-        "person_ref_B",
-        "appearance_cues"
-      ],
-      "outputs": [
-        "bound_rescuer"
-      ],
-      "clip_role": "AB",
-      "time_conditions": [
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
+      "user_confirmed": true,
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
+    },
+    {
+      "node_id": "f1_n4",
+      "raw_operator": "CrossIntervalSamePersonBind",
+      "layer1": "CROSS_WINDOW_ENTITY_BIND",
+      "layer2": "BindSamePerson",
+      "raw_inputs": [
+        "rescuer_ref_A",
+        "person_ref_B",
+        "appearance_cues"
+      ],
+      "raw_outputs": [
+        "bound_rescuer"
+      ],
+      "normalized_inputs": [
+        "rescuer_ref_A",
+        "person_ref_B",
+        "appearance_cues"
+      ],
+      "normalized_outputs": [
+        "bound_rescuer"
+      ],
+      "raw_clip_role": "AB",
+      "normalized_clip_role": "AB",
+      "raw_evidence": {
         "bind_cues": [
           "蓝衣",
           "白围巾",
           "佩刀"
         ]
       },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "raw_time_conditions": [
+        {
+          "status": "PENDING_SCIENTIFIC_APPROVAL"
+        }
+      ],
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "f1_n5",
       "raw_operator": "DetectActionEvent",
-      "layer1": "ACTION_OR_EVENT_DETECT",
+      "layer1": "EVENT_DETECTION",
       "layer2": "DetectActionEvent",
-      "inputs": [
+      "raw_inputs": [
         "bound_rescuer"
       ],
-      "outputs": [
+      "raw_outputs": [
         "event_knocked_down_B"
       ],
-      "clip_role": "B",
-      "time_conditions": [
+      "normalized_inputs": [
+        "bound_rescuer"
+      ],
+      "normalized_outputs": [
+        "event_knocked_down_B"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": {
+        "action_event": "被打倒"
+      },
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
-        "action_event": "被打倒"
-      },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "f1_n6",
       "raw_operator": "DetectActionEvent",
-      "layer1": "ACTION_OR_EVENT_DETECT",
+      "layer1": "EVENT_DETECTION",
       "layer2": "DetectActionEvent",
-      "inputs": [
+      "raw_inputs": [
         "bound_rescuer"
       ],
-      "outputs": [
+      "raw_outputs": [
         "event_wipe_face_with_snow_B"
       ],
-      "clip_role": "B",
-      "time_conditions": [
+      "normalized_inputs": [
+        "bound_rescuer"
+      ],
+      "normalized_outputs": [
+        "event_wipe_face_with_snow_B"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": {
+        "action_event": "用雪擦脸"
+      },
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
-        "action_event": "用雪擦脸"
-      },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     },
     {
       "node_id": "f1_n7",
       "raw_operator": "QueryLaterActions",
-      "layer1": "ATTRIBUTE_OR_RELATION_QUERY_AFTER_BIND",
-      "layer2": "QueryLaterActions",
-      "inputs": [
+      "layer1": "BOUND_ATTRIBUTE_QUERY",
+      "layer2": "QueryBoundActions",
+      "raw_inputs": [
         "event_knocked_down_B",
         "event_wipe_face_with_snow_B"
       ],
-      "outputs": [
+      "raw_outputs": [
         "answer"
       ],
-      "clip_role": "B",
-      "time_conditions": [
+      "normalized_inputs": [
+        "event_knocked_down_B",
+        "event_wipe_face_with_snow_B"
+      ],
+      "normalized_outputs": [
+        "answer"
+      ],
+      "raw_clip_role": "B",
+      "normalized_clip_role": "B",
+      "raw_evidence": {
+        "answer_text_from_user_qa": "被打倒在雪地上，并用雪擦脸。",
+        "note": "Two B action events retained as distinct nodes; relative order not newly asserted."
+      },
+      "raw_time_conditions": [
         {
           "status": "PENDING_SCIENTIFIC_APPROVAL"
         }
       ],
-      "evidence": {
-        "answer_text_from_user_qa": "被打倒在雪地上，并用雪擦脸。",
-        "note": "Two B action events retained as distinct nodes; relative order not newly asserted."
-      },
-      "source": "USER_GPT_APPROVAL_v0.2",
+      "evidence_certification": "FROM_P7_STRUCTURED_SOURCE_AS_IS",
       "user_confirmed": true,
-      "operator_vocab_version": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
+      "operator_vocab_version_source": "PROVISIONAL_LABELS_v0.2_PENDING_SCIENTIFIC_VOCAB",
       "provenance": {
-        "field": "nodes[].operator_type",
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
-      },
-      "unconfirmed_fields": []
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121",
+        "mapping_from_handoff": true,
+        "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+      }
     }
   ],
   "edges": [
@@ -252,8 +309,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "normalization_change": null
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
       }
     },
     {
@@ -267,8 +325,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "normalization_change": null
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
       }
     },
     {
@@ -282,8 +341,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "normalization_change": null
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
       }
     },
     {
@@ -297,8 +357,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "normalization_change": null
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
       }
     },
     {
@@ -312,8 +373,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "normalization_change": null
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
       }
     },
     {
@@ -327,8 +389,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "normalization_change": null
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
       }
     },
     {
@@ -342,8 +405,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "normalization_change": null
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
       }
     },
     {
@@ -357,8 +421,9 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "normalization_change": null
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
       }
     },
     {
@@ -372,21 +437,22 @@
       },
       "user_confirmed": true,
       "provenance": {
+        "source_kind": "repo_approved_structured_graph_v0.2",
         "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1.json",
-        "normalization_change": null
+        "source_sha256": "989538410ebdf24715046883af384014d037fd22b4403394c0b1851ded86c121"
       }
     }
   ],
   "n_nodes": 7,
   "n_edges": 9,
-  "raw_directed_program_text": "A: DetectScene(厨师被威胁) → IdentifyRescuerByRole(前来解围者；区别于持枪威胁者) + ExtractAppearance(蓝衣/白围巾/佩刀) → B: DetectSnowScene + IdentifyPersonByAppearance(蓝衣/围巾/佩刀) + DetectAction(被打倒、用雪擦脸) → CrossIntervalSamePersonBind(A解围者, B雪地人物) → QueryLaterAction(B, A所指解围者) → 被打倒在雪地并用雪擦脸。",
+  "gaps": [],
   "mapping_coverage": {
     "layer1": 1.0,
     "layer2": 1.0,
-    "unmapped_layer1_operators": []
+    "unmapped": []
   },
   "notes": [
-    "Lossless copy of nodes/edges/I/O/time/evidence from provenance snapshot.",
-    "Layer1 family map is engineering FAMILY_MAP; vocab not scientifically frozen."
-  ]
+    "P7 nodes/edges lossless from provenance snapshot; Layer1/2 from chat-approved per-node mapping."
+  ],
+  "raw_directed_program_text": "A: DetectScene(厨师被威胁) → IdentifyRescuerByRole(前来解围者；区别于持枪威胁者) + ExtractAppearance(蓝衣/白围巾/佩刀) → B: DetectSnowScene + IdentifyPersonByAppearance(蓝衣/围巾/佩刀) + DetectAction(被打倒、用雪擦脸) → CrossIntervalSamePersonBind(A解围者, B雪地人物) → QueryLaterAction(B, A所指解围者) → 被打倒在雪地并用雪擦脸。"
 }

@@ -27,16 +27,17 @@ def main() -> int:
             sys.argv = old_argv
 
     report = json.loads((OUT / "validation_report.json").read_text())
-    print(f"Stage2={report['status']} totals={report['observed_totals']}")
+    print(f"Stage2={report['status']} totals={report['observed_totals']} gates={report.get('gates')}")
 
     if args.stage in ("3", "all"):
+        overlap = json.loads((OUT / "overlap_metrics.json").read_text())
         if report["status"] != "PASS":
             print(
                 "Stage3=BLOCKED: Stage 2 did not PASS; overlap metrics intentionally null.",
                 file=sys.stderr,
             )
             return 2
-        print("Stage3 would run here (not reached while Stage2 BLOCKED)")
+        print(f"Stage3={overlap.get('status')}")
     return 0 if report["status"] == "PASS" else 2
 
 

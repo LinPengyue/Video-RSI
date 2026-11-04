@@ -1,13 +1,492 @@
 {
-  "schema": "overlap_metrics_gate_v1",
-  "status": "BLOCKED",
-  "reason": "Stage 2 validation BLOCKED; refusing to invent Seen–Unseen overlap numbers",
-  "stage2_status": "BLOCKED",
-  "built_utc": "2026-11-04T09:11:51+00:00",
-  "formal_5_2_metrics": null,
-  "candidate_sensitivity": null,
-  "m1": null,
-  "m2": null,
-  "m3": null,
-  "m4": null
+  "schema": "overlap_metrics_v1",
+  "algo_version": "normalized_programs_v1.1.0_handoff",
+  "status": "COMPUTED",
+  "fixed_split": {
+    "seen": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202"
+    ],
+    "unseen": [
+      "P7_VTCD_C2",
+      "P7_TJR_R3"
+    ],
+    "candidate_only": [
+      "A",
+      "B",
+      "P7_R4_F1",
+      "P7_R4_F2"
+    ]
+  },
+  "built_utc": "2026-11-04T09:50:30+00:00",
+  "m1": {
+    "definition": "Layer1 family label coverage of Unseen nodes/labels by Seen",
+    "label_set": {
+      "unseen_distinct": 5,
+      "covered_by_seen": 5,
+      "coverage_ratio": 1.0,
+      "covered_labels": [
+        "BOUND_ATTRIBUTE_QUERY",
+        "CROSS_WINDOW_ENTITY_BIND",
+        "ENTITY_IDENTIFICATION",
+        "EVENT_DETECTION",
+        "TEXT_EVIDENCE_READING"
+      ],
+      "unseen_only_labels": [],
+      "note": "Label-set coverage over Unseen distinct operators; not subgraph isomorphism."
+    },
+    "node_instance": {
+      "unseen_nodes_total": 10,
+      "unseen_nodes_covered_by_seen_label": 10,
+      "ratio": 1.0,
+      "per_graph": {
+        "P7_VTCD_C2": {
+          "n_nodes": 5,
+          "covered_nodes": 5,
+          "ratio": 1.0,
+          "unseen_only_nodes": []
+        },
+        "P7_TJR_R3": {
+          "n_nodes": 5,
+          "covered_nodes": 5,
+          "ratio": 1.0,
+          "unseen_only_nodes": []
+        }
+      }
+    }
+  },
+  "m2": {
+    "definition": "Layer2 atomic operator coverage of Unseen nodes/labels by Seen",
+    "label_set": {
+      "unseen_distinct": 7,
+      "covered_by_seen": 1,
+      "coverage_ratio": 0.14285714285714285,
+      "covered_labels": [
+        "BindSamePerson"
+      ],
+      "unseen_only_labels": [
+        "DetectActionEvent",
+        "DetectTransportEvent",
+        "IdentifyPersonByAppearance",
+        "QueryBoundAction",
+        "QueryBoundTransport",
+        "ReadPersonNameFromGraphic"
+      ],
+      "note": "Label-set coverage over Unseen distinct operators; not subgraph isomorphism."
+    },
+    "node_instance": {
+      "unseen_nodes_total": 10,
+      "unseen_nodes_covered_by_seen_label": 2,
+      "ratio": 0.2,
+      "per_graph": {
+        "P7_VTCD_C2": {
+          "n_nodes": 5,
+          "covered_nodes": 1,
+          "ratio": 0.2,
+          "unseen_only_nodes": [
+            {
+              "node_id": "c2_n1",
+              "layer2": "ReadPersonNameFromGraphic"
+            },
+            {
+              "node_id": "c2_n2",
+              "layer2": "ReadPersonNameFromGraphic"
+            },
+            {
+              "node_id": "c2_n4",
+              "layer2": "DetectActionEvent"
+            },
+            {
+              "node_id": "c2_n5",
+              "layer2": "QueryBoundAction"
+            }
+          ]
+        },
+        "P7_TJR_R3": {
+          "n_nodes": 5,
+          "covered_nodes": 1,
+          "ratio": 0.2,
+          "unseen_only_nodes": [
+            {
+              "node_id": "tjr_n1",
+              "layer2": "DetectActionEvent"
+            },
+            {
+              "node_id": "tjr_n2",
+              "layer2": "IdentifyPersonByAppearance"
+            },
+            {
+              "node_id": "tjr_n3",
+              "layer2": "DetectTransportEvent"
+            },
+            {
+              "node_id": "tjr_n5",
+              "layer2": "QueryBoundTransport"
+            }
+          ]
+        }
+      }
+    },
+    "macro_rule": "SP201/SP202 treated as approved 4-node graphs; no further macro expansion"
+  },
+  "m3": {
+    "definition": "Directed connected induced subgraphs; denominator = Unseen subgraph multiset sizes (unique signatures). Coverage = |UnseenSig ∩ SeenSig| / |UnseenSig|. Not node-label-set overlap.",
+    "modes": {
+      "ops": {
+        "2_node": {
+          "seen_unique": 25,
+          "unseen_unique": 8,
+          "intersection": 0,
+          "coverage_ratio": 0.0,
+          "denominator": "unique_unseen_subgraph_signatures"
+        },
+        "3_node": {
+          "seen_unique": 29,
+          "unseen_unique": 7,
+          "intersection": 0,
+          "coverage_ratio": 0.0,
+          "denominator": "unique_unseen_subgraph_signatures"
+        }
+      },
+      "ops_role": {
+        "2_node": {
+          "seen_unique": 26,
+          "unseen_unique": 9,
+          "intersection": 0,
+          "coverage_ratio": 0.0,
+          "denominator": "unique_unseen_subgraph_signatures"
+        },
+        "3_node": {
+          "seen_unique": 29,
+          "unseen_unique": 8,
+          "intersection": 0,
+          "coverage_ratio": 0.0,
+          "denominator": "unique_unseen_subgraph_signatures"
+        }
+      },
+      "ops_role_edge": {
+        "2_node": {
+          "seen_unique": 26,
+          "unseen_unique": 9,
+          "intersection": 0,
+          "coverage_ratio": 0.0,
+          "denominator": "unique_unseen_subgraph_signatures"
+        },
+        "3_node": {
+          "seen_unique": 29,
+          "unseen_unique": 8,
+          "intersection": 0,
+          "coverage_ratio": 0.0,
+          "denominator": "unique_unseen_subgraph_signatures"
+        }
+      },
+      "ops_role_edge_io": {
+        "2_node": {
+          "seen_unique": 26,
+          "unseen_unique": 9,
+          "intersection": 0,
+          "coverage_ratio": 0.0,
+          "denominator": "unique_unseen_subgraph_signatures"
+        },
+        "3_node": {
+          "seen_unique": 29,
+          "unseen_unique": 8,
+          "intersection": 0,
+          "coverage_ratio": 0.0,
+          "denominator": "unique_unseen_subgraph_signatures"
+        }
+      }
+    }
+  },
+  "m4": {
+    "definition": "Full digraph equivalence Unseen vs each Seen",
+    "pairs": [
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP001",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      },
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP002",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      },
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP005",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      },
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP201",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      },
+      {
+        "unseen": "P7_VTCD_C2",
+        "seen": "SP202",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP001",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP002",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP005",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP201",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      },
+      {
+        "unseen": "P7_TJR_R3",
+        "seen": "SP202",
+        "results": {
+          "layer1": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "layer2": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          },
+          "strict": {
+            "equivalent": false,
+            "reason": "size_mismatch"
+          }
+        }
+      }
+    ],
+    "summary": {
+      "P7_VTCD_C2": {
+        "layer1": false,
+        "layer2": false,
+        "strict": false
+      },
+      "P7_TJR_R3": {
+        "layer1": false,
+        "layer2": false,
+        "strict": false
+      }
+    }
+  },
+  "candidate_sensitivity": {
+    "note": "Not mixed into formal 5/2 metrics",
+    "ids": [
+      "A",
+      "B",
+      "P7_R4_F1",
+      "P7_R4_F2"
+    ],
+    "layer2_vs_seen_label_coverage": {
+      "A": {
+        "unseen_distinct": 4,
+        "covered_by_seen": 1,
+        "coverage_ratio": 0.25,
+        "covered_labels": [
+          "BindSamePerson"
+        ],
+        "unseen_only_labels": [
+          "DetectPersonAndAppearance",
+          "IdentifyPersonByAppearance",
+          "QueryBoundLocation"
+        ],
+        "note": "Label-set coverage over Unseen distinct operators; not subgraph isomorphism."
+      },
+      "B": {
+        "unseen_distinct": 4,
+        "covered_by_seen": 1,
+        "coverage_ratio": 0.25,
+        "covered_labels": [
+          "LocateSceneByEvent"
+        ],
+        "unseen_only_labels": [
+          "BindSameScene",
+          "ExtractRoomLayout",
+          "QueryBoundObject"
+        ],
+        "note": "Label-set coverage over Unseen distinct operators; not subgraph isomorphism."
+      },
+      "P7_R4_F1": {
+        "unseen_distinct": 6,
+        "covered_by_seen": 1,
+        "coverage_ratio": 0.16666666666666666,
+        "covered_labels": [
+          "BindSamePerson"
+        ],
+        "unseen_only_labels": [
+          "DetectActionEvent",
+          "ExtractPersonAppearance",
+          "IdentifyPersonByAppearance",
+          "IdentifyPersonByRole",
+          "QueryBoundActions"
+        ],
+        "note": "Label-set coverage over Unseen distinct operators; not subgraph isomorphism."
+      },
+      "P7_R4_F2": {
+        "unseen_distinct": 4,
+        "covered_by_seen": 0,
+        "coverage_ratio": 0.0,
+        "covered_labels": [],
+        "unseen_only_labels": [
+          "BindSameAnimal",
+          "DetectInteractionEvent",
+          "IdentifyAnimalVisual",
+          "QueryBoundInteraction"
+        ],
+        "note": "Label-set coverage over Unseen distinct operators; not subgraph isomorphism."
+      }
+    },
+    "full_iso_vs_seen_any": {
+      "A": {
+        "layer1": false,
+        "layer2": false,
+        "strict": false
+      },
+      "B": {
+        "layer1": false,
+        "layer2": false,
+        "strict": false
+      },
+      "P7_R4_F1": {
+        "layer1": false,
+        "layer2": false,
+        "strict": false
+      },
+      "P7_R4_F2": {
+        "layer1": false,
+        "layer2": false,
+        "strict": false
+      }
+    }
+  },
+  "caveat": "Structural novelty ≠ compositional generalization capability."
 }
