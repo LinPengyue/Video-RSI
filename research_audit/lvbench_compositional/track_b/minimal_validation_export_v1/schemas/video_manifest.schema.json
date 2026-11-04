@@ -6,9 +6,38 @@
     "videos"
   ],
   "properties": {
+    "schema": {
+      "const": "minimal_validation_video_manifest_v1"
+    },
     "videos": {
       "type": "array",
-      "minItems": 1
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "video_id",
+          "source_dataset",
+          "time_base",
+          "video_sha256_scientific",
+          "used_by_item_ids"
+        ],
+        "properties": {
+          "video_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "video_sha256_scientific": {
+            "type": "string"
+          },
+          "used_by_item_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,224 @@
+{
+  "schema": "window_availability_report_v1",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "blocked_fixed_ab_window_eval": [
+    "P7_VTCD_C2",
+    "P7_TJR_R3"
+  ],
+  "items": [
+    {
+      "item_id": "SP001",
+      "status": "RECORDED_SOURCE_SECONDS",
+      "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+      "block_reason": null,
+      "A": {
+        "t_start_s": 53,
+        "t_end_s": 86
+      },
+      "B": {
+        "t_start_s": 2965,
+        "t_end_s": 2968
+      },
+      "approved_source_search": {
+        "checked_sources": [
+          "provenance_record.windows_seconds",
+          "PILOT_INVENTORY.windows_seconds",
+          "p4_scientific_review_pack/REVIEW_PACK.json",
+          "precise_timing_status on approved graph"
+        ],
+        "non_authoritative_candidates_not_promoted": [],
+        "review_pack_windows_seconds": {
+          "A": [
+            53,
+            86
+          ],
+          "B": [
+            2965,
+            2968
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "SP002",
+      "status": "RECORDED_SOURCE_SECONDS",
+      "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+      "block_reason": null,
+      "A": {
+        "t_start_s": 2,
+        "t_end_s": 78
+      },
+      "B": {
+        "t_start_s": 96,
+        "t_end_s": 172
+      },
+      "approved_source_search": {
+        "checked_sources": [
+          "provenance_record.windows_seconds",
+          "PILOT_INVENTORY.windows_seconds",
+          "p4_scientific_review_pack/REVIEW_PACK.json",
+          "precise_timing_status on approved graph"
+        ],
+        "non_authoritative_candidates_not_promoted": [],
+        "review_pack_windows_seconds": {
+          "A": [
+            2,
+            78
+          ],
+          "B": [
+            96,
+            172
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "SP005",
+      "status": "RECORDED_SOURCE_SECONDS",
+      "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+      "block_reason": null,
+      "A": {
+        "t_start_s": 1,
+        "t_end_s": 4
+      },
+      "B": {
+        "t_start_s": 673,
+        "t_end_s": 680
+      },
+      "approved_source_search": {
+        "checked_sources": [
+          "provenance_record.windows_seconds",
+          "PILOT_INVENTORY.windows_seconds",
+          "p4_scientific_review_pack/REVIEW_PACK.json",
+          "precise_timing_status on approved graph"
+        ],
+        "non_authoritative_candidates_not_promoted": [],
+        "review_pack_windows_seconds": {
+          "A": [
+            1,
+            4
+          ],
+          "B": [
+            673,
+            680
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "SP201",
+      "status": "RECORDED_SOURCE_SECONDS",
+      "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+      "block_reason": null,
+      "A": {
+        "t_start_s": 2880,
+        "t_end_s": 2897
+      },
+      "B": {
+        "t_start_s": 5413,
+        "t_end_s": 5440
+      },
+      "approved_source_search": {
+        "checked_sources": [
+          "provenance_record.windows_seconds",
+          "PILOT_INVENTORY.windows_seconds",
+          "p4_scientific_review_pack/REVIEW_PACK.json",
+          "precise_timing_status on approved graph"
+        ],
+        "non_authoritative_candidates_not_promoted": [],
+        "review_pack_windows_seconds": {
+          "A": [
+            2880,
+            2897
+          ],
+          "B": [
+            5413,
+            5440
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "SP202",
+      "status": "RECORDED_SOURCE_SECONDS",
+      "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+      "block_reason": null,
+      "A": {
+        "t_start_s": 510,
+        "t_end_s": 515
+      },
+      "B": {
+        "t_start_s": 5413,
+        "t_end_s": 5440
+      },
+      "approved_source_search": {
+        "checked_sources": [
+          "provenance_record.windows_seconds",
+          "PILOT_INVENTORY.windows_seconds",
+          "p4_scientific_review_pack/REVIEW_PACK.json",
+          "precise_timing_status on approved graph"
+        ],
+        "non_authoritative_candidates_not_promoted": [],
+        "review_pack_windows_seconds": {
+          "A": [
+            510,
+            515
+          ],
+          "B": [
+            5413,
+            5440
+          ]
+        }
+      }
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "status": "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
+      "fixed_ab_window_eval": "BLOCKED",
+      "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item.",
+      "A": null,
+      "B": null,
+      "approved_source_search": {
+        "checked_sources": [
+          "provenance_record.windows_seconds",
+          "PILOT_INVENTORY.windows_seconds",
+          "p4_scientific_review_pack/REVIEW_PACK.json",
+          "precise_timing_status on approved graph"
+        ],
+        "non_authoritative_candidates_not_promoted": [
+          {
+            "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2_blind_packet.json",
+            "reason": "Review-media clip filenames may embed numeric ranges; these are not scientifically approved source-second A/B windows."
+          }
+        ],
+        "precise_timing_status": "PARTIAL_USER_PLAYBACK_OFFSETS_ONLY",
+        "review_pack_windows_seconds": null
+      }
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "status": "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
+      "fixed_ab_window_eval": "BLOCKED",
+      "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item.",
+      "A": null,
+      "B": null,
+      "approved_source_search": {
+        "checked_sources": [
+          "provenance_record.windows_seconds",
+          "PILOT_INVENTORY.windows_seconds",
+          "p4_scientific_review_pack/REVIEW_PACK.json",
+          "precise_timing_status on approved graph"
+        ],
+        "non_authoritative_candidates_not_promoted": [
+          {
+            "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3_blind_packet.json",
+            "reason": "Review-media clip filenames may embed numeric ranges; these are not scientifically approved source-second A/B windows."
+          }
+        ],
+        "precise_timing_status": "PENDING_SCIENTIFIC_APPROVAL",
+        "review_pack_windows_seconds": null
+      }
+    }
+  ],
+  "policy": "Do not guess source seconds; unapproved offsets stay UNKNOWN."
+}

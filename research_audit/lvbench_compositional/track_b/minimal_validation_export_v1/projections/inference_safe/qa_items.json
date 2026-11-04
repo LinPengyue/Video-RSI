@@ -1,0 +1,302 @@
+{
+  "schema": "minimal_validation_inference_safe_qa_v1",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "access": "TRACK_A_INFERENCE_ALLOWED",
+  "items": [
+    {
+      "item_id": "SP001",
+      "qa_uid": "LVCOMP-V2-036",
+      "video_id": "aJI8XTa_DII",
+      "split_role_pilot": "SEEN",
+      "question_text": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+      "question_language": "en",
+      "qa_format": "OPEN_ENDED",
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 53,
+          "t_end_s": 86
+        },
+        "B": {
+          "t_start_s": 2965,
+          "t_end_s": 2968
+        },
+        "time_base": "source_video_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "do_not_infer_from_program_graph": null
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      },
+      "answer": {
+        "status": "WITHHELD_INFERENCE_SAFE",
+        "formal_gold": false
+      }
+    },
+    {
+      "item_id": "SP002",
+      "qa_uid": "LVCOMP-V2-045",
+      "video_id": "vHlSoxg8WHo",
+      "split_role_pilot": "SEEN",
+      "question_text": "What is Brittany's relationship to the person shown at 00:02?",
+      "question_language": "en",
+      "qa_format": "OPEN_ENDED",
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 2,
+          "t_end_s": 78
+        },
+        "B": {
+          "t_start_s": 96,
+          "t_end_s": 172
+        },
+        "time_base": "source_video_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "do_not_infer_from_program_graph": null
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      },
+      "answer": {
+        "status": "WITHHELD_INFERENCE_SAFE",
+        "formal_gold": false
+      }
+    },
+    {
+      "item_id": "SP005",
+      "qa_uid": "LVCOMP-V2-026",
+      "video_id": "KLIa2UaE2KE",
+      "split_role_pilot": "SEEN",
+      "question_text": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+      "question_language": "en",
+      "qa_format": "OPEN_ENDED",
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 1,
+          "t_end_s": 4
+        },
+        "B": {
+          "t_start_s": 673,
+          "t_end_s": 680
+        },
+        "time_base": "source_video_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "do_not_infer_from_program_graph": null
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      },
+      "answer": {
+        "status": "WITHHELD_INFERENCE_SAFE",
+        "formal_gold": false
+      }
+    },
+    {
+      "item_id": "SP201",
+      "qa_uid": "LVCOMP-V2-001",
+      "video_id": "Hf-n1yfd8II",
+      "split_role_pilot": "SEEN",
+      "question_text": "How to describe the feeling of the final winner at 48:16?",
+      "question_language": "en",
+      "qa_format": "OPEN_ENDED",
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 2880,
+          "t_end_s": 2897
+        },
+        "B": {
+          "t_start_s": 5413,
+          "t_end_s": 5440
+        },
+        "time_base": "source_video_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "do_not_infer_from_program_graph": null
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "cross_clip_necessary": true,
+        "authority": "provenance_record.single_window_necessity_audit"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      },
+      "answer": {
+        "status": "WITHHELD_INFERENCE_SAFE",
+        "formal_gold": false
+      }
+    },
+    {
+      "item_id": "SP202",
+      "qa_uid": "LVCOMP-V2-040",
+      "video_id": "Hf-n1yfd8II",
+      "split_role_pilot": "SEEN",
+      "question_text": "What competition result does the person who serves first have?",
+      "question_language": "en",
+      "qa_format": "OPEN_ENDED",
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 510,
+          "t_end_s": 515
+        },
+        "B": {
+          "t_start_s": 5413,
+          "t_end_s": 5440
+        },
+        "time_base": "source_video_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "do_not_infer_from_program_graph": null
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "cross_clip_necessary": true,
+        "authority": "provenance_record.single_window_necessity_audit"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      },
+      "answer": {
+        "status": "WITHHELD_INFERENCE_SAFE",
+        "formal_gold": false
+      }
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "qa_uid": "P7_VTCD_C2",
+      "video_id": "VTCDQYYKA9o",
+      "split_role_pilot": "UNSEEN",
+      "question_text": "在 PREVIOUS RESULTS（过往成绩）姓名画面中出现的那名运动员，更早时对夹克做了什么？",
+      "question_language": "zh",
+      "qa_format": "OPEN_ENDED",
+      "windows": {
+        "status": "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
+        "A": null,
+        "B": null,
+        "time_base": "UNKNOWN",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "BLOCKED",
+          "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item."
+        },
+        "do_not_infer_from_program_graph": true
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "cross_clip_necessary": true,
+        "authority": "human_judgments_preserved"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      },
+      "answer": {
+        "status": "WITHHELD_INFERENCE_SAFE",
+        "formal_gold": false
+      }
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "qa_uid": "P7_TJR_R3",
+      "video_id": "TJR1oYDDTwg",
+      "split_role_pilot": "UNSEEN",
+      "question_text": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+      "question_language": "zh",
+      "qa_format": "OPEN_ENDED",
+      "windows": {
+        "status": "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
+        "A": null,
+        "B": null,
+        "time_base": "UNKNOWN",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "BLOCKED",
+          "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item."
+        },
+        "do_not_infer_from_program_graph": true
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "cross_clip_necessary": true,
+        "authority": "human_judgments_preserved"
+      },
+      "gates": {
+        "formal_seen_train": false,
+        "formal_unseen": false,
+        "formal_gold": false,
+        "train_exposed": false,
+        "approve_expensive_track_a_rsi": false
+      },
+      "answer": {
+        "status": "WITHHELD_INFERENCE_SAFE",
+        "formal_gold": false
+      }
+    }
+  ],
+  "forbidden": [
+    "reference_answers",
+    "answer_bearing_graph_outputs",
+    "human_gold_like_evidence_payloads",
+    "unseen_original_program_graphs"
+  ]
+}

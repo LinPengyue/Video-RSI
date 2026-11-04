@@ -6,5 +6,73 @@
     "fixed_seen",
     "fixed_unseen",
     "items"
-  ]
+  ],
+  "properties": {
+    "schema": {
+      "const": "minimal_validation_split_manifest_v1"
+    },
+    "fixed_seen": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "string"
+      }
+    },
+    "fixed_unseen": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": [
+          "item_id",
+          "pilot_role",
+          "formal_seen_train",
+          "formal_unseen",
+          "formal_gold",
+          "train_exposed",
+          "training_exposure_limits"
+        ],
+        "properties": {
+          "formal_gold": {
+            "const": false
+          },
+          "formal_seen_train": {
+            "const": false
+          },
+          "formal_unseen": {
+            "const": false
+          },
+          "training_exposure_limits": {
+            "type": "object",
+            "required": [
+              "may_use_as_formal_train",
+              "may_claim_formal_unseen",
+              "may_claim_formal_gold"
+            ],
+            "properties": {
+              "may_use_as_formal_train": {
+                "const": false
+              },
+              "may_claim_formal_unseen": {
+                "const": false
+              },
+              "may_claim_formal_gold": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

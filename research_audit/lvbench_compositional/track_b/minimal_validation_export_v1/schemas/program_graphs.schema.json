@@ -3,9 +3,17 @@
   "type": "object",
   "required": [
     "schema",
-    "graphs"
+    "graphs",
+    "n_graphs"
   ],
   "properties": {
+    "schema": {
+      "const": "minimal_validation_program_graphs_v1"
+    },
+    "n_graphs": {
+      "type": "integer",
+      "const": 7
+    },
     "graphs": {
       "type": "array",
       "minItems": 7,
@@ -14,11 +22,62 @@
         "type": "object",
         "required": [
           "item_id",
+          "graph_id",
           "nodes",
           "edges",
           "n_nodes",
           "n_edges"
-        ]
+        ],
+        "properties": {
+          "item_id": {
+            "type": "string"
+          },
+          "graph_id": {
+            "type": "string"
+          },
+          "n_nodes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "n_edges": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "nodes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "node_id"
+              ],
+              "properties": {
+                "node_id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "edges": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "from_node",
+                "to_node"
+              ],
+              "properties": {
+                "from_node": {
+                  "type": "string"
+                },
+                "to_node": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

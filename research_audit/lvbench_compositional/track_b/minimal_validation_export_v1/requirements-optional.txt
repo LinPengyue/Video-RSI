@@ -1,0 +1,3 @@
+# Optional: if installed, build prefers the jsonschema library engine.
+# Builtin Draft-2020-12 subset validator always runs and is sufficient for PASS.
+jsonschema>=4.18.0

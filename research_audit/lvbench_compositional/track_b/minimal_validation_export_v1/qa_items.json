@@ -1,7 +1,7 @@
 {
   "schema": "minimal_validation_qa_items_v1",
-  "algo_version": "minimal_validation_export_v1.0.0",
-  "built_utc": "2026-11-04T12:20:48+00:00",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "built_utc": "2026-11-04T12:39:02+00:00",
   "n_items": 7,
   "items": [
     {
@@ -10,6 +10,7 @@
       "video_id": "aJI8XTa_DII",
       "split_role_pilot": "SEEN",
       "question_text": "How many flags of the country whose flag is on the flagpole atop the building with the gold clock are on the stage when Putin delivers the first speech?",
+      "question_language": "en",
       "qa_format": "OPEN_ENDED",
       "answer": {
         "answer_text": "5",
@@ -32,29 +33,67 @@
           "t_end_s": 2968
         },
         "time_base": "source_video_seconds",
-        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              53,
+              86
+            ],
+            "B": [
+              2965,
+              2968
+            ]
+          }
+        }
       },
       "necessity": {
         "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
         "not_model_ablation": true,
-        "sources": [
-          "provenance_record.composition_necessity",
-          "PILOT_INVENTORY.single_window_necessity"
-        ],
-        "composition_necessity_label": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
-        "inventory_single_window_necessity": {
+        "necessity_authoritative": {
           "a_only_sufficient": false,
           "b_only_sufficient": false,
           "a_plus_b": "USER_SUPPORTED",
-          "source": "seen_pilot_run_001 human judgment",
-          "not_model_ablation": true
+          "cross_clip_necessary": true,
+          "authority": "PILOT_INVENTORY.single_window_necessity",
+          "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+          "source_field_mappings": []
         },
         "primary": {
           "a_only_sufficient": false,
           "b_only_sufficient": false,
           "a_plus_b": "USER_SUPPORTED",
+          "cross_clip_necessary": true,
           "authority": "PILOT_INVENTORY.single_window_necessity"
-        }
+        },
+        "provenance_records": {
+          "inventory_single_window_necessity": {
+            "a_only_sufficient": false,
+            "b_only_sufficient": false,
+            "a_plus_b": "USER_SUPPORTED",
+            "source": "seen_pilot_run_001 human judgment",
+            "not_model_ablation": true
+          },
+          "composition_necessity_label": "USER_SUPPORTED_A_PLUS_B_REQUIRED"
+        },
+        "field_mappings": [],
+        "conflict": null,
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity",
+          "provenance_record.composition_necessity"
+        ]
       },
       "provenance": {
         "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
@@ -76,6 +115,7 @@
       "video_id": "vHlSoxg8WHo",
       "split_role_pilot": "SEEN",
       "question_text": "What is Brittany's relationship to the person shown at 00:02?",
+      "question_language": "en",
       "qa_format": "OPEN_ENDED",
       "answer": {
         "answer_text": "sister",
@@ -98,29 +138,67 @@
           "t_end_s": 172
         },
         "time_base": "source_video_seconds",
-        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              2,
+              78
+            ],
+            "B": [
+              96,
+              172
+            ]
+          }
+        }
       },
       "necessity": {
         "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
         "not_model_ablation": true,
-        "sources": [
-          "provenance_record.composition_necessity",
-          "PILOT_INVENTORY.single_window_necessity"
-        ],
-        "composition_necessity_label": "USER_SUPPORTED_A_PLUS_B_REQUIRED",
-        "inventory_single_window_necessity": {
+        "necessity_authoritative": {
           "a_only_sufficient": false,
           "b_only_sufficient": false,
           "a_plus_b": "USER_SUPPORTED",
-          "source": "seen_pilot_run_001 human judgment",
-          "not_model_ablation": true
+          "cross_clip_necessary": true,
+          "authority": "PILOT_INVENTORY.single_window_necessity",
+          "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+          "source_field_mappings": []
         },
         "primary": {
           "a_only_sufficient": false,
           "b_only_sufficient": false,
           "a_plus_b": "USER_SUPPORTED",
+          "cross_clip_necessary": true,
           "authority": "PILOT_INVENTORY.single_window_necessity"
-        }
+        },
+        "provenance_records": {
+          "inventory_single_window_necessity": {
+            "a_only_sufficient": false,
+            "b_only_sufficient": false,
+            "a_plus_b": "USER_SUPPORTED",
+            "source": "seen_pilot_run_001 human judgment",
+            "not_model_ablation": true
+          },
+          "composition_necessity_label": "USER_SUPPORTED_A_PLUS_B_REQUIRED"
+        },
+        "field_mappings": [],
+        "conflict": null,
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity",
+          "provenance_record.composition_necessity"
+        ]
       },
       "provenance": {
         "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
@@ -142,6 +220,7 @@
       "video_id": "KLIa2UaE2KE",
       "split_role_pilot": "SEEN",
       "question_text": "Which player scored the tenth point for the country whose flag is being waved at the beginning of the video in the first set of the video?",
+      "question_language": "en",
       "qa_format": "OPEN_ENDED",
       "answer": {
         "answer_text": "5",
@@ -164,29 +243,67 @@
           "t_end_s": 680
         },
         "time_base": "source_video_seconds",
-        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              1,
+              4
+            ],
+            "B": [
+              673,
+              680
+            ]
+          }
+        }
       },
       "necessity": {
         "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
         "not_model_ablation": true,
-        "sources": [
-          "provenance_record.composition_necessity",
-          "PILOT_INVENTORY.single_window_necessity"
-        ],
-        "composition_necessity_label": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
-        "inventory_single_window_necessity": {
+        "necessity_authoritative": {
           "a_only_sufficient": false,
-          "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+          "b_only_sufficient": false,
           "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
-          "source": "seen_pilot_run_001 human judgment (B-only shortcut retracted)",
-          "not_model_ablation": true
+          "cross_clip_necessary": true,
+          "authority": "PILOT_INVENTORY.single_window_necessity",
+          "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+          "source_field_mappings": []
         },
         "primary": {
           "a_only_sufficient": false,
-          "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+          "b_only_sufficient": false,
           "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+          "cross_clip_necessary": true,
           "authority": "PILOT_INVENTORY.single_window_necessity"
-        }
+        },
+        "provenance_records": {
+          "inventory_single_window_necessity": {
+            "a_only_sufficient": false,
+            "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+            "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+            "source": "seen_pilot_run_001 human judgment (B-only shortcut retracted)",
+            "not_model_ablation": true
+          },
+          "composition_necessity_label": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION"
+        },
+        "field_mappings": [],
+        "conflict": null,
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity",
+          "provenance_record.composition_necessity"
+        ]
       },
       "provenance": {
         "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
@@ -208,6 +325,7 @@
       "video_id": "Hf-n1yfd8II",
       "split_role_pilot": "SEEN",
       "question_text": "How to describe the feeling of the final winner at 48:16?",
+      "question_language": "en",
       "qa_format": "OPEN_ENDED",
       "answer": {
         "answer_text": "frustrated (after losing rally/point)",
@@ -215,6 +333,7 @@
         "formal_gold": false,
         "formal_gold_note": "Export must not treat this as certified Gold.",
         "sources": [
+          "provenance_record.historical_answer",
           "PILOT_INVENTORY.answer_reference"
         ]
       },
@@ -229,26 +348,123 @@
           "t_end_s": 5440
         },
         "time_base": "source_video_seconds",
-        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              2880,
+              2897
+            ],
+            "B": [
+              5413,
+              5440
+            ]
+          }
+        }
       },
       "necessity": {
         "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
         "not_model_ablation": true,
-        "sources": [
-          "PILOT_INVENTORY.single_window_necessity"
-        ],
-        "inventory_single_window_necessity": {
-          "a_only_sufficient_full_question": false,
-          "b_only_sufficient_full_question": false,
-          "a_plus_b_necessary": "USER_SUPPORTED",
-          "not_model_ablation": true
+        "necessity_authoritative": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "a_plus_b": "USER_SUPPORTED",
+          "cross_clip_necessary": true,
+          "authority": "provenance_record.single_window_necessity_audit",
+          "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+          "source_field_mappings": [
+            {
+              "canonical_field": "a_only_sufficient",
+              "mapped_from": "a_only_sufficient_full_question",
+              "value": false
+            },
+            {
+              "canonical_field": "b_only_sufficient",
+              "mapped_from": "b_only_sufficient_full_question",
+              "value": false
+            },
+            {
+              "canonical_field": "a_plus_b",
+              "mapped_from": "a_plus_b_necessary",
+              "value": "USER_SUPPORTED"
+            }
+          ]
         },
         "primary": {
-          "a_only_sufficient": null,
-          "b_only_sufficient": null,
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
           "a_plus_b": "USER_SUPPORTED",
-          "authority": "PILOT_INVENTORY.single_window_necessity"
-        }
+          "cross_clip_necessary": true,
+          "authority": "provenance_record.single_window_necessity_audit"
+        },
+        "provenance_records": {
+          "inventory_single_window_necessity": {
+            "a_only_sufficient_full_question": false,
+            "b_only_sufficient_full_question": false,
+            "a_plus_b_necessary": "USER_SUPPORTED",
+            "not_model_ablation": true
+          },
+          "single_window_necessity_audit": {
+            "a_only_sufficient_full_question": false,
+            "b_only_sufficient_full_question": false,
+            "a_plus_b_necessary": "USER_SUPPORTED"
+          }
+        },
+        "field_mappings": [
+          {
+            "source": "provenance_record.single_window_necessity_audit",
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "source": "provenance_record.single_window_necessity_audit",
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "source": "provenance_record.single_window_necessity_audit",
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          },
+          {
+            "source": "PILOT_INVENTORY.single_window_necessity",
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "source": "PILOT_INVENTORY.single_window_necessity",
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "source": "PILOT_INVENTORY.single_window_necessity",
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          }
+        ],
+        "conflict": null,
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity",
+          "provenance_record.single_window_necessity_audit"
+        ]
       },
       "provenance": {
         "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
@@ -270,6 +486,7 @@
       "video_id": "Hf-n1yfd8II",
       "split_role_pilot": "SEEN",
       "question_text": "What competition result does the person who serves first have?",
+      "question_language": "en",
       "qa_format": "OPEN_ENDED",
       "answer": {
         "answer_text": "wins the match (final winner)",
@@ -277,6 +494,7 @@
         "formal_gold": false,
         "formal_gold_note": "Export must not treat this as certified Gold.",
         "sources": [
+          "provenance_record.historical_answer",
           "PILOT_INVENTORY.answer_reference"
         ]
       },
@@ -291,26 +509,123 @@
           "t_end_s": 5440
         },
         "time_base": "source_video_seconds",
-        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE"
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              510,
+              515
+            ],
+            "B": [
+              5413,
+              5440
+            ]
+          }
+        }
       },
       "necessity": {
         "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
         "not_model_ablation": true,
-        "sources": [
-          "PILOT_INVENTORY.single_window_necessity"
-        ],
-        "inventory_single_window_necessity": {
-          "a_only_sufficient_full_question": false,
-          "b_only_sufficient_full_question": false,
-          "a_plus_b_necessary": "USER_SUPPORTED",
-          "not_model_ablation": true
+        "necessity_authoritative": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
+          "a_plus_b": "USER_SUPPORTED",
+          "cross_clip_necessary": true,
+          "authority": "provenance_record.single_window_necessity_audit",
+          "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+          "source_field_mappings": [
+            {
+              "canonical_field": "a_only_sufficient",
+              "mapped_from": "a_only_sufficient_full_question",
+              "value": false
+            },
+            {
+              "canonical_field": "b_only_sufficient",
+              "mapped_from": "b_only_sufficient_full_question",
+              "value": false
+            },
+            {
+              "canonical_field": "a_plus_b",
+              "mapped_from": "a_plus_b_necessary",
+              "value": "USER_SUPPORTED"
+            }
+          ]
         },
         "primary": {
-          "a_only_sufficient": null,
-          "b_only_sufficient": null,
+          "a_only_sufficient": false,
+          "b_only_sufficient": false,
           "a_plus_b": "USER_SUPPORTED",
-          "authority": "PILOT_INVENTORY.single_window_necessity"
-        }
+          "cross_clip_necessary": true,
+          "authority": "provenance_record.single_window_necessity_audit"
+        },
+        "provenance_records": {
+          "inventory_single_window_necessity": {
+            "a_only_sufficient_full_question": false,
+            "b_only_sufficient_full_question": false,
+            "a_plus_b_necessary": "USER_SUPPORTED",
+            "not_model_ablation": true
+          },
+          "single_window_necessity_audit": {
+            "a_only_sufficient_full_question": false,
+            "b_only_sufficient_full_question": false,
+            "a_plus_b_necessary": "USER_SUPPORTED"
+          }
+        },
+        "field_mappings": [
+          {
+            "source": "provenance_record.single_window_necessity_audit",
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "source": "provenance_record.single_window_necessity_audit",
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "source": "provenance_record.single_window_necessity_audit",
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          },
+          {
+            "source": "PILOT_INVENTORY.single_window_necessity",
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "source": "PILOT_INVENTORY.single_window_necessity",
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "source": "PILOT_INVENTORY.single_window_necessity",
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          }
+        ],
+        "conflict": null,
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity",
+          "provenance_record.single_window_necessity_audit"
+        ]
       },
       "provenance": {
         "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
@@ -332,6 +647,7 @@
       "video_id": "VTCDQYYKA9o",
       "split_role_pilot": "UNSEEN",
       "question_text": "在 PREVIOUS RESULTS（过往成绩）姓名画面中出现的那名运动员，更早时对夹克做了什么？",
+      "question_language": "zh",
       "qa_format": "OPEN_ENDED",
       "answer": {
         "answer_text": "脱掉夹克",
@@ -352,44 +668,87 @@
         },
         "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
         "time_base": "UNKNOWN",
-        "do_not_infer_from_program_graph": true
+        "do_not_infer_from_program_graph": true,
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "BLOCKED",
+          "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item."
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [
+            {
+              "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2_blind_packet.json",
+              "reason": "Review-media clip filenames may embed numeric ranges; these are not scientifically approved source-second A/B windows."
+            }
+          ],
+          "precise_timing_status": "PARTIAL_USER_PLAYBACK_OFFSETS_ONLY",
+          "review_pack_windows_seconds": null
+        }
       },
       "necessity": {
         "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
         "not_model_ablation": true,
-        "sources": [
-          "PILOT_INVENTORY.single_window_necessity",
-          "graph_or_record.human_judgments_preserved"
-        ],
-        "inventory_single_window_necessity": {
-          "a_only_sufficient": true,
-          "b_only_sufficient": true,
-          "a_plus_b": "是",
-          "source": "human_judgments_preserved",
-          "not_model_ablation": true
-        },
-        "human_judgments_preserved": {
+        "necessity_authoritative": {
           "a_only_sufficient": false,
           "b_only_sufficient": false,
-          "a_plus_b_supports_user_answer": true,
-          "truly_needs_cross_clip_composition": true,
-          "raw": {
-            "a_only_sufficient": "否",
-            "b_only_sufficient": "否",
-            "a_plus_b_supports_user_answer": "是",
-            "truly_needs_cross_clip_composition": "是",
-            "bucket_seen_unseen_control_or_hold": "Unseen",
-            "note": "Preserve explicit human judgment that A-only and B-only are insufficient for the current question."
-          }
+          "a_plus_b": true,
+          "cross_clip_necessary": true,
+          "authority": "human_judgments_preserved",
+          "authority_note": "Original human scientific judgment is the sole Track A necessity authority when present; inventory booleans are provenance only."
         },
         "primary": {
           "a_only_sufficient": false,
           "b_only_sufficient": false,
+          "a_plus_b": true,
           "cross_clip_necessary": true,
           "authority": "human_judgments_preserved"
         },
-        "inventory_vs_preserved_conflict": true,
-        "conflict_note": "Inventory single_window_necessity booleans disagree with human_judgments_preserved; Track A must use preserved human judgment."
+        "provenance_records": {
+          "inventory_single_window_necessity": {
+            "a_only_sufficient": true,
+            "b_only_sufficient": true,
+            "a_plus_b": "是",
+            "source": "human_judgments_preserved",
+            "not_model_ablation": true
+          },
+          "human_judgments_preserved": {
+            "a_only_sufficient": false,
+            "b_only_sufficient": false,
+            "a_plus_b_supports_user_answer": true,
+            "truly_needs_cross_clip_composition": true,
+            "raw": {
+              "a_only_sufficient": "否",
+              "b_only_sufficient": "否",
+              "a_plus_b_supports_user_answer": "是",
+              "truly_needs_cross_clip_composition": "是",
+              "bucket_seen_unseen_control_or_hold": "Unseen",
+              "note": "Preserve explicit human judgment that A-only and B-only are insufficient for the current question."
+            }
+          }
+        },
+        "field_mappings": [],
+        "conflict": {
+          "inventory_vs_preserved_conflict": true,
+          "inventory_mapped": {
+            "a_only_sufficient": true,
+            "b_only_sufficient": true,
+            "a_plus_b": "是"
+          },
+          "preserved": {
+            "a_only_sufficient": false,
+            "b_only_sufficient": false
+          },
+          "resolution": "USE_human_judgments_preserved_AS_AUTHORITATIVE"
+        },
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity",
+          "graph_or_record.human_judgments_preserved"
+        ]
       },
       "provenance": {
         "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",
@@ -411,6 +770,7 @@
       "video_id": "TJR1oYDDTwg",
       "split_role_pilot": "UNSEEN",
       "question_text": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？",
+      "question_language": "zh",
       "qa_format": "OPEN_ENDED",
       "answer": {
         "answer_text": "绿色的龙",
@@ -431,44 +791,87 @@
         },
         "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
         "time_base": "UNKNOWN",
-        "do_not_infer_from_program_graph": true
+        "do_not_infer_from_program_graph": true,
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "BLOCKED",
+          "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item."
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [
+            {
+              "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3_blind_packet.json",
+              "reason": "Review-media clip filenames may embed numeric ranges; these are not scientifically approved source-second A/B windows."
+            }
+          ],
+          "precise_timing_status": "PENDING_SCIENTIFIC_APPROVAL",
+          "review_pack_windows_seconds": null
+        }
       },
       "necessity": {
         "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
         "not_model_ablation": true,
-        "sources": [
-          "PILOT_INVENTORY.single_window_necessity",
-          "graph_or_record.human_judgments_preserved"
-        ],
-        "inventory_single_window_necessity": {
-          "a_only_sufficient": true,
-          "b_only_sufficient": true,
-          "a_plus_b": "是",
-          "source": "human_judgments_preserved",
-          "not_model_ablation": true
-        },
-        "human_judgments_preserved": {
+        "necessity_authoritative": {
           "a_only_sufficient": false,
           "b_only_sufficient": false,
-          "a_plus_b_supports_user_answer": true,
-          "truly_needs_cross_clip_composition": true,
-          "raw": {
-            "a_only_sufficient": "否",
-            "b_only_sufficient": "否",
-            "a_plus_b_supports_user_answer": "是",
-            "truly_needs_cross_clip_composition": "是",
-            "bucket_seen_unseen_control_or_hold": "Unseen",
-            "note": "User preclassification Unseen only; not formal Unseen."
-          }
+          "a_plus_b": true,
+          "cross_clip_necessary": true,
+          "authority": "human_judgments_preserved",
+          "authority_note": "Original human scientific judgment is the sole Track A necessity authority when present; inventory booleans are provenance only."
         },
         "primary": {
           "a_only_sufficient": false,
           "b_only_sufficient": false,
+          "a_plus_b": true,
           "cross_clip_necessary": true,
           "authority": "human_judgments_preserved"
         },
-        "inventory_vs_preserved_conflict": true,
-        "conflict_note": "Inventory single_window_necessity booleans disagree with human_judgments_preserved; Track A must use preserved human judgment."
+        "provenance_records": {
+          "inventory_single_window_necessity": {
+            "a_only_sufficient": true,
+            "b_only_sufficient": true,
+            "a_plus_b": "是",
+            "source": "human_judgments_preserved",
+            "not_model_ablation": true
+          },
+          "human_judgments_preserved": {
+            "a_only_sufficient": false,
+            "b_only_sufficient": false,
+            "a_plus_b_supports_user_answer": true,
+            "truly_needs_cross_clip_composition": true,
+            "raw": {
+              "a_only_sufficient": "否",
+              "b_only_sufficient": "否",
+              "a_plus_b_supports_user_answer": "是",
+              "truly_needs_cross_clip_composition": "是",
+              "bucket_seen_unseen_control_or_hold": "Unseen",
+              "note": "User preclassification Unseen only; not formal Unseen."
+            }
+          }
+        },
+        "field_mappings": [],
+        "conflict": {
+          "inventory_vs_preserved_conflict": true,
+          "inventory_mapped": {
+            "a_only_sufficient": true,
+            "b_only_sufficient": true,
+            "a_plus_b": "是"
+          },
+          "preserved": {
+            "a_only_sufficient": false,
+            "b_only_sufficient": false
+          },
+          "resolution": "USE_human_judgments_preserved_AS_AUTHORITATIVE"
+        },
+        "sources": [
+          "PILOT_INVENTORY.single_window_necessity",
+          "graph_or_record.human_judgments_preserved"
+        ]
       },
       "provenance": {
         "inventory_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/PILOT_INVENTORY.json",

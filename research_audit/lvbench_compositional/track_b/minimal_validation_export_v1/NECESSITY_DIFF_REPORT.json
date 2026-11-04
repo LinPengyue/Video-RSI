@@ -1,0 +1,363 @@
+{
+  "schema": "necessity_diff_report_v1",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "policy": "Track A must consume necessity_authoritative only. Inventory and other records are provenance. Conflicts resolve to human_judgments_preserved.",
+  "items": [
+    {
+      "item_id": "SP001",
+      "authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": []
+      },
+      "inventory_raw": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "source": "seen_pilot_run_001 human judgment",
+        "not_model_ablation": true
+      },
+      "inventory_mapped_canonical": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED"
+      },
+      "field_mappings": [],
+      "conflict": null,
+      "human_judgments_preserved": null,
+      "single_window_necessity_audit": null
+    },
+    {
+      "item_id": "SP002",
+      "authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": []
+      },
+      "inventory_raw": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "source": "seen_pilot_run_001 human judgment",
+        "not_model_ablation": true
+      },
+      "inventory_mapped_canonical": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED"
+      },
+      "field_mappings": [],
+      "conflict": null,
+      "human_judgments_preserved": null,
+      "single_window_necessity_audit": null
+    },
+    {
+      "item_id": "SP005",
+      "authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": []
+      },
+      "inventory_raw": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+        "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+        "source": "seen_pilot_run_001 human judgment (B-only shortcut retracted)",
+        "not_model_ablation": true
+      },
+      "inventory_mapped_canonical": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": "INSUFFICIENT_FOR_TARGET_SELECTION",
+        "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION"
+      },
+      "field_mappings": [],
+      "conflict": null,
+      "human_judgments_preserved": null,
+      "single_window_necessity_audit": null
+    },
+    {
+      "item_id": "SP201",
+      "authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "provenance_record.single_window_necessity_audit",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": [
+          {
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          }
+        ]
+      },
+      "inventory_raw": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED",
+        "not_model_ablation": true
+      },
+      "inventory_mapped_canonical": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED"
+      },
+      "field_mappings": [
+        {
+          "source": "provenance_record.single_window_necessity_audit",
+          "canonical_field": "a_only_sufficient",
+          "mapped_from": "a_only_sufficient_full_question",
+          "value": false
+        },
+        {
+          "source": "provenance_record.single_window_necessity_audit",
+          "canonical_field": "b_only_sufficient",
+          "mapped_from": "b_only_sufficient_full_question",
+          "value": false
+        },
+        {
+          "source": "provenance_record.single_window_necessity_audit",
+          "canonical_field": "a_plus_b",
+          "mapped_from": "a_plus_b_necessary",
+          "value": "USER_SUPPORTED"
+        },
+        {
+          "source": "PILOT_INVENTORY.single_window_necessity",
+          "canonical_field": "a_only_sufficient",
+          "mapped_from": "a_only_sufficient_full_question",
+          "value": false
+        },
+        {
+          "source": "PILOT_INVENTORY.single_window_necessity",
+          "canonical_field": "b_only_sufficient",
+          "mapped_from": "b_only_sufficient_full_question",
+          "value": false
+        },
+        {
+          "source": "PILOT_INVENTORY.single_window_necessity",
+          "canonical_field": "a_plus_b",
+          "mapped_from": "a_plus_b_necessary",
+          "value": "USER_SUPPORTED"
+        }
+      ],
+      "conflict": null,
+      "human_judgments_preserved": null,
+      "single_window_necessity_audit": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED"
+      }
+    },
+    {
+      "item_id": "SP202",
+      "authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "provenance_record.single_window_necessity_audit",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": [
+          {
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          }
+        ]
+      },
+      "inventory_raw": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED",
+        "not_model_ablation": true
+      },
+      "inventory_mapped_canonical": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED"
+      },
+      "field_mappings": [
+        {
+          "source": "provenance_record.single_window_necessity_audit",
+          "canonical_field": "a_only_sufficient",
+          "mapped_from": "a_only_sufficient_full_question",
+          "value": false
+        },
+        {
+          "source": "provenance_record.single_window_necessity_audit",
+          "canonical_field": "b_only_sufficient",
+          "mapped_from": "b_only_sufficient_full_question",
+          "value": false
+        },
+        {
+          "source": "provenance_record.single_window_necessity_audit",
+          "canonical_field": "a_plus_b",
+          "mapped_from": "a_plus_b_necessary",
+          "value": "USER_SUPPORTED"
+        },
+        {
+          "source": "PILOT_INVENTORY.single_window_necessity",
+          "canonical_field": "a_only_sufficient",
+          "mapped_from": "a_only_sufficient_full_question",
+          "value": false
+        },
+        {
+          "source": "PILOT_INVENTORY.single_window_necessity",
+          "canonical_field": "b_only_sufficient",
+          "mapped_from": "b_only_sufficient_full_question",
+          "value": false
+        },
+        {
+          "source": "PILOT_INVENTORY.single_window_necessity",
+          "canonical_field": "a_plus_b",
+          "mapped_from": "a_plus_b_necessary",
+          "value": "USER_SUPPORTED"
+        }
+      ],
+      "conflict": null,
+      "human_judgments_preserved": null,
+      "single_window_necessity_audit": {
+        "a_only_sufficient_full_question": false,
+        "b_only_sufficient_full_question": false,
+        "a_plus_b_necessary": "USER_SUPPORTED"
+      }
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": true,
+        "cross_clip_necessary": true,
+        "authority": "human_judgments_preserved",
+        "authority_note": "Original human scientific judgment is the sole Track A necessity authority when present; inventory booleans are provenance only."
+      },
+      "inventory_raw": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "inventory_mapped_canonical": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是"
+      },
+      "field_mappings": [],
+      "conflict": {
+        "inventory_vs_preserved_conflict": true,
+        "inventory_mapped": {
+          "a_only_sufficient": true,
+          "b_only_sufficient": true,
+          "a_plus_b": "是"
+        },
+        "preserved": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false
+        },
+        "resolution": "USE_human_judgments_preserved_AS_AUTHORITATIVE"
+      },
+      "human_judgments_preserved": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b_supports_user_answer": true,
+        "truly_needs_cross_clip_composition": true,
+        "raw": {
+          "a_only_sufficient": "否",
+          "b_only_sufficient": "否",
+          "a_plus_b_supports_user_answer": "是",
+          "truly_needs_cross_clip_composition": "是",
+          "bucket_seen_unseen_control_or_hold": "Unseen",
+          "note": "Preserve explicit human judgment that A-only and B-only are insufficient for the current question."
+        }
+      },
+      "single_window_necessity_audit": null
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": true,
+        "cross_clip_necessary": true,
+        "authority": "human_judgments_preserved",
+        "authority_note": "Original human scientific judgment is the sole Track A necessity authority when present; inventory booleans are provenance only."
+      },
+      "inventory_raw": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是",
+        "source": "human_judgments_preserved",
+        "not_model_ablation": true
+      },
+      "inventory_mapped_canonical": {
+        "a_only_sufficient": true,
+        "b_only_sufficient": true,
+        "a_plus_b": "是"
+      },
+      "field_mappings": [],
+      "conflict": {
+        "inventory_vs_preserved_conflict": true,
+        "inventory_mapped": {
+          "a_only_sufficient": true,
+          "b_only_sufficient": true,
+          "a_plus_b": "是"
+        },
+        "preserved": {
+          "a_only_sufficient": false,
+          "b_only_sufficient": false
+        },
+        "resolution": "USE_human_judgments_preserved_AS_AUTHORITATIVE"
+      },
+      "human_judgments_preserved": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b_supports_user_answer": true,
+        "truly_needs_cross_clip_composition": true,
+        "raw": {
+          "a_only_sufficient": "否",
+          "b_only_sufficient": "否",
+          "a_plus_b_supports_user_answer": "是",
+          "truly_needs_cross_clip_composition": "是",
+          "bucket_seen_unseen_control_or_hold": "Unseen",
+          "note": "User preclassification Unseen only; not formal Unseen."
+        }
+      },
+      "single_window_necessity_audit": null
+    }
+  ]
+}

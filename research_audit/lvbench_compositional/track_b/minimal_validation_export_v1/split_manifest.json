@@ -1,5 +1,6 @@
 {
   "schema": "minimal_validation_split_manifest_v1",
+  "algo_version": "minimal_validation_export_v1.1.0",
   "fixed_seen": [
     "SP001",
     "SP002",

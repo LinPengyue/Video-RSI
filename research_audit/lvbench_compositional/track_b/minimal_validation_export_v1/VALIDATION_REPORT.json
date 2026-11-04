@@ -1,15 +1,31 @@
 {
-  "schema": "minimal_validation_export_validation_v1",
+  "schema": "minimal_validation_export_validation_v1_1",
   "status": "PASS",
   "n_issues": 0,
   "issues": [],
   "checks": {
+    "schema_validation": "PASS",
+    "schema_engine": "builtin_draft2020_12_subset",
     "join_qa_video": "PASS",
     "join_graph_edges": "PASS",
+    "uniqueness": "PASS",
     "no_false_gold": "PASS",
-    "id_set_7": "PASS"
+    "id_set_7": "PASS",
+    "necessity_authoritative": "PASS",
+    "p7_window_eval_blocked": "PASS",
+    "inference_safe_leak_scan": "PASS"
   },
-  "validated_utc": "2026-11-04T12:20:48+00:00",
-  "algo_version": "minimal_validation_export_v1.0.0",
-  "jsonschema": "SKIPPED_LIBRARY_NOT_INSTALLED_USED_STRUCTURAL_CHECKS"
+  "schema_validation_detail": {
+    "status": "PASS",
+    "engine": "builtin_draft2020_12_subset",
+    "errors": []
+  },
+  "validated_utc": "2026-11-04T12:39:02+00:00",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "policy_notes": [
+    "Schema validation SKIPPED/FAIL ⇒ overall status cannot be PASS.",
+    "Answers are not formal Gold.",
+    "Sidecars are not frame-level video certification.",
+    "Training exposure protection fields unchanged (all formal_* false)."
+  ]
 }

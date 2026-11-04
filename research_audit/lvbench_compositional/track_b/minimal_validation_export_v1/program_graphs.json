@@ -1,7 +1,7 @@
 {
   "schema": "minimal_validation_program_graphs_v1",
-  "algo_version": "minimal_validation_export_v1.0.0",
-  "built_utc": "2026-11-04T12:20:48+00:00",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "built_utc": "2026-11-04T12:39:02+00:00",
   "n_graphs": 7,
   "graphs": [
     {

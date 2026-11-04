@@ -1,0 +1,413 @@
+{
+  "schema": "minimal_validation_scorer_private_answers_v1",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "access": "SCORER_PRIVATE_ONLY_NOT_FOR_INFERENCE",
+  "formal_gold": false,
+  "items": [
+    {
+      "item_id": "SP001",
+      "qa_uid": "LVCOMP-V2-036",
+      "video_id": "aJI8XTa_DII",
+      "answer_text": "5",
+      "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+      "formal_gold": false,
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 53,
+          "t_end_s": 86
+        },
+        "B": {
+          "t_start_s": 2965,
+          "t_end_s": 2968
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              53,
+              86
+            ],
+            "B": [
+              2965,
+              2968
+            ]
+          }
+        }
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": []
+      },
+      "access": "SCORER_PRIVATE_ONLY"
+    },
+    {
+      "item_id": "SP002",
+      "qa_uid": "LVCOMP-V2-045",
+      "video_id": "vHlSoxg8WHo",
+      "answer_text": "sister",
+      "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+      "formal_gold": false,
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 2,
+          "t_end_s": 78
+        },
+        "B": {
+          "t_start_s": 96,
+          "t_end_s": 172
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              2,
+              78
+            ],
+            "B": [
+              96,
+              172
+            ]
+          }
+        }
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": []
+      },
+      "access": "SCORER_PRIVATE_ONLY"
+    },
+    {
+      "item_id": "SP005",
+      "qa_uid": "LVCOMP-V2-026",
+      "video_id": "KLIa2UaE2KE",
+      "answer_text": "5",
+      "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+      "formal_gold": false,
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 1,
+          "t_end_s": 4
+        },
+        "B": {
+          "t_start_s": 673,
+          "t_end_s": 680
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              1,
+              4
+            ],
+            "B": [
+              673,
+              680
+            ]
+          }
+        }
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED_A_REQUIRED_FOR_TARGET_SELECTION",
+        "cross_clip_necessary": true,
+        "authority": "PILOT_INVENTORY.single_window_necessity",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": []
+      },
+      "access": "SCORER_PRIVATE_ONLY"
+    },
+    {
+      "item_id": "SP201",
+      "qa_uid": "LVCOMP-V2-001",
+      "video_id": "Hf-n1yfd8II",
+      "answer_text": "frustrated (after losing rally/point)",
+      "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+      "formal_gold": false,
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 2880,
+          "t_end_s": 2897
+        },
+        "B": {
+          "t_start_s": 5413,
+          "t_end_s": 5440
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              2880,
+              2897
+            ],
+            "B": [
+              5413,
+              5440
+            ]
+          }
+        }
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "provenance_record.single_window_necessity_audit",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": [
+          {
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          }
+        ]
+      },
+      "access": "SCORER_PRIVATE_ONLY"
+    },
+    {
+      "item_id": "SP202",
+      "qa_uid": "LVCOMP-V2-040",
+      "video_id": "Hf-n1yfd8II",
+      "answer_text": "wins the match (final winner)",
+      "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+      "formal_gold": false,
+      "windows": {
+        "status": "RECORDED_SOURCE_SECONDS",
+        "A": {
+          "t_start_s": 510,
+          "t_end_s": 515
+        },
+        "B": {
+          "t_start_s": 5413,
+          "t_end_s": 5440
+        },
+        "time_base": "source_video_seconds",
+        "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+        "source": "provenance_record.windows_seconds",
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+          "block_reason": null
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [],
+          "review_pack_windows_seconds": {
+            "A": [
+              510,
+              515
+            ],
+            "B": [
+              5413,
+              5440
+            ]
+          }
+        }
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": "USER_SUPPORTED",
+        "cross_clip_necessary": true,
+        "authority": "provenance_record.single_window_necessity_audit",
+        "authority_note": "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question onto Track A canonical fields when those were the recorded keys.",
+        "source_field_mappings": [
+          {
+            "canonical_field": "a_only_sufficient",
+            "mapped_from": "a_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "b_only_sufficient",
+            "mapped_from": "b_only_sufficient_full_question",
+            "value": false
+          },
+          {
+            "canonical_field": "a_plus_b",
+            "mapped_from": "a_plus_b_necessary",
+            "value": "USER_SUPPORTED"
+          }
+        ]
+      },
+      "access": "SCORER_PRIVATE_ONLY"
+    },
+    {
+      "item_id": "P7_VTCD_C2",
+      "qa_uid": "P7_VTCD_C2",
+      "video_id": "VTCDQYYKA9o",
+      "answer_text": "脱掉夹克",
+      "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+      "formal_gold": false,
+      "windows": {
+        "status": "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
+        "A": null,
+        "B": null,
+        "window_roles": {
+          "A": "earlier_evidence",
+          "B": "later_referent"
+        },
+        "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
+        "time_base": "UNKNOWN",
+        "do_not_infer_from_program_graph": true,
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "BLOCKED",
+          "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item."
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [
+            {
+              "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2_blind_packet.json",
+              "reason": "Review-media clip filenames may embed numeric ranges; these are not scientifically approved source-second A/B windows."
+            }
+          ],
+          "precise_timing_status": "PARTIAL_USER_PLAYBACK_OFFSETS_ONLY",
+          "review_pack_windows_seconds": null
+        }
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": true,
+        "cross_clip_necessary": true,
+        "authority": "human_judgments_preserved",
+        "authority_note": "Original human scientific judgment is the sole Track A necessity authority when present; inventory booleans are provenance only."
+      },
+      "access": "SCORER_PRIVATE_ONLY"
+    },
+    {
+      "item_id": "P7_TJR_R3",
+      "qa_uid": "P7_TJR_R3",
+      "video_id": "TJR1oYDDTwg",
+      "answer_text": "绿色的龙",
+      "answer_certification_status": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD",
+      "formal_gold": false,
+      "windows": {
+        "status": "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
+        "A": null,
+        "B": null,
+        "window_roles": {
+          "A": "earlier_evidence",
+          "B": "later_referent"
+        },
+        "windows_note": "Precise source-second mapping PENDING / partial playback offsets only",
+        "time_base": "UNKNOWN",
+        "do_not_infer_from_program_graph": true,
+        "evaluation_gates": {
+          "fixed_ab_window_eval": "BLOCKED",
+          "block_reason": "No scientifically approved source-second A/B mapping; fixed A/B window evaluation must not run for this item."
+        },
+        "approved_source_search": {
+          "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph"
+          ],
+          "non_authoritative_candidates_not_promoted": [
+            {
+              "source": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3_blind_packet.json",
+              "reason": "Review-media clip filenames may embed numeric ranges; these are not scientifically approved source-second A/B windows."
+            }
+          ],
+          "precise_timing_status": "PENDING_SCIENTIFIC_APPROVAL",
+          "review_pack_windows_seconds": null
+        }
+      },
+      "necessity_authoritative": {
+        "a_only_sufficient": false,
+        "b_only_sufficient": false,
+        "a_plus_b": true,
+        "cross_clip_necessary": true,
+        "authority": "human_judgments_preserved",
+        "authority_note": "Original human scientific judgment is the sole Track A necessity authority when present; inventory booleans are provenance only."
+      },
+      "access": "SCORER_PRIVATE_ONLY"
+    }
+  ]
+}

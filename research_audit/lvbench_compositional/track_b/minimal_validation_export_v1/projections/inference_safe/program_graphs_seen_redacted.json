@@ -1,0 +1,1390 @@
+{
+  "schema": "minimal_validation_inference_safe_graphs_v1",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "access": "TRACK_A_INFERENCE_ALLOWED_SEEN_ONLY",
+  "unseen_graphs_policy": "OMITTED_NOT_FOR_INFERENCE",
+  "omitted_unseen_item_ids": [
+    "P7_VTCD_C2",
+    "P7_TJR_R3"
+  ],
+  "n_graphs": 5,
+  "graphs": [
+    {
+      "item_id": "SP001",
+      "graph_id": "SP001",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 8,
+      "n_edges": 8,
+      "nodes": [
+        {
+          "node_id": "s1",
+          "raw_operator": "LocateFirstSpeechStage",
+          "layer1": "SCENE_LOCALIZATION",
+          "layer2": "LocateSceneByEvent",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "stage_A"
+          ],
+          "normalized_outputs": [
+            "stage_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s2",
+          "raw_operator": "DetectMultipleNationalFlags",
+          "layer1": "OBJECT_DETECTION",
+          "layer2": "DetectObjectInstances",
+          "raw_inputs": [
+            "stage_A"
+          ],
+          "normalized_inputs": [
+            "stage_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "flags_A"
+          ],
+          "normalized_outputs": [
+            "flags_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s3",
+          "raw_operator": "MatchFlagsByCountry",
+          "layer1": "CONSTRAINT_BASED_ENTITY_SELECTION",
+          "layer2": "FilterFlagsByCountry",
+          "raw_inputs": [
+            "flags_A",
+            "country_B"
+          ],
+          "normalized_inputs": [
+            "flags_A",
+            "country_binding"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "matched_flags_A"
+          ],
+          "normalized_outputs": [
+            "matched_flags_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s4",
+          "raw_operator": "CountMatchedFlags",
+          "layer1": "AGGREGATION_QUERY",
+          "layer2": "CountFilteredEntities",
+          "raw_inputs": [
+            "matched_flags_A"
+          ],
+          "normalized_inputs": [
+            "matched_flags_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": true,
+          "raw_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "normalized_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "raw_evidence": {
+            "status": "REDACTED_ANSWER_OR_GOLD_LIKE"
+          }
+        },
+        {
+          "node_id": "s5",
+          "raw_operator": "LocateClockBuilding",
+          "layer1": "SCENE_LOCALIZATION",
+          "layer2": "LocateSceneByLandmark",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "building_B"
+          ],
+          "normalized_outputs": [
+            "building_B"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s6",
+          "raw_operator": "IdentifyFlagOnFlagpole",
+          "layer1": "OBJECT_IDENTIFICATION",
+          "layer2": "IdentifyFlag",
+          "raw_inputs": [
+            "building_B"
+          ],
+          "normalized_inputs": [
+            "building_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "flag_B"
+          ],
+          "normalized_outputs": [
+            "flag_B"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s7",
+          "raw_operator": "IdentifyCountry",
+          "layer1": "SYMBOLIC_ATTRIBUTE_RECOGNITION",
+          "layer2": "IdentifyCountryFromFlag",
+          "raw_inputs": [
+            "flag_B"
+          ],
+          "normalized_inputs": [
+            "flag_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "country_B"
+          ],
+          "normalized_outputs": [
+            "country_B"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s8",
+          "raw_operator": "CrossClipCountryBind",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "BindCountryConstraint",
+          "raw_inputs": [
+            "country_B",
+            "flags_A"
+          ],
+          "normalized_inputs": [
+            "country_B",
+            "flags_A"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "country_binding"
+          ],
+          "normalized_outputs": [
+            "country_binding"
+          ],
+          "raw_evidence": null
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp001_chat_e1",
+          "from_node": "s1",
+          "to_node": "s2",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e2",
+          "from_node": "s2",
+          "to_node": "s3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e3",
+          "from_node": "s5",
+          "to_node": "s6",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e4",
+          "from_node": "s6",
+          "to_node": "s7",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e5",
+          "from_node": "s7",
+          "to_node": "s8",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e6",
+          "from_node": "s2",
+          "to_node": "s8",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e7",
+          "from_node": "s8",
+          "to_node": "s3",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp001_chat_e8",
+          "from_node": "s3",
+          "to_node": "s4",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "inference_safe_note": "Answer-bearing outputs and human evidence payloads redacted. Unseen original graphs are omitted entirely from this projection."
+    },
+    {
+      "item_id": "SP002",
+      "graph_id": "SP002",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 6,
+      "n_edges": 5,
+      "nodes": [
+        {
+          "node_id": "s1",
+          "raw_operator": "ObservePerson",
+          "layer1": "ENTITY_IDENTIFICATION",
+          "layer2": "ObservePerson",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "person_A"
+          ],
+          "normalized_outputs": [
+            "person_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s2",
+          "raw_operator": "ReadNameSubtitle",
+          "layer1": "TEXT_EVIDENCE_READING",
+          "layer2": "ReadPersonNameFromSubtitle",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "name_Tacara"
+          ],
+          "normalized_outputs": [
+            "name_Tacara"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s3",
+          "raw_operator": "TemporalPersonBind",
+          "layer1": "ENTITY_BINDING",
+          "layer2": "BindPersonToName",
+          "raw_inputs": [
+            "person_A",
+            "name_Tacara"
+          ],
+          "normalized_inputs": [
+            "person_A",
+            "name_Tacara"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "named_person_A"
+          ],
+          "normalized_outputs": [
+            "named_person_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s4",
+          "raw_operator": "ReadRelationSubtitle",
+          "layer1": "TEXT_EVIDENCE_READING",
+          "layer2": "ReadRelationFromSubtitle",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "relation_B"
+          ],
+          "normalized_outputs": [
+            "relation_B"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s5",
+          "raw_operator": "JoinByPersonReference",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "JoinPersonRelationAcrossWindows",
+          "raw_inputs": [
+            "named_person_A",
+            "relation_B"
+          ],
+          "normalized_inputs": [
+            "named_person_A",
+            "relation_B"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "matched_relation"
+          ],
+          "normalized_outputs": [
+            "matched_relation"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "s6",
+          "raw_operator": "QueryRelationAnswer",
+          "layer1": "RELATION_QUERY",
+          "layer2": "QueryRelation",
+          "raw_inputs": [
+            "matched_relation"
+          ],
+          "normalized_inputs": [
+            "matched_relation"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": true,
+          "raw_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "normalized_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "raw_evidence": {
+            "status": "REDACTED_ANSWER_OR_GOLD_LIKE"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp002_chat_e1",
+          "from_node": "s1",
+          "to_node": "s3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp002_chat_e2",
+          "from_node": "s2",
+          "to_node": "s3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp002_chat_e3",
+          "from_node": "s3",
+          "to_node": "s5",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp002_chat_e4",
+          "from_node": "s4",
+          "to_node": "s5",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp002_chat_e5",
+          "from_node": "s5",
+          "to_node": "s6",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "inference_safe_note": "Answer-bearing outputs and human evidence payloads redacted. Unseen original graphs are omitted entirely from this projection."
+    },
+    {
+      "item_id": "SP005",
+      "graph_id": "SP005",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 8,
+      "n_edges": 7,
+      "nodes": [
+        {
+          "node_id": "n1",
+          "raw_operator": "DetectWavedFlag",
+          "layer1": "EVENT_DETECTION",
+          "layer2": "DetectObjectActionEvent",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "flag_A"
+          ],
+          "normalized_outputs": [
+            "flag_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n2",
+          "raw_operator": "IdentifyFlagCountry",
+          "layer1": "SYMBOLIC_ATTRIBUTE_RECOGNITION",
+          "layer2": "IdentifyCountryFromFlag",
+          "raw_inputs": [
+            "flag_A"
+          ],
+          "normalized_inputs": [
+            "flag_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "Italy_A"
+          ],
+          "normalized_outputs": [
+            "Italy_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n3",
+          "raw_operator": "CrossClipCountryBind",
+          "layer1": "TARGET_CONSTRAINT_SETUP",
+          "layer2": "SetTargetCountry",
+          "raw_inputs": [
+            "Italy_A",
+            "teams_B"
+          ],
+          "normalized_inputs": [
+            "Italy_A"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "target_team_B"
+          ],
+          "normalized_outputs": [
+            "target_country"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n4",
+          "raw_operator": "IdentifyTeams",
+          "layer1": "ENTITY_IDENTIFICATION",
+          "layer2": "IdentifyTeams",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "teams_B"
+          ],
+          "normalized_outputs": [
+            "teams_B"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n5",
+          "raw_operator": "SelectTeam",
+          "layer1": "CONSTRAINT_BASED_ENTITY_SELECTION",
+          "layer2": "SelectTeamByCountry",
+          "raw_inputs": [
+            "target_team_B"
+          ],
+          "normalized_inputs": [
+            "target_country",
+            "teams_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "selected_team"
+          ],
+          "normalized_outputs": [
+            "selected_team"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n6",
+          "raw_operator": "LocateSet",
+          "layer1": "TEMPORAL_EVENT_LOCALIZATION",
+          "layer2": "LocateOrderedSegment",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "first_set"
+          ],
+          "normalized_outputs": [
+            "first_set"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n7",
+          "raw_operator": "LocateTeamPoint",
+          "layer1": "TEMPORAL_EVENT_LOCALIZATION",
+          "layer2": "LocateConstrainedScoreEvent",
+          "raw_inputs": [
+            "selected_team",
+            "first_set"
+          ],
+          "normalized_inputs": [
+            "selected_team",
+            "first_set"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "tenth_point"
+          ],
+          "normalized_outputs": [
+            "tenth_point"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n8",
+          "raw_operator": "IdentifyScoringPlayer",
+          "layer1": "EVENT_PARTICIPANT_QUERY",
+          "layer2": "QueryEventParticipant",
+          "raw_inputs": [
+            "tenth_point"
+          ],
+          "normalized_inputs": [
+            "tenth_point"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": true,
+          "raw_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "normalized_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "raw_evidence": {
+            "status": "REDACTED_ANSWER_OR_GOLD_LIKE"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp005_e1",
+          "from_node": "n1",
+          "to_node": "n2",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e2",
+          "from_node": "n2",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e3",
+          "from_node": "n3",
+          "to_node": "n5",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e4",
+          "from_node": "n4",
+          "to_node": "n5",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e5",
+          "from_node": "n5",
+          "to_node": "n7",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e6",
+          "from_node": "n6",
+          "to_node": "n7",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp005_e7",
+          "from_node": "n7",
+          "to_node": "n8",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "inference_safe_note": "Answer-bearing outputs and human evidence payloads redacted. Unseen original graphs are omitted entirely from this projection."
+    },
+    {
+      "item_id": "SP201",
+      "graph_id": "SP201",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 4,
+      "n_edges": 3,
+      "nodes": [
+        {
+          "node_id": "n1",
+          "raw_operator": "DetermineMatchWinner",
+          "layer1": "EVENT_OUTCOME_INFERENCE",
+          "layer2": "DetermineEventWinner",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "winner_B"
+          ],
+          "normalized_outputs": [
+            "winner_B"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n2",
+          "raw_operator": "IdentifyAthlete",
+          "layer1": "ENTITY_IDENTIFICATION",
+          "layer2": "IdentifyPerson",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "athlete_ref_A"
+          ],
+          "normalized_outputs": [
+            "athlete_ref_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n3",
+          "raw_operator": "CrossWindowPersonBind",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "BindSamePerson",
+          "raw_inputs": [
+            "winner_B"
+          ],
+          "normalized_inputs": [
+            "winner_B",
+            "athlete_ref_A"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "person_A"
+          ],
+          "normalized_outputs": [
+            "person_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n4",
+          "raw_operator": "QueryEmotion",
+          "layer1": "BOUND_ATTRIBUTE_QUERY",
+          "layer2": "QueryBoundEmotion",
+          "raw_inputs": [
+            "person_A"
+          ],
+          "normalized_inputs": [
+            "person_A"
+          ],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": true,
+          "raw_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "normalized_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "raw_evidence": {
+            "status": "REDACTED_ANSWER_OR_GOLD_LIKE"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp201_e1",
+          "from_node": "n1",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp201_e2",
+          "from_node": "n2",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp201_e3",
+          "from_node": "n3",
+          "to_node": "n4",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "inference_safe_note": "Answer-bearing outputs and human evidence payloads redacted. Unseen original graphs are omitted entirely from this projection."
+    },
+    {
+      "item_id": "SP202",
+      "graph_id": "SP202",
+      "normalization_status": "CHAT_APPROVED_SIDECAR_INGESTED",
+      "split_role_fixed": "SEEN",
+      "n_nodes": 4,
+      "n_edges": 3,
+      "nodes": [
+        {
+          "node_id": "n1",
+          "raw_operator": "IdentifyFirstServer",
+          "layer1": "TEMPORAL_EVENT_LOCALIZATION",
+          "layer2": "IdentifyFirstActorByAction",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "A",
+          "normalized_clip_role": "A",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "server_A"
+          ],
+          "normalized_outputs": [
+            "server_A"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n2",
+          "raw_operator": "IdentifyAthlete",
+          "layer1": "ENTITY_IDENTIFICATION",
+          "layer2": "IdentifyPerson",
+          "raw_inputs": [],
+          "normalized_inputs": [],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "PENDING_SCIENTIFIC_APPROVAL"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "athlete_ref_B"
+          ],
+          "normalized_outputs": [
+            "athlete_ref_B"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n3",
+          "raw_operator": "CrossWindowPersonBind",
+          "layer1": "CROSS_WINDOW_ENTITY_BIND",
+          "layer2": "BindSamePerson",
+          "raw_inputs": [
+            "server_A"
+          ],
+          "normalized_inputs": [
+            "server_A",
+            "athlete_ref_B"
+          ],
+          "raw_clip_role": "AB",
+          "normalized_clip_role": "AB",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": false,
+          "raw_outputs": [
+            "person_B"
+          ],
+          "normalized_outputs": [
+            "person_B"
+          ],
+          "raw_evidence": null
+        },
+        {
+          "node_id": "n4",
+          "raw_operator": "QueryMatchResult",
+          "layer1": "BOUND_ATTRIBUTE_QUERY",
+          "layer2": "QueryBoundMatchResult",
+          "raw_inputs": [
+            "person_B"
+          ],
+          "normalized_inputs": [
+            "person_B"
+          ],
+          "raw_clip_role": "B",
+          "normalized_clip_role": "B",
+          "raw_time_conditions": [
+            {
+              "status": "SOURCE_WINDOW_ONLY_NO_NEW_TIMING"
+            }
+          ],
+          "evidence_certification": "NOT_FRAME_CERTIFIED_BY_THIS_HANDOFF",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/chat_approved_handoff/track_b_stage2_chat_approved_handoff_v1.json",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed",
+            "local_compact_source_sha256": "9c4184aa1b9cec597cbb7b666d8530cb118b6b5a95532964ffa40095518c1702",
+            "not_github_historical_structured_original": true
+          },
+          "outputs_redacted": true,
+          "raw_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "normalized_outputs": [
+            "__REDACTED_ANSWER_BEARING__"
+          ],
+          "raw_evidence": {
+            "status": "REDACTED_ANSWER_OR_GOLD_LIKE"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "sp202_e1",
+          "from_node": "n1",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp202_e2",
+          "from_node": "n2",
+          "to_node": "n3",
+          "raw_dependency_kind": "data",
+          "normalized_dependency_kind": "data",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        },
+        {
+          "edge_id": "sp202_e3",
+          "from_node": "n3",
+          "to_node": "n4",
+          "raw_dependency_kind": "bind",
+          "normalized_dependency_kind": "bind",
+          "provenance": {
+            "source_kind": "conversation_approved_sidecar",
+            "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+          }
+        }
+      ],
+      "inference_safe_note": "Answer-bearing outputs and human evidence payloads redacted. Unseen original graphs are omitted entirely from this projection."
+    }
+  ]
+}

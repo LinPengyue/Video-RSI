@@ -1,0 +1,145 @@
+{
+  "schema": "minimal_validation_video_manifest_v1",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "videos": [
+    {
+      "video_id": "Hf-n1yfd8II",
+      "source_dataset": "LVBench",
+      "source_note": "Original LVBench video assets used by Track B pilot",
+      "accessible_uri_or_path": "/home/descfly/lpy/dataset/LVBench/videos/Hf-n1yfd8II.mp4",
+      "access_status": "LOCAL_PATH_RESOLVED",
+      "time_base": "source_video_seconds",
+      "video_sha256_scientific": "UNKNOWN",
+      "evidence_sha256_scientific": "UNKNOWN",
+      "local_engineering_fingerprint": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/Hf-n1yfd8II.mp4",
+        "sha256": "082c70d1c9d4800dcddf5d831539809c24aff33124e1a342237951ab6ef2fd9c",
+        "bytes": 1769881608,
+        "status": "ENGINEERING_LOCAL_FINGERPRINT_NOT_DATASET_AUTHORITY"
+      },
+      "used_by_item_ids": [
+        "SP201",
+        "SP202"
+      ],
+      "limitations": [
+        "Scientific content hash not present in Track B provenance → UNKNOWN",
+        "Local fingerprint (if any) is engineering-only, not a Gold/media authority claim"
+      ]
+    },
+    {
+      "video_id": "KLIa2UaE2KE",
+      "source_dataset": "LVBench",
+      "source_note": "Original LVBench video assets used by Track B pilot",
+      "accessible_uri_or_path": "/home/descfly/lpy/dataset/LVBench/videos/KLIa2UaE2KE.mp4",
+      "access_status": "LOCAL_PATH_RESOLVED",
+      "time_base": "source_video_seconds",
+      "video_sha256_scientific": "UNKNOWN",
+      "evidence_sha256_scientific": "UNKNOWN",
+      "local_engineering_fingerprint": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/KLIa2UaE2KE.mp4",
+        "sha256": "55889f806bfd660411949d0d61c6596106f05a01fae4a0516340e291f8a468d0",
+        "bytes": 2985453701,
+        "status": "ENGINEERING_LOCAL_FINGERPRINT_NOT_DATASET_AUTHORITY"
+      },
+      "used_by_item_ids": [
+        "SP005"
+      ],
+      "limitations": [
+        "Scientific content hash not present in Track B provenance → UNKNOWN",
+        "Local fingerprint (if any) is engineering-only, not a Gold/media authority claim"
+      ]
+    },
+    {
+      "video_id": "TJR1oYDDTwg",
+      "source_dataset": "LVBench",
+      "source_note": "Original LVBench video assets used by Track B pilot",
+      "accessible_uri_or_path": "/home/descfly/lpy/dataset/LVBench/videos/TJR1oYDDTwg.mp4",
+      "access_status": "LOCAL_PATH_RESOLVED",
+      "time_base": "source_video_seconds",
+      "video_sha256_scientific": "UNKNOWN",
+      "evidence_sha256_scientific": "UNKNOWN",
+      "local_engineering_fingerprint": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/TJR1oYDDTwg.mp4",
+        "sha256": "c9f899ec71fa89b0e1852a9a18ccd28e56f1b563a8530aa8c25aebe110f864df",
+        "bytes": 552049066,
+        "status": "ENGINEERING_LOCAL_FINGERPRINT_NOT_DATASET_AUTHORITY"
+      },
+      "used_by_item_ids": [
+        "P7_TJR_R3"
+      ],
+      "limitations": [
+        "Scientific content hash not present in Track B provenance → UNKNOWN",
+        "Local fingerprint (if any) is engineering-only, not a Gold/media authority claim"
+      ]
+    },
+    {
+      "video_id": "VTCDQYYKA9o",
+      "source_dataset": "LVBench",
+      "source_note": "Original LVBench video assets used by Track B pilot",
+      "accessible_uri_or_path": "/home/descfly/lpy/dataset/LVBench/videos/VTCDQYYKA9o.mp4",
+      "access_status": "LOCAL_PATH_RESOLVED",
+      "time_base": "source_video_seconds",
+      "video_sha256_scientific": "UNKNOWN",
+      "evidence_sha256_scientific": "UNKNOWN",
+      "local_engineering_fingerprint": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/VTCDQYYKA9o.mp4",
+        "sha256": "6100c9ac69a555496b0e059041ca384263bbb695859451443c5f1fec8cb06bf4",
+        "bytes": 951290302,
+        "status": "ENGINEERING_LOCAL_FINGERPRINT_NOT_DATASET_AUTHORITY"
+      },
+      "used_by_item_ids": [
+        "P7_VTCD_C2"
+      ],
+      "limitations": [
+        "Scientific content hash not present in Track B provenance → UNKNOWN",
+        "Local fingerprint (if any) is engineering-only, not a Gold/media authority claim"
+      ]
+    },
+    {
+      "video_id": "aJI8XTa_DII",
+      "source_dataset": "LVBench",
+      "source_note": "Original LVBench video assets used by Track B pilot",
+      "accessible_uri_or_path": "/home/descfly/lpy/dataset/LVBench/videos/aJI8XTa_DII.mp4",
+      "access_status": "LOCAL_PATH_RESOLVED",
+      "time_base": "source_video_seconds",
+      "video_sha256_scientific": "UNKNOWN",
+      "evidence_sha256_scientific": "UNKNOWN",
+      "local_engineering_fingerprint": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/aJI8XTa_DII.mp4",
+        "sha256": "94c3f4aeb4adf5122d3b9919ad2584e3b56c06e7c656fb418623bd5eabd2d163",
+        "bytes": 220116657,
+        "status": "ENGINEERING_LOCAL_FINGERPRINT_NOT_DATASET_AUTHORITY"
+      },
+      "used_by_item_ids": [
+        "SP001"
+      ],
+      "limitations": [
+        "Scientific content hash not present in Track B provenance → UNKNOWN",
+        "Local fingerprint (if any) is engineering-only, not a Gold/media authority claim"
+      ]
+    },
+    {
+      "video_id": "vHlSoxg8WHo",
+      "source_dataset": "LVBench",
+      "source_note": "Original LVBench video assets used by Track B pilot",
+      "accessible_uri_or_path": "/home/descfly/lpy/dataset/LVBench/videos/vHlSoxg8WHo.mp4",
+      "access_status": "LOCAL_PATH_RESOLVED",
+      "time_base": "source_video_seconds",
+      "video_sha256_scientific": "UNKNOWN",
+      "evidence_sha256_scientific": "UNKNOWN",
+      "local_engineering_fingerprint": {
+        "path": "/home/descfly/lpy/dataset/LVBench/videos/vHlSoxg8WHo.mp4",
+        "sha256": "c7c8a15cec5edca3605b082ab9282e55d66a6cac3754115fae72d3cd07331641",
+        "bytes": 228274535,
+        "status": "ENGINEERING_LOCAL_FINGERPRINT_NOT_DATASET_AUTHORITY"
+      },
+      "used_by_item_ids": [
+        "SP002"
+      ],
+      "limitations": [
+        "Scientific content hash not present in Track B provenance → UNKNOWN",
+        "Local fingerprint (if any) is engineering-only, not a Gold/media authority claim"
+      ]
+    }
+  ]
+}

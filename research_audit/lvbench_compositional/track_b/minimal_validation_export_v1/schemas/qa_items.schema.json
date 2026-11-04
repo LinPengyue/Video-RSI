@@ -3,9 +3,21 @@
   "type": "object",
   "required": [
     "schema",
-    "items"
+    "algo_version",
+    "items",
+    "n_items"
   ],
   "properties": {
+    "schema": {
+      "const": "minimal_validation_qa_items_v1"
+    },
+    "algo_version": {
+      "type": "string"
+    },
+    "n_items": {
+      "type": "integer",
+      "const": 7
+    },
     "items": {
       "type": "array",
       "minItems": 7,
@@ -17,10 +29,192 @@
           "qa_uid",
           "video_id",
           "question_text",
+          "question_language",
           "answer",
           "windows",
-          "necessity"
-        ]
+          "necessity",
+          "gates"
+        ],
+        "properties": {
+          "item_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "qa_uid": {
+            "type": "string",
+            "minLength": 1
+          },
+          "video_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "question_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "question_language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "zh",
+              "UNKNOWN"
+            ]
+          },
+          "answer": {
+            "type": "object",
+            "required": [
+              "answer_text",
+              "answer_certification_status",
+              "formal_gold"
+            ],
+            "properties": {
+              "formal_gold": {
+                "const": false
+              },
+              "answer_certification_status": {
+                "const": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD"
+              }
+            }
+          },
+          "windows": {
+            "type": "object",
+            "required": [
+              "status",
+              "evaluation_gates"
+            ],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": [
+                  "RECORDED_SOURCE_SECONDS",
+                  "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING"
+                ]
+              },
+              "A": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "t_start_s",
+                      "t_end_s"
+                    ],
+                    "properties": {
+                      "t_start_s": {
+                        "type": "number"
+                      },
+                      "t_end_s": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                ]
+              },
+              "B": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "t_start_s",
+                      "t_end_s"
+                    ],
+                    "properties": {
+                      "t_start_s": {
+                        "type": "number"
+                      },
+                      "t_end_s": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                ]
+              },
+              "evaluation_gates": {
+                "type": "object",
+                "required": [
+                  "fixed_ab_window_eval"
+                ],
+                "properties": {
+                  "fixed_ab_window_eval": {
+                    "type": "string"
+                  },
+                  "block_reason": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "necessity": {
+            "type": "object",
+            "required": [
+              "necessity_authoritative",
+              "provenance_records"
+            ],
+            "properties": {
+              "necessity_authoritative": {
+                "type": "object",
+                "required": [
+                  "a_only_sufficient",
+                  "b_only_sufficient",
+                  "authority"
+                ],
+                "properties": {
+                  "a_only_sufficient": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "b_only_sufficient": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "authority": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "provenance_records": {
+                "type": "object"
+              }
+            }
+          },
+          "gates": {
+            "type": "object",
+            "required": [
+              "formal_seen_train",
+              "formal_unseen",
+              "formal_gold",
+              "train_exposed"
+            ],
+            "properties": {
+              "formal_gold": {
+                "const": false
+              },
+              "formal_seen_train": {
+                "type": "boolean"
+              },
+              "formal_unseen": {
+                "type": "boolean"
+              },
+              "train_exposed": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -1,0 +1,78 @@
+{
+  "schema": "language_and_structure_limits_report_v1",
+  "algo_version": "minimal_validation_export_v1.1.0",
+  "language_distribution": {
+    "seen_item_languages": {
+      "SP001": "en",
+      "SP002": "en",
+      "SP005": "en",
+      "SP201": "en",
+      "SP202": "en"
+    },
+    "unseen_item_languages": {
+      "P7_VTCD_C2": "zh",
+      "P7_TJR_R3": "zh"
+    },
+    "summary": "Seen items languages=['en']; Unseen items languages=['zh']. 5 Seen English / 2 Unseen Chinese distribution difference is reported as a validation limitation, not rewritten.",
+    "limitation": "Language mismatch between Seen (en) and Unseen (zh) may confound Track A minimal validation; no scientific relabeling performed."
+  },
+  "per_item": {
+    "SP001": {
+      "question_language": "en",
+      "split_role_pilot": "SEEN",
+      "question_preview": "How many flags of the country whose flag is on the flagpole atop the building wi"
+    },
+    "SP002": {
+      "question_language": "en",
+      "split_role_pilot": "SEEN",
+      "question_preview": "What is Brittany's relationship to the person shown at 00:02?"
+    },
+    "SP005": {
+      "question_language": "en",
+      "split_role_pilot": "SEEN",
+      "question_preview": "Which player scored the tenth point for the country whose flag is being waved at"
+    },
+    "SP201": {
+      "question_language": "en",
+      "split_role_pilot": "SEEN",
+      "question_preview": "How to describe the feeling of the final winner at 48:16?"
+    },
+    "SP202": {
+      "question_language": "en",
+      "split_role_pilot": "SEEN",
+      "question_preview": "What competition result does the person who serves first have?"
+    },
+    "P7_VTCD_C2": {
+      "question_language": "zh",
+      "split_role_pilot": "UNSEEN",
+      "question_preview": "在 PREVIOUS RESULTS（过往成绩）姓名画面中出现的那名运动员，更早时对夹克做了什么？"
+    },
+    "P7_TJR_R3": {
+      "question_language": "zh",
+      "split_role_pilot": "UNSEEN",
+      "question_preview": "后来在舞台上打鼓的王子，在更早的场景中乘坐什么前往王宫？"
+    }
+  },
+  "c2_name_abbreviation_constraint": {
+    "item_id": "P7_VTCD_C2",
+    "policy": "Report only; do not rewrite scientific annotations.",
+    "nodes": [
+      {
+        "node_id": "c2_n1",
+        "raw_operator": "ReadNameGraphic",
+        "layer1": "TEXT_EVIDENCE_READING",
+        "layer2": "ReadPersonNameFromGraphic",
+        "on_screen_text": "Fan Zhendong",
+        "issue": null
+      },
+      {
+        "node_id": "c2_n2",
+        "raw_operator": "ReadNameAbbreviationGraphic",
+        "layer1": "TEXT_EVIDENCE_READING",
+        "layer2": "ReadPersonNameFromGraphic",
+        "on_screen_text": "Fan Z.D.",
+        "issue": "STRUCTURE_LIMIT: raw operator is name-abbreviation matching (ReadNameAbbreviationGraphic / e.g. 'Fan Z.D.'), but Layer2 collapses to generic ReadPersonNameFromGraphic. Track A must not treat the generic Layer2 label as the full scientific constraint."
+      }
+    ]
+  }
+}

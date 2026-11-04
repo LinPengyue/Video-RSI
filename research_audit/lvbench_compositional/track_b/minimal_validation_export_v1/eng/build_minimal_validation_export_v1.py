@@ -1,25 +1,28 @@
 #!/usr/bin/env python3
-"""WP1: export Track-A-facing minimal validation benchmark (read-only aggregation).
+"""WP1.1: Track-A-facing minimal validation export (engineering patch).
 
-Does not start Track A, mint formal Gold, invent video facts, or claim frame certification.
+Does not start Track A, mint formal Gold, invent video seconds, or rewrite science.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
+import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+ENG = Path(__file__).resolve().parent
+sys.path.insert(0, str(ENG))
+from strict_schema import SchemaError, validate_or_raise  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[5]
 PILOT = (
     ROOT
     / "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1"
 )
-NORM = (
-    ROOT
-    / "research_audit/lvbench_compositional/track_b/normalized_programs_v1"
-)
+NORM = ROOT / "research_audit/lvbench_compositional/track_b/normalized_programs_v1"
 OUT = Path(__file__).resolve().parents[1]
 VIDEO_ROOTS = [
     Path("/home/descfly/lpy/dataset/LVBench/videos"),
@@ -29,7 +32,12 @@ VIDEO_ROOTS = [
 SEEN = ["SP001", "SP002", "SP005", "SP201", "SP202"]
 UNSEEN = ["P7_VTCD_C2", "P7_TJR_R3"]
 EXPORT_IDS = SEEN + UNSEEN
-ALGO = "minimal_validation_export_v1.0.0"
+ALGO = "minimal_validation_export_v1.1.0"
+
+ANSWER_OUTPUT_MARKERS = re.compile(
+    r"(^answer$|^answer[_-]|_answer$|final_answer|user_answer)", re.IGNORECASE
+)
+CJK_RE = re.compile(r"[\u4e00-\u9fff]")
 
 
 def utc_now() -> str:
@@ -57,6 +65,12 @@ def yn_to_bool(v):
     return None
 
 
+def detect_language(text: str | None) -> str:
+    if not text:
+        return "UNKNOWN"
+    return "zh" if CJK_RE.search(text) else "en"
+
+
 def load_inventory() -> dict[str, dict]:
     inv = json.loads((PILOT / "PILOT_INVENTORY.json").read_text())
     return {it["item_id"]: it for it in inv["items"]}
@@ -70,80 +84,238 @@ def find_video(video_id: str) -> Path | None:
     return None
 
 
-def necessity_block(item_id: str, inv_it: dict, record: dict | None) -> dict:
-    """Prefer scientific preserved judgments; keep inventory fields as secondary."""
-    out = {
-        "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
-        "not_model_ablation": True,
-        "sources": [],
-    }
-    # Seen pilot records
-    if record and record.get("composition_necessity"):
-        out["composition_necessity_label"] = record["composition_necessity"]
-        out["sources"].append("provenance_record.composition_necessity")
-    inv_nec = inv_it.get("single_window_necessity") or {}
-    out["inventory_single_window_necessity"] = inv_nec
-    out["sources"].append("PILOT_INVENTORY.single_window_necessity")
+def _map_sufficient_fields(src: dict) -> tuple[dict, list[dict]]:
+    """Map recorded necessity keys into Track-A authoritative booleans without dropping full_question."""
+    mappings: list[dict] = []
+    out: dict = {}
 
-    hj = None
+    def take(canon: str, *aliases: str):
+        if canon in src and src[canon] is not None:
+            out[canon] = src[canon]
+            return
+        for a in aliases:
+            if a in src and src[a] is not None:
+                out[canon] = src[a]
+                mappings.append(
+                    {
+                        "canonical_field": canon,
+                        "mapped_from": a,
+                        "value": src[a],
+                    }
+                )
+                return
+        out[canon] = None
+
+    take("a_only_sufficient", "a_only_sufficient_full_question")
+    take("b_only_sufficient", "b_only_sufficient_full_question")
+    # a_plus_b / necessary labels
+    if "a_plus_b_necessary" in src and src["a_plus_b_necessary"] is not None:
+        out["a_plus_b"] = src["a_plus_b_necessary"]
+        mappings.append(
+            {
+                "canonical_field": "a_plus_b",
+                "mapped_from": "a_plus_b_necessary",
+                "value": src["a_plus_b_necessary"],
+            }
+        )
+    elif "a_plus_b" in src:
+        out["a_plus_b"] = src["a_plus_b"]
+    else:
+        out["a_plus_b"] = None
+    return out, mappings
+
+
+def necessity_block(item_id: str, inv_it: dict, record: dict | None) -> dict:
+    """Provenance retained; Track A must use necessity_authoritative only."""
+    provenance: dict = {
+        "inventory_single_window_necessity": inv_it.get("single_window_necessity") or {},
+    }
+    sources = ["PILOT_INVENTORY.single_window_necessity"]
+    field_mappings: list[dict] = []
+
+    if record and record.get("composition_necessity"):
+        provenance["composition_necessity_label"] = record["composition_necessity"]
+        sources.append("provenance_record.composition_necessity")
+    if record and record.get("single_window_necessity_audit"):
+        provenance["single_window_necessity_audit"] = record[
+            "single_window_necessity_audit"
+        ]
+        sources.append("provenance_record.single_window_necessity_audit")
+
+    hj_raw = None
     if record and isinstance(record.get("human_judgments_preserved"), dict):
-        hj = record["human_judgments_preserved"]
-    if hj:
-        out["human_judgments_preserved"] = {
-            "a_only_sufficient": yn_to_bool(hj.get("a_only_sufficient")),
-            "b_only_sufficient": yn_to_bool(hj.get("b_only_sufficient")),
+        hj_raw = record["human_judgments_preserved"]
+    if hj_raw:
+        provenance["human_judgments_preserved"] = {
+            "a_only_sufficient": yn_to_bool(hj_raw.get("a_only_sufficient")),
+            "b_only_sufficient": yn_to_bool(hj_raw.get("b_only_sufficient")),
             "a_plus_b_supports_user_answer": yn_to_bool(
-                hj.get("a_plus_b_supports_user_answer")
+                hj_raw.get("a_plus_b_supports_user_answer")
             ),
             "truly_needs_cross_clip_composition": yn_to_bool(
-                hj.get("truly_needs_cross_clip_composition")
+                hj_raw.get("truly_needs_cross_clip_composition")
             ),
-            "raw": hj,
+            "raw": hj_raw,
         }
-        out["sources"].append("graph_or_record.human_judgments_preserved")
-        # primary conclusion from preserved human judgment when present
-        out["primary"] = {
-            "a_only_sufficient": out["human_judgments_preserved"]["a_only_sufficient"],
-            "b_only_sufficient": out["human_judgments_preserved"]["b_only_sufficient"],
-            "cross_clip_necessary": out["human_judgments_preserved"][
-                "truly_needs_cross_clip_composition"
-            ],
+        sources.append("graph_or_record.human_judgments_preserved")
+
+    # Authority priority: original human judgment preserved > record audit > inventory
+    conflict = None
+    if hj_raw:
+        auth = {
+            "a_only_sufficient": yn_to_bool(hj_raw.get("a_only_sufficient")),
+            "b_only_sufficient": yn_to_bool(hj_raw.get("b_only_sufficient")),
+            "a_plus_b": yn_to_bool(hj_raw.get("a_plus_b_supports_user_answer")),
+            "cross_clip_necessary": yn_to_bool(
+                hj_raw.get("truly_needs_cross_clip_composition")
+            ),
             "authority": "human_judgments_preserved",
+            "authority_note": (
+                "Original human scientific judgment is the sole Track A necessity authority "
+                "when present; inventory booleans are provenance only."
+            ),
         }
-        # conflict vs inventory booleans if both present
-        inv_a = inv_nec.get("a_only_sufficient")
-        inv_b = inv_nec.get("b_only_sufficient")
-        if inv_a is not None and out["primary"]["a_only_sufficient"] is not None:
-            if bool(inv_a) != bool(out["primary"]["a_only_sufficient"]) or (
-                inv_b is not None
-                and out["primary"]["b_only_sufficient"] is not None
-                and bool(inv_b) != bool(out["primary"]["b_only_sufficient"])
+        inv = provenance["inventory_single_window_necessity"]
+        inv_mapped, inv_maps = _map_sufficient_fields(inv)
+        field_mappings.extend(
+            {"source": "inventory", **m} for m in inv_maps
+        )
+        if inv_mapped.get("a_only_sufficient") is not None and auth[
+            "a_only_sufficient"
+        ] is not None:
+            if bool(inv_mapped["a_only_sufficient"]) != bool(auth["a_only_sufficient"]) or (
+                inv_mapped.get("b_only_sufficient") is not None
+                and auth["b_only_sufficient"] is not None
+                and bool(inv_mapped["b_only_sufficient"]) != bool(auth["b_only_sufficient"])
             ):
-                out["inventory_vs_preserved_conflict"] = True
-                out["conflict_note"] = (
-                    "Inventory single_window_necessity booleans disagree with "
-                    "human_judgments_preserved; Track A must use preserved human judgment."
-                )
-            else:
-                out["inventory_vs_preserved_conflict"] = False
+                conflict = {
+                    "inventory_vs_preserved_conflict": True,
+                    "inventory_mapped": inv_mapped,
+                    "preserved": {
+                        "a_only_sufficient": auth["a_only_sufficient"],
+                        "b_only_sufficient": auth["b_only_sufficient"],
+                    },
+                    "resolution": "USE_human_judgments_preserved_AS_AUTHORITATIVE",
+                }
     else:
-        # Seen inventory necessity
-        out["primary"] = {
-            "a_only_sufficient": inv_nec.get("a_only_sufficient"),
-            "b_only_sufficient": inv_nec.get("b_only_sufficient"),
-            "a_plus_b": inv_nec.get("a_plus_b")
-            or inv_nec.get("a_plus_b_necessary"),
-            "authority": "PILOT_INVENTORY.single_window_necessity",
+        # Prefer record audit (SP201/SP202), else inventory
+        src = None
+        authority = None
+        if record and record.get("single_window_necessity_audit"):
+            src = record["single_window_necessity_audit"]
+            authority = "provenance_record.single_window_necessity_audit"
+        else:
+            src = provenance["inventory_single_window_necessity"]
+            authority = "PILOT_INVENTORY.single_window_necessity"
+        mapped, maps = _map_sufficient_fields(src)
+        field_mappings.extend({"source": authority, **m} for m in maps)
+        # Also record inventory mapping when audit used
+        if authority != "PILOT_INVENTORY.single_window_necessity":
+            _, inv_maps = _map_sufficient_fields(
+                provenance["inventory_single_window_necessity"]
+            )
+            field_mappings.extend(
+                {"source": "PILOT_INVENTORY.single_window_necessity", **m}
+                for m in inv_maps
+            )
+        def coerce_sufficient(v):
+            if isinstance(v, bool):
+                return v
+            b = yn_to_bool(v)
+            if b is not None:
+                return b
+            if isinstance(v, str) and "INSUFFICIENT" in v.upper():
+                return False
+            return None
+
+        a_bool = coerce_sufficient(mapped.get("a_only_sufficient"))
+        b_bool = coerce_sufficient(mapped.get("b_only_sufficient"))
+        auth = {
+            "a_only_sufficient": a_bool,
+            "b_only_sufficient": b_bool,
+            "a_plus_b": mapped.get("a_plus_b"),
+            "cross_clip_necessary": None
+            if mapped.get("a_plus_b") is None
+            else True,  # compositional pilot items record A+B support
+            "authority": authority,
+            "authority_note": (
+                "Mapped a_only_sufficient_full_question / b_only_sufficient_full_question "
+                "onto Track A canonical fields when those were the recorded keys."
+            ),
+            "source_field_mappings": maps,
         }
-    return out
+
+    return {
+        "status": "RECORDED_FROM_SCIENTIFIC_SOURCES",
+        "not_model_ablation": True,
+        "necessity_authoritative": auth,
+        # backward-compatible alias used by prior consumers — identical to authoritative
+        "primary": {
+            "a_only_sufficient": auth["a_only_sufficient"],
+            "b_only_sufficient": auth["b_only_sufficient"],
+            "a_plus_b": auth.get("a_plus_b"),
+            "cross_clip_necessary": auth.get("cross_clip_necessary"),
+            "authority": auth["authority"],
+        },
+        "provenance_records": provenance,
+        "field_mappings": field_mappings,
+        "conflict": conflict,
+        "sources": sources,
+    }
 
 
 def windows_block(item_id: str, inv_it: dict, record: dict | None) -> dict:
     wins = None
+    source = None
     if record and record.get("windows_seconds"):
         wins = record["windows_seconds"]
-    if wins is None:
-        wins = inv_it.get("windows_seconds")
+        source = "provenance_record.windows_seconds"
+    if wins is None and inv_it.get("windows_seconds"):
+        wins = inv_it["windows_seconds"]
+        source = "PILOT_INVENTORY.windows_seconds"
+
+    # Approved-source search notes (do not promote unapproved offsets)
+    approved_search = {
+        "checked_sources": [
+            "provenance_record.windows_seconds",
+            "PILOT_INVENTORY.windows_seconds",
+            "p4_scientific_review_pack/REVIEW_PACK.json",
+            "precise_timing_status on approved graph",
+        ],
+        "non_authoritative_candidates_not_promoted": [],
+    }
+    # Blind-packet clip filenames encode engineering extract ranges — not approved source seconds
+    bp = PILOT / "provenance_snapshots" / f"{item_id}_blind_packet.json"
+    if bp.is_file():
+        approved_search["non_authoritative_candidates_not_promoted"].append(
+            {
+                "source": str(bp.relative_to(ROOT)),
+                "reason": (
+                    "Review-media clip filenames may embed numeric ranges; these are not "
+                    "scientifically approved source-second A/B windows."
+                ),
+            }
+        )
+    if record and record.get("precise_timing_status"):
+        approved_search["precise_timing_status"] = record["precise_timing_status"]
+
+    review_pack = (
+        PILOT / "p4_scientific_review_pack" / "REVIEW_PACK.json"
+    )
+    if review_pack.is_file():
+        rp = json.loads(review_pack.read_text())
+        for row in (
+            rp.get("pilot_items_for_review")
+            or rp.get("items")
+            or rp.get("review_items")
+            or []
+        ):
+            if row.get("item_id") == item_id:
+                approved_search["review_pack_windows_seconds"] = row.get(
+                    "windows_seconds"
+                )
+                break
+
     if wins:
         return {
             "status": "RECORDED_SOURCE_SECONDS",
@@ -151,7 +323,14 @@ def windows_block(item_id: str, inv_it: dict, record: dict | None) -> dict:
             "B": {"t_start_s": wins["B"][0], "t_end_s": wins["B"][1]},
             "time_base": "source_video_seconds",
             "precision": "AS_RECORDED_IN_SCIENTIFIC_REVIEW_NOT_REVERIFIED_HERE",
+            "source": source,
+            "evaluation_gates": {
+                "fixed_ab_window_eval": "AVAILABLE_FROM_RECORDED_SECONDS",
+                "block_reason": None,
+            },
+            "approved_source_search": approved_search,
         }
+
     return {
         "status": "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
         "A": None,
@@ -161,6 +340,14 @@ def windows_block(item_id: str, inv_it: dict, record: dict | None) -> dict:
         or "Precise source-second mapping not available in authoritative export sources",
         "time_base": "UNKNOWN",
         "do_not_infer_from_program_graph": True,
+        "evaluation_gates": {
+            "fixed_ab_window_eval": "BLOCKED",
+            "block_reason": (
+                "No scientifically approved source-second A/B mapping; fixed A/B window "
+                "evaluation must not run for this item."
+            ),
+        },
+        "approved_source_search": approved_search,
     }
 
 
@@ -169,6 +356,8 @@ def answer_block(inv_it: dict, record: dict | None) -> dict:
     hist = None
     if record and record.get("historical_answer") is not None:
         hist = record["historical_answer"]
+    if hist is None and record and record.get("answer_candidate") is not None:
+        hist = record["answer_candidate"]
     text = hist if hist is not None else ans
     return {
         "answer_text": text,
@@ -195,11 +384,13 @@ def build_qa_items(inv: dict[str, dict]) -> list[dict]:
         q = inv_it.get("question_open")
         if record and record.get("original_question"):
             q = record["original_question"]
-        # P7 frozen question from blind packet if needed
+        if record and record.get("question_original_en") and not q:
+            q = record["question_original_en"]
         if not q and item_id.startswith("P7_"):
             bp = PILOT / "provenance_snapshots" / f"{item_id}_blind_packet.json"
             if bp.is_file():
                 q = json.loads(bp.read_text()).get("frozen_question")
+        lang = detect_language(q)
         items.append(
             {
                 "item_id": item_id,
@@ -208,6 +399,7 @@ def build_qa_items(inv: dict[str, dict]) -> list[dict]:
                 or (record or {}).get("video_id"),
                 "split_role_pilot": inv_it.get("pilot_role"),
                 "question_text": q,
+                "question_language": lang,
                 "qa_format": inv_it.get("qa_format") or "OPEN_ENDED",
                 "answer": answer_block(inv_it, record),
                 "windows": windows_block(item_id, inv_it, record),
@@ -297,15 +489,12 @@ def build_program_graphs() -> list[dict]:
 
 
 def build_video_manifest(qa_items: list[dict]) -> list[dict]:
-    videos = {}
+    videos: dict[str, list[str]] = {}
     for qa in qa_items:
-        vid = qa["video_id"]
-        videos.setdefault(vid, []).append(qa["item_id"])
+        videos.setdefault(qa["video_id"], []).append(qa["item_id"])
     rows = []
     for video_id, item_ids in sorted(videos.items()):
         path = find_video(video_id)
-        # scientific hash: only if previously recorded somewhere — default UNKNOWN
-        scientific_hash = "UNKNOWN"
         local_fp = None
         if path is not None:
             local_fp = {
@@ -322,7 +511,7 @@ def build_video_manifest(qa_items: list[dict]) -> list[dict]:
                 "accessible_uri_or_path": str(path) if path else None,
                 "access_status": "LOCAL_PATH_RESOLVED" if path else "PATH_UNKNOWN",
                 "time_base": "source_video_seconds",
-                "video_sha256_scientific": scientific_hash,
+                "video_sha256_scientific": "UNKNOWN",
                 "evidence_sha256_scientific": "UNKNOWN",
                 "local_engineering_fingerprint": local_fp,
                 "used_by_item_ids": item_ids,
@@ -377,128 +566,912 @@ def build_split_manifest(inv: dict[str, dict], graphs: list[dict]) -> dict:
         )
     return {
         "schema": "minimal_validation_split_manifest_v1",
+        "algo_version": ALGO,
         "fixed_seen": SEEN,
         "fixed_unseen": UNSEEN,
-        "candidate_excluded_from_this_export": ["A", "B", "P7_R4_F1", "P7_R4_F2", "SP205"],
+        "candidate_excluded_from_this_export": [
+            "A",
+            "B",
+            "P7_R4_F1",
+            "P7_R4_F2",
+            "SP205",
+        ],
         "items": rows,
     }
 
 
-def validate_export(qa, graphs, videos, split) -> dict:
-    issues = []
+def _is_answer_bearing_output(token: str | None) -> bool:
+    if not token or not isinstance(token, str):
+        return False
+    return bool(ANSWER_OUTPUT_MARKERS.search(token.strip()))
+
+
+def redact_graph_for_inference(graph: dict) -> dict:
+    """Strip answer-bearing I/O and human gold-like evidence payloads."""
+    nodes = []
+    for n in graph["nodes"]:
+        raw_out = n.get("raw_outputs") or []
+        norm_out = n.get("normalized_outputs") or []
+        answer_bearing = any(_is_answer_bearing_output(x) for x in list(raw_out) + list(norm_out))
+        node = {
+            "node_id": n["node_id"],
+            "raw_operator": n.get("raw_operator"),
+            "layer1": n.get("layer1"),
+            "layer2": n.get("layer2"),
+            "raw_inputs": n.get("raw_inputs"),
+            "normalized_inputs": n.get("normalized_inputs"),
+            "raw_clip_role": n.get("raw_clip_role"),
+            "normalized_clip_role": n.get("normalized_clip_role"),
+            "raw_time_conditions": n.get("raw_time_conditions"),
+            "evidence_certification": n.get("evidence_certification"),
+            "provenance": n.get("provenance"),
+            "outputs_redacted": True if answer_bearing else False,
+        }
+        if answer_bearing:
+            node["raw_outputs"] = ["__REDACTED_ANSWER_BEARING__"]
+            node["normalized_outputs"] = ["__REDACTED_ANSWER_BEARING__"]
+            node["raw_evidence"] = {"status": "REDACTED_ANSWER_OR_GOLD_LIKE"}
+        else:
+            # Still strip rich evidence payloads that can encode gold-like facts
+            node["raw_outputs"] = n.get("raw_outputs")
+            node["normalized_outputs"] = n.get("normalized_outputs")
+            ev = n.get("raw_evidence")
+            if isinstance(ev, dict) and any(
+                k in ev for k in ("on_screen_text", "answer", "label", "human_note")
+            ):
+                node["raw_evidence"] = {
+                    "status": "REDACTED_HUMAN_EVIDENCE_PAYLOAD",
+                    "keys_present": sorted(ev.keys()),
+                }
+            else:
+                node["raw_evidence"] = None
+        nodes.append(node)
+    return {
+        "item_id": graph["item_id"],
+        "graph_id": graph["graph_id"],
+        "normalization_status": graph["normalization_status"],
+        "split_role_fixed": graph["split_role_fixed"],
+        "n_nodes": graph["n_nodes"],
+        "n_edges": graph["n_edges"],
+        "nodes": nodes,
+        "edges": graph["edges"],
+        "inference_safe_note": (
+            "Answer-bearing outputs and human evidence payloads redacted. "
+            "Unseen original graphs are omitted entirely from this projection."
+        ),
+    }
+
+
+def build_projections(qa, graphs, videos, split) -> dict:
+    """Full scientific pack stays at package root; projections are isolated."""
+    answers = []
+    inf_qa = []
+    for q in qa:
+        answers.append(
+            {
+                "item_id": q["item_id"],
+                "qa_uid": q["qa_uid"],
+                "video_id": q["video_id"],
+                "answer_text": q["answer"]["answer_text"],
+                "answer_certification_status": q["answer"][
+                    "answer_certification_status"
+                ],
+                "formal_gold": False,
+                "windows": q["windows"],
+                "necessity_authoritative": q["necessity"]["necessity_authoritative"],
+                "access": "SCORER_PRIVATE_ONLY",
+            }
+        )
+        inf_qa.append(
+            {
+                "item_id": q["item_id"],
+                "qa_uid": q["qa_uid"],
+                "video_id": q["video_id"],
+                "split_role_pilot": q["split_role_pilot"],
+                "question_text": q["question_text"],
+                "question_language": q["question_language"],
+                "qa_format": q["qa_format"],
+                "windows": {
+                    "status": q["windows"]["status"],
+                    "A": q["windows"].get("A"),
+                    "B": q["windows"].get("B"),
+                    "time_base": q["windows"].get("time_base"),
+                    "evaluation_gates": q["windows"].get("evaluation_gates"),
+                    "do_not_infer_from_program_graph": q["windows"].get(
+                        "do_not_infer_from_program_graph"
+                    ),
+                },
+                "necessity_authoritative": {
+                    "a_only_sufficient": q["necessity"]["necessity_authoritative"][
+                        "a_only_sufficient"
+                    ],
+                    "b_only_sufficient": q["necessity"]["necessity_authoritative"][
+                        "b_only_sufficient"
+                    ],
+                    "cross_clip_necessary": q["necessity"]["necessity_authoritative"].get(
+                        "cross_clip_necessary"
+                    ),
+                    "authority": q["necessity"]["necessity_authoritative"]["authority"],
+                },
+                "gates": q["gates"],
+                "answer": {
+                    "status": "WITHHELD_INFERENCE_SAFE",
+                    "formal_gold": False,
+                },
+            }
+        )
+
+    # Seen graphs only, redacted; Unseen graphs omitted
+    seen_graphs = [
+        redact_graph_for_inference(g) for g in graphs if g["item_id"] in SEEN
+    ]
+    return {
+        "inference_safe": {
+            "qa_items": {
+                "schema": "minimal_validation_inference_safe_qa_v1",
+                "algo_version": ALGO,
+                "access": "TRACK_A_INFERENCE_ALLOWED",
+                "items": inf_qa,
+                "forbidden": [
+                    "reference_answers",
+                    "answer_bearing_graph_outputs",
+                    "human_gold_like_evidence_payloads",
+                    "unseen_original_program_graphs",
+                ],
+            },
+            "program_graphs_seen_redacted": {
+                "schema": "minimal_validation_inference_safe_graphs_v1",
+                "algo_version": ALGO,
+                "access": "TRACK_A_INFERENCE_ALLOWED_SEEN_ONLY",
+                "unseen_graphs_policy": "OMITTED_NOT_FOR_INFERENCE",
+                "omitted_unseen_item_ids": UNSEEN,
+                "n_graphs": len(seen_graphs),
+                "graphs": seen_graphs,
+            },
+            "video_manifest": {
+                "schema": "minimal_validation_video_manifest_v1",
+                "algo_version": ALGO,
+                "videos": videos,
+            },
+            "split_manifest": split,
+            "ACCESS.md": (
+                "# Inference-safe projection\n\n"
+                "Ordinary Track A inference may read this directory only.\n\n"
+                "Must NOT contain: reference answers, answer-bearing graph outputs, "
+                "human Gold-like evidence payloads, or Unseen original program graphs.\n"
+                "Oracle-program experiment scope is NOT decided by this export.\n"
+            ),
+        },
+        "scorer_private": {
+            "answers": {
+                "schema": "minimal_validation_scorer_private_answers_v1",
+                "algo_version": ALGO,
+                "access": "SCORER_PRIVATE_ONLY_NOT_FOR_INFERENCE",
+                "formal_gold": False,
+                "items": answers,
+            },
+            "ACCESS.md": (
+                "# Scorer-private projection\n\n"
+                "Reference answers and scoring-side necessity/windows. "
+                "Must not be mounted into ordinary Track A inference.\n"
+                "Answers remain HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD.\n"
+            ),
+        },
+    }
+
+
+def build_schemas() -> dict[str, dict]:
+    window_schema = {
+        "type": "object",
+        "required": ["status", "evaluation_gates"],
+        "properties": {
+            "status": {
+                "type": "string",
+                "enum": [
+                    "RECORDED_SOURCE_SECONDS",
+                    "UNKNOWN_PENDING_SOURCE_SECOND_MAPPING",
+                ],
+            },
+            "A": {
+                "anyOf": [
+                    {"type": "null"},
+                    {
+                        "type": "object",
+                        "required": ["t_start_s", "t_end_s"],
+                        "properties": {
+                            "t_start_s": {"type": "number"},
+                            "t_end_s": {"type": "number"},
+                        },
+                    },
+                ]
+            },
+            "B": {
+                "anyOf": [
+                    {"type": "null"},
+                    {
+                        "type": "object",
+                        "required": ["t_start_s", "t_end_s"],
+                        "properties": {
+                            "t_start_s": {"type": "number"},
+                            "t_end_s": {"type": "number"},
+                        },
+                    },
+                ]
+            },
+            "evaluation_gates": {
+                "type": "object",
+                "required": ["fixed_ab_window_eval"],
+                "properties": {
+                    "fixed_ab_window_eval": {"type": "string"},
+                    "block_reason": {"type": ["string", "null"]},
+                },
+            },
+        },
+    }
+    necessity_schema = {
+        "type": "object",
+        "required": ["necessity_authoritative", "provenance_records"],
+        "properties": {
+            "necessity_authoritative": {
+                "type": "object",
+                "required": [
+                    "a_only_sufficient",
+                    "b_only_sufficient",
+                    "authority",
+                ],
+                "properties": {
+                    "a_only_sufficient": {"type": ["boolean", "null"]},
+                    "b_only_sufficient": {"type": ["boolean", "null"]},
+                    "authority": {"type": "string", "minLength": 1},
+                },
+            },
+            "provenance_records": {"type": "object"},
+        },
+    }
+    return {
+        "qa_items.schema.json": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "required": ["schema", "algo_version", "items", "n_items"],
+            "properties": {
+                "schema": {"const": "minimal_validation_qa_items_v1"},
+                "algo_version": {"type": "string"},
+                "n_items": {"type": "integer", "const": 7},
+                "items": {
+                    "type": "array",
+                    "minItems": 7,
+                    "maxItems": 7,
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "item_id",
+                            "qa_uid",
+                            "video_id",
+                            "question_text",
+                            "question_language",
+                            "answer",
+                            "windows",
+                            "necessity",
+                            "gates",
+                        ],
+                        "properties": {
+                            "item_id": {"type": "string", "minLength": 1},
+                            "qa_uid": {"type": "string", "minLength": 1},
+                            "video_id": {"type": "string", "minLength": 1},
+                            "question_text": {"type": "string", "minLength": 1},
+                            "question_language": {
+                                "type": "string",
+                                "enum": ["en", "zh", "UNKNOWN"],
+                            },
+                            "answer": {
+                                "type": "object",
+                                "required": [
+                                    "answer_text",
+                                    "answer_certification_status",
+                                    "formal_gold",
+                                ],
+                                "properties": {
+                                    "formal_gold": {"const": False},
+                                    "answer_certification_status": {
+                                        "const": "HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD"
+                                    },
+                                },
+                            },
+                            "windows": window_schema,
+                            "necessity": necessity_schema,
+                            "gates": {
+                                "type": "object",
+                                "required": [
+                                    "formal_seen_train",
+                                    "formal_unseen",
+                                    "formal_gold",
+                                    "train_exposed",
+                                ],
+                                "properties": {
+                                    "formal_gold": {"const": False},
+                                    "formal_seen_train": {"type": "boolean"},
+                                    "formal_unseen": {"type": "boolean"},
+                                    "train_exposed": {"type": "boolean"},
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        "program_graphs.schema.json": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "required": ["schema", "graphs", "n_graphs"],
+            "properties": {
+                "schema": {"const": "minimal_validation_program_graphs_v1"},
+                "n_graphs": {"type": "integer", "const": 7},
+                "graphs": {
+                    "type": "array",
+                    "minItems": 7,
+                    "maxItems": 7,
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "item_id",
+                            "graph_id",
+                            "nodes",
+                            "edges",
+                            "n_nodes",
+                            "n_edges",
+                        ],
+                        "properties": {
+                            "item_id": {"type": "string"},
+                            "graph_id": {"type": "string"},
+                            "n_nodes": {"type": "integer", "minimum": 1},
+                            "n_edges": {"type": "integer", "minimum": 0},
+                            "nodes": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                    "type": "object",
+                                    "required": ["node_id"],
+                                    "properties": {
+                                        "node_id": {"type": "string", "minLength": 1}
+                                    },
+                                },
+                            },
+                            "edges": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "required": ["from_node", "to_node"],
+                                    "properties": {
+                                        "from_node": {"type": "string"},
+                                        "to_node": {"type": "string"},
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        "video_manifest.schema.json": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "required": ["schema", "videos"],
+            "properties": {
+                "schema": {"const": "minimal_validation_video_manifest_v1"},
+                "videos": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "video_id",
+                            "source_dataset",
+                            "time_base",
+                            "video_sha256_scientific",
+                            "used_by_item_ids",
+                        ],
+                        "properties": {
+                            "video_id": {"type": "string", "minLength": 1},
+                            "video_sha256_scientific": {"type": "string"},
+                            "used_by_item_ids": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {"type": "string"},
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        "split_manifest.schema.json": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "required": ["schema", "fixed_seen", "fixed_unseen", "items"],
+            "properties": {
+                "schema": {"const": "minimal_validation_split_manifest_v1"},
+                "fixed_seen": {
+                    "type": "array",
+                    "minItems": 5,
+                    "maxItems": 5,
+                    "items": {"type": "string"},
+                },
+                "fixed_unseen": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {"type": "string"},
+                },
+                "items": {
+                    "type": "array",
+                    "minItems": 7,
+                    "maxItems": 7,
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "item_id",
+                            "pilot_role",
+                            "formal_seen_train",
+                            "formal_unseen",
+                            "formal_gold",
+                            "train_exposed",
+                            "training_exposure_limits",
+                        ],
+                        "properties": {
+                            "formal_gold": {"const": False},
+                            "formal_seen_train": {"const": False},
+                            "formal_unseen": {"const": False},
+                            "training_exposure_limits": {
+                                "type": "object",
+                                "required": [
+                                    "may_use_as_formal_train",
+                                    "may_claim_formal_unseen",
+                                    "may_claim_formal_gold",
+                                ],
+                                "properties": {
+                                    "may_use_as_formal_train": {"const": False},
+                                    "may_claim_formal_unseen": {"const": False},
+                                    "may_claim_formal_gold": {"const": False},
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    }
+
+
+def run_schema_validation(docs: dict[str, dict], schemas: dict[str, dict]) -> dict:
+    """Strict schema validation. SKIPPED ⇒ overall cannot be PASS."""
+    engine = None
+    lib_errors: list[dict] = []
+    try:
+        import jsonschema  # type: ignore
+
+        engine = f"jsonschema_library:{getattr(jsonschema, '__version__', 'unknown')}"
+        for name, doc in docs.items():
+            try:
+                jsonschema.validate(doc, schemas[name])
+            except Exception as e:  # noqa: BLE001
+                lib_errors.append({"schema": name, "error": str(e)})
+        if not lib_errors:
+            return {"status": "PASS", "engine": engine, "errors": []}
+        # fall through to builtin for detail, but keep FAIL
+    except ImportError:
+        engine = None
+
+    builtin_errors: list[dict] = []
+    for name, doc in docs.items():
+        try:
+            validate_or_raise(doc, schemas[name])
+        except SchemaError as e:
+            builtin_errors.append(
+                {"schema": name, "path": e.path, "error": e.message}
+            )
+    if engine is None:
+        engine = "builtin_draft2020_12_subset"
+    if lib_errors:
+        return {
+            "status": "FAIL",
+            "engine": engine,
+            "errors": lib_errors + builtin_errors,
+            "note": "jsonschema library reported failures",
+        }
+    if builtin_errors:
+        return {"status": "FAIL", "engine": engine, "errors": builtin_errors}
+    return {"status": "PASS", "engine": engine, "errors": []}
+
+
+def uniqueness_and_join_checks(qa, graphs, videos, split) -> list[dict]:
+    issues: list[dict] = []
     qa_ids = [x["item_id"] for x in qa]
     g_ids = [x["item_id"] for x in graphs]
     s_ids = [x["item_id"] for x in split["items"]]
     if qa_ids != EXPORT_IDS or g_ids != EXPORT_IDS or s_ids != EXPORT_IDS:
-        issues.append({"code": "ID_ORDER_OR_SET_MISMATCH", "qa": qa_ids, "graphs": g_ids})
-    # join keys
+        issues.append(
+            {"code": "ID_ORDER_OR_SET_MISMATCH", "qa": qa_ids, "graphs": g_ids, "split": s_ids}
+        )
+    if len(set(qa_ids)) != len(qa_ids):
+        issues.append({"code": "DUPLICATE_ITEM_ID_QA"})
+    if len(set(g_ids)) != len(g_ids):
+        issues.append({"code": "DUPLICATE_ITEM_ID_GRAPHS"})
+    qa_uids = [x["qa_uid"] for x in qa]
+    if len(set(qa_uids)) != len(qa_uids):
+        issues.append({"code": "DUPLICATE_QA_UID", "qa_uids": qa_uids})
+    vid_ids = [v["video_id"] for v in videos]
+    if len(set(vid_ids)) != len(vid_ids):
+        issues.append({"code": "DUPLICATE_VIDEO_ID"})
+
+    vid_set = {v["video_id"] for v in videos}
     for q in qa:
-        if not q.get("video_id"):
-            issues.append({"code": "MISSING_VIDEO_ID", "item_id": q["item_id"]})
+        if not q.get("video_id") or q["video_id"] not in vid_set:
+            issues.append(
+                {
+                    "code": "QA_VIDEO_JOIN_FAIL",
+                    "item_id": q["item_id"],
+                    "video_id": q.get("video_id"),
+                }
+            )
         if not q.get("question_text"):
             issues.append({"code": "MISSING_QUESTION", "item_id": q["item_id"]})
         if q["answer"].get("formal_gold") is True:
             issues.append({"code": "FALSE_GOLD", "item_id": q["item_id"]})
         if q["answer"]["answer_certification_status"] == "FORMAL_GOLD":
             issues.append({"code": "FALSE_GOLD_STATUS", "item_id": q["item_id"]})
-    vid_set = {v["video_id"] for v in videos}
-    for q in qa:
-        if q["video_id"] not in vid_set:
-            issues.append(
-                {"code": "QA_VIDEO_JOIN_FAIL", "item_id": q["item_id"], "video_id": q["video_id"]}
-            )
+        auth = q["necessity"]["necessity_authoritative"]
+        if q["item_id"] in ("SP201", "SP202"):
+            if auth.get("a_only_sufficient") is None or auth.get("b_only_sufficient") is None:
+                issues.append(
+                    {
+                        "code": "SP201_SP202_NECESSITY_NULL",
+                        "item_id": q["item_id"],
+                        "auth": auth,
+                    }
+                )
+        if q["item_id"] in UNSEEN:
+            if auth.get("authority") != "human_judgments_preserved":
+                issues.append(
+                    {
+                        "code": "P7_AUTHORITY_NOT_HUMAN_JUDGMENT",
+                        "item_id": q["item_id"],
+                        "authority": auth.get("authority"),
+                    }
+                )
+            if q["windows"]["evaluation_gates"]["fixed_ab_window_eval"] != "BLOCKED":
+                issues.append(
+                    {
+                        "code": "P7_WINDOW_EVAL_NOT_BLOCKED",
+                        "item_id": q["item_id"],
+                    }
+                )
+
     for g in graphs:
-        node_ids = {n["node_id"] for n in g["nodes"]}
+        node_ids = [n["node_id"] for n in g["nodes"]]
+        if len(set(node_ids)) != len(node_ids):
+            issues.append({"code": "DUPLICATE_NODE_ID", "item_id": g["item_id"]})
+        nset = set(node_ids)
         for e in g["edges"]:
-            if e["from_node"] not in node_ids or e["to_node"] not in node_ids:
-                issues.append({"code": "GRAPH_EDGE_JOIN_FAIL", "item_id": g["item_id"], "edge": e})
+            if e["from_node"] not in nset or e["to_node"] not in nset:
+                issues.append(
+                    {"code": "GRAPH_EDGE_JOIN_FAIL", "item_id": g["item_id"], "edge": e}
+                )
         if g["n_nodes"] != len(g["nodes"]) or g["n_edges"] != len(g["edges"]):
             issues.append({"code": "GRAPH_COUNT_MISMATCH", "item_id": g["item_id"]})
-        # no frame-certified claim on chat sidecars
         if g["normalization_status"] == "CHAT_APPROVED_SIDECAR_INGESTED":
             for n in g["nodes"]:
                 if n.get("evidence_certification") == "FRAME_CERTIFIED":
                     issues.append(
-                        {"code": "FALSE_FRAME_CERT", "item_id": g["item_id"], "node": n["node_id"]}
+                        {
+                            "code": "FALSE_FRAME_CERT",
+                            "item_id": g["item_id"],
+                            "node": n["node_id"],
+                        }
                     )
-    # schema-ish required fields
+    return issues
+
+
+def leak_scan_inference_safe(proj_root: Path, answers: list[dict]) -> list[dict]:
+    issues: list[dict] = []
+    answer_texts = {
+        str(a["answer_text"]).strip()
+        for a in answers
+        if a.get("answer_text") is not None and str(a["answer_text"]).strip()
+    }
+    # Scan all files under inference_safe
+    for path in proj_root.rglob("*"):
+        if not path.is_file():
+            continue
+        if path.suffix not in {".json", ".md"}:
+            continue
+        text = path.read_text(encoding="utf-8")
+        rel = str(path.relative_to(proj_root))
+        for ans in answer_texts:
+            # numeric-only answers are weak leak signals; still flag exact JSON string form
+            if len(ans) <= 1:
+                needle = json.dumps(ans, ensure_ascii=False)
+                if needle in text and '"answer_text"' in text:
+                    issues.append(
+                        {
+                            "code": "ANSWER_LEAK",
+                            "file": rel,
+                            "answer": ans,
+                        }
+                    )
+            elif ans in text:
+                issues.append({"code": "ANSWER_LEAK", "file": rel, "answer": ans})
+        for uid in UNSEEN:
+            if f'"item_id": "{uid}"' in text and "program_graphs" in rel:
+                # Unseen may appear in qa_items / split; not in graphs file
+                if "graphs" in text and '"nodes"' in text:
+                    issues.append(
+                        {"code": "UNSEEN_GRAPH_LEAK", "file": rel, "item_id": uid}
+                    )
+        if "__REDACTED" not in text:
+            if re.search(r'"raw_outputs"\s*:\s*\[[^\]]*"answer"', text):
+                issues.append({"code": "ANSWER_OUTPUT_LEAK", "file": rel})
+            if '"on_screen_text"' in text:
+                issues.append({"code": "GOLD_LIKE_EVIDENCE_LEAK", "file": rel})
+    # Explicit: unseen graphs file must omit
+    gpath = proj_root / "program_graphs_seen_redacted.json"
+    if gpath.is_file():
+        gdoc = json.loads(gpath.read_text())
+        present = {g["item_id"] for g in gdoc.get("graphs", [])}
+        for uid in UNSEEN:
+            if uid in present:
+                issues.append({"code": "UNSEEN_GRAPH_PRESENT", "item_id": uid})
+        for gid in SEEN:
+            if gid not in present:
+                issues.append({"code": "SEEN_GRAPH_MISSING_IN_INFERENCE_SAFE", "item_id": gid})
+    return issues
+
+
+def build_necessity_diff(qa: list[dict]) -> dict:
+    rows = []
     for q in qa:
-        for k in ("item_id", "qa_uid", "video_id", "question_text", "answer", "windows", "necessity"):
-            if k not in q:
-                issues.append({"code": "QA_SCHEMA", "missing": k, "item_id": q.get("item_id")})
-    status = "PASS" if not issues else "FAIL"
+        nec = q["necessity"]
+        auth = nec["necessity_authoritative"]
+        inv = nec["provenance_records"].get("inventory_single_window_necessity") or {}
+        inv_mapped, _ = _map_sufficient_fields(inv)
+        rows.append(
+            {
+                "item_id": q["item_id"],
+                "authoritative": auth,
+                "inventory_raw": inv,
+                "inventory_mapped_canonical": inv_mapped,
+                "field_mappings": nec.get("field_mappings"),
+                "conflict": nec.get("conflict"),
+                "human_judgments_preserved": nec["provenance_records"].get(
+                    "human_judgments_preserved"
+                ),
+                "single_window_necessity_audit": nec["provenance_records"].get(
+                    "single_window_necessity_audit"
+                ),
+            }
+        )
     return {
-        "schema": "minimal_validation_export_validation_v1",
+        "schema": "necessity_diff_report_v1",
+        "algo_version": ALGO,
+        "policy": (
+            "Track A must consume necessity_authoritative only. Inventory and other "
+            "records are provenance. Conflicts resolve to human_judgments_preserved."
+        ),
+        "items": rows,
+    }
+
+
+def build_window_report(qa: list[dict]) -> dict:
+    rows = []
+    for q in qa:
+        w = q["windows"]
+        rows.append(
+            {
+                "item_id": q["item_id"],
+                "status": w["status"],
+                "fixed_ab_window_eval": w["evaluation_gates"]["fixed_ab_window_eval"],
+                "block_reason": w["evaluation_gates"].get("block_reason"),
+                "A": w.get("A"),
+                "B": w.get("B"),
+                "approved_source_search": w.get("approved_source_search"),
+            }
+        )
+    blocked = [
+        r["item_id"]
+        for r in rows
+        if r["fixed_ab_window_eval"] == "BLOCKED"
+    ]
+    return {
+        "schema": "window_availability_report_v1",
+        "algo_version": ALGO,
+        "blocked_fixed_ab_window_eval": blocked,
+        "items": rows,
+        "policy": "Do not guess source seconds; unapproved offsets stay UNKNOWN.",
+    }
+
+
+def build_language_structure_report(qa: list[dict], graphs: list[dict]) -> dict:
+    lang = {}
+    for q in qa:
+        lang[q["item_id"]] = {
+            "question_language": q["question_language"],
+            "split_role_pilot": q["split_role_pilot"],
+            "question_preview": (q["question_text"] or "")[:80],
+        }
+    # C2 abbreviation constraint — report only, do not rewrite labels
+    c2 = next(g for g in graphs if g["item_id"] == "P7_VTCD_C2")
+    c2_nodes = []
+    for n in c2["nodes"]:
+        if n.get("raw_operator") in (
+            "ReadNameAbbreviationGraphic",
+            "ReadNameGraphic",
+        ) or (n.get("raw_evidence") or {}).get("on_screen_text"):
+            c2_nodes.append(
+                {
+                    "node_id": n["node_id"],
+                    "raw_operator": n.get("raw_operator"),
+                    "layer1": n.get("layer1"),
+                    "layer2": n.get("layer2"),
+                    "on_screen_text": (n.get("raw_evidence") or {}).get(
+                        "on_screen_text"
+                    ),
+                    "issue": None,
+                }
+            )
+    for row in c2_nodes:
+        if row["raw_operator"] == "ReadNameAbbreviationGraphic":
+            if row["layer2"] == "ReadPersonNameFromGraphic":
+                row["issue"] = (
+                    "STRUCTURE_LIMIT: raw operator is name-abbreviation matching "
+                    "(ReadNameAbbreviationGraphic / e.g. 'Fan Z.D.'), but Layer2 collapses "
+                    "to generic ReadPersonNameFromGraphic. Track A must not treat the "
+                    "generic Layer2 label as the full scientific constraint."
+                )
+            else:
+                row["issue"] = (
+                    "Raw abbreviation-matching operator present; preserve strict semantics."
+                )
+
+    seen_langs = {lang[i]["question_language"] for i in SEEN}
+    unseen_langs = {lang[i]["question_language"] for i in UNSEEN}
+    return {
+        "schema": "language_and_structure_limits_report_v1",
+        "algo_version": ALGO,
+        "language_distribution": {
+            "seen_item_languages": {i: lang[i]["question_language"] for i in SEEN},
+            "unseen_item_languages": {i: lang[i]["question_language"] for i in UNSEEN},
+            "summary": (
+                f"Seen items languages={sorted(seen_langs)}; "
+                f"Unseen items languages={sorted(unseen_langs)}. "
+                "5 Seen English / 2 Unseen Chinese distribution difference is reported "
+                "as a validation limitation, not rewritten."
+            ),
+            "limitation": (
+                "Language mismatch between Seen (en) and Unseen (zh) may confound "
+                "Track A minimal validation; no scientific relabeling performed."
+            ),
+        },
+        "per_item": lang,
+        "c2_name_abbreviation_constraint": {
+            "item_id": "P7_VTCD_C2",
+            "policy": "Report only; do not rewrite scientific annotations.",
+            "nodes": c2_nodes,
+        },
+    }
+
+
+def validate_export(qa, graphs, videos, split, schema_result, leak_issues) -> dict:
+    issues = uniqueness_and_join_checks(qa, graphs, videos, split)
+    schema_status = schema_result["status"]
+    if schema_status != "PASS":
+        issues.append(
+            {
+                "code": "SCHEMA_VALIDATION_NOT_PASS",
+                "schema_result": schema_result,
+            }
+        )
+    for li in leak_issues:
+        issues.append(li)
+
+    def ok(code_prefix: str) -> str:
+        return (
+            "PASS"
+            if not any(str(i.get("code", "")).startswith(code_prefix) for i in issues)
+            else "FAIL"
+        )
+
+    checks = {
+        "schema_validation": schema_status,
+        "schema_engine": schema_result.get("engine"),
+        "join_qa_video": ok("QA_VIDEO_JOIN"),
+        "join_graph_edges": ok("GRAPH_EDGE_JOIN"),
+        "uniqueness": (
+            "PASS"
+            if not any(str(i.get("code", "")).startswith("DUPLICATE") for i in issues)
+            else "FAIL"
+        ),
+        "no_false_gold": (
+            "PASS"
+            if not any(str(i.get("code", "")).startswith("FALSE_GOLD") for i in issues)
+            else "FAIL"
+        ),
+        "id_set_7": "PASS" if [x["item_id"] for x in qa] == EXPORT_IDS else "FAIL",
+        "necessity_authoritative": (
+            "PASS"
+            if not any(
+                i.get("code") in ("SP201_SP202_NECESSITY_NULL", "P7_AUTHORITY_NOT_HUMAN_JUDGMENT")
+                for i in issues
+            )
+            else "FAIL"
+        ),
+        "p7_window_eval_blocked": (
+            "PASS"
+            if not any(i.get("code") == "P7_WINDOW_EVAL_NOT_BLOCKED" for i in issues)
+            else "FAIL"
+        ),
+        "inference_safe_leak_scan": "PASS" if not leak_issues else "FAIL",
+    }
+    # Full PASS only if every check passes AND schema actually ran PASS
+    status = (
+        "PASS"
+        if schema_status == "PASS" and all(
+            v == "PASS" for k, v in checks.items() if k != "schema_engine"
+        )
+        else "FAIL"
+    )
+    return {
+        "schema": "minimal_validation_export_validation_v1_1",
         "status": status,
         "n_issues": len(issues),
         "issues": issues,
-        "checks": {
-            "join_qa_video": "PASS"
-            if not any(i["code"] == "QA_VIDEO_JOIN_FAIL" for i in issues)
-            else "FAIL",
-            "join_graph_edges": "PASS"
-            if not any(i["code"] == "GRAPH_EDGE_JOIN_FAIL" for i in issues)
-            else "FAIL",
-            "no_false_gold": "PASS"
-            if not any(str(i["code"]).startswith("FALSE_GOLD") for i in issues)
-            else "FAIL",
-            "id_set_7": "PASS" if qa_ids == EXPORT_IDS else "FAIL",
-        },
+        "checks": checks,
+        "schema_validation_detail": schema_result,
         "validated_utc": utc_now(),
         "algo_version": ALGO,
+        "policy_notes": [
+            "Schema validation SKIPPED/FAIL ⇒ overall status cannot be PASS.",
+            "Answers are not formal Gold.",
+            "Sidecars are not frame-level video certification.",
+            "Training exposure protection fields unchanged (all formal_* false).",
+        ],
     }
 
 
 def write_readme() -> str:
-    return f"""# Track B → Track A minimal validation export v1
+    return f"""# Track B → Track A minimal validation export v1.1
 
 Read-only packaging of the fixed **5 Seen + 2 Unseen** pilot for Track A *loading/plumbing* checks.
 
 **Not** a formal Gold set. **Not** a launch of Track A experiments.
 
-## Files
+## Layout
 
-| File | Contents |
-|------|----------|
-| `qa_items.json` | QA text, answer + certification status, item/video IDs, A/B windows, necessity |
-| `program_graphs.json` | 7 normalized directed graphs (nodes/edges/L1/L2/I/O/time/evidence status) |
-| `video_manifest.json` | Video IDs, local path if resolved, time base, hashes |
-| `split_manifest.json` | Fixed 5/2 roles, structure labels, training-exposure limits |
-| `schemas/*.json` | Lightweight JSON Schemas |
-| `VALIDATION_REPORT.json` | Schema/join-key validation result |
+| Path | Role |
+|------|------|
+| `qa_items.json` / `program_graphs.json` / `video_manifest.json` / `split_manifest.json` | Full scientific audit pack |
+| `projections/inference_safe/` | Ordinary Track A inference projection |
+| `projections/scorer_private/` | Scorer-only answers (not for inference) |
+| `NECESSITY_DIFF_REPORT.json` | Inventory vs authoritative necessity |
+| `WINDOW_AVAILABILITY_REPORT.json` | Fixed A/B window eval availability |
+| `LANGUAGE_AND_STRUCTURE_LIMITS_REPORT.json` | en/zh split + C2 abbreviation constraint |
+| `CHANGE_LIST_WP1_1.md` | Patch change list |
+| `schemas/*.json` | Strict JSON Schemas |
+| `VALIDATION_REPORT.json` | Schema + join + uniqueness + leak scan |
 
 ## Join keys
 
-- `item_id` joins `qa_items` ↔ `program_graphs` ↔ `split_manifest.items`
-- `video_id` joins `qa_items` ↔ `video_manifest`
+- `item_id` joins QA ↔ graphs ↔ split
+- `video_id` joins QA ↔ video_manifest
 
-## Loading example
+## Necessity authority
 
-```python
-import json
-from pathlib import Path
-root = Path('research_audit/lvbench_compositional/track_b/minimal_validation_export_v1')
-qa = {{x['item_id']: x for x in json.loads((root/'qa_items.json').read_text())['items']}}
-graphs = {{x['item_id']: x for x in json.loads((root/'program_graphs.json').read_text())['graphs']}}
-videos = {{x['video_id']: x for x in json.loads((root/'video_manifest.json').read_text())['videos']}}
-assert set(qa) == set(graphs)
-for item_id, row in qa.items():
-    assert row['video_id'] in videos
-```
+Track A must use `necessity.necessity_authoritative` only. Provenance records are retained under `necessity.provenance_records`.
 
-## Limits (mandatory)
+## Limits
 
-- Answers are `HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD` — **not** formal Gold.
-- Chat-approved program sidecars are **not** frame-level video certification.
-- P7 windows may be `UNKNOWN_PENDING_SOURCE_SECOND_MAPPING` — do not invent seconds from graphs.
-- Pilot Seen/Unseen ≠ formal Seen/Unseen/train exposure.
-- Local video SHA (if present) is an engineering fingerprint only.
-
-## Sources
-
-- Pilot inventory/records: `family_level_minimal_validation_pilot_v0.1/`
-- Normalized graphs: `normalized_programs_v1/graphs/{{item_id}}.json`
-- Built by `{ALGO}` at export time.
+- Answers: `HUMAN_REFERENCE_OR_HISTORICAL_NOT_FORMAL_GOLD`
+- Unseen graphs omitted from inference-safe projection
+- P7 windows UNKNOWN ⇒ `fixed_ab_window_eval=BLOCKED`
+- C2 abbreviation-matching constraint reported; annotations not rewritten
+- Local video SHA is engineering-only
 
 ## Validate
 
@@ -506,6 +1479,23 @@ for item_id, row in qa.items():
 python3 eng/build_minimal_validation_export_v1.py
 python3 tests/test_minimal_validation_export_v1.py -v
 ```
+
+Built by `{ALGO}`.
+"""
+
+
+def write_change_list() -> str:
+    return """# WP1.1 Change List
+
+Engineering-only patch on top of `adac071`. No scientific re-adjudication. No Track A launch.
+
+1. **Schema validation** — Strict Draft-2020-12 subset validator (`eng/strict_schema.py`) always runs; optional `jsonschema` library if installed. Overall `PASS` requires schema validation PASS (SKIPPED no longer allowed).
+2. **Uniqueness + joins** — item_id / qa_uid / video_id / node_id uniqueness; QA↔video and edge↔node joins; SP201/SP202 necessity non-null; P7 human-judgment authority; P7 window eval blocked.
+3. **Necessity** — New `necessity_authoritative` field; provenance retained; `a_only_sufficient_full_question` / `b_only_sufficient_full_question` mapped for SP201/SP202; P7 conflicts resolve to `human_judgments_preserved`. See `NECESSITY_DIFF_REPORT.json`.
+4. **Projections** — `projections/inference_safe/` and `projections/scorer_private/` with automatic leak regression tests. Oracle-program scope not decided here.
+5. **Windows** — Approved-source search only; C2/TJR remain UNKNOWN with `fixed_ab_window_eval=BLOCKED`; blind-packet clip filenames not promoted.
+6. **Language / structure** — Report 5 Seen en / 2 Unseen zh; report C2 `ReadNameAbbreviationGraphic` vs generic Layer2 collapse; annotations unchanged.
+7. **Unchanged** — Fixed 5+2 IDs; QA answer texts; program graph semantics; formal_* / train_exposed protection fields.
 """
 
 
@@ -514,11 +1504,17 @@ def main() -> None:
     ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "schemas").mkdir(exist_ok=True)
+    proj_inf = OUT / "projections" / "inference_safe"
+    proj_scorer = OUT / "projections" / "scorer_private"
+    proj_inf.mkdir(parents=True, exist_ok=True)
+    proj_scorer.mkdir(parents=True, exist_ok=True)
+
     inv = load_inventory()
     qa = build_qa_items(inv)
     graphs = build_program_graphs()
     videos = build_video_manifest(qa)
     split = build_split_manifest(inv, graphs)
+    projections = build_projections(qa, graphs, videos, split)
 
     qa_doc = {
         "schema": "minimal_validation_qa_items_v1",
@@ -543,82 +1539,59 @@ def main() -> None:
         "videos": videos,
     }
 
-    report = validate_export(qa, graphs, videos, split)
-
-    # lightweight schemas
-    schemas = {
-        "qa_items.schema.json": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "type": "object",
-            "required": ["schema", "items"],
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "minItems": 7,
-                    "maxItems": 7,
-                    "items": {
-                        "type": "object",
-                        "required": [
-                            "item_id",
-                            "qa_uid",
-                            "video_id",
-                            "question_text",
-                            "answer",
-                            "windows",
-                            "necessity",
-                        ],
-                    },
-                }
-            },
-        },
-        "program_graphs.schema.json": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "type": "object",
-            "required": ["schema", "graphs"],
-            "properties": {
-                "graphs": {
-                    "type": "array",
-                    "minItems": 7,
-                    "maxItems": 7,
-                    "items": {
-                        "type": "object",
-                        "required": ["item_id", "nodes", "edges", "n_nodes", "n_edges"],
-                    },
-                }
-            },
-        },
-        "video_manifest.schema.json": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "type": "object",
-            "required": ["schema", "videos"],
-            "properties": {"videos": {"type": "array", "minItems": 1}},
-        },
-        "split_manifest.schema.json": {
-            "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "type": "object",
-            "required": ["schema", "fixed_seen", "fixed_unseen", "items"],
-        },
-    }
+    schemas = build_schemas()
     for name, sch in schemas.items():
         (OUT / "schemas" / name).write_text(json.dumps(sch, indent=2) + "\n")
 
-    # optional jsonschema if installed
-    try:
-        import jsonschema  # type: ignore
+    # Write projections before leak scan
+    (proj_inf / "qa_items.json").write_text(
+        json.dumps(projections["inference_safe"]["qa_items"], indent=2, ensure_ascii=False)
+        + "\n"
+    )
+    (proj_inf / "program_graphs_seen_redacted.json").write_text(
+        json.dumps(
+            projections["inference_safe"]["program_graphs_seen_redacted"],
+            indent=2,
+            ensure_ascii=False,
+        )
+        + "\n"
+    )
+    (proj_inf / "video_manifest.json").write_text(
+        json.dumps(
+            projections["inference_safe"]["video_manifest"], indent=2, ensure_ascii=False
+        )
+        + "\n"
+    )
+    (proj_inf / "split_manifest.json").write_text(
+        json.dumps(
+            projections["inference_safe"]["split_manifest"], indent=2, ensure_ascii=False
+        )
+        + "\n"
+    )
+    (proj_inf / "ACCESS.md").write_text(projections["inference_safe"]["ACCESS.md"])
+    (proj_scorer / "answers.json").write_text(
+        json.dumps(projections["scorer_private"]["answers"], indent=2, ensure_ascii=False)
+        + "\n"
+    )
+    (proj_scorer / "ACCESS.md").write_text(projections["scorer_private"]["ACCESS.md"])
 
-        jsonschema.validate(qa_doc, schemas["qa_items.schema.json"])
-        jsonschema.validate(graphs_doc, schemas["program_graphs.schema.json"])
-        jsonschema.validate(video_doc, schemas["video_manifest.schema.json"])
-        jsonschema.validate(split, schemas["split_manifest.schema.json"])
-        report["jsonschema"] = "PASS"
-    except ImportError:
-        report["jsonschema"] = "SKIPPED_LIBRARY_NOT_INSTALLED_USED_STRUCTURAL_CHECKS"
-    except Exception as e:
-        report["jsonschema"] = f"FAIL:{e}"
-        report["status"] = "FAIL"
-        report["issues"].append({"code": "JSONSCHEMA", "error": str(e)})
+    leak_issues = leak_scan_inference_safe(
+        proj_inf, projections["scorer_private"]["answers"]["items"]
+    )
+    schema_result = run_schema_validation(
+        {
+            "qa_items.schema.json": qa_doc,
+            "program_graphs.schema.json": graphs_doc,
+            "video_manifest.schema.json": video_doc,
+            "split_manifest.schema.json": split,
+        },
+        schemas,
+    )
+    report = validate_export(qa, graphs, videos, split, schema_result, leak_issues)
 
-    (OUT / "qa_items.json").write_text(json.dumps(qa_doc, indent=2, ensure_ascii=False) + "\n")
+    (OUT / "qa_items.json").write_text(
+        json.dumps(qa_doc, indent=2, ensure_ascii=False) + "\n"
+    )
     (OUT / "program_graphs.json").write_text(
         json.dumps(graphs_doc, indent=2, ensure_ascii=False) + "\n"
     )
@@ -628,11 +1601,37 @@ def main() -> None:
     (OUT / "split_manifest.json").write_text(
         json.dumps(split, indent=2, ensure_ascii=False) + "\n"
     )
+    (OUT / "NECESSITY_DIFF_REPORT.json").write_text(
+        json.dumps(build_necessity_diff(qa), indent=2, ensure_ascii=False) + "\n"
+    )
+    (OUT / "WINDOW_AVAILABILITY_REPORT.json").write_text(
+        json.dumps(build_window_report(qa), indent=2, ensure_ascii=False) + "\n"
+    )
+    (OUT / "LANGUAGE_AND_STRUCTURE_LIMITS_REPORT.json").write_text(
+        json.dumps(
+            build_language_structure_report(qa, graphs), indent=2, ensure_ascii=False
+        )
+        + "\n"
+    )
     (OUT / "VALIDATION_REPORT.json").write_text(
         json.dumps(report, indent=2, ensure_ascii=False) + "\n"
     )
+    (OUT / "CHANGE_LIST_WP1_1.md").write_text(write_change_list())
     (OUT / "README.md").write_text(write_readme())
-    print(json.dumps({"status": report["status"], "checks": report["checks"]}, indent=2))
+
+    print(
+        json.dumps(
+            {
+                "status": report["status"],
+                "checks": report["checks"],
+                "n_issues": report["n_issues"],
+            },
+            indent=2,
+        )
+    )
+    if report["status"] != "PASS":
+        print(json.dumps(report["issues"][:20], indent=2, ensure_ascii=False))
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
