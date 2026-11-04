@@ -1,2 +1,4 @@
 staging/*.import_report.json
 staging/*_local/
+
+# Force-track dataset JSONL despite repo-root data/ ignore (use git add -f).

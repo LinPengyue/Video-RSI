@@ -1,0 +1,71 @@
+{
+  "schema": "longvideocompbenc_splits_v0_1",
+  "dataset_version": "0.1.0-dev",
+  "built_utc": "2026-11-04T13:12:22+00:00",
+  "frozen_5_2": {
+    "status": "FROZEN_FOR_TRACK_A_MINIMAL_VALIDATION",
+    "seen": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202"
+    ],
+    "unseen": [
+      "P7_VTCD_C2",
+      "P7_TJR_R3"
+    ],
+    "immutable": true,
+    "wp1_export_path": "research_audit/lvbench_compositional/track_b/minimal_validation_export_v1",
+    "wp1_validation_status": "PASS",
+    "note": "Do not mutate; Track A minimal validation continues to use WP1 pack."
+  },
+  "proposed_7_4_dev": {
+    "status": "PROPOSED",
+    "seen": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202",
+      "A",
+      "P7_R4_F1"
+    ],
+    "unseen": [
+      "P7_VTCD_C2",
+      "P7_TJR_R3",
+      "B",
+      "P7_R4_F2"
+    ],
+    "approval_record": null,
+    "candidate_items": {
+      "A": {
+        "proposed_pool": "SEEN",
+        "approval_status": "PROPOSED",
+        "prior_label": "CANDIDATE_ONLY"
+      },
+      "B": {
+        "proposed_pool": "UNSEEN",
+        "approval_status": "PROPOSED",
+        "prior_label": "CANDIDATE_ONLY"
+      },
+      "P7_R4_F1": {
+        "proposed_pool": "SEEN",
+        "approval_status": "PROPOSED",
+        "prior_label": "CANDIDATE_SENSITIVITY_OR_HOLD"
+      },
+      "P7_R4_F2": {
+        "proposed_pool": "UNSEEN",
+        "approval_status": "PROPOSED",
+        "prior_label": "CANDIDATE_SENSITIVITY_OR_HOLD"
+      }
+    },
+    "note": "Human final pool approval for A/B/F1/F2 is not recorded as frozen; status remains PROPOSED."
+  },
+  "policy": {
+    "no_auto_gold": true,
+    "no_inplace_release_mutation": true,
+    "sealed_separate": true,
+    "scorer_private_not_in_track_a_inference": true
+  }
+}
