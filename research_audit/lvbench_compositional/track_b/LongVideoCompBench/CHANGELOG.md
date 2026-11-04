@@ -1,3 +1,11 @@
+## v0.1.1 — WP2.1 A/B recovery audit (no Gold / no invented QA)
+
+- Added `reports/AB_SOURCE_RECOVERY_AUDIT.json` with per-field recovery evidence.
+- Added `reports/WINDOW_RECOVERY_C2_R3_F1_F2_AUDIT.json` (filename candidates only; not promoted).
+- A/B remain `GRAPH_ONLY` — question/answer/video_id/windows unresolved under binding rules.
+- `releases/v0.1.0` left immutable; this snapshot is `releases/v0.1.1`.
+- No Track A / sealed / 5+2 / 7+4 / Gold changes.
+
 # Changelog
 
 ## v0.1.0-dev / releases/v0.1.0 — WP2 bootstrap

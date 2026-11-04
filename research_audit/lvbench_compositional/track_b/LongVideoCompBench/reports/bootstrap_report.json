@@ -2,7 +2,7 @@
   "schema": "longvideocompbenc_bootstrap_report_v0_1",
   "algo_version": "longvideocompbenc_bootstrap_v0.1.0",
   "dataset_version": "0.1.0-dev",
-  "built_utc": "2026-11-04T13:12:22+00:00",
+  "built_utc": "2026-11-04T14:50:55+00:00",
   "wp1_status": "PASS",
   "wp1_algo": "minimal_validation_export_v1.2.0",
   "seeds_requested": [

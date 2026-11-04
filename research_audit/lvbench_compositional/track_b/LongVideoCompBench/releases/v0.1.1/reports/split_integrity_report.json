@@ -1,0 +1,33 @@
+{
+  "schema": "longvideocompbenc_split_integrity_v0_1",
+  "validated_utc": "2026-11-04T13:12:22+00:00",
+  "gate_d": {
+    "status": "PASS",
+    "n_issues": 0,
+    "issues": []
+  },
+  "frozen_5_2": [
+    "SP001",
+    "SP002",
+    "SP005",
+    "SP201",
+    "SP202",
+    "P7_VTCD_C2",
+    "P7_TJR_R3"
+  ],
+  "proposed_7_4_seen": [
+    "SP001",
+    "SP002",
+    "SP005",
+    "SP201",
+    "SP202",
+    "A",
+    "P7_R4_F1"
+  ],
+  "proposed_7_4_unseen": [
+    "P7_VTCD_C2",
+    "P7_TJR_R3",
+    "B",
+    "P7_R4_F2"
+  ]
+}

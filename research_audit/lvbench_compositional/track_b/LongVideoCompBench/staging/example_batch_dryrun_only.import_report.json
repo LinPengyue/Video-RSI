@@ -1,0 +1,10 @@
+{
+  "batch_id": "example_batch_dryrun_only",
+  "batch_path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/staging/example_batch.json",
+  "utc": "2026-11-04T14:50:55+00:00",
+  "n_accepted": 1,
+  "n_errors": 0,
+  "errors": [],
+  "applied": false,
+  "status": "VALIDATED_READY"
+}

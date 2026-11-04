@@ -1,0 +1,132 @@
+{
+  "schema": "window_recovery_c2_r3_f1_f2_audit_v0_1_1",
+  "algo_version": "longvideocompbenc_recover_ab_v0_1_1",
+  "built_utc": "2026-11-04T14:50:55+00:00",
+  "items": {
+    "P7_VTCD_C2": {
+      "recovered_value": null,
+      "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_VTCD_C2_blind_packet.json",
+      "source_sha256": "eb485abff4ceada7456e5151550a4560998d4c2b5bf93430b6bc5c8371acb586",
+      "recovery_method": "blind_packet_clip_filename_parse_only",
+      "confidence": "LOW_FILENAME_DERIVED",
+      "certification_status": "NOT_PROMOTED_PENDING_SCIENTIFIC_APPROVAL",
+      "precise_timing_status": "PARTIAL_USER_PLAYBACK_OFFSETS_ONLY",
+      "unresolved_reason": "Filename-encoded ranges and review clips are engineering extract hints; inventory/REVIEW_PACK windows_seconds remain null; precise_timing_status is PENDING/PARTIAL. Per WP1.1 policy, not written as RECORDED_SOURCE_SECONDS.",
+      "candidates": [
+        {
+          "kind": "REVIEW_MEDIA_FILENAME_SECONDS",
+          "windows_seconds_hypothesis": {
+            "A": [
+              158,
+              191
+            ],
+            "B": [
+              260,
+              285
+            ]
+          },
+          "media_hints": [
+            "p7_hil_pilot/round_002/vtcd_review/media/A_context_158_191.mp4",
+            "p7_hil_pilot/round_002/vtcd_review/media/B_context_260_285.mp4"
+          ],
+          "do_not_use_as_fixed_ab_eval": true
+        }
+      ],
+      "dataset_action": "WINDOWS_REMAIN_UNKNOWN"
+    },
+    "P7_TJR_R3": {
+      "recovered_value": null,
+      "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_TJR_R3_blind_packet.json",
+      "source_sha256": "63d8c250487dba6b16bb1c3f77193590cd570dc76962297e79cb7661956d574e",
+      "recovery_method": "blind_packet_clip_filename_parse_only",
+      "confidence": "LOW_FILENAME_DERIVED",
+      "certification_status": "NOT_PROMOTED_PENDING_SCIENTIFIC_APPROVAL",
+      "precise_timing_status": "PENDING_SCIENTIFIC_APPROVAL",
+      "unresolved_reason": "Filename-encoded ranges and review clips are engineering extract hints; inventory/REVIEW_PACK windows_seconds remain null; precise_timing_status is PENDING/PARTIAL. Per WP1.1 policy, not written as RECORDED_SOURCE_SECONDS.",
+      "candidates": [
+        {
+          "kind": "REVIEW_MEDIA_FILENAME_SECONDS",
+          "windows_seconds_hypothesis": {
+            "A": [
+              1100,
+              1125
+            ],
+            "B": [
+              1200,
+              1220
+            ]
+          },
+          "media_hints": [
+            "p7_hil_pilot/round_002/tjr_relocate/media/early_candidate_dragon_ride_1100_1125.mp4",
+            "p7_hil_pilot/round_002/tjr_relocate/media/late_dual_performers_1200_1220.mp4"
+          ],
+          "do_not_use_as_fixed_ab_eval": true
+        }
+      ],
+      "dataset_action": "WINDOWS_REMAIN_UNKNOWN"
+    },
+    "P7_R4_F1": {
+      "recovered_value": null,
+      "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F1_blind_packet.json",
+      "source_sha256": "f1036362623060d162ac5cb6f895caabfadf649692b75346a27decaa53f0bcc4",
+      "recovery_method": "blind_packet_clip_filename_parse_only",
+      "confidence": "LOW_FILENAME_DERIVED",
+      "certification_status": "NOT_PROMOTED_PENDING_SCIENTIFIC_APPROVAL",
+      "precise_timing_status": "PENDING_SCIENTIFIC_APPROVAL",
+      "unresolved_reason": "Filename-encoded ranges and review clips are engineering extract hints; inventory/REVIEW_PACK windows_seconds remain null; precise_timing_status is PENDING/PARTIAL. Per WP1.1 policy, not written as RECORDED_SOURCE_SECONDS.",
+      "candidates": [
+        {
+          "kind": "REVIEW_MEDIA_FILENAME_SECONDS",
+          "windows_seconds_hypothesis": {
+            "A": [
+              259,
+              295
+            ],
+            "B": [
+              2995,
+              3015
+            ]
+          },
+          "media_hints": [
+            "round_004/media/F1A_restaurant_259_295.mp4",
+            "round_004/media/F1B_snow_2995_3015.mp4"
+          ],
+          "do_not_use_as_fixed_ab_eval": true
+        }
+      ],
+      "dataset_action": "WINDOWS_REMAIN_UNKNOWN"
+    },
+    "P7_R4_F2": {
+      "recovered_value": null,
+      "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/provenance_snapshots/P7_R4_F2_blind_packet.json",
+      "source_sha256": "a3a057feff365a883e2c6ff01db6fef4572f9e669b26d32c5021e383646fc55d",
+      "recovery_method": "blind_packet_clip_filename_parse_only",
+      "confidence": "LOW_FILENAME_DERIVED",
+      "certification_status": "NOT_PROMOTED_PENDING_SCIENTIFIC_APPROVAL",
+      "precise_timing_status": "PENDING_SCIENTIFIC_APPROVAL",
+      "unresolved_reason": "Filename-encoded ranges and review clips are engineering extract hints; inventory/REVIEW_PACK windows_seconds remain null; precise_timing_status is PENDING/PARTIAL. Per WP1.1 policy, not written as RECORDED_SOURCE_SECONDS.",
+      "candidates": [
+        {
+          "kind": "REVIEW_MEDIA_FILENAME_SECONDS",
+          "windows_seconds_hypothesis": {
+            "A": [
+              20,
+              45
+            ],
+            "B": [
+              123,
+              165
+            ]
+          },
+          "media_hints": [
+            "round_004/media/F2A_dog_wood_20_45.mp4",
+            "round_004/media/F2B_later_play_123_165.mp4"
+          ],
+          "do_not_use_as_fixed_ab_eval": true
+        }
+      ],
+      "dataset_action": "WINDOWS_REMAIN_UNKNOWN"
+    }
+  },
+  "policy": "No invented seconds; no promotion without approved windows_seconds."
+}

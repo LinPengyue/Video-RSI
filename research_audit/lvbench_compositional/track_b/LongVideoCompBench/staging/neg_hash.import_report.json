@@ -1,0 +1,15 @@
+{
+  "batch_id": "neg_hash",
+  "batch_path": "/tmp/tmpc29jk6bw/batch.json",
+  "utc": "2026-11-04T14:50:55+00:00",
+  "n_accepted": 0,
+  "n_errors": 1,
+  "errors": [
+    {
+      "code": "FORGED_VIDEO_HASH",
+      "video_id": "neg_hash_vid"
+    }
+  ],
+  "applied": false,
+  "status": "REJECTED"
+}

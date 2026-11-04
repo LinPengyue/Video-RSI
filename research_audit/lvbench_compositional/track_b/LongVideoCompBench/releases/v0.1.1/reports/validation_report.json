@@ -1,0 +1,33 @@
+{
+  "schema": "longvideocompbenc_validation_v0_1",
+  "validated_utc": "2026-11-04T14:50:55+00:00",
+  "gates": {
+    "A_schema": {
+      "status": "PASS",
+      "n_issues": 0,
+      "issues": []
+    },
+    "B_referential_integrity": {
+      "status": "PASS",
+      "n_issues": 0,
+      "issues": []
+    },
+    "C_scientific_provenance": {
+      "status": "PASS",
+      "n_issues": 0,
+      "issues": []
+    },
+    "D_split_and_leakage": {
+      "status": "PASS",
+      "n_issues": 0,
+      "issues": []
+    }
+  },
+  "seed_counts": {
+    "n_qas": 11,
+    "n_graphs": 11,
+    "n_videos": 8,
+    "expected_graphs": 11
+  },
+  "overall": "PASS"
+}

@@ -1,0 +1,491 @@
+{
+  "schema": "ab_source_recovery_audit_v0_1_1",
+  "algo_version": "longvideocompbenc_recover_ab_v0_1_1",
+  "built_utc": "2026-11-04T14:51:13+00:00",
+  "baseline_commit_expected": "32b161ff6d3200461e0e004d6ea11ebf4ac366e4",
+  "policy": [
+    "Do not reverse-mint QA from answer_urban_stairs / answer_fruit_platter",
+    "Chat-approved graph structure ≠ frame/video certification",
+    "Batch-factory drafts without item_id binding are candidates only",
+    "Promote dataset fields only when recovered_value is non-null with explicit binding"
+  ],
+  "items": {
+    "A": {
+      "question": {
+        "recovered_value": null,
+        "source_path": null,
+        "source_sha256": null,
+        "recovery_method": "exhaustive_repo_and_pilot_search",
+        "confidence": "NONE",
+        "certification_status": "UNRESOLVED",
+        "unresolved_reason": "No authoritative original question text bound to source_item_id=A. Chat-approved graph A has no question field. Batch-factory drafts on hROKtPqktO8 are semantic contrast QAs, not the A program (hillside-selfie↔urban-stairway bind→QueryLocation).",
+        "candidates": [
+          {
+            "kind": "REJECTED_AS_ITEM_A_QUESTION",
+            "why_rejected": "No item_id=A binding; question type mismatches graph A",
+            "examples": [
+              {
+                "qa_id": "QA_DRAFT_0015",
+                "video_id": "hROKtPqktO8",
+                "question_zh": "按文件时间顺序，较早在「urban_sidewalk_autumn」可见的内容与较晚在「high_altitude_volcanic」可见的内容有何不同？（请依据两段画面，勿编造因果）",
+                "provisional_answer_zh": "早：城市人行道：门牌 67、红建筑、青绿色毛衣行人背影、秋叶；晚：火山熔岩与灰褐山丘空旷景观（无行人）",
+                "gold_answer": null,
+                "answer_status": "ANSWER_PENDING",
+                "time_intervals": [
+                  [
+                    503,
+                    504
+                  ],
+                  [
+                    1259,
+                    1260
+                  ]
+                ],
+                "formal_supported": false,
+                "funnel_level": "QA_DRAFT",
+                "note": "Batch-factory contrast draft — NOT bound to Stage2 item A/B program graphs; not promoted."
+              },
+              {
+                "qa_id": "QA_DRAFT_0016",
+                "video_id": "hROKtPqktO8",
+                "question_zh": "按文件时间顺序，较早在「urban_sidewalk_autumn」可见的内容与较晚在「outdoor_night_snow」可见的内容有何不同？（请依据两段画面，勿编造因果）",
+                "provisional_answer_zh": "早：城市人行道：门牌 67、红建筑、青绿色毛衣行人背影、秋叶；晚：夜间降雪中戴黑帽与橄榄色连帽外套者面对镜头",
+                "gold_answer": null,
+                "answer_status": "ANSWER_PENDING",
+                "time_intervals": [
+                  [
+                    503,
+                    504
+                  ],
+                  [
+                    1889,
+                    1890
+                  ]
+                ],
+                "formal_supported": false,
+                "funnel_level": "QA_DRAFT",
+                "note": "Batch-factory contrast draft — NOT bound to Stage2 item A/B program graphs; not promoted."
+              },
+              {
+                "qa_id": "QA_DRAFT_0017",
+                "video_id": "hROKtPqktO8",
+                "question_zh": "按文件时间顺序，较早在「high_altitude_volcanic」可见的内容与较晚在「outdoor_night_snow」可见的内容有何不同？（请依据两段画面，勿编造因果）",
+                "provisional_answer_zh": "早：火山熔岩与灰褐山丘空旷景观（无行人）；晚：夜间降雪中戴黑帽与橄榄色连帽外套者面对镜头",
+                "gold_answer": null,
+                "answer_status": "ANSWER_PENDING",
+                "time_intervals": [
+                  [
+                    1259,
+                    1260
+                  ],
+                  [
+                    1889,
+                    1890
+                  ]
+                ],
+                "formal_supported": false,
+                "funnel_level": "QA_DRAFT",
+                "note": "Batch-factory contrast draft — NOT bound to Stage2 item A/B program graphs; not promoted."
+              }
+            ],
+            "source_path": "research_audit/lvbench_compositional/track_b/batch_factory/run_002/qa_drafts.jsonl",
+            "source_sha256": "48d18f7a7c306b59ce1c2a12ad50cb87b87c95537acf8aa77419a2a2ce7f3775"
+          }
+        ]
+      },
+      "answer": {
+        "recovered_value": null,
+        "source_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/A.json",
+        "source_sha256": "267413704cc45b4f7f6c825b9dd44bec4e7bb4048ff472b377cca3524ca7ddc7",
+        "recovery_method": "explicit_non_inference_from_graph_outputs",
+        "confidence": "NONE",
+        "certification_status": "UNRESOLVED",
+        "unresolved_reason": "Graph output token answer_urban_stairs is an I/O label, not an approved human answer. Forbidden to reverse-mint QA answer from it.",
+        "candidates": [
+          {
+            "kind": "GRAPH_IO_TOKEN_NOT_ANSWER",
+            "token": "answer_urban_stairs",
+            "source_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/A.json",
+            "source_sha256": "267413704cc45b4f7f6c825b9dd44bec4e7bb4048ff472b377cca3524ca7ddc7",
+            "certification_status": "NOT_AN_ANSWER"
+          }
+        ]
+      },
+      "video_id": {
+        "recovered_value": null,
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json",
+        "source_sha256": "ed466bfaf122fa26f0305ae6cefa539ba8881017ed7eb492227067e8f875cd20",
+        "recovery_method": "evidence_string_overlap_hypothesis_only",
+        "confidence": "LOW_UNBOUND",
+        "certification_status": "CANDIDATE_CONFLICTING_OR_UNBOUND",
+        "unresolved_reason": "Graph A evidence strings mention 'later hillside selfie' / 'earlier urban stairway'. HUMAN_ADJUDICATIONS record hillside selfie on hROKtPqktO8@1255-1265 and street/selfie@500-510, but do not name 'urban stairway' and never bind item_id=A. Not promoted.",
+        "candidates": [
+          {
+            "video_id": "hROKtPqktO8",
+            "basis": "hillside selfie ROI overlap with graph A raw_evidence",
+            "rois": [
+              "hROKtPqktO8_ROI_500_510",
+              "hROKtPqktO8_ROI_1255_1265"
+            ],
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json",
+            "source_sha256": "ed466bfaf122fa26f0305ae6cefa539ba8881017ed7eb492227067e8f875cd20",
+            "certification_status": "NOT_CERTIFIED",
+            "human_review_status": [
+              "OBSERVATION_REQUIRES_MODIFICATION_OR_ADDITION",
+              "OBSERVATION_REQUIRES_MODIFICATION_OR_ADDITION"
+            ]
+          }
+        ]
+      },
+      "windows": {
+        "recovered_value": null,
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_review_platform/data/catalog.json",
+        "source_sha256": "d0b2e064b8d582dd41d8f927b3d59bd73da0dc0afe19bace825917cd187e9174",
+        "recovery_method": "roi_context_windows_not_item_ab_windows",
+        "confidence": "LOW_UNBOUND",
+        "certification_status": "NOT_ITEM_WINDOWS",
+        "unresolved_reason": "ROI/context seconds exist for hROKtPqktO8 but are not approved windows_seconds for item A.",
+        "candidates": [
+          {
+            "video_id": "hROKtPqktO8",
+            "roi_id": "hROKtPqktO8_ROI_500_510",
+            "roi_seconds": [
+              500,
+              510
+            ],
+            "context_seconds": [
+              480,
+              530
+            ],
+            "role_hypothesis": "possibly earlier clip (street/selfie) — NOT urban-stairway certified"
+          },
+          {
+            "video_id": "hROKtPqktO8",
+            "roi_id": "hROKtPqktO8_ROI_1255_1265",
+            "roi_seconds": [
+              1255,
+              1265
+            ],
+            "context_seconds": [
+              1235,
+              1285
+            ],
+            "role_hypothesis": "later hillside selfie — matches graph evidence string only"
+          }
+        ]
+      },
+      "evidence_media_paths": {
+        "recovered_value": null,
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/EVIDENCE_MANIFEST.json",
+        "source_sha256": "b4a56e86547cf84b8f7f6e7f432634154a77e300aacb2db9ffac637de63235bd",
+        "recovery_method": "local_media_paths_for_candidate_video",
+        "confidence": "MEDIUM_FOR_ROI_MEDIA_ONLY",
+        "certification_status": "ROI_MEDIA_NOT_ITEM_A_EVIDENCE",
+        "unresolved_reason": "Paths belong to P3-E1 ROI contexts, not certified item-A evidence pack.",
+        "candidates": [
+          {
+            "path": "research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI1_CONTEXT/",
+            "git_committed": false
+          },
+          {
+            "path": "research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/hROKtPqktO8/ROI2_CONTEXT/",
+            "git_committed": false
+          }
+        ]
+      },
+      "human_scientific_adjudication": {
+        "recovered_value": {
+          "for_item_A_qa": null,
+          "for_related_rois_only": true
+        },
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json",
+        "source_sha256": "ed466bfaf122fa26f0305ae6cefa539ba8881017ed7eb492227067e8f875cd20",
+        "recovery_method": "human_adjudications_roi_level",
+        "confidence": "HIGH_FOR_ROI_NOT_ITEM",
+        "certification_status": "ROI_NOT_CERTIFIED",
+        "unresolved_reason": "No human adjudication record keyed by item_id/pack_id A.",
+        "candidates": [
+          {
+            "roi_id": "hROKtPqktO8_ROI_500_510",
+            "review_status": "OBSERVATION_REQUIRES_MODIFICATION_OR_ADDITION",
+            "certification_status": "NOT_CERTIFIED"
+          },
+          {
+            "roi_id": "hROKtPqktO8_ROI_1255_1265",
+            "review_status": "OBSERVATION_REQUIRES_MODIFICATION_OR_ADDITION",
+            "certification_status": "NOT_CERTIFIED"
+          }
+        ]
+      },
+      "program_graph_structure": {
+        "recovered_value": {
+          "present": true,
+          "n_nodes": 4,
+          "n_edges": 3,
+          "status": "CHAT_APPROVED_SIDECAR_NOT_FRAME_CERTIFIED"
+        },
+        "source_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/A.json",
+        "source_sha256": "267413704cc45b4f7f6c825b9dd44bec4e7bb4048ff472b377cca3524ca7ddc7",
+        "recovery_method": "already_in_dataset",
+        "confidence": "HIGH_STRUCTURE_ONLY",
+        "certification_status": "NOT_FRAME_CERTIFIED_BY_HANDOFF",
+        "unresolved_reason": null,
+        "candidates": []
+      }
+    },
+    "B": {
+      "question": {
+        "recovered_value": null,
+        "source_path": null,
+        "source_sha256": null,
+        "recovery_method": "exhaustive_repo_and_pilot_search",
+        "confidence": "NONE",
+        "certification_status": "UNRESOLVED",
+        "unresolved_reason": "No authoritative original question text bound to source_item_id=B. Graph B is room-bind→QueryEarlierObject(fruit platter); iA batch drafts are scene-contrast QAs and are not promoted.",
+        "candidates": [
+          {
+            "kind": "REJECTED_AS_ITEM_B_QUESTION",
+            "why_rejected": "No item_id=B binding; mismatch vs LocateFarewellRoom program",
+            "examples": [
+              {
+                "qa_id": "QA_DRAFT_0012",
+                "video_id": "iA_69g87Ilw",
+                "question_zh": "按文件时间顺序，较早在「indoor_luxury_table」可见的内容与较晚在「indoor_armchair_blue_gold_room」可见的内容有何不同？（请依据两段画面，勿编造因果）",
+                "provisional_answer_zh": "早：室内水果盘（中央菠萝）旁一只手指向/触碰红葡萄；右上角字幕 Walk With Me；晚：短发男子坐彩色格纹扶手椅，右手持黑色自拍杆；Walk With Me 角标",
+                "gold_answer": null,
+                "answer_status": "ANSWER_PENDING",
+                "time_intervals": [
+                  [
+                    361,
+                    362
+                  ],
+                  [
+                    904,
+                    905
+                  ]
+                ],
+                "formal_supported": false,
+                "funnel_level": "QA_DRAFT",
+                "note": "Batch-factory contrast draft — NOT bound to Stage2 item A/B program graphs; not promoted."
+              },
+              {
+                "qa_id": "QA_DRAFT_0013",
+                "video_id": "iA_69g87Ilw",
+                "question_zh": "按文件时间顺序，较早在「indoor_luxury_table」可见的内容与较晚在「night_outdoor_pool」可见的内容有何不同？（请依据两段画面，勿编造因果）",
+                "provisional_answer_zh": "早：室内水果盘（中央菠萝）旁一只手指向/触碰红葡萄；右上角字幕 Walk With Me；晚：夜间发光无边泳池；Walk With Me 角标仍在",
+                "gold_answer": null,
+                "answer_status": "ANSWER_PENDING",
+                "time_intervals": [
+                  [
+                    361,
+                    362
+                  ],
+                  [
+                    1356,
+                    1357
+                  ]
+                ],
+                "formal_supported": false,
+                "funnel_level": "QA_DRAFT",
+                "note": "Batch-factory contrast draft — NOT bound to Stage2 item A/B program graphs; not promoted."
+              },
+              {
+                "qa_id": "QA_DRAFT_0014",
+                "video_id": "iA_69g87Ilw",
+                "question_zh": "按文件时间顺序，较早在「indoor_armchair_blue_gold_room」可见的内容与较晚在「night_outdoor_pool」可见的内容有何不同？（请依据两段画面，勿编造因果）",
+                "provisional_answer_zh": "早：短发男子坐彩色格纹扶手椅，右手持黑色自拍杆；Walk With Me 角标；晚：夜间发光无边泳池；Walk With Me 角标仍在",
+                "gold_answer": null,
+                "answer_status": "ANSWER_PENDING",
+                "time_intervals": [
+                  [
+                    904,
+                    905
+                  ],
+                  [
+                    1356,
+                    1357
+                  ]
+                ],
+                "formal_supported": false,
+                "funnel_level": "QA_DRAFT",
+                "note": "Batch-factory contrast draft — NOT bound to Stage2 item A/B program graphs; not promoted."
+              }
+            ],
+            "source_path": "research_audit/lvbench_compositional/track_b/batch_factory/run_002/qa_drafts.jsonl",
+            "source_sha256": "48d18f7a7c306b59ce1c2a12ad50cb87b87c95537acf8aa77419a2a2ce7f3775"
+          }
+        ]
+      },
+      "answer": {
+        "recovered_value": null,
+        "source_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/B.json",
+        "source_sha256": "1ca51d26c75cf6ff0c1c16ecc07cfae15c51a33d1ab6388bf6c5aeaa7082a5f3",
+        "recovery_method": "explicit_non_inference_from_graph_outputs",
+        "confidence": "NONE",
+        "certification_status": "UNRESOLVED",
+        "unresolved_reason": "Graph output token answer_fruit_platter is an I/O label, not an approved human answer.",
+        "candidates": [
+          {
+            "kind": "GRAPH_IO_TOKEN_NOT_ANSWER",
+            "token": "answer_fruit_platter",
+            "source_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/B.json",
+            "source_sha256": "1ca51d26c75cf6ff0c1c16ecc07cfae15c51a33d1ab6388bf6c5aeaa7082a5f3",
+            "certification_status": "NOT_AN_ANSWER"
+          }
+        ]
+      },
+      "video_id": {
+        "recovered_value": null,
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json",
+        "source_sha256": "ed466bfaf122fa26f0305ae6cefa539ba8881017ed7eb492227067e8f875cd20",
+        "recovery_method": "evidence_string_overlap_hypothesis_only",
+        "confidence": "LOW_UNBOUND",
+        "certification_status": "CANDIDATE_CONFLICTING_OR_UNBOUND",
+        "unresolved_reason": "Fruit-platter observation exists on iA_69g87Ilw@358-368, and graph B queries earlier fruit platter, but 'farewell room' is not an approved ROI label and item_id=B is never bound.",
+        "candidates": [
+          {
+            "video_id": "iA_69g87Ilw",
+            "basis": "fruit platter ROI overlap with graph B raw_evidence",
+            "rois": [
+              "iA_69g87Ilw_ROI_358_368",
+              "iA_69g87Ilw_ROI_900_910"
+            ],
+            "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json",
+            "source_sha256": "ed466bfaf122fa26f0305ae6cefa539ba8881017ed7eb492227067e8f875cd20",
+            "certification_status": "NOT_CERTIFIED",
+            "human_review_status": [
+              "ACCEPT_GPT_OBSERVATION",
+              "ACCEPT_GPT_OBSERVATION"
+            ]
+          }
+        ]
+      },
+      "windows": {
+        "recovered_value": null,
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json",
+        "source_sha256": "ed466bfaf122fa26f0305ae6cefa539ba8881017ed7eb492227067e8f875cd20",
+        "recovery_method": "roi_context_windows_not_item_ab_windows",
+        "confidence": "LOW_UNBOUND",
+        "certification_status": "NOT_ITEM_WINDOWS",
+        "unresolved_reason": "ROI seconds are not approved item-B A/B windows.",
+        "candidates": [
+          {
+            "video_id": "iA_69g87Ilw",
+            "roi_id": "iA_69g87Ilw_ROI_358_368",
+            "roi_seconds": [
+              358,
+              368
+            ],
+            "context_seconds": [
+              350,
+              375
+            ],
+            "role_hypothesis": "earlier fruit-platter display candidate"
+          },
+          {
+            "video_id": "iA_69g87Ilw",
+            "roi_id": "iA_69g87Ilw_ROI_900_910",
+            "roi_seconds": [
+              900,
+              910
+            ],
+            "context_seconds": [
+              890,
+              920
+            ],
+            "role_hypothesis": "later speaking/door-sign — NOT certified farewell-room"
+          }
+        ]
+      },
+      "evidence_media_paths": {
+        "recovered_value": null,
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/EVIDENCE_MANIFEST.json",
+        "source_sha256": "b4a56e86547cf84b8f7f6e7f432634154a77e300aacb2db9ffac637de63235bd",
+        "recovery_method": "local_media_paths_for_candidate_video",
+        "confidence": "MEDIUM_FOR_ROI_MEDIA_ONLY",
+        "certification_status": "ROI_MEDIA_NOT_ITEM_B_EVIDENCE",
+        "unresolved_reason": "ROI media ≠ item-B certified evidence.",
+        "candidates": [
+          {
+            "path": "research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI3_CONTEXT/",
+            "git_committed": false
+          },
+          {
+            "path": "research_audit/lvbench_compositional/track_b/local_media/p3_e1_targeted_evidence/iA_69g87Ilw/ROI4_CONTEXT/",
+            "git_committed": false
+          }
+        ]
+      },
+      "human_scientific_adjudication": {
+        "recovered_value": {
+          "for_item_B_qa": null,
+          "for_related_rois_only": true
+        },
+        "source_path": "research_audit/lvbench_compositional/track_b/family_level_minimal_validation_pilot_v0.1/p3_e1_targeted_evidence/HUMAN_ADJUDICATIONS.json",
+        "source_sha256": "ed466bfaf122fa26f0305ae6cefa539ba8881017ed7eb492227067e8f875cd20",
+        "recovery_method": "human_adjudications_roi_level",
+        "confidence": "HIGH_FOR_ROI_NOT_ITEM",
+        "certification_status": "ROI_NOT_CERTIFIED",
+        "unresolved_reason": "No human adjudication record keyed by item_id/pack_id B.",
+        "candidates": [
+          {
+            "roi_id": "iA_69g87Ilw_ROI_358_368",
+            "review_status": "ACCEPT_GPT_OBSERVATION",
+            "certification_status": "NOT_CERTIFIED"
+          },
+          {
+            "roi_id": "iA_69g87Ilw_ROI_900_910",
+            "review_status": "ACCEPT_GPT_OBSERVATION",
+            "certification_status": "NOT_CERTIFIED"
+          }
+        ]
+      },
+      "program_graph_structure": {
+        "recovered_value": {
+          "present": true,
+          "n_nodes": 4,
+          "n_edges": 3,
+          "status": "CHAT_APPROVED_SIDECAR_NOT_FRAME_CERTIFIED"
+        },
+        "source_path": "research_audit/lvbench_compositional/track_b/normalized_programs_v1/graphs/B.json",
+        "source_sha256": "1ca51d26c75cf6ff0c1c16ecc07cfae15c51a33d1ab6388bf6c5aeaa7082a5f3",
+        "recovery_method": "already_in_dataset",
+        "confidence": "HIGH_STRUCTURE_ONLY",
+        "certification_status": "NOT_FRAME_CERTIFIED_BY_HANDOFF",
+        "unresolved_reason": null,
+        "candidates": []
+      }
+    }
+  },
+  "recovery_rates": {
+    "A": {
+      "primary_fields": [
+        "question",
+        "answer",
+        "video_id",
+        "windows"
+      ],
+      "n_recovered": 0,
+      "n_total": 4,
+      "rate": 0.0
+    },
+    "B": {
+      "primary_fields": [
+        "question",
+        "answer",
+        "video_id",
+        "windows"
+      ],
+      "n_recovered": 0,
+      "n_total": 4,
+      "rate": 0.0
+    }
+  },
+  "dataset_action": {
+    "A_record_completeness": "GRAPH_ONLY_RETAINED",
+    "B_record_completeness": "GRAPH_ONLY_RETAINED",
+    "formal_gold": false,
+    "reason": "Primary QA fields remain unresolved; no silent promotion."
+  },
+  "handoff_sha256": "c2b5aa2ae864dcefd1d71fd23cf6176de680a24b3ed463ba853b930bd5c345ed"
+}
