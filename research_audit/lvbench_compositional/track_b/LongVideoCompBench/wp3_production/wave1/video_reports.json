@@ -1,0 +1,737 @@
+[
+  {
+    "video_id": "USfvmoalqsw",
+    "wave": "wave1",
+    "genre_guess": "vlog",
+    "reason": "travel vlog; many temporally separated clusters",
+    "duration_s": 6989.485,
+    "checksum_partial_sha256": "1e5d8b20e73ba28410097a88f070bc3118ba2d91ddfaaeeba94b483c6173870c",
+    "media_path": "/home/descfly/lpy/dataset/LVBench/videos/USfvmoalqsw.mp4",
+    "not_sealed_final": true,
+    "split_assignment": "DEV_CONSTRUCTION",
+    "pairs": [
+      {
+        "pair_id": "USfvmoalqsw_PAIR1",
+        "early": {
+          "roi_id": "USfvmoalqsw_PAIR1_EARLY_170_180",
+          "t_start": 165.0,
+          "t_end": 175.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_EARLY_170_180",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "USfvmoalqsw_PAIR1_LATE_5585_5595",
+          "t_start": 5580.0,
+          "t_end": 5590.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_LATE_5585_5595",
+          "n_frames": 12
+        }
+      },
+      {
+        "pair_id": "USfvmoalqsw_PAIR2",
+        "early": {
+          "roi_id": "USfvmoalqsw_PAIR2_EARLY_2360_2370",
+          "t_start": 2355.0,
+          "t_end": 2365.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_EARLY_2360_2370",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "USfvmoalqsw_PAIR2_LATE_4625_4635",
+          "t_start": 4620.0,
+          "t_end": 4630.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_LATE_4625_4635",
+          "n_frames": 12
+        }
+      }
+    ],
+    "github_visible_assets": [
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_EARLY_170_180/mf_00_t165.0.jpg",
+        "sha256": "33630b7651f036b3cfe13cdb1ec2173264ad689c64816bbba6ad743656534ca1",
+        "bytes": 170971,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_EARLY_170_180/mf_00_t165.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_EARLY_170_180/mf_04_t168.6.jpg",
+        "sha256": "13876dc66bd71b36ab8ab960dab7539c04faa8506a3bafc975788cdaeb52376d",
+        "bytes": 92711,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_EARLY_170_180/mf_04_t168.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_EARLY_170_180/mf_08_t172.3.jpg",
+        "sha256": "f764571a23e87731fa288db2cc41969b5d335fe0bbbdacd39a2316a96470e9cb",
+        "bytes": 95991,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_EARLY_170_180/mf_08_t172.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_EARLY_170_180/mf_11_t175.0.jpg",
+        "sha256": "981aa273df1358435244f47d397d36de956e6fdca4a142639357b64fcd34aaa1",
+        "bytes": 62861,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_EARLY_170_180/mf_11_t175.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_LATE_5585_5595/mf_00_t5580.0.jpg",
+        "sha256": "000ecacb5907e539c46e1e243e965c01c487533f7b106af15ad08767d570c9d7",
+        "bytes": 135814,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_LATE_5585_5595/mf_00_t5580.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_LATE_5585_5595/mf_04_t5583.6.jpg",
+        "sha256": "425dc4202652f96cd8fe35115c0dd41fbef5ba4a75d02309bce6d2044153f2a5",
+        "bytes": 84253,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_LATE_5585_5595/mf_04_t5583.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_LATE_5585_5595/mf_08_t5587.3.jpg",
+        "sha256": "d5989ab298d720f93778da81ba523e324d17bb45bb191dae48011346b0cc5822",
+        "bytes": 82317,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_LATE_5585_5595/mf_08_t5587.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_LATE_5585_5595/mf_11_t5590.0.jpg",
+        "sha256": "5fc59d9ee38b09803671547bc3290537019e06974938e91c8bb6cf75b9425410",
+        "bytes": 79614,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR1_LATE_5585_5595/mf_11_t5590.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_EARLY_2360_2370/mf_00_t2355.0.jpg",
+        "sha256": "deaae6f7e4f74f7885c65a9bb4994871fb1aa0094fd3ac1a6b07b07f743b17f6",
+        "bytes": 148331,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_EARLY_2360_2370/mf_00_t2355.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_EARLY_2360_2370/mf_04_t2358.6.jpg",
+        "sha256": "86b9acdcdc4bdb5a7af607b1c72caf2edceba922540478e4ad853900e887bf37",
+        "bytes": 163424,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_EARLY_2360_2370/mf_04_t2358.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_EARLY_2360_2370/mf_08_t2362.3.jpg",
+        "sha256": "c844a326d9589fd9ec6bc222f555e102d24a2775d8338f7da6f06ba592cdd9b3",
+        "bytes": 139103,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_EARLY_2360_2370/mf_08_t2362.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_EARLY_2360_2370/mf_11_t2365.0.jpg",
+        "sha256": "022d769f1948bf0ff3486b7a1e4dcdf77bd1f183614b794b6c4c1bdecf334241",
+        "bytes": 153959,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_EARLY_2360_2370/mf_11_t2365.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_LATE_4625_4635/mf_00_t4620.0.jpg",
+        "sha256": "3dc9f1764db82a8f0bb4e6c7a2809b47549d72820dcc996c319176e83ff80acf",
+        "bytes": 232491,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_LATE_4625_4635/mf_00_t4620.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_LATE_4625_4635/mf_04_t4623.6.jpg",
+        "sha256": "78c707c1fbea84bc4f1bcb1d2e5c4a373ef5029a0bd51d13741c42d93322a52e",
+        "bytes": 222015,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_LATE_4625_4635/mf_04_t4623.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_LATE_4625_4635/mf_08_t4627.3.jpg",
+        "sha256": "d1850d8bbd22f76f1cdd206d3141a2ed1a34d4c145495b2a3ac42c85719a2426",
+        "bytes": 184459,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_LATE_4625_4635/mf_08_t4627.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_LATE_4625_4635/mf_11_t4630.0.jpg",
+        "sha256": "e9d088e5440fb7d52b539ed8db5011002049a4123be473ac551d7eca2eb484ac",
+        "bytes": 193387,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/USfvmoalqsw/review_frames/USfvmoalqsw_PAIR2_LATE_4625_4635/mf_11_t4630.0.jpg"
+      }
+    ],
+    "semantic_status": "UNRESOLVED",
+    "formal_gold": false
+  },
+  {
+    "video_id": "16Z-XQh9jhk",
+    "wave": "wave1",
+    "genre_guess": "sports",
+    "reason": "sports broadcast; multi-event timeline",
+    "duration_s": 5023.777,
+    "checksum_partial_sha256": "48a670a74f0538e4a2435ed13ce747565aff1990a245d1438bcfb95a44adfc3a",
+    "media_path": "/home/descfly/lpy/dataset/LVBench/videos/16Z-XQh9jhk.mp4",
+    "not_sealed_final": true,
+    "split_assignment": "DEV_CONSTRUCTION",
+    "pairs": [
+      {
+        "pair_id": "16Z-XQh9jhk_PAIR1",
+        "early": {
+          "roi_id": "16Z-XQh9jhk_PAIR1_EARLY_1070_1080",
+          "t_start": 1065.0,
+          "t_end": 1075.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_EARLY_1070_1080",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "16Z-XQh9jhk_PAIR1_LATE_2765_2775",
+          "t_start": 2760.0,
+          "t_end": 2770.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_LATE_2765_2775",
+          "n_frames": 12
+        }
+      },
+      {
+        "pair_id": "16Z-XQh9jhk_PAIR2",
+        "early": {
+          "roi_id": "16Z-XQh9jhk_PAIR2_EARLY_1505_1515",
+          "t_start": 1500.0,
+          "t_end": 1510.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_EARLY_1505_1515",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "16Z-XQh9jhk_PAIR2_LATE_4895_4905",
+          "t_start": 4890.0,
+          "t_end": 4900.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_LATE_4895_4905",
+          "n_frames": 12
+        }
+      }
+    ],
+    "github_visible_assets": [
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_EARLY_1070_1080/mf_00_t1065.0.jpg",
+        "sha256": "cf7b6ed134969e760d5c8219332f9e3021994ee949218568b02bff9f590ee4c2",
+        "bytes": 73008,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_EARLY_1070_1080/mf_00_t1065.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_EARLY_1070_1080/mf_04_t1068.6.jpg",
+        "sha256": "211fad73ba164a3dace17ed44ee088d8947e84160486bb590482440bb20c272b",
+        "bytes": 62774,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_EARLY_1070_1080/mf_04_t1068.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_EARLY_1070_1080/mf_08_t1072.3.jpg",
+        "sha256": "c9163e944fd9f8fcefc0d3138c12dc96c0cb1ab254757282140e2ea85d195bba",
+        "bytes": 69914,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_EARLY_1070_1080/mf_08_t1072.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_EARLY_1070_1080/mf_11_t1075.0.jpg",
+        "sha256": "f2d7e862e2bdec8c124958df62951ad4272ac5e620668c9635404af57663e69a",
+        "bytes": 67497,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_EARLY_1070_1080/mf_11_t1075.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_LATE_2765_2775/mf_00_t2760.0.jpg",
+        "sha256": "78719e216902f5b91fc29f6d7d92a72214dc3877298a009b7d0f8050ce4b89ef",
+        "bytes": 28781,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_LATE_2765_2775/mf_00_t2760.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_LATE_2765_2775/mf_04_t2763.6.jpg",
+        "sha256": "a8e3b1afb5b8802219f1599d44b2e4984e488b851d9301f7c39d2b007caaa2c6",
+        "bytes": 100165,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_LATE_2765_2775/mf_04_t2763.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_LATE_2765_2775/mf_08_t2767.3.jpg",
+        "sha256": "7ad84f559d1aac72d4ecd816a44a26e188d9fbb7bee4d96a536e7aff1e9eea90",
+        "bytes": 94090,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_LATE_2765_2775/mf_08_t2767.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_LATE_2765_2775/mf_11_t2770.0.jpg",
+        "sha256": "541820320b9351902def24a9b5928fa0403359121c58afef4e7cd0210185de06",
+        "bytes": 69991,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR1_LATE_2765_2775/mf_11_t2770.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_EARLY_1505_1515/mf_00_t1500.0.jpg",
+        "sha256": "e2d0bd18a9f95afcecb36ad8499ae54e0187811b74e30eecd0b524d7df3847f9",
+        "bytes": 87463,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_EARLY_1505_1515/mf_00_t1500.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_EARLY_1505_1515/mf_04_t1503.6.jpg",
+        "sha256": "ea58b9644c033ee91a08e98ffc96e33e4eef27d6bd16dfd606eff965aca67c45",
+        "bytes": 34404,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_EARLY_1505_1515/mf_04_t1503.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_EARLY_1505_1515/mf_08_t1507.3.jpg",
+        "sha256": "a5cc8b4cbce4afeeab2d2e7bf6c89e8be92fe292461015cdaedda4d7a2809650",
+        "bytes": 34747,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_EARLY_1505_1515/mf_08_t1507.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_EARLY_1505_1515/mf_11_t1510.0.jpg",
+        "sha256": "6f1896e0a8401da491adcb4b028a7511ff1b3a76041b922b0c6dd544a815f11a",
+        "bytes": 95223,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_EARLY_1505_1515/mf_11_t1510.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_LATE_4895_4905/mf_00_t4890.0.jpg",
+        "sha256": "1bb7409fbebdd8ce51c53054729eca738b6856fba2cc6d4b596b57eecd38b7a8",
+        "bytes": 19239,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_LATE_4895_4905/mf_00_t4890.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_LATE_4895_4905/mf_04_t4893.6.jpg",
+        "sha256": "2fd344ad0ccdab17b6a8886d51cdf793cebf818afec4e59247245bbe05fc89dc",
+        "bytes": 48070,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_LATE_4895_4905/mf_04_t4893.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_LATE_4895_4905/mf_08_t4897.3.jpg",
+        "sha256": "b4428830d0f9ad95492767e06b2695fec5403d550ef7f5ed83a4d18e45215765",
+        "bytes": 85384,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_LATE_4895_4905/mf_08_t4897.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_LATE_4895_4905/mf_11_t4900.0.jpg",
+        "sha256": "921241b6d60307a9ccd86dc7975aafd6eb7c62278d2f4ac44c2dd478f861816d",
+        "bytes": 94124,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/16Z-XQh9jhk/review_frames/16Z-XQh9jhk_PAIR2_LATE_4895_4905/mf_11_t4900.0.jpg"
+      }
+    ],
+    "semantic_status": "UNRESOLVED",
+    "formal_gold": false
+  },
+  {
+    "video_id": "CgvJqGxzRfE",
+    "wave": "wave1",
+    "genre_guess": "documentary",
+    "reason": "documentary-style; long gaps between clusters",
+    "duration_s": 4557.961,
+    "checksum_partial_sha256": "e81c427a5fc81eeca7445255938690ac2307dcc7b503051e2ca37248fe45c0a8",
+    "media_path": "/home/descfly/lpy/dataset/LVBench/videos/CgvJqGxzRfE.mp4",
+    "not_sealed_final": true,
+    "split_assignment": "DEV_CONSTRUCTION",
+    "pairs": [
+      {
+        "pair_id": "CgvJqGxzRfE_PAIR1",
+        "early": {
+          "roi_id": "CgvJqGxzRfE_PAIR1_EARLY_455_465",
+          "t_start": 450.0,
+          "t_end": 460.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_EARLY_455_465",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "CgvJqGxzRfE_PAIR1_LATE_4385_4395",
+          "t_start": 4380.0,
+          "t_end": 4390.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_LATE_4385_4395",
+          "n_frames": 12
+        }
+      },
+      {
+        "pair_id": "CgvJqGxzRfE_PAIR2",
+        "early": {
+          "roi_id": "CgvJqGxzRfE_PAIR2_EARLY_1190_1200",
+          "t_start": 1185.0,
+          "t_end": 1195.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_EARLY_1190_1200",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "CgvJqGxzRfE_PAIR2_LATE_3755_3765",
+          "t_start": 3750.0,
+          "t_end": 3760.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_LATE_3755_3765",
+          "n_frames": 12
+        }
+      }
+    ],
+    "github_visible_assets": [
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_EARLY_455_465/mf_00_t450.0.jpg",
+        "sha256": "a06a130b43b63380ff2f6a3c67d2ee4d76e035d0d19ec388bafd8da01f2f7f15",
+        "bytes": 125579,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_EARLY_455_465/mf_00_t450.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_EARLY_455_465/mf_04_t453.6.jpg",
+        "sha256": "620ef13a261fa7f59b641b01ee595b8d320070eeb19d224040dca1cd99c5095a",
+        "bytes": 21015,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_EARLY_455_465/mf_04_t453.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_EARLY_455_465/mf_08_t457.3.jpg",
+        "sha256": "da20150e66873d916cedd086eed120cc3c90e9f41630ad5f47c2f2bd8155629a",
+        "bytes": 64791,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_EARLY_455_465/mf_08_t457.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_EARLY_455_465/mf_11_t460.0.jpg",
+        "sha256": "6011603ab4a2797acf7dcb2c34ccba677730202a5bdf3fd6c6d0fd0b8ddcdc2b",
+        "bytes": 70091,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_EARLY_455_465/mf_11_t460.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_LATE_4385_4395/mf_00_t4380.0.jpg",
+        "sha256": "b26e0823a5af2c386298a5ec1415c46f78789ba1fd61e1d8748586b058fad630",
+        "bytes": 117805,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_LATE_4385_4395/mf_00_t4380.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_LATE_4385_4395/mf_04_t4383.6.jpg",
+        "sha256": "56ad54292ef135c68de9e9da62354f639e17d7fd905dde7235a49f424d4e2b68",
+        "bytes": 71088,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_LATE_4385_4395/mf_04_t4383.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_LATE_4385_4395/mf_08_t4387.3.jpg",
+        "sha256": "a6cba906e4f714e9e5e0cf0a1956a81849329e776d4cdf7d3618199ae9288fd6",
+        "bytes": 62468,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_LATE_4385_4395/mf_08_t4387.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_LATE_4385_4395/mf_11_t4390.0.jpg",
+        "sha256": "b6634c3b3a09585999525714676354902cd8911a62c270a23442e3568d029b92",
+        "bytes": 46587,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR1_LATE_4385_4395/mf_11_t4390.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_EARLY_1190_1200/mf_00_t1185.0.jpg",
+        "sha256": "0fa6f4bac0375750cc7993b25d1ea5aab4babe28ad91886592a1148f863f6132",
+        "bytes": 70552,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_EARLY_1190_1200/mf_00_t1185.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_EARLY_1190_1200/mf_04_t1188.6.jpg",
+        "sha256": "d84ae21997099ad12b5f7016c7bd106b856394b5ad13f68e49e39485d3ab0aeb",
+        "bytes": 82989,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_EARLY_1190_1200/mf_04_t1188.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_EARLY_1190_1200/mf_08_t1192.3.jpg",
+        "sha256": "694cac0c3fd563c17c9808d7ccceec3cf8d3a9757bc3fce7955bc49c5f776d65",
+        "bytes": 79432,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_EARLY_1190_1200/mf_08_t1192.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_EARLY_1190_1200/mf_11_t1195.0.jpg",
+        "sha256": "1ccff7a13da0394762a8fd41b2baeab9b0cdb6e3f215fea11be887aacb93a265",
+        "bytes": 39252,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_EARLY_1190_1200/mf_11_t1195.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_LATE_3755_3765/mf_00_t3750.0.jpg",
+        "sha256": "e8ee5be6d92925c71e87cd467a09d16f4e50aa760e446130fa9f57b50ca7eb29",
+        "bytes": 46465,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_LATE_3755_3765/mf_00_t3750.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_LATE_3755_3765/mf_04_t3753.6.jpg",
+        "sha256": "323e7b87774d18b811e91dce9cb14d2e5bfde6fa89a18ab4020fb4349327be49",
+        "bytes": 65849,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_LATE_3755_3765/mf_04_t3753.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_LATE_3755_3765/mf_08_t3757.3.jpg",
+        "sha256": "3142d331c2c8f485ea649e440a97b799a5fddca6cb26302900ec94fefb89b3f2",
+        "bytes": 38473,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_LATE_3755_3765/mf_08_t3757.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_LATE_3755_3765/mf_11_t3760.0.jpg",
+        "sha256": "5df9d22f303c32553f5df72680b306c625800e05afe914b1f0ea4fcf890d2b61",
+        "bytes": 41367,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/CgvJqGxzRfE/review_frames/CgvJqGxzRfE_PAIR2_LATE_3755_3765/mf_11_t3760.0.jpg"
+      }
+    ],
+    "semantic_status": "UNRESOLVED",
+    "formal_gold": false
+  },
+  {
+    "video_id": "KktLi3UifPY",
+    "wave": "wave1",
+    "genre_guess": "interview",
+    "reason": "interview/talk content; multi-segment",
+    "duration_s": 6054.092,
+    "checksum_partial_sha256": "7de120ada82aabf57b0cf7c40c6a1394218a082367d1ebb9141281c38f6eeae1",
+    "media_path": "/home/descfly/lpy/dataset/LVBench/videos/KktLi3UifPY.mp4",
+    "not_sealed_final": true,
+    "split_assignment": "DEV_CONSTRUCTION",
+    "pairs": [
+      {
+        "pair_id": "KktLi3UifPY_PAIR1",
+        "early": {
+          "roi_id": "KktLi3UifPY_PAIR1_EARLY_1430_1440",
+          "t_start": 1425.0,
+          "t_end": 1435.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_EARLY_1430_1440",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "KktLi3UifPY_PAIR1_LATE_5660_5670",
+          "t_start": 5655.0,
+          "t_end": 5665.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_LATE_5660_5670",
+          "n_frames": 12
+        }
+      },
+      {
+        "pair_id": "KktLi3UifPY_PAIR2",
+        "early": {
+          "roi_id": "KktLi3UifPY_PAIR2_EARLY_2270_2280",
+          "t_start": 2265.0,
+          "t_end": 2275.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_EARLY_2270_2280",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "KktLi3UifPY_PAIR2_LATE_4610_4620",
+          "t_start": 4605.0,
+          "t_end": 4615.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_LATE_4610_4620",
+          "n_frames": 12
+        }
+      }
+    ],
+    "github_visible_assets": [
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_EARLY_1430_1440/mf_00_t1425.0.jpg",
+        "sha256": "1f7b3273d7e7f638a0e61918080f5e8b1b7d39cfe4339256b910b8f0d452d4b6",
+        "bytes": 19905,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_EARLY_1430_1440/mf_00_t1425.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_EARLY_1430_1440/mf_04_t1428.6.jpg",
+        "sha256": "3fcd9c27fe789306710f139b451d482d3e9878f9bbdf56329db14d19c9edac97",
+        "bytes": 17417,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_EARLY_1430_1440/mf_04_t1428.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_EARLY_1430_1440/mf_08_t1432.3.jpg",
+        "sha256": "f6d04d8b86051c7ecd125e1b060b43c4088a76c68d833c0f4a3176b0961caf9a",
+        "bytes": 19816,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_EARLY_1430_1440/mf_08_t1432.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_EARLY_1430_1440/mf_11_t1435.0.jpg",
+        "sha256": "313ceb91a9aace50e84c1cc935cf24508a9628d10c96a4324d4516caf83aceb1",
+        "bytes": 30539,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_EARLY_1430_1440/mf_11_t1435.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_LATE_5660_5670/mf_00_t5655.0.jpg",
+        "sha256": "9a93d3043a9dd6634ac470f9bc32daf569db9c9e33d9d67cb618d287fdebc4f3",
+        "bytes": 91052,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_LATE_5660_5670/mf_00_t5655.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_LATE_5660_5670/mf_04_t5658.6.jpg",
+        "sha256": "1ef7ae20ac5674d7e8bd11a4729a5af5226ea733edc31078a0b4646d6deef6d2",
+        "bytes": 89341,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_LATE_5660_5670/mf_04_t5658.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_LATE_5660_5670/mf_08_t5662.3.jpg",
+        "sha256": "7c12f3b80f959c218475e5c4cd942dda01bc77294543935b73a165b45e5661d2",
+        "bytes": 103484,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_LATE_5660_5670/mf_08_t5662.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_LATE_5660_5670/mf_11_t5665.0.jpg",
+        "sha256": "85f318082a38c0af5307fc988e8668f7a1d6e0e57b35ea61a2da418c17e841a4",
+        "bytes": 95781,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR1_LATE_5660_5670/mf_11_t5665.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_EARLY_2270_2280/mf_00_t2265.0.jpg",
+        "sha256": "607937862decec43701464dda4b9414b0fff83b6d2d5703a0b8f72502be3c327",
+        "bytes": 108090,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_EARLY_2270_2280/mf_00_t2265.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_EARLY_2270_2280/mf_04_t2268.6.jpg",
+        "sha256": "e6883f324669bd4ab683fa28cd85a15e88e7735de179554837d74d8e4ae302db",
+        "bytes": 142356,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_EARLY_2270_2280/mf_04_t2268.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_EARLY_2270_2280/mf_08_t2272.3.jpg",
+        "sha256": "8ab40a2e9c99b837cb4c4895e934116c4d979f58884ab57beaeb1888f70ddb39",
+        "bytes": 64498,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_EARLY_2270_2280/mf_08_t2272.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_EARLY_2270_2280/mf_11_t2275.0.jpg",
+        "sha256": "4ab63b37fa5ff663152f40226b8503cbdbbcbe63a3d4646df3b9351856362365",
+        "bytes": 102425,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_EARLY_2270_2280/mf_11_t2275.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_LATE_4610_4620/mf_00_t4605.0.jpg",
+        "sha256": "4bfa420232f3c6ccfe16dfcce3569baed59151561595c953a52036efb06fe270",
+        "bytes": 169771,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_LATE_4610_4620/mf_00_t4605.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_LATE_4610_4620/mf_04_t4608.6.jpg",
+        "sha256": "0c2424bd18b75dfadebec0a7c623400c407229223568685f91adcff81e3d6f82",
+        "bytes": 128595,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_LATE_4610_4620/mf_04_t4608.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_LATE_4610_4620/mf_08_t4612.3.jpg",
+        "sha256": "190d75323277e2c4aeeeb47ab2ce172663c91313bf2a744b292fe91705f5495c",
+        "bytes": 75908,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_LATE_4610_4620/mf_08_t4612.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_LATE_4610_4620/mf_11_t4615.0.jpg",
+        "sha256": "43e4ded4b47f93a9f8ce8b3cec74a9a4abdfb723a36d045fc29e22efdb5fbbe4",
+        "bytes": 69584,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/KktLi3UifPY/review_frames/KktLi3UifPY_PAIR2_LATE_4610_4620/mf_11_t4615.0.jpg"
+      }
+    ],
+    "semantic_status": "UNRESOLVED",
+    "formal_gold": false
+  },
+  {
+    "video_id": "gXnhqF0TqqI",
+    "wave": "wave1",
+    "genre_guess": "animation",
+    "reason": "animation cues in meta; unused DEV construction",
+    "duration_s": 4393.587,
+    "checksum_partial_sha256": "cf4b96f5443188fd97e55ccc9639b74c21f4ab5d9a621b3e197cea19a5108eb2",
+    "media_path": "/home/descfly/lpy/dataset/LVBench/videos/gXnhqF0TqqI.mp4",
+    "not_sealed_final": true,
+    "split_assignment": "DEV_CONSTRUCTION",
+    "pairs": [
+      {
+        "pair_id": "gXnhqF0TqqI_PAIR1",
+        "early": {
+          "roi_id": "gXnhqF0TqqI_PAIR1_EARLY_2750_2760",
+          "t_start": 2745.0,
+          "t_end": 2755.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_EARLY_2750_2760",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "gXnhqF0TqqI_PAIR1_LATE_4010_4020",
+          "t_start": 4005.0,
+          "t_end": 4015.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_LATE_4010_4020",
+          "n_frames": 12
+        }
+      },
+      {
+        "pair_id": "gXnhqF0TqqI_PAIR2",
+        "early": {
+          "roi_id": "gXnhqF0TqqI_PAIR2_EARLY_1760_1770",
+          "t_start": 1755.0,
+          "t_end": 1765.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_EARLY_1760_1770",
+          "n_frames": 12
+        },
+        "late": {
+          "roi_id": "gXnhqF0TqqI_PAIR2_LATE_3410_3420",
+          "t_start": 3405.0,
+          "t_end": 3415.0,
+          "review_frames_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_LATE_3410_3420",
+          "n_frames": 12
+        }
+      }
+    ],
+    "github_visible_assets": [
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_EARLY_2750_2760/mf_00_t2745.0.jpg",
+        "sha256": "52d0024811d687ff264668c417ce0baf1b7b1a11f1be55a9895e2f2a8e6bea35",
+        "bytes": 14893,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_EARLY_2750_2760/mf_00_t2745.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_EARLY_2750_2760/mf_04_t2748.6.jpg",
+        "sha256": "5a0616a5ff6c48b7d5bb3b3aff933e1eb6d457e60da1a6b675d21140c5e90182",
+        "bytes": 14868,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_EARLY_2750_2760/mf_04_t2748.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_EARLY_2750_2760/mf_08_t2752.3.jpg",
+        "sha256": "683a76533f835ee78a52860d58ee3704311605ce91767615f24b596ec811808b",
+        "bytes": 15603,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_EARLY_2750_2760/mf_08_t2752.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_EARLY_2750_2760/mf_11_t2755.0.jpg",
+        "sha256": "959f3c0dae9979127e9bf78f6059e285f7e5c5e88891d21e2db842bc535bba41",
+        "bytes": 14570,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_EARLY_2750_2760/mf_11_t2755.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_LATE_4010_4020/mf_00_t4005.0.jpg",
+        "sha256": "906c245d853824d11caee25bdfa3ae22a5e90f8bf5f8664b720b03bc2c87bd4d",
+        "bytes": 21934,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_LATE_4010_4020/mf_00_t4005.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_LATE_4010_4020/mf_04_t4008.6.jpg",
+        "sha256": "71c11e8cf196e36a626cb8cd59b15be9282cf3761de91e8509b8f5bfc97a399e",
+        "bytes": 26303,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_LATE_4010_4020/mf_04_t4008.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_LATE_4010_4020/mf_08_t4012.3.jpg",
+        "sha256": "e1a2c0bd0b6f80bc9e125043047d6819802ef2c97a5845716693c825ba251e05",
+        "bytes": 19507,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_LATE_4010_4020/mf_08_t4012.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_LATE_4010_4020/mf_11_t4015.0.jpg",
+        "sha256": "d9313e63ac62b9469b343fceec0a09f66e8c67db29b94e969dcefc5bf03f0b25",
+        "bytes": 25667,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR1_LATE_4010_4020/mf_11_t4015.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_EARLY_1760_1770/mf_00_t1755.0.jpg",
+        "sha256": "da57254e9771d867e0372297ae764c9c40888fade1da6c90661f52a9b9f93b9f",
+        "bytes": 31006,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_EARLY_1760_1770/mf_00_t1755.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_EARLY_1760_1770/mf_04_t1758.6.jpg",
+        "sha256": "f65b32518ce7107c2bbf5cc2b47a255de5badc5ea266df1e71dd5ffc1f0b6130",
+        "bytes": 30925,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_EARLY_1760_1770/mf_04_t1758.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_EARLY_1760_1770/mf_08_t1762.3.jpg",
+        "sha256": "5ba95bb1e09cbb0024088e1e54f34d54c7aee08dac5c09343a3b695c7ecaf4dc",
+        "bytes": 18063,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_EARLY_1760_1770/mf_08_t1762.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_EARLY_1760_1770/mf_11_t1765.0.jpg",
+        "sha256": "d36119d44ba140a0614196e29758adaedf67f94ae112238b860a498a1b57e7de",
+        "bytes": 26692,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_EARLY_1760_1770/mf_11_t1765.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_LATE_3410_3420/mf_00_t3405.0.jpg",
+        "sha256": "d8712d72fba7bc54be927eaf0f0590eb4eaf8444c0ded8a904cd4b9e7b69a9ec",
+        "bytes": 15369,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_LATE_3410_3420/mf_00_t3405.0.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_LATE_3410_3420/mf_04_t3408.6.jpg",
+        "sha256": "595994d4be00173c30a4b033b41237bd197e817b9ac31e7d073418dcb6832206",
+        "bytes": 13281,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_LATE_3410_3420/mf_04_t3408.6.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_LATE_3410_3420/mf_08_t3412.3.jpg",
+        "sha256": "c869e728a7e9536c0178045b4e8b24570edc93314ef739a3b952b7ed86137cf8",
+        "bytes": 23667,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_LATE_3410_3420/mf_08_t3412.3.jpg"
+      },
+      {
+        "github_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_LATE_3410_3420/mf_11_t3415.0.jpg",
+        "sha256": "a08419fc1cb8adf29e7f87b3b372ec491210c90bb26328e3bc9e62451092b1af",
+        "bytes": 28754,
+        "source_local": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/videos/gXnhqF0TqqI/review_frames/gXnhqF0TqqI_PAIR2_LATE_3410_3420/mf_11_t3415.0.jpg"
+      }
+    ],
+    "semantic_status": "UNRESOLVED",
+    "formal_gold": false
+  }
+]

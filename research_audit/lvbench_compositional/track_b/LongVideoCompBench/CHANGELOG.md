@@ -1,3 +1,11 @@
+## WP3 — Wave1/Wave2 scaled evidence production (no new immutable release)
+
+- Registered 10 new `DEV_CONSTRUCTION` videos (not sealed final).
+- Produced bounded multi-ROI evidence packs + Human/GPT review packets.
+- Staging QA stubs remain `DRAFT` / `UNRESOLVED`; 0 FACT_VERIFIED / 0 Formal Gold.
+- `run_004` remains `BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE`.
+- Left `releases/v0.1.0`–`v0.1.2` immutable; 5+2 frozen / 7+4 PROPOSED unchanged.
+
 ## v0.1.2 — WP2.2 A/B human adjudication ingest
 
 - Human Scientific Owner confirmed A↔`hROKtPqktO8` same-person bind and B↔`iA_69g87Ilw` same-room bind.

@@ -1,0 +1,1728 @@
+{
+  "batch_id": "wp3_wave1_wave2_draft_2026-11-05",
+  "status": "STAGING_ONLY_NOT_IMPORTED",
+  "formal_gold": false,
+  "items": [
+    {
+      "source_item_id": "USfvmoalqsw_PAIR1",
+      "video_id": "USfvmoalqsw",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          165.0,
+          175.0
+        ],
+        [
+          5580.0,
+          5590.0
+        ]
+      ],
+      "evidence_refs": [
+        "USfvmoalqsw_PAIR1_EARLY_170_180",
+        "USfvmoalqsw_PAIR1_LATE_5585_5595"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:USfvmoalqsw_PAIR1",
+        "pair_id": "USfvmoalqsw_PAIR1",
+        "video_id": "USfvmoalqsw",
+        "windows_seconds": [
+          [
+            165.0,
+            175.0
+          ],
+          [
+            5580.0,
+            5590.0
+          ]
+        ],
+        "roi_ids": [
+          "USfvmoalqsw_PAIR1_EARLY_170_180",
+          "USfvmoalqsw_PAIR1_LATE_5585_5595"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "USfvmoalqsw_PAIR2",
+      "video_id": "USfvmoalqsw",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          2355.0,
+          2365.0
+        ],
+        [
+          4620.0,
+          4630.0
+        ]
+      ],
+      "evidence_refs": [
+        "USfvmoalqsw_PAIR2_EARLY_2360_2370",
+        "USfvmoalqsw_PAIR2_LATE_4625_4635"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:USfvmoalqsw_PAIR2",
+        "pair_id": "USfvmoalqsw_PAIR2",
+        "video_id": "USfvmoalqsw",
+        "windows_seconds": [
+          [
+            2355.0,
+            2365.0
+          ],
+          [
+            4620.0,
+            4630.0
+          ]
+        ],
+        "roi_ids": [
+          "USfvmoalqsw_PAIR2_EARLY_2360_2370",
+          "USfvmoalqsw_PAIR2_LATE_4625_4635"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "16Z-XQh9jhk_PAIR1",
+      "video_id": "16Z-XQh9jhk",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          1065.0,
+          1075.0
+        ],
+        [
+          2760.0,
+          2770.0
+        ]
+      ],
+      "evidence_refs": [
+        "16Z-XQh9jhk_PAIR1_EARLY_1070_1080",
+        "16Z-XQh9jhk_PAIR1_LATE_2765_2775"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:16Z-XQh9jhk_PAIR1",
+        "pair_id": "16Z-XQh9jhk_PAIR1",
+        "video_id": "16Z-XQh9jhk",
+        "windows_seconds": [
+          [
+            1065.0,
+            1075.0
+          ],
+          [
+            2760.0,
+            2770.0
+          ]
+        ],
+        "roi_ids": [
+          "16Z-XQh9jhk_PAIR1_EARLY_1070_1080",
+          "16Z-XQh9jhk_PAIR1_LATE_2765_2775"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "16Z-XQh9jhk_PAIR2",
+      "video_id": "16Z-XQh9jhk",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          1500.0,
+          1510.0
+        ],
+        [
+          4890.0,
+          4900.0
+        ]
+      ],
+      "evidence_refs": [
+        "16Z-XQh9jhk_PAIR2_EARLY_1505_1515",
+        "16Z-XQh9jhk_PAIR2_LATE_4895_4905"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:16Z-XQh9jhk_PAIR2",
+        "pair_id": "16Z-XQh9jhk_PAIR2",
+        "video_id": "16Z-XQh9jhk",
+        "windows_seconds": [
+          [
+            1500.0,
+            1510.0
+          ],
+          [
+            4890.0,
+            4900.0
+          ]
+        ],
+        "roi_ids": [
+          "16Z-XQh9jhk_PAIR2_EARLY_1505_1515",
+          "16Z-XQh9jhk_PAIR2_LATE_4895_4905"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "CgvJqGxzRfE_PAIR1",
+      "video_id": "CgvJqGxzRfE",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          450.0,
+          460.0
+        ],
+        [
+          4380.0,
+          4390.0
+        ]
+      ],
+      "evidence_refs": [
+        "CgvJqGxzRfE_PAIR1_EARLY_455_465",
+        "CgvJqGxzRfE_PAIR1_LATE_4385_4395"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:CgvJqGxzRfE_PAIR1",
+        "pair_id": "CgvJqGxzRfE_PAIR1",
+        "video_id": "CgvJqGxzRfE",
+        "windows_seconds": [
+          [
+            450.0,
+            460.0
+          ],
+          [
+            4380.0,
+            4390.0
+          ]
+        ],
+        "roi_ids": [
+          "CgvJqGxzRfE_PAIR1_EARLY_455_465",
+          "CgvJqGxzRfE_PAIR1_LATE_4385_4395"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "CgvJqGxzRfE_PAIR2",
+      "video_id": "CgvJqGxzRfE",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          1185.0,
+          1195.0
+        ],
+        [
+          3750.0,
+          3760.0
+        ]
+      ],
+      "evidence_refs": [
+        "CgvJqGxzRfE_PAIR2_EARLY_1190_1200",
+        "CgvJqGxzRfE_PAIR2_LATE_3755_3765"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:CgvJqGxzRfE_PAIR2",
+        "pair_id": "CgvJqGxzRfE_PAIR2",
+        "video_id": "CgvJqGxzRfE",
+        "windows_seconds": [
+          [
+            1185.0,
+            1195.0
+          ],
+          [
+            3750.0,
+            3760.0
+          ]
+        ],
+        "roi_ids": [
+          "CgvJqGxzRfE_PAIR2_EARLY_1190_1200",
+          "CgvJqGxzRfE_PAIR2_LATE_3755_3765"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "KktLi3UifPY_PAIR1",
+      "video_id": "KktLi3UifPY",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          1425.0,
+          1435.0
+        ],
+        [
+          5655.0,
+          5665.0
+        ]
+      ],
+      "evidence_refs": [
+        "KktLi3UifPY_PAIR1_EARLY_1430_1440",
+        "KktLi3UifPY_PAIR1_LATE_5660_5670"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:KktLi3UifPY_PAIR1",
+        "pair_id": "KktLi3UifPY_PAIR1",
+        "video_id": "KktLi3UifPY",
+        "windows_seconds": [
+          [
+            1425.0,
+            1435.0
+          ],
+          [
+            5655.0,
+            5665.0
+          ]
+        ],
+        "roi_ids": [
+          "KktLi3UifPY_PAIR1_EARLY_1430_1440",
+          "KktLi3UifPY_PAIR1_LATE_5660_5670"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "KktLi3UifPY_PAIR2",
+      "video_id": "KktLi3UifPY",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          2265.0,
+          2275.0
+        ],
+        [
+          4605.0,
+          4615.0
+        ]
+      ],
+      "evidence_refs": [
+        "KktLi3UifPY_PAIR2_EARLY_2270_2280",
+        "KktLi3UifPY_PAIR2_LATE_4610_4620"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:KktLi3UifPY_PAIR2",
+        "pair_id": "KktLi3UifPY_PAIR2",
+        "video_id": "KktLi3UifPY",
+        "windows_seconds": [
+          [
+            2265.0,
+            2275.0
+          ],
+          [
+            4605.0,
+            4615.0
+          ]
+        ],
+        "roi_ids": [
+          "KktLi3UifPY_PAIR2_EARLY_2270_2280",
+          "KktLi3UifPY_PAIR2_LATE_4610_4620"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "gXnhqF0TqqI_PAIR1",
+      "video_id": "gXnhqF0TqqI",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          2745.0,
+          2755.0
+        ],
+        [
+          4005.0,
+          4015.0
+        ]
+      ],
+      "evidence_refs": [
+        "gXnhqF0TqqI_PAIR1_EARLY_2750_2760",
+        "gXnhqF0TqqI_PAIR1_LATE_4010_4020"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:gXnhqF0TqqI_PAIR1",
+        "pair_id": "gXnhqF0TqqI_PAIR1",
+        "video_id": "gXnhqF0TqqI",
+        "windows_seconds": [
+          [
+            2745.0,
+            2755.0
+          ],
+          [
+            4005.0,
+            4015.0
+          ]
+        ],
+        "roi_ids": [
+          "gXnhqF0TqqI_PAIR1_EARLY_2750_2760",
+          "gXnhqF0TqqI_PAIR1_LATE_4010_4020"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "gXnhqF0TqqI_PAIR2",
+      "video_id": "gXnhqF0TqqI",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          1755.0,
+          1765.0
+        ],
+        [
+          3405.0,
+          3415.0
+        ]
+      ],
+      "evidence_refs": [
+        "gXnhqF0TqqI_PAIR2_EARLY_1760_1770",
+        "gXnhqF0TqqI_PAIR2_LATE_3410_3420"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:gXnhqF0TqqI_PAIR2",
+        "pair_id": "gXnhqF0TqqI_PAIR2",
+        "video_id": "gXnhqF0TqqI",
+        "windows_seconds": [
+          [
+            1755.0,
+            1765.0
+          ],
+          [
+            3405.0,
+            3415.0
+          ]
+        ],
+        "roi_ids": [
+          "gXnhqF0TqqI_PAIR2_EARLY_1760_1770",
+          "gXnhqF0TqqI_PAIR2_LATE_3410_3420"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "xECIRjlxM3U_PAIR1",
+      "video_id": "xECIRjlxM3U",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          3960.0,
+          3970.0
+        ],
+        [
+          6690.0,
+          6700.0
+        ]
+      ],
+      "evidence_refs": [
+        "xECIRjlxM3U_PAIR1_EARLY_3965_3975",
+        "xECIRjlxM3U_PAIR1_LATE_6695_6705"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:xECIRjlxM3U_PAIR1",
+        "pair_id": "xECIRjlxM3U_PAIR1",
+        "video_id": "xECIRjlxM3U",
+        "windows_seconds": [
+          [
+            3960.0,
+            3970.0
+          ],
+          [
+            6690.0,
+            6700.0
+          ]
+        ],
+        "roi_ids": [
+          "xECIRjlxM3U_PAIR1_EARLY_3965_3975",
+          "xECIRjlxM3U_PAIR1_LATE_6695_6705"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "xECIRjlxM3U_PAIR2",
+      "video_id": "xECIRjlxM3U",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          4335.0,
+          4345.0
+        ],
+        [
+          6405.0,
+          6415.0
+        ]
+      ],
+      "evidence_refs": [
+        "xECIRjlxM3U_PAIR2_EARLY_4340_4350",
+        "xECIRjlxM3U_PAIR2_LATE_6410_6420"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:xECIRjlxM3U_PAIR2",
+        "pair_id": "xECIRjlxM3U_PAIR2",
+        "video_id": "xECIRjlxM3U",
+        "windows_seconds": [
+          [
+            4335.0,
+            4345.0
+          ],
+          [
+            6405.0,
+            6415.0
+          ]
+        ],
+        "roi_ids": [
+          "xECIRjlxM3U_PAIR2_EARLY_4340_4350",
+          "xECIRjlxM3U_PAIR2_LATE_6410_6420"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "Aiem1w_TvaA_PAIR1",
+      "video_id": "Aiem1w_TvaA",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          3945.0,
+          3955.0
+        ],
+        [
+          6015.0,
+          6025.0
+        ]
+      ],
+      "evidence_refs": [
+        "Aiem1w_TvaA_PAIR1_EARLY_3950_3960",
+        "Aiem1w_TvaA_PAIR1_LATE_6020_6030"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:Aiem1w_TvaA_PAIR1",
+        "pair_id": "Aiem1w_TvaA_PAIR1",
+        "video_id": "Aiem1w_TvaA",
+        "windows_seconds": [
+          [
+            3945.0,
+            3955.0
+          ],
+          [
+            6015.0,
+            6025.0
+          ]
+        ],
+        "roi_ids": [
+          "Aiem1w_TvaA_PAIR1_EARLY_3950_3960",
+          "Aiem1w_TvaA_PAIR1_LATE_6020_6030"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "Aiem1w_TvaA_PAIR2",
+      "video_id": "Aiem1w_TvaA",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          4035.0,
+          4045.0
+        ],
+        [
+          5925.0,
+          5935.0
+        ]
+      ],
+      "evidence_refs": [
+        "Aiem1w_TvaA_PAIR2_EARLY_4040_4050",
+        "Aiem1w_TvaA_PAIR2_LATE_5930_5940"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:Aiem1w_TvaA_PAIR2",
+        "pair_id": "Aiem1w_TvaA_PAIR2",
+        "video_id": "Aiem1w_TvaA",
+        "windows_seconds": [
+          [
+            4035.0,
+            4045.0
+          ],
+          [
+            5925.0,
+            5935.0
+          ]
+        ],
+        "roi_ids": [
+          "Aiem1w_TvaA_PAIR2_EARLY_4040_4050",
+          "Aiem1w_TvaA_PAIR2_LATE_5930_5940"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "ihfjEFGdZdc_PAIR1",
+      "video_id": "ihfjEFGdZdc",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          285.0,
+          295.0
+        ],
+        [
+          1575.0,
+          1585.0
+        ]
+      ],
+      "evidence_refs": [
+        "ihfjEFGdZdc_PAIR1_EARLY_290_300",
+        "ihfjEFGdZdc_PAIR1_LATE_1580_1590"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:ihfjEFGdZdc_PAIR1",
+        "pair_id": "ihfjEFGdZdc_PAIR1",
+        "video_id": "ihfjEFGdZdc",
+        "windows_seconds": [
+          [
+            285.0,
+            295.0
+          ],
+          [
+            1575.0,
+            1585.0
+          ]
+        ],
+        "roi_ids": [
+          "ihfjEFGdZdc_PAIR1_EARLY_290_300",
+          "ihfjEFGdZdc_PAIR1_LATE_1580_1590"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "ihfjEFGdZdc_PAIR2",
+      "video_id": "ihfjEFGdZdc",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          1470.0,
+          1480.0
+        ],
+        [
+          2715.0,
+          2725.0
+        ]
+      ],
+      "evidence_refs": [
+        "ihfjEFGdZdc_PAIR2_EARLY_1475_1485",
+        "ihfjEFGdZdc_PAIR2_LATE_2720_2730"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:ihfjEFGdZdc_PAIR2",
+        "pair_id": "ihfjEFGdZdc_PAIR2",
+        "video_id": "ihfjEFGdZdc",
+        "windows_seconds": [
+          [
+            1470.0,
+            1480.0
+          ],
+          [
+            2715.0,
+            2725.0
+          ]
+        ],
+        "roi_ids": [
+          "ihfjEFGdZdc_PAIR2_EARLY_1475_1485",
+          "ihfjEFGdZdc_PAIR2_LATE_2720_2730"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "wgBlACG927Y_PAIR1",
+      "video_id": "wgBlACG927Y",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          405.0,
+          415.0
+        ],
+        [
+          1830.0,
+          1840.0
+        ]
+      ],
+      "evidence_refs": [
+        "wgBlACG927Y_PAIR1_EARLY_410_420",
+        "wgBlACG927Y_PAIR1_LATE_1835_1845"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:wgBlACG927Y_PAIR1",
+        "pair_id": "wgBlACG927Y_PAIR1",
+        "video_id": "wgBlACG927Y",
+        "windows_seconds": [
+          [
+            405.0,
+            415.0
+          ],
+          [
+            1830.0,
+            1840.0
+          ]
+        ],
+        "roi_ids": [
+          "wgBlACG927Y_PAIR1_EARLY_410_420",
+          "wgBlACG927Y_PAIR1_LATE_1835_1845"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "wgBlACG927Y_PAIR2",
+      "video_id": "wgBlACG927Y",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          135.0,
+          145.0
+        ],
+        [
+          1530.0,
+          1540.0
+        ]
+      ],
+      "evidence_refs": [
+        "wgBlACG927Y_PAIR2_EARLY_140_150",
+        "wgBlACG927Y_PAIR2_LATE_1535_1545"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:wgBlACG927Y_PAIR2",
+        "pair_id": "wgBlACG927Y_PAIR2",
+        "video_id": "wgBlACG927Y",
+        "windows_seconds": [
+          [
+            135.0,
+            145.0
+          ],
+          [
+            1530.0,
+            1540.0
+          ]
+        ],
+        "roi_ids": [
+          "wgBlACG927Y_PAIR2_EARLY_140_150",
+          "wgBlACG927Y_PAIR2_LATE_1535_1545"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "W-BnDvXXfOs_PAIR1",
+      "video_id": "W-BnDvXXfOs",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          135.0,
+          145.0
+        ],
+        [
+          3060.0,
+          3070.0
+        ]
+      ],
+      "evidence_refs": [
+        "W-BnDvXXfOs_PAIR1_EARLY_140_150",
+        "W-BnDvXXfOs_PAIR1_LATE_3065_3075"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:W-BnDvXXfOs_PAIR1",
+        "pair_id": "W-BnDvXXfOs_PAIR1",
+        "video_id": "W-BnDvXXfOs",
+        "windows_seconds": [
+          [
+            135.0,
+            145.0
+          ],
+          [
+            3060.0,
+            3070.0
+          ]
+        ],
+        "roi_ids": [
+          "W-BnDvXXfOs_PAIR1_EARLY_140_150",
+          "W-BnDvXXfOs_PAIR1_LATE_3065_3075"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    },
+    {
+      "source_item_id": "W-BnDvXXfOs_PAIR2",
+      "video_id": "W-BnDvXXfOs",
+      "question": null,
+      "answer": null,
+      "answer_status": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "windows_seconds": [
+        [
+          315.0,
+          325.0
+        ],
+        [
+          2250.0,
+          2260.0
+        ]
+      ],
+      "evidence_refs": [
+        "W-BnDvXXfOs_PAIR2_EARLY_320_330",
+        "W-BnDvXXfOs_PAIR2_LATE_2255_2265"
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+            "status": "DRAFT"
+          }
+        ],
+        "edges": [],
+        "status": "DRAFT_PLACEHOLDER_NOT_EXECUTABLE"
+      },
+      "operator_signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "necessity": {
+        "a_only": "UNKNOWN",
+        "b_only": "UNKNOWN",
+        "a_plus_b": "UNKNOWN",
+        "single_frame_shortcut": "UNKNOWN",
+        "subtitle_leak": "UNKNOWN",
+        "official_qa_leak_risk": "DEV_META_TIME_HINTS_USED_FOR_DISCOVERY_ONLY",
+        "status": "UNKNOWN"
+      },
+      "source_provenance": {
+        "pipeline": "wp3_wave_production",
+        "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+        "discovery": "BOUNDED_HISTOGRAM_SCENECHANGE",
+        "semantic_certification": "UNRESOLVED"
+      },
+      "review_status": "DRAFT",
+      "split_assignment": "PENDING",
+      "formal_gold": false,
+      "relation_hypothesis": {
+        "relation_id": "rel:W-BnDvXXfOs_PAIR2",
+        "pair_id": "W-BnDvXXfOs_PAIR2",
+        "video_id": "W-BnDvXXfOs",
+        "windows_seconds": [
+          [
+            315.0,
+            325.0
+          ],
+          [
+            2250.0,
+            2260.0
+          ]
+        ],
+        "roi_ids": [
+          "W-BnDvXXfOs_PAIR2_EARLY_320_330",
+          "W-BnDvXXfOs_PAIR2_LATE_2255_2265"
+        ],
+        "hypothesis_family_candidates": [
+          "CrossIntervalSamePersonBind",
+          "CrossViewSameObjectBind",
+          "CrossViewSameRoomBind",
+          "ConditionThenLaterOutcome",
+          "ObjectStateChange",
+          "ReverseTemporalQuery",
+          "AudioVisualBind"
+        ],
+        "selected_operator": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+        "event_certification": "UNRESOLVED",
+        "fact_status": "UNRESOLVED",
+        "relation_status": "HYPOTHESIS_ONLY",
+        "notes": "Engineering-selected temporally separated ROI pair. No semantic event has been certified. Not SUPPORTED."
+      },
+      "import_ready": false,
+      "import_block_reason": "SEMANTICS_UNRESOLVED_AND_QA_TEXT_NULL"
+    }
+  ],
+  "note": "Staging only. Not imported into DEV dataset. v0.1.0–v0.1.2 immutable. Awaiting Human/GPT semantic review."
+}

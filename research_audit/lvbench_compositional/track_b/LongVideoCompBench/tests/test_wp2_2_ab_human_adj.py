@@ -19,9 +19,11 @@ from validate_dataset import run_gates  # noqa: E402
 class TestWP22ABHumanAdj(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        runpy.run_path(
-            str(TOOLS / "apply_ab_human_adjudication_v0_1_2.py"), run_name="__main__"
-        )
+        # Idempotent: only re-apply if v0.1.2 missing (do not rewrite frozen release).
+        if not (ROOT / "releases" / "v0.1.2" / "manifest.json").is_file():
+            runpy.run_path(
+                str(TOOLS / "apply_ab_human_adjudication_v0_1_2.py"), run_name="__main__"
+            )
         cls.report = json.loads(
             (ROOT / "reports" / "WP2_2_AB_HUMAN_ADJUDICATION_REPORT.json").read_text()
         )

@@ -1,0 +1,178 @@
+{
+  "schema": "wp3_wave_production_report_v1",
+  "work_package": "WP3",
+  "baseline_commit": "7950ab00ca40305e2dd6b16f10e20888ded06db7",
+  "built_utc": "2026-11-05T05:15:14+00:00",
+  "engineering_status": "EVIDENCE_PRODUCTION_COMPLETE_SEMANTICS_PENDING",
+  "scientific_status": "UNRESOLVED_PENDING_HUMAN_GPT_REVIEW",
+  "run_004_status": "NOT_STARTED",
+  "run_004_gate": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE",
+  "wp2_3_required": false,
+  "immutable_releases_preserved": [
+    "v0.1.0",
+    "v0.1.1",
+    "v0.1.2"
+  ],
+  "proposed_7_4_status": "PROPOSED",
+  "frozen_5_2_unchanged": true,
+  "registration": {
+    "pool_added": [
+      "xECIRjlxM3U",
+      "Aiem1w_TvaA",
+      "ihfjEFGdZdc",
+      "wgBlACG927Y",
+      "W-BnDvXXfOs"
+    ],
+    "policy_newly_exposed": [
+      "xECIRjlxM3U",
+      "Aiem1w_TvaA",
+      "ihfjEFGdZdc",
+      "wgBlACG927Y",
+      "W-BnDvXXfOs"
+    ]
+  },
+  "waves": {
+    "wave1": {
+      "wave": "wave1",
+      "n_videos_attempted": 5,
+      "n_videos_ok": 5,
+      "n_failures": 0,
+      "n_rois": 20,
+      "n_evidence_windows": 20,
+      "n_frames_extracted_total": 240,
+      "n_review_frames_committed": 80,
+      "n_relation_hypotheses": 10,
+      "n_qa_stubs_draft": 10,
+      "n_semantic_events_certified": 0,
+      "n_fact_verified": 0,
+      "n_human_approved": 0,
+      "n_formal_gold": 0,
+      "necessity_pass": 0,
+      "necessity_fail": 0,
+      "necessity_unknown": 10,
+      "genre_distribution": {
+        "vlog": 1,
+        "sports": 1,
+        "documentary": 1,
+        "interview": 1,
+        "animation": 1
+      },
+      "review_packet": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/HUMAN_GPT_REVIEW_PACKET.md",
+      "blocked_for_run004": true,
+      "block_reason": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE"
+    },
+    "wave2": {
+      "wave": "wave2",
+      "n_videos_attempted": 5,
+      "n_videos_ok": 5,
+      "n_failures": 0,
+      "n_rois": 20,
+      "n_evidence_windows": 20,
+      "n_frames_extracted_total": 240,
+      "n_review_frames_committed": 80,
+      "n_relation_hypotheses": 10,
+      "n_qa_stubs_draft": 10,
+      "n_semantic_events_certified": 0,
+      "n_fact_verified": 0,
+      "n_human_approved": 0,
+      "n_formal_gold": 0,
+      "necessity_pass": 0,
+      "necessity_fail": 0,
+      "necessity_unknown": 10,
+      "genre_distribution": {
+        "drama": 2,
+        "sports": 1,
+        "interview": 1,
+        "vlog": 1
+      },
+      "review_packet": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave2/HUMAN_GPT_REVIEW_PACKET.md",
+      "blocked_for_run004": true,
+      "block_reason": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE"
+    }
+  },
+  "video_lists": {
+    "wave1": [
+      "USfvmoalqsw",
+      "16Z-XQh9jhk",
+      "CgvJqGxzRfE",
+      "KktLi3UifPY",
+      "gXnhqF0TqqI"
+    ],
+    "wave2": [
+      "xECIRjlxM3U",
+      "Aiem1w_TvaA",
+      "ihfjEFGdZdc",
+      "wgBlACG927Y",
+      "W-BnDvXXfOs"
+    ]
+  },
+  "production_metrics": {
+    "n_new_videos": 10,
+    "n_independent_videos": 10,
+    "genre_distribution": {
+      "vlog": 2,
+      "sports": 2,
+      "documentary": 1,
+      "interview": 2,
+      "animation": 1,
+      "drama": 2
+    },
+    "n_rois_evidence_windows": 40,
+    "n_frames_extracted": 480,
+    "n_review_frames": 160,
+    "n_semantic_events_certified": 0,
+    "n_fact_verified": 0,
+    "n_cross_window_relations_valid": 0,
+    "n_relation_hypotheses": 20,
+    "n_independent_qa_families": 0,
+    "n_qa_drafts": 20,
+    "necessity_pass": 0,
+    "necessity_fail": 0,
+    "necessity_unknown": 20,
+    "n_human_approved": 0,
+    "n_formal_gold": 0,
+    "layer1_layer2_coverage": "UNASSIGNED_PENDING_GRAPH_DESIGN",
+    "dedup_leakage": {
+      "selected_not_in_prior_exposed": true,
+      "same_video_not_marked_sealed_test": true,
+      "official_qa_not_promoted": true
+    },
+    "yield_notes": "Evidence packs produced for all OK videos. Effective compositional QA yield = 0 until semantics reviewed."
+  },
+  "paths": {
+    "wp3_root": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production",
+    "local_media": "research_audit/lvbench_compositional/track_b/local_media/wp3_production",
+    "staging_batch": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/staging/wp3_wave1_wave2_draft_batch.json",
+    "signature_coverage": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/composition_signature_coverage.json",
+    "review_packets": [
+      "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/HUMAN_GPT_REVIEW_PACKET.md",
+      "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave2/HUMAN_GPT_REVIEW_PACKET.md"
+    ]
+  },
+  "failure_reasons_and_next_priorities": [
+    {
+      "failure": "No HUMAN/GPT certified compositional events yet",
+      "impact": "0 FACT_VERIFIED / 0 Formal Gold",
+      "next": "Review Wave1 packet first; only then mint relation+QA for certified pairs"
+    },
+    {
+      "failure": "Histogram discovery ≠ semantic event",
+      "impact": "Pairs may be scene cuts without bindable entities",
+      "next": "Prefer pairs where review finds same person/object/room or state change"
+    },
+    {
+      "failure": "Cannot auto-pass Necessity from graph templates",
+      "impact": "necessity_unknown for all stubs",
+      "next": "Run A-only/B-only after facts exist; reject single-frame shortcuts"
+    }
+  ],
+  "explicit_non_actions": [
+    "Did not create WP2.3",
+    "Did not modify A/B Gold or reopen same-person/room review",
+    "Did not regenerate v0.1.0–v0.1.2",
+    "Did not import staging into DEV dataset",
+    "Did not unlock run_004",
+    "Did not run Track A experiments or paid VLM batches",
+    "Did not mark DEV videos as sealed final test"
+  ]
+}

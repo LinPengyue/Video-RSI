@@ -1,0 +1,161 @@
+{
+  "schema": "wp3_composition_signature_coverage_v1",
+  "built_utc": "2026-11-05T05:15:14+00:00",
+  "atomic_operators": [
+    "AudioVisualBind",
+    "Bind",
+    "ConditionThenLaterOutcome",
+    "CrossIntervalSamePersonBind",
+    "CrossViewSameObjectBind",
+    "CrossViewSameRoomBind",
+    "Filter",
+    "IdentifyEntity",
+    "Locate",
+    "ObjectStateChange",
+    "Query",
+    "QueryAttribute",
+    "QueryEarlierObject",
+    "QueryLocation",
+    "ReverseTemporalQuery"
+  ],
+  "observed_binary_ternary_combinations": [
+    {
+      "pair_id": "USfvmoalqsw_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "USfvmoalqsw_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "16Z-XQh9jhk_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "16Z-XQh9jhk_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "CgvJqGxzRfE_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "CgvJqGxzRfE_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "KktLi3UifPY_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "KktLi3UifPY_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "gXnhqF0TqqI_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "gXnhqF0TqqI_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "xECIRjlxM3U_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "xECIRjlxM3U_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "Aiem1w_TvaA_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "Aiem1w_TvaA_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "ihfjEFGdZdc_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "ihfjEFGdZdc_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "wgBlACG927Y_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "wgBlACG927Y_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "W-BnDvXXfOs_PAIR1",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    },
+    {
+      "pair_id": "W-BnDvXXfOs_PAIR2",
+      "signature": "UNKNOWN_PENDING_SEMANTIC_REVIEW",
+      "status": "HYPOTHESIS_ONLY",
+      "ood_bucket": "UNASSIGNED"
+    }
+  ],
+  "target_unseen_combinations_examples": [
+    "IdentifyEntity→QueryEarlierAttribute (atomic-covered OOD if Identify+Query seen separately)",
+    "ConditionEvent→LaterOutcome with ObjectStateChange",
+    "AudioVisualBind→QuerySpeakerAttribute",
+    "ReverseTemporalQuery after CrossViewSameRoomBind"
+  ],
+  "ood_policy": {
+    "primary_unseen_goal": "atomic-covered OOD: atoms in Seen, combination novel",
+    "also_track": [
+      "atomic-novel OOD",
+      "mixed OOD",
+      "ID/control"
+    ],
+    "same_source_video_no_train_test_split": true,
+    "proposed_7_4_status": "PROPOSED",
+    "frozen_5_2_unchanged": true
+  },
+  "note": "No signature promoted to Seen/Unseen; all WP3 pairs pending semantic review."
+}

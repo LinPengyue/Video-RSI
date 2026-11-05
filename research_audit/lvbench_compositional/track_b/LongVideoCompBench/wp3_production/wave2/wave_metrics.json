@@ -1,0 +1,28 @@
+{
+  "wave": "wave2",
+  "n_videos_attempted": 5,
+  "n_videos_ok": 5,
+  "n_failures": 0,
+  "n_rois": 20,
+  "n_evidence_windows": 20,
+  "n_frames_extracted_total": 240,
+  "n_review_frames_committed": 80,
+  "n_relation_hypotheses": 10,
+  "n_qa_stubs_draft": 10,
+  "n_semantic_events_certified": 0,
+  "n_fact_verified": 0,
+  "n_human_approved": 0,
+  "n_formal_gold": 0,
+  "necessity_pass": 0,
+  "necessity_fail": 0,
+  "necessity_unknown": 10,
+  "genre_distribution": {
+    "drama": 2,
+    "sports": 1,
+    "interview": 1,
+    "vlog": 1
+  },
+  "review_packet": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave2/HUMAN_GPT_REVIEW_PACKET.md",
+  "blocked_for_run004": true,
+  "block_reason": "BLOCKED_NO_COMPOSITIONAL_EVENT_EVIDENCE"
+}
