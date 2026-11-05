@@ -1,0 +1,17 @@
+{
+  "run_004_status": "PARTIAL_UNLOCK_RELATION_FEASIBILITY_ONLY",
+  "status": "RELATION_FEASIBILITY_PASS_FOR_LISTED_PAIRS",
+  "n_qualifying_pairs": 1,
+  "qualifying_pair_ids": [
+    "USfvmoalqsw_PAIR2"
+  ],
+  "still_blocked_for": [
+    "FORMAL_GOLD",
+    "CONTINUOUS_VIDEO_VERIFIED_AUTO_FROM_STILLS",
+    "HUMAN_APPROVED_IDENTITY",
+    "FULL_BATCH_QA_MINTING"
+  ],
+  "note": "WP3.1 still-frame triage found provisional relation-feasible candidates. run_004 may draft QA only for listed pairs; no Gold; no continuous-video upgrade from stills.",
+  "updated_utc": "2026-11-05T09:42:22+00:00",
+  "baseline_commit": "1fbe837790fc94de2fd76c616c0578b9c4dec524"
+}

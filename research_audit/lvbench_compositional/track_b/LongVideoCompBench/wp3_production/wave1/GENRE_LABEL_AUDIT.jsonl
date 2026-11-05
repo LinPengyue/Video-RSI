@@ -1,0 +1,5 @@
+{"video_id": "USfvmoalqsw", "auto_guess": "vlog", "frame_observation": "travel_vlog_bhutan", "human_confirmed": null, "status": "AUTO_PLUS_FRAME"}
+{"video_id": "16Z-XQh9jhk", "auto_guess": "sports", "frame_observation": "concert_performance", "human_confirmed": null, "status": "AUTO_INCORRECT_VS_FRAMES", "correction_proposed": "concert_live_performance"}
+{"video_id": "CgvJqGxzRfE", "auto_guess": "documentary", "frame_observation": null, "human_confirmed": null, "status": "AUTO_ONLY_UNVERIFIED"}
+{"video_id": "KktLi3UifPY", "auto_guess": "interview", "frame_observation": "food_vlog_and_outdoor_segments", "human_confirmed": null, "status": "AUTO_LIKELY_MISMATCH"}
+{"video_id": "gXnhqF0TqqI", "auto_guess": "animation", "frame_observation": "2d_animation_confirmed_in_frames", "human_confirmed": null, "status": "AUTO_CONSISTENT_WITH_FRAMES"}

@@ -74,6 +74,69 @@ def import_batch(batch_path: Path, *, apply: bool) -> dict:
         if raw.get("formal_gold") is True:
             errors.append({"code": "UNAPPROVED_GOLD", "source_item_id": sid})
             continue
+        # WP3 / staging hard guards: never import unready or uncertified stubs.
+        if raw.get("import_ready") is False:
+            errors.append(
+                {
+                    "code": "IMPORT_NOT_READY",
+                    "source_item_id": sid,
+                    "import_block_reason": raw.get("import_block_reason"),
+                }
+            )
+            continue
+        sem = raw.get("semantic_certification") or raw.get("relation_evidence_tier")
+        if sem in {
+            "UNRESOLVED",
+            "HYPOTHESIS_ONLY",
+            "CHATGPT_FRAME_VISUAL_PRELIMINARY",
+            "ORDERED_MULTIFRAME_SUGGESTS",
+        } and raw.get("import_ready") is not True:
+            errors.append(
+                {
+                    "code": "SEMANTICS_NOT_CERTIFIED_FOR_IMPORT",
+                    "source_item_id": sid,
+                    "semantic_certification": sem,
+                }
+            )
+            continue
+        pg_check = raw.get("program_graph") or {}
+        pg_status = pg_check.get("status") or ""
+        nodes = pg_check.get("nodes") or []
+        if (
+            pg_status
+            in {
+                "DRAFT_PLACEHOLDER_NOT_EXECUTABLE",
+                "DRAFT_NOT_EXECUTABLE_NOT_GOLD",
+                "ABSENT_REJECTED_PAIR",
+            }
+            or not nodes
+            or any(
+                (n.get("op") or "").startswith("UNKNOWN")
+                or n.get("op") == "UNKNOWN_PENDING_SEMANTIC_REVIEW"
+                for n in nodes
+            )
+        ):
+            # Allow only if explicitly marked import_ready True AND human-certified graph.
+            if raw.get("import_ready") is not True or raw.get(
+                "graph_approval_status"
+            ) not in {"HUMAN_APPROVED", "CHAT_APPROVED_EXECUTABLE"}:
+                errors.append(
+                    {
+                        "code": "ILLEGAL_OR_MISSING_PROGRAM_GRAPH",
+                        "source_item_id": sid,
+                        "program_graph_status": pg_status or "EMPTY",
+                    }
+                )
+                continue
+        if str(sid).startswith(("wp3", "WP3")) or str(sid).find("_PAIR") >= 0:
+            if raw.get("import_ready") is not True:
+                errors.append(
+                    {
+                        "code": "WP3_STUB_REQUIRES_EXPLICIT_IMPORT_READY",
+                        "source_item_id": sid,
+                    }
+                )
+                continue
         if raw.get("split_assignment") in ("SEEN", "UNSEEN") and raw.get(
             "split_promotion_approved"
         ) is not True:

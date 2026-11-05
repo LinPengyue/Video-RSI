@@ -243,11 +243,14 @@ def _make_pair(
     half = ROI_WINDOW_S / 2.0
 
     def roi(center: float, role: str) -> RoiSpec:
+        # Name directories by true [t_start, t_end], not center/(center+window).
+        t0 = round(max(0.0, center - half), 3)
+        t1 = round(t0 + ROI_WINDOW_S, 3)
         return RoiSpec(
-            roi_id=f"{pair_id}_{role.upper()}_{int(center)}_{int(center+ROI_WINDOW_S)}",
+            roi_id=f"{pair_id}_{role.upper()}_{int(t0)}_{int(t1)}",
             video_id=video_id,
-            t_start=round(max(0.0, center - half), 3),
-            t_end=round(center - half + ROI_WINDOW_S, 3),
+            t_start=t0,
+            t_end=t1,
             center_s=round(center, 3),
             discovery_score=round(score, 6),
             pair_id=pair_id,

@@ -1,6 +1,6 @@
 {
   "schema": "longvideocompbenc_validation_v0_1",
-  "validated_utc": "2026-11-04T15:02:48+00:00",
+  "validated_utc": "2026-11-05T09:42:55+00:00",
   "gates": {
     "A_schema": {
       "status": "PASS",

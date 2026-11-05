@@ -1,0 +1,261 @@
+{
+  "batch_id": "wp3_1_wave1_triage_refined_2026-11-05",
+  "status": "STAGING_ONLY_NOT_IMPORTED",
+  "formal_gold": false,
+  "import_ready": false,
+  "items": [
+    {
+      "source_item_id": "USfvmoalqsw_PAIR2",
+      "video_id": "USfvmoalqsw",
+      "question": "后来站在林间溪流旁、穿着格子gho对镜头说话的那名男子，更早出现在什么街景地点？",
+      "answer": "DORJI OM TSHONGKHANG 店铺所在的城市街道附近",
+      "answer_status": "CHAT_DRAFT_PENDING_HUMAN",
+      "windows_seconds": [
+        [
+          2355.0,
+          2365.0
+        ],
+        [
+          4620.0,
+          4630.0
+        ]
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "node_id": "n0",
+            "op": "LocatePerson",
+            "window": "late",
+            "attrs": {
+              "cue": "plaid_gho_man_by_stream"
+            }
+          },
+          {
+            "node_id": "n1",
+            "op": "CrossIntervalSamePersonBind",
+            "inputs": [
+              "n0"
+            ]
+          },
+          {
+            "node_id": "n2",
+            "op": "QueryEarlierLocation",
+            "inputs": [
+              "n1"
+            ],
+            "window": "early"
+          }
+        ],
+        "edges": [
+          {
+            "source": "n0",
+            "target": "n1"
+          },
+          {
+            "source": "n1",
+            "target": "n2"
+          }
+        ],
+        "status": "DRAFT_NOT_EXECUTABLE_NOT_GOLD"
+      },
+      "operator_signature": "CrossIntervalSamePersonBind",
+      "necessity": {
+        "a_only_early": "INSUFFICIENT_FOR_LATE_QUERY_FRAMING",
+        "b_only_late": "INSUFFICIENT_FOR_SHOP_LOCATION_ANSWER",
+        "a_plus_b": "PLAUSIBLY_SUFFICIENT_IF_IDENTITY_HOLDS",
+        "single_frame_shortcut": "PARTIAL_RISK_IF_QUESTION_ONLY_ASKS_CLOTHING",
+        "status": "PROVISIONAL_PASS_PENDING_HUMAN",
+        "note": "Necessity provisional; identity bind not Human Approved."
+      },
+      "review_status": "DRAFT",
+      "relation_evidence_tier": "ORDERED_MULTIFRAME_SUGGESTS",
+      "observation_provenance": "CHATGPT_FRAME_VISUAL_PRELIMINARY",
+      "semantic_certification": "UNRESOLVED",
+      "import_ready": false,
+      "formal_gold": false,
+      "split_assignment": "PENDING",
+      "decision": "RELATION_FEASIBILITY_PASS_CANDIDATE_PENDING_HUMAN",
+      "import_block_reason": "SEMANTICS_PENDING_HUMAN"
+    },
+    {
+      "source_item_id": "gXnhqF0TqqI_PAIR1",
+      "video_id": "gXnhqF0TqqI",
+      "question": "后来在书房桌前活动的那只穿夹克的绿蟾蜍，更早处于什么状态？",
+      "answer": "被锁链拴在地牢中（含脚镣铁球）",
+      "answer_status": "NO_QA_THIS_ROUND",
+      "windows_seconds": [
+        [
+          2745.0,
+          2755.0
+        ],
+        [
+          4005.0,
+          4015.0
+        ]
+      ],
+      "program_graph": {
+        "nodes": [
+          {
+            "node_id": "n0",
+            "op": "LocateCharacter",
+            "window": "late"
+          },
+          {
+            "node_id": "n1",
+            "op": "CrossIntervalSameCharacterBind",
+            "inputs": [
+              "n0"
+            ]
+          },
+          {
+            "node_id": "n2",
+            "op": "QueryEarlierState",
+            "inputs": [
+              "n1"
+            ],
+            "window": "early"
+          }
+        ],
+        "edges": [
+          {
+            "source": "n0",
+            "target": "n1"
+          },
+          {
+            "source": "n1",
+            "target": "n2"
+          }
+        ],
+        "status": "DRAFT_NOT_EXECUTABLE_NOT_GOLD"
+      },
+      "operator_signature": "CrossIntervalSameCharacterBind+ObjectStateChange",
+      "necessity": {
+        "a_only_early": "MAY_ANSWER_IMPRISONED_WITHOUT_LATE_CUE",
+        "b_only_late": "MAY_ANSWER_STUDY_WITHOUT_EARLY_STATE",
+        "a_plus_b": "NEEDED_FOR_TRUE_CROSS_WINDOW_QUERY",
+        "single_frame_shortcut": "HIGH",
+        "prior_knowledge_shortcut": "HIGH",
+        "status": "FAIL_OR_CONTROL_DUE_TO_LEAKAGE"
+      },
+      "review_status": "DRAFT",
+      "relation_evidence_tier": "ORDERED_MULTIFRAME_SUGGESTS",
+      "observation_provenance": "CHATGPT_FRAME_VISUAL_PRELIMINARY",
+      "semantic_certification": "UNRESOLVED",
+      "import_ready": false,
+      "formal_gold": false,
+      "split_assignment": "PENDING",
+      "decision": "RETAIN_AS_CONTROL_HIGH_PRIOR_KNOWLEDGE_LEAKAGE",
+      "import_block_reason": "DECISION_RETAIN_AS_CONTROL_HIGH_PRIOR_KNOWLEDGE_LEAKAGE"
+    },
+    {
+      "source_item_id": "KktLi3UifPY_PAIR2",
+      "video_id": "KktLi3UifPY",
+      "question": null,
+      "answer": null,
+      "answer_status": "NO_QA_THIS_ROUND",
+      "windows_seconds": {
+        "early": [
+          2265.0,
+          2275.0
+        ],
+        "late": [
+          4605.0,
+          4615.0
+        ],
+        "gap_s": 2330.0
+      },
+      "program_graph": {
+        "nodes": [],
+        "edges": [],
+        "status": "ABSENT_REJECTED_PAIR"
+      },
+      "operator_signature": "CrossIntervalSamePersonBind",
+      "necessity": {
+        "status": "NOT_APPLICABLE_NO_CERTIFIED_RELATION"
+      },
+      "review_status": "DRAFT",
+      "relation_evidence_tier": "UNRESOLVED",
+      "observation_provenance": "CHATGPT_FRAME_VISUAL_PRELIMINARY",
+      "semantic_certification": "UNRESOLVED",
+      "import_ready": false,
+      "formal_gold": false,
+      "split_assignment": "PENDING",
+      "decision": "HOLD_NO_QA_IDENTITY_NOT_FRAME_CERTIFIED",
+      "import_block_reason": "DECISION_HOLD_NO_QA_IDENTITY_NOT_FRAME_CERTIFIED"
+    },
+    {
+      "source_item_id": "USfvmoalqsw_PAIR1",
+      "video_id": "USfvmoalqsw",
+      "question": null,
+      "answer": null,
+      "answer_status": "NO_QA_THIS_ROUND",
+      "windows_seconds": {
+        "early": [
+          165.0,
+          175.0
+        ],
+        "late": [
+          5580.0,
+          5590.0
+        ],
+        "gap_s": 5405.0
+      },
+      "program_graph": {
+        "nodes": [],
+        "edges": [],
+        "status": "ABSENT_REJECTED_PAIR"
+      },
+      "operator_signature": null,
+      "necessity": {
+        "status": "NOT_APPLICABLE"
+      },
+      "review_status": "DRAFT",
+      "relation_evidence_tier": "UNRESOLVED",
+      "observation_provenance": "CHATGPT_FRAME_VISUAL_PRELIMINARY",
+      "semantic_certification": "REJECT_NO_CLEAR_CROSS_WINDOW_BIND",
+      "import_ready": false,
+      "formal_gold": false,
+      "split_assignment": "PENDING",
+      "decision": "REJECT_NO_CLEAR_CROSS_WINDOW_BIND",
+      "import_block_reason": "DECISION_REJECT_NO_CLEAR_CROSS_WINDOW_BIND"
+    },
+    {
+      "source_item_id": "16Z-XQh9jhk_PAIR2",
+      "video_id": "16Z-XQh9jhk",
+      "question": null,
+      "answer": null,
+      "answer_status": "NO_QA_THIS_ROUND",
+      "windows_seconds": {
+        "early": [
+          1500.0,
+          1510.0
+        ],
+        "late": [
+          4890.0,
+          4900.0
+        ],
+        "gap_s": 3380.0
+      },
+      "program_graph": {
+        "nodes": [],
+        "edges": [],
+        "status": "ABSENT_REJECTED_PAIR"
+      },
+      "operator_signature": "CrossIntervalSamePersonBind",
+      "necessity": {
+        "status": "FAIL_HIGH_SHORTCUT",
+        "note": "Retained as anti-shortcut control; not counted as valid compositional QA."
+      },
+      "review_status": "DRAFT",
+      "relation_evidence_tier": "ORDERED_MULTIFRAME_SUGGESTS",
+      "observation_provenance": "CHATGPT_FRAME_VISUAL_PRELIMINARY",
+      "semantic_certification": "UNRESOLVED",
+      "import_ready": false,
+      "formal_gold": false,
+      "split_assignment": "PENDING",
+      "decision": "RETAIN_AS_SHORTCUT_CONTROL_NOT_VALID_COMP_QA",
+      "import_block_reason": "DECISION_RETAIN_AS_SHORTCUT_CONTROL_NOT_VALID_COMP_QA"
+    }
+  ],
+  "note": "Refined after WP3.1 triage. Must remain rejected by import until human certification."
+}
