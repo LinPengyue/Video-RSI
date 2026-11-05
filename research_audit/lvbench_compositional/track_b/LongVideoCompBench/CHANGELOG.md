@@ -1,3 +1,12 @@
+## WP3.2 — Import integrity + Wave2 triage + discovery compare (no new immutable release)
+
+- Hardened import: `import_ready` cannot bypass uncertified semantics; forged graph approval ignored; WP3 requires A/B evidence+SHA+independent review.
+- `USfvmoalqsw_PAIR2` remains PENDING_HUMAN; audit QA draft only; not Gold.
+- Wave2 10-pair still triage: PASS `ihfjEFGdZdc_PAIR1`, `W-BnDvXXfOs_PAIR2`; rest HOLD/CONTROL/REJECT.
+- Entity/event-first discovery compared against histogram-first on same budget.
+- Signature audit: PAIR2 = new video / old SamePerson→QueryLocation family (not atomic-novel OOD).
+- Left `releases/v0.1.0`–`v0.1.2` immutable; 5+2 frozen / 7+4 PROPOSED; no new public media.
+
 ## WP3.1 — Wave1 GPT semantic triage / relation purification (no new immutable release)
 
 - Priority-audited five Wave1 pairs; only `USfvmoalqsw_PAIR2` provisional relation-feasibility pass (pending Human).

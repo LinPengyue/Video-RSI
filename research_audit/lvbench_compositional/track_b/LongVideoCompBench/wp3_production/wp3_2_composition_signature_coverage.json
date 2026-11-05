@@ -1,0 +1,49 @@
+{
+  "schema": "wp3_2_composition_signature_coverage_v1",
+  "built_utc": "2026-11-05T12:14:53+00:00",
+  "historical_seeds_checked": {
+    "A": {
+      "ops": [
+        "LocatePersonByAppearance",
+        "DetectPersonAndAppearance",
+        "CrossIntervalSamePersonBind",
+        "QueryLocation"
+      ],
+      "family": "SamePersonBind→QueryLocation"
+    }
+  },
+  "proposed_7_4_status": "PROPOSED",
+  "frozen_5_2_unchanged": true,
+  "candidates": [
+    {
+      "pair_id": "USfvmoalqsw_PAIR2",
+      "signature": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+      "bucket": "NEW_VIDEO_NEW_QA_OLD_SIGNATURE_FAMILY",
+      "vs_A": "overlaps CrossIntervalSamePersonBind→QueryLocation family; not atomic-novel OOD",
+      "status": "PENDING_HUMAN_IDENTITY_ADJUDICATION"
+    },
+    {
+      "pair_id": "ihfjEFGdZdc_PAIR1",
+      "signature": "IdentifyObject→ObjectStateChange→QueryEarlierAssemblyState",
+      "bucket": "ATOMIC_COVERED_NEW_COMBINATION",
+      "status": "PASS_CANDIDATE",
+      "leakage_risk": "MEDIUM_BRAND_RECOGNITION"
+    },
+    {
+      "pair_id": "W-BnDvXXfOs_PAIR2",
+      "signature": "IdentifyPerson→CrossIntervalSamePersonBind→QueryEarlierCoPresentEntities",
+      "bucket": "ATOMIC_COVERED_NEW_COMBINATION",
+      "status": "PASS_CANDIDATE",
+      "leakage_risk": "HIGH_CELEBRITY_PRIOR_KNOWLEDGE"
+    }
+  ],
+  "counts": {
+    "new_video_new_qa_old_signature": 1,
+    "atomic_covered_new_combination": 2,
+    "atomic_novel": 0,
+    "mixed_ood": 0,
+    "id_control": 2,
+    "unknown": 2
+  },
+  "note": "Different video ≠ Unseen Composition. PAIR2 is old signature family on new video."
+}

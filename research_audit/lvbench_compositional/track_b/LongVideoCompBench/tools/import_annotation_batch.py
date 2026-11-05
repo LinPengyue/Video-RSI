@@ -1,22 +1,11 @@
 #!/usr/bin/env python3
 """Import a Human–GPT–Cursor annotation batch from staging into DEV (non-Gold).
 
-Example batch JSON (staging/example_batch.json):
-{
-  "batch_id": "demo_batch_001",
-  "items": [
-    {
-      "source_item_id": "DEMO001",
-      "video_id": "example_video",
-      "question": "Example only — not a real seed",
-      "answer": null,
-      "answer_status": "UNKNOWN_MISSING_SOURCE",
-      "program_graph": {"nodes": [...], "edges": [...]},
-      "split_assignment": "PENDING",
-      "formal_gold": false
-    }
-  ]
-}
+WP3.2 integrity rules:
+- `import_ready=true` alone cannot bypass semantic certification.
+- Self-declared `graph_approval_status` cannot legitimize UNKNOWN/placeholder graphs.
+- WP3 dual windows must map to early-A and late-B evidence with times/frames/SHA/QA links.
+- Certification requires an independent review record, not a bare boolean.
 """
 from __future__ import annotations
 
@@ -24,6 +13,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _common import (  # noqa: E402
@@ -35,14 +25,111 @@ from _common import (  # noqa: E402
     review_id,
     utc_now,
     write_json,
-    write_jsonl,
 )
+
+UNCERTIFIED_SEMANTICS = {
+    "UNRESOLVED",
+    "HYPOTHESIS_ONLY",
+    "CHATGPT_FRAME_VISUAL_PRELIMINARY",
+    "ORDERED_MULTIFRAME_SUGGESTS",
+    "STATIC_VISIBLE",
+    "UNKNOWN",
+    None,
+    "",
+}
+
+PLACEHOLDER_GRAPH_STATUS = {
+    "DRAFT_PLACEHOLDER_NOT_EXECUTABLE",
+    "DRAFT_NOT_EXECUTABLE_NOT_GOLD",
+    "ABSENT_REJECTED_PAIR",
+}
+
+CERTIFIED_SEMANTICS = {
+    "HUMAN_VIDEO_VERIFIED",
+    "HUMAN_APPROVED",
+    "CONTINUOUS_VIDEO_VERIFIED",
+    "FACT_VERIFIED",
+}
+
+
 class ImportRejected(Exception):
     pass
 
 
 def _reject(msg: str) -> None:
     raise ImportRejected(msg)
+
+
+def _node_op(n: dict[str, Any]) -> str:
+    return str(n.get("op") or n.get("raw_operator") or "")
+
+
+def _is_unknown_op(op: str) -> bool:
+    return (not op) or op.startswith("UNKNOWN") or op == "UNKNOWN_PENDING_SEMANTIC_REVIEW"
+
+
+def _normalize_windows(raw: dict[str, Any]) -> dict[str, list] | None:
+    """Accept windows_seconds [[a0,a1],[b0,b1]] or windows {A:[..], B:[..]}."""
+    if isinstance(raw.get("windows"), dict):
+        w = raw["windows"]
+        if w.get("A") and w.get("B"):
+            return {"A": list(w["A"]), "B": list(w["B"])}
+        if w.get("A") and not w.get("B"):
+            return {"A": list(w["A"]), "B": None}  # type: ignore[dict-item]
+    ws = raw.get("windows_seconds")
+    if isinstance(ws, list) and len(ws) >= 2 and ws[0] and ws[1]:
+        return {"A": list(ws[0]), "B": list(ws[1])}
+    if isinstance(ws, dict) and ws.get("A") and ws.get("B"):
+        return {"A": list(ws["A"]), "B": list(ws["B"])}
+    return None
+
+
+def _independent_review_ok(raw: dict[str, Any]) -> tuple[bool, str | None]:
+    """Require a structured independent review record for certification claims."""
+    rev = raw.get("independent_review") or raw.get("human_adjudication_record")
+    if not isinstance(rev, dict):
+        # bare boolean / status flags are insufficient
+        if raw.get("human_approved") is True or raw.get("certified") is True:
+            return False, "BOOLEAN_FLAG_NOT_INDEPENDENT_REVIEW_RECORD"
+        return False, "MISSING_INDEPENDENT_REVIEW_RECORD"
+    required = ["reviewer_role", "review_status", "scope", "source_type"]
+    missing = [k for k in required if not rev.get(k)]
+    if missing:
+        return False, f"INDEPENDENT_REVIEW_MISSING_FIELDS:{','.join(missing)}"
+    if rev.get("reviewer_role") not in {
+        "HUMAN_SCIENTIFIC_OWNER",
+        "HUMAN_REVIEWER",
+        "INDEPENDENT_ADJUDICATOR",
+    }:
+        return False, "INDEPENDENT_REVIEW_ROLE_INVALID"
+    if rev.get("review_status") not in {
+        "HUMAN_APPROVED",
+        "HUMAN_VIDEO_VERIFIED",
+        "FACT_VERIFIED",
+    }:
+        return False, "INDEPENDENT_REVIEW_STATUS_NOT_CERTIFIED"
+    if rev.get("forged") is True or rev.get("self_attested_without_reviewer") is True:
+        return False, "FORGED_OR_SELF_ATTESTED_REVIEW"
+    return True, None
+
+
+def _graph_structurally_valid(nodes: list[dict], edges: list[dict]) -> tuple[bool, str | None]:
+    if not nodes:
+        return False, "EMPTY_NODES"
+    if any(_is_unknown_op(_node_op(n)) for n in nodes):
+        return False, "UNKNOWN_OR_PLACEHOLDER_OPERATOR"
+    nids = {n.get("node_id") for n in nodes}
+    if None in nids or "" in nids:
+        return False, "MISSING_NODE_ID"
+    if len(nids) != len(nodes):
+        return False, "DUPLICATE_NODE_ID"
+    for e in edges:
+        if e.get("source") not in nids or e.get("target") not in nids:
+            return False, "GRAPH_EDGE_INCOMPLETE"
+    # Require at least one data-flow edge for multi-node graphs
+    if len(nodes) >= 2 and not edges:
+        return False, "MISSING_DATAFLOW_EDGES"
+    return True, None
 
 
 def import_batch(batch_path: Path, *, apply: bool) -> dict:
@@ -74,7 +161,7 @@ def import_batch(batch_path: Path, *, apply: bool) -> dict:
         if raw.get("formal_gold") is True:
             errors.append({"code": "UNAPPROVED_GOLD", "source_item_id": sid})
             continue
-        # WP3 / staging hard guards: never import unready or uncertified stubs.
+
         if raw.get("import_ready") is False:
             errors.append(
                 {
@@ -84,51 +171,58 @@ def import_batch(batch_path: Path, *, apply: bool) -> dict:
                 }
             )
             continue
-        sem = raw.get("semantic_certification") or raw.get("relation_evidence_tier")
-        if sem in {
-            "UNRESOLVED",
-            "HYPOTHESIS_ONLY",
-            "CHATGPT_FRAME_VISUAL_PRELIMINARY",
-            "ORDERED_MULTIFRAME_SUGGESTS",
-        } and raw.get("import_ready") is not True:
-            errors.append(
-                {
-                    "code": "SEMANTICS_NOT_CERTIFIED_FOR_IMPORT",
-                    "source_item_id": sid,
-                    "semantic_certification": sem,
-                }
-            )
-            continue
+
+        # Structural graph legality first — self-declared approvals never override.
         pg_check = raw.get("program_graph") or {}
         pg_status = pg_check.get("status") or ""
         nodes = pg_check.get("nodes") or []
-        if (
-            pg_status
-            in {
-                "DRAFT_PLACEHOLDER_NOT_EXECUTABLE",
-                "DRAFT_NOT_EXECUTABLE_NOT_GOLD",
-                "ABSENT_REJECTED_PAIR",
-            }
-            or not nodes
-            or any(
-                (n.get("op") or "").startswith("UNKNOWN")
-                or n.get("op") == "UNKNOWN_PENDING_SEMANTIC_REVIEW"
-                for n in nodes
+        edges = pg_check.get("edges") or []
+        g_ok, g_err = _graph_structurally_valid(nodes, edges)
+        if pg_status in PLACEHOLDER_GRAPH_STATUS or not g_ok:
+            errors.append(
+                {
+                    "code": "ILLEGAL_OR_MISSING_PROGRAM_GRAPH",
+                    "source_item_id": sid,
+                    "program_graph_status": pg_status or "EMPTY",
+                    "detail": g_err or "PLACEHOLDER_STATUS",
+                    "graph_approval_status_ignored": raw.get("graph_approval_status"),
+                }
             )
-        ):
-            # Allow only if explicitly marked import_ready True AND human-certified graph.
-            if raw.get("import_ready") is not True or raw.get(
-                "graph_approval_status"
-            ) not in {"HUMAN_APPROVED", "CHAT_APPROVED_EXECUTABLE"}:
-                errors.append(
-                    {
-                        "code": "ILLEGAL_OR_MISSING_PROGRAM_GRAPH",
-                        "source_item_id": sid,
-                        "program_graph_status": pg_status or "EMPTY",
-                    }
-                )
-                continue
-        if str(sid).startswith(("wp3", "WP3")) or str(sid).find("_PAIR") >= 0:
+            continue
+
+        # Semantic certification: NEVER bypassable by import_ready alone.
+        sem = raw.get("semantic_certification") or raw.get("relation_evidence_tier")
+        if sem in UNCERTIFIED_SEMANTICS or sem not in CERTIFIED_SEMANTICS:
+            # Allow legacy non-WP3 example staging without semantic field only if
+            # not a WP3 pair and no certification claim is made.
+            is_wp3 = str(sid).startswith(("wp3", "WP3")) or "_PAIR" in str(sid)
+            claims_cert = bool(
+                raw.get("semantic_certification")
+                or raw.get("relation_evidence_tier")
+                or raw.get("human_approved")
+                or raw.get("certified")
+                or raw.get("graph_approval_status")
+                in {"HUMAN_APPROVED", "CHAT_APPROVED_EXECUTABLE"}
+            )
+            if is_wp3 or claims_cert or raw.get("import_ready") is True:
+                ok_rev, rev_err = _independent_review_ok(raw)
+                if not ok_rev or sem not in CERTIFIED_SEMANTICS:
+                    errors.append(
+                        {
+                            "code": "SEMANTICS_NOT_CERTIFIED_FOR_IMPORT",
+                            "source_item_id": sid,
+                            "semantic_certification": sem,
+                            "import_ready": raw.get("import_ready"),
+                            "detail": rev_err
+                            or "UNCERTIFIED_SEMANTIC_STATUS_CANNOT_BE_BYPASSED_BY_IMPORT_READY",
+                        }
+                    )
+                    continue
+
+        # WP3 dual-window integrity
+        is_wp3 = str(sid).startswith(("wp3", "WP3")) or "_PAIR" in str(sid)
+        windows = _normalize_windows(raw)
+        if is_wp3:
             if raw.get("import_ready") is not True:
                 errors.append(
                     {
@@ -137,10 +231,50 @@ def import_batch(batch_path: Path, *, apply: bool) -> dict:
                     }
                 )
                 continue
+            if not windows or windows.get("B") is None:
+                errors.append(
+                    {
+                        "code": "WP3_MISSING_B_WINDOW",
+                        "source_item_id": sid,
+                        "detail": "windows_seconds must provide early A and late B",
+                    }
+                )
+                continue
+            # Evidence frame provenance required for WP3 imports
+            ev_pack = raw.get("evidence_pack") or {}
+            for role in ("A", "B"):
+                role_pack = ev_pack.get(role) or {}
+                if not role_pack.get("source_frame_refs") or not role_pack.get("source_hashes"):
+                    errors.append(
+                        {
+                            "code": "WP3_EVIDENCE_PROVENANCE_INCOMPLETE",
+                            "source_item_id": sid,
+                            "window": role,
+                        }
+                    )
+                    break
+            else:
+                pass
+            if any(
+                e.get("source_item_id") == sid
+                and e.get("code") == "WP3_EVIDENCE_PROVENANCE_INCOMPLETE"
+                for e in errors
+            ):
+                continue
+            ok_rev, rev_err = _independent_review_ok(raw)
+            if not ok_rev:
+                errors.append(
+                    {
+                        "code": "MISSING_REVIEWER_PROVENANCE",
+                        "source_item_id": sid,
+                        "detail": rev_err,
+                    }
+                )
+                continue
+
         if raw.get("split_assignment") in ("SEEN", "UNSEEN") and raw.get(
             "split_promotion_approved"
         ) is not True:
-            # new batches may only enter PENDING / PROPOSED pools unless explicitly approved
             if raw.get("split_assignment") not in (
                 "PENDING",
                 "SEEN_PROPOSED",
@@ -154,9 +288,9 @@ def import_batch(batch_path: Path, *, apply: bool) -> dict:
                     }
                 )
                 continue
+
         vid = raw.get("video_id")
         if vid and vid not in existing_vid and not raw.get("video_record"):
-            # require explicit video_record for new videos
             errors.append({"code": "MISSING_VIDEO_RECORD", "video_id": vid})
             continue
         if raw.get("video_record"):
@@ -172,38 +306,72 @@ def import_batch(batch_path: Path, *, apply: bool) -> dict:
             new_videos.append(vr)
             existing_vid.add(vr["video_id"])
 
-        pg_raw = raw.get("program_graph") or {}
-        nodes = pg_raw.get("nodes") or []
-        edges = pg_raw.get("edges") or []
+        # Re-validate edges (defense in depth; already checked structurally)
         nids = {n.get("node_id") for n in nodes}
+        edge_bad = False
         for e in edges:
             if e.get("source") not in nids or e.get("target") not in nids:
                 errors.append({"code": "GRAPH_EDGE_INCOMPLETE", "source_item_id": sid})
+                edge_bad = True
                 break
-        else:
-            graph = {
-                "program_graph_id": pid,
-                "qa_id": qid,
-                "source_item_id": sid,
-                "n_nodes": len(nodes),
-                "n_edges": len(edges),
-                "nodes": nodes,
-                "edges": edges,
-                "graph_approval_status": raw.get("graph_approval_status")
-                or "STAGING_INGESTED_NOT_GOLD",
-                "source_provenance": {
-                    "batch_id": batch_id,
-                    "batch_path": str(batch_path),
-                },
-            }
-            new_graphs.append(graph)
+        if edge_bad:
+            continue
 
+        graph = {
+            "program_graph_id": pid,
+            "qa_id": qid,
+            "source_item_id": sid,
+            "n_nodes": len(nodes),
+            "n_edges": len(edges),
+            "nodes": nodes,
+            "edges": edges,
+            "graph_approval_status": raw.get("graph_approval_status")
+            or "STAGING_INGESTED_NOT_GOLD",
+            "source_provenance": {
+                "batch_id": batch_id,
+                "batch_path": str(batch_path),
+            },
+        }
+        new_graphs.append(graph)
+
+        evidence_ids: list[str] = []
+        ev_pack = raw.get("evidence_pack") or {}
+        if windows and windows.get("A") and windows.get("B"):
+            for role, label in (("A", "EARLY_A"), ("B", "LATE_B")):
+                w = windows[role]
+                role_pack = ev_pack.get(role) or {}
+                eid = evidence_id(sid, label)
+                evidence_ids.append(eid)
+                new_ev.append(
+                    {
+                        "evidence_id": eid,
+                        "qa_id": qid,
+                        "source_item_id": sid,
+                        "video_id": vid,
+                        "window_role": role,
+                        "window_start": w[0],
+                        "window_end": w[1],
+                        "modality": role_pack.get("modality") or "visual",
+                        "source_frame_refs": role_pack.get("source_frame_refs"),
+                        "source_hashes": role_pack.get("source_hashes")
+                        or {"status": "UNKNOWN"},
+                        "claim": role_pack.get("claim"),
+                        "certification_status": role_pack.get("certification_status")
+                        or "SOURCE_WINDOW_ONLY",
+                        "reviewer_provenance": (
+                            raw.get("independent_review")
+                            or {"batch_id": batch_id, "status": "PENDING"}
+                        ),
+                    }
+                )
+        else:
+            # Legacy single/partial window path (non-WP3 example batches)
             ev = {
                 "evidence_id": evidence_id(sid, "STAGING"),
+                "qa_id": qid,
+                "source_item_id": sid,
                 "video_id": vid,
-                "window_start": (raw.get("windows") or {}).get("A", [None, None])[0]
-                if isinstance(raw.get("windows"), dict)
-                else None,
+                "window_start": None,
                 "window_end": None,
                 "modality": "UNKNOWN",
                 "source_frame_refs": None,
@@ -212,57 +380,61 @@ def import_batch(batch_path: Path, *, apply: bool) -> dict:
                 "certification_status": "UNKNOWN",
                 "reviewer_provenance": {"batch_id": batch_id},
             }
-            # windows optional
             if isinstance(raw.get("windows"), dict) and raw["windows"].get("A"):
                 a = raw["windows"]["A"]
                 ev["window_start"] = a[0]
                 ev["window_end"] = a[1]
+                ev["window_role"] = "A"
                 ev["certification_status"] = "SOURCE_WINDOW_ONLY"
+            evidence_ids = [ev["evidence_id"]]
             new_ev.append(ev)
 
-            qa_row = {
+        qa_row = {
+            "qa_id": qid,
+            "source_qa_id": raw.get("source_qa_id") or sid,
+            "source_item_id": sid,
+            "video_id": vid,
+            "question": raw.get("question"),
+            "answer": raw.get("answer"),
+            "answer_status": raw.get("answer_status") or "UNKNOWN_MISSING_SOURCE",
+            "program_graph_id": pid,
+            "evidence_ids": evidence_ids,
+            "windows_seconds": [windows["A"], windows["B"]] if windows and windows.get("B") else raw.get("windows_seconds"),
+            "necessity_test_id": review_id(sid, "necessity_test"),
+            "review_status": "STAGING_IMPORTED",
+            "split_assignment": raw.get("split_assignment") or "PENDING",
+            "split_version": f"batch:{batch_id}",
+            "composition_attributes": raw.get("composition_attributes") or {},
+            "provenance": {"batch_id": batch_id, "staging": True},
+            "record_completeness": (
+                "COMPLETE"
+                if raw.get("question") and raw.get("answer") is not None
+                else "PARTIAL"
+            ),
+            "formal_gold": False,
+        }
+        new_qas.append(qa_row)
+        new_rev.append(
+            {
+                "review_id": review_id(sid, "necessity"),
                 "qa_id": qid,
-                "source_qa_id": raw.get("source_qa_id") or sid,
-                "source_item_id": sid,
-                "video_id": vid,
-                "question": raw.get("question"),
-                "answer": raw.get("answer"),
-                "answer_status": raw.get("answer_status")
-                or "UNKNOWN_MISSING_SOURCE",
-                "program_graph_id": pid,
-                "evidence_ids": [ev["evidence_id"]],
-                "necessity_test_id": review_id(sid, "necessity_test"),
-                "review_status": "STAGING_IMPORTED",
-                "split_assignment": raw.get("split_assignment") or "PENDING",
-                "split_version": f"batch:{batch_id}",
-                "composition_attributes": raw.get("composition_attributes") or {},
-                "provenance": {"batch_id": batch_id, "staging": True},
-                "record_completeness": (
-                    "COMPLETE"
-                    if raw.get("question") and raw.get("answer") is not None
-                    else "PARTIAL"
+                "review_kind": "staging_import",
+                "a_only": (raw.get("necessity") or {}).get("a_only"),
+                "b_only": (raw.get("necessity") or {}).get("b_only"),
+                "a_plus_b": (raw.get("necessity") or {}).get("a_plus_b"),
+                "single_window_shortcut": (raw.get("necessity") or {}).get(
+                    "single_frame_shortcut"
                 ),
-                "formal_gold": False,
+                "answer_certification": qa_row["answer_status"],
+                "cross_window_bind": None,
+                "human_adjudication": raw.get("independent_review")
+                or raw.get("human_adjudication"),
+                "decision_basis": "staging_batch",
+                "decision_version": batch_id,
+                "necessity_test_passed": "NOT_AUTO_INFERRED_FROM_GRAPH",
+                "provenance": {"batch_id": batch_id},
             }
-            new_qas.append(qa_row)
-            new_rev.append(
-                {
-                    "review_id": review_id(sid, "necessity"),
-                    "qa_id": qid,
-                    "review_kind": "staging_import",
-                    "a_only": (raw.get("necessity") or {}).get("a_only"),
-                    "b_only": (raw.get("necessity") or {}).get("b_only"),
-                    "a_plus_b": (raw.get("necessity") or {}).get("a_plus_b"),
-                    "single_window_shortcut": None,
-                    "answer_certification": qa_row["answer_status"],
-                    "cross_window_bind": None,
-                    "human_adjudication": raw.get("human_adjudication"),
-                    "decision_basis": "staging_batch",
-                    "decision_version": batch_id,
-                    "necessity_test_passed": "NOT_AUTO_INFERRED_FROM_GRAPH",
-                    "provenance": {"batch_id": batch_id},
-                }
-            )
+        )
 
     result = {
         "batch_id": batch_id,
@@ -275,14 +447,11 @@ def import_batch(batch_path: Path, *, apply: bool) -> dict:
     }
     if errors:
         result["status"] = "REJECTED"
-        write_json(
-            DS_ROOT / "staging" / f"{batch_id}.import_report.json", result
-        )
+        write_json(DS_ROOT / "staging" / f"{batch_id}.import_report.json", result)
         return result
 
     result["status"] = "VALIDATED_READY"
     if apply:
-        # append to jsonl
         def append_jsonl(path: Path, rows: list[dict]) -> None:
             with path.open("a", encoding="utf-8") as f:
                 for row in rows:

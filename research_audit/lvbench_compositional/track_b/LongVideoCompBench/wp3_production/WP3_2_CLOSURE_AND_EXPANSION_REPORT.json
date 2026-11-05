@@ -1,0 +1,78 @@
+{
+  "schema": "wp3_2_closure_and_expansion_report_v1",
+  "work_package": "WP3.2",
+  "baseline_commit": "71d7207cb4b2fd92038080e96f2079e4b7f8c8d4",
+  "built_utc": "2026-11-05T12:14:53+00:00",
+  "p0_import_integrity": {
+    "import_ready_cannot_bypass_uncertified_semantics": true,
+    "forged_graph_approval_cannot_legitimize_unknown_ops": true,
+    "wp3_requires_A_and_B_evidence_with_frames_sha": true,
+    "independent_review_record_required": true,
+    "negative_tests": [
+      "forged_approval_flag",
+      "missing_B_window",
+      "bad_graph_edge",
+      "missing_reviewer_provenance"
+    ],
+    "gold_import": false
+  },
+  "p1_USFV_PAIR2": {
+    "pair_id": "USfvmoalqsw_PAIR2",
+    "relation_status": "PENDING_HUMAN_IDENTITY_ADJUDICATION",
+    "qa_status": "AUDIT_DRAFT_ONLY",
+    "necessity_status": "PROVISIONAL_PENDING_HUMAN",
+    "human_adjudication_status": "NOT_OBTAINED_THIS_ROUND",
+    "formal_gold": false,
+    "import_ready": false
+  },
+  "p2_wave2_triage_counts": {
+    "REJECT": 4,
+    "CONTROL": 2,
+    "PASS_CANDIDATE": 2,
+    "HOLD": 2
+  },
+  "p2_pass_candidates": [
+    "ihfjEFGdZdc_PAIR1",
+    "W-BnDvXXfOs_PAIR2"
+  ],
+  "p3_discovery": {
+    "pass_candidates_hist_among_triaged": 3,
+    "pass_candidates_entity_first_ranked": 3,
+    "do_not_optimize_raw_pair_count": true,
+    "winner_for_effective_yield": "entity_event_first"
+  },
+  "p4_signatures": {
+    "new_video_new_qa_old_signature": 1,
+    "atomic_covered_new_combination": 2,
+    "atomic_novel": 0,
+    "mixed_ood": 0,
+    "id_control": 2,
+    "unknown": 2
+  },
+  "capacity": {
+    "current_effective_pass_candidates": 3,
+    "formal_gold": 0,
+    "bottleneck": "HUMAN_IDENTITY_AND_OBJECT_ADJUDICATION_NOT_SCANNING",
+    "to_reach_50_100_qa": {
+      "required": "scale entity-first discovery + continuous Human/GPT review bandwidth",
+      "estimated_videos_if_pass_rate_0.15": "≈ 170–350 ROI-pairs ⇒ ~40–90 videos depending on density",
+      "do_not": "mint Gold from still triage or official QA rewrite",
+      "license": "keep new media local until redistribution cleared"
+    },
+    "method_recommendation": "entity_event_first"
+  },
+  "immutable_releases_preserved": [
+    "v0.1.0",
+    "v0.1.1",
+    "v0.1.2"
+  ],
+  "proposed_7_4_status": "PROPOSED",
+  "frozen_5_2_unchanged": true,
+  "no_new_public_media": true,
+  "paths": {
+    "pair2_packet": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_2_USFV_PAIR2_HUMAN_REVIEW_PACKET.json",
+    "wave2_triage": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave2/WAVE2_SEMANTIC_TRIAGE.jsonl",
+    "discovery_compare": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_2_discovery_method_comparison.json",
+    "signatures": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_2_composition_signature_coverage.json"
+  }
+}

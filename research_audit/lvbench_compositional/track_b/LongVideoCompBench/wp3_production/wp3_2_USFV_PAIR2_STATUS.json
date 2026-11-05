@@ -1,0 +1,9 @@
+{
+  "pair_id": "USfvmoalqsw_PAIR2",
+  "relation_status": "PENDING_HUMAN_IDENTITY_ADJUDICATION",
+  "qa_status": "AUDIT_DRAFT_ONLY",
+  "necessity_status": "PROVISIONAL_PENDING_HUMAN",
+  "human_adjudication_status": "NOT_OBTAINED_THIS_ROUND",
+  "formal_gold": false,
+  "import_ready": false
+}

@@ -1,0 +1,146 @@
+{
+  "schema": "wp3_2_human_review_packet_v1",
+  "pair_id": "USfvmoalqsw_PAIR2",
+  "video_id": "USfvmoalqsw",
+  "built_utc": "2026-11-05T12:14:53+00:00",
+  "baseline_commit": "71d7207cb4b2fd92038080e96f2079e4b7f8c8d4",
+  "prior_status": "RELATION_FEASIBILITY_PASS_CANDIDATE_PENDING_HUMAN",
+  "current_status": "PENDING_HUMAN_IDENTITY_ADJUDICATION",
+  "chatgpt_visual_match": {
+    "label": "CHATGPT_FRAME_VISUAL_PRELIMINARY",
+    "not_human_identity_certification": true,
+    "claim": "Plaid-gho man appears in both street and forest/stream windows"
+  },
+  "windows": {
+    "A": [
+      2355.0,
+      2365.0
+    ],
+    "B": [
+      4620.0,
+      4630.0
+    ]
+  },
+  "evidence": [
+    {
+      "role": "A",
+      "true_window_seconds": [
+        2355.0,
+        2365.0
+      ],
+      "legacy_roi_id": "USfvmoalqsw_PAIR2_EARLY_2360_2370",
+      "canonical_roi_id": "USfvmoalqsw_PAIR2_A_2355_2365",
+      "n_frames": 12,
+      "frame_sha256": [
+        "deaae6f7e4f74f7885c65a9bb4994871fb1aa0094fd3ac1a6b07b07f743b17f6",
+        "ef99ce06125107903000fb13c64ddae9034d1ae1713b9c78f931e1f0de074b9c",
+        "0953551932144176e7c60cf4faaab547ceb6ac79ca32a032f827c7e60e2c1c61",
+        "635b1b6efa9e246b70fb99322452acadede0ea7bbf17aac83533a85baccd8bff",
+        "86b9acdcdc4bdb5a7af607b1c72caf2edceba922540478e4ad853900e887bf37",
+        "798e43ac0b42a1bccf302fb9f612bf3e5a548d831ebc85a915d9b01db4cb67d4",
+        "27ab7d5a8be9927cf6a58aa717d53345d3110dd378fa4f63377881fc7268b811",
+        "ea76360cc363050634bb76be6d4c4fafe381c72842c105addf1653a126fff408",
+        "c844a326d9589fd9ec6bc222f555e102d24a2775d8338f7da6f06ba592cdd9b3",
+        "1c1e3bcb83fec469b0e14a6aa1e3cbe826e062f79c1f9cbb4674fc1ceb490138",
+        "8d2e35f5f80e4514dbbbdf7860c922b0ddb0d1fe8e4f0686cb52a0e3b9544aeb",
+        "022d769f1948bf0ff3486b7a1e4dcdf77bd1f183614b794b6c4c1bdecf334241"
+      ],
+      "frame_t_seconds": [
+        2355.0,
+        2355.909,
+        2356.818,
+        2357.727,
+        2358.636,
+        2359.545,
+        2360.455,
+        2361.364,
+        2362.273,
+        2363.182,
+        2364.091,
+        2365.0
+      ],
+      "local_clip_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wave1/USfvmoalqsw/USfvmoalqsw_PAIR2_EARLY_2360_2370/clip.mp4",
+      "local_clip_sha256": "283cd2f02664e8f49ab9d7e97c896a6045ab7e3f5c72380c788e599550f1d226",
+      "local_clip_bytes": 2149705,
+      "source_video": "/home/descfly/lpy/dataset/LVBench/videos/USfvmoalqsw.mp4",
+      "source_video_partial_sha256": "1e5d8b20e73ba28410097a88f070bc3118ba2d91ddfaaeeba94b483c6173870c"
+    },
+    {
+      "role": "B",
+      "true_window_seconds": [
+        4620.0,
+        4630.0
+      ],
+      "legacy_roi_id": "USfvmoalqsw_PAIR2_LATE_4625_4635",
+      "canonical_roi_id": "USfvmoalqsw_PAIR2_B_4620_4630",
+      "n_frames": 12,
+      "frame_sha256": [
+        "3dc9f1764db82a8f0bb4e6c7a2809b47549d72820dcc996c319176e83ff80acf",
+        "ead3a708ab142525526cd69944d7a14a9aaea16d3b1ec4c6d09172b450851621",
+        "5d283511530ff920c3293c81b4a632a94d4f2d399069ed8062c32dfab2daaafc",
+        "c273c6e473840d6e221a19f22e364f9d4243ef95055febeda23ca1a3b74b896f",
+        "78c707c1fbea84bc4f1bcb1d2e5c4a373ef5029a0bd51d13741c42d93322a52e",
+        "f3fc5f999b9487fea94e9eb3ba11c2c187392fad2e4b9fa519091af182139398",
+        "d5a990bbb728246eb519839f10fe309e16b837d4ac50e32b71a8e44d15c7f22f",
+        "fc0f4dcd890b13a3dd2906eaa5d0be17d8105e4e3c8cfba53d9dae30bdccfb96",
+        "d1850d8bbd22f76f1cdd206d3141a2ed1a34d4c145495b2a3ac42c85719a2426",
+        "a7e7960b5f7a6b9737088c4267af5eb26b8c0bec80a059d7faa42dcc7b599d4e",
+        "f68b84bf126de5953dc940c2ffe0c3e748cbaab8695ee70e2ec7e28fab88ed54",
+        "e9d088e5440fb7d52b539ed8db5011002049a4123be473ac551d7eca2eb484ac"
+      ],
+      "frame_t_seconds": [
+        4620.0,
+        4620.909,
+        4621.818,
+        4622.727,
+        4623.636,
+        4624.545,
+        4625.455,
+        4626.364,
+        4627.273,
+        4628.182,
+        4629.091,
+        4630.0
+      ],
+      "local_clip_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wave1/USfvmoalqsw/USfvmoalqsw_PAIR2_LATE_4625_4635/clip.mp4",
+      "local_clip_sha256": "e6dfc36c25d63666b7b199c5e11aa0cd49720dbf0826d3f63b52c50582a6106a",
+      "local_clip_bytes": 3829330,
+      "source_video": "/home/descfly/lpy/dataset/LVBench/videos/USfvmoalqsw.mp4",
+      "source_video_partial_sha256": "1e5d8b20e73ba28410097a88f070bc3118ba2d91ddfaaeeba94b483c6173870c"
+    }
+  ],
+  "qa_draft_audit_only": {
+    "question_zh": "后来在林间溪流旁、穿着格子gho对镜头说话的那名男子，更早出现在什么街景地点？",
+    "answer_draft_zh": "DORJI OM TSHONGKHANG 店铺所在的城市街道附近",
+    "formal_gold": false,
+    "program_signature_draft": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+    "signature_vs_historical_A": {
+      "historical_A": "LocatePersonByAppearance/DetectPersonAndAppearance→CrossIntervalSamePersonBind→QueryLocation",
+      "overlap": "SAME_FAMILY_CrossIntervalSamePersonBind_to_QueryLocation",
+      "difference": "A targets woman hillside→urban stairs; PAIR2 targets man forest→shop street",
+      "ood_bucket": "NEW_VIDEO_NEW_QA_OLD_SIGNATURE_FAMILY",
+      "not_atomic_novel_ood": true
+    }
+  },
+  "necessity_provisional": {
+    "a_only": "INSUFFICIENT_FOR_LATE_FOREST_QUERY_FRAMING",
+    "b_only": "INSUFFICIENT_FOR_SHOP_NAME_ANSWER",
+    "a_plus_b": "PLAUSIBLY_SUFFICIENT_IF_IDENTITY_HOLDS",
+    "single_frame_shortcut": "MEDIUM_CLOTHING_ONLY",
+    "subtitle_location_shortcut": "LOW_IN_PAIR2_FRAMES",
+    "status": "PROVISIONAL_PENDING_HUMAN"
+  },
+  "human_adjudication": {
+    "status": "NOT_OBTAINED_THIS_ROUND",
+    "reviewer_role": null,
+    "review_status": "PENDING",
+    "instructions": [
+      "Watch local continuous clips for A then B in order",
+      "Decide same-person YES/NO/UNCERTAIN",
+      "Do not treat GPT still-match as adjudication",
+      "Record independent_review object with reviewer_role/source_type/scope/review_status"
+    ]
+  },
+  "import_ready": false,
+  "formal_gold": false
+}

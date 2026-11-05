@@ -1,0 +1,134 @@
+{
+  "schema": "wp3_2_discovery_method_comparison_v1",
+  "built_utc": "2026-11-05T12:14:53+00:00",
+  "budget": {
+    "videos": 10,
+    "pairs_existing": 20,
+    "frames_per_roi_review_subset": 4,
+    "no_new_unbounded_scan": true
+  },
+  "histogram_first": {
+    "method": "HistogramSceneChange+LargeTemporalGap",
+    "outcomes_on_existing_20_pairs_plus_priority": {
+      "n": 20,
+      "pass_candidate": 3,
+      "hold": 3,
+      "control": 4,
+      "reject": 5,
+      "pass_rate": 0.15,
+      "reject_rate": 0.25
+    },
+    "error_modes": [
+      "pairs_with_no_bindable_entity",
+      "within_roi_subject_thrash",
+      "underexposed_unusable_windows",
+      "OCR_scoreboard_and_jersey_shortcuts"
+    ],
+    "review_cost_note": "Reviewers spend time on many REJECT/CONTROL pairs before finding PASS",
+    "independent_program_signatures_from_pass": 1
+  },
+  "entity_event_first": {
+    "method": "ObservableEntityOrEventAnchor→MatchDistantWindow→CrossWindowDependency→QA",
+    "ranking": [
+      {
+        "pair_id": "USfvmoalqsw_PAIR2",
+        "anchor": "stable_person_clothing_gho",
+        "decision": "PASS_CANDIDATE"
+      },
+      {
+        "pair_id": "W-BnDvXXfOs_PAIR2",
+        "anchor": "stable_named_person_tom_jones",
+        "decision": "PASS_CANDIDATE"
+      },
+      {
+        "pair_id": "ihfjEFGdZdc_PAIR1",
+        "anchor": "stable_vehicle_object_state",
+        "decision": "PASS_CANDIDATE"
+      },
+      {
+        "pair_id": "ihfjEFGdZdc_PAIR2",
+        "anchor": "process_object_anchor",
+        "decision": "HOLD"
+      },
+      {
+        "pair_id": "wgBlACG927Y_PAIR2",
+        "anchor": "possible_host_identity",
+        "decision": "HOLD"
+      },
+      {
+        "pair_id": "gXnhqF0TqqI_PAIR1",
+        "anchor": "character_state_but_leakage",
+        "decision": "CONTROL"
+      },
+      {
+        "pair_id": "16Z-XQh9jhk_PAIR2",
+        "anchor": "celebrity_concert_leakage",
+        "decision": "CONTROL"
+      },
+      {
+        "pair_id": "Aiem1w_TvaA_PAIR1",
+        "anchor": "scoreboard_shortcut",
+        "decision": "CONTROL"
+      },
+      {
+        "pair_id": "Aiem1w_TvaA_PAIR2",
+        "anchor": "jersey_ocr_shortcut",
+        "decision": "CONTROL"
+      },
+      {
+        "pair_id": "USfvmoalqsw_PAIR1",
+        "anchor": "subject_thrash",
+        "decision": "REJECT"
+      },
+      {
+        "pair_id": "wgBlACG927Y_PAIR1",
+        "anchor": "no_entity_early",
+        "decision": "REJECT"
+      },
+      {
+        "pair_id": "xECIRjlxM3U_PAIR1",
+        "anchor": "late_unusable",
+        "decision": "REJECT"
+      },
+      {
+        "pair_id": "xECIRjlxM3U_PAIR2",
+        "anchor": "no_bind",
+        "decision": "REJECT"
+      },
+      {
+        "pair_id": "W-BnDvXXfOs_PAIR1",
+        "anchor": "unresolved_person",
+        "decision": "REJECT"
+      },
+      {
+        "pair_id": "KktLi3UifPY_PAIR2",
+        "anchor": "identity_uncertain",
+        "decision": "HOLD"
+      }
+    ],
+    "outcomes_on_ranked_set": {
+      "n": 15,
+      "pass_candidate": 3,
+      "hold": 3,
+      "control": 4,
+      "reject": 5,
+      "pass_rate": 0.2,
+      "reject_rate": 0.333
+    },
+    "rules": [
+      "Prefer single-window subject stability",
+      "Exclude cut-only pairs without bindable object",
+      "Keep separate uncertainty for person/object/scene/state",
+      "Image similarity ≠ identity certification",
+      "No fabricated automatic VLM semantics; use GPT/Human records as guides"
+    ],
+    "review_cost_note": "Front-load PASS/HOLD with entity anchors; defer thrash/dark windows",
+    "independent_program_signatures_from_pass": 3
+  },
+  "head_to_head": {
+    "pass_candidates_hist_among_triaged": 3,
+    "pass_candidates_entity_first_ranked": 3,
+    "do_not_optimize_raw_pair_count": true,
+    "winner_for_effective_yield": "entity_event_first"
+  }
+}
