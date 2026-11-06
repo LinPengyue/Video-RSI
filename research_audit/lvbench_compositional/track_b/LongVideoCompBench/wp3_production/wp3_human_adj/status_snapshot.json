@@ -1,0 +1,20 @@
+{
+  "claims": [
+    "CLAIM_KBAH_ADULT_SAME",
+    "CLAIM_KBAH_CHILD_SAME",
+    "CLAIM_USFV_MAN_SAME"
+  ],
+  "qa": [
+    "lvcb:qa:KbahC-QCKU8_EF_PAIR1_seat_draft",
+    "lvcb:qa:USfvmoalqsw_PAIR2_shop_draft"
+  ],
+  "necessity": {
+    "necessity_PASS": 0,
+    "necessity_FAIL": 2,
+    "necessity_UNKNOWN": 0,
+    "blind_ab_tests_completed": 0,
+    "effective_compositional_qa": 0,
+    "control_with_certified_relation": 2,
+    "formal_gold": 0
+  }
+}

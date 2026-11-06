@@ -1,3 +1,10 @@
+## WP3 Human Adjudication ingest + Necessity structural audit (no new immutable release)
+
+- Ingested 3 Human Scientific Owner SAME claims (Kbah adult/child, USFV man) into trusted registry; identity scope only.
+- Drafted 2 QA + executable program graphs (old SamePersonBind family; not atomic-covered OOD).
+- Structural shortcut audit → Necessity FAIL for both (A-only sufficient); no forged A/B/A+B model runs; 0 Gold / 2 CONTROL.
+- Left `releases/v0.1.0`–`v0.1.2` immutable; 5+2 frozen / 7+4 PROPOSED; no new public media; no Track A.
+
 ## WP3.4 — Media compliance patch + certification loop scaffolding (no new immutable release)
 
 - Untracked 160 WP3.3 AB DEV review JPGs from current Git tree (no force-push); local hashes retained; WP3.3 media erratum recorded (history still exposed until admin).

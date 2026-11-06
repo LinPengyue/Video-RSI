@@ -96,12 +96,19 @@ class TestWP34(unittest.TestCase):
         self.assertEqual(self.nec["counts"]["formal_gold"], 0)
         self.assertEqual(self.nec["counts"]["qa_with_program_graph"], 0)
 
-    def test_trusted_registry_empty_and_separated(self):
+    def test_trusted_registry_separated_append_only(self):
         self.assertTrue(self.reg["append_only"])
         self.assertTrue(self.reg["separated_from_staging"])
-        self.assertEqual(self.reg["records_this_round"], 0)
-        records = (OUT / "trusted_human_review_registry" / "records.jsonl").read_text()
-        self.assertEqual(records.strip(), "")
+        # WP3.4 created empty registry; later Human adj may append claims.
+        records_path = OUT / "trusted_human_review_registry" / "records.jsonl"
+        self.assertTrue(records_path.exists())
+        for ln in records_path.read_text().splitlines():
+            if not ln.strip():
+                continue
+            r = json.loads(ln)
+            self.assertIn("claim_id", r)
+            self.assertEqual(r.get("reviewer_role"), "HUMAN_SCIENTIFIC_OWNER")
+            self.assertIn("FORMAL_GOLD", r.get("does_not_certify") or [])
 
     def test_report_protections(self):
         self.assertFalse(self.report["protections"]["track_a_modified"])

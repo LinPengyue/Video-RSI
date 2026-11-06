@@ -1,0 +1,204 @@
+{
+  "schema": "wp3_human_adj_qa_program_drafts_v1",
+  "built_utc": "2026-11-06T06:23:18+00:00",
+  "baseline_commit": "2faa6a035e39e60fd42c4375d31396bb1cb7066b",
+  "formal_gold": false,
+  "items": [
+    {
+      "qa_id": "lvcb:qa:KbahC-QCKU8_EF_PAIR1_seat_draft",
+      "pair_id": "KbahC-QCKU8_EF_PAIR1",
+      "question_zh": "后来在餐馆外与穿迷彩外套男子同行的男孩，之前坐在车内什么位置？",
+      "answer_draft_zh": "前排副驾驶座。",
+      "relation_claims": [
+        "CLAIM_KBAH_ADULT_SAME",
+        "CLAIM_KBAH_CHILD_SAME"
+      ],
+      "program_graph": {
+        "program_id": "lvcb:pg:KbahC-QCKU8_EF_PAIR1_seat_draft",
+        "formal_gold": false,
+        "signature_family": "SamePersonBind→QueryEarlier*",
+        "ood_bucket": "NEW_VIDEO_NEW_QA_OLD_SIGNATURE_FAMILY",
+        "atomic_covered_ood_candidate": false,
+        "nodes": [
+          {
+            "node_id": "n0",
+            "op": "LocateChild",
+            "window": "B",
+            "attrs": {
+              "cue": "boy_with_camo_adult_outside_restaurant"
+            }
+          },
+          {
+            "node_id": "n1",
+            "op": "LocateChild",
+            "window": "A",
+            "attrs": {
+              "cue": "boy_in_vehicle"
+            }
+          },
+          {
+            "node_id": "n2",
+            "op": "LocateAdult",
+            "window": "B",
+            "attrs": {
+              "cue": "camo_jacket_glasses_man"
+            }
+          },
+          {
+            "node_id": "n3",
+            "op": "LocateAdult",
+            "window": "A",
+            "attrs": {
+              "cue": "camo_jacket_glasses_driver"
+            }
+          },
+          {
+            "node_id": "n4",
+            "op": "CrossIntervalSamePersonBind",
+            "binds": [
+              "child_A",
+              "child_B"
+            ]
+          },
+          {
+            "node_id": "n5",
+            "op": "CrossIntervalSamePersonBind",
+            "binds": [
+              "adult_A",
+              "adult_B"
+            ],
+            "optional_support": true
+          },
+          {
+            "node_id": "n6",
+            "op": "QueryEarlierSeatPosition",
+            "window": "A",
+            "target": "child"
+          }
+        ],
+        "edges": [
+          {
+            "from": "n0",
+            "to": "n4",
+            "type": "entity_ref"
+          },
+          {
+            "from": "n1",
+            "to": "n4",
+            "type": "entity_ref"
+          },
+          {
+            "from": "n2",
+            "to": "n5",
+            "type": "entity_ref"
+          },
+          {
+            "from": "n3",
+            "to": "n5",
+            "type": "entity_ref"
+          },
+          {
+            "from": "n4",
+            "to": "n6",
+            "type": "bound_entity"
+          },
+          {
+            "from": "n1",
+            "to": "n6",
+            "type": "spatial_context"
+          }
+        ],
+        "shorthand_not_executable": "LocateChild(B)→CrossIntervalSamePersonBind(A,B)→QueryEarlierSeatPosition(A)"
+      },
+      "status": "DRAFT_ONLY"
+    },
+    {
+      "qa_id": "lvcb:qa:USfvmoalqsw_PAIR2_shop_draft",
+      "pair_id": "USfvmoalqsw_PAIR2",
+      "question_zh": "后来在林间溪流旁说话的格子衣男子，更早出现在哪家店铺附近？",
+      "answer_draft_zh": "DORJI OM TSHONGKHANG 店铺附近。",
+      "relation_claims": [
+        "CLAIM_USFV_MAN_SAME"
+      ],
+      "program_graph": {
+        "program_id": "lvcb:pg:USfvmoalqsw_PAIR2_shop_draft",
+        "formal_gold": false,
+        "signature_family": "SamePersonBind→QueryEarlier*",
+        "ood_bucket": "NEW_VIDEO_NEW_QA_OLD_SIGNATURE_FAMILY",
+        "atomic_covered_ood_candidate": false,
+        "nodes": [
+          {
+            "node_id": "n0",
+            "op": "LocatePerson",
+            "window": "B",
+            "attrs": {
+              "cue": "plaid_man_by_forest_stream"
+            }
+          },
+          {
+            "node_id": "n1",
+            "op": "LocatePerson",
+            "window": "A",
+            "attrs": {
+              "cue": "plaid_man_on_urban_street"
+            }
+          },
+          {
+            "node_id": "n2",
+            "op": "CrossIntervalSamePersonBind",
+            "binds": [
+              "person_A",
+              "person_B"
+            ]
+          },
+          {
+            "node_id": "n3",
+            "op": "DetectShopSign",
+            "window": "A",
+            "attrs": {
+              "candidate_signs": [
+                "DORJI OM TSHONGKHANG",
+                "TANDIN TSHONGKHANG"
+              ]
+            }
+          },
+          {
+            "node_id": "n4",
+            "op": "QueryEarlierShopSign",
+            "window": "A",
+            "target": "bound_person"
+          }
+        ],
+        "edges": [
+          {
+            "from": "n0",
+            "to": "n2",
+            "type": "entity_ref"
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "type": "entity_ref"
+          },
+          {
+            "from": "n2",
+            "to": "n4",
+            "type": "bound_entity"
+          },
+          {
+            "from": "n3",
+            "to": "n4",
+            "type": "ocr_candidates"
+          },
+          {
+            "from": "n1",
+            "to": "n3",
+            "type": "co_located"
+          }
+        ],
+        "shorthand_not_executable": "LocatePerson(B)→CrossIntervalSamePersonBind(A,B)→QueryEarlierShopSign(A)"
+      },
+      "status": "DRAFT_ONLY"
+    }
+  ]
+}

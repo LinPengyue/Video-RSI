@@ -1,0 +1,51 @@
+{
+  "record_id": "lvcb:hreview:KbahC-QCKU8_EF_PAIR1:adult_same:20261106",
+  "claim_id": "CLAIM_KBAH_ADULT_SAME",
+  "pair_id": "KbahC-QCKU8_EF_PAIR1",
+  "source_video_id": "KbahC-QCKU8",
+  "windows": {
+    "A": [
+      90.0,
+      100.0
+    ],
+    "B": [
+      2160.0,
+      2170.0
+    ]
+  },
+  "clip_sha256": {
+    "A": "58812c619252d45f070c9372e49e1146a287840a16ff355fc1ec699a5b8b4fba",
+    "B": "2afce6b5de756c29e5844dfef299a98f02bb4024e334ca26618d0dea44facc6c"
+  },
+  "local_clip_paths": {
+    "A": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_human_adjudication/KbahC-QCKU8_EF_PAIR1/A_090_100.mp4",
+    "B": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_human_adjudication/KbahC-QCKU8_EF_PAIR1/B_2160_2170.mp4"
+  },
+  "reviewer_identity": "USER_CHAT_HUMAN_SCIENTIFIC_OWNER",
+  "reviewer_role": "HUMAN_SCIENTIFIC_OWNER",
+  "source": "DIRECT_USER_CONFIRMATION_IN_CHAT",
+  "decision_scope": "CROSS_WINDOW_PERSON_IDENTITY",
+  "entity": "adult_male",
+  "decision": "SAME",
+  "raw_rationale_verbatim_zh": "成年男性戴眼镜、迷彩外套；孩子头发有金色与深色，穿黑色卫衣，早期黑色卫衣在蓝色外套下面。",
+  "normalized_features_separate": {
+    "adult": [
+      "glasses",
+      "camouflage_jacket"
+    ],
+    "note": "Child features belong to CLAIM_KBAH_CHILD_SAME; kept here only because raw text mentioned both"
+  },
+  "timestamp_utc": "2026-11-06T06:23:18+00:00",
+  "baseline_commit": "2faa6a035e39e60fd42c4375d31396bb1cb7066b",
+  "provenance_chain": [
+    "user_watched_local_original_clips",
+    "DIRECT_USER_CONFIRMATION_IN_CHAT",
+    "append_only_trusted_registry"
+  ],
+  "does_not_certify": [
+    "QA_GOLD",
+    "NECESSITY_PASS",
+    "FORMAL_GOLD"
+  ],
+  "reask_human_identity": false
+}

@@ -18,6 +18,9 @@
   ],
   "rejection_rule": "Staging self-filled review_status=HUMAN_APPROVED alone cannot mint formal_gold; a matching trusted registry record with reviewer_identity is required.",
   "records_jsonl": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_4/trusted_human_review_registry/records.jsonl",
-  "records_this_round": 0,
-  "note": "Empty registry is correct until a real Human Scientific Owner submits."
+  "records_this_round": 3,
+  "note": "Empty registry is correct until a real Human Scientific Owner submits.",
+  "updated_utc": "2026-11-06T06:23:18+00:00",
+  "records_total": 3,
+  "last_ingest": "WP3_HUMAN_ADJ_IDENTITY_THREE_CLAIMS"
 }

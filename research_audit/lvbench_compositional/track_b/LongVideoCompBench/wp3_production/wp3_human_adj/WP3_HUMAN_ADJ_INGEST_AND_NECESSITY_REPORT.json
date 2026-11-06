@@ -1,0 +1,79 @@
+{
+  "schema": "wp3_human_adj_layered_status_v1",
+  "built_utc": "2026-11-06T06:23:18+00:00",
+  "baseline_commit": "2faa6a035e39e60fd42c4375d31396bb1cb7066b",
+  "layers": {
+    "human_relation_certification": {
+      "n": 3,
+      "claim_ids": [
+        "CLAIM_KBAH_ADULT_SAME",
+        "CLAIM_KBAH_CHILD_SAME",
+        "CLAIM_USFV_MAN_SAME"
+      ],
+      "scope": "CROSS_WINDOW_PERSON_IDENTITY_ONLY"
+    },
+    "qa_draft": {
+      "n": 2,
+      "formal_gold": false
+    },
+    "program_graph_draft": {
+      "n": 2,
+      "formal_gold": false
+    },
+    "a_only_b_only_ab_model_tests": {
+      "status": "NOT_RUN_NO_BLIND_MODEL",
+      "forged": false
+    },
+    "shortcut_audit": {
+      "status": "COMPLETE_STRUCTURAL",
+      "both_fail_strict_necessity": true
+    },
+    "necessity_verdict": {
+      "Kbah": "FAIL",
+      "USFV": "FAIL"
+    },
+    "gold_status": {
+      "formal_gold": false,
+      "independent_gold_review": "NOT_ENTERED"
+    }
+  },
+  "inventory": {
+    "effective_compositional_qa": 0,
+    "control": 2,
+    "relation_certified_pending_better_qa": 2
+  },
+  "protections": {
+    "frozen_5_2": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202",
+      "P7_VTCD_C2",
+      "P7_TJR_R3"
+    ],
+    "proposed_7_4_status": "PROPOSED",
+    "proposed_7_4_seen": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202",
+      "A",
+      "P7_R4_F1"
+    ],
+    "proposed_7_4_unseen": [
+      "P7_VTCD_C2",
+      "P7_TJR_R3",
+      "B",
+      "P7_R4_F2"
+    ],
+    "immutable_releases": [
+      "v0.1.0",
+      "v0.1.1",
+      "v0.1.2"
+    ],
+    "track_a_run": false,
+    "new_public_media": false
+  }
+}
