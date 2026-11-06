@@ -1,23 +1,34 @@
 {
-  "schema": "wp3_pipeline_conformance_repair_report_v1",
-  "work_package": "WP3_PIPELINE_CONFORMANCE_REPAIR",
-  "baseline_commit": "15ff75b5881c27352a4611ed81d3893f7e8aa0fb",
-  "built_utc": "2026-11-06T07:32:23+00:00",
+  "schema": "wp3_pipeline_conformance_scientific_correction_report_v1",
+  "work_package": "WP3_PIPELINE_CONFORMANCE_SCIENTIFIC_CORRECTION",
+  "baseline_commit": "b864b3e277b419096aad946096db090b22b902f0",
+  "built_utc": "2026-11-06T08:33:04+00:00",
   "matrix_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_pipeline_conformance/S0_S9_CONFORMANCE_MATRIX.json",
   "regression_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_pipeline_conformance/regression_cases.json",
   "counts": {
     "generated_ok": 2,
     "necessity_FAIL": 2,
     "necessity_PASS": 0,
+    "necessity_strict_proof": 0,
     "model_NOT_RUN": 2,
     "formal_gold": 0,
     "effective_compositional_qa": 0,
-    "control": 2
+    "control": 2,
+    "atomic_covered_ood": 0
   },
   "scaled_gold_capacity_claimed": false,
+  "production_closed_loop_claimed": false,
   "s8_buckets": {
-    "KbahC-QCKU8_EF_PAIR1": "ATOMIC_COVERED_COMPOSITION_OOD_CANDIDATE",
-    "USfvmoalqsw_PAIR2": "ATOMIC_COVERED_COMPOSITION_OOD_CANDIDATE"
+    "KbahC-QCKU8_EF_PAIR1": "L1_COVERED_L2_UNCOVERED_OR_UNKNOWN",
+    "USfvmoalqsw_PAIR2": "L1_COVERED_L2_UNCOVERED_OR_UNKNOWN"
+  },
+  "s8_l2_covered": {
+    "KbahC-QCKU8_EF_PAIR1": false,
+    "USfvmoalqsw_PAIR2": false
+  },
+  "structural_strict_proof": {
+    "KbahC-QCKU8_EF_PAIR1": false,
+    "USfvmoalqsw_PAIR2": false
   },
   "protections": {
     "frozen_5_2": [
@@ -29,6 +40,21 @@
       "P7_VTCD_C2",
       "P7_TJR_R3"
     ],
+    "proposed_7_4_seen": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202",
+      "A",
+      "P7_R4_F1"
+    ],
+    "proposed_7_4_unseen": [
+      "P7_VTCD_C2",
+      "P7_TJR_R3",
+      "B",
+      "P7_R4_F2"
+    ],
     "proposed_7_4": "PROPOSED",
     "immutable_releases": [
       "v0.1.0",
@@ -38,7 +64,26 @@
     "sealed_accessed": false,
     "track_a_run": false,
     "new_public_media": false,
-    "scaled_gold_capacity_claimed": false
+    "scaled_gold_capacity_claimed": false,
+    "production_closed_loop_claimed": false,
+    "formal_gold": 0
   },
-  "claim": "Interfaces repaired; regression shows CONTROL via structural Necessity FAIL; no scaled Gold capacity"
+  "interface_wiring": {
+    "parallel_prototype_modules": [
+      "tools/pipeline_conformance/s3_s5_relation_qa.py",
+      "tools/pipeline_conformance/s6_necessity.py",
+      "tools/pipeline_conformance/s8_signature_feedback.py",
+      "tools/pipeline_conformance/s7_s9_gates.py",
+      "tools/wp3_pipeline_conformance_repair.py"
+    ],
+    "formal_batch_entry": [
+      "tools/lvbench_comp/batch_factory/",
+      "tools/import_annotation_batch.py",
+      "tools/wp3_wave_production.py"
+    ],
+    "wired_into_formal_batch_entry": false,
+    "production_closed_loop_claimed": false,
+    "note": "Conformance interfaces are parallel prototypes for DEV regression. They are not yet the sole production entry; do not claim closed-loop repair."
+  },
+  "claim": "Scientific correction: L1≠L2 coverage; graph typed I/O; provenance-separated Necessity; Human identity scope-limited; CONTROL retained without strict structural proof claims or scaled Gold capacity"
 }

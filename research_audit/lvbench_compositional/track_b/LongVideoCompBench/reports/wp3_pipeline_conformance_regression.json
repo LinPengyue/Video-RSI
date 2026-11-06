@@ -1,7 +1,7 @@
 {
-  "schema": "wp3_pipeline_conformance_regression_v1",
-  "built_utc": "2026-11-06T07:32:23+00:00",
-  "baseline_commit": "15ff75b5881c27352a4611ed81d3893f7e8aa0fb",
+  "schema": "wp3_pipeline_conformance_regression_v2",
+  "built_utc": "2026-11-06T08:33:04+00:00",
+  "baseline_commit": "b864b3e277b419096aad946096db090b22b902f0",
   "cases": {
     "KbahC-QCKU8_EF_PAIR1": {
       "relation": {
@@ -13,13 +13,15 @@
           "CLAIM_KBAH_ADULT_SAME",
           "CLAIM_KBAH_CHILD_SAME"
         ],
+        "human_bind_scope": "CROSS_WINDOW_PERSON_IDENTITY",
         "dependency_direction": "B_identifies_then_query_A",
         "queryable_attributes": [
           {
             "key": "child_seat",
             "window": "A",
             "value": "前排副驾驶座",
-            "prompt_zh": "坐在车内什么位置"
+            "prompt_zh": "坐在车内什么位置",
+            "certification": "ATTRIBUTE_NOT_COVERED_BY_HUMAN_IDENTITY_CLAIM"
           }
         ],
         "fact_a": {
@@ -47,7 +49,13 @@
           "evidence_refs": [
             "local_media/.../KbahC-QCKU8_EF_PAIR1/A_090_100.mp4#sha256:58812c619252d45f070c9372e49e1146a287840a16ff355fc1ec699a5b8b4fba"
           ],
-          "source_provenance": "HUMAN_CLIP_REVIEW+STATIC_VISIBLE_SEAT"
+          "source_provenance": "HUMAN_CLIP_REVIEW_IDENTITY_PLUS_STATIC_VISIBLE_SEAT_OBSERVATION",
+          "certified_scopes": [
+            "CROSS_WINDOW_PERSON_IDENTITY"
+          ],
+          "uncertified_attribute_keys": [
+            "child_seat"
+          ]
         },
         "fact_b": {
           "fact_id": "KBAH_B_OUTSIDE",
@@ -73,9 +81,13 @@
           "evidence_refs": [
             "local_media/.../KbahC-QCKU8_EF_PAIR1/B_2160_2170.mp4#sha256:2afce6b5de756c29e5844dfef299a98f02bb4024e334ca26618d0dea44facc6c"
           ],
-          "source_provenance": "HUMAN_CLIP_REVIEW+STATIC_VISIBLE_EXTERIOR"
+          "source_provenance": "HUMAN_CLIP_REVIEW_IDENTITY",
+          "certified_scopes": [
+            "CROSS_WINDOW_PERSON_IDENTITY"
+          ],
+          "uncertified_attribute_keys": []
         },
-        "notes": "Regression case; known A-only seat shortcut"
+        "notes": "Regression CONTROL; known A-only seat shortcut risk; seat not Human-certified"
       },
       "s3_s5": {
         "status": "OK",
@@ -86,6 +98,8 @@
           "video_id": "KbahC-QCKU8",
           "question": "后来在餐馆外的穿黑色卫衣的男孩，更早时坐在车内什么位置？",
           "answer": "前排副驾驶座",
+          "answer_attribute_key": "child_seat",
+          "answer_certification": "ATTRIBUTE_NOT_COVERED_BY_HUMAN_IDENTITY_CLAIM",
           "windows_seconds": [
             [
               90.0,
@@ -105,6 +119,8 @@
             "CLAIM_KBAH_ADULT_SAME",
             "CLAIM_KBAH_CHILD_SAME"
           ],
+          "bind_scope": "CROSS_WINDOW_PERSON_IDENTITY",
+          "bind_does_not_certify_answer": true,
           "epistemic": {
             "fact_a": "FACT",
             "fact_b": "FACT",
@@ -113,13 +129,24 @@
           "operator_signature": "LocateEntity→LocateEntity→CrossIntervalSamePersonBind→QueryEarlierAttribute",
           "necessity": "PENDING_S6",
           "source_provenance": {
-            "fact_a": "HUMAN_CLIP_REVIEW+STATIC_VISIBLE_SEAT",
-            "fact_b": "HUMAN_CLIP_REVIEW+STATIC_VISIBLE_EXTERIOR"
+            "fact_a": "HUMAN_CLIP_REVIEW_IDENTITY_PLUS_STATIC_VISIBLE_SEAT_OBSERVATION",
+            "fact_b": "HUMAN_CLIP_REVIEW_IDENTITY",
+            "fact_a_certified_scopes": [
+              "CROSS_WINDOW_PERSON_IDENTITY"
+            ],
+            "fact_b_certified_scopes": [
+              "CROSS_WINDOW_PERSON_IDENTITY"
+            ],
+            "fact_a_uncertified_attributes": [
+              "child_seat"
+            ]
           },
           "review_status": "DRAFT",
           "split_assignment": "DEV_CONSTRUCTION",
           "formal_gold": false,
-          "generator": "pipeline_conformance.s3_s5_relation_qa.v1",
+          "generator": "pipeline_conformance.s3_s5_relation_qa.v2",
+          "family_template_id": "same_person_bind_query_earlier_attribute",
+          "question_built_from_template": true,
           "not_video_hardcoded": true
         },
         "program_graph": {
@@ -127,40 +154,138 @@
           "family_id": "same_person_bind_query_earlier_attribute",
           "nodes": [
             {
-              "node_id": "n0",
+              "node_id": "n_locate_B",
               "op": "LocateEntity",
               "raw_operator": "LocateEntity",
               "layer1": "ENTITY_IDENTIFICATION",
               "layer2": "LocatePersonByAppearance",
               "normalized_clip_role": "B",
-              "raw_clip_role": "B"
+              "raw_clip_role": "B",
+              "inputs": [
+                {
+                  "name": "clip",
+                  "type": "VideoWindow",
+                  "role": "B",
+                  "window": [
+                    2160.0,
+                    2170.0
+                  ]
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "entity_ref",
+                  "type": "EntityRef",
+                  "role": "B"
+                }
+              ],
+              "evidence_refs": [
+                "local_media/.../KbahC-QCKU8_EF_PAIR1/B_2160_2170.mp4#sha256:2afce6b5de756c29e5844dfef299a98f02bb4024e334ca26618d0dea44facc6c"
+              ],
+              "constraints": {
+                "must_observe_window": "B"
+              }
             },
             {
-              "node_id": "n1",
+              "node_id": "n_locate_A",
               "op": "LocateEntity",
               "raw_operator": "LocateEntity",
               "layer1": "ENTITY_IDENTIFICATION",
               "layer2": "LocatePersonByAppearance",
               "normalized_clip_role": "A",
-              "raw_clip_role": "A"
+              "raw_clip_role": "A",
+              "inputs": [
+                {
+                  "name": "clip",
+                  "type": "VideoWindow",
+                  "role": "A",
+                  "window": [
+                    90.0,
+                    100.0
+                  ]
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "entity_ref",
+                  "type": "EntityRef",
+                  "role": "A"
+                }
+              ],
+              "evidence_refs": [
+                "local_media/.../KbahC-QCKU8_EF_PAIR1/A_090_100.mp4#sha256:58812c619252d45f070c9372e49e1146a287840a16ff355fc1ec699a5b8b4fba"
+              ],
+              "constraints": {
+                "must_observe_window": "A"
+              }
             },
             {
-              "node_id": "n2",
+              "node_id": "n_bind",
               "op": "CrossIntervalSamePersonBind",
               "raw_operator": "CrossIntervalSamePersonBind",
               "layer1": "CROSS_WINDOW_ENTITY_BIND",
               "layer2": "CrossIntervalSamePersonBind",
               "normalized_clip_role": null,
-              "raw_clip_role": null
+              "raw_clip_role": null,
+              "inputs": [
+                {
+                  "name": "entity_ref_B",
+                  "type": "EntityRef",
+                  "role": "B"
+                },
+                {
+                  "name": "entity_ref_A",
+                  "type": "EntityRef",
+                  "role": "A"
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "bound_entity",
+                  "type": "BoundEntityRef"
+                }
+              ],
+              "evidence_refs": [
+                "CLAIM_KBAH_ADULT_SAME",
+                "CLAIM_KBAH_CHILD_SAME"
+              ],
+              "constraints": {
+                "bind_status": "FACT",
+                "human_scope": "CROSS_WINDOW_PERSON_IDENTITY",
+                "does_not_certify_answer_attributes": true
+              }
             },
             {
-              "node_id": "n3",
+              "node_id": "n_query",
               "op": "QueryEarlierAttribute",
               "raw_operator": "QueryEarlierAttribute",
               "layer1": "BOUND_ATTRIBUTE_QUERY",
               "layer2": "QueryEarlierAttribute",
               "normalized_clip_role": "A",
               "raw_clip_role": "A",
+              "inputs": [
+                {
+                  "name": "bound_entity",
+                  "type": "BoundEntityRef"
+                },
+                {
+                  "name": "attribute_key",
+                  "type": "AttributeKey"
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "answer",
+                  "type": "AnswerValue"
+                }
+              ],
+              "evidence_refs": [
+                "local_media/.../KbahC-QCKU8_EF_PAIR1/A_090_100.mp4#sha256:58812c619252d45f070c9372e49e1146a287840a16ff355fc1ec699a5b8b4fba"
+              ],
+              "constraints": {
+                "query_window": "A",
+                "requires_bind_output": true
+              },
               "attrs": {
                 "attribute": "child_seat"
               }
@@ -168,52 +293,79 @@
           ],
           "edges": [
             {
-              "from": "n0",
-              "to": "n1",
-              "type": "dataflow"
+              "from": "n_locate_B",
+              "to": "n_bind",
+              "from_port": "entity_ref",
+              "to_port": "entity_ref_B",
+              "type": "dataflow",
+              "value_type": "EntityRef"
             },
             {
-              "from": "n1",
-              "to": "n2",
-              "type": "dataflow"
+              "from": "n_locate_A",
+              "to": "n_bind",
+              "from_port": "entity_ref",
+              "to_port": "entity_ref_A",
+              "type": "dataflow",
+              "value_type": "EntityRef"
             },
             {
-              "from": "n2",
-              "to": "n3",
-              "type": "dataflow"
-            },
-            {
-              "from": "n1",
-              "to": "n3",
-              "type": "spatial_context"
+              "from": "n_bind",
+              "to": "n_query",
+              "from_port": "bound_entity",
+              "to_port": "bound_entity",
+              "type": "dataflow",
+              "value_type": "BoundEntityRef"
             }
           ],
           "n_nodes": 4,
-          "n_edges": 4,
+          "n_edges": 3,
           "formal_gold": false,
-          "signature_shorthand": "LocateEntity→LocateEntity→CrossIntervalSamePersonBind→QueryEarlierAttribute"
+          "signature_shorthand": "LocateEntity→LocateEntity→CrossIntervalSamePersonBind→QueryEarlierAttribute",
+          "dataflow_topology": "LocateB+LocateA→Bind→Query",
+          "program_execution": "PROGRAM_EXECUTION_NOT_RUN",
+          "executable_pass": false,
+          "executor_available": false,
+          "semantic_validation": {
+            "status": "OK",
+            "codes": [],
+            "executable_pass": false,
+            "program_execution": "PROGRAM_EXECUTION_NOT_RUN",
+            "note": "Semantic I/O OK ≠ EXECUTABLE_PASS; executor not available"
+          }
         },
         "queryable_attributes": [
           {
             "key": "child_seat",
             "window": "A",
             "value": "前排副驾驶座",
-            "prompt_zh": "坐在车内什么位置"
+            "prompt_zh": "坐在车内什么位置",
+            "certification": "ATTRIBUTE_NOT_COVERED_BY_HUMAN_IDENTITY_CLAIM"
           }
         ],
-        "dependency_direction": "B_identifies_then_query_A"
+        "dependency_direction": "B_identifies_then_query_A",
+        "quality_checks": {
+          "uses_family_template": true,
+          "question_contains_filled_slots": true,
+          "generator_has_no_video_id_branch": true,
+          "self_declared_not_video_hardcoded_insufficient_alone": true
+        }
       },
       "s6": {
-        "schema": "s6_necessity_combined_v1",
+        "schema": "s6_necessity_combined_v2",
         "overall_verdict": "FAIL",
+        "strict_necessity_proof": false,
+        "structural_strict_proof": false,
+        "inventory_hint": "CONTROL",
         "reasons": [
-          "structural:A-only uniquely determines answer; CrossWindow bind not required for payload",
-          "shortcut:SINGLE_CANDIDATE_ENTITY_IN_A"
+          "shortcut:SINGLE_CANDIDATE_ENTITY_IN_A",
+          "structural_FAIL_provisional_not_strict_proof:A-only uniquely determines answer under supplied fields; fields include engineer_unverified_shortcut_hypothesis — NOT independently proven video verification"
         ],
         "structural": {
           "channel": "structural",
           "verdict": "FAIL",
-          "reason": "A-only uniquely determines answer; CrossWindow bind not required for payload",
+          "strict_proof": false,
+          "control_risk": true,
+          "reason": "A-only uniquely determines answer under supplied fields; fields include engineer_unverified_shortcut_hypothesis — NOT independently proven video verification",
           "trail": {
             "inputs": {
               "answer_localized_window": "A",
@@ -221,9 +373,32 @@
               "b_contains_answer_payload": false,
               "bind_required_for_answer_payload": false,
               "within_b_subject_switch": true,
-              "notes": "A has unique child in passenger seat; seat answer fully in A"
+              "notes": "Seat answer appears A-local; uniqueness not program-computed"
             },
             "missing_fields": [],
+            "provenance": {
+              "classes": {
+                "independently_observed_fact": [
+                  "within_b_subject_switch",
+                  "within_b_subject_switch_visible_in_clips"
+                ],
+                "audited_entity_bind": [
+                  "CLAIM_KBAH_ADULT_SAME",
+                  "CLAIM_KBAH_CHILD_SAME"
+                ],
+                "program_computed_candidate_set": [],
+                "engineer_unverified_shortcut_hypothesis": [
+                  "answer_localized_window",
+                  "a_unique_answer_bearing_entity",
+                  "b_contains_answer_payload",
+                  "bind_required_for_answer_payload",
+                  "multi_signage_uniqueness_verified"
+                ],
+                "actual_model_run_record": []
+              },
+              "uniqueness_depends_on_unverified_engineer_hypothesis": true,
+              "strict_structural_proof_possible": false
+            },
             "rules_fired": [
               "R1_A_unique_answer_no_bind_needed"
             ]
@@ -236,7 +411,8 @@
           "forged": false,
           "A_only": null,
           "B_only": null,
-          "A_plus_B": null
+          "A_plus_B": null,
+          "verdict": null
         },
         "shortcut_audit": {
           "channel": "shortcut_audit",
@@ -251,14 +427,18 @@
             "language_prior_celebrity_or_brand": false,
             "subtitle_leak": false
           },
+          "signal_provenance": {
+            "single_candidate_entity_in_A": "engineer_unverified_shortcut_hypothesis"
+          },
           "blocks_strict_necessity_pass": true
         },
         "formal_gold": false,
         "human_identity_does_not_imply_pass": true
       },
       "s8_audit": {
-        "schema": "s8_signature_feedback_v1",
+        "schema": "s8_signature_feedback_v2",
         "program_id": "lvcb:pg:REL_KBAH_EF_PAIR1:same_person_bind_query_earlier_attribute",
+        "provisional_label_before_recompute": "STRUCTURAL_NOVELTY_CANDIDATE_UNVERIFIED",
         "seen_atomic_layer1": [
           "AGGREGATION_QUERY",
           "BOUND_ATTRIBUTE_QUERY",
@@ -278,80 +458,131 @@
           "TEMPORAL_EVENT_LOCALIZATION",
           "TEXT_EVIDENCE_READING"
         ],
+        "seen_atomic_layer2": [
+          "BindCountryConstraint",
+          "BindPersonToName",
+          "BindSamePerson",
+          "CountFilteredEntities",
+          "DetectObjectActionEvent",
+          "DetectObjectInstances",
+          "DetermineEventWinner",
+          "FilterFlagsByCountry",
+          "IdentifyCountryFromFlag",
+          "IdentifyFirstActorByAction",
+          "IdentifyFlag",
+          "IdentifyPerson",
+          "IdentifyTeams",
+          "JoinPersonRelationAcrossWindows",
+          "LocateConstrainedScoreEvent",
+          "LocateOrderedSegment",
+          "LocateSceneByEvent",
+          "LocateSceneByLandmark",
+          "ObservePerson",
+          "QueryBoundEmotion",
+          "QueryBoundMatchResult",
+          "QueryEventParticipant",
+          "QueryRelation",
+          "ReadPersonNameFromSubtitle",
+          "ReadRelationFromSubtitle",
+          "SelectTeamByCountry",
+          "SetTargetCountry"
+        ],
         "draft_layer1": [
           "BOUND_ATTRIBUTE_QUERY",
           "CROSS_WINDOW_ENTITY_BIND",
           "ENTITY_IDENTIFICATION"
         ],
-        "draft_layer2": [
+        "draft_layer2_raw": [
           "CrossIntervalSamePersonBind",
           "LocatePersonByAppearance",
           "QueryEarlierAttribute"
         ],
-        "unseen_layer2_labels": [
+        "layer2_normalization": [
+          {
+            "raw": "CrossIntervalSamePersonBind",
+            "normalized": null,
+            "status": "UNKNOWN",
+            "reason": "no_auditable_equivalence_to_seen_layer2"
+          },
+          {
+            "raw": "LocatePersonByAppearance",
+            "normalized": null,
+            "status": "UNKNOWN",
+            "reason": "no_auditable_equivalence_to_seen_layer2"
+          },
+          {
+            "raw": "QueryEarlierAttribute",
+            "normalized": null,
+            "status": "UNKNOWN",
+            "reason": "no_auditable_equivalence_to_seen_layer2"
+          }
+        ],
+        "normalized_layer2": [],
+        "unseen_or_unknown_layer2": [
           "CrossIntervalSamePersonBind",
           "LocatePersonByAppearance",
           "QueryEarlierAttribute"
         ],
         "atomic_covered_in_seen_layer1": true,
-        "bucket": "ATOMIC_COVERED_COMPOSITION_OOD_CANDIDATE",
-        "atomic_covered_ood_candidate": true,
+        "atomic_covered_in_seen_layer2": false,
+        "layer1_coverage_does_not_imply_layer2": true,
+        "composition_novel_layer1": true,
+        "composition_novel_layer2": true,
+        "gates": {
+          "role_check": {
+            "pass": true,
+            "roles_present": [
+              "A",
+              "B"
+            ],
+            "requires": [
+              "A",
+              "B"
+            ]
+          },
+          "dependency_check": {
+            "pass": true,
+            "locates_feed_bind": true,
+            "bind_feeds_query": true,
+            "edge_pairs": [
+              [
+                "n_bind",
+                "n_query"
+              ],
+              [
+                "n_locate_A",
+                "n_bind"
+              ],
+              [
+                "n_locate_B",
+                "n_bind"
+              ]
+            ]
+          },
+          "training_exposure_check": {
+            "pass": true,
+            "draft_graph_id": "lvcb:pg:REL_KBAH_EF_PAIR1:same_person_bind_query_earlier_attribute",
+            "seen_seed_ids": [
+              "SP001",
+              "SP002",
+              "SP005",
+              "SP201",
+              "SP202"
+            ],
+            "note": "Does not claim video-level contamination audit; only seed-graph id collision"
+          },
+          "all_pass": true,
+          "semantic_io_validated": true
+        },
+        "bucket": "L1_COVERED_L2_UNCOVERED_OR_UNKNOWN",
+        "atomic_covered_ood_candidate": false,
         "freeze_unseen": false,
         "subgraph_audit": {
           "2node_layer1_ops": {
-            "n_subgraphs": 4,
-            "n_novel_vs_seen": 2,
-            "novel_signatures": [
-              [
-                [
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
-                    0
-                  ]
-                ]
-              ]
-            ],
+            "n_subgraphs": 3,
+            "n_novel_vs_seen": 0,
+            "novel_signatures": [],
             "all_signatures": [
-              [
-                [
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
               [
                 [
                   [
@@ -371,7 +602,7 @@
               [
                 [
                   [
-                    "BOUND_ATTRIBUTE_QUERY"
+                    "CROSS_WINDOW_ENTITY_BIND"
                   ],
                   [
                     "ENTITY_IDENTIFICATION"
@@ -403,25 +634,9 @@
             ]
           },
           "2node_layer2_ops": {
-            "n_subgraphs": 4,
-            "n_novel_vs_seen": 4,
+            "n_subgraphs": 3,
+            "n_novel_vs_seen": 3,
             "novel_signatures": [
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
               [
                 [
                   [
@@ -441,16 +656,16 @@
               [
                 [
                   [
-                    "LocatePersonByAppearance"
+                    "CrossIntervalSamePersonBind"
                   ],
                   [
-                    "QueryEarlierAttribute"
+                    "LocatePersonByAppearance"
                   ]
                 ],
                 [
                   [
-                    0,
-                    1
+                    1,
+                    0
                   ]
                 ]
               ],
@@ -475,22 +690,6 @@
               [
                 [
                   [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
                     "CrossIntervalSamePersonBind"
                   ],
                   [
@@ -507,16 +706,16 @@
               [
                 [
                   [
-                    "LocatePersonByAppearance"
+                    "CrossIntervalSamePersonBind"
                   ],
                   [
-                    "QueryEarlierAttribute"
+                    "LocatePersonByAppearance"
                   ]
                 ],
                 [
                   [
-                    0,
-                    1
+                    1,
+                    0
                   ]
                 ]
               ],
@@ -540,7 +739,7 @@
           },
           "3node_layer1_ops": {
             "n_subgraphs": 3,
-            "n_novel_vs_seen": 3,
+            "n_novel_vs_seen": 1,
             "novel_signatures": [
               [
                 [
@@ -561,57 +760,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
                     0
-                  ],
-                  [
-                    2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "CROSS_WINDOW_ENTITY_BIND"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
-                    0
-                  ],
-                  [
-                    2,
-                    0
-                  ],
-                  [
-                    2,
-                    1
                   ]
                 ]
               ]
@@ -636,7 +785,7 @@
                   ],
                   [
                     2,
-                    1
+                    0
                   ]
                 ]
               ],
@@ -646,7 +795,7 @@
                     "BOUND_ATTRIBUTE_QUERY"
                   ],
                   [
-                    "ENTITY_IDENTIFICATION"
+                    "CROSS_WINDOW_ENTITY_BIND"
                   ],
                   [
                     "ENTITY_IDENTIFICATION"
@@ -678,10 +827,6 @@
                 [
                   [
                     1,
-                    0
-                  ],
-                  [
-                    2,
                     0
                   ],
                   [
@@ -715,30 +860,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "QueryEarlierAttribute"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    1,
-                    2
+                    0
                   ]
                 ]
               ],
@@ -762,10 +884,29 @@
                   [
                     1,
                     0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    "CrossIntervalSamePersonBind"
+                  ],
+                  [
+                    "LocatePersonByAppearance"
+                  ],
+                  [
+                    "QueryEarlierAttribute"
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    2
                   ],
                   [
                     1,
-                    2
+                    0
                   ]
                 ]
               ]
@@ -790,30 +931,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "QueryEarlierAttribute"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    1,
-                    2
+                    0
                   ]
                 ]
               ],
@@ -837,10 +955,29 @@
                   [
                     1,
                     0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    "CrossIntervalSamePersonBind"
+                  ],
+                  [
+                    "LocatePersonByAppearance"
+                  ],
+                  [
+                    "QueryEarlierAttribute"
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    2
                   ],
                   [
                     1,
-                    2
+                    0
                   ]
                 ]
               ]
@@ -849,61 +986,8 @@
         },
         "missing_structure_priority_hint": [
           {
-            "cell": "2node_layer1_ops",
-            "novel": [
-              [
-                [
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
-                    0
-                  ]
-                ]
-              ]
-            ]
-          },
-          {
             "cell": "2node_layer2_ops",
             "novel": [
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
               [
                 [
                   [
@@ -923,16 +1007,16 @@
               [
                 [
                   [
-                    "LocatePersonByAppearance"
+                    "CrossIntervalSamePersonBind"
                   ],
                   [
-                    "QueryEarlierAttribute"
+                    "LocatePersonByAppearance"
                   ]
                 ],
                 [
                   [
-                    0,
-                    1
+                    1,
+                    0
                   ]
                 ]
               ],
@@ -976,57 +1060,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
                     0
-                  ],
-                  [
-                    2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "CROSS_WINDOW_ENTITY_BIND"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
-                    0
-                  ],
-                  [
-                    2,
-                    0
-                  ],
-                  [
-                    2,
-                    1
                   ]
                 ]
               ]
@@ -1054,30 +1088,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "QueryEarlierAttribute"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    1,
-                    2
+                    0
                   ]
                 ]
               ],
@@ -1101,47 +1112,120 @@
                   [
                     1,
                     0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    "CrossIntervalSamePersonBind"
+                  ],
+                  [
+                    "LocatePersonByAppearance"
+                  ],
+                  [
+                    "QueryEarlierAttribute"
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    2
                   ],
                   [
                     1,
-                    2
+                    0
                   ]
                 ]
               ]
             ]
+          },
+          {
+            "cell": "layer2_normalization",
+            "novel": [
+              "CrossIntervalSamePersonBind",
+              "LocatePersonByAppearance",
+              "QueryEarlierAttribute"
+            ],
+            "note": "Cannot invent facts to force L2 coverage"
           }
         ],
         "note": "Priority hints must not cause fabrication of video facts"
       },
       "s7_status": {
-        "schema": "s7_independent_status_v1",
-        "human_relation": "CERTIFIED_SAME",
-        "qa_draft": "OK_DRAFT",
+        "schema": "s7_independent_status_v2",
+        "human_relation": "CERTIFIED_SAME_IDENTITY_ONLY",
+        "qa_draft": "OK_DRAFT_ANSWER_ATTR_NOT_HUMAN_CERTIFIED",
         "necessity": "FAIL",
-        "program_execution": "NOT_RUN",
+        "program_execution": "PROGRAM_EXECUTION_NOT_RUN",
         "formal_gold": false,
         "rules": {
           "human_SAME_does_not_set_formal_gold": true,
+          "human_SAME_scope_is_identity_only": true,
+          "human_SAME_does_not_certify_answer_attributes": true,
           "necessity_FAIL_blocks_gold_review_entry": true,
-          "staging_review_status_alone_insufficient": true
+          "staging_review_status_alone_insufficient": true,
+          "program_execution_not_run_blocks_executable_pass": true
+        },
+        "interface_wiring": {
+          "parallel_prototype_modules": [
+            "tools/pipeline_conformance/s3_s5_relation_qa.py",
+            "tools/pipeline_conformance/s6_necessity.py",
+            "tools/pipeline_conformance/s8_signature_feedback.py",
+            "tools/pipeline_conformance/s7_s9_gates.py",
+            "tools/wp3_pipeline_conformance_repair.py"
+          ],
+          "formal_batch_entry": [
+            "tools/lvbench_comp/batch_factory/",
+            "tools/import_annotation_batch.py",
+            "tools/wp3_wave_production.py"
+          ],
+          "wired_into_formal_batch_entry": false,
+          "production_closed_loop_claimed": false,
+          "note": "Conformance interfaces are parallel prototypes for DEV regression. They are not yet the sole production entry; do not claim closed-loop repair."
         }
       },
       "s9_release_gate": {
-        "schema": "s9_release_gate_v1",
+        "schema": "s9_release_gate_v2",
         "allowed": false,
         "codes": [
-          "NECESSITY_NOT_PASS"
+          "NECESSITY_NOT_PASS",
+          "PROGRAM_EXECUTION_NOT_PASS"
         ],
         "trusted_claims_present": [
           "CLAIM_KBAH_ADULT_SAME",
           "CLAIM_KBAH_CHILD_SAME"
         ],
+        "trusted_claims_validated": [
+          "CLAIM_KBAH_ADULT_SAME",
+          "CLAIM_KBAH_CHILD_SAME"
+        ],
         "formal_gold": false,
-        "import_ready": false
+        "import_ready": false,
+        "interface_wiring": {
+          "parallel_prototype_modules": [
+            "tools/pipeline_conformance/s3_s5_relation_qa.py",
+            "tools/pipeline_conformance/s6_necessity.py",
+            "tools/pipeline_conformance/s8_signature_feedback.py",
+            "tools/pipeline_conformance/s7_s9_gates.py",
+            "tools/wp3_pipeline_conformance_repair.py"
+          ],
+          "formal_batch_entry": [
+            "tools/lvbench_comp/batch_factory/",
+            "tools/import_annotation_batch.py",
+            "tools/wp3_wave_production.py"
+          ],
+          "wired_into_formal_batch_entry": false,
+          "production_closed_loop_claimed": false,
+          "note": "Conformance interfaces are parallel prototypes for DEV regression. They are not yet the sole production entry; do not claim closed-loop repair."
+        },
+        "production_closed_loop_claimed": false
       },
       "inventory": "CONTROL",
       "formal_gold": false,
-      "rejected_as_comp_gold": true
+      "rejected_as_comp_gold": true,
+      "human_identity_does_not_certify_answer": true,
+      "structural_strict_proof": false
     },
     "USfvmoalqsw_PAIR2": {
       "relation": {
@@ -1152,13 +1236,15 @@
         "bind_claim_ids": [
           "CLAIM_USFV_MAN_SAME"
         ],
+        "human_bind_scope": "CROSS_WINDOW_PERSON_IDENTITY",
         "dependency_direction": "B_identifies_then_query_A",
         "queryable_attributes": [
           {
             "key": "location",
             "window": "A",
             "value": "DORJI OM TSHONGKHANG 店铺附近",
-            "prompt_zh": "出现在哪家店铺附近"
+            "prompt_zh": "出现在哪家店铺附近",
+            "certification": "ATTRIBUTE_NOT_COVERED_BY_HUMAN_IDENTITY_CLAIM"
           }
         ],
         "fact_a": {
@@ -1182,7 +1268,13 @@
           "evidence_refs": [
             "local_media/.../USfvmoalqsw_PAIR2/A_2355_2365.mp4#sha256:654a22bd87d1782d438b7b8a423daac17c674bc5f8e1cfa2b233b98da51c7163"
           ],
-          "source_provenance": "HUMAN_CLIP_REVIEW+OCR_VISIBLE_SIGN"
+          "source_provenance": "HUMAN_CLIP_REVIEW_IDENTITY_PLUS_OCR_VISIBLE_SIGN_OBSERVATION",
+          "certified_scopes": [
+            "CROSS_WINDOW_PERSON_IDENTITY"
+          ],
+          "uncertified_attribute_keys": [
+            "location"
+          ]
         },
         "fact_b": {
           "fact_id": "USFV_B_STREAM",
@@ -1204,9 +1296,13 @@
           "evidence_refs": [
             "local_media/.../USfvmoalqsw_PAIR2/B_4620_4630.mp4#sha256:4b92d850427a80ba5750b63d5f5c349410ee6261f43669bb162e52e4b7b022b6"
           ],
-          "source_provenance": "HUMAN_CLIP_REVIEW"
+          "source_provenance": "HUMAN_CLIP_REVIEW_IDENTITY",
+          "certified_scopes": [
+            "CROSS_WINDOW_PERSON_IDENTITY"
+          ],
+          "uncertified_attribute_keys": []
         },
-        "notes": "Regression case; known A OCR shortcut"
+        "notes": "Regression CONTROL; multi-signage uniqueness NOT independently verified"
       },
       "s3_s5": {
         "status": "OK",
@@ -1217,6 +1313,8 @@
           "video_id": "USfvmoalqsw",
           "question": "后来在林间溪流旁的林间溪流旁说话的格子衣男子，更早时出现在哪家店铺附近？",
           "answer": "DORJI OM TSHONGKHANG 店铺附近",
+          "answer_attribute_key": "location",
+          "answer_certification": "ATTRIBUTE_NOT_COVERED_BY_HUMAN_IDENTITY_CLAIM",
           "windows_seconds": [
             [
               2355.0,
@@ -1235,6 +1333,8 @@
           "bind_claim_ids": [
             "CLAIM_USFV_MAN_SAME"
           ],
+          "bind_scope": "CROSS_WINDOW_PERSON_IDENTITY",
+          "bind_does_not_certify_answer": true,
           "epistemic": {
             "fact_a": "FACT",
             "fact_b": "FACT",
@@ -1243,13 +1343,24 @@
           "operator_signature": "LocateEntity→LocateEntity→CrossIntervalSamePersonBind→QueryEarlierAttribute",
           "necessity": "PENDING_S6",
           "source_provenance": {
-            "fact_a": "HUMAN_CLIP_REVIEW+OCR_VISIBLE_SIGN",
-            "fact_b": "HUMAN_CLIP_REVIEW"
+            "fact_a": "HUMAN_CLIP_REVIEW_IDENTITY_PLUS_OCR_VISIBLE_SIGN_OBSERVATION",
+            "fact_b": "HUMAN_CLIP_REVIEW_IDENTITY",
+            "fact_a_certified_scopes": [
+              "CROSS_WINDOW_PERSON_IDENTITY"
+            ],
+            "fact_b_certified_scopes": [
+              "CROSS_WINDOW_PERSON_IDENTITY"
+            ],
+            "fact_a_uncertified_attributes": [
+              "location"
+            ]
           },
           "review_status": "DRAFT",
           "split_assignment": "DEV_CONSTRUCTION",
           "formal_gold": false,
-          "generator": "pipeline_conformance.s3_s5_relation_qa.v1",
+          "generator": "pipeline_conformance.s3_s5_relation_qa.v2",
+          "family_template_id": "same_person_bind_query_earlier_attribute",
+          "question_built_from_template": true,
           "not_video_hardcoded": true
         },
         "program_graph": {
@@ -1257,40 +1368,137 @@
           "family_id": "same_person_bind_query_earlier_attribute",
           "nodes": [
             {
-              "node_id": "n0",
+              "node_id": "n_locate_B",
               "op": "LocateEntity",
               "raw_operator": "LocateEntity",
               "layer1": "ENTITY_IDENTIFICATION",
               "layer2": "LocatePersonByAppearance",
               "normalized_clip_role": "B",
-              "raw_clip_role": "B"
+              "raw_clip_role": "B",
+              "inputs": [
+                {
+                  "name": "clip",
+                  "type": "VideoWindow",
+                  "role": "B",
+                  "window": [
+                    4620.0,
+                    4630.0
+                  ]
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "entity_ref",
+                  "type": "EntityRef",
+                  "role": "B"
+                }
+              ],
+              "evidence_refs": [
+                "local_media/.../USfvmoalqsw_PAIR2/B_4620_4630.mp4#sha256:4b92d850427a80ba5750b63d5f5c349410ee6261f43669bb162e52e4b7b022b6"
+              ],
+              "constraints": {
+                "must_observe_window": "B"
+              }
             },
             {
-              "node_id": "n1",
+              "node_id": "n_locate_A",
               "op": "LocateEntity",
               "raw_operator": "LocateEntity",
               "layer1": "ENTITY_IDENTIFICATION",
               "layer2": "LocatePersonByAppearance",
               "normalized_clip_role": "A",
-              "raw_clip_role": "A"
+              "raw_clip_role": "A",
+              "inputs": [
+                {
+                  "name": "clip",
+                  "type": "VideoWindow",
+                  "role": "A",
+                  "window": [
+                    2355.0,
+                    2365.0
+                  ]
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "entity_ref",
+                  "type": "EntityRef",
+                  "role": "A"
+                }
+              ],
+              "evidence_refs": [
+                "local_media/.../USfvmoalqsw_PAIR2/A_2355_2365.mp4#sha256:654a22bd87d1782d438b7b8a423daac17c674bc5f8e1cfa2b233b98da51c7163"
+              ],
+              "constraints": {
+                "must_observe_window": "A"
+              }
             },
             {
-              "node_id": "n2",
+              "node_id": "n_bind",
               "op": "CrossIntervalSamePersonBind",
               "raw_operator": "CrossIntervalSamePersonBind",
               "layer1": "CROSS_WINDOW_ENTITY_BIND",
               "layer2": "CrossIntervalSamePersonBind",
               "normalized_clip_role": null,
-              "raw_clip_role": null
+              "raw_clip_role": null,
+              "inputs": [
+                {
+                  "name": "entity_ref_B",
+                  "type": "EntityRef",
+                  "role": "B"
+                },
+                {
+                  "name": "entity_ref_A",
+                  "type": "EntityRef",
+                  "role": "A"
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "bound_entity",
+                  "type": "BoundEntityRef"
+                }
+              ],
+              "evidence_refs": [
+                "CLAIM_USFV_MAN_SAME"
+              ],
+              "constraints": {
+                "bind_status": "FACT",
+                "human_scope": "CROSS_WINDOW_PERSON_IDENTITY",
+                "does_not_certify_answer_attributes": true
+              }
             },
             {
-              "node_id": "n3",
+              "node_id": "n_query",
               "op": "QueryEarlierAttribute",
               "raw_operator": "QueryEarlierAttribute",
               "layer1": "BOUND_ATTRIBUTE_QUERY",
               "layer2": "QueryEarlierAttribute",
               "normalized_clip_role": "A",
               "raw_clip_role": "A",
+              "inputs": [
+                {
+                  "name": "bound_entity",
+                  "type": "BoundEntityRef"
+                },
+                {
+                  "name": "attribute_key",
+                  "type": "AttributeKey"
+                }
+              ],
+              "outputs": [
+                {
+                  "name": "answer",
+                  "type": "AnswerValue"
+                }
+              ],
+              "evidence_refs": [
+                "local_media/.../USfvmoalqsw_PAIR2/A_2355_2365.mp4#sha256:654a22bd87d1782d438b7b8a423daac17c674bc5f8e1cfa2b233b98da51c7163"
+              ],
+              "constraints": {
+                "query_window": "A",
+                "requires_bind_output": true
+              },
               "attrs": {
                 "attribute": "location"
               }
@@ -1298,52 +1506,79 @@
           ],
           "edges": [
             {
-              "from": "n0",
-              "to": "n1",
-              "type": "dataflow"
+              "from": "n_locate_B",
+              "to": "n_bind",
+              "from_port": "entity_ref",
+              "to_port": "entity_ref_B",
+              "type": "dataflow",
+              "value_type": "EntityRef"
             },
             {
-              "from": "n1",
-              "to": "n2",
-              "type": "dataflow"
+              "from": "n_locate_A",
+              "to": "n_bind",
+              "from_port": "entity_ref",
+              "to_port": "entity_ref_A",
+              "type": "dataflow",
+              "value_type": "EntityRef"
             },
             {
-              "from": "n2",
-              "to": "n3",
-              "type": "dataflow"
-            },
-            {
-              "from": "n1",
-              "to": "n3",
-              "type": "spatial_context"
+              "from": "n_bind",
+              "to": "n_query",
+              "from_port": "bound_entity",
+              "to_port": "bound_entity",
+              "type": "dataflow",
+              "value_type": "BoundEntityRef"
             }
           ],
           "n_nodes": 4,
-          "n_edges": 4,
+          "n_edges": 3,
           "formal_gold": false,
-          "signature_shorthand": "LocateEntity→LocateEntity→CrossIntervalSamePersonBind→QueryEarlierAttribute"
+          "signature_shorthand": "LocateEntity→LocateEntity→CrossIntervalSamePersonBind→QueryEarlierAttribute",
+          "dataflow_topology": "LocateB+LocateA→Bind→Query",
+          "program_execution": "PROGRAM_EXECUTION_NOT_RUN",
+          "executable_pass": false,
+          "executor_available": false,
+          "semantic_validation": {
+            "status": "OK",
+            "codes": [],
+            "executable_pass": false,
+            "program_execution": "PROGRAM_EXECUTION_NOT_RUN",
+            "note": "Semantic I/O OK ≠ EXECUTABLE_PASS; executor not available"
+          }
         },
         "queryable_attributes": [
           {
             "key": "location",
             "window": "A",
             "value": "DORJI OM TSHONGKHANG 店铺附近",
-            "prompt_zh": "出现在哪家店铺附近"
+            "prompt_zh": "出现在哪家店铺附近",
+            "certification": "ATTRIBUTE_NOT_COVERED_BY_HUMAN_IDENTITY_CLAIM"
           }
         ],
-        "dependency_direction": "B_identifies_then_query_A"
+        "dependency_direction": "B_identifies_then_query_A",
+        "quality_checks": {
+          "uses_family_template": true,
+          "question_contains_filled_slots": true,
+          "generator_has_no_video_id_branch": true,
+          "self_declared_not_video_hardcoded_insufficient_alone": true
+        }
       },
       "s6": {
-        "schema": "s6_necessity_combined_v1",
+        "schema": "s6_necessity_combined_v2",
         "overall_verdict": "FAIL",
+        "strict_necessity_proof": false,
+        "structural_strict_proof": false,
+        "inventory_hint": "CONTROL",
         "reasons": [
-          "structural:A-only uniquely determines answer; CrossWindow bind not required for payload",
-          "shortcut:OCR_OR_SIGNAGE_IN_A_MATCHES_ANSWER,SINGLE_CANDIDATE_ENTITY_IN_A"
+          "shortcut:OCR_OR_SIGNAGE_IN_A_MATCHES_ANSWER,SINGLE_CANDIDATE_ENTITY_IN_A",
+          "shortcut_HIGH_with_structural_UNKNOWN_control_risk:Answer uniqueness among multiple A-window signage/candidates is not independently verified; cannot claim strict structural FAIL/PASS"
         ],
         "structural": {
           "channel": "structural",
-          "verdict": "FAIL",
-          "reason": "A-only uniquely determines answer; CrossWindow bind not required for payload",
+          "verdict": "UNKNOWN",
+          "strict_proof": false,
+          "control_risk": true,
+          "reason": "Answer uniqueness among multiple A-window signage/candidates is not independently verified; cannot claim strict structural FAIL/PASS",
           "trail": {
             "inputs": {
               "answer_localized_window": "A",
@@ -1351,11 +1586,31 @@
               "b_contains_answer_payload": false,
               "bind_required_for_answer_payload": false,
               "within_b_subject_switch": false,
-              "notes": "Shop name OCR/signage in A; B has no shop name"
+              "notes": "Multiple shop signs in A; uniqueness NOT independently verified"
             },
             "missing_fields": [],
+            "provenance": {
+              "classes": {
+                "independently_observed_fact": [],
+                "audited_entity_bind": [
+                  "CLAIM_USFV_MAN_SAME"
+                ],
+                "program_computed_candidate_set": [],
+                "engineer_unverified_shortcut_hypothesis": [
+                  "answer_localized_window",
+                  "a_unique_answer_bearing_entity",
+                  "b_contains_answer_payload",
+                  "bind_required_for_answer_payload",
+                  "within_b_subject_switch",
+                  "multi_signage_uniqueness_verified"
+                ],
+                "actual_model_run_record": []
+              },
+              "uniqueness_depends_on_unverified_engineer_hypothesis": true,
+              "strict_structural_proof_possible": false
+            },
             "rules_fired": [
-              "R1_A_unique_answer_no_bind_needed"
+              "R_MULTISIGN_UNIQUENESS_NOT_VERIFIED"
             ]
           }
         },
@@ -1366,7 +1621,8 @@
           "forged": false,
           "A_only": null,
           "B_only": null,
-          "A_plus_B": null
+          "A_plus_B": null,
+          "verdict": null
         },
         "shortcut_audit": {
           "channel": "shortcut_audit",
@@ -1382,14 +1638,19 @@
             "language_prior_celebrity_or_brand": false,
             "subtitle_leak": false
           },
+          "signal_provenance": {
+            "ocr_answer_in_window_A": "engineer_unverified_shortcut_hypothesis",
+            "single_candidate_entity_in_A": "engineer_unverified_shortcut_hypothesis"
+          },
           "blocks_strict_necessity_pass": true
         },
         "formal_gold": false,
         "human_identity_does_not_imply_pass": true
       },
       "s8_audit": {
-        "schema": "s8_signature_feedback_v1",
+        "schema": "s8_signature_feedback_v2",
         "program_id": "lvcb:pg:REL_USFV_PAIR2:same_person_bind_query_earlier_attribute",
+        "provisional_label_before_recompute": "STRUCTURAL_NOVELTY_CANDIDATE_UNVERIFIED",
         "seen_atomic_layer1": [
           "AGGREGATION_QUERY",
           "BOUND_ATTRIBUTE_QUERY",
@@ -1409,80 +1670,131 @@
           "TEMPORAL_EVENT_LOCALIZATION",
           "TEXT_EVIDENCE_READING"
         ],
+        "seen_atomic_layer2": [
+          "BindCountryConstraint",
+          "BindPersonToName",
+          "BindSamePerson",
+          "CountFilteredEntities",
+          "DetectObjectActionEvent",
+          "DetectObjectInstances",
+          "DetermineEventWinner",
+          "FilterFlagsByCountry",
+          "IdentifyCountryFromFlag",
+          "IdentifyFirstActorByAction",
+          "IdentifyFlag",
+          "IdentifyPerson",
+          "IdentifyTeams",
+          "JoinPersonRelationAcrossWindows",
+          "LocateConstrainedScoreEvent",
+          "LocateOrderedSegment",
+          "LocateSceneByEvent",
+          "LocateSceneByLandmark",
+          "ObservePerson",
+          "QueryBoundEmotion",
+          "QueryBoundMatchResult",
+          "QueryEventParticipant",
+          "QueryRelation",
+          "ReadPersonNameFromSubtitle",
+          "ReadRelationFromSubtitle",
+          "SelectTeamByCountry",
+          "SetTargetCountry"
+        ],
         "draft_layer1": [
           "BOUND_ATTRIBUTE_QUERY",
           "CROSS_WINDOW_ENTITY_BIND",
           "ENTITY_IDENTIFICATION"
         ],
-        "draft_layer2": [
+        "draft_layer2_raw": [
           "CrossIntervalSamePersonBind",
           "LocatePersonByAppearance",
           "QueryEarlierAttribute"
         ],
-        "unseen_layer2_labels": [
+        "layer2_normalization": [
+          {
+            "raw": "CrossIntervalSamePersonBind",
+            "normalized": null,
+            "status": "UNKNOWN",
+            "reason": "no_auditable_equivalence_to_seen_layer2"
+          },
+          {
+            "raw": "LocatePersonByAppearance",
+            "normalized": null,
+            "status": "UNKNOWN",
+            "reason": "no_auditable_equivalence_to_seen_layer2"
+          },
+          {
+            "raw": "QueryEarlierAttribute",
+            "normalized": null,
+            "status": "UNKNOWN",
+            "reason": "no_auditable_equivalence_to_seen_layer2"
+          }
+        ],
+        "normalized_layer2": [],
+        "unseen_or_unknown_layer2": [
           "CrossIntervalSamePersonBind",
           "LocatePersonByAppearance",
           "QueryEarlierAttribute"
         ],
         "atomic_covered_in_seen_layer1": true,
-        "bucket": "ATOMIC_COVERED_COMPOSITION_OOD_CANDIDATE",
-        "atomic_covered_ood_candidate": true,
+        "atomic_covered_in_seen_layer2": false,
+        "layer1_coverage_does_not_imply_layer2": true,
+        "composition_novel_layer1": true,
+        "composition_novel_layer2": true,
+        "gates": {
+          "role_check": {
+            "pass": true,
+            "roles_present": [
+              "A",
+              "B"
+            ],
+            "requires": [
+              "A",
+              "B"
+            ]
+          },
+          "dependency_check": {
+            "pass": true,
+            "locates_feed_bind": true,
+            "bind_feeds_query": true,
+            "edge_pairs": [
+              [
+                "n_bind",
+                "n_query"
+              ],
+              [
+                "n_locate_A",
+                "n_bind"
+              ],
+              [
+                "n_locate_B",
+                "n_bind"
+              ]
+            ]
+          },
+          "training_exposure_check": {
+            "pass": true,
+            "draft_graph_id": "lvcb:pg:REL_USFV_PAIR2:same_person_bind_query_earlier_attribute",
+            "seen_seed_ids": [
+              "SP001",
+              "SP002",
+              "SP005",
+              "SP201",
+              "SP202"
+            ],
+            "note": "Does not claim video-level contamination audit; only seed-graph id collision"
+          },
+          "all_pass": true,
+          "semantic_io_validated": true
+        },
+        "bucket": "L1_COVERED_L2_UNCOVERED_OR_UNKNOWN",
+        "atomic_covered_ood_candidate": false,
         "freeze_unseen": false,
         "subgraph_audit": {
           "2node_layer1_ops": {
-            "n_subgraphs": 4,
-            "n_novel_vs_seen": 2,
-            "novel_signatures": [
-              [
-                [
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
-                    0
-                  ]
-                ]
-              ]
-            ],
+            "n_subgraphs": 3,
+            "n_novel_vs_seen": 0,
+            "novel_signatures": [],
             "all_signatures": [
-              [
-                [
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
               [
                 [
                   [
@@ -1502,7 +1814,7 @@
               [
                 [
                   [
-                    "BOUND_ATTRIBUTE_QUERY"
+                    "CROSS_WINDOW_ENTITY_BIND"
                   ],
                   [
                     "ENTITY_IDENTIFICATION"
@@ -1534,25 +1846,9 @@
             ]
           },
           "2node_layer2_ops": {
-            "n_subgraphs": 4,
-            "n_novel_vs_seen": 4,
+            "n_subgraphs": 3,
+            "n_novel_vs_seen": 3,
             "novel_signatures": [
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
               [
                 [
                   [
@@ -1572,16 +1868,16 @@
               [
                 [
                   [
-                    "LocatePersonByAppearance"
+                    "CrossIntervalSamePersonBind"
                   ],
                   [
-                    "QueryEarlierAttribute"
+                    "LocatePersonByAppearance"
                   ]
                 ],
                 [
                   [
-                    0,
-                    1
+                    1,
+                    0
                   ]
                 ]
               ],
@@ -1606,22 +1902,6 @@
               [
                 [
                   [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
                     "CrossIntervalSamePersonBind"
                   ],
                   [
@@ -1638,16 +1918,16 @@
               [
                 [
                   [
-                    "LocatePersonByAppearance"
+                    "CrossIntervalSamePersonBind"
                   ],
                   [
-                    "QueryEarlierAttribute"
+                    "LocatePersonByAppearance"
                   ]
                 ],
                 [
                   [
-                    0,
-                    1
+                    1,
+                    0
                   ]
                 ]
               ],
@@ -1671,7 +1951,7 @@
           },
           "3node_layer1_ops": {
             "n_subgraphs": 3,
-            "n_novel_vs_seen": 3,
+            "n_novel_vs_seen": 1,
             "novel_signatures": [
               [
                 [
@@ -1692,57 +1972,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
                     0
-                  ],
-                  [
-                    2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "CROSS_WINDOW_ENTITY_BIND"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
-                    0
-                  ],
-                  [
-                    2,
-                    0
-                  ],
-                  [
-                    2,
-                    1
                   ]
                 ]
               ]
@@ -1767,7 +1997,7 @@
                   ],
                   [
                     2,
-                    1
+                    0
                   ]
                 ]
               ],
@@ -1777,7 +2007,7 @@
                     "BOUND_ATTRIBUTE_QUERY"
                   ],
                   [
-                    "ENTITY_IDENTIFICATION"
+                    "CROSS_WINDOW_ENTITY_BIND"
                   ],
                   [
                     "ENTITY_IDENTIFICATION"
@@ -1809,10 +2039,6 @@
                 [
                   [
                     1,
-                    0
-                  ],
-                  [
-                    2,
                     0
                   ],
                   [
@@ -1846,30 +2072,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "QueryEarlierAttribute"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    1,
-                    2
+                    0
                   ]
                 ]
               ],
@@ -1893,10 +2096,29 @@
                   [
                     1,
                     0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    "CrossIntervalSamePersonBind"
+                  ],
+                  [
+                    "LocatePersonByAppearance"
+                  ],
+                  [
+                    "QueryEarlierAttribute"
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    2
                   ],
                   [
                     1,
-                    2
+                    0
                   ]
                 ]
               ]
@@ -1921,30 +2143,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "QueryEarlierAttribute"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    1,
-                    2
+                    0
                   ]
                 ]
               ],
@@ -1968,10 +2167,29 @@
                   [
                     1,
                     0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    "CrossIntervalSamePersonBind"
+                  ],
+                  [
+                    "LocatePersonByAppearance"
+                  ],
+                  [
+                    "QueryEarlierAttribute"
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    2
                   ],
                   [
                     1,
-                    2
+                    0
                   ]
                 ]
               ]
@@ -1980,61 +2198,8 @@
         },
         "missing_structure_priority_hint": [
           {
-            "cell": "2node_layer1_ops",
-            "novel": [
-              [
-                [
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
-                    0
-                  ]
-                ]
-              ]
-            ]
-          },
-          {
             "cell": "2node_layer2_ops",
             "novel": [
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ]
-                ]
-              ],
               [
                 [
                   [
@@ -2054,16 +2219,16 @@
               [
                 [
                   [
-                    "LocatePersonByAppearance"
+                    "CrossIntervalSamePersonBind"
                   ],
                   [
-                    "QueryEarlierAttribute"
+                    "LocatePersonByAppearance"
                   ]
                 ],
                 [
                   [
-                    0,
-                    1
+                    1,
+                    0
                   ]
                 ]
               ],
@@ -2107,57 +2272,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
                     0
-                  ],
-                  [
-                    2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "BOUND_ATTRIBUTE_QUERY"
-                  ],
-                  [
-                    "CROSS_WINDOW_ENTITY_BIND"
-                  ],
-                  [
-                    "ENTITY_IDENTIFICATION"
-                  ]
-                ],
-                [
-                  [
-                    1,
-                    0
-                  ],
-                  [
-                    2,
-                    0
-                  ],
-                  [
-                    2,
-                    1
                   ]
                 ]
               ]
@@ -2185,30 +2300,7 @@
                   ],
                   [
                     2,
-                    1
-                  ]
-                ]
-              ],
-              [
-                [
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "LocatePersonByAppearance"
-                  ],
-                  [
-                    "QueryEarlierAttribute"
-                  ]
-                ],
-                [
-                  [
-                    0,
-                    1
-                  ],
-                  [
-                    1,
-                    2
+                    0
                   ]
                 ]
               ],
@@ -2232,46 +2324,118 @@
                   [
                     1,
                     0
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    "CrossIntervalSamePersonBind"
+                  ],
+                  [
+                    "LocatePersonByAppearance"
+                  ],
+                  [
+                    "QueryEarlierAttribute"
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    2
                   ],
                   [
                     1,
-                    2
+                    0
                   ]
                 ]
               ]
             ]
+          },
+          {
+            "cell": "layer2_normalization",
+            "novel": [
+              "CrossIntervalSamePersonBind",
+              "LocatePersonByAppearance",
+              "QueryEarlierAttribute"
+            ],
+            "note": "Cannot invent facts to force L2 coverage"
           }
         ],
         "note": "Priority hints must not cause fabrication of video facts"
       },
       "s7_status": {
-        "schema": "s7_independent_status_v1",
-        "human_relation": "CERTIFIED_SAME",
-        "qa_draft": "OK_DRAFT",
+        "schema": "s7_independent_status_v2",
+        "human_relation": "CERTIFIED_SAME_IDENTITY_ONLY",
+        "qa_draft": "OK_DRAFT_ANSWER_ATTR_NOT_HUMAN_CERTIFIED",
         "necessity": "FAIL",
-        "program_execution": "NOT_RUN",
+        "program_execution": "PROGRAM_EXECUTION_NOT_RUN",
         "formal_gold": false,
         "rules": {
           "human_SAME_does_not_set_formal_gold": true,
+          "human_SAME_scope_is_identity_only": true,
+          "human_SAME_does_not_certify_answer_attributes": true,
           "necessity_FAIL_blocks_gold_review_entry": true,
-          "staging_review_status_alone_insufficient": true
+          "staging_review_status_alone_insufficient": true,
+          "program_execution_not_run_blocks_executable_pass": true
+        },
+        "interface_wiring": {
+          "parallel_prototype_modules": [
+            "tools/pipeline_conformance/s3_s5_relation_qa.py",
+            "tools/pipeline_conformance/s6_necessity.py",
+            "tools/pipeline_conformance/s8_signature_feedback.py",
+            "tools/pipeline_conformance/s7_s9_gates.py",
+            "tools/wp3_pipeline_conformance_repair.py"
+          ],
+          "formal_batch_entry": [
+            "tools/lvbench_comp/batch_factory/",
+            "tools/import_annotation_batch.py",
+            "tools/wp3_wave_production.py"
+          ],
+          "wired_into_formal_batch_entry": false,
+          "production_closed_loop_claimed": false,
+          "note": "Conformance interfaces are parallel prototypes for DEV regression. They are not yet the sole production entry; do not claim closed-loop repair."
         }
       },
       "s9_release_gate": {
-        "schema": "s9_release_gate_v1",
+        "schema": "s9_release_gate_v2",
         "allowed": false,
         "codes": [
-          "NECESSITY_NOT_PASS"
+          "NECESSITY_NOT_PASS",
+          "PROGRAM_EXECUTION_NOT_PASS"
         ],
         "trusted_claims_present": [
           "CLAIM_USFV_MAN_SAME"
         ],
+        "trusted_claims_validated": [
+          "CLAIM_USFV_MAN_SAME"
+        ],
         "formal_gold": false,
-        "import_ready": false
+        "import_ready": false,
+        "interface_wiring": {
+          "parallel_prototype_modules": [
+            "tools/pipeline_conformance/s3_s5_relation_qa.py",
+            "tools/pipeline_conformance/s6_necessity.py",
+            "tools/pipeline_conformance/s8_signature_feedback.py",
+            "tools/pipeline_conformance/s7_s9_gates.py",
+            "tools/wp3_pipeline_conformance_repair.py"
+          ],
+          "formal_batch_entry": [
+            "tools/lvbench_comp/batch_factory/",
+            "tools/import_annotation_batch.py",
+            "tools/wp3_wave_production.py"
+          ],
+          "wired_into_formal_batch_entry": false,
+          "production_closed_loop_claimed": false,
+          "note": "Conformance interfaces are parallel prototypes for DEV regression. They are not yet the sole production entry; do not claim closed-loop repair."
+        },
+        "production_closed_loop_claimed": false
       },
       "inventory": "CONTROL",
       "formal_gold": false,
-      "rejected_as_comp_gold": true
+      "rejected_as_comp_gold": true,
+      "human_identity_does_not_certify_answer": true,
+      "structural_strict_proof": false
     }
   },
   "negative_unknown_bind": {
@@ -2282,10 +2446,13 @@
     "generated_ok": 2,
     "necessity_FAIL": 2,
     "necessity_PASS": 0,
+    "necessity_strict_proof": 0,
     "model_NOT_RUN": 2,
     "formal_gold": 0,
     "effective_compositional_qa": 0,
-    "control": 2
+    "control": 2,
+    "atomic_covered_ood": 0
   },
-  "scaled_gold_capacity_claimed": false
+  "scaled_gold_capacity_claimed": false,
+  "production_closed_loop_claimed": false
 }

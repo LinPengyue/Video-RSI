@@ -1,13 +1,26 @@
 {
-  "schema": "wp3_s0_s9_conformance_matrix_v1",
+  "schema": "wp3_s0_s9_conformance_matrix_v2",
   "method_authority": "组合性泛化数据集构造流水线 v1.0 / 2026-11-04",
-  "pipeline": "Video→Evidence→Fact→Relation→Graph→QA→Necessity→Human→Import",
-  "baseline_commit": "15ff75b5881c27352a4611ed81d3893f7e8aa0fb",
-  "built_utc": "2026-11-06T07:32:23+00:00",
+  "word_stage_names_zh": [
+    "视频登记",
+    "事件发现",
+    "证据封包",
+    "语义审查",
+    "关系发现",
+    "原创 QA 与程序图草案",
+    "必要性审查",
+    "答案与程序图科学审批",
+    "结构审计",
+    "版本入库"
+  ],
+  "pipeline": "S0→S9 per Word v1.0 (not renumbered for new modules)",
+  "baseline_commit": "b864b3e277b419096aad946096db090b22b902f0",
+  "built_utc": "2026-11-06T08:33:04+00:00",
   "stages": [
     {
       "stage": "S0",
-      "name": "Video pool / inventory / sealed exclusion",
+      "name_zh": "视频登记",
+      "name_en": "Video registration",
       "modules": [
         "tools/wp3_wave_production.py::load_exposed,register_pool_and_policy",
         "tools/lvbench_comp/batch_factory/inventory.py",
@@ -16,209 +29,260 @@
         "track_b/SEALED_POOL_SPLIT_POLICY.json"
       ],
       "io_contract": {
-        "in": "LVBench video ids + policy",
+        "in": "LVBench video ids + split policy",
         "out": "DEV_CONSTRUCTION registration; sealed untouched"
       },
       "status": "EXECUTED",
+      "incomplete": [],
       "run_evidence": [
         "wp3_production/wave1|wave2 video_selection + pool updates",
         "wp3_3/ab_dev5 video_results.json"
       ],
       "tests": [
         "tests/test_wp3_wave_production.py::test_pool_and_policy"
-      ],
-      "gap": null
+      ]
     },
     {
       "stage": "S1",
-      "name": "Event evidence extraction (ROI frames/clips)",
+      "name_zh": "事件发现",
+      "name_en": "Event discovery",
       "modules": [
-        "tools/wp3_wave_production.py::discover_pairs,extract_roi_frames,maybe_extract_clip",
+        "tools/wp3_wave_production.py::discover_pairs",
         "tools/wp3_3_entity_first_discovery.py::discover_pairs_entity_first",
         "tools/lvbench_comp/batch_factory/extract_events.py"
       ],
       "io_contract": {
-        "in": "video mp4",
-        "out": "rois.jsonl + local_media clips/frames + review subsets"
+        "in": "registered video",
+        "out": "candidate event/pair windows (not yet evidence packets)"
       },
-      "status": "EXECUTED",
+      "status": "PARTIAL",
+      "incomplete": [
+        "Semantic event discovery remains engineering-proxy without dedicated vision model"
+      ],
       "run_evidence": [
-        "wp3_production/wave1|wave2/rois.jsonl",
-        "wp3_3/ab_dev5/rois.jsonl",
-        "local_media/wp3_production/** (gitignored)"
+        "wp3_production/wave1|wave2 pair selections",
+        "wp3_3/ab_dev5 discovery results"
       ],
       "tests": [
-        "tests/test_wp3_wave_production.py::test_evidence_and_review_packets"
-      ],
-      "gap": "Semantic event discovery still engineering-proxy without vision model"
+        "tests/test_wp3_wave_production.py"
+      ]
     },
     {
       "stage": "S2",
-      "name": "Fact verification tiers",
+      "name_zh": "证据封包",
+      "name_en": "Evidence packetization",
       "modules": [
-        "tools/wp3_1_wave1_semantic_triage.py",
-        "tools/wp3_2_closure_and_expansion.py",
-        "wp3_human_adj human claims (FACT identity only)"
+        "tools/wp3_wave_production.py::extract_roi_frames,maybe_extract_clip",
+        "tools/wp3_human_adj clip packaging under local_media/.../wp3_human_adjudication/",
+        "tools/lvbench_comp/batch_factory/extract_events.py"
       ],
       "io_contract": {
-        "in": "evidence packs",
-        "out": "STATIC_VISIBLE|ORDERED_MULTIFRAME_SUGGESTS|CONTINUOUS_VIDEO_VERIFIED|UNRESOLVED + Human FACT claims"
+        "in": "event windows",
+        "out": "rois.jsonl + local_media clips/frames + SHA bindings"
       },
-      "status": "PARTIAL",
+      "status": "EXECUTED",
+      "incomplete": [
+        "Public third-party media not uploaded; local_media gitignored"
+      ],
       "run_evidence": [
-        "WP3_WAVE1_GPT_SEMANTIC_TRIAGE_AND_RELATION_AUDIT.json",
-        "trusted_human_review_registry/records.jsonl (3 SAME claims)"
+        "wp3_production/wave1|wave2/rois.jsonl",
+        "local_media/wp3_production/** (gitignored; SHA in registry)"
       ],
       "tests": [
-        "tests/test_wp3_human_adj_ingest_and_necessity.py"
-      ],
-      "gap": "Most WP3 pairs remain UNRESOLVED; few CONTINUOUS_VIDEO_VERIFIED facts"
+        "tests/test_wp3_wave_production.py::test_evidence_and_review_packets"
+      ]
     },
     {
       "stage": "S3",
-      "name": "Relation candidates from facts",
+      "name_zh": "语义审查",
+      "name_en": "Semantic review",
+      "modules": [
+        "tools/wp3_1_wave1_semantic_triage.py",
+        "tools/wp3_2_closure_and_expansion.py",
+        "Human Scientific Owner identity adjudication (scope-limited)"
+      ],
+      "io_contract": {
+        "in": "evidence packets",
+        "out": "semantic tiers + scoped Human claims (identity ≠ answer Gold)"
+      },
+      "status": "PARTIAL",
+      "incomplete": [
+        "Most pairs remain UNRESOLVED; answer attributes (seat/shop) not Human-certified"
+      ],
+      "run_evidence": [
+        "WP3_WAVE1_GPT_SEMANTIC_TRIAGE_AND_RELATION_AUDIT.json",
+        "trusted_human_review_registry/records.jsonl (3 SAME identity claims)"
+      ],
+      "tests": [
+        "tests/test_wp3_human_adj_ingest_and_necessity.py"
+      ]
+    },
+    {
+      "stage": "S4",
+      "name_zh": "关系发现",
+      "name_en": "Relation discovery",
       "modules": [
         "tools/lvbench_comp/batch_factory/relations.py::mine_relations",
-        "NEW: pipeline_conformance/s3_s5_relation_qa.py::RelationCandidate"
+        "pipeline_conformance/s3_s5_relation_qa.py::RelationCandidate"
       ],
       "io_contract": {
         "in": "sourced facts + bind epistemic",
         "out": "relation with queryable attrs + dependency direction"
       },
-      "status": "PARTIAL→REPAIRED_INTERFACE",
+      "status": "PARTIAL_INTERFACE",
+      "incomplete": [
+        "Parallel prototype not wired as sole formal batch entry",
+        "Prior WP3 often skipped typed RelationCandidate"
+      ],
       "run_evidence": [
         "wp3_pipeline_conformance/regression_cases.json"
       ],
       "tests": [
         "tests/test_wp3_pipeline_conformance.py"
-      ],
-      "gap": "Prior WP3 often skipped typed RelationCandidate; hard-coded QA drafts"
-    },
-    {
-      "stage": "S4",
-      "name": "Directed program graph",
-      "modules": [
-        "NEW: pipeline_conformance/s3_s5_relation_qa.py::_build_graph",
-        "normalized_programs_v1 graphs (seed reference)"
-      ],
-      "io_contract": {
-        "in": "QA family + relation",
-        "out": "nodes/edges with layer1/layer2 hints + dataflow"
-      },
-      "status": "REPAIRED_INTERFACE",
-      "run_evidence": [
-        "regression_cases.json program_graph fields"
-      ],
-      "tests": [
-        "tests/test_wp3_pipeline_conformance.py::test_graph_has_a_and_b"
-      ],
-      "gap": "Layer2 labels provisional until vocab alignment"
+      ]
     },
     {
       "stage": "S5",
-      "name": "QA draft generation",
+      "name_zh": "原创 QA 与程序图草案",
+      "name_en": "Original QA and program-graph draft",
       "modules": [
-        "tools/lvbench_comp/batch_factory/qa_draft.py (legacy sports-templated)",
-        "NEW: pipeline_conformance/s3_s5_relation_qa.py::generate_qa_from_relation"
+        "pipeline_conformance/s3_s5_relation_qa.py::generate_qa_from_relation,_build_graph,validate_program_graph_semantics",
+        "tools/lvbench_comp/batch_factory/qa_draft.py (legacy sports-templated; not WP3 path)"
       ],
       "io_contract": {
         "in": "RelationCandidate",
-        "out": "qa fields or explicit failure_reason"
+        "out": "QA draft + typed I/O program graph or explicit failure_reason; execution=NOT_RUN"
       },
       "status": "REPAIRED_INTERFACE",
+      "incomplete": [
+        "No real program executor → PROGRAM_EXECUTION_NOT_RUN",
+        "Layer2 labels often UNKNOWN vs Seen vocab (no force-merge)"
+      ],
       "run_evidence": [
-        "regression_cases.json"
+        "regression_cases.json program_graph + semantic_validation"
       ],
       "tests": [
-        "tests/test_wp3_pipeline_conformance.py::test_generator_not_video_hardcoded",
-        "tests/test_wp3_pipeline_conformance.py::test_fail_on_unknown_bind"
-      ],
-      "gap": "Legacy qa_draft.py still sport-specific; WP3 path now uses family generator"
+        "tests/test_wp3_pipeline_conformance.py::test_graph_dataflow_both_locates_to_bind",
+        "tests/test_wp3_pipeline_conformance.py::test_bad_edges_fail_semantic_validation"
+      ]
     },
     {
       "stage": "S6",
-      "name": "Necessity (structural / model / shortcut)",
+      "name_zh": "必要性审查",
+      "name_en": "Necessity review",
       "modules": [
-        "NEW: pipeline_conformance/s6_necessity.py"
+        "pipeline_conformance/s6_necessity.py"
       ],
       "io_contract": {
-        "in": "evidence descriptors + optional model runs",
-        "out": "three channels + combined verdict"
+        "in": "provenance-tagged evidence + optional validated model runs",
+        "out": "structural / model / shortcut channels + combined verdict + strict_proof flag"
       },
       "status": "REPAIRED_INTERFACE",
+      "incomplete": [
+        "Model Necessity NOT_RUN (no blind model)",
+        "USFV multi-signage uniqueness not independently verified"
+      ],
       "run_evidence": [
-        "regression_cases.json necessity blocks",
-        "model channel NOT_RUN without blind model"
+        "regression_cases.json necessity blocks with provenance classes",
+        "model channel NOT_RUN without complete run IDs"
       ],
       "tests": [
-        "tests/test_wp3_pipeline_conformance.py::test_s6_channels_independent",
-        "tests/test_wp3_pipeline_conformance.py::test_kbah_usfv_structural_fail"
-      ],
-      "gap": "Model Necessity remains NOT_RUN (no blind model)"
+        "tests/test_wp3_pipeline_conformance.py::test_s6_provenance_classes",
+        "tests/test_wp3_pipeline_conformance.py::test_forged_model_run_rejected"
+      ]
     },
     {
       "stage": "S7",
-      "name": "Human review (trusted registry)",
+      "name_zh": "答案与程序图科学审批",
+      "name_en": "Scientific approval of answer and program graph",
       "modules": [
-        "wp3_4/trusted_human_review_registry",
-        "tools/wp3_human_adj_ingest_and_necessity.py",
-        "NEW: pipeline_conformance/s7_s9_gates.py::independent_status_bundle"
+        "pipeline_conformance/s7_s9_gates.py::independent_status_bundle",
+        "wp3_4/trusted_human_review_registry (identity claims only)"
       ],
       "io_contract": {
-        "in": "Human Scientific Owner decisions",
-        "out": "append-only claims; independent status layers"
+        "in": "QA draft + necessity + graph semantic validation",
+        "out": "independent status layers; Human SAME ≠ answer/Gold approval"
       },
-      "status": "EXECUTED",
+      "status": "PARTIAL",
+      "incomplete": [
+        "No scientific approval yet for seat/shop answer attributes or executable graphs"
+      ],
       "run_evidence": [
-        "records.jsonl with 3 claims"
+        "regression s7_status bundles",
+        "records.jsonl decision_scope=CROSS_WINDOW_PERSON_IDENTITY"
       ],
       "tests": [
-        "tests/test_wp3_human_adj_ingest_and_necessity.py"
-      ],
-      "gap": null
+        "tests/test_wp3_pipeline_conformance.py::test_human_claim_does_not_certify_answer"
+      ]
     },
     {
       "stage": "S8",
-      "name": "Composition signature feedback",
+      "name_zh": "结构审计",
+      "name_en": "Structure audit",
       "modules": [
         "normalized_programs_v1/eng/stage4_m3_isomorphism.py",
-        "NEW: pipeline_conformance/s8_signature_feedback.py"
+        "pipeline_conformance/s8_signature_feedback.py"
       ],
       "io_contract": {
-        "in": "draft program graph after fact+necessity path",
-        "out": "L1/L2 subgraph audit + OOD bucket; priority hints only"
+        "in": "draft program graph",
+        "out": "separate L1/L2 coverage + normalized ops + OOD bucket (strict criteria)"
       },
       "status": "REPAIRED_INTERFACE",
+      "incomplete": [
+        "No auditable L2 alias table yet → draft L2 often UNKNOWN"
+      ],
       "run_evidence": [
         "regression_cases.json s8_audit"
       ],
       "tests": [
-        "tests/test_wp3_pipeline_conformance.py::test_s8_audit_runs"
-      ],
-      "gap": "Does not auto-promote Unseen; missing structures are hints only"
+        "tests/test_wp3_pipeline_conformance.py::test_s8_l1_covered_l2_uncovered_not_pure_ood",
+        "tests/test_wp3_pipeline_conformance.py::test_unnormalized_ops_not_forced_equivalent"
+      ]
     },
     {
       "stage": "S9",
-      "name": "Dataset import / release gates",
+      "name_zh": "版本入库",
+      "name_en": "Version ingest / release",
       "modules": [
         "tools/import_annotation_batch.py",
-        "NEW: pipeline_conformance/s7_s9_gates.py::release_gate_check"
+        "pipeline_conformance/s7_s9_gates.py::release_gate_check"
       ],
       "io_contract": {
-        "in": "staging batch + trusted claims + necessity",
-        "out": "allow/deny; formal_gold stays false without full gates"
+        "in": "staging + trusted claims (full provenance) + necessity + execution",
+        "out": "allow/deny; formal_gold false without full gates"
       },
-      "status": "PARTIAL→GATE_HARDENED",
+      "status": "GATE_HARDENED_NOT_CLOSED_LOOP",
+      "incomplete": [
+        "Parallel conformance interface not wired into formal batch entry",
+        "No formal Gold minted"
+      ],
       "run_evidence": [
-        "regression release_gate codes"
+        "regression release_gate codes",
+        "INTERFACE_WIRING"
       ],
       "tests": [
-        "tests/test_wp3_2_import_and_closure.py",
-        "tests/test_wp3_pipeline_conformance.py::test_release_gate_blocks_gold"
-      ],
-      "gap": "No formal Gold minted this round"
+        "tests/test_wp3_pipeline_conformance.py::test_release_gate_requires_claim_chain",
+        "tests/test_wp3_2_import_and_closure.py"
+      ]
     }
   ],
+  "interface_wiring": {
+    "parallel_prototype_modules": [
+      "tools/pipeline_conformance/s3_s5_relation_qa.py",
+      "tools/pipeline_conformance/s6_necessity.py",
+      "tools/pipeline_conformance/s8_signature_feedback.py",
+      "tools/pipeline_conformance/s7_s9_gates.py",
+      "tools/wp3_pipeline_conformance_repair.py"
+    ],
+    "formal_batch_entry": [
+      "tools/lvbench_comp/batch_factory/",
+      "tools/import_annotation_batch.py",
+      "tools/wp3_wave_production.py"
+    ],
+    "wired_into_formal_batch_entry": false,
+    "production_closed_loop_claimed": false,
+    "note": "Conformance interfaces are parallel prototypes for DEV regression. They are not yet the sole production entry; do not claim closed-loop repair."
+  },
   "note": "Status reflects code+artifacts evidence, not PASS booleans in narrative reports",
   "protections": {
     "frozen_5_2": [
@@ -230,6 +294,21 @@
       "P7_VTCD_C2",
       "P7_TJR_R3"
     ],
+    "proposed_7_4_seen": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202",
+      "A",
+      "P7_R4_F1"
+    ],
+    "proposed_7_4_unseen": [
+      "P7_VTCD_C2",
+      "P7_TJR_R3",
+      "B",
+      "P7_R4_F2"
+    ],
     "proposed_7_4": "PROPOSED",
     "immutable_releases": [
       "v0.1.0",
@@ -239,6 +318,8 @@
     "sealed_accessed": false,
     "track_a_run": false,
     "new_public_media": false,
-    "scaled_gold_capacity_claimed": false
+    "scaled_gold_capacity_claimed": false,
+    "production_closed_loop_claimed": false,
+    "formal_gold": 0
   }
 }

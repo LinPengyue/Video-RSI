@@ -1,3 +1,13 @@
+## WP3 Pipeline Conformance Scientific Correction (no new immutable release)
+
+- Corrected S0–S9 matrix to Word v1.0 stage names (视频登记…版本入库); no renumbering for new modules.
+- S8: separate L1/L2 coverage; auditable L2 normalization (UNKNOWN if unproven); Atomic-covered OOD only under full L2+novelty+gates; Kbah/USFV → `L1_COVERED_L2_UNCOVERED_OR_UNKNOWN`.
+- S5 graphs: both Locate→Bind→Query typed I/O; semantic validation; `PROGRAM_EXECUTION_NOT_RUN` (never EXECUTABLE_PASS without executor).
+- S6: provenance classes; USFV multi-signage uniqueness unverified; CONTROL retained without strict structural proof claim; forged/incomplete model runs stay NOT_RUN.
+- S7/S9: Human SAME identity scope only; release gate checks claim chain/video/windows/hashes; parallel interface ≠ production closed loop.
+- Negatives for L1/L2, unnormalized ops, bad graph edges, forged model runs, Human≠answer cert, claim-ID-only.
+- Formal Gold 0; no scaled capacity; 5+2 / 7+4 / v0.1.0–v0.1.2 / sealed / Track A unchanged.
+
 ## WP3 Pipeline Conformance Repair (S0–S9; no new immutable release)
 
 - Published S0–S9 conformance matrix mapping WP3 modules to construction pipeline v1.0.
@@ -5,6 +15,7 @@
 - Added S6 Necessity with independent structural / model(NOT_RUN) / shortcut channels.
 - Wired S8 signature feedback via `normalized_programs_v1` subgraph enums; S7/S9 independent status + release gate.
 - Regression on Kbah/USFV → CONTROL (structural Necessity FAIL); 0 Gold; no scaled capacity claim.
+- Superseded in part by Scientific Correction above (S8 Atomic-covered definition; matrix naming; provenance).
 
 ## WP3 Human Adjudication ingest + Necessity structural audit (no new immutable release)
 
