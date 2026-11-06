@@ -182,31 +182,33 @@ def evaluate_formal_ready(
         }:
             codes.append("ANSWER_CERT_BAD_REVIEWER_ROLE")
 
-    # Necessity from store — ignore item.necessity_overall if present
+    # Necessity from independent store only — embedded/store_backed self-marks rejected
+    if item.get("necessity_store_backed") or item.get("necessity_record"):
+        codes.append("REJECT_EMBEDDED_NECESSITY_BYPASS")
     nec = nec_store.get(str(qa_id)) if qa_id else None
-    if not nec:
-        # Fall back only if embedded record is marked store_backed
-        nec = item.get("necessity_record") if item.get("necessity_store_backed") else None
     codes.extend(_verify_model_necessity_record((nec or {}).get("model") if nec else None))
     if nec:
         if nec.get("overall_verdict") != "PASS":
             codes.append(f"NECESSITY_OVERALL_NOT_PASS:{nec.get('overall_verdict')}")
         if not nec.get("strict_necessity_proof"):
             codes.append("NECESSITY_STRICT_PROOF_FALSE")
-        # B-only required for strict pass path
         model = nec.get("model") or {}
         if model.get("verdict") == "SUPPORTS_NECESSITY":
             b = model.get("B_only") or {}
             if b.get("correct") is not False:
                 codes.append("STRICT_NECESSITY_REQUIRES_B_ONLY_INCORRECT")
+        # Raw outputs must be store-backed artifacts, not bare self-attested strings alone
+        for label in ("A_only", "B_only", "A_plus_B"):
+            run = (model.get(label) or {}) if model else {}
+            if run and not run.get("raw_output_artifact_uri") and not run.get("raw_output_sha256"):
+                codes.append(f"MODEL_RAW_OUTPUT_NOT_ARTIFACT_BACKED:{label}")
     else:
         codes.append("MISSING_NECESSITY_STORE_RECORD")
 
-    # Program execution from store
+    # Program execution from independent store only
+    if item.get("program_execution_store_backed") or item.get("program_execution_record"):
+        codes.append("REJECT_EMBEDDED_PROGRAM_EXECUTION_BYPASS")
     ex = exec_store.get(str(program_id)) if program_id else None
-    if not ex and item.get("program_execution_store_backed"):
-        ex = item.get("program_execution_record")
-    # Ignore caller string item.program_execution
     codes.extend(_verify_program_execution_record(ex))
 
     if item.get("formal_gold") is True and codes:

@@ -9,4 +9,6 @@ __all__ = [
     "s8_signature_feedback",
     "s7_s9_gates",
     "formal_certification",
+    "media_hash_audit",
+    "semantic_fact_adapter",
 ]

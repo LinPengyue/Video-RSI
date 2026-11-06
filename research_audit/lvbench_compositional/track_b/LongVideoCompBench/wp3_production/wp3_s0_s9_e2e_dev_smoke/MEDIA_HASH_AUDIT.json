@@ -1,0 +1,257 @@
+{
+  "schema": "media_hash_audit_batch_v1",
+  "items": [
+    {
+      "pair_id": "KbahC-QCKU8_EF_PAIR1",
+      "flags": {
+        "evidence_manifest_complete": true,
+        "media_hash_reverified": true,
+        "semantic_fact_verified": false,
+        "human_relation_certified": true,
+        "rules": {
+          "hash_field_presence_is_not_semantic_fact_verified": true,
+          "manifest_complete_is_not_media_reverified": true,
+          "human_identity_is_not_answer_certification": true
+        }
+      },
+      "media_equivalence": {
+        "schema": "media_equivalence_v1",
+        "pair_id": "KbahC-QCKU8_EF_PAIR1",
+        "video_id": "KbahC-QCKU8",
+        "windows": {
+          "A": [
+            90.0,
+            100.0
+          ],
+          "B": [
+            2160.0,
+            2170.0
+          ]
+        },
+        "equivalent": true,
+        "equivalence_class": "SAME_SOURCE_VIDEO_SAME_WINDOW_REEXTRACT",
+        "byte_identical": false,
+        "sides": {
+          "A": {
+            "status": "EQUIVALENT_REEXTRACT_SAME_WINDOW",
+            "registry": {
+              "status": "MATCH",
+              "match": true,
+              "declared": "58812c619252d45f070c9372e49e1146a287840a16ff355fc1ec699a5b8b4fba",
+              "computed": "58812c619252d45f070c9372e49e1146a287840a16ff355fc1ec699a5b8b4fba",
+              "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_human_adjudication/KbahC-QCKU8_EF_PAIR1/A_090_100.mp4",
+              "bytes": 6335772
+            },
+            "roi": {
+              "status": "MATCH",
+              "match": true,
+              "declared": "114ba304970d9ee74798e4c1f836e20f75ba1962de31a996b04f954c4f00a75e",
+              "computed": "114ba304970d9ee74798e4c1f836e20f75ba1962de31a996b04f954c4f00a75e",
+              "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/KbahC-QCKU8/entity_first/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/clip.mp4",
+              "bytes": 3076276
+            },
+            "window": [
+              90.0,
+              100.0
+            ]
+          },
+          "B": {
+            "status": "EQUIVALENT_REEXTRACT_SAME_WINDOW",
+            "registry": {
+              "status": "MATCH",
+              "match": true,
+              "declared": "2afce6b5de756c29e5844dfef299a98f02bb4024e334ca26618d0dea44facc6c",
+              "computed": "2afce6b5de756c29e5844dfef299a98f02bb4024e334ca26618d0dea44facc6c",
+              "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_human_adjudication/KbahC-QCKU8_EF_PAIR1/B_2160_2170.mp4",
+              "bytes": 4415015
+            },
+            "roi": {
+              "status": "MATCH",
+              "match": true,
+              "declared": "6300cd4b94e3bb71eaff80a3678d62771faf7be2eba18fd15e519e881ec3a795",
+              "computed": "6300cd4b94e3bb71eaff80a3678d62771faf7be2eba18fd15e519e881ec3a795",
+              "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/KbahC-QCKU8/entity_first/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/clip.mp4",
+              "bytes": 2582332
+            },
+            "window": [
+              2160.0,
+              2170.0
+            ]
+          }
+        },
+        "note": "Different SHA with same video_id+windows and both files re-hashing to their declared values indicates separate extracts/encodes of the same interval — not proof of identical pixels/codecs."
+      }
+    },
+    {
+      "pair_id": "USfvmoalqsw_PAIR2",
+      "flags": {
+        "evidence_manifest_complete": true,
+        "media_hash_reverified": true,
+        "semantic_fact_verified": false,
+        "human_relation_certified": true,
+        "rules": {
+          "hash_field_presence_is_not_semantic_fact_verified": true,
+          "manifest_complete_is_not_media_reverified": true,
+          "human_identity_is_not_answer_certification": true
+        }
+      },
+      "media_equivalence": {
+        "schema": "media_equivalence_v1",
+        "pair_id": "USfvmoalqsw_PAIR2",
+        "video_id": "USfvmoalqsw",
+        "windows": {
+          "A": [
+            2355.0,
+            2365.0
+          ],
+          "B": [
+            4620.0,
+            4630.0
+          ]
+        },
+        "equivalent": true,
+        "equivalence_class": "SAME_SOURCE_VIDEO_SAME_WINDOW_REEXTRACT",
+        "byte_identical": false,
+        "sides": {
+          "A": {
+            "status": "EQUIVALENT_REEXTRACT_SAME_WINDOW",
+            "registry": {
+              "status": "MATCH",
+              "match": true,
+              "declared": "654a22bd87d1782d438b7b8a423daac17c674bc5f8e1cfa2b233b98da51c7163",
+              "computed": "654a22bd87d1782d438b7b8a423daac17c674bc5f8e1cfa2b233b98da51c7163",
+              "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_human_adjudication/USfvmoalqsw_PAIR2/A_2355_2365.mp4",
+              "bytes": 6214201
+            },
+            "roi": {
+              "status": "MATCH",
+              "match": true,
+              "declared": "283cd2f02664e8f49ab9d7e97c896a6045ab7e3f5c72380c788e599550f1d226",
+              "computed": "283cd2f02664e8f49ab9d7e97c896a6045ab7e3f5c72380c788e599550f1d226",
+              "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/wp3_production/wave1/USfvmoalqsw/USfvmoalqsw_PAIR2_EARLY_2360_2370/clip.mp4",
+              "bytes": 2149705
+            },
+            "window": [
+              2355.0,
+              2365.0
+            ]
+          },
+          "B": {
+            "status": "EQUIVALENT_REEXTRACT_SAME_WINDOW",
+            "registry": {
+              "status": "MATCH",
+              "match": true,
+              "declared": "4b92d850427a80ba5750b63d5f5c349410ee6261f43669bb162e52e4b7b022b6",
+              "computed": "4b92d850427a80ba5750b63d5f5c349410ee6261f43669bb162e52e4b7b022b6",
+              "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_human_adjudication/USfvmoalqsw_PAIR2/B_4620_4630.mp4",
+              "bytes": 11238720
+            },
+            "roi": {
+              "status": "MATCH",
+              "match": true,
+              "declared": "e6dfc36c25d63666b7b199c5e11aa0cd49720dbf0826d3f63b52c50582a6106a",
+              "computed": "e6dfc36c25d63666b7b199c5e11aa0cd49720dbf0826d3f63b52c50582a6106a",
+              "path": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/local_media/wp3_production/wave1/USfvmoalqsw/USfvmoalqsw_PAIR2_LATE_4625_4635/clip.mp4",
+              "bytes": 3829330
+            },
+            "window": [
+              4620.0,
+              4630.0
+            ]
+          }
+        },
+        "note": "Different SHA with same video_id+windows and both files re-hashing to their declared values indicates separate extracts/encodes of the same interval — not proof of identical pixels/codecs."
+      }
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR1",
+      "flags": {
+        "evidence_manifest_complete": true,
+        "media_hash_reverified": false,
+        "semantic_fact_verified": false,
+        "human_relation_certified": false,
+        "rules": {
+          "hash_field_presence_is_not_semantic_fact_verified": true,
+          "manifest_complete_is_not_media_reverified": true,
+          "human_identity_is_not_answer_certification": true
+        }
+      },
+      "media_equivalence": null
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR2",
+      "flags": {
+        "evidence_manifest_complete": true,
+        "media_hash_reverified": false,
+        "semantic_fact_verified": false,
+        "human_relation_certified": false,
+        "rules": {
+          "hash_field_presence_is_not_semantic_fact_verified": true,
+          "manifest_complete_is_not_media_reverified": true,
+          "human_identity_is_not_answer_certification": true
+        }
+      },
+      "media_equivalence": null
+    },
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR1",
+      "flags": {
+        "evidence_manifest_complete": true,
+        "media_hash_reverified": false,
+        "semantic_fact_verified": false,
+        "human_relation_certified": false,
+        "rules": {
+          "hash_field_presence_is_not_semantic_fact_verified": true,
+          "manifest_complete_is_not_media_reverified": true,
+          "human_identity_is_not_answer_certification": true
+        }
+      },
+      "media_equivalence": null
+    },
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR2",
+      "flags": {
+        "evidence_manifest_complete": true,
+        "media_hash_reverified": false,
+        "semantic_fact_verified": false,
+        "human_relation_certified": false,
+        "rules": {
+          "hash_field_presence_is_not_semantic_fact_verified": true,
+          "manifest_complete_is_not_media_reverified": true,
+          "human_identity_is_not_answer_certification": true
+        }
+      },
+      "media_equivalence": null
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR1",
+      "flags": {
+        "evidence_manifest_complete": true,
+        "media_hash_reverified": false,
+        "semantic_fact_verified": false,
+        "human_relation_certified": false,
+        "rules": {
+          "hash_field_presence_is_not_semantic_fact_verified": true,
+          "manifest_complete_is_not_media_reverified": true,
+          "human_identity_is_not_answer_certification": true
+        }
+      },
+      "media_equivalence": null
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR2",
+      "flags": {
+        "evidence_manifest_complete": true,
+        "media_hash_reverified": false,
+        "semantic_fact_verified": false,
+        "human_relation_certified": false,
+        "rules": {
+          "hash_field_presence_is_not_semantic_fact_verified": true,
+          "manifest_complete_is_not_media_reverified": true,
+          "human_identity_is_not_answer_certification": true
+        }
+      },
+      "media_equivalence": null
+    }
+  ]
+}

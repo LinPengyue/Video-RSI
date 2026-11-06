@@ -5,9 +5,8 @@ Unified contract:
   Video Evidence → Sourced Facts → Relation Candidates → QA Family + Program Graph
   → Necessity → Structure Audit → DEV Review Queue
 
-No semantic facts → explicit exit (no fabricated relations).
-Does not hardcode video IDs, questions, or Necessity labels in the generic path.
-Regression fixtures must not be imported here.
+Consumes real semantic records via Semantic Fact Adapter.
+Does not hardcode queryable_attributes=[].
 """
 from __future__ import annotations
 
@@ -18,21 +17,24 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-# Wire LongVideoCompBench pipeline_conformance as the sole S3–S9 implementation.
 _REPO = Path(__file__).resolve().parents[3]
 _LVCB_TOOLS = (
     _REPO
     / "research_audit/lvbench_compositional/track_b/LongVideoCompBench/tools"
 )
+_WP3 = (
+    _REPO
+    / "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production"
+)
 if str(_LVCB_TOOLS) not in sys.path:
     sys.path.insert(0, str(_LVCB_TOOLS))
 
 from pipeline_conformance.formal_certification import evaluate_formal_ready  # noqa: E402
-from pipeline_conformance.s3_s5_relation_qa import (  # noqa: E402
-    RelationCandidate,
-    SourcedFact,
-    generate_qa_from_relation,
+from pipeline_conformance.media_hash_audit import (  # noqa: E402
+    audit_pair_media,
+    match_identity_claims_strict,
 )
+from pipeline_conformance.s3_s5_relation_qa import generate_qa_from_relation  # noqa: E402
 from pipeline_conformance.s6_necessity import (  # noqa: E402
     combine_necessity,
     model_necessity,
@@ -45,16 +47,22 @@ from pipeline_conformance.s7_s9_gates import (  # noqa: E402
     release_gate_check,
 )
 from pipeline_conformance.s8_signature_feedback import audit_draft_against_seen  # noqa: E402
+from pipeline_conformance.semantic_fact_adapter import (  # noqa: E402
+    build_relation_candidate,
+    build_sourced_facts_for_pair,
+    load_dev_semantic_corpus,
+)
 
 PRODUCTION_ENTRY = {
     "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
     "wired_into_formal_batch_entry": True,
     "sole_s3_s9_path_for_dev_smoke": True,
     "legacy_qa_draft_bypassed": True,
+    "semantic_fact_adapter": True,
     "production_closed_loop_scientific": False,
     "note": (
-        "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop "
-        "rates remain separate and are not implied by this flag."
+        "Engineering wiring + semantic adapter for DEV. "
+        "Scientific Gold/closed-loop rates remain separate."
     ),
 }
 
@@ -70,7 +78,6 @@ def _read_jsonl(path: Path) -> list[dict[str, Any]]:
 
 
 def load_evidence_pairs_from_rois(rois_jsonl: Path) -> list[dict[str, Any]]:
-    """Group ROI rows into early/late pairs with real hashes. Generic — no video allowlist."""
     rows = _read_jsonl(rois_jsonl)
     by_pair: dict[str, dict[str, Any]] = defaultdict(dict)
     for r in rows:
@@ -84,16 +91,14 @@ def load_evidence_pairs_from_rois(rois_jsonl: Path) -> list[dict[str, Any]]:
         if "early" not in sides or "late" not in sides:
             continue
         a, b = sides["early"], sides["late"]
-        clip_a = (a.get("local_clip") or {})
-        clip_b = (b.get("local_clip") or {})
-        frames_a = a.get("frames_local") or a.get("review_frames") or []
-        frames_b = b.get("frames_local") or b.get("review_frames") or []
+        clip_a = a.get("local_clip") or {}
+        clip_b = b.get("local_clip") or {}
         out.append(
             {
                 "pair_id": pid,
                 "video_id": a.get("video_id") or b.get("video_id"),
                 "source_rois_jsonl": str(rois_jsonl),
-                "method": a.get("method") or b.get("method"),
+                "method": a.get("method") or a.get("discovery_method") or b.get("method"),
                 "windows": {
                     "A": [float(a["t_start"]), float(a["t_end"])],
                     "B": [float(b["t_start"]), float(b["t_end"])],
@@ -102,9 +107,9 @@ def load_evidence_pairs_from_rois(rois_jsonl: Path) -> list[dict[str, Any]]:
                     "A": clip_a.get("sha256"),
                     "B": clip_b.get("sha256"),
                 },
-                "frame_sha256_sample": {
-                    "A": [f.get("sha256") for f in frames_a[:3] if f.get("sha256")],
-                    "B": [f.get("sha256") for f in frames_b[:3] if f.get("sha256")],
+                "clip_paths": {
+                    "A": clip_a.get("path"),
+                    "B": clip_b.get("path"),
                 },
                 "semantics_a": a.get("semantics")
                 or a.get("event_certification")
@@ -121,33 +126,7 @@ def load_evidence_pairs_from_rois(rois_jsonl: Path) -> list[dict[str, Any]]:
     return out
 
 
-def match_identity_claims(
-    pair: dict[str, Any],
-    trusted: dict[str, dict],
-) -> list[dict[str, Any]]:
-    """Return identity-scope claims whose video+windows match this pair."""
-    matched = []
-    vid = pair.get("video_id")
-    win = pair.get("windows") or {}
-    for claim in trusted.values():
-        if claim.get("source_video_id") != vid:
-            continue
-        if claim.get("decision_scope") != "CROSS_WINDOW_PERSON_IDENTITY":
-            continue
-        cw = claim.get("windows") or {}
-        if list(cw.get("A") or []) != list(win.get("A") or []):
-            continue
-        if list(cw.get("B") or []) != list(win.get("B") or []):
-            continue
-        matched.append(claim)
-    return matched
-
-
 def load_evidence_pairs_from_trusted_registry(records_jsonl: Path) -> list[dict[str, Any]]:
-    """Build evidence pairs from trusted registry rows that carry clip hashes.
-
-    Generic: groups by pair_id. Does not invent semantics or answer attributes.
-    """
     trusted = load_trusted_claims(records_jsonl)
     by_pair: dict[str, dict] = {}
     for claim in trusted.values():
@@ -156,6 +135,7 @@ def load_evidence_pairs_from_trusted_registry(records_jsonl: Path) -> list[dict[
             continue
         hashes = claim.get("clip_sha256") or {}
         wins = claim.get("windows") or {}
+        paths = claim.get("local_clip_paths") or {}
         if not hashes.get("A") or not hashes.get("B") or not wins.get("A") or not wins.get("B"):
             continue
         by_pair[pid] = {
@@ -165,22 +145,98 @@ def load_evidence_pairs_from_trusted_registry(records_jsonl: Path) -> list[dict[
             "method": "trusted_registry_evidence",
             "windows": {"A": list(wins["A"]), "B": list(wins["B"])},
             "clip_sha256": {"A": hashes["A"], "B": hashes["B"]},
-            "frame_sha256_sample": {"A": [], "B": []},
+            "clip_paths": {"A": paths.get("A"), "B": paths.get("B")},
             "semantics_a": "UNRESOLVED",
             "semantics_b": "UNRESOLVED",
             "evidence_packet_complete": True,
             "roi_ids": [f"{pid}:A", f"{pid}:B"],
+            "from_registry": True,
         }
     return [by_pair[k] for k in sorted(by_pair)]
+
+
+def _structural_evidence_from_audit(pair_id: str, corpus: dict[str, Any]) -> tuple[dict, dict]:
+    """Build Necessity inputs from engineering structural audit with provenance tags."""
+    audit = corpus.get("necessity_audit") or {}
+    for item in audit.get("items") or []:
+        if item.get("pair_id") != pair_id:
+            continue
+        sc = item.get("structural_shortcut_audit") or {}
+        if sc.get("A_boy_seat_directly_observable"):
+            structural_ev = {
+                "answer_localized_window": "A",
+                "a_unique_answer_bearing_entity": bool(sc.get("A_unique_boy")),
+                "b_contains_answer_payload": False,
+                "bind_required_for_answer_payload": False,
+                "within_b_subject_switch": bool(sc.get("B_within_roi_subject_switch")),
+                "multi_signage_uniqueness_verified": None,
+                "field_provenance": {
+                    "answer_localized_window": "engineer_unverified_shortcut_hypothesis",
+                    "a_unique_answer_bearing_entity": "engineer_unverified_shortcut_hypothesis",
+                    "b_contains_answer_payload": "engineer_unverified_shortcut_hypothesis",
+                    "bind_required_for_answer_payload": "engineer_unverified_shortcut_hypothesis",
+                    "within_b_subject_switch": "engineer_unverified_shortcut_hypothesis",
+                },
+                "audited_entity_binds": item.get("qa_id"),
+                "notes": sc.get("reason_A_only") or "",
+            }
+            shortcut_sig = {
+                "ocr_answer_in_window_A": False,
+                "single_candidate_entity_in_A": bool(sc.get("A_unique_boy")),
+                "question_text_leaks_answer": False,
+                "language_prior_celebrity_or_brand": False,
+                "subtitle_leak": False,
+                "signal_provenance": {
+                    "single_candidate_entity_in_A": "engineer_unverified_shortcut_hypothesis",
+                },
+            }
+            return structural_ev, shortcut_sig
+        if sc.get("A_shop_sign_ocr_visible"):
+            structural_ev = {
+                "answer_localized_window": "A",
+                "a_unique_answer_bearing_entity": True,
+                "b_contains_answer_payload": False,
+                "bind_required_for_answer_payload": False,
+                "within_b_subject_switch": False,
+                "multi_signage_uniqueness_verified": False,
+                "field_provenance": {
+                    "answer_localized_window": "engineer_unverified_shortcut_hypothesis",
+                    "a_unique_answer_bearing_entity": "engineer_unverified_shortcut_hypothesis",
+                    "b_contains_answer_payload": "engineer_unverified_shortcut_hypothesis",
+                    "bind_required_for_answer_payload": "engineer_unverified_shortcut_hypothesis",
+                    "multi_signage_uniqueness_verified": "engineer_unverified_shortcut_hypothesis",
+                },
+                "notes": sc.get("reason_A_only") or "",
+            }
+            shortcut_sig = {
+                "ocr_answer_in_window_A": True,
+                "single_candidate_entity_in_A": bool(sc.get("A_unique_plaid_man_in_focus")),
+                "question_text_leaks_answer": False,
+                "language_prior_celebrity_or_brand": False,
+                "subtitle_leak": False,
+                "signal_provenance": {
+                    "ocr_answer_in_window_A": "engineer_unverified_shortcut_hypothesis",
+                },
+            }
+            return structural_ev, shortcut_sig
+    # Default: no engineer presets → structural UNKNOWN
+    return (
+        {"answer_localized_window": None},
+        {},
+    )
 
 
 def process_evidence_pair(
     pair: dict[str, Any],
     *,
     trusted_records_jsonl: Path,
+    corpus: dict[str, Any] | None = None,
+    repo_root: Path | None = None,
 ) -> dict[str, Any]:
-    """Run one pair through S2–S9 production path. Data-driven exits only."""
+    repo_root = repo_root or _REPO
+    corpus = corpus or load_dev_semantic_corpus(_WP3)
     trusted = load_trusted_claims(trusted_records_jsonl)
+
     trail: dict[str, Any] = {
         "pair_id": pair["pair_id"],
         "video_id": pair.get("video_id"),
@@ -188,190 +244,210 @@ def process_evidence_pair(
         "built_utc": _utc(),
     }
 
-    # --- Evidence trust ---
-    evidence_ok = bool(pair.get("evidence_packet_complete"))
-    trust_level = (
-        "PACKET_HASHED_CLIPS"
-        if evidence_ok
-        else "INCOMPLETE_EVIDENCE_PACKET"
+    # Pick a representative claim for media audit (same pair)
+    claim0 = next(
+        (c for c in trusted.values() if c.get("pair_id") == pair["pair_id"]),
+        None,
     )
+    media = audit_pair_media(
+        pair_id=pair["pair_id"],
+        video_id=pair["video_id"],
+        windows=pair["windows"],
+        roi_hashes=None if pair.get("from_registry") else pair.get("clip_sha256"),
+        roi_paths=None if pair.get("from_registry") else pair.get("clip_paths"),
+        claim=claim0,
+        repo_root=repo_root,
+    )
+    equiv = media.get("media_equivalence")
+
+    # Identity match with media chain
+    id_match = match_identity_claims_strict(
+        video_id=pair["video_id"],
+        windows=pair["windows"],
+        candidate_clip_sha256=pair.get("clip_sha256"),
+        trusted=trusted,
+        media_equivalence=equiv if equiv and equiv.get("equivalent") else None,
+    )
+    media["flags"]["human_relation_certified"] = id_match["human_relation_certified"]
+
+    # Authoritative hashes for evidence refs: prefer registry when claim matched
+    if id_match["matched"] and claim0:
+        auth_hashes = claim0.get("clip_sha256") or pair.get("clip_sha256")
+        auth_paths = claim0.get("local_clip_paths") or pair.get("clip_paths") or {}
+    else:
+        auth_hashes = pair.get("clip_sha256") or {}
+        auth_paths = pair.get("clip_paths") or {}
+
+    manifest_ok = media["flags"]["evidence_manifest_complete"]
     trail["evidence"] = {
-        "complete": evidence_ok,
-        "trust_level": trust_level,
+        "flags": media["flags"],
+        "media_equivalence": equiv,
         "windows": pair.get("windows"),
-        "clip_sha256": pair.get("clip_sha256"),
-        "semantics_a": pair.get("semantics_a"),
-        "semantics_b": pair.get("semantics_b"),
+        "clip_sha256_candidate": pair.get("clip_sha256"),
+        "clip_sha256_authoritative": auth_hashes,
         "source": pair.get("source_rois_jsonl"),
+        "identity_match": id_match,
     }
 
-    if not evidence_ok:
+    if not manifest_ok:
         trail["exit"] = "INCOMPLETE_EVIDENCE"
         trail["classification"] = "REJECT"
-        trail["failure_reason"] = "missing_clip_sha256"
+        trail["failure_reason"] = "evidence_manifest_incomplete"
+        trail["scientific_gates"] = _empty_gates()
         return trail
 
-    sem_a = pair.get("semantics_a") or "UNRESOLVED"
-    sem_b = pair.get("semantics_b") or "UNRESOLVED"
-    identity_claims = match_identity_claims(pair, trusted)
-    trail["identity_claims"] = [c.get("claim_id") for c in identity_claims]
+    refs_a = [
+        f"{auth_paths.get('A') or pair['pair_id']+'/A'}#sha256:{auth_hashes.get('A')}"
+    ]
+    refs_b = [
+        f"{auth_paths.get('B') or pair['pair_id']+'/B'}#sha256:{auth_hashes.get('B')}"
+    ]
 
-    # --- No semantic facts → explicit exit (do not mint fake relations) ---
-    has_semantic = sem_a not in {"UNRESOLVED", None, ""} or sem_b not in {
-        "UNRESOLVED",
-        None,
-        "",
+    assembled = build_sourced_facts_for_pair(
+        pair_id=pair["pair_id"],
+        video_id=pair["video_id"],
+        windows=pair["windows"],
+        evidence_refs_a=refs_a,
+        evidence_refs_b=refs_b,
+        identity_matches=id_match["matched"],
+        corpus=corpus,
+    )
+    media["flags"]["semantic_fact_verified"] = assembled["semantic_fact_verified"]
+    trail["evidence"]["flags"] = media["flags"]
+    trail["semantic_adapter"] = {
+        "has_semantic_records": assembled["has_semantic_records"],
+        "has_dev_draft_answer_attributes": assembled["has_dev_draft_answer_attributes"],
+        "gpt_observation_n": len(assembled["gpt_observations"]),
+        "queryable_n": len(assembled["queryable_attributes"]),
+        "bind_status": assembled["bind_status"],
+        "qa_draft_packaging_refs": assembled["qa_draft_packaging_refs"],
+        "notes": assembled["notes"],
     }
-    # Identity claims certify bind only — still not answer semantics
-    if not has_semantic and not identity_claims:
+
+    # Early exit: no semantic records at all
+    if not assembled["has_semantic_records"]:
         trail["exit"] = "NO_SEMANTIC_FACTS"
         trail["classification"] = "PENDING"
         trail["failure_reason"] = (
-            "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;"
+            "evidence_manifest_present_but_no_semantic_records;"
             "refusing_fabricated_relation"
         )
         trail["relation"] = None
-        trail["qa"] = None
-        trail["scientific"] = {
-            "evidence_verified": True,
-            "qa_family_generated": False,
-            "structural_necessity_verified": False,
-            "program_execution_verified": False,
-            "atomic_covered_composition_ood_verified": False,
-            "independent_gold_certified": False,
-        }
+        trail["scientific_gates"] = _gates(
+            evidence_manifest=True,
+            media_reverified=media["flags"]["media_hash_reverified"],
+            semantic_facts=False,
+        )
         return trail
 
-    # Build sourced facts from evidence (window existence FACT; attributes not certified)
-    fact_a = SourcedFact(
-        fact_id=f"FACT:{pair['pair_id']}:A",
-        video_id=pair["video_id"],
-        window=list(pair["windows"]["A"]),
-        epistemic="FACT",
-        entities=[{"role": "unknown", "desc": "entity_in_window_A"}],
-        attributes={"scene": "UNRESOLVED"},
-        evidence_refs=[
-            f"{pair['pair_id']}/A#sha256:{pair['clip_sha256']['A']}"
-        ],
-        source_provenance="ROI_PACKET_HASHED_CLIP",
-        certified_scopes=["WINDOW_EXISTENCE"]
-        + (["CROSS_WINDOW_PERSON_IDENTITY"] if identity_claims else []),
-        uncertified_attribute_keys=["scene"],
-    )
-    fact_b = SourcedFact(
-        fact_id=f"FACT:{pair['pair_id']}:B",
-        video_id=pair["video_id"],
-        window=list(pair["windows"]["B"]),
-        epistemic="FACT",
-        entities=[{"role": "unknown", "desc": "entity_in_window_B"}],
-        attributes={"scene": "UNRESOLVED"},
-        evidence_refs=[
-            f"{pair['pair_id']}/B#sha256:{pair['clip_sha256']['B']}"
-        ],
-        source_provenance="ROI_PACKET_HASHED_CLIP",
-        certified_scopes=["WINDOW_EXISTENCE"]
-        + (["CROSS_WINDOW_PERSON_IDENTITY"] if identity_claims else []),
-        uncertified_attribute_keys=["scene"],
-    )
+    # Identity without media equivalence when ROI hashes disagree → unresolved bind media
+    if (
+        claim0
+        and not pair.get("from_registry")
+        and pair.get("clip_sha256")
+        and claim0.get("clip_sha256")
+        and pair["clip_sha256"] != claim0["clip_sha256"]
+        and not (equiv and equiv.get("equivalent"))
+    ):
+        trail["exit"] = "MEDIA_EQUIVALENCE_UNRESOLVED"
+        trail["classification"] = "PENDING"
+        trail["failure_reason"] = (
+            "roi_and_registry_clip_sha_differ_without_equivalence_map"
+        )
+        trail["scientific_gates"] = _gates(
+            evidence_manifest=True,
+            media_reverified=media["flags"]["media_hash_reverified"],
+            semantic_facts=False,
+            human_relation=False,
+        )
+        return trail
 
-    bind_status = "FACT" if identity_claims else "UNKNOWN"
-    bind_ids = [c["claim_id"] for c in identity_claims if c.get("claim_id")]
-
-    # Relation discovery: without queryable certified answer attrs, do not invent them
-    rel = RelationCandidate(
-        relation_id=f"REL:{pair['pair_id']}",
-        video_id=pair["video_id"],
-        relation_type="cross_window_same_person",
-        fact_a=fact_a,
-        fact_b=fact_b,
-        bind_status=bind_status,
-        bind_claim_ids=bind_ids,
-        queryable_attributes=[],  # never fabricate seat/shop answers
-        dependency_direction="B_identifies_then_query_A",
-        notes="Production path: no fabricated answer attributes",
-        human_bind_scope="CROSS_WINDOW_PERSON_IDENTITY",
-    )
+    rel = build_relation_candidate(pair["pair_id"], assembled)
     trail["relation"] = {
         "relation_id": rel.relation_id,
-        "bind_status": bind_status,
-        "bind_claim_ids": bind_ids,
-        "queryable_attributes": [],
-        "process": (
-            "identity_bind_from_trusted_registry"
-            if identity_claims
-            else "bind_UNKNOWN_no_identity_claim"
-        ),
+        "relation_type": rel.relation_type,
+        "bind_status": rel.bind_status,
+        "bind_claim_ids": rel.bind_claim_ids,
+        "queryable_attributes": rel.queryable_attributes,
+        "process": "semantic_fact_adapter",
     }
 
-    if bind_status == "UNKNOWN":
+    if rel.bind_status == "UNKNOWN":
+        qa_out = generate_qa_from_relation(rel)
         trail["exit"] = "BIND_UNKNOWN"
         trail["classification"] = "PENDING"
         trail["failure_reason"] = "no_certified_cross_window_identity_bind"
-        qa_out = generate_qa_from_relation(rel)
-        trail["qa"] = {"status": qa_out["status"], "failure_reason": qa_out.get("failure_reason")}
-        trail["scientific"] = {
-            "evidence_verified": True,
-            "qa_family_generated": False,
-            "structural_necessity_verified": False,
-            "program_execution_verified": False,
-            "atomic_covered_composition_ood_verified": False,
-            "independent_gold_certified": False,
+        trail["qa"] = {
+            "status": qa_out["status"],
+            "failure_reason": qa_out.get("failure_reason"),
         }
+        trail["scientific_gates"] = _gates(
+            evidence_manifest=True,
+            media_reverified=media["flags"]["media_hash_reverified"],
+            semantic_facts=bool(assembled["gpt_observations"] or assembled["queryable_attributes"]),
+            relation=False,
+        )
         return trail
 
-    # Identity bind present but no answer attributes → QA family must fail explicitly
+    if not assembled["queryable_attributes"]:
+        trail["exit"] = "NO_TRACEABLE_ANSWER_ATTRIBUTES"
+        trail["classification"] = "PENDING"
+        trail["failure_reason"] = (
+            "identity_certified_but_no_traceable_answer_attributes_in_semantic_corpus;"
+            "refusing_fabricated_attributes_for_FULL_PATH"
+        )
+        trail["scientific_gates"] = _gates(
+            evidence_manifest=True,
+            media_reverified=media["flags"]["media_hash_reverified"],
+            semantic_facts=False,
+            human_relation=True,
+            relation=True,
+        )
+        return trail
+
     qa_out = generate_qa_from_relation(rel)
     trail["qa"] = {
         "status": qa_out["status"],
         "failure_reason": qa_out.get("failure_reason"),
         "family_id": qa_out.get("family_id"),
+        "answer_certification": (qa_out.get("qa") or {}).get("answer_certification"),
+        "formal_gold": False,
+        "dev_draft_only": True,
     }
     if qa_out["status"] != "OK":
         trail["exit"] = "QA_FAMILY_FAILED"
         trail["classification"] = "PENDING"
         trail["failure_reason"] = qa_out.get("failure_reason")
-        trail["s7_status"] = independent_status_bundle(
-            human_relation="CERTIFIED_SAME_IDENTITY_ONLY",
-            qa_draft="FAIL:" + str(qa_out.get("failure_reason")),
-            necessity="NOT_REACHED",
-            program_execution="PROGRAM_EXECUTION_NOT_RUN",
-            formal_gold=False,
+        trail["scientific_gates"] = _gates(
+            evidence_manifest=True,
+            media_reverified=media["flags"]["media_hash_reverified"],
+            semantic_facts=True,
+            human_relation=True,
+            relation=True,
+            qa=False,
         )
-        trail["scientific"] = {
-            "evidence_verified": True,
-            "qa_family_generated": False,
-            "structural_necessity_verified": False,
-            "program_execution_verified": False,
-            "atomic_covered_composition_ood_verified": False,
-            "independent_gold_certified": False,
-        }
         return trail
 
-    # If QA somehow OK (future attrs), continue Necessity/S8 without blind model / executor
     graph = qa_out["program_graph"]
-    structural = structural_necessity(
-        {
-            "answer_localized_window": None,  # force UNKNOWN — no engineer presets
-        }
-    )
-    # missing fields → UNKNOWN
-    shortcut = shortcut_audit({})
+    structural_ev, shortcut_sig = _structural_evidence_from_audit(pair["pair_id"], corpus)
+    structural = structural_necessity(structural_ev)
+    shortcut = shortcut_audit(shortcut_sig)
     model = model_necessity(blind_model_available=False)
     nec = combine_necessity(structural, model, shortcut)
     s8 = audit_draft_against_seen(graph)
     status = independent_status_bundle(
         human_relation="CERTIFIED_SAME_IDENTITY_ONLY",
-        qa_draft="OK_DRAFT",
+        qa_draft="OK_DEV_DRAFT_ANSWER_ATTR_NOT_HUMAN_CERTIFIED",
         necessity=nec["overall_verdict"],
         program_execution="PROGRAM_EXECUTION_NOT_RUN",
         formal_gold=False,
     )
     gate = release_gate_check(
         {
-            "bind_claim_ids": bind_ids,
+            "bind_claim_ids": rel.bind_claim_ids,
             "video_id": pair["video_id"],
             "windows": pair["windows"],
-            "clip_sha256": pair["clip_sha256"],
+            "clip_sha256": auth_hashes,
             "formal_gold": False,
             "necessity_overall": nec["overall_verdict"],
             "necessity_strict_proof": nec.get("strict_necessity_proof"),
@@ -387,16 +463,15 @@ def process_evidence_pair(
             "program_id": graph["program_id"],
             "video_id": pair["video_id"],
             "windows": pair["windows"],
-            "clip_sha256": pair["clip_sha256"],
-            "bind_claim_ids": bind_ids,
+            "clip_sha256": auth_hashes,
+            "bind_claim_ids": rel.bind_claim_ids,
             "answer_certified_by_human_relation": False,
             "formal_gold": False,
-            # Intentionally omit store-backed necessity/execution → formal_ready false
+            # Intentionally no store paths with records → not formal ready
         },
         trusted_records_jsonl=trusted_records_jsonl,
     )
 
-    # Classification from data/rules only
     if nec["overall_verdict"] == "FAIL":
         classification = "CONTROL"
     elif not gate["allowed"]:
@@ -408,30 +483,90 @@ def process_evidence_pair(
         {
             "exit": "FULL_PATH",
             "classification": classification,
-            "s6": nec,
-            "s8_audit": s8,
-            "s7_status": status,
-            "s9_release_gate": gate,
-            "formal_certification": formal,
-            "program_graph_semantic": graph.get("semantic_validation"),
-            "program_execution": "PROGRAM_EXECUTION_NOT_RUN",
-            "scientific": {
-                "evidence_verified": True,
-                "qa_family_generated": True,
-                "structural_necessity_verified": bool(
-                    nec.get("structural_strict_proof")
-                ),
-                "program_execution_verified": False,
-                "atomic_covered_composition_ood_verified": bool(
-                    s8.get("atomic_covered_ood_candidate")
-                ),
-                "independent_gold_certified": bool(
-                    formal.get("independent_gold_certified")
-                ),
+            "s3_s5": {
+                "qa": qa_out["qa"],
+                "program_graph_summary": {
+                    "program_id": graph["program_id"],
+                    "dataflow_topology": graph.get("dataflow_topology"),
+                    "semantic_validation": graph.get("semantic_validation"),
+                    "program_execution": graph.get("program_execution"),
+                    "executable_pass": False,
+                },
             },
+            "s6": nec,
+            "s8_audit": {
+                "bucket": s8.get("bucket"),
+                "atomic_covered_in_seen_layer1": s8.get("atomic_covered_in_seen_layer1"),
+                "atomic_covered_in_seen_layer2": s8.get("atomic_covered_in_seen_layer2"),
+                "atomic_covered_ood_candidate": s8.get("atomic_covered_ood_candidate"),
+                "training_exposure_status": (s8.get("gates") or {})
+                .get("training_exposure_check", {})
+                .get("status"),
+            },
+            "s7_status": status,
+            "s9_release_gate": {
+                "allowed": gate["allowed"],
+                "codes": gate["codes"],
+                "formal_gold": False,
+            },
+            "formal_certification": {
+                "formal_ready": formal["formal_ready"],
+                "codes": formal["codes"][:12],
+                "independent_gold_certified": False,
+            },
+            "scientific_gates": _gates(
+                evidence_manifest=True,
+                media_reverified=media["flags"]["media_hash_reverified"],
+                semantic_facts=True,
+                human_relation=True,
+                relation=True,
+                qa=True,
+                graph_semantic=(graph.get("semantic_validation") or {}).get("status")
+                == "OK",
+                program_execution=False,
+                structural_necessity=bool(nec.get("structural_strict_proof")),
+                model_necessity=False,
+                s8_atomic_ood=bool(s8.get("atomic_covered_ood_candidate")),
+                formal_gold=False,
+            ),
         }
     )
     return trail
+
+
+def _empty_gates() -> dict[str, bool]:
+    return _gates()
+
+
+def _gates(
+    *,
+    evidence_manifest: bool = False,
+    media_reverified: bool = False,
+    semantic_facts: bool = False,
+    human_relation: bool = False,
+    relation: bool = False,
+    qa: bool = False,
+    graph_semantic: bool = False,
+    program_execution: bool = False,
+    structural_necessity: bool = False,
+    model_necessity: bool = False,
+    s8_atomic_ood: bool = False,
+    formal_gold: bool = False,
+) -> dict[str, bool]:
+    return {
+        "evidence_manifest_complete": evidence_manifest,
+        "media_hash_reverified": media_reverified,
+        "semantic_facts_available": semantic_facts,
+        "human_relation_certified": human_relation,
+        "relation_candidates_verified": relation,
+        "qa_drafts_generated": qa,
+        "program_graph_semantic_validation": graph_semantic,
+        "program_execution_verified": program_execution,
+        "structural_necessity_verified": structural_necessity,
+        "model_necessity_run": model_necessity,
+        "atomic_covered_composition_ood_verified": s8_atomic_ood,
+        "formal_gold": formal_gold,
+    }
 
 
 def run_s0_s9_dev_smoke(
@@ -442,12 +577,12 @@ def run_s0_s9_dev_smoke(
     max_pairs: int = 8,
     include_registry_evidence_pairs: bool = True,
 ) -> dict[str, Any]:
-    """Batch Factory formal entry: DEV end-to-end smoke over existing ROI evidence."""
     output_dir.mkdir(parents=True, exist_ok=True)
+    corpus = load_dev_semantic_corpus(_WP3)
+
     pairs: list[dict[str, Any]] = []
     for p in rois_jsonl_paths:
         pairs.extend(load_evidence_pairs_from_rois(p))
-    # Dedup by pair_id (first source wins)
     seen_ids: set[str] = set()
     deduped: list[dict[str, Any]] = []
     for pr in pairs:
@@ -457,31 +592,55 @@ def run_s0_s9_dev_smoke(
         deduped.append(pr)
     pairs = deduped
 
-    # Optionally merge registry-backed evidence (identity packets with hashes).
-    # Selection remains generic — no hardcoded video IDs.
     if include_registry_evidence_pairs:
         for pr in load_evidence_pairs_from_trusted_registry(trusted_records_jsonl):
             if pr["pair_id"] not in seen_ids:
                 pairs.append(pr)
                 seen_ids.add(pr["pair_id"])
+            else:
+                # Prefer registry hashes for pairs already seen from ROI when merging
+                for i, existing in enumerate(pairs):
+                    if existing["pair_id"] == pr["pair_id"]:
+                        # Keep ROI paths for equivalence audit; attach registry twin
+                        pairs[i] = {
+                            **existing,
+                            "registry_twin": {
+                                "clip_sha256": pr["clip_sha256"],
+                                "clip_paths": pr["clip_paths"],
+                            },
+                        }
+                        break
 
-    # Prefer a mix: registry-backed first (real identity evidence), then ROI pairs.
-    # Cap without hardcoding video IDs.
     trusted = load_trusted_claims(trusted_records_jsonl)
-    with_id = [p for p in pairs if match_identity_claims(p, trusted)]
-    with_ids = {p["pair_id"] for p in with_id}
-    without = [p for p in pairs if p["pair_id"] not in with_ids]
-    ordered = with_id + without
+    with_sem = []
+    without = []
+    for p in pairs:
+        # Prefer pairs that have corpus attrs or identity claims
+        has_claim = any(c.get("pair_id") == p["pair_id"] for c in trusted.values())
+        if has_claim:
+            with_sem.append(p)
+        else:
+            without.append(p)
+    ordered = with_sem + without
     pairs = ordered[: max(0, max_pairs)]
 
     results = [
-        process_evidence_pair(pair, trusted_records_jsonl=trusted_records_jsonl)
+        process_evidence_pair(
+            pair,
+            trusted_records_jsonl=trusted_records_jsonl,
+            corpus=corpus,
+            repo_root=_REPO,
+        )
         for pair in pairs
     ]
 
-    def _rate(key: str) -> dict[str, Any]:
+    def _rate(gate_key: str) -> dict[str, Any]:
         n = len(results)
-        k = sum(1 for r in results if (r.get("scientific") or {}).get(key))
+        k = sum(
+            1
+            for r in results
+            if (r.get("scientific_gates") or {}).get(gate_key)
+        )
         return {"numerator": k, "denominator": n, "rate": (k / n) if n else 0.0}
 
     class_counts: dict[str, int] = defaultdict(int)
@@ -491,7 +650,7 @@ def run_s0_s9_dev_smoke(
         exit_counts[r.get("exit") or "UNKNOWN"] += 1
 
     report = {
-        "schema": "s0_s9_dev_smoke_report_v1",
+        "schema": "s0_s9_dev_smoke_report_v2",
         "built_utc": _utc(),
         "production_entry": PRODUCTION_ENTRY,
         "n_pairs": len(results),
@@ -501,19 +660,28 @@ def run_s0_s9_dev_smoke(
         "pipeline_engineering_completion": {
             "wired_into_formal_batch_entry": True,
             "unified_io_contract": True,
+            "semantic_fact_adapter": True,
             "legacy_qa_draft_bypassed_on_this_path": True,
             "pairs_processed_end_to_end": len(results),
             "production_closed_loop_scientific_claimed": False,
         },
         "scientific_rates": {
-            "evidence_verified": _rate("evidence_verified"),
-            "qa_family_generated": _rate("qa_family_generated"),
-            "structural_necessity_verified": _rate("structural_necessity_verified"),
+            "evidence_manifest_complete": _rate("evidence_manifest_complete"),
+            "media_hash_reverified": _rate("media_hash_reverified"),
+            "semantic_facts_available": _rate("semantic_facts_available"),
+            "human_relation_certified": _rate("human_relation_certified"),
+            "relation_candidates_verified": _rate("relation_candidates_verified"),
+            "qa_drafts_generated": _rate("qa_drafts_generated"),
+            "program_graph_semantic_validation": _rate(
+                "program_graph_semantic_validation"
+            ),
             "program_execution_verified": _rate("program_execution_verified"),
+            "structural_necessity_verified": _rate("structural_necessity_verified"),
+            "model_necessity_run": _rate("model_necessity_run"),
             "atomic_covered_composition_ood_verified": _rate(
                 "atomic_covered_composition_ood_verified"
             ),
-            "independent_gold_certified": _rate("independent_gold_certified"),
+            "formal_gold": _rate("formal_gold"),
         },
         "failures": [
             {
@@ -523,7 +691,10 @@ def run_s0_s9_dev_smoke(
                 "classification": r.get("classification"),
             }
             for r in results
-            if r.get("exit") not in {"FULL_PATH"}
+            if r.get("exit") != "FULL_PATH"
+        ],
+        "full_path_pairs": [
+            r.get("pair_id") for r in results if r.get("exit") == "FULL_PATH"
         ],
         "results": results,
         "protections": {
@@ -536,7 +707,8 @@ def run_s0_s9_dev_smoke(
     }
 
     (output_dir / "s0_s9_dev_smoke_results.jsonl").write_text(
-        "\n".join(json.dumps(r, ensure_ascii=False) for r in results) + ("\n" if results else ""),
+        "\n".join(json.dumps(r, ensure_ascii=False) for r in results)
+        + ("\n" if results else ""),
         encoding="utf-8",
     )
     (output_dir / "S0_S9_DEV_SMOKE_REPORT.json").write_text(
@@ -546,6 +718,23 @@ def run_s0_s9_dev_smoke(
     (output_dir / "failures.jsonl").write_text(
         "\n".join(json.dumps(f, ensure_ascii=False) for f in report["failures"])
         + ("\n" if report["failures"] else ""),
+        encoding="utf-8",
+    )
+    # Media audit extract
+    media_audits = [
+        {
+            "pair_id": r.get("pair_id"),
+            "flags": (r.get("evidence") or {}).get("flags"),
+            "media_equivalence": (r.get("evidence") or {}).get("media_equivalence"),
+        }
+        for r in results
+    ]
+    (output_dir / "MEDIA_HASH_AUDIT.json").write_text(
+        json.dumps(
+            {"schema": "media_hash_audit_batch_v1", "items": media_audits},
+            ensure_ascii=False,
+            indent=2,
+        ),
         encoding="utf-8",
     )
     return report

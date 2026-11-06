@@ -1,3 +1,11 @@
+## WP3 S3 Semantic Fact Bridge & Real E2E Closure (no new immutable release)
+
+- Distinguished evidence_manifest_complete / media_hash_reverified / semantic_fact_verified / human_relation_certified.
+- Documented Kbah/USFV ROI vs Registry SHA divergence as SAME_WINDOW_REEXTRACT equivalence (not byte-identical).
+- Added Semantic Fact Adapter: GPT observations + engineering structural attrs + Human identity claims → SourcedFact (no auto-upgrade to Human answer cert).
+- Production path dynamically builds queryable_attributes; DEV QA Draft allowed; Gold blocked.
+- FULL_PATH E2E on real DEV attrs (CONTROL/PENDING); early-exit retained; Formal Gold 0.
+
 ## WP3 Production Integration & E2E DEV Smoke (no new immutable release)
 
 - Wired S3–S9 conformance modules into Batch Factory formal entry `s0s9-dev-smoke` / `s0_s9_production.py`.

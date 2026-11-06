@@ -247,6 +247,7 @@ class TestWP3PipelineConformance(unittest.TestCase):
                 "input_condition": "A",
                 "evidence_isolation": "ok",
                 "raw_output": "no",
+                "raw_output_sha256": "deadbeef",
                 "correct": False,
                 "forged": True,
             },
@@ -256,6 +257,7 @@ class TestWP3PipelineConformance(unittest.TestCase):
                 "input_condition": "B",
                 "evidence_isolation": "ok",
                 "raw_output": "no",
+                "raw_output_sha256": "deadbeef",
                 "correct": False,
             },
             ab_run={
@@ -264,6 +266,7 @@ class TestWP3PipelineConformance(unittest.TestCase):
                 "input_condition": "AB",
                 "evidence_isolation": "ok",
                 "raw_output": "yes",
+                "raw_output_sha256": "deadbeef",
                 "correct": True,
             },
         )

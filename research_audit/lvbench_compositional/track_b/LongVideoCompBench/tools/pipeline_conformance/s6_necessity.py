@@ -211,6 +211,12 @@ def _validate_model_run(run: dict[str, Any] | None, label: str) -> list[str]:
     for k in ("run_id", "model_version", "input_condition", "evidence_isolation", "raw_output"):
         if not run.get(k):
             errs.append(f"MISSING_FIELD:{label}.{k}")
+    # Self-attested raw_output text alone is insufficient for strict certification;
+    # require an artifact URI or content hash for independent recheck.
+    if run.get("raw_output") and not (
+        run.get("raw_output_artifact_uri") or run.get("raw_output_sha256")
+    ):
+        errs.append(f"RAW_OUTPUT_NOT_ARTIFACT_BACKED:{label}")
     if run.get("forged") is True:
         errs.append(f"FORGED_RUN:{label}")
     return errs
