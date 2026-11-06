@@ -1,0 +1,39 @@
+{
+  "schema": "wp3_3_other_candidate_status_v1",
+  "built_utc": "2026-11-06T02:43:08+00:00",
+  "USfvmoalqsw_PAIR2": {
+    "pair_id": "USfvmoalqsw_PAIR2",
+    "relation_status": "PENDING_HUMAN_IDENTITY_ADJUDICATION",
+    "human_adjudication_status": "NOT_OBTAINED_THIS_ROUND",
+    "immutable_append_record": null,
+    "dual_clip_packet_retained": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_2_USFV_PAIR2_HUMAN_REVIEW_PACKET.json",
+    "signature_family": "HISTORICAL_SAME_PERSON_BIND_FAMILY_NOT_NEW_OOD",
+    "blocks_other_work": false,
+    "formal_gold": false
+  },
+  "W-BnDvXXfOs_PAIR2": {
+    "pair_id": "W-BnDvXXfOs_PAIR2",
+    "prior_status": "PASS_CANDIDATE",
+    "updated_status": "CONTROL",
+    "reason_codes": [
+      "CELEBRITY_PRIOR_TOM_JONES_VOICE_JUDGE_CHAIR",
+      "SHOW_FORMAT_LEAKAGE_RED_BUTTON_CHAIR",
+      "NECESSITY_LIKELY_FAIL_SINGLE_WINDOW_OR_PRIOR",
+      "LATE_WINDOW_SUBJECT_APPEARS_DIFFERENT_PERSON_RED_HAIR"
+    ],
+    "person_match_hypothesis": "RETAINED_AS_HYPOTHESIS_ONLY",
+    "effective_compositional_qa": false,
+    "count_as_valid_comp_qa": false,
+    "shortcut_checks": {
+      "celebrity_prior": "HIGH",
+      "program_roster_prior": "HIGH_THE_VOICE_UK_STYLE",
+      "ocr": "LOW_IN_REVIEW_FRAMES",
+      "single_window_answerable": "LIKELY_YES_VIA_CELEBRITY_ID"
+    },
+    "signature": {
+      "draft": "IdentifyPerson→CrossIntervalSamePersonBind→QueryEarlierCoPresentEntities",
+      "label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "bucket_if_forced": "ID_CONTROL_CELEBRITY_LEAKAGE"
+    }
+  }
+}

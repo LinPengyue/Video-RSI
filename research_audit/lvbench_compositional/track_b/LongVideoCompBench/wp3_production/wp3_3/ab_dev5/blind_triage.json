@@ -1,0 +1,541 @@
+{
+  "schema": "wp3_3_ab_blind_triage_v1",
+  "built_utc": "2026-11-06T02:43:08+00:00",
+  "pairs": [
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR1",
+      "video_id": "1FsiZgGZU70",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          15.0,
+          25.0
+        ],
+        "late": [
+          1710.0,
+          1720.0
+        ]
+      },
+      "decision": "REJECT",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "NO",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "EARLY_BATHROOM_DIFFERENT_PERSON_VS_LATE_BRAIDED_VLOGGER",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR2",
+      "video_id": "1FsiZgGZU70",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          165.0,
+          175.0
+        ],
+        "late": [
+          1875.0,
+          1885.0
+        ]
+      },
+      "decision": "HOLD",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "UNKNOWN",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "NO_CLEAR_BINDABLE_ENTITY_FROM_REVIEW_SUBSET",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR1",
+      "video_id": "1FsiZgGZU70",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          1815.0,
+          1825.0
+        ],
+        "late": [
+          2190.0,
+          2200.0
+        ]
+      },
+      "decision": "HOLD",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "YES_SAME_PERSON_SAME_ROOM",
+      "necessity": "FAIL",
+      "qa_family": "SamePersonBind_same_room_low_composition_value",
+      "program_signature": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "SAME_ROOM_LAYOUT_LEAKAGE_LOCATION_QA_NOT_NECESSARY",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR2",
+      "video_id": "1FsiZgGZU70",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          465.0,
+          475.0
+        ],
+        "late": [
+          1620.0,
+          1630.0
+        ]
+      },
+      "decision": "HOLD",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "UNKNOWN",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "FINGERPRINT_MATCH_WITHOUT_CLEAR_SEMANTIC_BIND",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "3_upA09AntU_HF_PAIR1",
+      "video_id": "3_upA09AntU",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          180.0,
+          190.0
+        ],
+        "late": [
+          1575.0,
+          1585.0
+        ]
+      },
+      "decision": "HOLD",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "UNKNOWN",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "KITCHEN_PROCESS_WITHOUT_SAME_OBJECT_ID",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "3_upA09AntU_HF_PAIR2",
+      "video_id": "3_upA09AntU",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          390.0,
+          400.0
+        ],
+        "late": [
+          2145.0,
+          2155.0
+        ]
+      },
+      "decision": "REJECT",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "NO",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "SCENE_CHANGE_ONLY_NO_ENTITY_BIND",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR1",
+      "video_id": "3_upA09AntU",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          585.0,
+          595.0
+        ],
+        "late": [
+          2325.0,
+          2335.0
+        ]
+      },
+      "decision": "HOLD",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "UNKNOWN",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "SAME_KITCHEN_VENUE_PROCESS_NOT_SAME_DISH_OBJECT_STATE",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR2",
+      "video_id": "3_upA09AntU",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          210.0,
+          220.0
+        ],
+        "late": [
+          2205.0,
+          2215.0
+        ]
+      },
+      "decision": "HOLD",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "UNKNOWN",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "PROCESS_MONTAGE_NOT_CERTIFIED_OBJECT_BIND",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "9-gOCOu_KGU_HF_PAIR1",
+      "video_id": "9-gOCOu_KGU",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          390.0,
+          400.0
+        ],
+        "late": [
+          2370.0,
+          2380.0
+        ]
+      },
+      "decision": "CONTROL",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "SPORTS_BROADCAST_OCR_EVENT_PRIOR_LEAKAGE",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "9-gOCOu_KGU_HF_PAIR2",
+      "video_id": "9-gOCOu_KGU",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          1080.0,
+          1090.0
+        ],
+        "late": [
+          2280.0,
+          2290.0
+        ]
+      },
+      "decision": "CONTROL",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "ATHLETICS_MEET_SINGLE_WINDOW_OR_OCR_SHORTCUT",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "9-gOCOu_KGU_EF_PAIR1",
+      "video_id": "9-gOCOu_KGU",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          150.0,
+          160.0
+        ],
+        "late": [
+          2190.0,
+          2200.0
+        ]
+      },
+      "decision": "CONTROL",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "NO",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "CELEBRITY_PRIOR_MO_FARAH_LONDON_OCR_DIFFERENT_ATHLETES",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "9-gOCOu_KGU_EF_PAIR2",
+      "video_id": "9-gOCOu_KGU",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          540.0,
+          550.0
+        ],
+        "late": [
+          2370.0,
+          2380.0
+        ]
+      },
+      "decision": "CONTROL",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "EVENT_ROSTER_PRIOR_AND_BROADCAST_GRAPHICS",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "KbahC-QCKU8_HF_PAIR1",
+      "video_id": "KbahC-QCKU8",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          270.0,
+          280.0
+        ],
+        "late": [
+          1770.0,
+          1780.0
+        ]
+      },
+      "decision": "REJECT",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "NO",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "SNOWFIELD_VS_DRIVER_NO_SHARED_ENTITY_IN_EARLY",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "KbahC-QCKU8_HF_PAIR2",
+      "video_id": "KbahC-QCKU8",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          600.0,
+          610.0
+        ],
+        "late": [
+          2310.0,
+          2320.0
+        ]
+      },
+      "decision": "HOLD",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "UNKNOWN",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "HISTOGRAM_PEAKS_WITHOUT_STABLE_ENTITY_ANCHOR",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "KbahC-QCKU8_EF_PAIR1",
+      "video_id": "KbahC-QCKU8",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          90.0,
+          100.0
+        ],
+        "late": [
+          2160.0,
+          2170.0
+        ]
+      },
+      "decision": "PASS_CANDIDATE",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "YES_FAMILY_PERSON_CONTINUITY",
+      "necessity": "UNKNOWN",
+      "qa_family": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+      "program_signature": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": null,
+      "evidence_note": "Camo-jacket glasses man + child: car/snow early → bakery exterior late; location change; clothing continuity for adult",
+      "ood_bucket": "NEW_VIDEO_NEW_QA_OLD_SIGNATURE_FAMILY",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "KbahC-QCKU8_EF_PAIR2",
+      "video_id": "KbahC-QCKU8",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          210.0,
+          220.0
+        ],
+        "late": [
+          1365.0,
+          1375.0
+        ]
+      },
+      "decision": "CONTROL",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "YES_SAME_PERSON",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "MUSEUM_OCR_1925_SERUM_RUN_TO_NOME_LOCATION_SHORTCUT",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "RCAqKnvu_P0_HF_PAIR1",
+      "video_id": "RCAqKnvu_P0",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          255.0,
+          265.0
+        ],
+        "late": [
+          1455.0,
+          1465.0
+        ]
+      },
+      "decision": "HOLD",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "UNKNOWN",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "TRAVEL_SCENE_CHANGE_ENTITY_UNCLEAR",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "RCAqKnvu_P0_HF_PAIR2",
+      "video_id": "RCAqKnvu_P0",
+      "method_revealed_after_label": "histogram_first",
+      "windows": {
+        "early": [
+          1095.0,
+          1105.0
+        ],
+        "late": [
+          2280.0,
+          2290.0
+        ]
+      },
+      "decision": "REJECT",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "NO",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "NO_BINDABLE_CROSS_WINDOW_ENTITY",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "RCAqKnvu_P0_EF_PAIR1",
+      "video_id": "RCAqKnvu_P0",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          585.0,
+          595.0
+        ],
+        "late": [
+          2580.0,
+          2590.0
+        ]
+      },
+      "decision": "HOLD",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "UNKNOWN",
+      "necessity": "UNKNOWN",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "STABILITY_PROXY_MATCH_SEMANTICS_UNRESOLVED",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    },
+    {
+      "pair_id": "RCAqKnvu_P0_EF_PAIR2",
+      "video_id": "RCAqKnvu_P0",
+      "method_revealed_after_label": "entity_first",
+      "windows": {
+        "early": [
+          255.0,
+          265.0
+        ],
+        "late": [
+          2385.0,
+          2395.0
+        ]
+      },
+      "decision": "CONTROL",
+      "fact_verified": false,
+      "cross_window_bind_feasible": "NO",
+      "necessity": "FAIL",
+      "qa_family": null,
+      "program_signature": null,
+      "signature_label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "failure_reason": "ONSCREEN_COST_OVERLAY_AND_CAPTION_SHORTCUT_PLUS_UNRELATED_STREET",
+      "reviewer_role": "cursor_gpt_visual_not_human_scientific_owner",
+      "formal_gold": false
+    }
+  ],
+  "summary": {
+    "n_pairs_total": 20,
+    "n_pairs_histogram": 10,
+    "n_pairs_entity_first": 10,
+    "candidate_yield": {
+      "histogram_first_PASS_CANDIDATE": 0,
+      "entity_first_PASS_CANDIDATE": 1
+    },
+    "gold_yield": {
+      "formal_gold": 0,
+      "fact_verified": 0,
+      "note": "Gold cannot be auto-promoted by GPT/Cursor"
+    },
+    "necessity": {
+      "FAIL": 11,
+      "UNKNOWN": 9
+    },
+    "cross_window_bind_feasible": {
+      "NO": 6,
+      "UNKNOWN": 11,
+      "YES_SAME_PERSON_SAME_ROOM": 1,
+      "YES_FAMILY_PERSON_CONTINUITY": 1,
+      "YES_SAME_PERSON": 1
+    },
+    "dedup_cross_method": [],
+    "review_hours_estimate": 2.4
+  },
+  "limitations": [
+    "No local semantic vision model; entity-first uses stability/fingerprint proxy + GPT visual assist",
+    "Blinding is post-hoc method reveal in records; single reviewer (Cursor GPT) — not independent dual human",
+    "FACT_VERIFIED requires Human Scientific Owner for Gold path; GPT labels remain draft",
+    "If fairness incomplete, do not declare method winner"
+  ]
+}

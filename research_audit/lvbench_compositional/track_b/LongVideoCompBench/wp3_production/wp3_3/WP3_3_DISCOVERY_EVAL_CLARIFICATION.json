@@ -1,0 +1,21 @@
+{
+  "schema": "wp3_3_discovery_method_evaluation_clarification_v1",
+  "built_utc": "2026-11-06T02:43:08+00:00",
+  "baseline_commit": "b56cc4f124a142028ab803cf0b35dabafd6b7c44",
+  "preserves_historical_artifact": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_2_discovery_method_comparison.json",
+  "historical_artifact_not_rewritten": true,
+  "wp3_2_claim_in_artifact": "entity_event_first",
+  "corrected_supported_claim": "RETROSPECTIVE_SEMANTIC_RERANKING_FEASIBLE",
+  "unsupported_claim": "PROSPECTIVE_ENTITY_FIRST_DISCOVERY_SUPERIOR",
+  "rationale": [
+    "WP3.2 histogram-first generated the 20 ROI pairs; 15 received triage labels.",
+    "WP3.2 'entity/event-first' only re-ranked those historical pairs by semantic anchors.",
+    "Re-ranking yield ≠ prospective discovery superiority on unseen videos.",
+    "WP3.3 P3/P4 implement and evaluate a true independent entity/event-first generator."
+  ],
+  "labeling_rule": {
+    "unverified_new_composition_signatures": "PROPOSED_SIGNATURE_UNVERIFIED",
+    "do_not_auto_promote_unseen": true
+  },
+  "status": "CLARIFICATION_RECORDED"
+}

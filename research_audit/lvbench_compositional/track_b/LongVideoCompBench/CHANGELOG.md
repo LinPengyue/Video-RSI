@@ -1,3 +1,13 @@
+## WP3.3 — Compositional evidence deepen + controlled scale (no new immutable release)
+
+- P0: Clarified WP3.2 discovery eval → only `RETROSPECTIVE_SEMANTIC_RERANKING_FEASIBLE` (history preserved).
+- P1: Bugatti `ihfjEFGdZdc` four-window audit → same-object continuity NOT_ESTABLISHED; no forced CompareState QA.
+- P2: `USfvmoalqsw_PAIR2` still PENDING_HUMAN; `W-BnDvXXfOs_PAIR2` → CONTROL (celebrity/show leakage).
+- P3: Prospective entity/event-first discovery module (stability proxy + GPT assist; not fully automated).
+- P4: 5-video DEV A/B (HF vs EF independent); 1 EF PASS_CANDIDATE (`KbahC-QCKU8_EF_PAIR1`); 0 Gold; do not declare EF superior.
+- P5: Signatures labeled `PROPOSED_SIGNATURE_UNVERIFIED`; no Unseen freeze; scale-to-50–100 not recommended yet.
+- Left `releases/v0.1.0`–`v0.1.2` immutable; 5+2 frozen / 7+4 PROPOSED; no Track A; no new public third-party media.
+
 ## WP3.2 — Import integrity + Wave2 triage + discovery compare (no new immutable release)
 
 - Hardened import: `import_ready` cannot bypass uncertified semantics; forged graph approval ignored; WP3 requires A/B evidence+SHA+independent review.

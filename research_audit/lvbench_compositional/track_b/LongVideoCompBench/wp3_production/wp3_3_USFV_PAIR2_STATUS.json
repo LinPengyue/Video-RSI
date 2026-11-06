@@ -1,0 +1,13 @@
+{
+  "pair_id": "USfvmoalqsw_PAIR2",
+  "relation_status": "PENDING_HUMAN_IDENTITY_ADJUDICATION",
+  "human_adjudication_status": "NOT_OBTAINED_THIS_ROUND",
+  "immutable_append_record": null,
+  "dual_clip_packet_retained": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_2_USFV_PAIR2_HUMAN_REVIEW_PACKET.json",
+  "signature_family": "HISTORICAL_SAME_PERSON_BIND_FAMILY_NOT_NEW_OOD",
+  "blocks_other_work": false,
+  "formal_gold": false,
+  "qa_status": "AUDIT_DRAFT_ONLY",
+  "necessity_status": "PROVISIONAL_PENDING_HUMAN",
+  "import_ready": false
+}

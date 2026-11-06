@@ -3,6 +3,9 @@
   "rule": "Any video used for assistant-led design, CG-NEW discussion, or construction_discovery becomes ineligible for sealed blind final.",
   "exposed_or_construction": [
     "16Z-XQh9jhk",
+    "1FsiZgGZU70",
+    "3_upA09AntU",
+    "9-gOCOu_KGU",
     "Aiem1w_TvaA",
     "CgvJqGxzRfE",
     "Cm73ma6Ibcs",
@@ -10,10 +13,12 @@
     "JPPMz8fEml0",
     "JTa_Ue2MSwc",
     "JlrzSvCsIjE",
+    "KbahC-QCKU8",
     "KktLi3UifPY",
     "LLSJrEgOOtw",
     "Mcggugol2ts",
     "QWXlvx1GoTY",
+    "RCAqKnvu_P0",
     "RjDrZkBwzho",
     "S8vPx-u9p_A",
     "T1yhBv1ytzw",
@@ -72,16 +77,10 @@
     "note": "Exclusion-from-sealed ≠ Seen/Unseen composition assignment"
   },
   "reconciliation_wp3": {
-    "utc": "2026-11-05T05:15:14+00:00",
-    "added_ids": [
-      "xECIRjlxM3U",
-      "Aiem1w_TvaA",
-      "ihfjEFGdZdc",
-      "wgBlACG927Y",
-      "W-BnDvXXfOs"
-    ],
-    "n_before": 31,
-    "n_after": 36,
+    "utc": "2026-11-06T02:40:59+00:00",
+    "added_ids": [],
+    "n_before": 41,
+    "n_after": 41,
     "sealed_reservoir_untouched": true,
     "note": "WP3 DEV exposure only; sealed reservoir unchanged; not Seen/Unseen promotion."
   }

@@ -1,0 +1,559 @@
+{
+  "videos": [
+    {
+      "video_id": "1FsiZgGZU70",
+      "genre_guess": "vlog",
+      "duration_s": 2254.471837,
+      "checksum_partial_sha256": "ac30532f3325eb18519cd41f4ca39049dc1c720ff5dc2723fb9abc2aff3dd992",
+      "histogram_first": {
+        "n_pairs": 2,
+        "pairs": [
+          {
+            "pair_id": "1FsiZgGZU70_HF_PAIR1",
+            "early": [
+              15.0,
+              25.0
+            ],
+            "late": [
+              1710.0,
+              1720.0
+            ],
+            "score": 3.015625
+          },
+          {
+            "pair_id": "1FsiZgGZU70_HF_PAIR2",
+            "early": [
+              165.0,
+              175.0
+            ],
+            "late": [
+              1875.0,
+              1885.0
+            ],
+            "score": 2.833333
+          }
+        ]
+      },
+      "entity_first": {
+        "n_pairs": 2,
+        "diagnostics": {
+          "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1",
+          "model_stack": {
+            "semantic_vision_model": null,
+            "reason": "torch/clip/ultralytics/PIL/cv2 not available in runtime",
+            "engineering_proxy": "ffmpeg_gray_hist_stability_and_fingerprint_match",
+            "human_gpt_assisted_adjudication_required": true,
+            "must_not_claim": "FULLY_AUTOMATED_SEMANTIC_ENTITY_DISCOVERY"
+          },
+          "n_coarse_samples": 80,
+          "n_anchors_computed": 80,
+          "n_usable_anchors": 16,
+          "n_pairs": 2,
+          "pair_meta": [
+            {
+              "pair_id": "1FsiZgGZU70_EF_PAIR1",
+              "early_t": 1820.0,
+              "late_t": 2195.0,
+              "gap_s": 375.0,
+              "fingerprint_similarity": 0.923611,
+              "discovery_score": 3.017651,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            },
+            {
+              "pair_id": "1FsiZgGZU70_EF_PAIR2",
+              "early_t": 470.0,
+              "late_t": 1625.0,
+              "gap_s": 1155.0,
+              "fingerprint_similarity": 0.543403,
+              "discovery_score": 2.801105,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            }
+          ],
+          "top_anchor_penalties": {
+            "OK": 68,
+            "UNDEREXPOSED": 0,
+            "WITHIN_WINDOW_SUBJECT_THRASH": 12
+          }
+        },
+        "pairs": [
+          {
+            "pair_id": "1FsiZgGZU70_EF_PAIR1",
+            "early": [
+              1815.0,
+              1825.0
+            ],
+            "late": [
+              2190.0,
+              2200.0
+            ],
+            "score": 3.017651
+          },
+          {
+            "pair_id": "1FsiZgGZU70_EF_PAIR2",
+            "early": [
+              465.0,
+              475.0
+            ],
+            "late": [
+              1620.0,
+              1630.0
+            ],
+            "score": 2.801105
+          }
+        ]
+      },
+      "cross_method_duplicates": [],
+      "budget": {
+        "max_pairs_per_method": 2,
+        "frames_per_roi": 12,
+        "review_frames_per_roi": 4,
+        "official_qa_answers_used_as_discovery_target": false
+      }
+    },
+    {
+      "video_id": "3_upA09AntU",
+      "genre_guess": "cooking",
+      "duration_s": 2499.256599,
+      "checksum_partial_sha256": "884739e6416e7935aad38b1ff69437ad78888d825c20ec1ce3fa32220c288d27",
+      "histogram_first": {
+        "n_pairs": 2,
+        "pairs": [
+          {
+            "pair_id": "3_upA09AntU_HF_PAIR1",
+            "early": [
+              180.0,
+              190.0
+            ],
+            "late": [
+              1575.0,
+              1585.0
+            ],
+            "score": 2.529514
+          },
+          {
+            "pair_id": "3_upA09AntU_HF_PAIR2",
+            "early": [
+              390.0,
+              400.0
+            ],
+            "late": [
+              2145.0,
+              2155.0
+            ],
+            "score": 2.440104
+          }
+        ]
+      },
+      "entity_first": {
+        "n_pairs": 2,
+        "diagnostics": {
+          "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1",
+          "model_stack": {
+            "semantic_vision_model": null,
+            "reason": "torch/clip/ultralytics/PIL/cv2 not available in runtime",
+            "engineering_proxy": "ffmpeg_gray_hist_stability_and_fingerprint_match",
+            "human_gpt_assisted_adjudication_required": true,
+            "must_not_claim": "FULLY_AUTOMATED_SEMANTIC_ENTITY_DISCOVERY"
+          },
+          "n_coarse_samples": 80,
+          "n_anchors_computed": 80,
+          "n_usable_anchors": 16,
+          "n_pairs": 2,
+          "pair_meta": [
+            {
+              "pair_id": "3_upA09AntU_EF_PAIR1",
+              "early_t": 590.0,
+              "late_t": 2330.0,
+              "gap_s": 1740.0,
+              "fingerprint_similarity": 0.802951,
+              "discovery_score": 3.429254,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            },
+            {
+              "pair_id": "3_upA09AntU_EF_PAIR2",
+              "early_t": 215.0,
+              "late_t": 2210.0,
+              "gap_s": 1995.0,
+              "fingerprint_similarity": 0.790799,
+              "discovery_score": 3.416232,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            }
+          ],
+          "top_anchor_penalties": {
+            "OK": 78,
+            "UNDEREXPOSED": 0,
+            "WITHIN_WINDOW_SUBJECT_THRASH": 2
+          }
+        },
+        "pairs": [
+          {
+            "pair_id": "3_upA09AntU_EF_PAIR1",
+            "early": [
+              585.0,
+              595.0
+            ],
+            "late": [
+              2325.0,
+              2335.0
+            ],
+            "score": 3.429254
+          },
+          {
+            "pair_id": "3_upA09AntU_EF_PAIR2",
+            "early": [
+              210.0,
+              220.0
+            ],
+            "late": [
+              2205.0,
+              2215.0
+            ],
+            "score": 3.416232
+          }
+        ]
+      },
+      "cross_method_duplicates": [],
+      "budget": {
+        "max_pairs_per_method": 2,
+        "frames_per_roi": 12,
+        "review_frames_per_roi": 4,
+        "official_qa_answers_used_as_discovery_target": false
+      }
+    },
+    {
+      "video_id": "9-gOCOu_KGU",
+      "genre_guess": "sports",
+      "duration_s": 2396.76,
+      "checksum_partial_sha256": "d32762a0e473e4595442fa10ff29887da3a8bf91b7f4b9551bb1eb5a3e2181e3",
+      "histogram_first": {
+        "n_pairs": 2,
+        "pairs": [
+          {
+            "pair_id": "9-gOCOu_KGU_HF_PAIR1",
+            "early": [
+              390.0,
+              400.0
+            ],
+            "late": [
+              2370.0,
+              2380.0
+            ],
+            "score": 4.101562
+          },
+          {
+            "pair_id": "9-gOCOu_KGU_HF_PAIR2",
+            "early": [
+              1080.0,
+              1090.0
+            ],
+            "late": [
+              2280.0,
+              2290.0
+            ],
+            "score": 3.886285
+          }
+        ]
+      },
+      "entity_first": {
+        "n_pairs": 2,
+        "diagnostics": {
+          "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1",
+          "model_stack": {
+            "semantic_vision_model": null,
+            "reason": "torch/clip/ultralytics/PIL/cv2 not available in runtime",
+            "engineering_proxy": "ffmpeg_gray_hist_stability_and_fingerprint_match",
+            "human_gpt_assisted_adjudication_required": true,
+            "must_not_claim": "FULLY_AUTOMATED_SEMANTIC_ENTITY_DISCOVERY"
+          },
+          "n_coarse_samples": 80,
+          "n_anchors_computed": 80,
+          "n_usable_anchors": 16,
+          "n_pairs": 2,
+          "pair_meta": [
+            {
+              "pair_id": "9-gOCOu_KGU_EF_PAIR1",
+              "early_t": 155.0,
+              "late_t": 2195.0,
+              "gap_s": 2040.0,
+              "fingerprint_similarity": 0.653646,
+              "discovery_score": 3.078125,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            },
+            {
+              "pair_id": "9-gOCOu_KGU_EF_PAIR2",
+              "early_t": 545.0,
+              "late_t": 2375.0,
+              "gap_s": 1830.0,
+              "fingerprint_similarity": 0.492188,
+              "discovery_score": 2.765335,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            }
+          ],
+          "top_anchor_penalties": {
+            "OK": 51,
+            "UNDEREXPOSED": 0,
+            "WITHIN_WINDOW_SUBJECT_THRASH": 29
+          }
+        },
+        "pairs": [
+          {
+            "pair_id": "9-gOCOu_KGU_EF_PAIR1",
+            "early": [
+              150.0,
+              160.0
+            ],
+            "late": [
+              2190.0,
+              2200.0
+            ],
+            "score": 3.078125
+          },
+          {
+            "pair_id": "9-gOCOu_KGU_EF_PAIR2",
+            "early": [
+              540.0,
+              550.0
+            ],
+            "late": [
+              2370.0,
+              2380.0
+            ],
+            "score": 2.765335
+          }
+        ]
+      },
+      "cross_method_duplicates": [],
+      "budget": {
+        "max_pairs_per_method": 2,
+        "frames_per_roi": 12,
+        "review_frames_per_roi": 4,
+        "official_qa_answers_used_as_discovery_target": false
+      }
+    },
+    {
+      "video_id": "KbahC-QCKU8",
+      "genre_guess": "vlog",
+      "duration_s": 2448.590658,
+      "checksum_partial_sha256": "c2d4e31c7d7b3ee49f61f783c6278310e79c0573934c7c1b01196915f692dde8",
+      "histogram_first": {
+        "n_pairs": 2,
+        "pairs": [
+          {
+            "pair_id": "KbahC-QCKU8_HF_PAIR1",
+            "early": [
+              270.0,
+              280.0
+            ],
+            "late": [
+              1770.0,
+              1780.0
+            ],
+            "score": 4.217014
+          },
+          {
+            "pair_id": "KbahC-QCKU8_HF_PAIR2",
+            "early": [
+              600.0,
+              610.0
+            ],
+            "late": [
+              2310.0,
+              2320.0
+            ],
+            "score": 3.806424
+          }
+        ]
+      },
+      "entity_first": {
+        "n_pairs": 2,
+        "diagnostics": {
+          "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1",
+          "model_stack": {
+            "semantic_vision_model": null,
+            "reason": "torch/clip/ultralytics/PIL/cv2 not available in runtime",
+            "engineering_proxy": "ffmpeg_gray_hist_stability_and_fingerprint_match",
+            "human_gpt_assisted_adjudication_required": true,
+            "must_not_claim": "FULLY_AUTOMATED_SEMANTIC_ENTITY_DISCOVERY"
+          },
+          "n_coarse_samples": 80,
+          "n_anchors_computed": 80,
+          "n_usable_anchors": 16,
+          "n_pairs": 2,
+          "pair_meta": [
+            {
+              "pair_id": "KbahC-QCKU8_EF_PAIR1",
+              "early_t": 95.0,
+              "late_t": 2165.0,
+              "gap_s": 2070.0,
+              "fingerprint_similarity": 0.895833,
+              "discovery_score": 3.57393,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            },
+            {
+              "pair_id": "KbahC-QCKU8_EF_PAIR2",
+              "early_t": 215.0,
+              "late_t": 1370.0,
+              "gap_s": 1155.0,
+              "fingerprint_similarity": 0.696181,
+              "discovery_score": 2.907876,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            }
+          ],
+          "top_anchor_penalties": {
+            "OK": 37,
+            "UNDEREXPOSED": 1,
+            "WITHIN_WINDOW_SUBJECT_THRASH": 42
+          }
+        },
+        "pairs": [
+          {
+            "pair_id": "KbahC-QCKU8_EF_PAIR1",
+            "early": [
+              90.0,
+              100.0
+            ],
+            "late": [
+              2160.0,
+              2170.0
+            ],
+            "score": 3.57393
+          },
+          {
+            "pair_id": "KbahC-QCKU8_EF_PAIR2",
+            "early": [
+              210.0,
+              220.0
+            ],
+            "late": [
+              1365.0,
+              1375.0
+            ],
+            "score": 2.907876
+          }
+        ]
+      },
+      "cross_method_duplicates": [],
+      "budget": {
+        "max_pairs_per_method": 2,
+        "frames_per_roi": 12,
+        "review_frames_per_roi": 4,
+        "official_qa_answers_used_as_discovery_target": false
+      }
+    },
+    {
+      "video_id": "RCAqKnvu_P0",
+      "genre_guess": "travel",
+      "duration_s": 2659.451066,
+      "checksum_partial_sha256": "678318706525da0f56da30697da40993538ec5a72bf027f0b763af669f13998e",
+      "histogram_first": {
+        "n_pairs": 2,
+        "pairs": [
+          {
+            "pair_id": "RCAqKnvu_P0_HF_PAIR1",
+            "early": [
+              255.0,
+              265.0
+            ],
+            "late": [
+              1455.0,
+              1465.0
+            ],
+            "score": 4.301215
+          },
+          {
+            "pair_id": "RCAqKnvu_P0_HF_PAIR2",
+            "early": [
+              1095.0,
+              1105.0
+            ],
+            "late": [
+              2280.0,
+              2290.0
+            ],
+            "score": 3.253993
+          }
+        ]
+      },
+      "entity_first": {
+        "n_pairs": 2,
+        "diagnostics": {
+          "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1",
+          "model_stack": {
+            "semantic_vision_model": null,
+            "reason": "torch/clip/ultralytics/PIL/cv2 not available in runtime",
+            "engineering_proxy": "ffmpeg_gray_hist_stability_and_fingerprint_match",
+            "human_gpt_assisted_adjudication_required": true,
+            "must_not_claim": "FULLY_AUTOMATED_SEMANTIC_ENTITY_DISCOVERY"
+          },
+          "n_coarse_samples": 80,
+          "n_anchors_computed": 80,
+          "n_usable_anchors": 16,
+          "n_pairs": 2,
+          "pair_meta": [
+            {
+              "pair_id": "RCAqKnvu_P0_EF_PAIR1",
+              "early_t": 590.0,
+              "late_t": 2585.0,
+              "gap_s": 1995.0,
+              "fingerprint_similarity": 0.768229,
+              "discovery_score": 3.271123,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            },
+            {
+              "pair_id": "RCAqKnvu_P0_EF_PAIR2",
+              "early_t": 260.0,
+              "late_t": 2390.0,
+              "gap_s": 2130.0,
+              "fingerprint_similarity": 0.534722,
+              "discovery_score": 2.873987,
+              "method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1"
+            }
+          ],
+          "top_anchor_penalties": {
+            "OK": 54,
+            "UNDEREXPOSED": 0,
+            "WITHIN_WINDOW_SUBJECT_THRASH": 26
+          }
+        },
+        "pairs": [
+          {
+            "pair_id": "RCAqKnvu_P0_EF_PAIR1",
+            "early": [
+              585.0,
+              595.0
+            ],
+            "late": [
+              2580.0,
+              2590.0
+            ],
+            "score": 3.271123
+          },
+          {
+            "pair_id": "RCAqKnvu_P0_EF_PAIR2",
+            "early": [
+              255.0,
+              265.0
+            ],
+            "late": [
+              2385.0,
+              2395.0
+            ],
+            "score": 2.873987
+          }
+        ]
+      },
+      "cross_method_duplicates": [],
+      "budget": {
+        "max_pairs_per_method": 2,
+        "frames_per_roi": 12,
+        "review_frames_per_roi": 4,
+        "official_qa_answers_used_as_discovery_target": false
+      }
+    }
+  ],
+  "compute": {
+    "histogram_seconds": 20.591614484786987,
+    "entity_first_seconds": 61.54980802536011,
+    "extract_seconds": 28.909718990325928
+  }
+}

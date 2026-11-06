@@ -1,0 +1,223 @@
+{
+  "schema": "wp3_3_bugatti_four_window_evidence_audit_v1",
+  "video_id": "ihfjEFGdZdc",
+  "built_utc": "2026-11-06T02:43:08+00:00",
+  "baseline_commit": "b56cc4f124a142028ab803cf0b35dabafd6b7c44",
+  "bounded_adjacent_supplement": {
+    "path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wave2/ihfjEFGdZdc/wp3_3_adjacent",
+    "unbounded_rescan": false,
+    "n_adjacent_stills": 28
+  },
+  "windows": {
+    "PAIR1_A": {
+      "t": [
+        285.0,
+        295.0
+      ],
+      "observed": [
+        "Loading-dock / trailer unload scene (not chassis assembly hall).",
+        "Bald man in black polo at wall control panel beside open trailer.",
+        "Dark object secured in black metal frame inside trailer; purple-blue ramp.",
+        "WELT watermark bottom-left (broadcast overlay).",
+        "Adjacent t≈270 shows different factory-floor scene with finished cars — hard cut montage."
+      ],
+      "entities": [
+        "worker_bald_black_polo",
+        "trailer_cargo_framed_object",
+        "dock_environment"
+      ],
+      "static_frame_sufficient": [
+        "Scene type = unloading dock",
+        "Presence of trailer cargo and worker",
+        "WELT overlay"
+      ],
+      "needs_continuous_video": [
+        "Whether cargo is a car body / chassis identity",
+        "Unload motion continuity within 10s"
+      ]
+    },
+    "PAIR1_B": {
+      "t": [
+        1575.0,
+        1585.0
+      ],
+      "observed": [
+        "Clean glass-walled assembly hall; chassis on four cylindrical lifts.",
+        "Two technicians working under rear of incomplete body (carbon/metal skeleton).",
+        "No doors/roof/engine; wiring/pipes visible.",
+        "WELT watermark."
+      ],
+      "entities": [
+        "chassis_on_lifts",
+        "technician_pair",
+        "assembly_hall"
+      ],
+      "static_frame_sufficient": [
+        "Assembly stage = mid-body on lifts",
+        "Two workers present"
+      ],
+      "needs_continuous_video": [
+        "Specific fastening operation sequence",
+        "Whether chassis ID matches PAIR1_A cargo"
+      ]
+    },
+    "PAIR2_A": {
+      "t": [
+        1470.0,
+        1480.0
+      ],
+      "observed": [
+        "Large powertrain/engine on white wheeled stand in assembly hall.",
+        "Technicians with BUGATTI / PRECISION logos on shirts.",
+        "Shelving with parts; reflective floor.",
+        "WELT watermark."
+      ],
+      "entities": [
+        "engine_on_stand",
+        "bugatti_branded_technicians",
+        "assembly_hall"
+      ],
+      "static_frame_sufficient": [
+        "Engine-on-stand process stage",
+        "Brand logo on clothing (shortcut risk)"
+      ],
+      "needs_continuous_video": [
+        "Engine install motion onto a specific chassis"
+      ]
+    },
+    "PAIR2_B": {
+      "t": [
+        2715.0,
+        2725.0
+      ],
+      "observed": [
+        "Finished silver Bugatti Chiron front: horseshoe grille, LED lamps.",
+        "French plate OCR W-238-HT (strong identity shortcut if used as answer).",
+        "Man with glasses, BUGATTI polo, standing beside car; garage door open.",
+        "Adjacent t≈2730 outdoor interview with same man; black car partially visible.",
+        "WELT watermark."
+      ],
+      "entities": [
+        "finished_chiron_W238HT",
+        "presenter_glasses_bugatti_polo"
+      ],
+      "static_frame_sufficient": [
+        "Finished showroom/garage car",
+        "Plate OCR and brand cues"
+      ],
+      "needs_continuous_video": [
+        "Link of this finished car to PAIR2_A engine or PAIR1 chassis"
+      ]
+    }
+  },
+  "cross_window": {
+    "same_physical_object_continuity": {
+      "verdict": "NOT_ESTABLISHED",
+      "evidence_for": [
+        "Same factory documentary / brand context across mid/late windows",
+        "PAIR1_B and PAIR2_A share assembly-hall look"
+      ],
+      "evidence_against": [
+        "PAIR1_A is dock unload; hard cut from finished-car floor at t≈270 — montage editing",
+        "No persistent unique chassis marking / VIN / paint shared across windows",
+        "PAIR2_A shows detached engine; PAIR2_B shows finished Chiron — no install continuity filmed in these windows",
+        "Multiple cars visible in factory background elsewhere → multi-vehicle production montage plausible"
+      ]
+    },
+    "ordered_state_change_same_object": {
+      "verdict": "NOT_VERIFIED",
+      "note": "Cannot assert IdentifyObject→CompareState A→B for one car from these four windows alone."
+    },
+    "general_assembly_process": {
+      "verdict": "PLAUSIBLE_DOCUMENTARY_PROCESS",
+      "note": "Windows illustrate stages of Bugatti manufacture, not certified same-unit state machine."
+    },
+    "shortcuts": {
+      "brand_recognition": "HIGH_BUGATTI_LOGO_AND_CHIRON_GRILLE",
+      "ocr_plate": "HIGH_W-238-HT",
+      "broadcast_overlay": "WELT_WATERMARK_ALWAYS_ON",
+      "narration": "NOT_AUDITED_THIS_ROUND_AUDIO"
+    },
+    "tier": "ORDERED_MULTIFRAME_SUGGESTS_PROCESS_BUT_NOT_SAME_OBJECT"
+  },
+  "facts": [
+    {
+      "fact_id": "BUG_F1",
+      "window": "PAIR1_A",
+      "t": [
+        285.0,
+        295.0
+      ],
+      "claim": "Dock unload of framed dark cargo by worker at trailer",
+      "status": "FACT_CANDIDATE_STATIC_VISIBLE",
+      "not": "FACT_VERIFIED_SAME_CHASSIS_AS_PAIR1_B"
+    },
+    {
+      "fact_id": "BUG_F2",
+      "window": "PAIR1_B",
+      "t": [
+        1575.0,
+        1585.0
+      ],
+      "claim": "Incomplete chassis elevated on four lifts with two technicians",
+      "status": "FACT_CANDIDATE_STATIC_VISIBLE"
+    },
+    {
+      "fact_id": "BUG_F3",
+      "window": "PAIR2_A",
+      "t": [
+        1470.0,
+        1480.0
+      ],
+      "claim": "Engine/powertrain on wheeled stand; Bugatti-branded staff present",
+      "status": "FACT_CANDIDATE_STATIC_VISIBLE"
+    },
+    {
+      "fact_id": "BUG_F4",
+      "window": "PAIR2_B",
+      "t": [
+        2715.0,
+        2725.0
+      ],
+      "claim": "Finished silver Chiron with plate W-238-HT beside Bugatti-polo presenter",
+      "status": "FACT_CANDIDATE_STATIC_VISIBLE",
+      "shortcut_warning": "Plate OCR + brand can answer without cross-window bind"
+    },
+    {
+      "fact_id": "BUG_R1",
+      "type": "cross_window_relation",
+      "claim": "PAIR1_A cargo is the same physical chassis later on lifts in PAIR1_B",
+      "status": "UNRESOLVED_NOT_SUPPORTED",
+      "positive": [],
+      "negative": [
+        "Scene discontinuity / montage; no unique object ID shared"
+      ]
+    },
+    {
+      "fact_id": "BUG_R2",
+      "type": "cross_window_relation",
+      "claim": "PAIR2_A engine is installed into the PAIR2_B finished Chiron",
+      "status": "UNRESOLVED_NOT_SUPPORTED",
+      "positive": [
+        "Same factory documentary narrative"
+      ],
+      "negative": [
+        "No install continuity in windows; multi-car montage likely"
+      ]
+    }
+  ],
+  "qa_policy": {
+    "same_object_state_change_qa": "NOT_EMITTED",
+    "reason": "Same-object continuity not established; refusing forced IdentifyObject→CompareState→QueryEarlier/LaterState",
+    "program_attempt_blocked": "IdentifyObject→CrossWindowObjectBind→CompareState→QueryEarlier/LaterState",
+    "allowed": "Per-window FACT_CANDIDATE only; optional general-process CONTROL drafts excluded from effective compositional Gold path",
+    "prior_wp3_2_pass_candidate_update": {
+      "ihfjEFGdZdc_PAIR1": "DOWNGRADED_TO_HOLD_ASSEMBLY_MONTAGE_NOT_SAME_OBJECT",
+      "ihfjEFGdZdc_PAIR2": "REMAINS_OR_CONFIRMED_CONTROL_PROCESS_MONTAGE",
+      "signature_labels": "PROPOSED_SIGNATURE_UNVERIFIED"
+    }
+  },
+  "fact_verified_count": 0,
+  "necessity": "NOT_APPLICABLE_NO_CROSS_WINDOW_QA",
+  "formal_gold": false
+}

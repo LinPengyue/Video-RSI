@@ -1,0 +1,81 @@
+{
+  "schema": "wp3_3_ab_prospective_discovery_v1",
+  "built_utc": "2026-11-06T02:43:08+00:00",
+  "baseline_commit": "b56cc4f124a142028ab803cf0b35dabafd6b7c44",
+  "videos": [
+    "1FsiZgGZU70",
+    "3_upA09AntU",
+    "9-gOCOu_KGU",
+    "KbahC-QCKU8",
+    "RCAqKnvu_P0"
+  ],
+  "split": "DEV_ONLY_NOT_SEALED",
+  "methods": {
+    "A": "histogram_first=BOUNDED_HISTOGRAM_SCENECHANGE",
+    "B": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1",
+    "B_model_stack": {
+      "semantic_vision_model": null,
+      "reason": "torch/clip/ultralytics/PIL/cv2 not available in runtime",
+      "engineering_proxy": "ffmpeg_gray_hist_stability_and_fingerprint_match",
+      "human_gpt_assisted_adjudication_required": true,
+      "must_not_claim": "FULLY_AUTOMATED_SEMANTIC_ENTITY_DISCOVERY"
+    }
+  },
+  "fairness": {
+    "comparable_frame_budget": true,
+    "max_pairs_per_method_per_video": 2,
+    "independent_generators": true,
+    "not_retrospective_rerank": true,
+    "official_answers_as_targets": false,
+    "review_method_blinding_attempted": true
+  },
+  "compute_cost_seconds": {
+    "histogram_seconds": 20.591614484786987,
+    "entity_first_seconds": 61.54980802536011,
+    "extract_seconds": 28.909718990325928
+  },
+  "wall_seconds": 111.18,
+  "registration": {
+    "pool_added": [],
+    "policy_newly_exposed": []
+  },
+  "triage_summary": {
+    "n_pairs_total": 20,
+    "n_pairs_histogram": 10,
+    "n_pairs_entity_first": 10,
+    "candidate_yield": {
+      "histogram_first_PASS_CANDIDATE": 0,
+      "entity_first_PASS_CANDIDATE": 1
+    },
+    "gold_yield": {
+      "formal_gold": 0,
+      "fact_verified": 0,
+      "note": "Gold cannot be auto-promoted by GPT/Cursor"
+    },
+    "necessity": {
+      "FAIL": 11,
+      "UNKNOWN": 9
+    },
+    "cross_window_bind_feasible": {
+      "NO": 6,
+      "UNKNOWN": 11,
+      "YES_SAME_PERSON_SAME_ROOM": 1,
+      "YES_FAMILY_PERSON_CONTINUITY": 1,
+      "YES_SAME_PERSON": 1
+    },
+    "dedup_cross_method": [],
+    "review_hours_estimate": 2.4
+  },
+  "limitations": [
+    "No local semantic vision model; entity-first uses stability/fingerprint proxy + GPT visual assist",
+    "Blinding is post-hoc method reveal in records; single reviewer (Cursor GPT) — not independent dual human",
+    "FACT_VERIFIED requires Human Scientific Owner for Gold path; GPT labels remain draft",
+    "If fairness incomplete, do not declare method winner"
+  ],
+  "head_to_head_candidate_yield": {
+    "histogram_first_PASS_CANDIDATE": 0,
+    "entity_first_PASS_CANDIDATE": 1,
+    "declare_prospective_superior": false,
+    "reason": "Single GPT-assisted draft pass; 1 EF PASS_CANDIDATE vs 0 HF; not Human-certified; fairness limitations apply"
+  }
+}

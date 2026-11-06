@@ -1,0 +1,110 @@
+{
+  "schema": "wp3_3_composition_signature_audit_v1",
+  "built_utc": "2026-11-06T02:43:08+00:00",
+  "historical": {
+    "A": {
+      "ops": [
+        "LocatePersonByAppearance",
+        "DetectPersonAndAppearance",
+        "CrossIntervalSamePersonBind",
+        "QueryLocation"
+      ],
+      "family": "SamePersonBind→QueryLocation"
+    },
+    "seed_ids_checked": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202",
+      "P7_VTCD_C2",
+      "P7_TJR_R3",
+      "A",
+      "B",
+      "P7_R4_F1",
+      "P7_R4_F2"
+    ],
+    "frozen_5_2": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202",
+      "P7_VTCD_C2",
+      "P7_TJR_R3"
+    ],
+    "proposed_7_4": {
+      "seen": [
+        "SP001",
+        "SP002",
+        "SP005",
+        "SP201",
+        "SP202",
+        "A",
+        "P7_R4_F1"
+      ],
+      "unseen": [
+        "P7_VTCD_C2",
+        "P7_TJR_R3",
+        "B",
+        "P7_R4_F2"
+      ],
+      "status": "PROPOSED"
+    }
+  },
+  "candidates": [
+    {
+      "pair_id": "USfvmoalqsw_PAIR2",
+      "signature": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+      "label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "bucket": "NEW_VIDEO_NEW_QA_OLD_SIGNATURE_FAMILY",
+      "atomic_covered_in_seen": true,
+      "novel_edge": false,
+      "dataflow_novel": false,
+      "video_independent": true,
+      "object_swap_only": true,
+      "single_window_answerable": "UNKNOWN_PENDING_HUMAN",
+      "atomic_covered_ood_candidate": false,
+      "freeze_unseen": false
+    },
+    {
+      "pair_id": "ihfjEFGdZdc_PAIR1",
+      "signature": "IdentifyObject→CrossWindowObjectBind→CompareState→QueryEarlierState",
+      "label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "bucket": "REJECTED_FOR_OOD_CLAIM_SAME_OBJECT_NOT_ESTABLISHED",
+      "atomic_covered_in_seen": true,
+      "novel_edge": "CompareState_edge_unverified",
+      "evidence": "NOT_ESTABLISHED",
+      "atomic_covered_ood_candidate": false,
+      "freeze_unseen": false
+    },
+    {
+      "pair_id": "W-BnDvXXfOs_PAIR2",
+      "signature": "IdentifyPerson→CrossIntervalSamePersonBind→QueryEarlierCoPresentEntities",
+      "label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "bucket": "ID_CONTROL_CELEBRITY_LEAKAGE",
+      "atomic_covered_ood_candidate": false,
+      "freeze_unseen": false
+    },
+    {
+      "pair_id": "KbahC-QCKU8_EF_PAIR1",
+      "signature": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+      "label": "PROPOSED_SIGNATURE_UNVERIFIED",
+      "bucket": "AB_DEV_DRAFT",
+      "method": "entity_first",
+      "atomic_covered_ood_candidate": false,
+      "freeze_unseen": false
+    }
+  ],
+  "counts": {
+    "proposed_signature_unverified": 4,
+    "atomic_covered_ood_candidate": 0,
+    "frozen_unseen_promotions": 0
+  },
+  "independent_signature_growth": {
+    "new_verified_independent_signatures": 0,
+    "note": "No evidence+signature dual pass this round for OOD freeze"
+  },
+  "frozen_5_2_unchanged": true,
+  "proposed_7_4_status": "PROPOSED"
+}

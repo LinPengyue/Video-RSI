@@ -1,0 +1,92 @@
+{
+  "schema": "wp3_3_compositional_evidence_scale_report_v1",
+  "work_package": "WP3.3",
+  "baseline_commit": "b56cc4f124a142028ab803cf0b35dabafd6b7c44",
+  "built_utc": "2026-11-06T02:43:08+00:00",
+  "deliverables": {
+    "p0_clarification": "RETROSPECTIVE_SEMANTIC_RERANKING_FEASIBLE",
+    "p1_bugatti": "NOT_ESTABLISHED",
+    "p2_other": {
+      "USfvmoalqsw_PAIR2": "PENDING_HUMAN_IDENTITY_ADJUDICATION",
+      "W-BnDvXXfOs_PAIR2": "CONTROL"
+    },
+    "p3_entity_first_method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1",
+    "p3_not_fully_automated": true,
+    "p4_ab_videos": [
+      "1FsiZgGZU70",
+      "3_upA09AntU",
+      "9-gOCOu_KGU",
+      "KbahC-QCKU8",
+      "RCAqKnvu_P0"
+    ],
+    "p5_signature_growth": {
+      "new_verified_independent_signatures": 0,
+      "note": "No evidence+signature dual pass this round for OOD freeze"
+    }
+  },
+  "counts": {
+    "FACT_VERIFIED": 0,
+    "Necessity_PASS": 0,
+    "Necessity_FAIL": 11,
+    "Necessity_UNKNOWN": 9,
+    "formal_gold": 0,
+    "candidate_yield_ab": {
+      "histogram_first_PASS_CANDIDATE": 0,
+      "entity_first_PASS_CANDIDATE": 1
+    },
+    "gold_yield_ab": {
+      "formal_gold": 0,
+      "fact_verified": 0,
+      "note": "Gold cannot be auto-promoted by GPT/Cursor"
+    }
+  },
+  "effective_inventory": {
+    "prior_wave_pass_still_effective": 0,
+    "usfv_pair2_pending": 1,
+    "bugatti_same_object": 0,
+    "voice_control": 1,
+    "ab_pass_candidates": 1,
+    "formal_gold": 0,
+    "fact_verified": 0
+  },
+  "yield_per_review_hour": {
+    "candidate_pass_per_hour": 0.417,
+    "gold_per_hour": 0.0,
+    "review_hours_estimate": 2.4
+  },
+  "scale_recommendation": {
+    "recommend_expand_to_50_100_qa": false,
+    "basis": [
+      "Prospective A/B did not yet demonstrate reliable repeatable Gold-grade compositional discovery",
+      "Entity-first lacks local semantic model; GPT-assisted proxy ≠ automated discovery win",
+      "Human identity adjudication still bottleneck (PAIR2 pending)",
+      "Bugatti high-potential downgraded: montage ≠ same-object state change",
+      "Cost per effective Gold remains dominated by Human certification, not scan volume"
+    ],
+    "when_to_reconsider": [
+      "Human confirms ≥1 new bindable cross-window relation on AB DEV with Necessity PASS",
+      "Entity-first prospective yield > histogram under matched budget on ≥5 videos with FACT_VERIFIED",
+      "Independent dual-human review bandwidth available"
+    ]
+  },
+  "protections": {
+    "immutable_releases": [
+      "v0.1.0",
+      "v0.1.1",
+      "v0.1.2"
+    ],
+    "frozen_5_2_unchanged": true,
+    "proposed_7_4": "PROPOSED",
+    "track_a_experiments_run": false,
+    "no_public_third_party_media_added": true,
+    "no_gpt_auto_gold": true
+  },
+  "artifacts": {
+    "clarification": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/WP3_3_DISCOVERY_EVAL_CLARIFICATION.json",
+    "bugatti": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/wp3_3_bugatti_ihfjEFGdZdc_evidence_audit.json",
+    "other": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/wp3_3_other_candidate_status.json",
+    "ab": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/wp3_3_ab_prospective_discovery.json",
+    "signatures": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/wp3_3_composition_signature_audit.json",
+    "entity_first_module": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/tools/wp3_3_entity_first_discovery.py"
+  }
+}
