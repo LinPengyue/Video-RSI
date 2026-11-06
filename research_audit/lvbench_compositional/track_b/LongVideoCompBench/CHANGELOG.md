@@ -1,3 +1,11 @@
+## WP3 Pipeline Conformance Repair (S0–S9; no new immutable release)
+
+- Published S0–S9 conformance matrix mapping WP3 modules to construction pipeline v1.0.
+- Added reusable S3–S5 relation→QA+graph family generator (FACT/HYPOTHESIS/UNKNOWN; explicit failures).
+- Added S6 Necessity with independent structural / model(NOT_RUN) / shortcut channels.
+- Wired S8 signature feedback via `normalized_programs_v1` subgraph enums; S7/S9 independent status + release gate.
+- Regression on Kbah/USFV → CONTROL (structural Necessity FAIL); 0 Gold; no scaled capacity claim.
+
 ## WP3 Human Adjudication ingest + Necessity structural audit (no new immutable release)
 
 - Ingested 3 Human Scientific Owner SAME claims (Kbah adult/child, USFV man) into trusted registry; identity scope only.

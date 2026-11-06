@@ -1,0 +1,44 @@
+{
+  "schema": "wp3_pipeline_conformance_repair_report_v1",
+  "work_package": "WP3_PIPELINE_CONFORMANCE_REPAIR",
+  "baseline_commit": "15ff75b5881c27352a4611ed81d3893f7e8aa0fb",
+  "built_utc": "2026-11-06T07:32:23+00:00",
+  "matrix_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_pipeline_conformance/S0_S9_CONFORMANCE_MATRIX.json",
+  "regression_path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_pipeline_conformance/regression_cases.json",
+  "counts": {
+    "generated_ok": 2,
+    "necessity_FAIL": 2,
+    "necessity_PASS": 0,
+    "model_NOT_RUN": 2,
+    "formal_gold": 0,
+    "effective_compositional_qa": 0,
+    "control": 2
+  },
+  "scaled_gold_capacity_claimed": false,
+  "s8_buckets": {
+    "KbahC-QCKU8_EF_PAIR1": "ATOMIC_COVERED_COMPOSITION_OOD_CANDIDATE",
+    "USfvmoalqsw_PAIR2": "ATOMIC_COVERED_COMPOSITION_OOD_CANDIDATE"
+  },
+  "protections": {
+    "frozen_5_2": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202",
+      "P7_VTCD_C2",
+      "P7_TJR_R3"
+    ],
+    "proposed_7_4": "PROPOSED",
+    "immutable_releases": [
+      "v0.1.0",
+      "v0.1.1",
+      "v0.1.2"
+    ],
+    "sealed_accessed": false,
+    "track_a_run": false,
+    "new_public_media": false,
+    "scaled_gold_capacity_claimed": false
+  },
+  "claim": "Interfaces repaired; regression shows CONTROL via structural Necessity FAIL; no scaled Gold capacity"
+}
