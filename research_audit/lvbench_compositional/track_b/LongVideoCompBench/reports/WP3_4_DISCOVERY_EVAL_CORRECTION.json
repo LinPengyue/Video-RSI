@@ -1,0 +1,30 @@
+{
+  "schema": "wp3_4_discovery_eval_correction_v1",
+  "built_utc": "2026-11-06T04:45:16+00:00",
+  "preserves_wp3_3_ab_artifact": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/wp3_3_ab_prospective_discovery.json",
+  "historical_ab_not_rewritten": true,
+  "fixed_method_conclusion": "INDEPENDENT_STABILITY_PROXY_DISCOVERY_PILOT_INCONCLUSIVE",
+  "must_not_claim": [
+    "PROSPECTIVE_ENTITY_FIRST_DISCOVERY_SUPERIOR",
+    "EF_PROVEN_BETTER_THAN_HF",
+    "Kbah_IS_UNSEEN_OOD"
+  ],
+  "counts": {
+    "HF_PASS_CANDIDATE": 0,
+    "HF_pairs": 10,
+    "EF_PASS_CANDIDATE": 1,
+    "EF_pairs": 10,
+    "certified_relations": 0,
+    "certified_new_signatures": 0,
+    "formal_gold": 0,
+    "FACT_VERIFIED": 0,
+    "Necessity_PASS": 0
+  },
+  "cost": {
+    "histogram_seconds": 20.591614484786987,
+    "entity_first_seconds": 61.54980802536011,
+    "extract_seconds": 28.909718990325928,
+    "EF_compute_higher_than_HF": true
+  },
+  "kbah_status": "PASS_CANDIDATE_ONLY_NOT_UNSEEN"
+}

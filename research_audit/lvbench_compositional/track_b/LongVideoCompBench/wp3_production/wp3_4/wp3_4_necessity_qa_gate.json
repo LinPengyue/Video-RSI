@@ -1,0 +1,44 @@
+{
+  "schema": "wp3_4_necessity_and_qa_gate_v1",
+  "built_utc": "2026-11-06T04:45:16+00:00",
+  "rule": "Run A-only/B-only/A+B Necessity only after Human Scientific Owner certifies cross-window facts",
+  "candidates": [
+    {
+      "pair_id": "KbahC-QCKU8_EF_PAIR1",
+      "human_facts_certified": false,
+      "qa_emitted": false,
+      "program_graph_emitted": false,
+      "necessity_a_only": "NOT_RUN",
+      "necessity_b_only": "NOT_RUN",
+      "necessity_a_plus_b": "NOT_RUN",
+      "necessity_final": "NOT_RUN_AWAITING_HUMAN",
+      "shortcut_checks_pending": [
+        "single_window_unique_adult",
+        "language_prompt_leak",
+        "subtitle_ocr",
+        "bakery_signage_background",
+        "bind_participates_in_answer"
+      ],
+      "control_if_necessity_fails": true,
+      "formal_gold": false,
+      "dev_import": false
+    },
+    {
+      "pair_id": "USfvmoalqsw_PAIR2",
+      "human_facts_certified": false,
+      "qa_emitted": false,
+      "program_graph_emitted": false,
+      "necessity_final": "PROVISIONAL_PENDING_HUMAN",
+      "formal_gold": false,
+      "dev_import": false
+    }
+  ],
+  "counts": {
+    "qa_with_program_graph": 0,
+    "necessity_PASS": 0,
+    "necessity_FAIL": 0,
+    "necessity_UNKNOWN_or_pending": 2,
+    "formal_gold": 0,
+    "dev_import_certified": 0
+  }
+}

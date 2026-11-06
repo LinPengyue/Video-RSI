@@ -1,0 +1,23 @@
+{
+  "schema": "wp3_4_trusted_human_review_registry_v1",
+  "built_utc": "2026-11-06T04:45:16+00:00",
+  "path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_4/trusted_human_review_registry",
+  "append_only": true,
+  "separated_from_staging": true,
+  "required_fields": [
+    "record_id",
+    "reviewer_identity",
+    "reviewer_role",
+    "source_video_id",
+    "windows",
+    "reviewed_evidence_hashes",
+    "decision",
+    "decision_scope",
+    "timestamp_utc",
+    "provenance_chain"
+  ],
+  "rejection_rule": "Staging self-filled review_status=HUMAN_APPROVED alone cannot mint formal_gold; a matching trusted registry record with reviewer_identity is required.",
+  "records_jsonl": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_4/trusted_human_review_registry/records.jsonl",
+  "records_this_round": 0,
+  "note": "Empty registry is correct until a real Human Scientific Owner submits."
+}

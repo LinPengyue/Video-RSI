@@ -1,0 +1,105 @@
+{
+  "schema": "wp3_4_human_review_packet_v1",
+  "pair_id": "USfvmoalqsw_PAIR2",
+  "video_id": "USfvmoalqsw",
+  "built_utc": "2026-11-06T04:45:16+00:00",
+  "baseline_commit": "ea1b79dadc897cd5d2be95b79548d01a3c3924cc",
+  "prior_packet": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_2_USFV_PAIR2_HUMAN_REVIEW_PACKET.json",
+  "prior_status": "PENDING_HUMAN_IDENTITY_ADJUDICATION",
+  "current_status": "PENDING_HUMAN_IDENTITY_ADJUDICATION",
+  "auto_certified_same_person": false,
+  "formal_gold": false,
+  "windows": {
+    "A": [
+      2355.0,
+      2365.0
+    ],
+    "B": [
+      4620.0,
+      4630.0
+    ]
+  },
+  "evidence_retained": {
+    "dual_clip_packet": true,
+    "frame_sha256_A": [
+      "deaae6f7e4f74f7885c65a9bb4994871fb1aa0094fd3ac1a6b07b07f743b17f6",
+      "ef99ce06125107903000fb13c64ddae9034d1ae1713b9c78f931e1f0de074b9c",
+      "0953551932144176e7c60cf4faaab547ceb6ac79ca32a032f827c7e60e2c1c61",
+      "635b1b6efa9e246b70fb99322452acadede0ea7bbf17aac83533a85baccd8bff",
+      "86b9acdcdc4bdb5a7af607b1c72caf2edceba922540478e4ad853900e887bf37",
+      "798e43ac0b42a1bccf302fb9f612bf3e5a548d831ebc85a915d9b01db4cb67d4",
+      "27ab7d5a8be9927cf6a58aa717d53345d3110dd378fa4f63377881fc7268b811",
+      "ea76360cc363050634bb76be6d4c4fafe381c72842c105addf1653a126fff408",
+      "c844a326d9589fd9ec6bc222f555e102d24a2775d8338f7da6f06ba592cdd9b3",
+      "1c1e3bcb83fec469b0e14a6aa1e3cbe826e062f79c1f9cbb4674fc1ceb490138",
+      "8d2e35f5f80e4514dbbbdf7860c922b0ddb0d1fe8e4f0686cb52a0e3b9544aeb",
+      "022d769f1948bf0ff3486b7a1e4dcdf77bd1f183614b794b6c4c1bdecf334241"
+    ],
+    "frame_sha256_B": [
+      "3dc9f1764db82a8f0bb4e6c7a2809b47549d72820dcc996c319176e83ff80acf",
+      "ead3a708ab142525526cd69944d7a14a9aaea16d3b1ec4c6d09172b450851621",
+      "5d283511530ff920c3293c81b4a632a94d4f2d399069ed8062c32dfab2daaafc",
+      "c273c6e473840d6e221a19f22e364f9d4243ef95055febeda23ca1a3b74b896f",
+      "78c707c1fbea84bc4f1bcb1d2e5c4a373ef5029a0bd51d13741c42d93322a52e",
+      "f3fc5f999b9487fea94e9eb3ba11c2c187392fad2e4b9fa519091af182139398",
+      "d5a990bbb728246eb519839f10fe309e16b837d4ac50e32b71a8e44d15c7f22f",
+      "fc0f4dcd890b13a3dd2906eaa5d0be17d8105e4e3c8cfba53d9dae30bdccfb96",
+      "d1850d8bbd22f76f1cdd206d3141a2ed1a34d4c145495b2a3ac42c85719a2426",
+      "a7e7960b5f7a6b9737088c4267af5eb26b8c0bec80a059d7faa42dcc7b599d4e",
+      "f68b84bf126de5953dc940c2ffe0c3e748cbaab8695ee70e2ec7e28fab88ed54",
+      "e9d088e5440fb7d52b539ed8db5011002049a4123be473ac551d7eca2eb484ac"
+    ],
+    "github_new_images_this_round": false
+  },
+  "signature_vs_historical_A": {
+    "historical_A": "LocatePersonByAppearance/DetectPersonAndAppearance→CrossIntervalSamePersonBind→QueryLocation",
+    "draft": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+    "overlap": "SAME_FAMILY_CrossIntervalSamePersonBind_to_QueryLocation",
+    "repetition": "OLD_SIGNATURE_FAMILY_ON_NEW_VIDEO",
+    "atomic_novel_ood": false,
+    "label": "PROPOSED_SIGNATURE_UNVERIFIED",
+    "promote_unseen": false
+  },
+  "minimum_human_decisions_required": [
+    {
+      "id": "H1_same_person",
+      "question": "Is the plaid-gho man at the urban street (A) the same person speaking by the forest stream (B)?",
+      "allowed": [
+        "SAME_PERSON",
+        "DIFFERENT",
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "id": "H2_clothing_only_risk",
+      "question": "Could clothing match alone mislead without face/body continuity on continuous clips?",
+      "allowed": [
+        "HIGH_RISK",
+        "LOW_RISK",
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "id": "H3_necessity",
+      "question": "If identity holds, does QueryEarlierLocation require A+B (no OCR/shop-name single-window leak)?",
+      "allowed": [
+        "NECESSITY_PASS",
+        "NECESSITY_FAIL",
+        "UNKNOWN"
+      ]
+    }
+  ],
+  "chatgpt_visual_match_NOT_HUMAN": {
+    "label": "CHATGPT_FRAME_VISUAL_PRELIMINARY",
+    "not_human_identity_certification": true,
+    "claim": "Plaid-gho man appears in both street and forest/stream windows"
+  },
+  "necessity_status": "PROVISIONAL_PENDING_HUMAN",
+  "human_adjudication": {
+    "status": "NOT_OBTAINED_THIS_ROUND",
+    "reviewer_identity": null,
+    "reviewer_role": null,
+    "decisions": {},
+    "trusted_registry_record_id": null
+  }
+}

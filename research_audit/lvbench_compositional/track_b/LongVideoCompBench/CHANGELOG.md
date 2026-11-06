@@ -1,3 +1,12 @@
+## WP3.4 — Media compliance patch + certification loop scaffolding (no new immutable release)
+
+- Untracked 160 WP3.3 AB DEV review JPGs from current Git tree (no force-push); local hashes retained; WP3.3 media erratum recorded (history still exposed until admin).
+- Added git `ls-files` media audit test (not report-boolean-only).
+- Human review packets for `KbahC-QCKU8_EF_PAIR1` and `USfvmoalqsw_PAIR2`; no auto identity/Necessity/Gold.
+- Trusted append-only Human Review registry (empty; staging alone cannot mint Gold).
+- Fixed discovery eval conclusion: `INDEPENDENT_STABILITY_PROXY_DISCOVERY_PILOT_INCONCLUSIVE`.
+- Left `releases/v0.1.0`–`v0.1.2` immutable; 5+2 frozen / 7+4 PROPOSED; no Track A; no new scans.
+
 ## WP3.3 — Compositional evidence deepen + controlled scale (no new immutable release)
 
 - P0: Clarified WP3.2 discovery eval → only `RETROSPECTIVE_SEMANTIC_RERANKING_FEASIBLE` (history preserved).

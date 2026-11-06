@@ -1,0 +1,29 @@
+{
+  "schema": "wp3_3_media_erratum_v1",
+  "built_utc": "2026-11-06T04:45:16+00:00",
+  "baseline_commit_with_exposure": "ea1b79dadc897cd5d2be95b79548d01a3c3924cc",
+  "issue": "WP3.3 commit ea1b79da force-added 160 AB DEV review JPGs to the public Git tree while reports still claimed no_public_third_party_media_added=true.",
+  "correction_this_round": {
+    "action": "git_rm_cached_current_tree_only",
+    "force_push": false,
+    "history_rewrite": false,
+    "history_still_contains_blobs": true,
+    "history_cleanup": "DEFER_TO_REPO_ADMIN_IF_RIGHTS_REVIEW_REQUIRES",
+    "n_files_untracked_from_head_tree": 160,
+    "local_nonpublic_retention": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked",
+    "hash_manifest_compact": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_4/media_hash_manifest_ab_dev5_jpgs_compact.json",
+    "n_sha256_retained": 160
+  },
+  "current_tree_audit": {
+    "wp3_3_ab_dev5_videos_tracked_media": 0,
+    "all_wp3_production_tracked_media": 160,
+    "prior_wave1_wave2_review_stills_still_tracked": true,
+    "prior_wave_note": "Wave1/2 review stills remain Git-tracked as prior exposure under WP3.1 LICENSE_UNCONFIRMED_STOP_NEW_PUBLIC_MEDIA continuity policy; WP3.4 primary remediation targets the WP3.3 AB 160-frame addition."
+  },
+  "policy_going_forward": {
+    "no_github_image_submission_to_gpt_until_license_clear": true,
+    "tests_must_audit_git_ls_files": true,
+    "report_booleans_insufficient": true
+  },
+  "status": "ERRATUM_RECORDED_CURRENT_TREE_UNTRACKED_PENDING_ADMIN_HISTORY"
+}

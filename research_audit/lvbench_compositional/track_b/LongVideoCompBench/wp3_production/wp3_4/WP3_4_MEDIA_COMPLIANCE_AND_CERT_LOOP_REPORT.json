@@ -1,0 +1,94 @@
+{
+  "schema": "wp3_4_media_compliance_and_cert_loop_report_v1",
+  "work_package": "WP3.4",
+  "baseline_commit": "ea1b79dadc897cd5d2be95b79548d01a3c3924cc",
+  "built_utc": "2026-11-06T04:45:16+00:00",
+  "p0_media": {
+    "erratum": "ERRATUM_RECORDED_CURRENT_TREE_UNTRACKED_PENDING_ADMIN_HISTORY",
+    "ab_dev5_tracked_media_now": 0,
+    "history_still_exposed": true,
+    "force_push": false
+  },
+  "p1_human_packets": {
+    "KbahC-QCKU8_EF_PAIR1": "AWAITING_HUMAN_SCIENTIFIC_OWNER",
+    "USfvmoalqsw_PAIR2": "PENDING_HUMAN_IDENTITY_ADJUDICATION",
+    "auto_certified": false
+  },
+  "p2_counts": {
+    "qa_with_program_graph": 0,
+    "necessity_PASS": 0,
+    "necessity_FAIL": 0,
+    "necessity_UNKNOWN_or_pending": 2,
+    "formal_gold": 0,
+    "dev_import_certified": 0
+  },
+  "p3_registry": {
+    "path": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_4/trusted_human_review_registry",
+    "records_this_round": 0,
+    "staging_alone_cannot_mint_gold": true
+  },
+  "p4_eval": {
+    "conclusion": "INDEPENDENT_STABILITY_PROXY_DISCOVERY_PILOT_INCONCLUSIVE",
+    "HF": "0/10",
+    "EF": "1/10",
+    "certified_relations": 0,
+    "gold": 0
+  },
+  "certification_cost": {
+    "schema": "wp3_4_certification_cost_estimate_v1",
+    "built_utc": "2026-11-06T04:45:16+00:00",
+    "per_certifiable_qa_actual_this_round": null,
+    "reason_null": "0 QA certified this round; cannot amortize",
+    "observed_prep_cost_for_one_candidate_packet": {
+      "human_reviewer_minutes_estimated_minimum": 25,
+      "includes": [
+        "watch both 10s clips continuously",
+        "answer H1–H5 identity/stability/shortcut items",
+        "write trusted registry record",
+        "if facts pass: draft QA + A/B/A+B necessity (~+20 min)",
+        "independent second Human for Gold gate (~+20–40 min)"
+      ],
+      "compute_seconds_discovery_amortized_note": "EF discovery ~3× HF wall time on same 5-video budget",
+      "blocking_item": "Human Scientific Owner adjudication not obtained"
+    },
+    "bottleneck": "HUMAN_CERTIFICATION_NOT_SCANNING"
+  },
+  "protections": {
+    "immutable_releases": [
+      "v0.1.0",
+      "v0.1.1",
+      "v0.1.2"
+    ],
+    "frozen_5_2": [
+      "SP001",
+      "SP002",
+      "SP005",
+      "SP201",
+      "SP202",
+      "P7_VTCD_C2",
+      "P7_TJR_R3"
+    ],
+    "proposed_7_4": {
+      "seen": [
+        "SP001",
+        "SP002",
+        "SP005",
+        "SP201",
+        "SP202",
+        "A",
+        "P7_R4_F1"
+      ],
+      "unseen": [
+        "P7_VTCD_C2",
+        "P7_TJR_R3",
+        "B",
+        "P7_R4_F2"
+      ],
+      "status": "PROPOSED"
+    },
+    "track_a_modified": false,
+    "track_a_rsi_run": false,
+    "new_video_scan": false,
+    "no_auto_gold": true
+  }
+}

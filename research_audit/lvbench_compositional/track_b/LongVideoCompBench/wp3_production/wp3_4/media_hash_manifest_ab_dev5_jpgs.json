@@ -1,0 +1,968 @@
+{
+  "schema": "wp3_4_media_hash_manifest_v1",
+  "source_commit": "ea1b79dadc897cd5d2be95b79548d01a3c3924cc",
+  "n_files": 160,
+  "note": "Local non-public retention after git untrack; redistribution rights unconfirmed",
+  "files": [
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_EARLY_1815_1825/mf_00_t1815.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_EARLY_1815_1825/mf_00_t1815.0.jpg",
+      "sha256": "47d52306705f732a7441601185e7b06fd90af32cd0037922c38e2826aa3ac489",
+      "bytes": 29895
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_EARLY_1815_1825/mf_04_t1818.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_EARLY_1815_1825/mf_04_t1818.6.jpg",
+      "sha256": "c58e63fd513694d237d1ae2b1d9d7221a3c9548ce34eb37645970b312af9cc9d",
+      "bytes": 30679
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_EARLY_1815_1825/mf_08_t1822.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_EARLY_1815_1825/mf_08_t1822.3.jpg",
+      "sha256": "996433eab492c9e658c32ba8b263d4543370eac07cfec33d8d74f8ee9a3062d4",
+      "bytes": 30911
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_EARLY_1815_1825/mf_11_t1825.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_EARLY_1815_1825/mf_11_t1825.0.jpg",
+      "sha256": "e81eb826bc2afda99789b7c8ac7f647dbebadd98ed0f6f7cbe122d3b8610aac2",
+      "bytes": 30328
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_LATE_2190_2200/mf_00_t2190.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_LATE_2190_2200/mf_00_t2190.0.jpg",
+      "sha256": "565937e0ae04bce9e9178ff5c5c2d0ec5f72735240ab897a23a659198b6d9020",
+      "bytes": 29847
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_LATE_2190_2200/mf_04_t2193.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_LATE_2190_2200/mf_04_t2193.6.jpg",
+      "sha256": "1d0177c87a3bcd97762af1aae8a14f26b61c09053783080209276a86b1d97aca",
+      "bytes": 29871
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_LATE_2190_2200/mf_08_t2197.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_LATE_2190_2200/mf_08_t2197.3.jpg",
+      "sha256": "087b797cb5cce1f2dcbbcce05a362fa9c1906b94b8dd9688db5b6dd3f45e8f18",
+      "bytes": 30881
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_LATE_2190_2200/mf_11_t2200.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR1_LATE_2190_2200/mf_11_t2200.0.jpg",
+      "sha256": "e4a930f4a1bb746b12e7ada28fb808c98869130c6e833d03dae1ac906e7191d8",
+      "bytes": 31082
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_EARLY_465_475/mf_00_t465.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_EARLY_465_475/mf_00_t465.0.jpg",
+      "sha256": "0a69dddd5309630fb19b396dc39b589e77b3b27c179c479a564d8e0902c27135",
+      "bytes": 64665
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_EARLY_465_475/mf_04_t468.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_EARLY_465_475/mf_04_t468.6.jpg",
+      "sha256": "e008cb48e539971d85dfed0a3766db35b1da47bbccb6f06e6aa5807fedab4ed8",
+      "bytes": 64327
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_EARLY_465_475/mf_08_t472.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_EARLY_465_475/mf_08_t472.3.jpg",
+      "sha256": "1e892058964ba5e9c4ea59ae4d36ffb7654e0fab6bf8fd416837af74d2dfeb1f",
+      "bytes": 64231
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_EARLY_465_475/mf_11_t475.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_EARLY_465_475/mf_11_t475.0.jpg",
+      "sha256": "76dc9d74a213ff173332bdca24f66c53db18af30f86ff13bc4d6dab524aeac68",
+      "bytes": 64969
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_LATE_1620_1630/mf_00_t1620.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_LATE_1620_1630/mf_00_t1620.0.jpg",
+      "sha256": "2ef51d6efda89dc5b18f8087ad226e3718cd5fa5800e0ad26badc854de9bfe14",
+      "bytes": 150928
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_LATE_1620_1630/mf_04_t1623.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_LATE_1620_1630/mf_04_t1623.6.jpg",
+      "sha256": "744701db2d7d5465a234325995ad7719f0b52ef98e1ed0aeab9935e10be14da6",
+      "bytes": 151172
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_LATE_1620_1630/mf_08_t1627.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_LATE_1620_1630/mf_08_t1627.3.jpg",
+      "sha256": "df26eb347e13a15dba6bfda20c24576a042137bee110c566cf137a9a78917428",
+      "bytes": 154138
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_LATE_1620_1630/mf_11_t1630.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/entity_first/review_frames/1FsiZgGZU70_EF_PAIR2_LATE_1620_1630/mf_11_t1630.0.jpg",
+      "sha256": "17523bea211dfadbafebd36fd5de963228f68448a6e5c247046540df51f7b442",
+      "bytes": 160465
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_EARLY_15_25/mf_00_t15.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_EARLY_15_25/mf_00_t15.0.jpg",
+      "sha256": "d3062efebe5d2770b66d1c7cc2ea6926ef3ef1e927ea86cde71d6ef253de3e54",
+      "bytes": 67942
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_EARLY_15_25/mf_04_t18.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_EARLY_15_25/mf_04_t18.6.jpg",
+      "sha256": "6d3c4a2c8af99e4d0b711e213367b436676767f5176709364de3cf3f3bae91bb",
+      "bytes": 61038
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_EARLY_15_25/mf_08_t22.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_EARLY_15_25/mf_08_t22.3.jpg",
+      "sha256": "d662ce675167c1c5681d39fa6e79bf20fccfb7005d971a6c745f0803fc695dde",
+      "bytes": 64829
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_EARLY_15_25/mf_11_t25.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_EARLY_15_25/mf_11_t25.0.jpg",
+      "sha256": "c8a3fa35bdb19037bcb494f7bdea7ce6fecec3062beee1b94ba9f6f1fe2d70bf",
+      "bytes": 64210
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_LATE_1710_1720/mf_00_t1710.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_LATE_1710_1720/mf_00_t1710.0.jpg",
+      "sha256": "2a4dbdfd2aa00a33366b4872b742edf935319fdc3666d6b8d96cd5260fc10ba0",
+      "bytes": 32782
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_LATE_1710_1720/mf_04_t1713.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_LATE_1710_1720/mf_04_t1713.6.jpg",
+      "sha256": "20e5b6baf4e5d87fcc8f3507d31d814d52e3278daa89ac86531bb74f63c8eea2",
+      "bytes": 28146
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_LATE_1710_1720/mf_08_t1717.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_LATE_1710_1720/mf_08_t1717.3.jpg",
+      "sha256": "6791d43d03bc03b280d04c4ee2380afba839ab0b753fc152f05c08a9df758c84",
+      "bytes": 29207
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_LATE_1710_1720/mf_11_t1720.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR1_LATE_1710_1720/mf_11_t1720.0.jpg",
+      "sha256": "5c1a882d176fe243c5983fd4ad323bd0afa50875f50bc3c7cfa9ab0e096cc21c",
+      "bytes": 29912
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_EARLY_165_175/mf_00_t165.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_EARLY_165_175/mf_00_t165.0.jpg",
+      "sha256": "3d95100c3d90dfd362536d283802612acae9b26e789271b2bcfbeb300b4bafc6",
+      "bytes": 37945
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_EARLY_165_175/mf_04_t168.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_EARLY_165_175/mf_04_t168.6.jpg",
+      "sha256": "d8dca844e8fe0831f2e4eef24302a624c143d7ab5aca97a9b0e96356f90e606d",
+      "bytes": 33232
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_EARLY_165_175/mf_08_t172.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_EARLY_165_175/mf_08_t172.3.jpg",
+      "sha256": "760e82252961b1fcfa9c0bed67deb5630a137037e819488f1cde5ae88664c82b",
+      "bytes": 51392
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_EARLY_165_175/mf_11_t175.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_EARLY_165_175/mf_11_t175.0.jpg",
+      "sha256": "3a3a2803a5a3fbebfd9925bff93119bba6a82fb534cb1c819a546308cc0810e5",
+      "bytes": 57773
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_LATE_1875_1885/mf_00_t1875.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_LATE_1875_1885/mf_00_t1875.0.jpg",
+      "sha256": "ccaa0a3f9b99c708d9665ee40d168002ca0b9e0da81b782f1c3d30b9e3bbaf33",
+      "bytes": 29902
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_LATE_1875_1885/mf_04_t1878.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_LATE_1875_1885/mf_04_t1878.6.jpg",
+      "sha256": "bac8f9fa40171d63dafe3ab2e3c622fa36aa1aba9dd2b248c51fe90b7f8637df",
+      "bytes": 29532
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_LATE_1875_1885/mf_08_t1882.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_LATE_1875_1885/mf_08_t1882.3.jpg",
+      "sha256": "bdd53e9ad07604a469f0d6b83dad0912a97f424bfaeb765933d90255060110a8",
+      "bytes": 31536
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_LATE_1875_1885/mf_11_t1885.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/1FsiZgGZU70/histogram_first/review_frames/1FsiZgGZU70_HF_PAIR2_LATE_1875_1885/mf_11_t1885.0.jpg",
+      "sha256": "af5e6eb0589f2af9f183254b3d2cc32c04f3586dce47a5be4816ebcab9302948",
+      "bytes": 31168
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_EARLY_585_595/mf_00_t585.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_EARLY_585_595/mf_00_t585.0.jpg",
+      "sha256": "2e1ea212eb9fb3597d32ebddc6a3bac6d1ac593e8206342e6fde4daa59599d63",
+      "bytes": 103733
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_EARLY_585_595/mf_04_t588.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_EARLY_585_595/mf_04_t588.6.jpg",
+      "sha256": "081c741065ea092e3df771c04d9b12b8f1437a22b0a216ba1b02dac2c5e44d31",
+      "bytes": 137811
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_EARLY_585_595/mf_08_t592.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_EARLY_585_595/mf_08_t592.3.jpg",
+      "sha256": "889aba68d9cb038325987e0f24b344167a7c00cc38403f653c833ed136538224",
+      "bytes": 142834
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_EARLY_585_595/mf_11_t595.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_EARLY_585_595/mf_11_t595.0.jpg",
+      "sha256": "87a69b9e8f93956efb8b83900cbbab47220b920de5a73c76ab7470ae3a0786e4",
+      "bytes": 122215
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_LATE_2325_2335/mf_00_t2325.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_LATE_2325_2335/mf_00_t2325.0.jpg",
+      "sha256": "f2bb977578938ac1e7280959fab0886e5f80181b8b8e653e18eeaf690f16a3f6",
+      "bytes": 101822
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_LATE_2325_2335/mf_04_t2328.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_LATE_2325_2335/mf_04_t2328.6.jpg",
+      "sha256": "219c8c6c6d71fe43809248840e3d72e7e86336c516caad2484e8bb95be00de3c",
+      "bytes": 129646
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_LATE_2325_2335/mf_08_t2332.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_LATE_2325_2335/mf_08_t2332.3.jpg",
+      "sha256": "8afef141b6458a7987ce27137669fa1421379d86e8476ccd0f0697e5da2eaa7f",
+      "bytes": 106206
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_LATE_2325_2335/mf_11_t2335.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR1_LATE_2325_2335/mf_11_t2335.0.jpg",
+      "sha256": "6bcbaa78a5e2c6fcaabf4fcaa8cfaa7b8f3657baef6a8c45fdb9c287f3de2593",
+      "bytes": 88833
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_EARLY_210_220/mf_00_t210.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_EARLY_210_220/mf_00_t210.0.jpg",
+      "sha256": "9711b71f1d0932a7eb4cb6ea1c65a1e7573375ac1999ee2f32d050e498f1812b",
+      "bytes": 84338
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_EARLY_210_220/mf_04_t213.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_EARLY_210_220/mf_04_t213.6.jpg",
+      "sha256": "cb4e91596108c231b0278a505d13876d365faad23e0b1f413cb0963fccf89324",
+      "bytes": 94181
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_EARLY_210_220/mf_08_t217.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_EARLY_210_220/mf_08_t217.3.jpg",
+      "sha256": "4028b5162d7743b91e95d654f9565cd90df59a08be27031e2f83854cf57414e5",
+      "bytes": 84029
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_EARLY_210_220/mf_11_t220.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_EARLY_210_220/mf_11_t220.0.jpg",
+      "sha256": "85ad13ba2d7d7bca1d07dec2c4ba9356a196b688b2303687c97450e4f11810cd",
+      "bytes": 97018
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_LATE_2205_2215/mf_00_t2205.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_LATE_2205_2215/mf_00_t2205.0.jpg",
+      "sha256": "612eae9c65199439f79ceb9eccbb6aa17270df93a9e019386c55da16ab43175c",
+      "bytes": 127099
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_LATE_2205_2215/mf_04_t2208.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_LATE_2205_2215/mf_04_t2208.6.jpg",
+      "sha256": "0b837879596ed726372cd7a29e451d22d644111c7aa09fd32f8b11d73ad8578c",
+      "bytes": 112448
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_LATE_2205_2215/mf_08_t2212.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_LATE_2205_2215/mf_08_t2212.3.jpg",
+      "sha256": "e48166143e02552fc76325dbc954a280155bbdd3b3897a5a9071d8243eeeb5c8",
+      "bytes": 104430
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_LATE_2205_2215/mf_11_t2215.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/entity_first/review_frames/3_upA09AntU_EF_PAIR2_LATE_2205_2215/mf_11_t2215.0.jpg",
+      "sha256": "409042191f106577041ab31910d22bd2ada36905fc5d5fa27e17e1967871de5f",
+      "bytes": 73737
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_EARLY_180_190/mf_00_t180.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_EARLY_180_190/mf_00_t180.0.jpg",
+      "sha256": "6aa54d1a67822aeba20d04499e9241885688f206fff030fcfc4ae62e495c931c",
+      "bytes": 133869
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_EARLY_180_190/mf_04_t183.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_EARLY_180_190/mf_04_t183.6.jpg",
+      "sha256": "36dcd383f98d4791681e93fb447654dd64708f01593211fae4608d22dde64563",
+      "bytes": 81377
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_EARLY_180_190/mf_08_t187.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_EARLY_180_190/mf_08_t187.3.jpg",
+      "sha256": "1e5ad8a6426a7deaf2ac41bf0183efad63ad4de3035d94cc82a9b0d24e1f0684",
+      "bytes": 115362
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_EARLY_180_190/mf_11_t190.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_EARLY_180_190/mf_11_t190.0.jpg",
+      "sha256": "e172603d145ce1f549ac21ebcfe1d4526a8e563e6966cf3ca7d5f9cc98262eca",
+      "bytes": 127945
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_LATE_1575_1585/mf_00_t1575.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_LATE_1575_1585/mf_00_t1575.0.jpg",
+      "sha256": "fbefaafe323306b0102bac4c1c9e5ae4b06732727e70c10354ab31edd1f3f1b4",
+      "bytes": 87073
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_LATE_1575_1585/mf_04_t1578.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_LATE_1575_1585/mf_04_t1578.6.jpg",
+      "sha256": "60dbe567c89de44336af69758e0dad851f4eeb89a44e3ad7ef625adc3d147240",
+      "bytes": 71445
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_LATE_1575_1585/mf_08_t1582.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_LATE_1575_1585/mf_08_t1582.3.jpg",
+      "sha256": "27d31f4b6b72164235c7dfca02798a94db97e3da190c89b5e5541a1584a6da4c",
+      "bytes": 121247
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_LATE_1575_1585/mf_11_t1585.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR1_LATE_1575_1585/mf_11_t1585.0.jpg",
+      "sha256": "7865bdf234c297ed4aa485a6725be0b64c208cbd20c0e60f4364da91f193dcc0",
+      "bytes": 109868
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_EARLY_390_400/mf_00_t390.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_EARLY_390_400/mf_00_t390.0.jpg",
+      "sha256": "b1610d1151cc059a2132d3cfe599bb1e279830154002c95f5cd18dee25acbdae",
+      "bytes": 76206
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_EARLY_390_400/mf_04_t393.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_EARLY_390_400/mf_04_t393.6.jpg",
+      "sha256": "6317a81ace294dce6003d12751826b752ee7b73445c2282ae576197af377b607",
+      "bytes": 55705
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_EARLY_390_400/mf_08_t397.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_EARLY_390_400/mf_08_t397.3.jpg",
+      "sha256": "c17f6c19e849a25d3d03e155f33060e329594ac4ec6e6bbb070b030e6e8569d1",
+      "bytes": 102256
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_EARLY_390_400/mf_11_t400.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_EARLY_390_400/mf_11_t400.0.jpg",
+      "sha256": "993301832d4382e7649c85badc63f0b9d98f4a01e4cd3aa88044e959de1f1895",
+      "bytes": 37916
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_LATE_2145_2155/mf_00_t2145.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_LATE_2145_2155/mf_00_t2145.0.jpg",
+      "sha256": "ee02eddd19541cd61155185a69e53b0e0c8e7e590460ec5ced9ddf5c9e4153e2",
+      "bytes": 110617
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_LATE_2145_2155/mf_04_t2148.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_LATE_2145_2155/mf_04_t2148.6.jpg",
+      "sha256": "b95204937d311eebcf508f088bf25db5070102f633f5856d4a3330aa1cb0ea3d",
+      "bytes": 91078
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_LATE_2145_2155/mf_08_t2152.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_LATE_2145_2155/mf_08_t2152.3.jpg",
+      "sha256": "493d53f110d1633a56f2efa8887f8825c6c7b9d69dcca65b75d70f35839989c5",
+      "bytes": 87761
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_LATE_2145_2155/mf_11_t2155.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/3_upA09AntU/histogram_first/review_frames/3_upA09AntU_HF_PAIR2_LATE_2145_2155/mf_11_t2155.0.jpg",
+      "sha256": "1e8ac85cd13e432d6efb471aa8ec2af56aa5903ff82f909010ecd6cfc2af28ea",
+      "bytes": 94961
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_EARLY_150_160/mf_00_t150.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_EARLY_150_160/mf_00_t150.0.jpg",
+      "sha256": "c79b6d40183c128d2ed5858140aa54c1b947a169e4b4a519aa6957bc45f85762",
+      "bytes": 182792
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_EARLY_150_160/mf_04_t153.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_EARLY_150_160/mf_04_t153.6.jpg",
+      "sha256": "c3f9621a72a8508144b86f1f1332412a9539a389ec6855db3df9b3b239a8b984",
+      "bytes": 170288
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_EARLY_150_160/mf_08_t157.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_EARLY_150_160/mf_08_t157.3.jpg",
+      "sha256": "d8c3681c7a1b8d7db64477f6509601472ecc848ba7a4ec893203b011df4285c8",
+      "bytes": 170893
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_EARLY_150_160/mf_11_t160.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_EARLY_150_160/mf_11_t160.0.jpg",
+      "sha256": "f24e13b3dd2e8ba0b3b07cda2d7462557187b2b092cd4affb52c57b625471db9",
+      "bytes": 186874
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_LATE_2190_2200/mf_00_t2190.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_LATE_2190_2200/mf_00_t2190.0.jpg",
+      "sha256": "0551de34a61d86837596b4c11652ed4dcbf4dd010e860b647ce8a212c16e23f4",
+      "bytes": 170760
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_LATE_2190_2200/mf_04_t2193.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_LATE_2190_2200/mf_04_t2193.6.jpg",
+      "sha256": "d83ea7cf5580f7a91367b0ec287e053b907538d0201525c3242d45c17bb250e3",
+      "bytes": 176471
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_LATE_2190_2200/mf_08_t2197.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_LATE_2190_2200/mf_08_t2197.3.jpg",
+      "sha256": "b6e9b35fe69cc8bb809c4a3d94252f6f2b1827d6b2f958803195461ce3631eea",
+      "bytes": 188599
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_LATE_2190_2200/mf_11_t2200.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR1_LATE_2190_2200/mf_11_t2200.0.jpg",
+      "sha256": "32bd10f8ed22baefc531886cfe24da092233bc2d5d9a3f9481b305318645c132",
+      "bytes": 195473
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_EARLY_540_550/mf_00_t540.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_EARLY_540_550/mf_00_t540.0.jpg",
+      "sha256": "70f94fdf8b0db218f3a59e677948c74fd69e3eb9ab5fd45f8a526e9c0a1abc5f",
+      "bytes": 131909
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_EARLY_540_550/mf_04_t543.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_EARLY_540_550/mf_04_t543.6.jpg",
+      "sha256": "94ab255d1c53a79c6c0cfa92298980e69955c8629a4e6cefa55d6870b41ab61b",
+      "bytes": 138365
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_EARLY_540_550/mf_08_t547.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_EARLY_540_550/mf_08_t547.3.jpg",
+      "sha256": "4191b816030bceddac074e5aa870c5cf58971c6682a84dd220ced20929bce6a9",
+      "bytes": 141133
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_EARLY_540_550/mf_11_t550.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_EARLY_540_550/mf_11_t550.0.jpg",
+      "sha256": "9e2704cf83f77f3175a10adc53861ead87ceecc4062554b7bde98fef2cdb8289",
+      "bytes": 93637
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_LATE_2370_2380/mf_00_t2370.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_LATE_2370_2380/mf_00_t2370.0.jpg",
+      "sha256": "58ebdf4def3919e696c916f51e4b56cafbf155a6c8e303e64cc6e6d21f4a762d",
+      "bytes": 259827
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_LATE_2370_2380/mf_04_t2373.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_LATE_2370_2380/mf_04_t2373.6.jpg",
+      "sha256": "539c09813950b4e0b3bfa684a80bd1ca65bf04326e784982360fa0cd1c56a6d8",
+      "bytes": 254227
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_LATE_2370_2380/mf_08_t2377.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_LATE_2370_2380/mf_08_t2377.3.jpg",
+      "sha256": "2968a0a12681c19d7d2f51a96bc8b9ddd0542a2bcb800c572421ef4af066687f",
+      "bytes": 253159
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_LATE_2370_2380/mf_11_t2380.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/entity_first/review_frames/9-gOCOu_KGU_EF_PAIR2_LATE_2370_2380/mf_11_t2380.0.jpg",
+      "sha256": "978a2f1fd85aaefcca8d569610abbc87b7571ab36d418a577b81b724a5388e6e",
+      "bytes": 199269
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_EARLY_390_400/mf_00_t390.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_EARLY_390_400/mf_00_t390.0.jpg",
+      "sha256": "479a9ac4282ee3266a727076d9ce1b5cfebb029af655f40544050fb165621baa",
+      "bytes": 142171
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_EARLY_390_400/mf_04_t393.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_EARLY_390_400/mf_04_t393.6.jpg",
+      "sha256": "17ff101739cbe7ab399142282618d6e99ae704cde85050f67590481854b57f2e",
+      "bytes": 114017
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_EARLY_390_400/mf_08_t397.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_EARLY_390_400/mf_08_t397.3.jpg",
+      "sha256": "0dc7b75c4c68e3369e5a3f6bc241d5e95e1a19e88eda6108f18ba08022064aa1",
+      "bytes": 115116
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_EARLY_390_400/mf_11_t400.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_EARLY_390_400/mf_11_t400.0.jpg",
+      "sha256": "aea4f1993a7533081c18b8c1915cbe912ab056ec40a4f23365da6ba20e5bdafe",
+      "bytes": 121104
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_LATE_2370_2380/mf_00_t2370.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_LATE_2370_2380/mf_00_t2370.0.jpg",
+      "sha256": "58ebdf4def3919e696c916f51e4b56cafbf155a6c8e303e64cc6e6d21f4a762d",
+      "bytes": 259827
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_LATE_2370_2380/mf_04_t2373.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_LATE_2370_2380/mf_04_t2373.6.jpg",
+      "sha256": "539c09813950b4e0b3bfa684a80bd1ca65bf04326e784982360fa0cd1c56a6d8",
+      "bytes": 254227
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_LATE_2370_2380/mf_08_t2377.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_LATE_2370_2380/mf_08_t2377.3.jpg",
+      "sha256": "2968a0a12681c19d7d2f51a96bc8b9ddd0542a2bcb800c572421ef4af066687f",
+      "bytes": 253159
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_LATE_2370_2380/mf_11_t2380.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR1_LATE_2370_2380/mf_11_t2380.0.jpg",
+      "sha256": "978a2f1fd85aaefcca8d569610abbc87b7571ab36d418a577b81b724a5388e6e",
+      "bytes": 199269
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_EARLY_1080_1090/mf_00_t1080.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_EARLY_1080_1090/mf_00_t1080.0.jpg",
+      "sha256": "c0146eb2f2b9d085de58d5a114fc24fd98c9f88ffd2741e58eed899b3c46844c",
+      "bytes": 216132
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_EARLY_1080_1090/mf_04_t1083.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_EARLY_1080_1090/mf_04_t1083.6.jpg",
+      "sha256": "f5b66169503ab8015de79c40c3efec4a4d267c9ad19779a2613593418cdf7db8",
+      "bytes": 102771
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_EARLY_1080_1090/mf_08_t1087.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_EARLY_1080_1090/mf_08_t1087.3.jpg",
+      "sha256": "9cedfbaf6a9e5523914663c17a2317d557373aaaba866fe3777df009df267276",
+      "bytes": 113803
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_EARLY_1080_1090/mf_11_t1090.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_EARLY_1080_1090/mf_11_t1090.0.jpg",
+      "sha256": "1eff099633a5b8b33420798b12c411cc3c574db9fb17fca341bf763d6bba430f",
+      "bytes": 208476
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_LATE_2280_2290/mf_00_t2280.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_LATE_2280_2290/mf_00_t2280.0.jpg",
+      "sha256": "55a279b509cd20df7bcebd5cb7480e3d783108fb51efb28d642a72005f344c8f",
+      "bytes": 181820
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_LATE_2280_2290/mf_04_t2283.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_LATE_2280_2290/mf_04_t2283.6.jpg",
+      "sha256": "17bff3122606638dc8d640f2c1d898bf3582ada7fe218db21cf8835345219346",
+      "bytes": 170731
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_LATE_2280_2290/mf_08_t2287.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_LATE_2280_2290/mf_08_t2287.3.jpg",
+      "sha256": "4e5e2e09107044f22a695d382598475e5a6ec0e661df35ace4df92ea88242412",
+      "bytes": 116384
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_LATE_2280_2290/mf_11_t2290.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/9-gOCOu_KGU/histogram_first/review_frames/9-gOCOu_KGU_HF_PAIR2_LATE_2280_2290/mf_11_t2290.0.jpg",
+      "sha256": "89d9ae1becf2e1ddfb0f51ea85242578c7f037650a52cef099607461bcf23682",
+      "bytes": 106038
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/mf_00_t90.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/mf_00_t90.0.jpg",
+      "sha256": "c9ddfa8a1d8bd83c8f5b502d991f5296b044627004b2ca584070b512d6254e94",
+      "bytes": 133689
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/mf_04_t93.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/mf_04_t93.6.jpg",
+      "sha256": "ffbce63bb9628ba651a1da35c1c51d0e1183c53d81a36913f07a96b2bf402dc2",
+      "bytes": 124977
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/mf_08_t97.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/mf_08_t97.3.jpg",
+      "sha256": "8c08b9bcc5601a05b286e195ed756075f1658b6821cb38ae68ece63080fadf16",
+      "bytes": 132576
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/mf_11_t100.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/mf_11_t100.0.jpg",
+      "sha256": "9566738d44922008177703bde9c49ef42cead18b20675b6ef9a8aa3e93ad412e",
+      "bytes": 119472
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/mf_00_t2160.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/mf_00_t2160.0.jpg",
+      "sha256": "4bb8e36817c151888fb18e7c9fb2fb39ba73a614c0dc09e427f832701a903519",
+      "bytes": 108691
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/mf_04_t2163.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/mf_04_t2163.6.jpg",
+      "sha256": "14c4d8b0998d65782e77f5eaf2d86fa409baddedfbf2f350fcafaa02d711c325",
+      "bytes": 98525
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/mf_08_t2167.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/mf_08_t2167.3.jpg",
+      "sha256": "1868f45f696b13cfa1f0305e9c009eb767afc0712ec8b3132e331fde22c9222d",
+      "bytes": 119966
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/mf_11_t2170.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/mf_11_t2170.0.jpg",
+      "sha256": "ce41f80c3286302304fe83789a704faa5563122f23b1cd9eee9f1ebc5a1982a9",
+      "bytes": 76240
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_EARLY_210_220/mf_00_t210.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_EARLY_210_220/mf_00_t210.0.jpg",
+      "sha256": "2b6f648ef577cb8a223e69806f5f26cd0dd4a12557b595ad2d5c45e3a937a289",
+      "bytes": 97033
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_EARLY_210_220/mf_04_t213.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_EARLY_210_220/mf_04_t213.6.jpg",
+      "sha256": "6d1e513b3cc9212e114138a0b8b0783b4131cc80d0d8a60c87c53dd77951141a",
+      "bytes": 95236
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_EARLY_210_220/mf_08_t217.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_EARLY_210_220/mf_08_t217.3.jpg",
+      "sha256": "82ed0e57668ed112613d4a27bf1055ba6c4ae69c014333d3d047a9a5bf74a6d3",
+      "bytes": 95763
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_EARLY_210_220/mf_11_t220.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_EARLY_210_220/mf_11_t220.0.jpg",
+      "sha256": "d7896d42b0b7f7d6c2bed6c744279fc28b8f6714898eecfeea1af12723bc4e0a",
+      "bytes": 99890
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_LATE_1365_1375/mf_00_t1365.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_LATE_1365_1375/mf_00_t1365.0.jpg",
+      "sha256": "cb14e7ed8228438c93d74e20e088a9574c216393b9c3aac791fcea550e3c3362",
+      "bytes": 153328
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_LATE_1365_1375/mf_04_t1368.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_LATE_1365_1375/mf_04_t1368.6.jpg",
+      "sha256": "404a7a0c8a627817f2371b5a01d8fa05a4117462466c41b9258775e6f3ae4b4a",
+      "bytes": 130148
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_LATE_1365_1375/mf_08_t1372.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_LATE_1365_1375/mf_08_t1372.3.jpg",
+      "sha256": "dca04926f63ddd479c1083148c052306f6b19ad5838ee9e5777283619f8c0f92",
+      "bytes": 114127
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_LATE_1365_1375/mf_11_t1375.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/entity_first/review_frames/KbahC-QCKU8_EF_PAIR2_LATE_1365_1375/mf_11_t1375.0.jpg",
+      "sha256": "e45bc34eb01cca2121e052489773df794a6de93969863e53ef92f5e8cea2b9c3",
+      "bytes": 98585
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_EARLY_270_280/mf_00_t270.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_EARLY_270_280/mf_00_t270.0.jpg",
+      "sha256": "71d44230db068bd2c0a231600bc3ba5e78251b8d388f0e2c1b282793a039086b",
+      "bytes": 56928
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_EARLY_270_280/mf_04_t273.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_EARLY_270_280/mf_04_t273.6.jpg",
+      "sha256": "d3e5d218ec8416f48aa65b33c54576678c22126c942929defde197ce7d106aa1",
+      "bytes": 50456
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_EARLY_270_280/mf_08_t277.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_EARLY_270_280/mf_08_t277.3.jpg",
+      "sha256": "e2d8639b6f2cbf43aa0c7a1301dd034bc9b03eeaa14de409bad01a6aa241306c",
+      "bytes": 10867
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_EARLY_270_280/mf_11_t280.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_EARLY_270_280/mf_11_t280.0.jpg",
+      "sha256": "cf113c4e7cca9c89661d2231ef1e3d1896f9ba133aebce779da6c944f2fd23e7",
+      "bytes": 18061
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_LATE_1770_1780/mf_00_t1770.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_LATE_1770_1780/mf_00_t1770.0.jpg",
+      "sha256": "390cc593bd966d7dc2bced9d7ab45b973e6fbd32b5a6baffc66e2a52b95faf46",
+      "bytes": 130944
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_LATE_1770_1780/mf_04_t1773.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_LATE_1770_1780/mf_04_t1773.6.jpg",
+      "sha256": "5a342bac94c3b7e890abdd7535a4ffb7ad8825500d15b8ebe52e31dd851b4d12",
+      "bytes": 91416
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_LATE_1770_1780/mf_08_t1777.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_LATE_1770_1780/mf_08_t1777.3.jpg",
+      "sha256": "d3dff12288997b8b42a58f7255d479c1a137d2131c7314a93c30a0d65172efd3",
+      "bytes": 91631
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_LATE_1770_1780/mf_11_t1780.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR1_LATE_1770_1780/mf_11_t1780.0.jpg",
+      "sha256": "c3d1d6cac99000d26920505d326a32a546fbf55c475231a6711b0faefb63f7bc",
+      "bytes": 93685
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_EARLY_600_610/mf_00_t600.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_EARLY_600_610/mf_00_t600.0.jpg",
+      "sha256": "75d88f20cdbe82592df2938eb539a7a0e6e43072d717f92ffe8f03869ed3f18c",
+      "bytes": 70632
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_EARLY_600_610/mf_04_t603.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_EARLY_600_610/mf_04_t603.6.jpg",
+      "sha256": "4b2bc699aaadcf25c3e2b623841f7fadcc567b93409589e0c85c07784d251280",
+      "bytes": 35593
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_EARLY_600_610/mf_08_t607.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_EARLY_600_610/mf_08_t607.3.jpg",
+      "sha256": "4ed8b769febfa4a1500a446bdd30fb5bc60e8ca6a717f21e0d7f478846ba43da",
+      "bytes": 36108
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_EARLY_600_610/mf_11_t610.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_EARLY_600_610/mf_11_t610.0.jpg",
+      "sha256": "c90d8b75ac9ced08bea620f33c51da993f92b2a41ab8f08ca105d10d48fbbc8a",
+      "bytes": 40489
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_LATE_2310_2320/mf_00_t2310.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_LATE_2310_2320/mf_00_t2310.0.jpg",
+      "sha256": "ed9e11f886c55c5e682ac357a01424fec7759e105c0743f0d99649ef285670d9",
+      "bytes": 151491
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_LATE_2310_2320/mf_04_t2313.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_LATE_2310_2320/mf_04_t2313.6.jpg",
+      "sha256": "122a21b2b74ef4fcb90f4f1932a87e0cc86a8539dc0bfc5732bb1df5c57bde21",
+      "bytes": 81063
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_LATE_2310_2320/mf_08_t2317.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_LATE_2310_2320/mf_08_t2317.3.jpg",
+      "sha256": "ec075816e377c1faf26f5d9283778aacdd71246fabbff5097b1af2f576f9e5c5",
+      "bytes": 79482
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_LATE_2310_2320/mf_11_t2320.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/KbahC-QCKU8/histogram_first/review_frames/KbahC-QCKU8_HF_PAIR2_LATE_2310_2320/mf_11_t2320.0.jpg",
+      "sha256": "d4991f66c4835279004f05d8a26fe512d8ac60033e035d8b1fceb84af872227c",
+      "bytes": 70596
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_EARLY_585_595/mf_00_t585.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_EARLY_585_595/mf_00_t585.0.jpg",
+      "sha256": "c1ffc343c31bdeda7ad518dd1ca809b8e268191a24cca1b75c4b7725758cebb6",
+      "bytes": 203561
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_EARLY_585_595/mf_04_t588.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_EARLY_585_595/mf_04_t588.6.jpg",
+      "sha256": "208de32f72fb7676f0b548d44859adc8c484c6e897da14a6996976596fbe0b69",
+      "bytes": 156009
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_EARLY_585_595/mf_08_t592.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_EARLY_585_595/mf_08_t592.3.jpg",
+      "sha256": "564fedf2d0473d7446ae7649c5bef0669c846bbb8ed7e682b4a20a04ae9cef74",
+      "bytes": 171838
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_EARLY_585_595/mf_11_t595.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_EARLY_585_595/mf_11_t595.0.jpg",
+      "sha256": "cb6952a63491299a9a72dcbfce6ca1a93c1be9d0f0745736fbf13077062ae5ad",
+      "bytes": 160398
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_LATE_2580_2590/mf_00_t2580.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_LATE_2580_2590/mf_00_t2580.0.jpg",
+      "sha256": "2b4260f4cec92a14dcb7a2bc1fbe94ade0f034dc97edc15e3bceb7c7bb069894",
+      "bytes": 169110
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_LATE_2580_2590/mf_04_t2583.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_LATE_2580_2590/mf_04_t2583.6.jpg",
+      "sha256": "c18e4d0887c6d24694ffa3a585a219d89d763784402c3e5f79d298d24fa4d7f7",
+      "bytes": 166490
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_LATE_2580_2590/mf_08_t2587.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_LATE_2580_2590/mf_08_t2587.3.jpg",
+      "sha256": "2bd0010e642b038b4a118c037d803c047101eecbf8f3074b2d3324308db1cd47",
+      "bytes": 160117
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_LATE_2580_2590/mf_11_t2590.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR1_LATE_2580_2590/mf_11_t2590.0.jpg",
+      "sha256": "06ddda6753ae1a0e1189637a2ed836fd6e3bcddd2bdc8532075fd07a0e85b1ec",
+      "bytes": 158911
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_EARLY_255_265/mf_00_t255.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_EARLY_255_265/mf_00_t255.0.jpg",
+      "sha256": "a6643bd1c4a2fa4cd17ced43ad99aeaeed3dad8b6fe96939c0a9af571f865790",
+      "bytes": 68395
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_EARLY_255_265/mf_04_t258.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_EARLY_255_265/mf_04_t258.6.jpg",
+      "sha256": "7084d41e760aa40c73cacc2d93043bf7f1b0012234537941cb9b45aa9fed32bc",
+      "bytes": 71079
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_EARLY_255_265/mf_08_t262.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_EARLY_255_265/mf_08_t262.3.jpg",
+      "sha256": "6df5c036ca3f81614344af02158eaead7592f642aae9aa5efe6e0f771d3b97d2",
+      "bytes": 69302
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_EARLY_255_265/mf_11_t265.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_EARLY_255_265/mf_11_t265.0.jpg",
+      "sha256": "60bf954560f748dd99300b6f0257572d4cd74c3ec97e1c092ae5d73d4e199c3d",
+      "bytes": 72630
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_LATE_2385_2395/mf_00_t2385.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_LATE_2385_2395/mf_00_t2385.0.jpg",
+      "sha256": "86a4ed43d1e3bb0fb15c1436186d7033fd7804613d97920e39df63dbc66c3911",
+      "bytes": 43927
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_LATE_2385_2395/mf_04_t2388.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_LATE_2385_2395/mf_04_t2388.6.jpg",
+      "sha256": "1d7093f5d5038a23527954640690ea352161b6a3779818d1bab8f006269c9096",
+      "bytes": 142848
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_LATE_2385_2395/mf_08_t2392.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_LATE_2385_2395/mf_08_t2392.3.jpg",
+      "sha256": "fc0d4b967adea80c1e34f6cbafaa6e3b165b743cabe216ebc92f19bf60f7a858",
+      "bytes": 139799
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_LATE_2385_2395/mf_11_t2395.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/entity_first/review_frames/RCAqKnvu_P0_EF_PAIR2_LATE_2385_2395/mf_11_t2395.0.jpg",
+      "sha256": "c234216f3566271fdc3456448e7ae00d23de792a1432a4ad716302da5a54f26f",
+      "bytes": 152017
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_EARLY_255_265/mf_00_t255.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_EARLY_255_265/mf_00_t255.0.jpg",
+      "sha256": "a6643bd1c4a2fa4cd17ced43ad99aeaeed3dad8b6fe96939c0a9af571f865790",
+      "bytes": 68395
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_EARLY_255_265/mf_04_t258.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_EARLY_255_265/mf_04_t258.6.jpg",
+      "sha256": "7084d41e760aa40c73cacc2d93043bf7f1b0012234537941cb9b45aa9fed32bc",
+      "bytes": 71079
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_EARLY_255_265/mf_08_t262.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_EARLY_255_265/mf_08_t262.3.jpg",
+      "sha256": "6df5c036ca3f81614344af02158eaead7592f642aae9aa5efe6e0f771d3b97d2",
+      "bytes": 69302
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_EARLY_255_265/mf_11_t265.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_EARLY_255_265/mf_11_t265.0.jpg",
+      "sha256": "60bf954560f748dd99300b6f0257572d4cd74c3ec97e1c092ae5d73d4e199c3d",
+      "bytes": 72630
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_LATE_1455_1465/mf_00_t1455.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_LATE_1455_1465/mf_00_t1455.0.jpg",
+      "sha256": "f372afd27cb76373e46623dfd69db19d6d6f85e5cb84a3900a79faaa273f1527",
+      "bytes": 64945
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_LATE_1455_1465/mf_04_t1458.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_LATE_1455_1465/mf_04_t1458.6.jpg",
+      "sha256": "53eec41c227f39d51e11badf853c38cf38e44e7e5da7a7c3f79a63556bdbd9ce",
+      "bytes": 124277
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_LATE_1455_1465/mf_08_t1462.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_LATE_1455_1465/mf_08_t1462.3.jpg",
+      "sha256": "60f64239de5913816f156834dec2ae76d6166aa439e52473cec608b6d69735be",
+      "bytes": 157632
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_LATE_1455_1465/mf_11_t1465.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR1_LATE_1455_1465/mf_11_t1465.0.jpg",
+      "sha256": "00368e8df9c28df265e7a03e03c55cf912fe5b54f6dfc2cfecdfcd0c1f9b1263",
+      "bytes": 148134
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_EARLY_1095_1105/mf_00_t1095.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_EARLY_1095_1105/mf_00_t1095.0.jpg",
+      "sha256": "a6a32796e8450f764a47ddd21945ea164b18ea0465fd8dffb75a0298d0c97d56",
+      "bytes": 54455
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_EARLY_1095_1105/mf_04_t1098.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_EARLY_1095_1105/mf_04_t1098.6.jpg",
+      "sha256": "df308a244af346524f8b20572d7e0170d126ed1c6346f8a1f4948ffae830c3fc",
+      "bytes": 63333
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_EARLY_1095_1105/mf_08_t1102.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_EARLY_1095_1105/mf_08_t1102.3.jpg",
+      "sha256": "d612ca9e92ca1a65a7274b2df9c1f459d08f145067baf7120f1dc5928f4f39b1",
+      "bytes": 63147
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_EARLY_1095_1105/mf_11_t1105.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_EARLY_1095_1105/mf_11_t1105.0.jpg",
+      "sha256": "af5fdf8edb8edb2fceb1ede36e20a06bae2919b14f2799006eb8ece2fb906ae0",
+      "bytes": 67136
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_LATE_2280_2290/mf_00_t2280.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_LATE_2280_2290/mf_00_t2280.0.jpg",
+      "sha256": "60152366810d7b4378799950070c11c9801e4a1f054d85bd38741ec4dbbaf04c",
+      "bytes": 52849
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_LATE_2280_2290/mf_04_t2283.6.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_LATE_2280_2290/mf_04_t2283.6.jpg",
+      "sha256": "d2bb2bad77b67aec9700da6acbac10406c9a1c223da84fbaa58b3723991f5f7d",
+      "bytes": 52108
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_LATE_2280_2290/mf_08_t2287.3.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_LATE_2280_2290/mf_08_t2287.3.jpg",
+      "sha256": "ec194b6728767d7f994f25151c631ab0b4a2ab3dd223762f2b558908ca6b9502",
+      "bytes": 52516
+    },
+    {
+      "git_path_was": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/videos/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_LATE_2280_2290/mf_11_t2290.0.jpg",
+      "local_path": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/ab_dev5_review_frames_untracked/RCAqKnvu_P0/histogram_first/review_frames/RCAqKnvu_P0_HF_PAIR2_LATE_2280_2290/mf_11_t2290.0.jpg",
+      "sha256": "515c4bd42964e8b815f4b36222595bcd813bf47ef61a5c2f7b431586f0b17689",
+      "bytes": 46101
+    }
+  ]
+}

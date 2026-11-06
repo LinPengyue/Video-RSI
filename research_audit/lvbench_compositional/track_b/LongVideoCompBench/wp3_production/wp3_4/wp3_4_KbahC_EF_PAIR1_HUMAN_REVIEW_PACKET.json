@@ -1,0 +1,159 @@
+{
+  "schema": "wp3_4_human_review_packet_v1",
+  "pair_id": "KbahC-QCKU8_EF_PAIR1",
+  "video_id": "KbahC-QCKU8",
+  "built_utc": "2026-11-06T04:45:16+00:00",
+  "baseline_commit": "ea1b79dadc897cd5d2be95b79548d01a3c3924cc",
+  "discovery_method": "ENTITY_EVENT_FIRST_STABILITY_PROXY_V1",
+  "prior_status": "PASS_CANDIDATE",
+  "current_status": "AWAITING_HUMAN_SCIENTIFIC_OWNER",
+  "auto_certified": false,
+  "formal_gold": false,
+  "windows": {
+    "A": [
+      90.0,
+      100.0
+    ],
+    "B": [
+      2160.0,
+      2170.0
+    ]
+  },
+  "evidence_local_nonpublic": {
+    "A_review_frames": [
+      {
+        "name": "mf_00_t90.0.jpg",
+        "sha256": "c9ddfa8a1d8bd83c8f5b502d991f5296b044627004b2ca584070b512d6254e94",
+        "bytes": 133689,
+        "local_only": true,
+        "not_for_github_redistribution": true
+      },
+      {
+        "name": "mf_04_t93.6.jpg",
+        "sha256": "ffbce63bb9628ba651a1da35c1c51d0e1183c53d81a36913f07a96b2bf402dc2",
+        "bytes": 124977,
+        "local_only": true,
+        "not_for_github_redistribution": true
+      },
+      {
+        "name": "mf_08_t97.3.jpg",
+        "sha256": "8c08b9bcc5601a05b286e195ed756075f1658b6821cb38ae68ece63080fadf16",
+        "bytes": 132576,
+        "local_only": true,
+        "not_for_github_redistribution": true
+      },
+      {
+        "name": "mf_11_t100.0.jpg",
+        "sha256": "9566738d44922008177703bde9c49ef42cead18b20675b6ef9a8aa3e93ad412e",
+        "bytes": 119472,
+        "local_only": true,
+        "not_for_github_redistribution": true
+      }
+    ],
+    "B_review_frames": [
+      {
+        "name": "mf_00_t2160.0.jpg",
+        "sha256": "4bb8e36817c151888fb18e7c9fb2fb39ba73a614c0dc09e427f832701a903519",
+        "bytes": 108691,
+        "local_only": true,
+        "not_for_github_redistribution": true
+      },
+      {
+        "name": "mf_04_t2163.6.jpg",
+        "sha256": "14c4d8b0998d65782e77f5eaf2d86fa409baddedfbf2f350fcafaa02d711c325",
+        "bytes": 98525,
+        "local_only": true,
+        "not_for_github_redistribution": true
+      },
+      {
+        "name": "mf_08_t2167.3.jpg",
+        "sha256": "1868f45f696b13cfa1f0305e9c009eb767afc0712ec8b3132e331fde22c9222d",
+        "bytes": 119966,
+        "local_only": true,
+        "not_for_github_redistribution": true
+      },
+      {
+        "name": "mf_11_t2170.0.jpg",
+        "sha256": "ce41f80c3286302304fe83789a704faa5563122f23b1cd9eee9f1ebc5a1982a9",
+        "bytes": 76240,
+        "local_only": true,
+        "not_for_github_redistribution": true
+      }
+    ],
+    "A_clip": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/KbahC-QCKU8/entity_first/KbahC-QCKU8_EF_PAIR1_EARLY_90_100/clip.mp4",
+    "B_clip": "research_audit/lvbench_compositional/track_b/local_media/wp3_production/wp3_3/KbahC-QCKU8/entity_first/KbahC-QCKU8_EF_PAIR1_LATE_2160_2170/clip.mp4",
+    "github_images_attached": false
+  },
+  "gpt_visual_preliminary_NOT_HUMAN": {
+    "label": "CURSOR_GPT_FRAME_VISUAL_PRELIMINARY",
+    "not_human_certification": true,
+    "observations": [
+      "A: adult male (glasses, camo jacket) driving; child passenger in blue jacket; snow outside",
+      "B mid: adult+child outside bakery/seafood house in snow; adult still camo jacket",
+      "B ROI may include restaurant interior/exterior cuts — subject thrash risk inside 10s"
+    ]
+  },
+  "minimum_human_decisions_required": [
+    {
+      "id": "H1_identity_bind",
+      "question": "Is the adult in A the same physical person as the adult visible with the child in B?",
+      "allowed": [
+        "SAME_PERSON",
+        "DIFFERENT",
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "id": "H2_child_bind",
+      "question": "Is the child in A the same child in B (clothing may change)?",
+      "allowed": [
+        "SAME_CHILD",
+        "DIFFERENT",
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "id": "H3_late_roi_subject_stability",
+      "question": "Within B [2160–2170], does the primary adult identity remain stable, or does the ROI switch subjects/scenes?",
+      "allowed": [
+        "STABLE",
+        "SWITCHES",
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "id": "H4_a_only_adult_shortcut",
+      "question": "If the answer targets the adult's earlier location, can A-only (unique adult male in cabin) answer without B?",
+      "allowed": [
+        "SHORTCUT_YES",
+        "SHORTCUT_NO",
+        "UNRESOLVED"
+      ]
+    },
+    {
+      "id": "H5_necessity_gate",
+      "question": "Does a cross-window QA require both A and B with the bind participating in the answer (not OCR/signage alone)?",
+      "allowed": [
+        "NECESSITY_PASS",
+        "NECESSITY_FAIL",
+        "UNKNOWN"
+      ],
+      "note": "Do NOT auto-mark PASS; Human Scientific Owner only"
+    }
+  ],
+  "qa_draft_blocked_until_human": true,
+  "necessity_status": "NOT_RUN_AWAITING_HUMAN_FACTS",
+  "signature_if_forced": {
+    "draft": "LocatePerson→CrossIntervalSamePersonBind→QueryEarlierLocation",
+    "label": "PROPOSED_SIGNATURE_UNVERIFIED",
+    "ood": "NEW_VIDEO_NEW_QA_OLD_SIGNATURE_FAMILY_NOT_UNSEEN",
+    "promote_unseen": false
+  },
+  "human_adjudication": {
+    "status": "NOT_OBTAINED_THIS_ROUND",
+    "reviewer_identity": null,
+    "reviewer_role": null,
+    "decisions": {},
+    "trusted_registry_record_id": null
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "wp3_4_certification_cost_estimate_v1",
+  "built_utc": "2026-11-06T04:45:16+00:00",
+  "per_certifiable_qa_actual_this_round": null,
+  "reason_null": "0 QA certified this round; cannot amortize",
+  "observed_prep_cost_for_one_candidate_packet": {
+    "human_reviewer_minutes_estimated_minimum": 25,
+    "includes": [
+      "watch both 10s clips continuously",
+      "answer H1–H5 identity/stability/shortcut items",
+      "write trusted registry record",
+      "if facts pass: draft QA + A/B/A+B necessity (~+20 min)",
+      "independent second Human for Gold gate (~+20–40 min)"
+    ],
+    "compute_seconds_discovery_amortized_note": "EF discovery ~3× HF wall time on same 5-video budget",
+    "blocking_item": "Human Scientific Owner adjudication not obtained"
+  },
+  "bottleneck": "HUMAN_CERTIFICATION_NOT_SCANNING"
+}
