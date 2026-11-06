@@ -1,3 +1,11 @@
+## WP3 Production Integration & E2E DEV Smoke (no new immutable release)
+
+- Wired S3–S9 conformance modules into Batch Factory formal entry `s0s9-dev-smoke` / `s0_s9_production.py`.
+- Formal certification entry verifies stores (not caller PASS/RUN/EXECUTABLE_PASS); Human SAME ≠ answer cert; Model Necessity requires isolated A+B+B-only fails for strict support.
+- S8 training exposure remains UNCONFIRMED (blocks Atomic-covered OOD auto-promotion).
+- E2E DEV smoke on existing Wave/AB ROI + registry evidence; no new videos; no fabricated relations without semantics.
+- Reports engineering completion separately from scientific rates; Formal Gold 0.
+
 ## WP3 Pipeline Conformance Scientific Correction (no new immutable release)
 
 - Corrected S0–S9 matrix to Word v1.0 stage names (视频登记…版本入库); no renumbering for new modules.

@@ -1,4 +1,4 @@
-"""CLI: python -m tools.lvbench_comp.batch_factory run|audit ..."""
+"""CLI: python -m tools.lvbench_comp.batch_factory run|audit|s0s9-dev-smoke ..."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from pathlib import Path
 
 from .human_packets import build_packet
 from .pipeline import run_factory
+from .s0_s9_production import run_s0_s9_dev_smoke
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -42,6 +43,26 @@ def main(argv: list[str] | None = None) -> int:
     audit_p.add_argument("--run", type=Path, required=True)
     audit_p.add_argument("--build-human-packets", action="store_true")
     audit_p.add_argument("--human-k", type=int, default=12)
+
+    smoke_p = sub.add_parser(
+        "s0s9-dev-smoke",
+        help="Formal S0–S9 production path over existing ROI evidence (no new videos)",
+    )
+    smoke_p.add_argument(
+        "--rois",
+        type=Path,
+        nargs="+",
+        required=True,
+        help="One or more rois.jsonl paths with hashed early/late clips",
+    )
+    smoke_p.add_argument(
+        "--trusted-registry",
+        type=Path,
+        required=True,
+        help="Append-only trusted human review records.jsonl",
+    )
+    smoke_p.add_argument("--output", type=Path, required=True)
+    smoke_p.add_argument("--max-pairs", type=int, default=8)
 
     args = p.parse_args(argv)
     if args.cmd == "run":
@@ -85,6 +106,31 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps({"packet_id": pkt["packet_id"], "n_items": pkt["n_items"]}, indent=2))
         else:
             print(json.dumps(prioritized, ensure_ascii=False, indent=2))
+        return 0
+
+    if args.cmd == "s0s9-dev-smoke":
+        report = run_s0_s9_dev_smoke(
+            rois_jsonl_paths=list(args.rois),
+            trusted_records_jsonl=args.trusted_registry,
+            output_dir=args.output,
+            max_pairs=args.max_pairs,
+        )
+        print(
+            json.dumps(
+                {
+                    "n_pairs": report["n_pairs"],
+                    "classification_counts": report["classification_counts"],
+                    "exit_counts": report["exit_counts"],
+                    "scientific_rates": report["scientific_rates"],
+                    "pipeline_engineering_completion": report[
+                        "pipeline_engineering_completion"
+                    ],
+                    "output": str(args.output),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         return 0
 
     return 1

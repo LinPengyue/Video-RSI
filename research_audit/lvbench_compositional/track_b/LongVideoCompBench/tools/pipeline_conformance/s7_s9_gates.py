@@ -22,25 +22,30 @@ STATUS_FIELDS = (
     "formal_gold",
 )
 
-# Parallel interface vs formal batch entry — documented, not claimed as closed loop.
+# Production wiring: S3–S9 conformance modules are invoked via Batch Factory
+# `s0_s9_production` as the DEV formal entry. Scientific closed-loop/Gold remains false.
 INTERFACE_WIRING = {
-    "parallel_prototype_modules": [
+    "s3_s9_implementation_modules": [
         "tools/pipeline_conformance/s3_s5_relation_qa.py",
         "tools/pipeline_conformance/s6_necessity.py",
         "tools/pipeline_conformance/s8_signature_feedback.py",
         "tools/pipeline_conformance/s7_s9_gates.py",
-        "tools/wp3_pipeline_conformance_repair.py",
+        "tools/pipeline_conformance/formal_certification.py",
     ],
     "formal_batch_entry": [
-        "tools/lvbench_comp/batch_factory/",
-        "tools/import_annotation_batch.py",
-        "tools/wp3_wave_production.py",
+        "tools/lvbench_comp/batch_factory/s0_s9_production.py",
+        "tools/lvbench_comp/batch_factory/__main__.py::s0s9-dev-smoke",
     ],
-    "wired_into_formal_batch_entry": False,
+    "legacy_parallel_paths": [
+        "tools/lvbench_comp/batch_factory/qa_draft.py",
+        "tools/wp3_pipeline_conformance_repair.py",
+    ],
+    "wired_into_formal_batch_entry": True,
     "production_closed_loop_claimed": False,
+    "production_closed_loop_scientific": False,
     "note": (
-        "Conformance interfaces are parallel prototypes for DEV regression. "
-        "They are not yet the sole production entry; do not claim closed-loop repair."
+        "Engineering: S3–S9 wired through batch_factory.s0_s9_production for DEV smoke. "
+        "Scientific Gold/closed-loop rates are separate and must not be inferred from wiring."
     ),
 }
 

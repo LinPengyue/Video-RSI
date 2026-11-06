@@ -1,0 +1,8 @@
+{"pair_id": "KbahC-QCKU8_EF_PAIR1", "exit": "QA_FAMILY_FAILED", "failure_reason": "missing_queryable_A_attribute_value", "classification": "PENDING"}
+{"pair_id": "USfvmoalqsw_PAIR2", "exit": "QA_FAMILY_FAILED", "failure_reason": "missing_queryable_A_attribute_value", "classification": "PENDING"}
+{"pair_id": "1FsiZgGZU70_EF_PAIR1", "exit": "NO_SEMANTIC_FACTS", "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation", "classification": "PENDING"}
+{"pair_id": "1FsiZgGZU70_EF_PAIR2", "exit": "NO_SEMANTIC_FACTS", "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation", "classification": "PENDING"}
+{"pair_id": "1FsiZgGZU70_HF_PAIR1", "exit": "NO_SEMANTIC_FACTS", "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation", "classification": "PENDING"}
+{"pair_id": "1FsiZgGZU70_HF_PAIR2", "exit": "NO_SEMANTIC_FACTS", "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation", "classification": "PENDING"}
+{"pair_id": "3_upA09AntU_EF_PAIR1", "exit": "NO_SEMANTIC_FACTS", "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation", "classification": "PENDING"}
+{"pair_id": "3_upA09AntU_EF_PAIR2", "exit": "NO_SEMANTIC_FACTS", "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation", "classification": "PENDING"}

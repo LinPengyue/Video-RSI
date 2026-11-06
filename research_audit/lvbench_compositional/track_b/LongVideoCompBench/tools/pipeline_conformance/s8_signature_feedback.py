@@ -154,33 +154,54 @@ def _role_dependency_training_checks(
     if bind_nodes and query_nodes:
         bind_feeds_query = any((bn, qn) in edge_pairs for bn in bind_nodes for qn in query_nodes)
 
-    # Training exposure: draft must not reuse a Seen graph_id / seed program bytes
-    training_ok = draft["graph_id"] not in SEEN and not str(draft["graph_id"]).startswith("SP")
+    # Training exposure / novelty confirmation:
+    # Seed-graph id collision alone is NOT sufficient to mark exposure cleared.
+    # L2 equivalence, role novelty, edge novelty, and I/O novelty remain UNCONFIRMED
+    # until an independent audit artifact exists — never auto-promote pure composition OOD.
+    seed_id_collision = draft["graph_id"] in SEEN or str(draft["graph_id"]).startswith("SP")
+    training_status = "FAIL_SEED_ID_COLLISION" if seed_id_collision else "UNCONFIRMED"
+    training_ok = False  # never True without confirmed video-level + L2/role/edge/IO audit
 
     role_ok = has_a and has_b
     dep_ok = locates_feed_bind and bind_feeds_query
+    semantic_io = bool(
+        (program_graph.get("semantic_validation") or {}).get("status") == "OK"
+    )
+    novelty_unconfirmed = {
+        "layer2_equivalence": "UNCONFIRMED",
+        "role_novelty_vs_seen": "UNCONFIRMED",
+        "edge_novelty_vs_seen": "UNCONFIRMED",
+        "io_novelty_vs_seen": "UNCONFIRMED",
+        "video_level_training_exposure": training_status,
+    }
     return {
         "role_check": {
             "pass": role_ok,
-            "roles_present": sorted(roles),
+            "roles_present": sorted(x for x in roles if x),
             "requires": ["A", "B"],
+            "novelty_status": "UNCONFIRMED",
         },
         "dependency_check": {
             "pass": dep_ok,
             "locates_feed_bind": locates_feed_bind,
             "bind_feeds_query": bind_feeds_query,
             "edge_pairs": sorted((a, b) for a, b in edge_pairs if a and b),
+            "novelty_status": "UNCONFIRMED",
         },
         "training_exposure_check": {
             "pass": training_ok,
+            "status": training_status,
             "draft_graph_id": draft["graph_id"],
             "seen_seed_ids": list(SEEN),
-            "note": "Does not claim video-level contamination audit; only seed-graph id collision",
+            "seed_id_collision": seed_id_collision,
+            "note": (
+                "UNCONFIRMED until video-level contamination and L2/role/edge/I/O "
+                "novelty are independently audited; seed-id non-collision ≠ cleared"
+            ),
         },
-        "all_pass": role_ok and dep_ok and training_ok,
-        "semantic_io_validated": bool(
-            (program_graph.get("semantic_validation") or {}).get("status") == "OK"
-        ),
+        "novelty_unconfirmed": novelty_unconfirmed,
+        "all_pass": False,  # blocked while novelty/training remain UNCONFIRMED
+        "semantic_io_validated": semantic_io,
     }
 
 

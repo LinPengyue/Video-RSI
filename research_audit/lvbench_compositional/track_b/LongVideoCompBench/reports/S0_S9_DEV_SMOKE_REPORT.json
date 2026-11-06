@@ -1,0 +1,611 @@
+{
+  "schema": "s0_s9_dev_smoke_report_v1",
+  "built_utc": "2026-11-06T10:39:08+00:00",
+  "production_entry": {
+    "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+    "wired_into_formal_batch_entry": true,
+    "sole_s3_s9_path_for_dev_smoke": true,
+    "legacy_qa_draft_bypassed": true,
+    "production_closed_loop_scientific": false,
+    "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+  },
+  "n_pairs": 8,
+  "rois_sources": [
+    "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/rois.jsonl",
+    "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/rois.jsonl",
+    "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave2/rois.jsonl"
+  ],
+  "classification_counts": {
+    "PENDING": 8
+  },
+  "exit_counts": {
+    "QA_FAMILY_FAILED": 2,
+    "NO_SEMANTIC_FACTS": 6
+  },
+  "pipeline_engineering_completion": {
+    "wired_into_formal_batch_entry": true,
+    "unified_io_contract": true,
+    "legacy_qa_draft_bypassed_on_this_path": true,
+    "pairs_processed_end_to_end": 8,
+    "production_closed_loop_scientific_claimed": false
+  },
+  "scientific_rates": {
+    "evidence_verified": {
+      "numerator": 8,
+      "denominator": 8,
+      "rate": 1.0
+    },
+    "qa_family_generated": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    },
+    "structural_necessity_verified": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    },
+    "program_execution_verified": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    },
+    "atomic_covered_composition_ood_verified": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    },
+    "independent_gold_certified": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    }
+  },
+  "failures": [
+    {
+      "pair_id": "KbahC-QCKU8_EF_PAIR1",
+      "exit": "QA_FAMILY_FAILED",
+      "failure_reason": "missing_queryable_A_attribute_value",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "USfvmoalqsw_PAIR2",
+      "exit": "QA_FAMILY_FAILED",
+      "failure_reason": "missing_queryable_A_attribute_value",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR1",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR2",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR1",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR2",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR1",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR2",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    }
+  ],
+  "results": [
+    {
+      "pair_id": "KbahC-QCKU8_EF_PAIR1",
+      "video_id": "KbahC-QCKU8",
+      "production_entry": {
+        "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+        "wired_into_formal_batch_entry": true,
+        "sole_s3_s9_path_for_dev_smoke": true,
+        "legacy_qa_draft_bypassed": true,
+        "production_closed_loop_scientific": false,
+        "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+      },
+      "built_utc": "2026-11-06T10:39:08+00:00",
+      "evidence": {
+        "complete": true,
+        "trust_level": "PACKET_HASHED_CLIPS",
+        "windows": {
+          "A": [
+            90.0,
+            100.0
+          ],
+          "B": [
+            2160.0,
+            2170.0
+          ]
+        },
+        "clip_sha256": {
+          "A": "114ba304970d9ee74798e4c1f836e20f75ba1962de31a996b04f954c4f00a75e",
+          "B": "6300cd4b94e3bb71eaff80a3678d62771faf7be2eba18fd15e519e881ec3a795"
+        },
+        "semantics_a": "UNRESOLVED",
+        "semantics_b": "UNRESOLVED",
+        "source": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/rois.jsonl"
+      },
+      "identity_claims": [
+        "CLAIM_KBAH_ADULT_SAME",
+        "CLAIM_KBAH_CHILD_SAME"
+      ],
+      "relation": {
+        "relation_id": "REL:KbahC-QCKU8_EF_PAIR1",
+        "bind_status": "FACT",
+        "bind_claim_ids": [
+          "CLAIM_KBAH_ADULT_SAME",
+          "CLAIM_KBAH_CHILD_SAME"
+        ],
+        "queryable_attributes": [],
+        "process": "identity_bind_from_trusted_registry"
+      },
+      "qa": {
+        "status": "FAIL",
+        "failure_reason": "missing_queryable_A_attribute_value",
+        "family_id": null
+      },
+      "exit": "QA_FAMILY_FAILED",
+      "classification": "PENDING",
+      "failure_reason": "missing_queryable_A_attribute_value",
+      "s7_status": {
+        "schema": "s7_independent_status_v2",
+        "human_relation": "CERTIFIED_SAME_IDENTITY_ONLY",
+        "qa_draft": "FAIL:missing_queryable_A_attribute_value",
+        "necessity": "NOT_REACHED",
+        "program_execution": "PROGRAM_EXECUTION_NOT_RUN",
+        "formal_gold": false,
+        "rules": {
+          "human_SAME_does_not_set_formal_gold": true,
+          "human_SAME_scope_is_identity_only": true,
+          "human_SAME_does_not_certify_answer_attributes": true,
+          "necessity_FAIL_blocks_gold_review_entry": true,
+          "staging_review_status_alone_insufficient": true,
+          "program_execution_not_run_blocks_executable_pass": true
+        },
+        "interface_wiring": {
+          "s3_s9_implementation_modules": [
+            "tools/pipeline_conformance/s3_s5_relation_qa.py",
+            "tools/pipeline_conformance/s6_necessity.py",
+            "tools/pipeline_conformance/s8_signature_feedback.py",
+            "tools/pipeline_conformance/s7_s9_gates.py",
+            "tools/pipeline_conformance/formal_certification.py"
+          ],
+          "formal_batch_entry": [
+            "tools/lvbench_comp/batch_factory/s0_s9_production.py",
+            "tools/lvbench_comp/batch_factory/__main__.py::s0s9-dev-smoke"
+          ],
+          "legacy_parallel_paths": [
+            "tools/lvbench_comp/batch_factory/qa_draft.py",
+            "tools/wp3_pipeline_conformance_repair.py"
+          ],
+          "wired_into_formal_batch_entry": true,
+          "production_closed_loop_claimed": false,
+          "production_closed_loop_scientific": false,
+          "note": "Engineering: S3–S9 wired through batch_factory.s0_s9_production for DEV smoke. Scientific Gold/closed-loop rates are separate and must not be inferred from wiring."
+        }
+      },
+      "scientific": {
+        "evidence_verified": true,
+        "qa_family_generated": false,
+        "structural_necessity_verified": false,
+        "program_execution_verified": false,
+        "atomic_covered_composition_ood_verified": false,
+        "independent_gold_certified": false
+      }
+    },
+    {
+      "pair_id": "USfvmoalqsw_PAIR2",
+      "video_id": "USfvmoalqsw",
+      "production_entry": {
+        "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+        "wired_into_formal_batch_entry": true,
+        "sole_s3_s9_path_for_dev_smoke": true,
+        "legacy_qa_draft_bypassed": true,
+        "production_closed_loop_scientific": false,
+        "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+      },
+      "built_utc": "2026-11-06T10:39:08+00:00",
+      "evidence": {
+        "complete": true,
+        "trust_level": "PACKET_HASHED_CLIPS",
+        "windows": {
+          "A": [
+            2355.0,
+            2365.0
+          ],
+          "B": [
+            4620.0,
+            4630.0
+          ]
+        },
+        "clip_sha256": {
+          "A": "283cd2f02664e8f49ab9d7e97c896a6045ab7e3f5c72380c788e599550f1d226",
+          "B": "e6dfc36c25d63666b7b199c5e11aa0cd49720dbf0826d3f63b52c50582a6106a"
+        },
+        "semantics_a": "UNRESOLVED",
+        "semantics_b": "UNRESOLVED",
+        "source": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wave1/rois.jsonl"
+      },
+      "identity_claims": [
+        "CLAIM_USFV_MAN_SAME"
+      ],
+      "relation": {
+        "relation_id": "REL:USfvmoalqsw_PAIR2",
+        "bind_status": "FACT",
+        "bind_claim_ids": [
+          "CLAIM_USFV_MAN_SAME"
+        ],
+        "queryable_attributes": [],
+        "process": "identity_bind_from_trusted_registry"
+      },
+      "qa": {
+        "status": "FAIL",
+        "failure_reason": "missing_queryable_A_attribute_value",
+        "family_id": null
+      },
+      "exit": "QA_FAMILY_FAILED",
+      "classification": "PENDING",
+      "failure_reason": "missing_queryable_A_attribute_value",
+      "s7_status": {
+        "schema": "s7_independent_status_v2",
+        "human_relation": "CERTIFIED_SAME_IDENTITY_ONLY",
+        "qa_draft": "FAIL:missing_queryable_A_attribute_value",
+        "necessity": "NOT_REACHED",
+        "program_execution": "PROGRAM_EXECUTION_NOT_RUN",
+        "formal_gold": false,
+        "rules": {
+          "human_SAME_does_not_set_formal_gold": true,
+          "human_SAME_scope_is_identity_only": true,
+          "human_SAME_does_not_certify_answer_attributes": true,
+          "necessity_FAIL_blocks_gold_review_entry": true,
+          "staging_review_status_alone_insufficient": true,
+          "program_execution_not_run_blocks_executable_pass": true
+        },
+        "interface_wiring": {
+          "s3_s9_implementation_modules": [
+            "tools/pipeline_conformance/s3_s5_relation_qa.py",
+            "tools/pipeline_conformance/s6_necessity.py",
+            "tools/pipeline_conformance/s8_signature_feedback.py",
+            "tools/pipeline_conformance/s7_s9_gates.py",
+            "tools/pipeline_conformance/formal_certification.py"
+          ],
+          "formal_batch_entry": [
+            "tools/lvbench_comp/batch_factory/s0_s9_production.py",
+            "tools/lvbench_comp/batch_factory/__main__.py::s0s9-dev-smoke"
+          ],
+          "legacy_parallel_paths": [
+            "tools/lvbench_comp/batch_factory/qa_draft.py",
+            "tools/wp3_pipeline_conformance_repair.py"
+          ],
+          "wired_into_formal_batch_entry": true,
+          "production_closed_loop_claimed": false,
+          "production_closed_loop_scientific": false,
+          "note": "Engineering: S3–S9 wired through batch_factory.s0_s9_production for DEV smoke. Scientific Gold/closed-loop rates are separate and must not be inferred from wiring."
+        }
+      },
+      "scientific": {
+        "evidence_verified": true,
+        "qa_family_generated": false,
+        "structural_necessity_verified": false,
+        "program_execution_verified": false,
+        "atomic_covered_composition_ood_verified": false,
+        "independent_gold_certified": false
+      }
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR1",
+      "video_id": "1FsiZgGZU70",
+      "production_entry": {
+        "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+        "wired_into_formal_batch_entry": true,
+        "sole_s3_s9_path_for_dev_smoke": true,
+        "legacy_qa_draft_bypassed": true,
+        "production_closed_loop_scientific": false,
+        "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+      },
+      "built_utc": "2026-11-06T10:39:08+00:00",
+      "evidence": {
+        "complete": true,
+        "trust_level": "PACKET_HASHED_CLIPS",
+        "windows": {
+          "A": [
+            1815.0,
+            1825.0
+          ],
+          "B": [
+            2190.0,
+            2200.0
+          ]
+        },
+        "clip_sha256": {
+          "A": "4f7a4dfca514ec48929b21ed5f19b82f980fa87881d49cd257a8a7abc398b203",
+          "B": "2cc252dd3182eb4b2b6b166c153c6b4fc48c48d7854bab2c3170c1cb3218dc13"
+        },
+        "semantics_a": "UNRESOLVED",
+        "semantics_b": "UNRESOLVED",
+        "source": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/rois.jsonl"
+      },
+      "identity_claims": [],
+      "exit": "NO_SEMANTIC_FACTS",
+      "classification": "PENDING",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "relation": null,
+      "qa": null,
+      "scientific": {
+        "evidence_verified": true,
+        "qa_family_generated": false,
+        "structural_necessity_verified": false,
+        "program_execution_verified": false,
+        "atomic_covered_composition_ood_verified": false,
+        "independent_gold_certified": false
+      }
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR2",
+      "video_id": "1FsiZgGZU70",
+      "production_entry": {
+        "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+        "wired_into_formal_batch_entry": true,
+        "sole_s3_s9_path_for_dev_smoke": true,
+        "legacy_qa_draft_bypassed": true,
+        "production_closed_loop_scientific": false,
+        "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+      },
+      "built_utc": "2026-11-06T10:39:08+00:00",
+      "evidence": {
+        "complete": true,
+        "trust_level": "PACKET_HASHED_CLIPS",
+        "windows": {
+          "A": [
+            465.0,
+            475.0
+          ],
+          "B": [
+            1620.0,
+            1630.0
+          ]
+        },
+        "clip_sha256": {
+          "A": "6c7496d4f33d92b4d86f0c26fe0867b9604df681135ec53d4f8646d3b7ed946b",
+          "B": "d9947dd00fe0defb0601f5da9fc7ebd92fc81d7cc8d6cdeb87aec5f51151342b"
+        },
+        "semantics_a": "UNRESOLVED",
+        "semantics_b": "UNRESOLVED",
+        "source": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/rois.jsonl"
+      },
+      "identity_claims": [],
+      "exit": "NO_SEMANTIC_FACTS",
+      "classification": "PENDING",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "relation": null,
+      "qa": null,
+      "scientific": {
+        "evidence_verified": true,
+        "qa_family_generated": false,
+        "structural_necessity_verified": false,
+        "program_execution_verified": false,
+        "atomic_covered_composition_ood_verified": false,
+        "independent_gold_certified": false
+      }
+    },
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR1",
+      "video_id": "1FsiZgGZU70",
+      "production_entry": {
+        "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+        "wired_into_formal_batch_entry": true,
+        "sole_s3_s9_path_for_dev_smoke": true,
+        "legacy_qa_draft_bypassed": true,
+        "production_closed_loop_scientific": false,
+        "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+      },
+      "built_utc": "2026-11-06T10:39:08+00:00",
+      "evidence": {
+        "complete": true,
+        "trust_level": "PACKET_HASHED_CLIPS",
+        "windows": {
+          "A": [
+            15.0,
+            25.0
+          ],
+          "B": [
+            1710.0,
+            1720.0
+          ]
+        },
+        "clip_sha256": {
+          "A": "2ef4b100c459365c24af211c307358127ce6f7f39abf365630319d7e3fc30b8f",
+          "B": "15fe72ad852951f68dfe365147cbce460a4887d6c295bac8a485010e4b70a29f"
+        },
+        "semantics_a": "UNRESOLVED",
+        "semantics_b": "UNRESOLVED",
+        "source": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/rois.jsonl"
+      },
+      "identity_claims": [],
+      "exit": "NO_SEMANTIC_FACTS",
+      "classification": "PENDING",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "relation": null,
+      "qa": null,
+      "scientific": {
+        "evidence_verified": true,
+        "qa_family_generated": false,
+        "structural_necessity_verified": false,
+        "program_execution_verified": false,
+        "atomic_covered_composition_ood_verified": false,
+        "independent_gold_certified": false
+      }
+    },
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR2",
+      "video_id": "1FsiZgGZU70",
+      "production_entry": {
+        "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+        "wired_into_formal_batch_entry": true,
+        "sole_s3_s9_path_for_dev_smoke": true,
+        "legacy_qa_draft_bypassed": true,
+        "production_closed_loop_scientific": false,
+        "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+      },
+      "built_utc": "2026-11-06T10:39:08+00:00",
+      "evidence": {
+        "complete": true,
+        "trust_level": "PACKET_HASHED_CLIPS",
+        "windows": {
+          "A": [
+            165.0,
+            175.0
+          ],
+          "B": [
+            1875.0,
+            1885.0
+          ]
+        },
+        "clip_sha256": {
+          "A": "ffb28387987dc2983e323b652b6a1f9e420e761f9389933ca10c0e1f93314928",
+          "B": "25fc451fc39725ded1f05ff20bb29ad1b8016f11cff2e65c983d305a92f564fe"
+        },
+        "semantics_a": "UNRESOLVED",
+        "semantics_b": "UNRESOLVED",
+        "source": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/rois.jsonl"
+      },
+      "identity_claims": [],
+      "exit": "NO_SEMANTIC_FACTS",
+      "classification": "PENDING",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "relation": null,
+      "qa": null,
+      "scientific": {
+        "evidence_verified": true,
+        "qa_family_generated": false,
+        "structural_necessity_verified": false,
+        "program_execution_verified": false,
+        "atomic_covered_composition_ood_verified": false,
+        "independent_gold_certified": false
+      }
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR1",
+      "video_id": "3_upA09AntU",
+      "production_entry": {
+        "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+        "wired_into_formal_batch_entry": true,
+        "sole_s3_s9_path_for_dev_smoke": true,
+        "legacy_qa_draft_bypassed": true,
+        "production_closed_loop_scientific": false,
+        "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+      },
+      "built_utc": "2026-11-06T10:39:08+00:00",
+      "evidence": {
+        "complete": true,
+        "trust_level": "PACKET_HASHED_CLIPS",
+        "windows": {
+          "A": [
+            585.0,
+            595.0
+          ],
+          "B": [
+            2325.0,
+            2335.0
+          ]
+        },
+        "clip_sha256": {
+          "A": "e9fcb469ccbf6fd48eb7ca842466be77b8112224ba4c09afa1bdded0ff600c23",
+          "B": "7a8ca8413e788d483b56e9664893fdf1284db56eea1ebaace45f03a180fdd90b"
+        },
+        "semantics_a": "UNRESOLVED",
+        "semantics_b": "UNRESOLVED",
+        "source": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/rois.jsonl"
+      },
+      "identity_claims": [],
+      "exit": "NO_SEMANTIC_FACTS",
+      "classification": "PENDING",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "relation": null,
+      "qa": null,
+      "scientific": {
+        "evidence_verified": true,
+        "qa_family_generated": false,
+        "structural_necessity_verified": false,
+        "program_execution_verified": false,
+        "atomic_covered_composition_ood_verified": false,
+        "independent_gold_certified": false
+      }
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR2",
+      "video_id": "3_upA09AntU",
+      "production_entry": {
+        "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+        "wired_into_formal_batch_entry": true,
+        "sole_s3_s9_path_for_dev_smoke": true,
+        "legacy_qa_draft_bypassed": true,
+        "production_closed_loop_scientific": false,
+        "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+      },
+      "built_utc": "2026-11-06T10:39:08+00:00",
+      "evidence": {
+        "complete": true,
+        "trust_level": "PACKET_HASHED_CLIPS",
+        "windows": {
+          "A": [
+            210.0,
+            220.0
+          ],
+          "B": [
+            2205.0,
+            2215.0
+          ]
+        },
+        "clip_sha256": {
+          "A": "08f740d86a4488e747e952edda490cfb629b315deaa49671a3e984258119f68f",
+          "B": "af81ab86136a8fe120b21ccf16d84edb26b86a99a6965f976e481328a7a06537"
+        },
+        "semantics_a": "UNRESOLVED",
+        "semantics_b": "UNRESOLVED",
+        "source": "/home/descfly/lpy/Video-RSI/research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_3/ab_dev5/rois.jsonl"
+      },
+      "identity_claims": [],
+      "exit": "NO_SEMANTIC_FACTS",
+      "classification": "PENDING",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "relation": null,
+      "qa": null,
+      "scientific": {
+        "evidence_verified": true,
+        "qa_family_generated": false,
+        "structural_necessity_verified": false,
+        "program_execution_verified": false,
+        "atomic_covered_composition_ood_verified": false,
+        "independent_gold_certified": false
+      }
+    }
+  ],
+  "protections": {
+    "formal_gold": 0,
+    "sealed_accessed": false,
+    "track_a_run": false,
+    "new_videos": false,
+    "expensive_blind_model": false
+  }
+}

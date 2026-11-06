@@ -253,14 +253,21 @@ def model_necessity(
             "validation_errors": errs,
         }
 
-    # Real complete runs only
-    a_ok = bool((a_only_run or {}).get("correct"))
-    ab_ok = bool((ab_run or {}).get("correct"))
+    # Real complete runs only. Strict compositional necessity requires all three
+    # isolated arms: A-only incorrect, B-only incorrect, A+B correct.
+    # A-fail + AB-pass alone is insufficient.
+    a_ok = (a_only_run or {}).get("correct")
+    b_ok = (b_only_run or {}).get("correct")
+    ab_ok = (ab_run or {}).get("correct")
     verdict = None
-    if a_ok is False and ab_ok is True:
+    if a_ok is False and b_ok is False and ab_ok is True:
         verdict = "SUPPORTS_NECESSITY"
+    elif a_ok is False and ab_ok is True and b_ok is not False:
+        verdict = "INCONCLUSIVE_MISSING_B_ONLY_FAILURE"
     elif a_ok is True:
         verdict = "A_ONLY_SUFFICIENT"
+    elif b_ok is True and ab_ok is True:
+        verdict = "B_ONLY_SUFFICIENT"
     else:
         verdict = "INCONCLUSIVE"
 
@@ -272,6 +279,7 @@ def model_necessity(
         "B_only": b_only_run,
         "A_plus_B": ab_run,
         "verdict": verdict,
+        "strict_requires_a_and_b_fail_ab_pass": True,
     }
 
 
@@ -326,12 +334,13 @@ def combine_necessity(
         )
         inventory_hint = "CONTROL"
     elif structural.get("verdict") == "PASS" and model.get("status") == "RUN":
-        a = model.get("A_only") or {}
-        ab = model.get("A_plus_B") or {}
-        if a.get("correct") is False and ab.get("correct") is True:
+        if model.get("verdict") == "SUPPORTS_NECESSITY":
             overall = "PASS"
-            reasons.append("structural_PASS_and_model_A_fail_AB_pass")
+            reasons.append("structural_PASS_and_model_A_and_B_fail_AB_pass")
             inventory_hint = "CANDIDATE"
+        elif model.get("verdict") == "INCONCLUSIVE_MISSING_B_ONLY_FAILURE":
+            overall = "UNKNOWN"
+            reasons.append("model_A_fail_AB_pass_without_B_only_fail_insufficient")
         else:
             overall = "UNKNOWN"
             reasons.append("model_run_inconclusive_for_pass")

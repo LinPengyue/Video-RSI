@@ -8,4 +8,5 @@ __all__ = [
     "s6_necessity",
     "s8_signature_feedback",
     "s7_s9_gates",
+    "formal_certification",
 ]

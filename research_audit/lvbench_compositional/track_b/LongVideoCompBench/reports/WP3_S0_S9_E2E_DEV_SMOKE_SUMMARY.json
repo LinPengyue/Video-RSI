@@ -1,0 +1,120 @@
+{
+  "schema": "wp3_s0_s9_e2e_dev_smoke_summary_v1",
+  "work_package": "WP3_PRODUCTION_INTEGRATION_E2E_DEV_SMOKE",
+  "baseline_commit": "7b133e731777d5b7ca589ef1ea4229e59fd4e7ec",
+  "built_utc": "2026-11-06T10:39:08+00:00",
+  "production_entry": {
+    "module": "tools.lvbench_comp.batch_factory.s0_s9_production",
+    "wired_into_formal_batch_entry": true,
+    "sole_s3_s9_path_for_dev_smoke": true,
+    "legacy_qa_draft_bypassed": true,
+    "production_closed_loop_scientific": false,
+    "note": "Engineering wiring complete for DEV smoke. Scientific Gold/closed-loop rates remain separate and are not implied by this flag."
+  },
+  "n_pairs": 8,
+  "classification_counts": {
+    "PENDING": 8
+  },
+  "exit_counts": {
+    "QA_FAMILY_FAILED": 2,
+    "NO_SEMANTIC_FACTS": 6
+  },
+  "pipeline_engineering_completion": {
+    "wired_into_formal_batch_entry": true,
+    "unified_io_contract": true,
+    "legacy_qa_draft_bypassed_on_this_path": true,
+    "pairs_processed_end_to_end": 8,
+    "production_closed_loop_scientific_claimed": false
+  },
+  "scientific_rates": {
+    "evidence_verified": {
+      "numerator": 8,
+      "denominator": 8,
+      "rate": 1.0
+    },
+    "qa_family_generated": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    },
+    "structural_necessity_verified": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    },
+    "program_execution_verified": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    },
+    "atomic_covered_composition_ood_verified": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    },
+    "independent_gold_certified": {
+      "numerator": 0,
+      "denominator": 8,
+      "rate": 0.0
+    }
+  },
+  "failures": [
+    {
+      "pair_id": "KbahC-QCKU8_EF_PAIR1",
+      "exit": "QA_FAMILY_FAILED",
+      "failure_reason": "missing_queryable_A_attribute_value",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "USfvmoalqsw_PAIR2",
+      "exit": "QA_FAMILY_FAILED",
+      "failure_reason": "missing_queryable_A_attribute_value",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR1",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "1FsiZgGZU70_EF_PAIR2",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR1",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "1FsiZgGZU70_HF_PAIR2",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR1",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    },
+    {
+      "pair_id": "3_upA09AntU_EF_PAIR2",
+      "exit": "NO_SEMANTIC_FACTS",
+      "failure_reason": "evidence_packet_present_but_semantics_UNRESOLVED_and_no_identity_claim;refusing_fabricated_relation",
+      "classification": "PENDING"
+    }
+  ],
+  "protections": {
+    "formal_gold": 0,
+    "sealed_accessed": false,
+    "track_a_run": false,
+    "new_videos": false,
+    "expensive_blind_model": false
+  },
+  "claim": "Engineering: unified S0–S9 path ran on real ROI evidence. Scientific rates reported separately; Formal Gold 0; no scaled Gold capacity claimed.",
+  "output_dir": "research_audit/lvbench_compositional/track_b/LongVideoCompBench/wp3_production/wp3_s0_s9_e2e_dev_smoke"
+}
